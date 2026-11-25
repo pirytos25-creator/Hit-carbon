@@ -30,6 +30,21 @@
   --sys-artery-light: #f07a84;
   --sys-vein: #3e6fd8;
   --sys-vein-light: #86a6ee;
+  /* Faza 1b. Wszystkie tokenty --sys-*: kopia src/atlas/data/palette.json (pilnuje scripts/atlas_check_palette.ts). */
+  --sys-endo: #ef872a;
+  --sys-endo-light: #f6bd8a;
+  --sys-skin: #fa947a;
+  --sys-skin-light: #fcc4b6;
+  --sys-digest: #b4b474;
+  --sys-digest-light: #d6d6b3;
+  --sys-urinary: #276777;
+  --sys-urinary-light: #88abb4;
+  --sys-bone: #a17d2b;
+  --sys-bone-light: #cbb88a;
+  --sys-lymph: #73c770;
+  --sys-lymph-light: #b2e0b0;
+  --sys-repro: #ea7bb2;
+  --sys-repro-light: #f3b6d5;
   --atlas-bg: #070b14;
 }
 
@@ -49,6 +64,13 @@
 .atlas-flow {
   stroke-dasharray: 14 16;
   animation: atlas-flow var(--atlas-flow-speed, 1.8s) linear infinite;
+}
+/* Atlas: ruch tylko pomocniczy; przy prefers-reduced-motion bez pulsowania i przesuwania strzałek. */
+@media (prefers-reduced-motion: reduce) {
+  .atlas-pulse,
+  .atlas-flow {
+    animation: none;
+  }
 }
 
 @layer base {

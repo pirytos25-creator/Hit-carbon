@@ -1,0 +1,176 @@
+{
+ "front": [
+  {
+   "label": "Wdech: powietrze do płuca prawego",
+   "kind": "air",
+   "points": [
+    [
+     573.2,
+     179.4
+    ],
+    [
+     573.2,
+     297.6
+    ],
+    [
+     573.2,
+     597.4
+    ],
+    [
+     505.4,
+     664.8
+    ],
+    [
+     465.6,
+     767.0
+    ],
+    [
+     376.6,
+     817.1
+    ]
+   ]
+  },
+  {
+   "label": "Wdech: powietrze do płuca lewego",
+   "kind": "air",
+   "points": [
+    [
+     573.2,
+     597.4
+    ],
+    [
+     716.0,
+     698.7
+    ],
+    [
+     722.3,
+     757.3
+    ],
+    [
+     824.7,
+     855.0
+    ]
+   ]
+  },
+  {
+   "label": "Płat górny prawy",
+   "kind": "air",
+   "points": [
+    [
+     505.4,
+     664.8
+    ],
+    [
+     438.8,
+     561.6
+    ]
+   ]
+  },
+  {
+   "label": "Płat górny lewy",
+   "kind": "air",
+   "points": [
+    [
+     716.0,
+     698.7
+    ],
+    [
+     752.7,
+     583.8
+    ]
+   ]
+  }
+ ],
+ "detail": [
+  {
+   "label": "Powietrze do pęcherzyków",
+   "kind": "air",
+   "points": [
+    [
+     631.8,
+     111.4
+    ],
+    [
+     586.4,
+     497.8
+    ],
+    [
+     575.0,
+     929.6
+    ]
+   ]
+  },
+  {
+   "label": "O₂: z pęcherzyka do krwi",
+   "kind": "air",
+   "points": [
+    [
+     552.2,
+     1088.6
+    ],
+    [
+     427.2,
+     997.8
+    ],
+    [
+     302.2,
+     929.6
+    ]
+   ]
+  },
+  {
+   "label": "CO₂: z krwi do pęcherzyka",
+   "kind": "air",
+   "points": [
+    [
+     870.4,
+     906.9
+    ],
+    [
+     734.0,
+     975.0
+    ],
+    [
+     620.4,
+     1043.2
+    ]
+   ]
+  },
+  {
+   "label": "Krew odtlenowana z serca",
+   "kind": "vein",
+   "points": [
+    [
+     52.3,
+     634.1
+    ],
+    [
+     188.6,
+     861.4
+    ],
+    [
+     302.2,
+     1043.2
+    ]
+   ]
+  },
+  {
+   "label": "Krew utlenowana do serca",
+   "kind": "artery",
+   "points": [
+    [
+     859.0,
+     1088.6
+    ],
+    [
+     984.1,
+     1293.1
+    ],
+    [
+     1097.7,
+     1543.2
+    ]
+   ]
+  }
+ ]
+}
