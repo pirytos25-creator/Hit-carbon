@@ -30,7 +30,13 @@ export type AtlasView = 'front' | 'back' | 'side' | 'detail';
 export type AtlasTier = 'primary' | 'secondary' | 'student';
 
 /** Status faktu (model §3.6). Na ekran trafiają tylko fakty `checked_agent` (filtr: etap E0, nakładka HTML). */
-export type AtlasFactStatus = 'draft' | 'checked_agent' | 'disputed' | 'unverifiable' | 'checked_human';
+export type AtlasFactStatus = 'draft' | 'checked_agent' | 'disputed' | 'unverifiable' | 'checked_human' | 'anatomy';
+
+/**
+ * Statusy dopuszczone na ekran. 'anatomy' = sam opis anatomiczny (np. „zasila m. piszczelowy przedni”), który agent
+ * sprawdzający fakty wprost pominął jako nie-fakt (docs/atlas_audyt/fakty_<uklad>.md).
+ */
+export const ATLAS_SHOWN_STATUSES: readonly AtlasFactStatus[] = ['checked_agent', 'checked_human', 'anatomy'];
 
 /** Treść podpisu. `anchor` musi istnieć w public/atlas/<id>/anchors.json dla danego widoku. */
 export interface AtlasLabel {
@@ -44,6 +50,11 @@ export interface AtlasLabel {
   tier?: AtlasTier;
   /** Źródła twierdzeń w opisie roli (ID z src/science/ScientificReferences.ts). */
   referenceIds?: string[];
+  /**
+   * Status opisu roli osobno dla stanów (model §3.6). Brak = 'draft'. Nazwa struktury jest zawsze widoczna,
+   * a opis roli tylko wtedy, gdy ma status 'checked_agent' (albo 'checked_human').
+   */
+  roleStatus?: Partial<Record<AtlasState, AtlasFactStatus>>;
   /** Wymuszona strona podpisu; domyślnie strona bliższa kotwicy (linia nie przecina struktury). */
   side?: 'left' | 'right';
 }
@@ -57,8 +68,12 @@ export interface AtlasMetric {
   referenceIds: string[];
   evidenceLevel: EvidenceLevel;
   notePl?: string;
-  /** Status sprawdzenia (model §3.6). Brak = 'draft'. */
+  /** Status sprawdzenia (model §3.6). Brak = 'draft'. Na ekranie tylko 'checked_agent' / 'checked_human'. */
   status?: AtlasFactStatus;
+  /** Osobny status wartości spoczynkowej, gdy różni się od `status` (np. brak cytatu dla spoczynku). */
+  restStatus?: AtlasFactStatus;
+  /** Przeliczenie między liczbą w cytacie a liczbą na ekranie (np. „140–150 mL/L = 14–15 mL/100 mL”). */
+  conversionNote?: string;
   /**
    * Opis protokołu źródła, gdy różni się od protokołu wzorcowego 6 × (45 s / 45 s) przy ok. 88% VO₂max (model §3.7),
    * np. „30 s sprint maksymalny (Wingate)”. Poziom podstawowy pokazuje go jako krótki dopisek.
@@ -125,6 +140,10 @@ export interface AtlasPlateContent {
   summary: Record<AtlasState, string>;
   /** Źródła twierdzeń w podsumowaniu stanu. */
   summaryReferenceIds?: Partial<Record<AtlasState, string[]>>;
+  /** Status podsumowania (opis ogólny); niesprawdzone podsumowanie ma na ekranie dopisek „opis roboczy”. */
+  summaryStatus?: Partial<Record<AtlasState, AtlasFactStatus>>;
+  /** Krótkie wyjaśnienie, co na tej planszy znaczy „sprint” (poziom podstawowy, model §3.7). */
+  protocolNotePl?: string;
   labels: AtlasLabel[];
   metrics: AtlasMetric[];
   flows?: AtlasFlow[];
