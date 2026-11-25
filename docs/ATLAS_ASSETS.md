@@ -27,6 +27,16 @@ Wszystko pobrano 2026-11-25 z oficjalnych źródeł i za darmo.
 | `VH_M_Spinal_Cord.glb`, `VH_M_Vertebrae.glb` | v1.2 | nerwowy: rdzeń i kręgosłup |
 | `VH_M_Skin.glb` | v1.2 | sylwetka ciała jako półprzezroczysta „skorupa” |
 
+Dopobrane 2026-11-25 pod kolejne układy (szczegóły: `docs/ATLAS_KOLEJNE_UKLADY.md` §4), wszystkie sprawdzone jako poprawne glTF:
+- **wydalniczy:** nerki, moczowody, pęcherz, cewka, naczynia nerki
+- **pokarmowy:** wątroba, pęcherzyk i drogi żółciowe, trzustka z przewodami, jelito cienkie i grube, naczynia wątroby i jelita grubego
+- **limfatyczny:** śledziona, grasica, węzeł chłonny, migdałki
+- **rozrodczy (M):** prostata
+- **kostny:** miednica
+- **rozrodczy (K), w `female/`:** macica, jajniki, jajowody, pochwa, więzadła, naczynia macicy, miednica
+
+Razem w `atlas_raw/hubmap/` ok. 95 MB (43 modele).
+
 ## 3. Struktury białek z RCSB PDB (`atlas_raw/pdb/`), domena publiczna
 | PDB | Co to jest | Do czego |
 |---|---|---|
@@ -42,6 +52,12 @@ Wcześniej pobrane (`assets_raw/`): 8H9T (syntaza ATP), 5XTD (łańcuch oddechow
   Uwaga: w MN 520.x skala to 1 nm = 1 m w Blenderze.
 - MPFB2 (MakeHuman) był zainstalowany wcześniej.
 - Dostęp Blendera do internetu pozostaje wyłączony (ustawienie użytkownika). Rozszerzenia instaluje się z pliku.
+
+## 5. Narzędzia do przeglądu atlasu (`blender/atlas/`)
+- `tools_inspect.py`: największe siatki i materiały w jednej kolekcji, z opcjonalnym filtrem nazw.
+- `tools_inventory.py`: pełny spis struktur Z-Anatomy z kolekcjami (układ / narząd / region) do JSON.
+  Wynik leży w `atlas_raw/z_anatomy/za_inventory.json`.
+Oba narzędzia tylko czytają `Startup.blend`. Uruchamia się je jak render, z zajęciem slotu `.render_slot_*`.
 
 ## Czego celowo nie pobrano
 - Aplikacji Z-Anatomy dla Windows (`.exe`/`.msi`): to tylko przeglądarka, modele są w `.blend`.

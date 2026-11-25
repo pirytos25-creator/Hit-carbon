@@ -20,6 +20,9 @@ a nie jak 5 różnych aplikacji. Jeśli coś nie pasuje do tych zasad, zmienia s
 | Krwionośny: tętnice | `--sys-artery` | `#D93240` | `#F07A84` | krew utlenowana |
 | Krwionośny: żyły | `--sys-vein` | `#3E6FD8` | `#86A6EE` | krew odtlenowana |
 
+Kolory kolejnych układów (hormonalny, powłokowy, pokarmowy, wydalniczy, kostny, limfatyczny, rozrodczy) są
+**propozycją** w `docs/ATLAS_KOLEJNE_UKLADY.md` §3. Integrator zatwierdza je i przenosi do tej tabeli przed fazą 1b.
+
 Kontekst (zawsze ten sam, na każdej planszy):
 | Rola | Kolor | Materiał |
 |---|---|---|
