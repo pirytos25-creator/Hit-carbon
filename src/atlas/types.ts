@@ -57,6 +57,11 @@ export interface AtlasLabel {
   roleStatus?: Partial<Record<AtlasState, AtlasFactStatus>>;
   /** Wymuszona strona podpisu; domyślnie strona bliższa kotwicy (linia nie przecina struktury). */
   side?: 'left' | 'right';
+  /**
+   * Poziom dowodów opisu roli (np. 'animal_model' dla akwaporyn). Brak = nie pokazujemy dopisku.
+   * Nakładka pokazuje pod opisem zdanie z drabiny sformułowań (model §3.4), gdy poziom ≠ 'established_human'.
+   */
+  evidence?: EvidenceLevel;
 }
 
 /** Liczba w parze spoczynek → sprint. Każda musi mieć źródło. */

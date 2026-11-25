@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { isShown, type AtlasLevel } from './palette';
+import { EVIDENCE_PHRASE, isShown, type AtlasLevel } from './palette';
 import { projectToPixels } from './projection';
 import type {
   AtlasAnchorsFile,
@@ -171,7 +171,9 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     const blockPx = (l: AtlasLabel) => {
       const rt = roleText(l);
       const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
+      const evLines = rt && l.evidence && l.evidence !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[l.evidence], charsFor(FONT.role)) : 0;
       return (
+        evLines * FONT.role * 1.3 +
         wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
         (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
         roleLines * FONT.role * 1.35 +
@@ -265,12 +267,16 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           <span className="block" style={{ fontSize: FONT.role, lineHeight: 1.35, color: sprint && primary ? colorLight : '#cbd5e1', textAlign: align }}>
             {rt}
           </span>
-        ) : (
-          extended && (
-            <span className="block italic text-slate-500" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
-              {PENDING}
-            </span>
-          )
+        ) : null}
+        {rt && l.evidence && l.evidence !== 'established_human' ? (
+          <span className="block italic text-amber-200/90" style={{ fontSize: FONT.role, lineHeight: 1.3, textAlign: align }}>
+            {EVIDENCE_PHRASE[l.evidence]}
+          </span>
+        ) : null}
+        {!rt && extended && (
+          <span className="block italic text-slate-500" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
+            {PENDING}
+          </span>
         )}
       </>
     );
