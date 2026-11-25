@@ -1,0 +1,97 @@
+{
+  "id": "mozg",
+  "resolution": [
+    1200,
+    1100
+  ],
+  "views": {
+    "side": {
+      "images": {
+        "rest": "side_rest.webp",
+        "sprint": "side_sprint.webp"
+      },
+      "anchors": {
+        "motor_cortex": [
+          0.399,
+          0.319
+        ],
+        "sensory_cortex": [
+          0.5039,
+          0.2758
+        ],
+        "prefrontal": [
+          0.2695,
+          0.2504
+        ],
+        "visual_cortex": [
+          0.8457,
+          0.4837
+        ],
+        "cerebellum": [
+          0.6846,
+          0.7152
+        ],
+        "brainstem": [
+          0.5499,
+          0.7951
+        ]
+      },
+      "bbox": [
+        0.0146,
+        0.0287,
+        0.9854,
+        0.9713
+      ]
+    },
+    "detail": {
+      "images": {
+        "rest": "detail_rest.webp",
+        "sprint": "detail_sprint.webp"
+      },
+      "anchors": {
+        "paracentral": [
+          0.6481,
+          0.1014
+        ],
+        "corpus_callosum": [
+          0.4277,
+          0.3443
+        ],
+        "thalamus": [
+          0.4793,
+          0.4579
+        ],
+        "basal_ganglia": [
+          0.3801,
+          0.4746
+        ],
+        "hypothalamus": [
+          0.3779,
+          0.5196
+        ],
+        "midbrain": [
+          0.5208,
+          0.5478
+        ],
+        "pons": [
+          0.5323,
+          0.6891
+        ],
+        "medulla": [
+          0.5924,
+          0.8381
+        ],
+        "vermis": [
+          0.7494,
+          0.6662
+        ]
+      },
+      "bbox": [
+        0.0146,
+        0.0287,
+        0.9854,
+        0.9713
+      ]
+    }
+  }
+}
