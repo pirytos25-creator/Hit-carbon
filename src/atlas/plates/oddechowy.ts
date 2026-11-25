@@ -214,15 +214,15 @@ export const ODDECHOWY: AtlasPlateContent = {
    * i oskrzeli HuBMAP (kopia: public/atlas/oddechowy/flows.json). Rysuje je AtlasPlate (faza 2).
    */
   flows: [
-    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca prawego', points: [[549, 158], [549, 280], [549, 601], [477, 670], [435, 780], [340, 833]] },
-    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca lewego', points: [[549, 601], [701, 705], [708, 769], [817, 873]] },
-    { view: 'front', kind: 'air', labelPl: 'Płat górny prawy', points: [[477, 670], [406, 561]] },
-    { view: 'front', kind: 'air', labelPl: 'Płat górny lewy', points: [[701, 705], [740, 584]] },
-    { view: 'detail', kind: 'air', labelPl: 'Powietrze do pęcherzyków', points: [[628, 185], [586, 548], [575, 955]] },
-    { view: 'detail', kind: 'air', labelPl: 'O₂: z pęcherzyka do krwi', points: [[554, 1104], [436, 1019], [319, 955]] },
-    { view: 'detail', kind: 'air', labelPl: 'CO₂: z krwi do pęcherzyka', points: [[853, 933], [725, 997], [618, 1061]] },
-    { view: 'detail', kind: 'vein', labelPl: 'Krew odtlenowana z serca', points: [[84, 677], [212, 890], [319, 1061]] },
-    { view: 'detail', kind: 'artery', labelPl: 'Krew utlenowana do serca', points: [[842, 1104], [960, 1296], [1066, 1532]] },
+    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca prawego', points: [[573, 179], [573, 298], [573, 597], [505, 665], [466, 767], [377, 817]] },
+    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca lewego', points: [[573, 597], [716, 699], [722, 757], [825, 855]] },
+    { view: 'front', kind: 'air', labelPl: 'Płat górny prawy', points: [[505, 665], [439, 562]] },
+    { view: 'front', kind: 'air', labelPl: 'Płat górny lewy', points: [[716, 699], [753, 584]] },
+    { view: 'detail', kind: 'air', labelPl: 'Powietrze do pęcherzyków', points: [[632, 111], [586, 498], [575, 930]] },
+    { view: 'detail', kind: 'air', labelPl: 'O₂: z pęcherzyka do krwi', points: [[552, 1089], [427, 998], [302, 930]] },
+    { view: 'detail', kind: 'air', labelPl: 'CO₂: z krwi do pęcherzyka', points: [[870, 907], [734, 975], [620, 1043]] },
+    { view: 'detail', kind: 'vein', labelPl: 'Krew odtlenowana z serca', points: [[52, 634], [189, 861], [302, 1043]] },
+    { view: 'detail', kind: 'artery', labelPl: 'Krew utlenowana do serca', points: [[859, 1089], [984, 1293], [1098, 1543]] },
   ],
   creditsPl:
     'Modele: HuBMAP Human Reference Atlas, VH Male v1.4 (płuca, tchawica, oskrzela główne, krtań; CC BY 4.0) oraz Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Schemat pęcherzyka: BIOGENESIS. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',

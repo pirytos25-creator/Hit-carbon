@@ -55,7 +55,7 @@ Kontekst (zawsze ten sam, na każdej planszy):
 
 Intensywność w stanach:
 - `spoczynek`: kolor układu zmieszany w 35% (`restMix`) z kolorem kontekstu, bez świecenia;
-- `sprint`: pełny kolor układu i lekka emisja (0,3 × poziom) tylko na strukturach, które naprawdę pracują;
+- `sprint`: pełny kolor układu; **emisja tylko na strukturach pracujących**: poziom ≥ 0,6 świeci od 0,15 (poziom 0,6) do 0,35 (poziom 1,0), niższe poziomy i `"dim"` bez emisji (reguła: `palette.json` → `emission`, funkcja `al.emission_for`);
 - poziom pracy (`sprint_level`) to ilustracja w stopniach (1,0 / 0,6–0,9 / `"dim"` = jak w spoczynku), nie liczba ze źródła;
 - **cienkie tkanki** (naczynia, przewody, nerwy jako krzywe) mieszamy z kolorem mięśni/tła `#8E7A78` (`ctx="muscle"`, dla krzywych domyślnie),
   bo z kością 35% domieszki daje prawie biel.

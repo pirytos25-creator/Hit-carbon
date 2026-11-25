@@ -46,6 +46,7 @@ const FONT = { name: 15, lat: 14, role: 14, title: 14, pin: 14 };
 const COL_MAX = 216;
 const COL_MIN = 140;
 const CHAR = 0.56; // szacunkowa szerokość znaku względem rozmiaru czcionki (zawijanie, wysokość bloku)
+const PENDING = 'opis czeka na sprawdzenie źródła';
 
 function wrapCount(text: string, maxChars: number): number {
   let lines = 1;
@@ -168,7 +169,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     const charsFor = (f: number) => Math.max(10, Math.floor((colPx - 16) / (f * CHAR)));
     const blockPx = (l: AtlasLabel) => {
       const rt = roleText(l);
-      const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? 1 : 0;
+      const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
       return (
         wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
         (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
@@ -266,7 +267,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
         ) : (
           extended && (
             <span className="block italic text-slate-500" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
-              opis czeka na sprawdzenie źródła
+              {PENDING}
             </span>
           )
         )}
