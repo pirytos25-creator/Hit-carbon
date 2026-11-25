@@ -139,13 +139,22 @@ Z-Anatomy zapisuje przynależność do układu jako dodatkowe kolekcje obiektu (
 
 | Układ | Kolekcja Z-Anatomy | Struktur | Co jest | Czego brak → skąd wziąć |
 |---|---|---|---|---|
-| Pokarmowy | `Digestive system` | 46 | m.in. żołądek, dwunastnica, okrężnica (wstępująca, poprzeczna, zstępująca, esowata), wątroba (8 segmentów), pęcherzyk, trzustka, gardło, język, zęby, ślinianki | jelito czcze i kręte → HuBMAP `VH_M_Small_Intestine` |
-| Hormonalny | `Endocrine glands` | 5 | przysadka (2 płaty), szyszynka, nadnercze, tarczyca | trzustka (w `Digestive system`), grasica (w `Lymphoid system`); brak przytarczyc |
-| Wydalniczy | `Urinary system` | 3 | nerka, miedniczka nerkowa, pęcherz moczowy | moczowody i cewka → HuBMAP `VH_M_Ureter_L/R`, `VH_M_Urethra` |
+| Pokarmowy | `Digestive system` | 46 | m.in. żołądek, dwunastnica, okrężnica (wstępująca, poprzeczna, zstępująca, esowata), wątroba (8 segmentów), pęcherzyk, trzustka, gardło, język, zęby, ślinianki | jelito czcze jest jako krzywa (`Jejunum`); całe jelito cienkie jako bryła → HuBMAP `VH_M_Small_Intestine` |
+| Hormonalny | `Endocrine glands` | 5 | przysadka (2 płaty), szyszynka, nadnercze, tarczyca | trzustka (w `Digestive system`), grasica (w `Lymphoid system`); przytarczyce są, ale w `8: Visceral systems` (poprawka 2026-11-25) |
+| Wydalniczy | `Urinary system` | 3 | nerka i miedniczka (**licencja CC BY-NC, nie używać**, nerka tylko z HuBMAP), pęcherz moczowy | moczowody i cewka są w Z-Anatomy jako krzywe (`Ureter`, `Urethra`); HuBMAP do zbliżenia nerki |
 | Rozrodczy (M) | `Genital systems'` | 7 | jądro, najądrze, prostata, pęcherzyk nasienny, ciała prącia | wersja żeńska → HuBMAP `female/` |
 | Limfatyczny | `Lymphoid system`, `6: Lymphoid organs` | 33 / 106 | grupy węzłów chłonnych całego ciała, śledziona, grasica, migdałek | naczynia limfatyczne słabe; przewód piersiowy do sprawdzenia |
 | Kostny | `1: Skeletal system` | 277 | cały szkielet | nic; HuBMAP `VH_M_Vertebrae` tylko porównawczo |
 | Powłokowy | brak | 0 | Z-Anatomy nie ma skóry | HuBMAP `VH_M_Skin` (sylwetka); gruczoły potowe tylko jako schemat w zbliżeniu |
+
+**Poprawka 2026-11-25 (wieczór):** spis wyżej obejmuje tylko siatki. Z-Anatomy ma też 951 krzywych (`za_curves_inventory.json`):
+- naczynia całego ciała;
+- przełyk i jelito czcze;
+- moczowody i cewkę;
+- przewody trzustkowe i żółciowy;
+- nasieniowody.
+
+Gotowe zadania agentów 1b są w `docs/ATLAS_AGENT_BRIEFS_1B.md`.
 
 Wniosek: dla układów pokarmowego, hormonalnego, rozrodczego (M), limfatycznego i kostnego Z-Anatomy wystarcza jako główne źródło.
 Wydalniczy i powłokowy potrzebują HuBMAP. Rozrodczy (K) opiera się wyłącznie na HuBMAP.

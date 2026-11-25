@@ -37,6 +37,13 @@ Dopobrane 2026-11-25 pod kolejne układy (szczegóły: `docs/ATLAS_KOLEJNE_UKLAD
 
 Razem w `atlas_raw/hubmap/` ok. 95 MB (43 modele).
 
+Dopobrane 2026-11-25 (wieczór) pod planszę rozrodczą: `female/VH_F_skin.glb` (v1.3, 12 MB) i `female/VH_F_Vertebrae.glb` (v1.2, 7,7 MB).
+Służą jako kontekst żeńskiej sylwetki i do sprawdzenia położenia narządów żeńskich. Narządów żeńskich nie przenosi się na męski szkielet Z-Anatomy.
+Celowo nie pobrano:
+- kolana HuBMAP, bo Z-Anatomy ma kolekcję `Knee joint`;
+- gruczołów sutkowych (38 MB), bo nie wiążą się z HIIT;
+- BodyParts3D, bo naczynia całego ciała są w Z-Anatomy jako krzywe (§5).
+
 ## 3. Struktury białek z RCSB PDB (`atlas_raw/pdb/`), domena publiczna
 | PDB | Co to jest | Do czego |
 |---|---|---|
@@ -44,6 +51,18 @@ Razem w `atlas_raw/hubmap/` ok. 95 MB (43 modele).
 | `1HHO` | ludzka oksyhemoglobina | krew: hemoglobina z tlenem |
 | `5H53` | kompleks aktyna–miozyna mięśnia szkieletowego (królik) | mięsień: mostek poprzeczny |
 | `6KN8` | ludzki filament cienki serca z wapniem (troponina, tropomiozyna) | mięsień: regulacja przez Ca²⁺ (struktura sercowa, poglądowo) |
+
+Dopobrane 2026-11-25 pod fazę 1b (opcjonalne zbliżenia molekularne):
+
+| PDB | Co to jest | Układ |
+|---|---|---|
+| `4LDO` | receptor β2-adrenergiczny z adrenaliną | hormonalny |
+| `3I40` | insulina ludzka | hormonalny |
+| `1GCN` | glukagon (sekwencja taka sama u ssaków) | hormonalny |
+| `6LZ0` | ludzki transporter mleczanu MCT1 z mleczanem | pokarmowy (cykl Cori), mięśniowy |
+| `4NEF` | ludzka akwaporyna 2 (działanie ADH) | wydalniczy |
+| `3KS3` | ludzka anhydraza węglanowa II (bufor wodorowęglanowy) | wydalniczy, oddechowy |
+| `7WSM` | ludzki transporter glukozy GLUT4 | mięśniowy, hormonalny |
 
 Wcześniej pobrane (`assets_raw/`): 8H9T (syntaza ATP), 5XTD (łańcuch oddechowy), 3KG2 (receptor AMPA), 1B8M (BDNF).
 
@@ -56,7 +75,14 @@ Wcześniej pobrane (`assets_raw/`): 8H9T (syntaza ATP), 5XTD (łańcuch oddechow
 ## 5. Narzędzia do przeglądu atlasu (`blender/atlas/`)
 - `tools_inspect.py`: największe siatki i materiały w jednej kolekcji, z opcjonalnym filtrem nazw.
 - `tools_inventory.py`: pełny spis struktur Z-Anatomy z kolekcjami (układ / narząd / region) do JSON.
-  Wynik leży w `atlas_raw/z_anatomy/za_inventory.json`.
+  Wynik leży w `atlas_raw/z_anatomy/za_inventory.json`. **Uwaga:** narzędzie liczy tylko siatki.
+- Spis krzywych: `atlas_raw/z_anatomy/za_curves_inventory.json` (2026-11-25), 951 obiektów typu CURVE z kolekcjami.
+  Są wśród nich:
+  - 654 naczynia całego ciała (399 tętnic, 209 żył; kończyny, szyja, głowa, narządy: żyła wrotna, tętnice nerkowe i krezkowe)
+  - 246 nerwów
+  - oskrzela segmentowe, przełyk, jelito czcze, moczowody, cewka, przewody trzustkowe i żółciowy, nasieniowody
+
+  Nie ma naczyń chłonnych.
 Oba narzędzia tylko czytają `Startup.blend`. Uruchamia się je jak render, z zajęciem slotu `.render_slot_*`.
 
 ## Czego celowo nie pobrano
