@@ -39,6 +39,7 @@ const FLOW_COLOR: Record<AtlasFlowKind, string> = {
   glucose: 'var(--sys-digest-light)',
   urine: 'var(--sys-urinary-light)',
   force: 'var(--sys-bone-light)',
+  lymph: 'var(--sys-lymph-light)',
 };
 
 /** Typografia w pikselach ekranu (≥ 14 px dla każdego tekstu podpisu). */

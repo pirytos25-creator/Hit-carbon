@@ -102,7 +102,8 @@ export type AtlasFlowKind =
   | 'lactate'
   | 'glucose'
   | 'urine'
-  | 'force';
+  | 'force'
+  | 'lymph';
 
 /** Strzałka przepływu w SVG. Punkty w PIKSELACH renderu danego widoku (format fazy 1; nowe plansze: flows3d.json). */
 export interface AtlasFlow {
