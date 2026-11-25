@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Eye, Play, Compass, Sliders, GraduationCap, Sparkles } from 'lucide-react';
 import { useBiogenesisStore } from '../core/SimulationCore';
 import { getActById } from '../core/TimelineEngine';
@@ -9,6 +9,7 @@ import { TelemetryConsole } from './TelemetryConsole';
 import { CinematicTimeline } from './CinematicTimeline';
 import { AcademicDrawer } from './AcademicDrawer';
 import { ContextLossBanner } from './ContextLossBanner';
+import { EphemeralBioCallout } from './EphemeralBioCallout';
 import { ExperienceMode } from '../types/biogenesis';
 
 export function DiegeticHUD() {
@@ -17,7 +18,46 @@ export function DiegeticHUD() {
   const hudHidden = useBiogenesisStore((s) => s.hudHidden);
   const setHudHidden = useBiogenesisStore((s) => s.setHudHidden);
   const currentActId = useBiogenesisStore((s) => s.currentActId);
+  const mode = useBiogenesisStore((s) => s.mode);
+  const isPlaying = useBiogenesisStore((s) => s.isPlaying);
   const act = getActById(currentActId);
+
+  const [cinemaControlsVisible, setCinemaControlsVisible] = useState(true);
+
+  useEffect(() => {
+    if (!started || mode !== 'cinematic' || !isPlaying) {
+      setCinemaControlsVisible(true);
+      return;
+    }
+
+    let idleTimer: number | undefined;
+    const armIdleHide = () => {
+      if (idleTimer !== undefined) window.clearTimeout(idleTimer);
+      idleTimer = window.setTimeout(() => {
+        setCinemaControlsVisible(false);
+      }, 3000);
+    };
+
+    const wakeControls = () => {
+      setCinemaControlsVisible(true);
+      armIdleHide();
+    };
+
+    armIdleHide();
+    window.addEventListener('pointermove', wakeControls, { passive: true });
+    window.addEventListener('pointerdown', wakeControls, { passive: true });
+    window.addEventListener('keydown', wakeControls, { passive: true });
+
+    return () => {
+      if (idleTimer !== undefined) window.clearTimeout(idleTimer);
+      window.removeEventListener('pointermove', wakeControls);
+      window.removeEventListener('pointerdown', wakeControls);
+      window.removeEventListener('keydown', wakeControls);
+    };
+  }, [started, mode, isPlaying]);
+
+  const isCinemaMode = mode === 'cinematic';
+  const cinemaAutoHide = isCinemaMode && isPlaying && !cinemaControlsVisible;
 
   // Global keyboard shortcuts
   useEffect(() => {
@@ -135,20 +175,21 @@ export function DiegeticHUD() {
 
       {started && !hudHidden && (
         <>
-          <TopBioBar />
+          <TopBioBar cinemaAutoHide={cinemaAutoHide} />
           <div className="flex-1 flex items-start justify-between px-4 py-3 overflow-hidden">
-            <SpatialBodyMap />
+            {!isCinemaMode ? <SpatialBodyMap /> : <div />}
             <div className="flex-1 flex justify-center px-4">
-              {act.educationalMagnificationNote && (
+              {!isCinemaMode && act.educationalMagnificationNote && (
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/75 border border-amber-400/35 text-[10px] text-amber-200 backdrop-blur-md shadow">
                   <Sparkles className="w-3 h-3 shrink-0 text-amber-300" />
                   <span>{act.educationalMagnificationNote}</span>
                 </div>
               )}
             </div>
-            <TelemetryConsole />
+            {!isCinemaMode ? <TelemetryConsole /> : <div />}
           </div>
-          <CinematicTimeline />
+          <EphemeralBioCallout />
+          <CinematicTimeline cinemaAutoHide={cinemaAutoHide} />
           <AcademicDrawer />
         </>
       )}

@@ -47,8 +47,9 @@ export function NeuralPathwayTube({
 
   useFrame((_, delta) => {
     if (!matRef.current) return;
-    if (useBiogenesisStore.getState().isPlaying) {
-      matRef.current.uniforms.uTime.value += Math.min(0.05, delta);
+    const store = useBiogenesisStore.getState();
+    if (store.started && store.isPlaying) {
+      matRef.current.uniforms.uTime.value += Math.min(0.05, delta) * store.playbackSpeed;
     }
     matRef.current.uniforms.uActivity.value = activity;
   });

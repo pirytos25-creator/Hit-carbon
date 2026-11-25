@@ -151,6 +151,13 @@ class NarrationEngineImpl {
       return;
     }
 
+    // At 4x fast-forward, preserve subtitles cleanly while pausing overlapping TTS voiceover
+    if (params.playbackSpeed > 2.2) {
+      if (this.isSpeaking) this.stop();
+      params.onStatusChange(false, subtitle, seg?.id ?? null);
+      return;
+    }
+
     const effVol = params.volume * params.masterVolume;
     if (this.audioEl) {
       this.audioEl.volume = Math.max(0, Math.min(1, effVol));

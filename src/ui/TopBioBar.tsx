@@ -22,7 +22,7 @@ const MODES: { id: ExperienceMode; label: string }[] = [
   { id: 'popular', label: 'Popularny' },
 ];
 
-export function TopBioBar() {
+export function TopBioBar({ cinemaAutoHide = false }: { cinemaAutoHide?: boolean }) {
   const currentActId = useBiogenesisStore((s) => s.currentActId);
   const mode = useBiogenesisStore((s) => s.mode);
   const setMode = useBiogenesisStore((s) => s.setMode);
@@ -56,7 +56,25 @@ export function TopBioBar() {
   };
 
   return (
-    <header className="pointer-events-auto relative z-30 flex items-center justify-between gap-2 px-3.5 py-2 bio-panel border-x-0 border-t-0">
+    <>
+      {cinemaAutoHide && (
+        <div className="pointer-events-none fixed top-3.5 left-4 z-30 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/10 shadow-lg transition-opacity duration-300">
+          <span
+            className="px-1.5 py-0.5 rounded text-[10px] font-mono-tech font-semibold"
+            style={{ backgroundColor: `${act.accentColor}22`, color: act.accentColor }}
+          >
+            AKT {act.roman}
+          </span>
+          <span className="font-display text-xs font-medium text-slate-100">{act.title}</span>
+          <span className="text-[10px] font-mono-tech text-slate-400">· {act.scaleLabel}</span>
+        </div>
+      )}
+
+      <header
+        className={`relative z-30 flex items-center justify-between gap-2 px-3.5 py-2 bio-panel border-x-0 border-t-0 transition-all duration-300 ${
+          cinemaAutoHide ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100 translate-y-0 pointer-events-auto'
+        }`}
+      >
       {/* Brand + Active Act & Scale telemetry */}
       <div className="flex items-center gap-2.5 min-w-0 flex-1">
         <div className="flex items-center gap-2 shrink-0">
@@ -282,5 +300,6 @@ export function TopBioBar() {
         )}
       </div>
     </header>
+    </>
   );
 }

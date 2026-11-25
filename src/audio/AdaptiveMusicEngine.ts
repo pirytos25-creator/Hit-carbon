@@ -133,6 +133,7 @@ class AdaptiveMusicEngineImpl {
 
   // Dynamic parameters fed from SimulationCore
   private heartRate = 72;
+  private actProgress = 0;
   private enabled = true;
   private pausedOrExplore = false;
   private ducking = false;
@@ -276,7 +277,7 @@ class AdaptiveMusicEngineImpl {
       }
     }
 
-    // 3. Melodic / Molecular Pluck Arpeggio
+    // 3. Melodic / Molecular Pluck Arpeggio + Neuroplasticity Shimmer Layer
     if (step % 2 === 0 || this.currentMotif === 'mitochondria' || this.currentMotif === 'neuroplasticity') {
       const degIdx = (step * 3 + Math.floor(step / 4)) % spec.scaleSemitones.length;
       const midi = spec.rootMidi + 12 + spec.scaleSemitones[degIdx];
@@ -284,14 +285,34 @@ class AdaptiveMusicEngineImpl {
       const g = ctx.createGain();
       osc.type = this.currentMotif === 'muscle_machinery' ? 'triangle' : 'sine';
       osc.frequency.setValueAtTime(midiToHz(midi), now);
-      const amp = (this.pausedOrExplore ? 0.035 : 0.075) * (spec.padGain * 2.5);
+      const climaxBoost =
+        this.currentMotif === 'neuroplasticity' ? 1 + this.actProgress * 0.45 : 1;
+      const amp = (this.pausedOrExplore ? 0.035 : 0.075) * (spec.padGain * 2.5) * climaxBoost;
       g.gain.setValueAtTime(0.0001, now);
       g.gain.linearRampToValueAtTime(amp, now + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.52);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.56);
       osc.connect(g);
       g.connect(this.padFilter);
       osc.start(now);
-      osc.stop(now + 0.55);
+      osc.stop(now + 0.58);
+
+      if (
+        (this.currentMotif === 'neuroplasticity' || this.currentMotif === 'mitochondria') &&
+        step % 4 === 0 &&
+        !this.pausedOrExplore
+      ) {
+        const harmOsc = ctx.createOscillator();
+        const harmG = ctx.createGain();
+        harmOsc.type = 'sine';
+        harmOsc.frequency.setValueAtTime(midiToHz(midi + 19), now); // sparkling upper fifth above octave
+        harmG.gain.setValueAtTime(0.0001, now);
+        harmG.gain.linearRampToValueAtTime(amp * 0.32, now + 0.05);
+        harmG.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
+        harmOsc.connect(harmG);
+        harmG.connect(this.padFilter);
+        harmOsc.start(now);
+        harmOsc.stop(now + 0.75);
+      }
     }
   }
 
@@ -311,7 +332,8 @@ class AdaptiveMusicEngineImpl {
     this.ducking = params.isNarratorSpeaking;
     this.volume = params.volume * params.masterVolume;
 
-    const { act } = getActAtTime(params.masterTimeSec);
+    const { act, actProgress } = getActAtTime(params.masterTimeSec);
+    this.actProgress = actProgress;
     if (act.musicMotif !== this.currentMotif) {
       this.currentMotif = act.musicMotif;
     }
@@ -327,7 +349,11 @@ class AdaptiveMusicEngineImpl {
     const targetDuck = this.ducking ? 0.35 : 1.0;
     this.duckGain.gain.setTargetAtTime(targetDuck, now, 0.18);
 
-    const targetCutoff = this.pausedOrExplore ? Math.min(580, spec.padFilterHz * 0.55) : spec.padFilterHz;
+    const dynamicFilter =
+      this.currentMotif === 'neuroplasticity'
+        ? spec.padFilterHz * (0.72 + actProgress * 0.58)
+        : spec.padFilterHz;
+    const targetCutoff = this.pausedOrExplore ? Math.min(580, dynamicFilter * 0.55) : dynamicFilter;
     this.padFilter.frequency.setTargetAtTime(targetCutoff, now, 0.45);
   }
 }

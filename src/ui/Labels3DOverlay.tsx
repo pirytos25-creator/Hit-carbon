@@ -59,7 +59,7 @@ export function Labels3DOverlay() {
   const mitoTech = useBiogenesisStore((s) => s.mitoTechnicalMode);
   const mode = useBiogenesisStore((s) => s.mode);
 
-  if (hudHidden) return null;
+  if (hudHidden || mode === 'cinematic') return null;
   if (currentActId === 4 && !showAnnotations) return null;
   if (currentActId === 5 && !mitoTech && mode !== 'academic') return null;
 

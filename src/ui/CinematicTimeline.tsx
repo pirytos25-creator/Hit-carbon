@@ -17,7 +17,7 @@ function formatTime(sec: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
-export function CinematicTimeline() {
+export function CinematicTimeline({ cinemaAutoHide = false }: { cinemaAutoHide?: boolean }) {
   const isPlaying = useBiogenesisStore((s) => s.isPlaying);
   const togglePlay = useBiogenesisStore((s) => s.togglePlay);
   const playbackSpeed = useBiogenesisStore((s) => s.playbackSpeed);
@@ -45,7 +45,13 @@ export function CinematicTimeline() {
       )}
 
       {/* Timeline Scrubber & Transport Controls */}
-      <div className="pointer-events-auto w-full max-w-5xl bio-panel rounded-2xl px-3.5 py-2 flex flex-col gap-1.5">
+      <div
+        className={`w-full max-w-5xl bio-panel rounded-2xl px-3.5 py-2 flex flex-col gap-1.5 transition-all duration-300 ${
+          cinemaAutoHide
+            ? 'opacity-0 translate-y-4 pointer-events-none max-h-0 overflow-hidden !py-0 !border-0'
+            : 'opacity-100 translate-y-0 pointer-events-auto'
+        }`}
+      >
         {/* 12-Act Interactive Progress Bar */}
         <div className="flex items-center gap-2">
           <span className="font-mono-tech text-[11px] text-cyan-300 w-11 text-right">

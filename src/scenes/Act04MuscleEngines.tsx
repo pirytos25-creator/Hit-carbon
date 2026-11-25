@@ -5,15 +5,13 @@ import * as THREE from 'three';
 import { MODEL_PATHS } from '../core/AssetManager';
 import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
 import { MoleculeSwarm } from './MolecularSimulation';
+import { applyBioPbrSurface } from '../shaders/bioPbrTextures';
 
 /**
- * Akt IV — Mięśnie: biologiczne silniki
- * Hierarchia: Brzusiec -> Pęczek -> Włókno (Typ I/II) -> Siateczka SR -> Sarkomer
- * Interaktywne laboratorium cyklu mostków poprzecznych z 4 etapami:
- *   0: Napływ Ca2+ i odsłonięcie aktyny -> wiązanie główki miozyny
- *   1: Ruch roboczy (Power Stroke) i uwolnienie Pi/ADP -> przesunięcie prążków Z
- *   2: Wiązanie nowego ATP i odłączenie główki od aktyny
- *   3: Hydroliza ATP -> ADP + Pi i powrotne napięcie główki miozyny
+ * Akt IV — Mięśnie: biologiczne silniki wieloskalowe:
+ * Ciągła choreografia od brzuśca -> pęczków -> włókna (SR + kanaliki T) -> miofibryli -> sarkomeru.
+ * Zachowuje niezmienną długość filamentów aktyny i miozyny (ślizgowy mechanizm skurczu!),
+ * podczas gdy prążki Z przybliżają się pod pracą 32 przegubowych główek miozyny S1.
  */
 export function Act04MuscleEngines() {
   const { scene } = useGLTF(MODEL_PATHS.muscle_sarcomere);
@@ -24,7 +22,13 @@ export function Act04MuscleEngines() {
     const c = scene.clone(true);
     c.traverse((obj) => {
       if (obj instanceof THREE.Mesh && obj.material) {
-        obj.material = (obj.material as THREE.Material).clone();
+        const mat = (obj.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
+        if (obj.name.startsWith('Muscle_Belly') || obj.name.startsWith('Fascicles_')) {
+          applyBioPbrSurface(mat, 'muscle', 0.85, 6, 4);
+        } else if (obj.name.startsWith('Sarcoplasmic_') || obj.name.startsWith('T_Tubules')) {
+          applyBioPbrSurface(mat, 'membrane', 0.6, 4, 4);
+        }
+        obj.material = mat;
       }
     });
     return c;
@@ -33,11 +37,13 @@ export function Act04MuscleEngines() {
   const parts = useMemo(() => {
     const zLeft = cloned.getObjectByName('Z_Disc_Left_Pivot') ?? null;
     const zRight = cloned.getObjectByName('Z_Disc_Right_Pivot') ?? null;
+    const hierarchy = cloned.getObjectByName('Muscle_Hierarchy_Group') ?? null;
+    const sr = cloned.getObjectByName('Sarcoplasmic_Reticulum') as THREE.Mesh | null;
     const heads: THREE.Object3D[] = [];
     cloned.traverse((obj) => {
       if (obj.name.startsWith('Myosin_Head_Pivot_')) heads.push(obj);
     });
-    return { zLeft, zRight, heads };
+    return { zLeft, zRight, hierarchy, sr, heads };
   }, [cloned]);
 
   useEffect(() => {
@@ -53,19 +59,30 @@ export function Act04MuscleEngines() {
   }, [cloned]);
 
   useFrame(() => {
-    // Either continuous live sarcomere phase OR manual stepped stage when paused
+    const org = liveSimulationRef.organism;
     const phase = sarcomerePaused
       ? (sarcomereStage + 0.35) / 4.0
       : liveSimulationRef.sarcomereLocalPhase;
 
-    // Sliding filament contraction wave (Z-discs approach M-line from +-1.55 down to +-1.18)
+    // Sliding filament motion: actin-bearing Z-discs glide closer to M-line WITHOUT shortening filaments!
     const contractWave = 0.5 - 0.5 * Math.cos(phase * Math.PI * 2);
     const zSpan = 1.55 - contractWave * 0.34;
     if (parts.zLeft) parts.zLeft.position.x = -zSpan;
     if (parts.zRight) parts.zRight.position.x = zSpan;
 
-    // Cross-bridge 4-stage articulation:
-    // phase 0..0.25: reach up toward actin; 0.25..0.55: power stroke tilt; 0.55..0.75: ATP detach; 0.75..1.0: cock head
+    // Subtle macro fascicle/belly contraction ripple synced to sarcomere phase & speed
+    if (parts.hierarchy) {
+      const bellySqueeze = 1 + contractWave * 0.045;
+      parts.hierarchy.scale.set(1 - contractWave * 0.035, bellySqueeze, bellySqueeze);
+    }
+    if (parts.sr) {
+      const mat = parts.sr.material as THREE.MeshStandardMaterial;
+      if (mat) {
+        mat.emissiveIntensity = 0.3 + Math.max(0, Math.sin(phase * Math.PI * 2)) * (0.4 + org.sympatheticDrive * 0.6);
+      }
+    }
+
+    // 4-stage articulated myosin S1 cross-bridge cycle
     parts.heads.forEach((hp, i) => {
       const side = hp.position.x < 0 ? -1 : 1;
       const localP = (phase + (i % 4) * 0.04) % 1;
@@ -98,7 +115,7 @@ export function Act04MuscleEngines() {
   return (
     <group>
       <pointLight position={[0, 2.4, 2.8]} intensity={2.8} color="#fff7ed" />
-      <pointLight position={[-2.2, 0.4, 1.5]} intensity={1.8} color="#38bdf8" />
+      <pointLight position={[-2.2, 0.5, 1.5]} intensity={1.8} color="#38bdf8" />
       <pointLight position={[2.2, -0.5, 1.5]} intensity={1.8} color="#4ade80" />
 
       <primitive object={cloned} />
@@ -108,22 +125,24 @@ export function Act04MuscleEngines() {
         count={120}
         color="#4ade80"
         emissive="#22c55e"
-        radius={0.018}
+        radius={0.017}
         bounds={[2.8, 0.9, 0.9]}
         origin={[0, 0, 0]}
         speed={0.5}
-        flowDir={[0, -0.8, 0]}
+        flowDir={[0, -0.75, 0]}
+        brownianJitter={0.04}
       />
       {/* ATP / ADP+Pi turnover cloud around myosin heads */}
       <MoleculeSwarm
         count={85}
         color="#fbbf24"
         emissive="#f59e0b"
-        radius={0.016}
+        radius={0.015}
         bounds={[2.0, 0.7, 0.7]}
         origin={[0, 0, 0]}
         speed={0.75}
         flowDir={[0.4, 0.3, 0.2]}
+        brownianJitter={0.035}
       />
     </group>
   );

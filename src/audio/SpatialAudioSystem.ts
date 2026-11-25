@@ -86,6 +86,28 @@ class SpatialAudioSystemImpl {
     osc.stop(now + 0.12);
   }
 
+  private playBloodFlowPulse(ctx: AudioContext, gainScale: number) {
+    if (!this.sfxBus || !this.noiseBuf) return;
+    const now = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = this.noiseBuf;
+    const filt = ctx.createBiquadFilter();
+    filt.type = 'bandpass';
+    filt.frequency.setValueAtTime(160, now);
+    filt.frequency.exponentialRampToValueAtTime(340, now + 0.14);
+    filt.frequency.exponentialRampToValueAtTime(120, now + 0.34);
+    filt.Q.value = 1.6;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0005, now);
+    g.gain.linearRampToValueAtTime(0.065 * gainScale, now + 0.08);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + 0.36);
+    src.connect(filt);
+    filt.connect(g);
+    g.connect(this.sfxBus);
+    src.start(now);
+    src.stop(now + 0.38);
+  }
+
   private playFootstep(ctx: AudioContext, speedKmh: number) {
     if (!this.sfxBus || !this.noiseBuf) return;
     const now = ctx.currentTime;
@@ -188,40 +210,49 @@ class SpatialAudioSystemImpl {
       this.breathFilter.frequency.setTargetAtTime(280 + breathWave * 420, now, 0.06);
     }
 
-    // 3. Dual-valve heartbeat lub-dub synced to beatPhase
+    // 3. Dual-valve heartbeat lub-dub synced to beatPhase + intravascular arterial flow whoosh
     const beatHalf = org.beatPhase < 0.28 ? 0 : org.beatPhase < 0.6 ? 1 : 2;
-    if (isHeartAct && beatHalf !== this.lastBeatHalf) {
+    if (beatHalf !== this.lastBeatHalf) {
       this.lastBeatHalf = beatHalf;
-      if (beatHalf === 0) this.playLubDub(ctx, true, params.actId === 3 ? 1.1 : 0.65);
-      if (beatHalf === 1) this.playLubDub(ctx, false, params.actId === 3 ? 1.0 : 0.55);
+      if (isHeartAct) {
+        if (beatHalf === 0) this.playLubDub(ctx, true, params.actId === 3 ? 1.1 : 0.65);
+        if (beatHalf === 1) this.playLubDub(ctx, false, params.actId === 3 ? 1.0 : 0.55);
+      }
+      if ((params.actId === 3 || params.actId === 7) && beatHalf === 0) {
+        this.playBloodFlowPulse(ctx, Math.min(1.3, org.cardiacOutputLpm / 16));
+      }
     }
 
     // 4. Artistic molecular / neural sonification chimes (Acts II, IV, V, VIII, IX, X)
-    if (params.timeSec - this.lastMolTick > 0.65) {
+    if (params.timeSec - this.lastMolTick > 0.72) {
       this.lastMolTick = params.timeSec;
       if (params.actId === 2 || params.actId === 8 || params.actId === 9 || params.actId === 10) {
         const osc = ctx.createOscillator();
         const g = ctx.createGain();
         osc.type = 'sine';
         osc.frequency.setValueAtTime(params.actId === 9 ? 980 : 740, now);
-        g.gain.setValueAtTime(0.018, now);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+        g.gain.setValueAtTime(0.016, now);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
         osc.connect(g);
         g.connect(this.sfxBus);
         osc.start(now);
-        osc.stop(now + 0.15);
+        osc.stop(now + 0.18);
       } else if (params.actId === 5) {
-        // Subtle rotary harmonic hum representing proton flux (explicitly artistic sonification)
-        const osc = ctx.createOscillator();
-        const g = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(320 + org.atpTurnoverMultiplier * 0.25, now);
-        g.gain.setValueAtTime(0.015, now);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
-        osc.connect(g);
-        g.connect(this.sfxBus);
-        osc.start(now);
-        osc.stop(now + 0.30);
+        // Crystal fifth harmonic shimmer representing proton flux (artistic sonification)
+        const baseFreq = 293.66 + Math.min(80, org.atpTurnoverMultiplier * 0.12); // near D4
+        [1, 1.5].forEach((ratio, idx) => {
+          const osc = ctx.createOscillator();
+          const g = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(baseFreq * ratio, now);
+          g.gain.setValueAtTime(0.0001, now);
+          g.gain.linearRampToValueAtTime(idx === 0 ? 0.014 : 0.009, now + 0.04);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + 0.36);
+          osc.connect(g);
+          g.connect(this.sfxBus!);
+          osc.start(now);
+          osc.stop(now + 0.38);
+        });
       }
     }
   }

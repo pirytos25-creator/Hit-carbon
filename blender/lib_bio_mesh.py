@@ -1,7 +1,9 @@
 """
-Shared anatomical and molecular procedural modeling utilities for Blender 5.2+ LTS.
-Upgraded for high-resolution organic silhouettes, continuous smooth-shaded surfaces,
-and zero artifacts at tube caps or joint junctions.
+Shared anatomical, rigged, morph-target, and PDB cryo-EM modeling utilities for Blender 5.2+ LTS.
+Supports:
+- Skinned Armature + NLA AnimationClip + ShapeKey glTF 2.0 exports (`export_apply=False`)
+- HuBMAP GLB submesh filtering, joining, UV-unwrapping & controlled decimation
+- RCSB PDB / mmCIF C-alpha coordinate parsing + metaball molecular envelope synthesis
 """
 import math
 import bpy
@@ -53,6 +55,7 @@ def make_pbr_material(
     ior=1.45,
     alpha=1.0,
     coat_weight=0.0,
+    coat_roughness=0.14,
     subsurface_weight=0.0,
 ):
     if name in bpy.data.materials:
@@ -82,7 +85,8 @@ def make_pbr_material(
         bsdf.inputs['Alpha'].default_value = alpha
     if 'Coat Weight' in bsdf.inputs and coat_weight > 0:
         bsdf.inputs['Coat Weight'].default_value = coat_weight
-        bsdf.inputs['Coat Roughness'].default_value = 0.14
+        if 'Coat Roughness' in bsdf.inputs:
+            bsdf.inputs['Coat Roughness'].default_value = coat_roughness
     if 'Subsurface Weight' in bsdf.inputs and subsurface_weight > 0:
         bsdf.inputs['Subsurface Weight'].default_value = subsurface_weight
 
@@ -92,10 +96,6 @@ def make_pbr_material(
 
 
 def _parallel_transport_frames(points):
-    """
-    Computes twist-free parallel transport frames along a polyline of 3D points
-    so curved tubes never pinch or invert.
-    """
     n = len(points)
     tangents = []
     for i in range(n):
@@ -117,7 +117,7 @@ def _parallel_transport_frames(points):
     frames = [(n0, b0, tangents[0])]
 
     for i in range(1, n):
-        prev_n, prev_b, prev_t = frames[-1]
+        prev_n, _, prev_t = frames[-1]
         curr_t = tangents[i]
         rot = prev_t.rotation_difference(curr_t)
         curr_n = (rot @ prev_n).normalized()
@@ -136,10 +136,6 @@ def add_lofted_profile_to_bm(
     seed=1.0,
     dome_factor=0.35,
 ):
-    """
-    Lofts a smooth organic anatomical volume along stations with twist-free frames:
-    Each station is (pos, rx, ry, twist).
-    """
     if len(stations) < 2:
         return
     pts = [Vector(st[0]) for st in stations]
@@ -176,7 +172,6 @@ def add_lofted_profile_to_bm(
                 pass
 
     if cap_ends:
-        # Start dome cap
         t0 = -frames[0][2]
         c0 = bm.verts.new(pts[0] + t0 * min(stations[0][1], stations[0][2]) * dome_factor)
         for j in range(rings):
@@ -186,7 +181,6 @@ def add_lofted_profile_to_bm(
             except ValueError:
                 pass
 
-        # End dome cap
         t1 = frames[-1][2]
         c1 = bm.verts.new(pts[-1] + t1 * min(stations[-1][1], stations[-1][2]) * dome_factor)
         for j in range(rings):
@@ -198,7 +192,6 @@ def add_lofted_profile_to_bm(
 
 
 def add_tube_along_points(bm: bmesh.types.BMesh, points, radii, rings=12, cap_ends=True):
-    # Subdivide long straight segments slightly for smooth caps
     pts = [Vector(p) for p in points]
     rlist = list(radii) if isinstance(radii, (list, tuple)) else [float(radii)] * len(pts)
     stations = [(pts[i], rlist[i], rlist[i], 0.0) for i in range(len(pts))]
@@ -213,6 +206,25 @@ def add_uv_sphere_to_bm(bm: bmesh.types.BMesh, center, radii=(1.0, 1.0, 1.0), u_
 def add_box_to_bm(bm: bmesh.types.BMesh, center, half_extents, rot_euler=(0, 0, 0)):
     mat = Matrix.Translation(Vector(center)) @ Euler(rot_euler, 'XYZ').to_matrix().to_4x4() @ Matrix.Diagonal((*half_extents, 1.0))
     bmesh.ops.create_cube(bm, size=2.0, matrix=mat)
+
+
+def ensure_box_uv(mesh_obj):
+    mesh = mesh_obj.data
+    if not mesh.uv_layers:
+        uv_layer = mesh.uv_layers.new(name="UVMap")
+        uv_data = uv_layer.data
+        verts = mesh.vertices
+        for poly in mesh.polygons:
+            n = poly.normal
+            ax, ay, az = abs(n.x), abs(n.y), abs(n.z)
+            for li in poly.loop_indices:
+                v = verts[mesh.loops[li].vertex_index].co
+                if az >= ax and az >= ay:
+                    uv_data[li].uv = (v.x * 0.5 + 0.5, v.y * 0.5 + 0.5)
+                elif ax >= ay:
+                    uv_data[li].uv = (v.y * 0.5 + 0.5, v.z * 0.5 + 0.5)
+                else:
+                    uv_data[li].uv = (v.x * 0.5 + 0.5, v.z * 0.5 + 0.5)
 
 
 def finish_bmesh_object(
@@ -242,6 +254,7 @@ def finish_bmesh_object(
     if parent is not None:
         obj.parent = parent
     link_obj(obj, collection)
+    ensure_box_uv(obj)
 
     if subsurf_levels > 0:
         mod = obj.modifiers.new(name="Subsurf", type='SUBSURF')
@@ -251,21 +264,191 @@ def finish_bmesh_object(
     return obj
 
 
-def export_hierarchy_glb(root_obj, filepath: str):
+def join_and_decimate(objs, name: str, material, target_polys: int, parent=None, collection=None, apply_world=True):
+    """
+    Cleanly joins imported anatomical mesh pieces, applies world transforms,
+    decimates to target polygon count, adds box UVs, and assigns material.
+    """
+    valid = [o for o in objs if o is not None and o.type == 'MESH' and len(o.data.polygons) > 0]
+    if not valid:
+        return None
     bpy.ops.object.select_all(action='DESELECT')
-    stack = [root_obj]
+    for o in valid:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = valid[0]
+    if len(valid) > 1:
+        bpy.ops.object.join()
+    joined = bpy.context.view_layer.objects.active
+    joined.name = name
+
+    if apply_world:
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+
+    curr_polys = len(joined.data.polygons)
+    if target_polys > 0 and curr_polys > target_polys:
+        dec = joined.modifiers.new(name="Decimate", type='DECIMATE')
+        dec.ratio = max(0.02, float(target_polys) / float(curr_polys))
+        bpy.ops.object.modifier_apply(modifier=dec.name)
+
+    for poly in joined.data.polygons:
+        poly.use_smooth = True
+    joined.data.name = name + "_Mesh"
+    joined.data.validate(verbose=False)
+    joined.data.materials.clear()
+    if material is not None:
+        joined.data.materials.append(material)
+    ensure_box_uv(joined)
+
+    # Ensure placed in desired collection & parent cleanly
+    for c in list(joined.users_collection):
+        c.objects.unlink(joined)
+    link_obj(joined, collection)
+    if parent is not None:
+        joined.parent = parent
+    return joined
+
+
+def load_cif_ca_by_chain(cif_path: str, chains_filter=None, stride=1):
+    """Parse RCSB mmCIF CA atom coordinates grouped by auth_asym_id."""
+    cols = []
+    in_atom = False
+    chains = {}
+    counts = {}
+    with open(cif_path, encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            s = line.strip()
+            if s.startswith("_atom_site."):
+                in_atom = True
+                cols.append(s)
+            elif in_atom and s.startswith("ATOM "):
+                parts = s.split()
+                if len(parts) < len(cols):
+                    continue
+                atom = parts[cols.index("_atom_site.label_atom_id")]
+                if atom != "CA":
+                    continue
+                ch = parts[cols.index("_atom_site.auth_asym_id")]
+                if chains_filter is not None and ch not in chains_filter:
+                    continue
+                c = counts.get(ch, 0)
+                counts[ch] = c + 1
+                if stride > 1 and (c % stride) != 0:
+                    continue
+                x = float(parts[cols.index("_atom_site.Cartn_x")])
+                y = float(parts[cols.index("_atom_site.Cartn_y")])
+                z = float(parts[cols.index("_atom_site.Cartn_z")])
+                chains.setdefault(ch, []).append(Vector((x, y, z)))
+            elif in_atom and s.startswith("#"):
+                break
+    return chains
+
+
+def load_pdb_ca_by_chain(pdb_path: str, chains_filter=None, stride=1):
+    """Parse RCSB PDB CA atom coordinates grouped by chain ID."""
+    chains = {}
+    counts = {}
+    with open(pdb_path, encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            if line.startswith("ATOM  ") and line[12:16].strip() == "CA":
+                ch = line[21].strip() or "_"
+                if chains_filter is not None and ch not in chains_filter:
+                    continue
+                c = counts.get(ch, 0)
+                counts[ch] = c + 1
+                if stride > 1 and (c % stride) != 0:
+                    continue
+                x = float(line[30:38])
+                y = float(line[38:46])
+                z = float(line[46:54])
+                chains.setdefault(ch, []).append(Vector((x, y, z)))
+    return chains
+
+
+def create_cryoem_envelope(
+    name: str,
+    points,
+    ball_radius: float,
+    voxel_res: float,
+    material,
+    decimate_polys: int = 1200,
+    parent=None,
+    collection=None,
+):
+    """
+    Converts a list of atomic 3D Vector coordinates into a continuous, authentic
+    cryo-EM Gaussian/metaball molecular surface mesh in Blender 5.2.
+    """
+    mball = bpy.data.metaballs.new(name + "_MB")
+    mball.resolution = voxel_res
+    mball.render_resolution = voxel_res
+    mball.threshold = 0.62
+
+    for pt in points:
+        elem = mball.elements.new(type='BALL')
+        elem.co = Vector(pt)
+        elem.radius = ball_radius
+
+    mb_obj = bpy.data.objects.new(name + "_MBObj", mball)
+    link_obj(mb_obj, collection)
+
+    bpy.ops.object.select_all(action='DESELECT')
+    mb_obj.select_set(True)
+    bpy.context.view_layer.objects.active = mb_obj
+    bpy.ops.object.convert(target='MESH')
+    mesh_obj = bpy.context.view_layer.objects.active
+    mesh_obj.name = name
+
+    bpy.data.metaballs.remove(mball, do_unlink=True)
+
+    if decimate_polys > 0 and len(mesh_obj.data.polygons) > decimate_polys:
+        dec = mesh_obj.modifiers.new(name="Decimate", type='DECIMATE')
+        dec.ratio = max(0.05, float(decimate_polys) / float(len(mesh_obj.data.polygons)))
+        bpy.ops.object.modifier_apply(modifier=dec.name)
+
+    for poly in mesh_obj.data.polygons:
+        poly.use_smooth = True
+    mesh_obj.data.name = name + "_Mesh"
+    mesh_obj.data.validate(verbose=False)
+    mesh_obj.data.materials.clear()
+    if material is not None:
+        mesh_obj.data.materials.append(material)
+    ensure_box_uv(mesh_obj)
+
+    if parent is not None:
+        mesh_obj.parent = parent
+    return mesh_obj
+
+
+def export_hierarchy_glb(root_obj, filepath: str, export_animations=False, apply_modifiers=True):
+    """
+    Exports hierarchy rooted at `root_obj` (or list of root objects) to glTF 2.0 binary (.glb).
+    CRITICAL: When exporting Shape Keys or Skinned Armatures, pass `apply_modifiers=False` so
+    shape keys & ARMATURE skinning remain intact in Three.js!
+    """
+    bpy.ops.object.select_all(action='DESELECT')
+    roots = root_obj if isinstance(root_obj, (list, tuple)) else [root_obj]
+    stack = list(roots)
+    seen = set()
     while stack:
         curr = stack.pop()
+        if curr.name in seen:
+            continue
+        seen.add(curr.name)
         curr.select_set(True)
         for child in curr.children:
             stack.append(child)
-    bpy.context.view_layer.objects.active = root_obj
+    bpy.context.view_layer.objects.active = roots[0]
+
     bpy.ops.export_scene.gltf(
         filepath=filepath,
         export_format='GLB',
         use_selection=True,
-        export_apply=True,
-        export_animations=False,
+        export_apply=apply_modifiers,
+        export_animations=export_animations,
+        export_animation_mode='NLA_TRACKS' if export_animations else 'ACTIONS',
+        export_nla_strips=export_animations,
+        export_skins=True,
+        export_morph=True,
         export_cameras=False,
         export_lights=False,
         export_extras=True,
@@ -274,4 +457,4 @@ def export_hierarchy_glb(root_obj, filepath: str):
         export_image_format='AUTO',
         export_draco_mesh_compression_enable=False,
     )
-    print(f"[EXPORTED] {filepath}")
+    print(f"[EXPORTED] {filepath} (anims={export_animations}, apply={apply_modifiers})")

@@ -218,7 +218,7 @@ export const useBiogenesisStore = create<BiogenesisState>((set, get) => ({
 
   togglePlay: () => set((s) => ({ isPlaying: !s.isPlaying })),
   setPlaying: (playing) => set({ isPlaying: playing }),
-  setPlaybackSpeed: (speed) => set({ playbackSpeed: Math.max(0.25, Math.min(4, speed)) }),
+  setPlaybackSpeed: (speed) => set({ playbackSpeed: Math.max(0, Math.min(4, speed)) }),
 
   setMode: (mode) => {
     const updates: Partial<BiogenesisState> = { mode };
@@ -228,7 +228,7 @@ export const useBiogenesisStore = create<BiogenesisState>((set, get) => ({
     } else if (mode === 'popular') {
       updates.narrationRegister = 'popular';
       updates.academicDrawerOpen = false;
-    } else if (mode === 'interactive') {
+    } else if (mode === 'interactive' || mode === 'cinematic' || mode === 'exploration') {
       updates.academicDrawerOpen = false;
     }
     set(updates);

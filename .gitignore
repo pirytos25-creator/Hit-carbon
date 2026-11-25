@@ -8,3 +8,5 @@ blender/*.blend1
 assets_raw/
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc

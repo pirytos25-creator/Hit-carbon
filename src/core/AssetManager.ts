@@ -5,31 +5,37 @@ import { ActId } from '../types/biogenesis';
 export type ModelKey =
   | 'athlete_gym'
   | 'cardiopulmonary'
+  | 'bloodstream_tunnel'
   | 'muscle_sarcomere'
   | 'mitochondrion'
-  | 'brain_synapse';
+  | 'brain_macro'
+  | 'neural_forest'
+  | 'synapse_hero';
 
 export const MODEL_PATHS: Record<ModelKey, string> = {
   athlete_gym: '/models/athlete_gym.glb',
   cardiopulmonary: '/models/cardiopulmonary.glb',
+  bloodstream_tunnel: '/models/bloodstream_tunnel.glb',
   muscle_sarcomere: '/models/muscle_sarcomere.glb',
   mitochondrion: '/models/mitochondrion.glb',
-  brain_synapse: '/models/brain_synapse.glb',
+  brain_macro: '/models/brain_macro.glb',
+  neural_forest: '/models/neural_forest.glb',
+  synapse_hero: '/models/synapse_hero.glb',
 };
 
 const ACT_MODEL_MAP: Record<ActId, ModelKey[]> = {
   1: ['athlete_gym'],
-  2: ['athlete_gym', 'brain_synapse'],
-  3: ['cardiopulmonary'],
+  2: ['athlete_gym', 'neural_forest', 'synapse_hero'],
+  3: ['cardiopulmonary', 'bloodstream_tunnel'],
   4: ['muscle_sarcomere'],
   5: ['mitochondrion'],
   6: ['athlete_gym', 'cardiopulmonary'],
-  7: ['brain_synapse'],
-  8: ['brain_synapse'],
-  9: ['brain_synapse'],
-  10: ['brain_synapse'],
+  7: ['bloodstream_tunnel'],
+  8: ['brain_macro', 'neural_forest'],
+  9: ['neural_forest', 'synapse_hero'],
+  10: ['neural_forest', 'synapse_hero', 'brain_macro'],
   11: ['athlete_gym'],
-  12: ['cardiopulmonary', 'mitochondrion', 'brain_synapse'],
+  12: ['cardiopulmonary', 'mitochondrion', 'brain_macro'],
 };
 
 class AssetManagerImpl {
@@ -54,10 +60,9 @@ class AssetManagerImpl {
     activeActs.forEach((a) => {
       (ACT_MODEL_MAP[a] ?? []).forEach((k) => keep.add(k));
     });
-    // Keep athlete_gym warm for instant Act I/XI returns; clear heavy unused GLTF caches if needed
+    // Keep athlete_gym warm for Act I/VI/XI continuity; release heavy off-window caches on RTX 4050
     (Object.keys(MODEL_PATHS) as ModelKey[]).forEach((k) => {
       if (!keep.has(k) && k !== 'athlete_gym' && this.preloaded.has(k)) {
-        // Note: Drei caches by URL; selective clear keeps RTX 4050 VRAM footprint lean
         useGLTF.clear(MODEL_PATHS[k]);
         this.preloaded.delete(k);
       }

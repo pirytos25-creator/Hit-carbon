@@ -1,5 +1,5 @@
 """
-Headless Blender 5.2.1 LTS AgX EEVEE verification renderer with properly framed full-body & macro views.
+Headless Blender 5.2.1 LTS AgX EEVEE verification renderer for all Overdrive v2 GLB assets.
 """
 import math
 import os
@@ -12,27 +12,22 @@ RENDERS_DIR = os.path.join(SCRIPT_DIR, "renders")
 os.makedirs(RENDERS_DIR, exist_ok=True)
 
 
-def setup_render_scene():
+def setup_render_scene(bg=(0.03, 0.045, 0.08, 1.0), strength=0.9):
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scene = bpy.context.scene
     scene.render.engine = 'BLENDER_EEVEE'
-    scene.eevee.taa_render_samples = 24
-    scene.render.resolution_x = 1280
-    scene.render.resolution_y = 720
+    scene.eevee.taa_render_samples = 18
+    scene.render.resolution_x = 1152
+    scene.render.resolution_y = 680
     scene.render.image_settings.file_format = 'PNG'
-
     scene.view_settings.view_transform = 'AgX'
-    try:
-        scene.view_settings.look = 'AgX - Medium High Contrast'
-    except TypeError:
-        pass
 
     world = bpy.data.worlds.new("VerifyWorld")
     scene.world = world
-    bg = world.node_tree.nodes.get("Background")
-    if bg:
-        bg.inputs["Color"].default_value = (0.02, 0.035, 0.06, 1.0)
-        bg.inputs["Strength"].default_value = 0.75
+    bg_node = world.node_tree.nodes.get("Background")
+    if bg_node:
+        bg_node.inputs["Color"].default_value = bg
+        bg_node.inputs["Strength"].default_value = strength
 
     def add_sun(name, energy, rot_deg, color):
         ldata = bpy.data.lights.new(name, type='SUN')
@@ -42,74 +37,92 @@ def setup_render_scene():
         lobj.rotation_euler = tuple(math.radians(a) for a in rot_deg)
         scene.collection.objects.link(lobj)
 
-    add_sun("KeySun", 3.6, (48, 12, -38), (1.0, 0.96, 0.92))
-    add_sun("FillSun", 1.3, (115, 0, 145), (0.60, 0.80, 1.0))
-    add_sun("RimSun", 1.8, (25, 0, 155), (0.45, 0.85, 1.0))
+    add_sun("KeySun", 3.6, (48, 12, -35), (1.0, 0.96, 0.90))
+    add_sun("FrontFillSun", 1.8, (-55, 0, 15), (0.88, 0.94, 1.0))
+    add_sun("RimSun", 1.6, (25, 0, 155), (0.50, 0.85, 1.0))
+
+    cam_d = bpy.data.cameras.new("VerifyCam")
+    cam_d.clip_start = 0.01
+    cam_d.clip_end = 100.0
+    cam_o = bpy.data.objects.new("VerifyCam", cam_d)
+    scene.collection.objects.link(cam_o)
+    scene.camera = cam_o
+    return scene, cam_o, cam_d
 
 
-def compute_bounds(objs):
-    mins = Vector((1e9, 1e9, 1e9))
-    maxs = Vector((-1e9, -1e9, -1e9))
-    count = 0
-    for obj in objs:
-        if obj.type != 'MESH':
-            continue
-        for corner in obj.bound_box:
-            wc = obj.matrix_world @ Vector(corner)
-            mins.x = min(mins.x, wc.x)
-            mins.y = min(mins.y, wc.y)
-            mins.z = min(mins.z, wc.z)
-            maxs.x = max(maxs.x, wc.x)
-            maxs.y = max(maxs.y, wc.y)
-            maxs.z = max(maxs.z, wc.z)
-            count += 1
-    if count == 0:
-        return Vector((0, 0, 0)), 1.0
-    center = (mins + maxs) * 0.5
-    radius = max((maxs - mins).length * 0.5, 0.1)
-    return center, radius
-
-
-def render_glb(glb_filename, out_png, cam_dir=(1.6, -2.0, 0.75), target_override=None, dist_override=None, dist_mult=2.2):
-    setup_render_scene()
-    glb_path = os.path.join(MODELS_DIR, glb_filename)
-    bpy.ops.import_scene.gltf(filepath=glb_path)
-    bpy.context.view_layer.update()
-
-    meshes = [o for o in bpy.context.scene.objects if o.type == 'MESH']
-    center, radius = compute_bounds(meshes)
-    if target_override is not None:
-        center = Vector(target_override)
-
-    cam_data = bpy.data.cameras.new("VerifyCam")
-    cam_data.lens = 42
-    cam_data.clip_start = 0.01
-    cam_data.clip_end = 100.0
-    cam_obj = bpy.data.objects.new("VerifyCam", cam_data)
-    bpy.context.scene.collection.objects.link(cam_obj)
-    bpy.context.scene.camera = cam_obj
-
-    dir_v = Vector(cam_dir).normalized()
-    dist = dist_override if dist_override is not None else radius * dist_mult
-    cam_obj.location = center + dir_v * dist
-    cam_obj.rotation_euler = (center - cam_obj.location).to_track_quat('-Z', 'Y').to_euler()
-
+def snap(scene, cam_o, cam_d, loc, target, out_png, lens=38):
+    cam_d.lens = lens
+    cam_o.location = Vector(loc)
+    cam_o.rotation_euler = (Vector(target) - cam_o.location).to_track_quat('-Z', 'Y').to_euler()
     out_path = os.path.join(RENDERS_DIR, out_png)
-    bpy.context.scene.render.filepath = out_path
+    scene.render.filepath = out_path
     bpy.ops.render.render(write_still=True)
-
-    tris = sum(len(m.data.polygons) for m in meshes)
-    print(f"[VERIFIED RENDER] {glb_filename} -> {out_png} | meshes={len(meshes)} | polys={tris} | size={os.path.getsize(glb_path)} B")
+    print(f"[VERIFIED] -> {out_png}")
 
 
 def main():
-    # In Blender after GLTF re-import, Z is Up, so full athlete stands from Z=0.145 to Z=1.92
-    render_glb("athlete_gym.glb", "verify_01_athlete.png", cam_dir=(1.8, 2.4, 0.55), target_override=(0.0, 0.0, 1.05), dist_override=3.4)
-    render_glb("cardiopulmonary.glb", "verify_02_cardiopulmonary.png", cam_dir=(0.45, -1.7, 0.40), target_override=(0.04, 0.0, 0.02), dist_override=0.92)
-    render_glb("muscle_sarcomere.glb", "verify_03_sarcomere.png", cam_dir=(0.65, 1.65, 0.90), target_override=(0.0, 0.0, 0.0), dist_override=2.9)
-    render_glb("mitochondrion.glb", "verify_04_mitochondrion.png", cam_dir=(0.45, -1.65, 1.20), target_override=(0.0, 0.0, 0.05), dist_override=3.0)
-    render_glb("brain_synapse.glb", "verify_05_brain.png", cam_dir=(1.45, -1.35, 0.65), target_override=(0.0, 0.0, -0.05), dist_override=2.55)
-    render_glb("brain_synapse.glb", "verify_05b_synapse.png", cam_dir=(0.35, -1.65, 0.65), target_override=(2.95, 0.0, 0.0), dist_override=2.7)
+    # 1. Athlete & Gym (Shots: full mid-run, front-lit face, shoes on deck)
+    sc, co, cd = setup_render_scene()
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "athlete_gym.glb"))
+    rig = [o for o in bpy.data.objects if o.type == 'ARMATURE'][0]
+    if rig.animation_data:
+        for tr in rig.animation_data.nla_tracks:
+            tr.mute = (tr.name != 'Run_Fast')
+    sc.frame_set(8)
+    bpy.context.view_layer.update()
+    for o in bpy.data.objects:
+        if any(o.name.startswith(p) for p in ("Layer_Muscular", "Layer_Thoracic", "Layer_Heart", "Layer_Lungs", "Layer_Vascular", "Layer_Nervous")):
+            o.hide_render = True
+    # Soft warm daylight fill inside gym
+    pl_face = bpy.data.lights.new("GymKeySpot", 'POINT')
+    pl_face.energy = 110.0; pl_face.color = (1.0, 0.94, 0.86)
+    po_f = bpy.data.objects.new("GymKeySpot", pl_face); po_f.location = Vector((1.6, 1.4, 2.2)); sc.collection.objects.link(po_f)
+    snap(sc, co, cd, (2.25, 1.95, 1.30), (0.0, -0.05, 1.02), "v2_athlete_full.png", 36)
+    snap(sc, co, cd, (0.36, 0.88, 1.72), (0.0, -0.04, 1.67), "v2_athlete_face.png", 52)
+    snap(sc, co, cd, (1.10, 0.35, 0.42), (0.0, -0.08, 0.24), "v2_athlete_shoes.png", 46)
+
+    # 2. Cardiopulmonary (HuBMAP Heart & Lungs)
+    sc, co, cd = setup_render_scene()
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "cardiopulmonary.glb"))
+    snap(sc, co, cd, (0.15, -1.35, 0.08), (0.0, 0.0, -0.02), "v2_cardiopulmonary.png", 42)
+
+    # 3. Bloodstream Tunnel Interior (inside centerline at u=0.14 -> u=0.58)
+    sc, co, cd = setup_render_scene(bg=(0.12, 0.02, 0.04, 1.0), strength=0.35)
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "bloodstream_tunnel.glb"))
+    def b_ctr(u):
+        return (-5.5 + u * 11.0, math.sin(u * math.pi * 1.25) * 0.85, math.cos(u * math.pi * 1.1) * 0.30 - 0.08)
+    for pu, col_l, e_l in ((0.22, (1.0, 0.38, 0.36), 65.0), (0.50, (1.0, 0.50, 0.40), 75.0), (0.78, (1.0, 0.45, 0.45), 55.0)):
+        pl = bpy.data.lights.new(f"Lum{pu}", 'POINT'); pl.energy = e_l; pl.color = col_l
+        po = bpy.data.objects.new(f"Lum{pu}", pl); po.location = Vector(b_ctr(pu)); sc.collection.objects.link(po)
+    snap(sc, co, cd, b_ctr(0.14), b_ctr(0.55), "v2_bloodstream_interior.png", 24)
+
+    # 4. Muscle Sarcomere
+    sc, co, cd = setup_render_scene()
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "muscle_sarcomere.glb"))
+    snap(sc, co, cd, (0.55, 1.85, 0.75), (0.0, 0.0, 0.0), "v2_sarcomere.png", 38)
+
+    # 5. Mitochondrion Cathedral & Close-up on PDB 8H9T ATP Synthase
+    sc, co, cd = setup_render_scene(bg=(0.03, 0.02, 0.07, 1.0), strength=0.5)
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "mitochondrion.glb"))
+    pl_m = bpy.data.lights.new("MitoKey", 'POINT'); pl_m.energy = 150.0; pl_m.color = (1.0, 0.88, 0.68)
+    po_m = bpy.data.objects.new("MitoKey", pl_m); po_m.location = Vector((0.35, -1.45, 0.85)); sc.collection.objects.link(po_m)
+    snap(sc, co, cd, (0.20, -2.55, 0.72), (0.10, 0.10, 0.24), "v2_mitochondrion.png", 36)
+    snap(sc, co, cd, (1.15, -1.15, 0.62), (0.68, -0.04, 0.34), "v2_atp_synthase_close.png", 48)
+
+    # 6. Brain Macro (Allen Brain Atlas)
+    sc, co, cd = setup_render_scene()
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "brain_macro.glb"))
+    snap(sc, co, cd, (1.65, -1.75, 0.55), (0.0, 0.0, -0.05), "v2_brain_macro.png", 40)
+
+    # 7. Neural Forest
+    sc, co, cd = setup_render_scene(bg=(0.02, 0.03, 0.08, 1.0), strength=0.55)
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "neural_forest.glb"))
+    snap(sc, co, cd, (1.35, -2.75, 0.55), (0.0, 0.45, 0.25), "v2_neural_forest.png", 34)
+
+    # 8. Molecular Synapse Hero
+    sc, co, cd = setup_render_scene(bg=(0.02, 0.035, 0.08, 1.0), strength=0.65)
+    bpy.ops.import_scene.gltf(filepath=os.path.join(MODELS_DIR, "synapse_hero.glb"))
+    snap(sc, co, cd, (0.25, -1.65, 0.35), (-0.05, 0.0, 0.0), "v2_synapse_hero.png", 40)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,9 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import { useBiogenesisStore } from '../core/SimulationCore';
+import { MODEL_PATHS } from '../core/AssetManager';
+import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
 import { TemporalHorizon } from '../types/biogenesis';
 import { NeuralPathwayTube } from './NeuralSimulation';
 
@@ -15,40 +17,87 @@ const HORIZON_PROGRESS: Record<TemporalHorizon, number> = {
 
 /**
  * Akt XII — Tydzień, Miesiąc, Rok:
- * Interaktywny eksplorator adaptacji czasowych łączący trzy układy:
- * 1. Przerost objętościowy lewej komory i naczyń włosowatych (angiogeneza)
- * 2. Biogeneza sieci mitochondrialnej (PGC-1α -> namnażanie mitochondriów od 100% do ~200%)
- * 3. Utrzymanie i potencjalne wzmocnienie połączeń hipokampa oraz kory przedczołowej
+ * Tryptyk długofalowych adaptacji organizmu na bazie realnych modeli anatomicznych
+ * (serce HuBMAP + kapilary, sieć mitochondrialna cryo-EM, hipokamp i PFC z Allen Brain Atlas).
  */
 export function Act12WeekMonthYear() {
+  const { scene: cardioScene } = useGLTF(MODEL_PATHS.cardiopulmonary);
+  const { scene: brainScene } = useGLTF(MODEL_PATHS.brain_macro);
   const temporalHorizon = useBiogenesisStore((s) => s.temporalHorizon);
-  const heartRef = useRef<THREE.Mesh>(null);
+
+  const heartGroupRef = useRef<THREE.Group>(null);
   const mitoGroupRef = useRef<THREE.Group>(null);
   const hippoGroupRef = useRef<THREE.Group>(null);
+
+  const clonedHeart = useMemo(() => {
+    const c = cardioScene.clone(true);
+    const keep = new Set(['Heart_Ventricles', 'Heart_Atria', 'Great_Arteries_Coronary']);
+    c.traverse((o) => {
+      if (o instanceof THREE.Mesh) {
+        if (!keep.has(o.name)) o.visible = false;
+        else if (o.material) o.material = (o.material as THREE.Material).clone();
+      }
+    });
+    return c;
+  }, [cardioScene]);
+
+  const clonedBrain = useMemo(() => {
+    const c = brainScene.clone(true);
+    c.traverse((o) => {
+      if (o instanceof THREE.Mesh && o.material) {
+        const mat = (o.material as THREE.Material).clone() as THREE.MeshStandardMaterial;
+        if (o.name.startsWith('Cortex_')) {
+          mat.transparent = true;
+          mat.opacity = 0.25;
+          mat.depthWrite = false;
+        }
+        o.material = mat;
+      }
+    });
+    return c;
+  }, [brainScene]);
 
   const mitoPositions = useMemo(() => {
     const arr: [number, number, number][] = [];
     for (let i = 0; i < 16; i++) {
       const ang = i * 2.39996;
-      const r = 0.12 + (i / 16) * 0.42;
-      arr.push([Math.cos(ang) * r, ((i % 4) - 1.5) * 0.18, Math.sin(ang) * r]);
+      const r = 0.14 + (i / 16) * 0.38;
+      arr.push([Math.cos(ang) * r, ((i % 4) - 1.5) * 0.16, Math.sin(ang) * r]);
     }
     return arr;
   }, []);
 
-  useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
+  useEffect(() => {
+    return () => {
+      [clonedHeart, clonedBrain].forEach((r) =>
+        r.traverse((o) => {
+          if (o instanceof THREE.Mesh) {
+            const m = o.material;
+            if (Array.isArray(m)) m.forEach((x) => x.dispose());
+            else m?.dispose();
+          }
+        })
+      );
+    };
+  }, [clonedHeart, clonedBrain]);
+
+  useFrame(() => {
+    const t = liveSimulationRef.masterTimeSec;
     const adapt = HORIZON_PROGRESS[temporalHorizon];
 
-    // Cardiac remodeling: stronger, slower resting stroke volume
-    if (heartRef.current) {
-      const beatRate = 1.4 - adapt * 0.38;
-      const beat = Math.exp(-Math.pow((((t * beatRate) % 1) - 0.15) * 6, 2));
-      const baseScale = 0.92 + adapt * 0.22;
-      heartRef.current.scale.setScalar(baseScale + beat * (0.08 + adapt * 0.08));
+    // Cardiac remodeling via real HuBMAP Ventricular Systole Morph Targets + resting bradycardia
+    const beatRate = 1.35 - adapt * 0.35;
+    const bp = (t * beatRate) % 1;
+    const vent = bp >= 0.16 && bp < 0.50 ? Math.sin(((bp - 0.16) / 0.34) * Math.PI) * (0.6 + adapt * 0.38) : 0;
+    const ventMesh = clonedHeart.getObjectByName('Heart_Ventricles') as THREE.Mesh | null;
+    if (ventMesh?.morphTargetDictionary && ventMesh.morphTargetInfluences) {
+      const idx = ventMesh.morphTargetDictionary['Ventricular_Systole'];
+      if (idx !== undefined) ventMesh.morphTargetInfluences[idx] = vent;
+    }
+    if (heartGroupRef.current) {
+      heartGroupRef.current.scale.setScalar(1.35 + adapt * 0.28);
     }
 
-    // Mitochondrial biogenesis count & glow (PGC-1alpha driven)
     if (mitoGroupRef.current) {
       mitoGroupRef.current.rotation.y = t * 0.22;
       const activeCount = Math.round(4 + adapt * 12);
@@ -58,10 +107,9 @@ export function Act12WeekMonthYear() {
       });
     }
 
-    // Neural dendritic branching density
     if (hippoGroupRef.current) {
       hippoGroupRef.current.rotation.y = Math.sin(t * 0.35) * 0.18;
-      hippoGroupRef.current.scale.setScalar(0.88 + adapt * 0.18);
+      hippoGroupRef.current.scale.setScalar(0.56 + adapt * 0.14);
     }
   });
 
@@ -73,40 +121,21 @@ export function Act12WeekMonthYear() {
       <pointLight position={[-2.2, 0.8, 1.5]} intensity={1.8} color="#fb7185" />
       <pointLight position={[2.2, 0.8, 1.5]} intensity={1.8} color="#34d399" />
 
-      {/* 1. Układ Krążenia i Kapilaryzacja (Lewo) */}
-      <group position={[-1.28, 0.1, 0]}>
-        <group ref={heartRef as any}>
-          {/* Sculpted asymmetric ventricular cone + aortic arch */}
-          <mesh position={[0.04, -0.04, 0]} rotation={[0.15, 0, -0.25]} scale={[0.92, 1.25, 0.85]}>
-            <sphereGeometry args={[0.28, 22, 16]} />
-            <meshPhysicalMaterial
-              color="#e11d48"
-              emissive="#be123c"
-              emissiveIntensity={0.35 + adapt * 0.35}
-              roughness={0.28}
-              clearcoat={0.45}
-            />
-          </mesh>
-          <mesh position={[-0.12, 0.18, 0.04]} scale={[0.9, 1.0, 0.8]}>
-            <sphereGeometry args={[0.14, 16, 12]} />
-            <meshPhysicalMaterial color="#9f1239" roughness={0.32} clearcoat={0.4} />
-          </mesh>
-          <mesh position={[0.02, 0.30, 0]} rotation={[0, 0, -0.35]}>
-            <torusGeometry args={[0.11, 0.045, 10, 20, Math.PI]} />
-            <meshPhysicalMaterial color="#dc2626" roughness={0.28} />
-          </mesh>
+      {/* 1. Układ Krążenia (Realne serce HuBMAP + angiogeneza naczyń włosowatych) */}
+      <group position={[-1.32, 0.08, 0]}>
+        <group ref={heartGroupRef} scale={1.45}>
+          <primitive object={clonedHeart} />
         </group>
-        {/* Capillary network density grows across weeks/months */}
         {Array.from({ length: Math.round(3 + adapt * 7) }).map((_, i) => (
           <mesh key={i} rotation={[i * 0.45, i * 0.7, 0]}>
-            <torusGeometry args={[0.48 + (i % 3) * 0.07, 0.011 + adapt * 0.005, 8, 32]} />
-            <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.45} transparent opacity={0.7} />
+            <torusGeometry args={[0.50 + (i % 3) * 0.06, 0.010 + adapt * 0.005, 8, 32]} />
+            <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.45} transparent opacity={0.68} />
           </mesh>
         ))}
       </group>
 
-      {/* 2. Biogeneza Mitochondriów w Mięśniach (Środek) */}
-      <group position={[0, 0.1, 0]}>
+      {/* 2. Biogeneza Mitochondriów (PGC-1alpha -> +60..100% gęstości w mięśniach) */}
+      <group position={[0, 0.08, 0]}>
         <mesh>
           <cylinderGeometry args={[0.58, 0.58, 1.05, 24, 1, true]} />
           <meshPhysicalMaterial color="#7c2d12" roughness={0.4} transparent opacity={0.18} side={THREE.DoubleSide} />
@@ -114,52 +143,19 @@ export function Act12WeekMonthYear() {
         <group ref={mitoGroupRef}>
           {mitoPositions.map((pos, idx) => (
             <mesh key={idx} position={pos} rotation={[idx * 0.6, idx * 0.9, 0]}>
-              <capsuleGeometry args={[0.052, 0.13, 8, 12]} />
-              <meshStandardMaterial
-                color="#f97316"
-                emissive="#fb923c"
-                emissiveIntensity={0.55 + adapt * 0.65}
-                roughness={0.28}
-              />
+              <capsuleGeometry args={[0.048, 0.12, 8, 12]} />
+              <meshStandardMaterial color="#f97316" emissive="#fb923c" emissiveIntensity={0.55 + adapt * 0.65} roughness={0.28} />
             </mesh>
           ))}
         </group>
       </group>
 
-      {/* 3. Plastyczność Hipokampa i Kory Przedczołowej (Prawo) */}
-      <group ref={hippoGroupRef} position={[1.28, 0.1, 0]}>
-        <mesh>
-          <sphereGeometry args={[0.42, 20, 16]} />
-          <meshPhysicalMaterial
-            color="#1e3a5f"
-            emissive="#0ea5e9"
-            emissiveIntensity={0.28 + adapt * 0.42}
-            roughness={0.3}
-            transparent
-            opacity={0.42}
-          />
-        </mesh>
-        <NeuralPathwayTube
-          points={[[-0.25, -0.22, 0.1], [-0.08, 0.0, 0.16], [0.15, 0.18, 0.05], [0.28, 0.04, -0.15]]}
-          radius={0.016 + adapt * 0.008}
-          waveColor="#fbbf24"
-          speed={1.4 + adapt * 0.8}
-        />
+      {/* 3. Plastyczność Hipokampa i Kory Przedczołowej (Allen Brain Atlas) */}
+      <group ref={hippoGroupRef} position={[1.32, 0.08, 0]} scale={0.58}>
+        <primitive object={clonedBrain} />
+        <NeuralPathwayTube points={[[-0.25, -0.22, 0.1], [-0.08, 0.0, 0.16], [0.15, 0.18, 0.05], [0.28, 0.04, 0.35]]} radius={0.024 + adapt * 0.01} waveColor="#fbbf24" speed={1.4 + adapt * 0.8} />
         {adapt > 0.35 && (
-          <NeuralPathwayTube
-            points={[[0.22, -0.18, 0.12], [0.06, 0.10, -0.05], [-0.18, 0.22, -0.12]]}
-            radius={0.014 + adapt * 0.008}
-            waveColor="#34d399"
-            speed={1.6}
-          />
-        )}
-        {adapt > 0.7 && (
-          <NeuralPathwayTube
-            points={[[-0.20, 0.18, 0.15], [0.0, -0.12, -0.18], [0.22, -0.08, 0.14]]}
-            radius={0.015}
-            waveColor="#38bdf8"
-            speed={1.8}
-          />
+          <NeuralPathwayTube points={[[0.22, -0.18, 0.12], [0.06, 0.10, -0.05], [-0.18, 0.22, 0.28]]} radius={0.022 + adapt * 0.008} waveColor="#34d399" speed={1.6} />
         )}
       </group>
     </group>
