@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "biogenesis-dev",
+      "runtimeExecutable": "npm.cmd",
+      "runtimeArgs": ["run", "dev", "--", "--open=false"],
+      "port": 5173,
+      "url": "http://127.0.0.1:5173"
+    }
+  ]
+}

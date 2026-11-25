@@ -10,3 +10,4 @@ assets_raw/
 Thumbs.db
 __pycache__/
 *.pyc
+atlas_raw/

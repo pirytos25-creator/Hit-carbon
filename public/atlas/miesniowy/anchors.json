@@ -1,0 +1,77 @@
+{
+  "id": "miesniowy",
+  "resolution": [
+    1000,
+    1800
+  ],
+  "views": {
+    "front": {
+      "images": {
+        "rest": "front_rest.webp",
+        "sprint": "front_sprint.webp"
+      },
+      "anchors": {
+        "rectus_femoris": [
+          0.3927,
+          0.6186
+        ],
+        "vastus_lateralis": [
+          0.3683,
+          0.6634
+        ],
+        "tibialis_anterior": [
+          0.4131,
+          0.8496
+        ],
+        "rectus_abdominis": [
+          0.4577,
+          0.3907
+        ],
+        "deltoid": [
+          0.3032,
+          0.2308
+        ]
+      },
+      "bbox": [
+        0.166,
+        0.0283,
+        0.834,
+        0.9717
+      ]
+    },
+    "back": {
+      "images": {
+        "rest": "back_rest.webp",
+        "sprint": "back_sprint.webp"
+      },
+      "anchors": {
+        "gluteus_maximus": [
+          0.5739,
+          0.507
+        ],
+        "biceps_femoris": [
+          0.589,
+          0.6384
+        ],
+        "semitendinosus": [
+          0.5507,
+          0.6528
+        ],
+        "gastrocnemius": [
+          0.5602,
+          0.7777
+        ],
+        "soleus": [
+          0.5861,
+          0.8579
+        ]
+      },
+      "bbox": [
+        0.166,
+        0.0283,
+        0.834,
+        0.9717
+      ]
+    }
+  }
+}

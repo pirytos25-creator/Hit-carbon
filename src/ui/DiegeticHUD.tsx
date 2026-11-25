@@ -151,6 +151,13 @@ export function DiegeticHUD() {
                 <GraduationCap className="w-4 h-4" />
                 Tryb Akademicki
               </button>
+              <a
+                href="#atlas"
+                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl bg-slate-900/90 border border-orange-400/40 text-orange-200 font-semibold text-sm hover:border-orange-300 transition"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--sys-muscle)]" />
+                Atlas układów
+              </a>
             </div>
 
             <div className="text-[11px] text-slate-400 pt-2 border-t border-slate-800/80">
