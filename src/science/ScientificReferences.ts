@@ -420,6 +420,60 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'U 8 wioślarzy (4 h wysiłku) mózg uwalniał BDNF do krwi żylnej szyjnej, w wysiłku 2–3 razy więcej niż w spoczynku, i odpowiadał za ok. 70–80% krążącego BDNF. Dane o miejscu w mózgu pochodzą z badań na myszach.',
   },
+  // --- Atlas układów: plansza mięśniowa, zbliżenie (włókna i mostek poprzeczny) ---
+  staron_2000: {
+    id: 'staron_2000',
+    authors: 'Staron, R. S., Hagerman, F. C., Hikida, R. S., Murray, T. F., Hostler, D. P., Crill, M. T., Ragg, K. E., & Toma, K.',
+    year: 2000,
+    title: 'Fiber type composition of the vastus lateralis muscle of young men and women',
+    journal: 'Journal of Histochemistry & Cytochemistry, 48(5), 623–629',
+    pmid: '10769046',
+    doi: '10.1177/002215540004800506',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/10769046/',
+    acts: [],
+    summaryPl:
+      'Normy składu włókien m. obszernego bocznego ze 150 biopsji (95 mężczyzn, 55 kobiet, niewytrenowani, ok. 21 lat), pobranych ok. 16 cm nad rzepką: ok. 41% I, 31% IIA, 20% IIB (dziś IIX) i nieliczne włókna mieszane. Po zsumowaniu typów mieszanych: ok. 42% I, 35% IIA, 23% IIX. Duży rozrzut między osobami (typ I od ok. 17 do 97%).',
+  },
+  henneman_1957: {
+    id: 'henneman_1957',
+    authors: 'Henneman, E.',
+    year: 1957,
+    title: 'Relation between size of neurons and their susceptibility to discharge',
+    journal: 'Science, 126(3287), 1345–1347',
+    pmid: '13495469',
+    doi: '10.1126/science.126.3287.1345',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/13495469/',
+    acts: [],
+    summaryPl:
+      'Praca źródłowa zasady rozmiaru (badania na kotach): małe motoneurony pobudzają się najłatwiej, więc przy rosnącym wysiłku małe jednostki ruchowe są rekrutowane przed dużymi. U ludzi zasadę potwierdziły późniejsze badania.',
+  },
+  gollnick_1974: {
+    id: 'gollnick_1974',
+    authors: 'Gollnick, P. D., Piehl, K., & Saltin, B.',
+    year: 1974,
+    title: 'Selective glycogen depletion pattern in human muscle fibres after exercise of varying intensity and at varying pedalling rates',
+    journal: 'The Journal of Physiology, 241(1), 45–57',
+    pmid: '4278539',
+    pmcid: 'PMC1331071',
+    doi: '10.1113/jphysiol.1974.sp010639',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/4278539/',
+    acts: [],
+    summaryPl:
+      'Ubytek glikogenu w pojedynczych włóknach ludzkiego mięśnia: przy wysiłku poniżej VO₂max pierwsze pracują włókna wolne (typ I), a przy obciążeniu powyżej VO₂max od początku pracują oba typy włókien.',
+  },
+  fujii_namba_2017: {
+    id: 'fujii_namba_2017',
+    authors: 'Fujii, T., & Namba, K.',
+    year: 2017,
+    title: 'Structure of actomyosin rigour complex at 5.2 Å resolution and insights into the ATPase cycle mechanism',
+    journal: 'Nature Communications, 8, 13969 (PDB 5H53)',
+    pmid: '28067235',
+    doi: '10.1038/ncomms13969',
+    url: 'https://www.rcsb.org/structure/5H53',
+    acts: [],
+    summaryPl:
+      'Struktura z kriomikroskopii elektronowej (5,2 Å): główka miozyny mięśnia szkieletowego królika związana z filamentem aktynowym w stanie rygoru, czyli mostek poprzeczny tuż po wykonaniu wiosłowania.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
