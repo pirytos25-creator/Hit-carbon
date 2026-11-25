@@ -315,6 +315,59 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Podręcznik fizjologii wysiłku: hemodynamika wysiłkowa, wymiana gazowa, mechanizm ślizgowy włókien mięśniowych, termoregulacja, EPOC i adaptacje treningowe.',
   },
+  enoka_duchateau_2017: {
+    id: 'enoka_duchateau_2017',
+    authors: 'Enoka, R. M., & Duchateau, J.',
+    year: 2017,
+    title: 'Rate Coding and the Control of Muscle Force',
+    journal: 'Cold Spring Harbor Perspectives in Medicine, 7(10), a029702',
+    pmid: '28348173',
+    pmcid: 'PMC5629984',
+    doi: '10.1101/cshperspect.a029702',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/28348173/',
+    acts: [2, 4],
+    summaryPl:
+      'Przegląd kodowania częstotliwością: większość ruchów to wyładowania motoneuronów 10–30 Hz, a szybkie (balistyczne) skurcze zaczynają się salwą 60–120 Hz. W m. piszczelowym przednim wszystkie jednostki ruchowe są włączone przy ok. 90% siły maksymalnej w skurczu powolnym i już przy ok. 40% w skurczu szybkim.',
+  },
+  duchateau_enoka_2022: {
+    id: 'duchateau_enoka_2022',
+    authors: 'Duchateau, J., & Enoka, R. M.',
+    year: 2022,
+    title: 'Distribution of motor unit properties across human muscles',
+    journal: 'Journal of Applied Physiology, 132(1), 1–13',
+    pmid: '34709066',
+    doi: '10.1152/japplphysiol.00290.2021',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/34709066/',
+    acts: [2, 4],
+    summaryPl:
+      'Zestawienie badań jednostek ruchowych: w m. piszczelowym przednim najmniejsza częstotliwość wyładowań przy włączeniu jednostki to średnio ok. 8,6 Hz, a szczytowa przy maksymalnym skurczu ok. 29 Hz (zakres badań ok. 21–42 Hz).',
+  },
+  brooks_1988: {
+    id: 'brooks_1988',
+    authors: 'Brooks, S., Burrin, J., Cheetham, M. E., Hall, G. M., Yeo, T., & Williams, C.',
+    year: 1988,
+    title: 'The responses of the catecholamines and beta-endorphin to brief maximal exercise in man',
+    journal: 'European Journal of Applied Physiology and Occupational Physiology, 57(2), 230–234',
+    pmid: '2965009',
+    doi: '10.1007/BF00640668',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/2965009/',
+    acts: [2, 6],
+    summaryPl:
+      '30 s maksymalnego biegu na bieżni (10 mężczyzn): noradrenalina w osoczu wzrosła z 2,2 do 13,4 nmol/L, a adrenalina z 0,2 do 1,4 nmol/L; mleczan z 0,6 do 13,5 mmol/L.',
+  },
+  zouhal_2008: {
+    id: 'zouhal_2008',
+    authors: 'Zouhal, H., Jacob, C., Delamarche, P., & Gratas-Delamarche, A.',
+    year: 2008,
+    title: 'Catecholamines and the effects of exercise, training and gender',
+    journal: 'Sports Medicine, 38(5), 401–423',
+    pmid: '18416594',
+    doi: '10.2165/00007256-200838050-00004',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18416594/',
+    acts: [2, 6],
+    summaryPl:
+      'Przegląd: w wysiłku stężenia adrenaliny i noradrenaliny rosną od 1,5 do ponad 20 razy względem spoczynku, zależnie od intensywności i czasu trwania. Osoby trenujące sprint mogą wydzielać więcej adrenaliny („sportowy rdzeń nadnerczy”).',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
