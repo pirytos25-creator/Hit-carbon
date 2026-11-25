@@ -527,6 +527,46 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Przegląd: w wysiłku stężenia adrenaliny i noradrenaliny rosną od 1,5 do ponad 20 razy względem spoczynku, zależnie od intensywności i czasu trwania. Osoby trenujące sprint mogą wydzielać więcej adrenaliny („sportowy rdzeń nadnerczy”).',
   },
+  // Atlas układów: układ krwionośny (acts: [] = tylko atlas, bez zmian w listach źródeł 12 aktów)
+  tanaka_2001: {
+    id: 'tanaka_2001',
+    authors: 'Tanaka, H., Monahan, K. D., & Seals, D. R.',
+    year: 2001,
+    title: 'Age-predicted maximal heart rate revisited',
+    journal: 'Journal of the American College of Cardiology, 37(1), 153–156',
+    pmid: '11153730',
+    doi: '10.1016/S0735-1097(00)01054-8',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/11153730/',
+    acts: [],
+    summaryPl:
+      'Metaanaliza 351 badań (18 712 osób) i badanie laboratoryjne 514 osób: maksymalne tętno zdrowego dorosłego to ok. 208 − 0,7 × wiek (np. ok. 187/min w wieku 30 lat), niezależnie od płci i aktywności.',
+  },
+  duncker_bache_2008: {
+    id: 'duncker_bache_2008',
+    authors: 'Duncker, D. J., & Bache, R. J.',
+    year: 2008,
+    title: 'Regulation of coronary blood flow during exercise',
+    journal: 'Physiological Reviews, 88(3), 1009–1086',
+    pmid: '18626066',
+    doi: '10.1152/physrev.00045.2006',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18626066/',
+    acts: [],
+    summaryPl:
+      'Przegląd: przy ciężkim wysiłku zapotrzebowanie lewej komory na tlen rośnie ok. 6-krotnie i jest pokrywane głównie wzrostem przepływu wieńcowego (ok. 5-krotnym), bo ekstrakcja tlenu w sercu już w spoczynku wynosi 70–80%.',
+  },
+  joyner_casey_2015: {
+    id: 'joyner_casey_2015',
+    authors: 'Joyner, M. J., & Casey, D. P.',
+    year: 2015,
+    title: 'Regulation of increased blood flow (hyperemia) to muscles during exercise: a hierarchy of competing physiological needs',
+    journal: 'Physiological Reviews, 95(2), 549–601',
+    pmid: '25834232',
+    doi: '10.1152/physrev.00035.2013',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/25834232/',
+    acts: [],
+    summaryPl:
+      'Przegląd regulacji przepływu krwi do pracujących mięśni u ludzi: bardzo duże przepływy mięśniowe, rozszerzenie naczyń w mięśniach i rywalizacja mięśni z ograniczonym rzutem serca, którą układ współczulny równoważy, by utrzymać ciśnienie.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
