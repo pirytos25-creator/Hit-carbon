@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "description": "Jedno źródło kolorów atlasu dla Pythona (blender/atlas/atlas_lib.py) i TS (src/atlas). Walidator: node scripts/atlas_check_palette.ts. Zmienia tylko integrator.",
   "restMix": 0.35,
+  "emission": { "minLevel": 0.6, "min": 0.15, "max": 0.35, "rule": "Świecą tylko struktury pracujące (poziom ≥ minLevel) w sprincie: emisja rośnie liniowo od min (poziom = minLevel) do max (poziom 1,0). Spoczynek i 'dim': bez emisji." },
   "context": {
     "bone": "#D8D1C4",
     "muscle": "#8E7A78",

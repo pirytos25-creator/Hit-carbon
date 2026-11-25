@@ -110,6 +110,8 @@ export interface AtlasFlow {
   points: [number, number][];
   kind: AtlasFlowKind;
   labelPl?: string;
+  /** Stany, w których rysować strzałkę; brak = oba. */
+  states?: AtlasState[];
 }
 
 /** Strzałka w metrach (układ Z-Anatomy), z public/atlas/<id>/flows3d.json. Rzutowana tym samym rzutem co kotwice. */
@@ -119,6 +121,8 @@ export interface AtlasFlow3D {
   labelPl?: string;
   /** Widoki, w których rysować; brak = wszystkie widoki z kamerą. */
   views?: AtlasView[];
+  /** Stany, w których rysować strzałkę; brak = oba. */
+  states?: AtlasState[];
   points: [number, number, number][];
 }
 

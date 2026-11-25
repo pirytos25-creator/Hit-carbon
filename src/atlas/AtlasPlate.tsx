@@ -215,9 +215,11 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   const flowsByView = useMemo(() => {
     const out: Record<string, { key: string; kind: AtlasFlowKind; label?: string; pts: [number, number][] }[]> = {};
     for (const f of content.flows ?? []) {
+      if (f.states && !f.states.includes(state)) continue;
       (out[f.view] ??= []).push({ key: `px-${f.view}-${f.labelPl ?? ''}-${f.points[0]}`, kind: f.kind, label: f.labelPl, pts: f.points });
     }
     for (const f of flows3d?.flows ?? []) {
+      if (f.states && !f.states.includes(state)) continue;
       for (const view of views) {
         const cam = anchors.views[view]?.camera;
         if (!cam || (f.views && !f.views.includes(view))) continue;
@@ -230,7 +232,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
       }
     }
     return out;
-  }, [content.flows, flows3d, views, anchors]);
+  }, [content.flows, flows3d, views, anchors, state]);
 
   const dash = 9 * u;
   const dashGap = 7 * u;

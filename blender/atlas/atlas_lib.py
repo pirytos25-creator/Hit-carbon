@@ -62,6 +62,16 @@ SYSTEM_COLORS = {s["key"]: s["color"] for s in PALETTE["systems"]}
 SYSTEM_LIGHT = {s["key"]: s["light"] for s in PALETTE["systems"]}
 CONTEXT_COLORS = {k: v for k, v in PALETTE["context"].items() if k != "pageBg"}
 REST_MIX = float(PALETTE["restMix"])  # spoczynek: 35% koloru układu + 65% kontekstu
+EMISSION_RULE = PALETTE["emission"]
+
+
+def emission_for(level):
+    """Siła emisji w sprincie dla poziomu pracy 0-1 (0 poniżej progu struktur pracujących)."""
+    lo = EMISSION_RULE["minLevel"]
+    if level < lo:
+        return 0.0
+    f = (level - lo) / max(1e-6, 1.0 - lo)
+    return EMISSION_RULE["min"] + (EMISSION_RULE["max"] - EMISSION_RULE["min"]) * min(1.0, f)
 
 # Światło. Faza 0 miała klucz 260 W, wypełnienie 90 W, kontrę 220 W: przy emisji sprintu kanał R się obcinał
 # (bursztyn wychodził cytrynowy, ceglasty łososiowy). LIGHT_SCALE mnoży wszystkie trzy lampy, KEY_SCALE dodatkowo klucz.
@@ -70,7 +80,7 @@ REST_MIX = float(PALETTE["restMix"])  # spoczynek: 35% koloru układu + 65% kont
 # ΔE (mediana kuli, CIE76) ≤ 2,6 względem tabeli i 0-2% obciętych pikseli.
 LIGHT_SCALE = float(os.environ.get("ATLAS_LIGHT", "0.45"))
 KEY_SCALE = 0.7
-EMISSION = 0.3  # emisja sprintu = EMISSION × poziom
+# Emisja (księga stylu §2): świecą tylko struktury pracujące w sprincie; reguła z palette.json → "emission".
 
 
 def hex_to_linear(h):
@@ -562,7 +572,7 @@ def active_color(system, state="sprint", level=1.0, ctx=None):
     if state == "rest" or level == "dim":
         return mix(ctx_col, sys_col, REST_MIX), 0.0, REST_MIX
     t = max(REST_MIX, float(level))
-    return mix(ctx_col, sys_col, t), EMISSION * float(level), t
+    return mix(ctx_col, sys_col, t), emission_for(float(level)), t
 
 
 def role_material(role, system=None, state="sprint", level=1.0, alpha=None, ctx=None):
@@ -1043,6 +1053,7 @@ class Plate:
             pts = resample([Vector(p) for p in fl["points"]], step)
             out["flows"].append({k: v for k, v in {
                 "id": fl["id"], "kind": fl["kind"], "labelPl": fl.get("labelPl"), "views": fl.get("views"),
+                "states": fl.get("states"),
                 "points": [[round(v, 4) for v in p] for p in pts]}.items() if v is not None})
         path = os.path.join(self.out_dir, "flows3d.json")
         with open(path, "w", encoding="utf-8") as f:

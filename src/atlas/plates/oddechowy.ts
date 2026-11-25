@@ -23,7 +23,7 @@ export const ODDECHOWY: AtlasPlateContent = {
     rest: ['detroyer_estenne_1984', 'aliverti_1997'],
     sprint: ['aliverti_1997', 'detroyer_2005', 'blackie_1991', 'hopkins_1996'],
   },
-  summaryStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #1, #3 (poprawione: bez 6 L/min); #6, #8
+  summaryStatus: { rest: 'draft', sprint: 'draft' }, // K3: zmienione = draft
   labels: [
     {
       anchor: 'larynx',
@@ -42,7 +42,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       nameLat: 'trachea',
       role: { rest: 'Spokojny przepływ powietrza', sprint: 'Bardzo szybki przepływ powietrza' },
       tier: 'primary',
-      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #11
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #11
     },
     {
       anchor: 'scalene',
@@ -62,7 +62,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Rozprowadza powietrze do płuca', sprint: 'Oskrzela lekko się rozszerzają' },
       tier: 'primary',
       referenceIds: ['antonelli_2012'],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #14 (spoczynek: opis anatomiczny, poza audytem)
+      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #14 (spoczynek: opis anatomiczny, poza audytem)
     },
     {
       anchor: 'lung',
@@ -72,7 +72,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Wdech (oba płuca) ok. 0,5 L', sprint: 'Wdech (oba płuca) ok. 2,7 L' },
       tier: 'primary',
       referenceIds: ['blackie_1991'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #15 (tylko OpenStax), #16
+      roleStatus: { rest: 'draft', sprint: 'draft' }, // #15 (tylko OpenStax), #16
     },
     {
       anchor: 'intercostal',
@@ -82,7 +82,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Pracują lekko przy każdym wdechu', sprint: 'Unoszą żebra (wdech), ściągają (wydech)' },
       tier: 'primary',
       referenceIds: ['detroyer_estenne_1984', 'detroyer_2005'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #17 (poprawione), #18
+      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #17 (poprawione), #18
     },
     {
       anchor: 'diaphragm',
@@ -92,7 +92,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Główny mięsień spokojnego wdechu', sprint: 'Kurczy się bardzo szybko i napędza przepływ' },
       tier: 'primary',
       referenceIds: ['aliverti_1997'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #19; #20 (poprawione)
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #19; #20 (poprawione)
     },
     {
       anchor: 'bronchiole',
@@ -101,7 +101,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       nameLat: 'bronchiolus terminalis',
       role: { rest: 'Doprowadza świeże powietrze', sprint: 'Dużo więcej powietrza na minutę' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // #21
+      roleStatus: { rest: 'draft', sprint: 'unverifiable' }, // #21
     },
     {
       anchor: 'alveolus',
@@ -133,11 +133,11 @@ export const ODDECHOWY: AtlasPlateContent = {
       referenceIds: ['blackie_1991'],
       evidenceLevel: 'established_human',
       notePl: 'Objętość oddechowa × częstość oddechów. Średnia zdrowych mężczyzn na końcu testu maksymalnego: 97 ± 25 L/min; przy 88% VO₂max zwykle mniej.',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #25: brak cytatu z liczbą 6 L/min
       protocolMismatch: 'koniec testu maksymalnego',
       quote: 'Mean ventilation at the end of exercise (Vemax) was significantly higher in men (mean +/- SD, 97 +/- 25 L/min)',
       locator: 'Blackie 1991, abstrakt',
+      status: 'draft',
+      restStatus: 'unverifiable',
     },
     {
       labelPl: 'Częstość oddechów',
@@ -146,24 +146,24 @@ export const ODDECHOWY: AtlasPlateContent = {
       unit: '/min',
       referenceIds: ['blackie_1991'],
       evidenceLevel: 'established_human',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #28: tylko OpenStax (bez DOI/PMID)
       protocolMismatch: 'koniec testu maksymalnego',
       quote: 'Respiratory rate at the end of exercise (RRmax) was 36.1 +/- 9.2 breaths per minute',
       locator: 'Blackie 1991, abstrakt',
+      status: 'draft',
+      restStatus: 'unverifiable',
     },
     {
       labelPl: 'Objętość oddechowa',
       rest: 'ok. 0,5',
-      sprint: 'ok. 2,7',
+      sprint: 'ok. 2–3',
       unit: 'L na oddech',
       referenceIds: ['blackie_1991'],
       evidenceLevel: 'established_human',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #30: tylko OpenStax (bez DOI/PMID)
       protocolMismatch: 'koniec testu maksymalnego',
       quote: 'Tidal volume at the end of exercise (Vtmax) was higher in men (2.70 +/- 0.48 L)',
       locator: 'Blackie 1991, abstrakt',
+      status: 'checked_agent',
+      restStatus: 'unverifiable',
     },
     {
       labelPl: 'Pobór tlenu VO₂',
@@ -174,11 +174,11 @@ export const ODDECHOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Kanon atlasu: 45 s pracy przy ok. 88% VO₂max. Mediana VO₂max mężczyzn w wieku 20–29 lat to 48 mL/kg/min. Spoczynkowe 3,5 mL/kg/min to umowna wartość (1 MET).',
-      status: 'checked_agent',
       conversionNote:
         'Spoczynek: 3,5 mL/kg/min × 70 kg = 0,245 L/min. Sprint: 48 mL/kg/min × 70–80 kg × 0,88 = 2,96–3,38 L/min.',
       quote: 'the 50th percentile VO 2max of men and women aged 20 to 29 years decreased from 48.0',
       locator: 'Kaminsky 2015, abstrakt (Results); Jetté 1990, abstrakt',
+      status: 'draft',
     },
     {
       labelPl: 'Tlen zużywany przez mięśnie oddechowe',
@@ -188,11 +188,11 @@ export const ODDECHOWY: AtlasPlateContent = {
       referenceIds: ['aaron_1992'],
       evidenceLevel: 'established_human',
       notePl: 'Praca wszystkich mięśni oddechowych przy wysiłku maksymalnym (badanie na zdrowych młodych osobach).',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #35
       protocolMismatch: 'wysiłek maksymalny',
       quote: 'At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max.',
       locator: 'Aaron 1992, abstrakt',
+      status: 'draft',
+      restStatus: 'unverifiable',
     },
     {
       labelPl: 'Krew dla mięśni oddechowych',
@@ -202,11 +202,11 @@ export const ODDECHOWY: AtlasPlateContent = {
       referenceIds: ['harms_1998'],
       evidenceLevel: 'established_human',
       notePl: 'Przy VO₂max mięśnie oddechowe „konkurują” o krew z mięśniami nóg (badanie u wytrenowanych kolarzy).',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #38
       protocolMismatch: 'kolarze, wysiłek maksymalny',
       quote: 'up to 14-16% of the CO is directed to the respiratory muscles',
       locator: 'Harms 1998, abstrakt',
+      status: 'checked_agent',
+      restStatus: 'unverifiable',
     },
   ],
   /**
