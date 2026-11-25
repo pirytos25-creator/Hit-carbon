@@ -1,0 +1,552 @@
+{
+  "voices": {
+    "popular": "pl-PL-MarekNeural",
+    "academic": "pl-PL-ZofiaNeural"
+  },
+  "segments": [
+    {
+      "id": "act-01-s01",
+      "actId": 1,
+      "startSec": 2.0,
+      "endSec": 28.0,
+      "popularDisplayPl": "Zaledwie kilka sekund temu człowiek zwiększył tempo biegu na bieżni. Na zewnątrz zmieniło się niewiele — rytm kroków, głębszy wdech, napięcie mięśni nóg. Jednak pod powierzchnią skóry rozpoczęła się niezwykła mobilizacja miliardów komórek.",
+      "academicDisplayPl": "Przejście ze spoczynku do biegu interwałowego stanowi gwałtowne wyzwanie dla homeostazy energetycznej. Zanim jeszcze w mięśniach wzrośnie stężenie metabolitów, ośrodkowy układ nerwowy uruchamia zintegrowaną odpowiedź krążeniowo-oddechową i mięśniową.",
+      "files": {
+        "popular": "/audio/narration/popular/act-01-s01.mp3",
+        "academic": "/audio/narration/academic/act-01-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.94,
+        "academic": 15.55
+      }
+    },
+    {
+      "id": "act-01-s02",
+      "actId": 1,
+      "startSec": 32.0,
+      "endSec": 60.0,
+      "popularDisplayPl": "Gdy odsłaniamy kolejne warstwy ciała, widzimy, że organizm nie składa się z odizolowanych narządów. Mięśnie szkieletowe, serce, płuca, sieć naczyń i nerwów działają w tej samej chwili jak jeden zsynchronizowany mechanizm przetrwania i ruchu.",
+      "academicDisplayPl": "Warstwowa wizualizacja anatomiczna ukazuje ścisłe sprzężenie czterech układów: mięśniowo-szkieletowego, sercowo-naczyniowego, oddechowego oraz nerwowego. Zapotrzebowanie metaboliczne mięśni rośnie wielokrotnie w ułamku minuty, wymuszając skoordynowaną redystrybucję tlenu i substratów.",
+      "files": {
+        "popular": "/audio/narration/popular/act-01-s02.mp3",
+        "academic": "/audio/narration/academic/act-01-s02.mp3"
+      },
+      "durations": {
+        "popular": 15.5,
+        "academic": 19.15
+      }
+    },
+    {
+      "id": "act-01-s03",
+      "actId": 1,
+      "startSec": 63.0,
+      "endSec": 88.0,
+      "popularDisplayPl": "Zbliżamy się do źródła decyzji o pierwszym kroku. Przenikamy przez tkanki w głąb układu nerwowego, gdzie rodzi się impuls uruchamiający całą tę wewnętrzną podróż.",
+      "academicDisplayPl": "Przechodzimy ze skali całego ustroju w głąb ośrodkowego układu nerwowego, by prześledzić drogę od planowania ruchu w korze mózgowej do aktywacji jednostek motorycznych i autonomicznej mobilizacji.",
+      "files": {
+        "popular": "/audio/narration/popular/act-01-s03.mp3",
+        "academic": "/audio/narration/academic/act-01-s03.mp3"
+      },
+      "durations": {
+        "popular": 10.46,
+        "academic": 11.9
+      }
+    },
+    {
+      "id": "act-02-s01",
+      "actId": 2,
+      "startSec": 93.0,
+      "endSec": 120.0,
+      "popularDisplayPl": "Zanim noga oderwie się od taśmy bieżni, kora ruchowa mózgu już projektuje cały ruch. Fale pobudzenia — nie błyskawice, lecz precyzyjne przesunięcia jonów w błonach neuronów — zstępują przez rdzeń kręgowy prosto ku mięśniom nóg.",
+      "academicDisplayPl": "Planowanie wysiłku angażuje korę przedruchową, dodatkowe pole ruchowe i pierwszorzędową korę ruchową. Sygnały drogą korowo-rdzeniową aktywują motoneurony alfa w rogach przednich rdzenia zgodnie z zasadą wielkości Hennemana oraz rosnącą częstotliwością wyładowań.",
+      "files": {
+        "popular": "/audio/narration/popular/act-02-s01.mp3",
+        "academic": "/audio/narration/academic/act-02-s01.mp3"
+      },
+      "durations": {
+        "popular": 14.18,
+        "academic": 17.18
+      }
+    },
+    {
+      "id": "act-02-s02",
+      "actId": 2,
+      "startSec": 123.0,
+      "endSec": 150.0,
+      "popularDisplayPl": "Na styku nerwu i włókna mięśniowego uwalnia się acetylocholina. To chemiczny klucz otwierający kanały sodowe. Błona komórki mięśniowej ulega depolaryzacji i w jednej chwili daje sygnał do skurczu.",
+      "academicDisplayPl": "W złączu nerwowo-mięśniowym egzocytoza acetylocholiny aktywuje jonotropowe receptory nikotynowe, generując potencjał płytki końcowej i depolaryzację sarkolemy. Pamiętajmy: wizualizacje świetlne pełnią rolę umownej reprezentacji gradientów jonowych sodu i potasu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-02-s02.mp3",
+        "academic": "/audio/narration/academic/act-02-s02.mp3"
+      },
+      "durations": {
+        "popular": 13.27,
+        "academic": 17.11
+      }
+    },
+    {
+      "id": "act-02-s03",
+      "actId": 2,
+      "startSec": 153.0,
+      "endSec": 178.0,
+      "popularDisplayPl": "Równolegle autonomiczny układ nerwowy zdejmuje przywspółczulny hamulec z serca i wzmacnia ramię współczulne. Zakończenia nerwowe uwalniają noradrenalinę, a rdzeń nadnerczy wyrzuca do krwi adrenalinę, przygotowując cały organizm na wysiłek.",
+      "academicDisplayPl": "Centralny napęd wycofuje najpierw hamowanie przywspółczulne z węzła zatokowego, a następnie nasila wyładowania współczulne. Włókna pozazwojowe uwalniają lokalnie noradrenalinę jako neuroprzekaźnik, podczas gdy rdzeń nadnerczy wydziela do krążenia głównie adrenalinę, mobilizując glikogenolizę i lipolizę.",
+      "files": {
+        "popular": "/audio/narration/popular/act-02-s03.mp3",
+        "academic": "/audio/narration/academic/act-02-s03.mp3"
+      },
+      "durations": {
+        "popular": 14.81,
+        "academic": 19.66
+      }
+    },
+    {
+      "id": "act-03-s01",
+      "actId": 3,
+      "startSec": 183.0,
+      "endSec": 210.0,
+      "popularDisplayPl": "Przenikamy przez klatkę piersiową prosto do pracującego serca. Węzeł zatokowo-przedsionkowy nadaje coraz szybsze tempo. Fala przewodzenia przebiega przez przedsionki i komory, a cztery zastawki otwierają się i zamykają w ułamku sekundy.",
+      "academicDisplayPl": "Depolaryzacja zainicjowana w węźle zatokowo-przedsionkowym ulega fizjologicznemu opóźnieniu w węźle przedsionkowo-komorowym, po czym pęczkiem Hisa i włóknami Purkinjego synchronizuje skurcz komór. Wzrost częstości skurczów i objętości wyrzutowej wielokrotnie zwiększa pojemność minutową serca.",
+      "files": {
+        "popular": "/audio/narration/popular/act-03-s01.mp3",
+        "academic": "/audio/narration/academic/act-03-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.41,
+        "academic": 18.38
+      }
+    },
+    {
+      "id": "act-03-s02",
+      "actId": 3,
+      "startSec": 213.0,
+      "endSec": 242.0,
+      "popularDisplayPl": "Wędrujemy strumieniem powietrza przez tchawicę i oskrzela aż do delikatnych pęcherzyków płucnych. Tu dzieli nas od krwi zaledwie pół mikrometra. Tlen przenika do erytrocytów i wiąże się z hemoglobiną, a dwutlenek węgla ucieka na zewnątrz.",
+      "academicDisplayPl": "Wzrost wentylacji pęcherzykowej utrzymuje gradient ciśnień cząstkowych w pęcherzykach płucnych. Przez barierę pęcherzykowo-włośniczkową zachodzi bierna dyfuzja O₂ do osocza i erytrocytów, gdzie wiąże się on kooperatywnie z żelazem hemoglobiny, podczas gdy CO₂ opuszcza krew w drodze dyfuzji zwrotnej.",
+      "files": {
+        "popular": "/audio/narration/popular/act-03-s02.mp3",
+        "academic": "/audio/narration/academic/act-03-s02.mp3"
+      },
+      "durations": {
+        "popular": 15.6,
+        "academic": 19.44
+      }
+    },
+    {
+      "id": "act-03-s03",
+      "actId": 3,
+      "startSec": 245.0,
+      "endSec": 268.0,
+      "popularDisplayPl": "Możesz teraz podążać wraz z pojedynczym erytrocytem przez rozgałęzione arterie w stronę mięśni nóg. Naczynia w mięśniach szeroko się otwierają, a układ pokarmowy czasowo oddaje pierwszeństwo pracującym włóknom.",
+      "academicDisplayPl": "Redystrybucja rzutu serca wynika z lokalnej wazodylatacji metabolicznej w pracujących mięśniach przy jednoczesnej współczulnej wazokonstrykcji w łożysku trzewnym i nerkowym. Przepływ mięśniowy może pochłonąć nawet ponad osiemdziesiąt procent całkowitej pojemności minutowej.",
+      "files": {
+        "popular": "/audio/narration/popular/act-03-s03.mp3",
+        "academic": "/audio/narration/academic/act-03-s03.mp3"
+      },
+      "durations": {
+        "popular": 13.03,
+        "academic": 16.46
+      }
+    },
+    {
+      "id": "act-04-s01",
+      "actId": 4,
+      "startSec": 273.0,
+      "endSec": 300.0,
+      "popularDisplayPl": "Docieramy do pracujących mięśni nóg i zanurzamy się coraz głębiej: od całego brzuśca przez pęczki i pojedyncze włókna, aż do miofibryli i mikroskopijnych sarkomerów — biologicznych silników naszego ruchu.",
+      "academicDisplayPl": "Schodzimy przez pięć rzędów wielkości organizacji strukturalnej: mięsień, pęczek, włókno z kanalikami T i siateczką sarkoplazmatyczną, miofibryla oraz sarkomer. W miarę narastania intensywności po powolnych włóknach oksydacyjnych typu pierwszego rekrutowane są szybkie włókna drugiego typu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-04-s01.mp3",
+        "academic": "/audio/narration/academic/act-04-s01.mp3"
+      },
+      "durations": {
+        "popular": 11.54,
+        "academic": 18.86
+      }
+    },
+    {
+      "id": "act-04-s02",
+      "actId": 4,
+      "startSec": 303.0,
+      "endSec": 332.0,
+      "popularDisplayPl": "Siateczka sarkoplazmatyczna otwiera śluzy i zalewa sarkomer jonami wapnia. Wapń wiąże troponinę, odsłaniając aktynę spod taśmy tropomiozyny. Wtedy główki miozyny chwytają aktynę i wykonują ruch roboczy, przybliżając prążki Z.",
+      "academicDisplayPl": "Wiązanie jonów wapnia z podjednostką troponiny C indukuje zmianę konformacyjną odsuwającą tropomiozynę z miejsc aktywnych aktyny. Uwolnienie fosforanu nieorganicznego i ADP napędza ruch roboczy główki miozyny S1, przesuwając filamenty cienkie w stronę linii M.",
+      "files": {
+        "popular": "/audio/narration/popular/act-04-s02.mp3",
+        "academic": "/audio/narration/academic/act-04-s02.mp3"
+      },
+      "durations": {
+        "popular": 15.86,
+        "academic": 18.26
+      }
+    },
+    {
+      "id": "act-04-s03",
+      "actId": 4,
+      "startSec": 335.0,
+      "endSec": 358.0,
+      "popularDisplayPl": "Co zaskakujące, cząsteczka ATP jest niezbędna również po to, aby główka miozyny mogła puścić aktynę i przygotować się do kolejnego pociągnięcia. Zatrzymaj czas w laboratorium sarkomeru i obejrzyj każdy etap z bliska.",
+      "academicDisplayPl": "Kluczowa rola ATP w cyklu mostków poprzecznych polega zarówno na dysocjacji kompleksu aktyna–miozyna ze stanu rygoru, jak i na jego hydrolizie przywracającej konformację wysokonergetyczną główki. Dodatkowe ATP zużywa pompa wapniowa SERCA podczas rozkurczu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-04-s03.mp3",
+        "academic": "/audio/narration/academic/act-04-s03.mp3"
+      },
+      "durations": {
+        "popular": 13.87,
+        "academic": 17.64
+      }
+    },
+    {
+      "id": "act-05-s01",
+      "actId": 5,
+      "startSec": 363.0,
+      "endSec": 392.0,
+      "popularDisplayPl": "Podczas intensywnego interwału zapotrzebowanie mięśni na ATP potrafi wzrosnąć nawet tysiąckrotnie. System fosfagenowy, glikoliza i oddychanie tlenowe nie włączają się po kolei jak przełączniki — pracują naraz, płynnie dzieląc się zadaniami.",
+      "academicDisplayPl": "Wszystkie trzy szlaki resyntezy ATP działają równolegle i nakładają się w czasie. Fosfokreatyna i kinaza kreatynowa buforują gwałtowne skoki zapotrzebowania, glikoliza dostarcza szybkiego obrotu ATP, a już po około siedemdziesięciu pięciu sekundach maksymalnej pracy udział fosforylacji oksydacyjnej zbliża się do połowy.",
+      "files": {
+        "popular": "/audio/narration/popular/act-05-s01.mp3",
+        "academic": "/audio/narration/academic/act-05-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.17,
+        "academic": 20.78
+      }
+    },
+    {
+      "id": "act-05-s02",
+      "actId": 5,
+      "startSec": 395.0,
+      "endSec": 423.0,
+      "popularDisplayPl": "Wpływamy przez błonę zewnętrzną do wnętrza mitochondrium. Na fałdach grzebieni łańcuch transportu elektronów pompuje protony, tworząc silny gradient. Przepływ protonów napędza obrót molekularnej turbiny — syntazy ATP.",
+      "academicDisplayPl": "Wewnątrz grzebieni mitochondrialnych elektrony z NADH i FADH₂ wędrują przez kompleksy I–IV łańcucha oddechowego do tlenu. Siła protonomotoryczna napędza rotację pierścienia c podjednostki F0 oraz asymetrycznego trzonka gamma w heksamerze F1, katalizując mechaniczną syntezę ATP z ADP i fosforanu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-05-s02.mp3",
+        "academic": "/audio/narration/academic/act-05-s02.mp3"
+      },
+      "durations": {
+        "popular": 15.34,
+        "academic": 24.91
+      }
+    },
+    {
+      "id": "act-05-s03",
+      "actId": 5,
+      "startSec": 426.0,
+      "endSec": 448.0,
+      "popularDisplayPl": "A mleczan? Wbrew dawnym mitom nie jest bezużytecznym śmieciem ani sprawcą zakwasów. Powstaje nawet wtedy, gdy tlenu jest pod dostatkiem, i wędruje transporterami jako wysokooktanowe paliwo dla serca, sąsiednich mięśni i mózgu.",
+      "academicDisplayPl": "Zgodnie z teorią czółenka mleczanowego Brooksa mleczan stanowi łącznik między glikolizą a oddychaniem mitochondrialnym. Przez transportery MCT4 i MCT1 zasila mięsień sercowy, włókna oksydacyjne typu pierwszego, wątrobę w glukoneogenezie oraz komórki nerwowe, pełniąc też funkcję sygnałową.",
+      "files": {
+        "popular": "/audio/narration/popular/act-05-s03.mp3",
+        "academic": "/audio/narration/academic/act-05-s03.mp3"
+      },
+      "durations": {
+        "popular": 16.42,
+        "academic": 21.46
+      }
+    },
+    {
+      "id": "act-06-s01",
+      "actId": 6,
+      "startSec": 453.0,
+      "endSec": 482.0,
+      "popularDisplayPl": "Oto szczyt intensywnego interwału HIIT. Bieg przyspiesza, serce bije blisko maksimum, wentylacja wzrasta wielokrotnie, a podwzgórze uruchamia termoregulację i wydzielanie potu, aby chronić komórki przed przegrzaniem.",
+      "academicDisplayPl": "Na szczycie interwału zasoby fosfokreatyny szybko maleją, rośnie stężenie fosforanu nieorganicznego i mleczanu, a układy buforowe pracują na granicy równowagi kwasowo-zasadowej. Ośrodek termoregulacji w podwzgórzu aktywuje rozszerzenie naczyń skórnych i parowanie potu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-06-s01.mp3",
+        "academic": "/audio/narration/academic/act-06-s01.mp3"
+      },
+      "durations": {
+        "popular": 13.7,
+        "academic": 17.35
+      }
+    },
+    {
+      "id": "act-06-s02",
+      "actId": 6,
+      "startSec": 485.0,
+      "endSec": 514.0,
+      "popularDisplayPl": "Zmęczenie nie ma jednej przyczyny. Składa się na nie zarówno lokalne przeciążenie w mięśniach, jak i sygnał ochronny z samego mózgu, który zwalnia napęd mięśniowy, zanim wyczerpie się krytyczne ATP.",
+      "academicDisplayPl": "Badania z przezczaszkową stymulacją magnetyczną pokazują współistnienie zmęczenia obwodowego i ośrodkowego. Jest to mechanizm wieloczynnikowy, w którym hamowanie ponadrdzeniowe chroni mięśnie przed nieodwracalnym spadkiem ATP i stanem rygoru.",
+      "files": {
+        "popular": "/audio/narration/popular/act-06-s02.mp3",
+        "academic": "/audio/narration/academic/act-06-s02.mp3"
+      },
+      "durations": {
+        "popular": 12.62,
+        "academic": 15.79
+      }
+    },
+    {
+      "id": "act-06-s03",
+      "actId": 6,
+      "startSec": 517.0,
+      "endSec": 538.0,
+      "popularDisplayPl": "Gdy nadchodzi faza aktywnego odpoczynku, tlen pozwala szybko odbudować część fosfokreatyny i oczyścić pole przed kolejnym interwałem. W trybie interaktywnym możesz sam przełączyć wszystkie sześć faz treningu.",
+      "academicDisplayPl": "Przerwa aktywna utrzymuje podwyższony przepływ krwi i wspiera mitochondrialną resyntezę fosfokreatyny oraz utlenianie mleczanu. Stężenie ATP spada jedynie minimalnie, podczas gdy zdolność buforowania szybkich bodźców częściowo powraca przed kolejną serią.",
+      "files": {
+        "popular": "/audio/narration/popular/act-06-s03.mp3",
+        "academic": "/audio/narration/academic/act-06-s03.mp3"
+      },
+      "durations": {
+        "popular": 12.67,
+        "academic": 16.44
+      }
+    },
+    {
+      "id": "act-07-s01",
+      "actId": 7,
+      "startSec": 543.0,
+      "endSec": 572.0,
+      "popularDisplayPl": "Mięśnie nie tylko poruszają kośćmi — w trakcie skurczu stają się potężnym gruczołem komunikacyjnym. Wysyłają do krwiobiegu cząsteczki sygnałowe zwane miokinami, takie jak interleukina szósta, oraz mleczan podróżujący w górę ku mózgowi.",
+      "academicDisplayPl": "Skurcz mięśni szkieletowych uwalnia setki peptydów i metabolitów tworzących pętlę mięśnie–wątroba i mięśnie–mózg. Przykładowo skurczowa interleukina szósta mobilizuje wątrobę do uwalniania glukozy i wspiera oksydację tłuszczów przez kinazę AMPK.",
+      "files": {
+        "popular": "/audio/narration/popular/act-07-s01.mp3",
+        "academic": "/audio/narration/academic/act-07-s01.mp3"
+      },
+      "durations": {
+        "popular": 14.4,
+        "academic": 16.2
+      }
+    },
+    {
+      "id": "act-07-s02",
+      "actId": 7,
+      "startSec": 575.0,
+      "endSec": 604.0,
+      "popularDisplayPl": "Docieramy do ścisłej granicy: bariery krew–mózg. Zwarci strażnicy śródbłonka nie wpuszczają wszystkiego z krwi. Obwodowa adrenalina czy serotonina zostają zatrzymane przed bramą, lecz mleczan wchodzi przez wyspecjalizowane transportery.",
+      "academicDisplayPl": "Ścisłe połączenia komórek śródbłonka naczyń mózgowych, perycyty i wypustki astrocytów selekcjonują sygnały. Obwodowe katecholaminy, dopamina czy serotonina nie przekraczają swobodnie bariery krew–mózg. Mleczan przenika przez transportery MCT1, a informacje docierają także drogą aferentną nerwu błędnego i przez konwersję kinureniny.",
+      "files": {
+        "popular": "/audio/narration/popular/act-07-s02.mp3",
+        "academic": "/audio/narration/academic/act-07-s02.mp3"
+      },
+      "durations": {
+        "popular": 15.62,
+        "academic": 22.8
+      }
+    },
+    {
+      "id": "act-07-s03",
+      "actId": 7,
+      "startSec": 607.0,
+      "endSec": 628.0,
+      "popularDisplayPl": "Nauka uczy nas tu pokory: część sygnałów z mięśni, takich jak katepsyna B czy głośna w mediach irysyna, wciąż jest intensywnie badana i bywa przedmiotem sporów o metody pomiaru u ludzi.",
+      "academicDisplayPl": "W przypadku białka FNDC5 i irysyny literatura pozostaje podzielona ze względu na artefakty testów immunoenzymatycznych oraz niski poziom krążący u ludzi. Z kolei rola katepsyny B jako miokiny przekraczającej barierę i indukującej BDNF w hipokampie została wykazana głównie u gryzoni.",
+      "files": {
+        "popular": "/audio/narration/popular/act-07-s03.mp3",
+        "academic": "/audio/narration/academic/act-07-s03.mp3"
+      },
+      "durations": {
+        "popular": 11.09,
+        "academic": 20.64
+      }
+    },
+    {
+      "id": "act-08-s01",
+      "actId": 8,
+      "startSec": 633.0,
+      "endSec": 662.0,
+      "popularDisplayPl": "Wchodzimy do wnętrza ludzkiego mózgu. Każda struktura gra tu własną partię. Dopamina z pola brzusznego nakrywki wspiera motywację i uczenie się, noradrenalina z miejsca sinawego wyostrza uwagę, a serotonina z jąder szwu moduluje nastrój.",
+      "academicDisplayPl": "W mózgu wysiłek uruchamia wieloukładową modulację. Dopamina w szlakach mezokortykolimbicznym i nigrostriatalnym reguluje kontrolę ruchu, alokację wysiłku i kodowanie wzmocnień, a nie prostą „przyjemność”. Miejsce sinawe rozsyła noradrenalinę zwiększając czujność korową, a jądra szwu modulują pobudzenie, sen i zmęczenie ośrodkowe.",
+      "files": {
+        "popular": "/audio/narration/popular/act-08-s01.mp3",
+        "academic": "/audio/narration/academic/act-08-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.77,
+        "academic": 22.44
+      }
+    },
+    {
+      "id": "act-08-s02",
+      "actId": 8,
+      "startSec": 665.0,
+      "endSec": 694.0,
+      "popularDisplayPl": "A co z legendarną euforią biegacza? Nowoczesne badania u ludzi pokazały, że same endorfiny to nie cała historia. Po zablokowaniu ich receptorów lekiem euforia wciąż się pojawiała — głównymi podejrzanymi są dziś endokannabinoidy, jak anandamid.",
+      "academicDisplayPl": "Choć badania PET wykazały centralne wiązanie endogennych opioidów po długim biegu, randomizowana blokada naltreksonem u ludzi nie zniosła redukcji lęku ani euforii. Lipofilne endokannabinoidy — anandamid i 2-AG — łatwo przenikają barierę krew–mózg i działają wstecznie przez receptory CB1, choć doświadczenie runner’s high jest silnie zróżnicowane osobniczo.",
+      "files": {
+        "popular": "/audio/narration/popular/act-08-s02.mp3",
+        "academic": "/audio/narration/academic/act-08-s02.mp3"
+      },
+      "durations": {
+        "popular": 16.58,
+        "academic": 24.48
+      }
+    },
+    {
+      "id": "act-08-s03",
+      "actId": 8,
+      "startSec": 697.0,
+      "endSec": 718.0,
+      "popularDisplayPl": "Nad wszystkimi układami czuwa krucha równowaga dwóch głównych języków kory: pobudzającego glutaminianu i wyciszającego kwasu GABA. Żaden neuroprzekaźnik nie działa tu w próżni i żaden nie odpowiada za jedną emocję.",
+      "academicDisplayPl": "Ostateczną dynamikę sieci wyznacza homeostaza pobudzenia i hamowania pomiędzy synapsami glutaminergicznymi a GABA-ergicznymi w korze przedczołowej, hipokampie i ciele migdałowatym. Pojedynczemu treningowi nie można też przypisać dokładnych, uniwersalnych stężeń monoamin w wybranych jądrach mózgu człowieka.",
+      "files": {
+        "popular": "/audio/narration/popular/act-08-s03.mp3",
+        "academic": "/audio/narration/academic/act-08-s03.mp3"
+      },
+      "durations": {
+        "popular": 13.2,
+        "academic": 19.32
+      }
+    },
+    {
+      "id": "act-09-s01",
+      "actId": 9,
+      "startSec": 723.0,
+      "endSec": 752.0,
+      "popularDisplayPl": "Zbliżamy się do pojedynczego neuronu. Fala potencjału czynnościowego przeskakuje między osłonkami mielinowymi w przewężeniach Ranviera i dociera do zakończenia presynaptycznego — bramki komunikacji między komórkami.",
+      "academicDisplayPl": "Przewodnictwo skokowe w aksonie mielinowym prowadzi falę depolaryzacji przez przewężenia Ranviera do kolbki końcowej. Pamiętajmy, że skala przestrzenna dwudziestonanometrowej szczeliny oraz czas trwania zdarzeń milisekundowych zostały celowo powiększone i spowolnione dla czytelności dydaktycznej.",
+      "files": {
+        "popular": "/audio/narration/popular/act-09-s01.mp3",
+        "academic": "/audio/narration/academic/act-09-s01.mp3"
+      },
+      "durations": {
+        "popular": 12.43,
+        "academic": 18.0
+      }
+    },
+    {
+      "id": "act-09-s02",
+      "actId": 9,
+      "startSec": 755.0,
+      "endSec": 785.0,
+      "popularDisplayPl": "Impuls otwiera kanały wapniowe. Napływ wapnia zmusza pęcherzyki synaptyczne do fuzji z błoną i wyrzucenia neuroprzekaźników w szczelinę. Po drugiej stronie cząsteczki odnajdują swoje receptory jak klucze dopasowane do zamków.",
+      "academicDisplayPl": "Napływ jonów wapnia przez kanały bramkowane napięciem aktywuje białka kompleksu SNARE i egzocytozę. Po dyfuzji w szczelinie szybkie receptory jonotropowe AMPA i GABA_A otwierają kanały dla sodu lub chlorków, podczas gdy receptory metabotropowe aktywują kaskady białek G.",
+      "files": {
+        "popular": "/audio/narration/popular/act-09-s02.mp3",
+        "academic": "/audio/narration/academic/act-09-s02.mp3"
+      },
+      "durations": {
+        "popular": 14.52,
+        "academic": 17.81
+      }
+    },
+    {
+      "id": "act-09-s03",
+      "actId": 9,
+      "startSec": 788.0,
+      "endSec": 808.0,
+      "popularDisplayPl": "Na koniec transportery błonowe oczyszczają szczelinę, kończąc sygnał. Możesz teraz zamrozić czas i porównać cztery różne rodzaje synaps — od pobudzającej po hamującą sygnalizację wsteczną endokannabinoidów.",
+      "academicDisplayPl": "Zakończenie sygnału przez wychwyt zwrotny i rozkład enzymatyczny przywraca gotowość synapsy. W panelu synaptycznym porównasz także sygnalizację wsteczną: zsyntetyzowany postsynaptycznie dwuarachidonyloglicerol wędruje wstecz do presynaptycznych receptorów CB1, hamując kanały wapniowe.",
+      "files": {
+        "popular": "/audio/narration/popular/act-09-s03.mp3",
+        "academic": "/audio/narration/academic/act-09-s03.mp3"
+      },
+      "durations": {
+        "popular": 12.94,
+        "academic": 19.18
+      }
+    },
+    {
+      "id": "act-10-s01",
+      "actId": 10,
+      "startSec": 813.0,
+      "endSec": 842.0,
+      "popularDisplayPl": "Wchodzimy w kulminację podróży — świat neuroplastyczności. Białko BDNF, neurotrofowy czynnik pochodzenia mózgowego, łączy się z receptorami TrkB na powierzchni neuronu i uruchamia wewnątrzkomórkowe szlaki budowy i przetrwania.",
+      "academicDisplayPl": "Neurotrofina BDNF w formie homodimeru indukuje dimeryzację i autofosforylację receptorów kinazy tyrozynowej TrkB, aktywując trzy główne kaskady: szlak MAPK/ERK regulujący transkrypcję genów, szlak PI3K/Akt wspierający przeżycie i lokalną translację oraz szlak PLCγ wzmacniający potencjał synaptyczny.",
+      "files": {
+        "popular": "/audio/narration/popular/act-10-s01.mp3",
+        "academic": "/audio/narration/academic/act-10-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.31,
+        "academic": 22.87
+      }
+    },
+    {
+      "id": "act-10-s02",
+      "actId": 10,
+      "startSec": 845.0,
+      "endSec": 874.0,
+      "popularDisplayPl": "Powtarzalne pobudzenie synaps odblokowuje receptory NMDA. Do kolca dendrytycznego wstawiane są nowe receptory AMPA, a szkielet aktynowy fizycznie powiększa połączenie. Pamiętajmy jednak: krew z palca nie mierzy wprost tego, co dzieje się w głębi hipokampa.",
+      "academicDisplayPl": "W długotrwałym wzmocnieniu synaptycznym koincydencja depolaryzacji i glutaminianu usuwa blok magnezowy z kanałów NMDA, napędzając insercję receptorów AMPA i strukturalny wzrost kolców dendrytycznych. Choć metaanalizy potwierdzają wzrost BDNF we krwi po wysiłku, nie wolno utożsamiać pomiaru obwodowego z bezpośrednim pomiarem w mózgu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-10-s02.mp3",
+        "academic": "/audio/narration/academic/act-10-s02.mp3"
+      },
+      "durations": {
+        "popular": 17.3,
+        "academic": 23.16
+      }
+    },
+    {
+      "id": "act-10-s03",
+      "actId": 10,
+      "startSec": 877.0,
+      "endSec": 898.0,
+      "popularDisplayPl": "W zakręcie zębatym hipokampa i korze przedczołowej trening długoterminowo sprzyja lepszej sieci naczyń i plastyczności. A pytanie o to, ile nowych neuronów rodzi się w dorosłym ludzkim mózgu, pozostaje jedną z najbardziej fascynujących debat nauki.",
+      "academicDisplayPl": "Należy wyraźnie odróżnić plastyczność synaptyczną, przebudowę dendrytyczną, synaptogenezę i angiogenezę od neurogenezy. Istnienie i skala neurogenezy w dorosłym zakręcie zębatym człowieka pozostają przedmiotem debaty badawczej, a wyniki na gryzoniach nie podlegają prostej ekstrapolacji po pojedynczej sesji HIIT.",
+      "files": {
+        "popular": "/audio/narration/popular/act-10-s03.mp3",
+        "academic": "/audio/narration/academic/act-10-s03.mp3"
+      },
+      "durations": {
+        "popular": 14.74,
+        "academic": 19.9
+      }
+    },
+    {
+      "id": "act-11-s01",
+      "actId": 11,
+      "startSec": 903.0,
+      "endSec": 942.0,
+      "popularDisplayPl": "Opuszczamy głębiny kory mózgowej i wracamy na siłownię. Trening dobiega końca. Oddech zwalnia, serce łagodnieje, a nerw błędny przejmuje kontrolę, przywracając ciału spokojną równowagę.",
+      "academicDisplayPl": "Po zakończeniu interwałów następuje stopniowa reaktywacja przywspółczulna i wygaszanie napędu współczulnego. Zwiększone powysiłkowe zużycie tlenu obsługuje resyntezę fosfokreatyny, utlenianie i glukoneogenezę mleczanu oraz regulację temperatury ciała.",
+      "files": {
+        "popular": "/audio/narration/popular/act-11-s01.mp3",
+        "academic": "/audio/narration/academic/act-11-s01.mp3"
+      },
+      "durations": {
+        "popular": 13.85,
+        "academic": 16.42
+      }
+    },
+    {
+      "id": "act-11-s02",
+      "actId": 11,
+      "startSec": 946.0,
+      "endSec": 986.0,
+      "popularDisplayPl": "Spokój i jasność umysłu po dobrym wysiłku nie płyną z jednej cudownej substancji. To efekt współdziałania autonomicznego wyciszenia, sygnałów mózgowych, regeneracji mięśni oraz nadchodzącego nocą głębokiego snu.",
+      "academicDisplayPl": "Subiektywny dobrostan powysiłkowy integruje równoległą modulację endokannabinoidową, ośrodkowe układy opioidowe i monoaminergiczne, obniżenie napięcia somatycznego i czynniki psychologiczne. Kluczowe procesy naprawcze oraz konsolidacja pamięci i plastyczności wymagają odpowiedniego odpoczynku i snu.",
+      "files": {
+        "popular": "/audio/narration/popular/act-11-s02.mp3",
+        "academic": "/audio/narration/academic/act-11-s02.mp3"
+      },
+      "durations": {
+        "popular": 13.54,
+        "academic": 19.61
+      }
+    },
+    {
+      "id": "act-12-s01",
+      "actId": 12,
+      "startSec": 993.0,
+      "endSec": 1034.0,
+      "popularDisplayPl": "Rozciągamy teraz czas na tygodnie, miesiące i cały rok. Jeden trening wysyła molekularne zaproszenie do zmiany; dopiero regularność przeplatana snem i regeneracją buduje gęstsze sieci mitochondriów, wydolniejsze serce i odporniejszy układ nerwowy.",
+      "academicDisplayPl": "Wyróżniamy trzy skale czasowe: skutki ostre podczas sesji, okno powysiłkowe do czterdziestu ośmiu godzin z ekspresją PGC-1α i wzrostem wrażliwości insulinowej GLUT4 oraz adaptacje przewlekłe: wzrost objętości wyrzutowej serca, kapilaryzację i biogenezę mitochondriów.",
+      "files": {
+        "popular": "/audio/narration/popular/act-12-s01.mp3",
+        "academic": "/audio/narration/academic/act-12-s01.mp3"
+      },
+      "durations": {
+        "popular": 15.34,
+        "academic": 19.22
+      }
+    },
+    {
+      "id": "act-12-s02",
+      "actId": 12,
+      "startSec": 1038.0,
+      "endSec": 1076.0,
+      "popularDisplayPl": "Każdy organizm reaguje inaczej — wpływ mają geny, sen, regeneracja i stan zdrowia. Zwykłe kilkanaście minut na bieżni to w rzeczywistości dialog między ruchem mięśni a architekturą naszego mózgu.",
+      "academicDisplayPl": "Adaptacje poznawcze i neuroplastyczne, w tym ochrona objętości hipokampa w badaniach długoterminowych, nie są mechaniczną gwarancją i zależą od dawkowania obciążeń, zdrowia oraz zmienności indywidualnej. Niniejsza symulacja ma wyłącznie charakter poglądowy i edukacyjny.",
+      "files": {
+        "popular": "/audio/narration/popular/act-12-s02.mp3",
+        "academic": "/audio/narration/academic/act-12-s02.mp3"
+      },
+      "durations": {
+        "popular": 13.01,
+        "academic": 17.88
+      }
+    }
+  ]
+}

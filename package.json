@@ -1,0 +1,35 @@
+{
+  "name": "biogenesis-hiit-experience",
+  "private": true,
+  "version": "1.0.0",
+  "description": "BIOGENESIS: THE HIIT EXPERIENCE - Interaktywna, filmowo-growa podróż do wnętrza ludzkiego organizmu podczas treningu HIIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --open",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "9.121.4",
+    "@react-three/fiber": "8.17.10",
+    "@react-three/postprocessing": "2.16.3",
+    "gsap": "3.12.5",
+    "lucide-react": "0.468.0",
+    "postprocessing": "6.36.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.169.0",
+    "zustand": "5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@types/three": "0.169.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.5"
+  }
+}
