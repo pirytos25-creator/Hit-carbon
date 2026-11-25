@@ -1,0 +1,77 @@
+{
+  "id": "oddechowy",
+  "resolution": [
+    1150,
+    1600
+  ],
+  "views": {
+    "front": {
+      "images": {
+        "rest": "front_rest.webp",
+        "sprint": "front_sprint.webp"
+      },
+      "anchors": {
+        "larynx": [
+          0.4519,
+          0.1759
+        ],
+        "trachea": [
+          0.4577,
+          0.2744
+        ],
+        "scalene": [
+          0.4062,
+          0.2194
+        ],
+        "main_bronchus": [
+          0.4419,
+          0.4078
+        ],
+        "lung": [
+          0.2566,
+          0.3642
+        ],
+        "intercostal": [
+          0.1696,
+          0.4732
+        ],
+        "diaphragm": [
+          0.325,
+          0.7743
+        ]
+      },
+      "bbox": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    "detail": {
+      "images": {
+        "rest": "detail_rest.webp",
+        "sprint": "detail_sprint.webp"
+      },
+      "anchors": {
+        "alveolus": [
+          0.5929,
+          0.7635
+        ],
+        "capillary": [
+          0.644,
+          0.6369
+        ],
+        "bronchiole": [
+          0.5372,
+          0.236
+        ]
+      },
+      "bbox": [
+        0.047,
+        0.0,
+        0.9545,
+        0.9666
+      ]
+    }
+  }
+}

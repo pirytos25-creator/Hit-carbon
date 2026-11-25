@@ -567,6 +567,31 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Przegląd regulacji przepływu krwi do pracujących mięśni u ludzi: bardzo duże przepływy mięśniowe, rozszerzenie naczyń w mięśniach i rywalizacja mięśni z ograniczonym rzutem serca, którą układ współczulny równoważy, by utrzymać ciśnienie.',
   },
+  aaron_1992: {
+    id: 'aaron_1992',
+    authors: 'Aaron, E. A., Seow, K. C., Johnson, B. D., & Dempsey, J. A.',
+    year: 1992,
+    title: 'Oxygen cost of exercise hyperpnea: implications for performance',
+    journal: 'Journal of Applied Physiology, 72(5), 1818–1825',
+    doi: '10.1152/jappl.1992.72.5.1818',
+    url: 'https://doi.org/10.1152/jappl.1992.72.5.1818',
+    acts: [3],
+    summaryPl:
+      'Przy wysiłku maksymalnym sama praca mięśni oddechowych (przepona, międzyżebrowe) zużywa średnio ok. 10% VO₂max, a u osób wykorzystujących całą rezerwę oddechową 13–15%.',
+  },
+  harms_1998: {
+    id: 'harms_1998',
+    authors: 'Harms, C. A., Wetter, T. J., McClaran, S. R., Pegelow, D. F., Nickele, G. A., Nelson, W. B., Hanson, P., & Dempsey, J. A.',
+    year: 1998,
+    title: 'Effects of respiratory muscle work on cardiac output and its distribution during maximal exercise',
+    journal: 'Journal of Applied Physiology, 85(2), 609–618',
+    pmid: '9688739',
+    doi: '10.1152/jappl.1998.85.2.609',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/9688739/',
+    acts: [3],
+    summaryPl:
+      'U kolarzy przy VO₂max mięśnie oddechowe dostają do 14–16% rzutu serca, a odruchowy skurcz naczyń ogranicza przepływ krwi w mięśniach nóg.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
