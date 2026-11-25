@@ -1,17 +1,20 @@
 import type { AtlasPlateContent } from '../types';
 
-/** Plansza wzorcowa (faza 0). Wzór dla pozostałych układów. */
+/**
+ * Plansza wzorcowa (faza 0) + zbliżenie (faza 1). Wzór dla pozostałych układów.
+ * Widok `detail`: blok uda → mozaika włókien → mostek poprzeczny (blender/atlas/plate_miesniowy.py).
+ */
 export const MIESNIOWY: AtlasPlateContent = {
   id: 'miesniowy',
   titlePl: 'Układ mięśniowy',
   subtitlePl: 'Które mięśnie napędzają sprint na bieżni',
   colorVar: '--sys-muscle',
-  views: ['front', 'back'],
-  viewTitlesPl: { front: 'Widok z przodu', back: 'Widok z tyłu' },
+  views: ['front', 'back', 'detail'],
+  viewTitlesPl: { front: 'Widok z przodu', back: 'Widok z tyłu', detail: 'Zbliżenie: udo, włókna, białka' },
   summary: {
     rest: 'W spoczynku mięśnie szkieletowe pracują głównie nad postawą. Rekrutowane są nieliczne, małe jednostki ruchowe z włóknami typu I.',
     sprint:
-      'W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, łydka odbija stopę od taśmy. Zgodnie z zasadą rozmiaru Hennemana do włókien typu I dołączają szybkie włókna IIa i IIx.',
+      'W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, łydka odbija stopę od taśmy. Zgodnie z zasadą rozmiaru Hennemana do włókien typu I dołączają szybkie włókna IIa i IIx. W każdym pracującym włóknie główki miozyny raz za razem chwytają aktynę i ciągną ją, zużywając ATP.',
   },
   labels: [
     {
@@ -94,15 +97,91 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Utrzymuje postawę stojącą', sprint: 'Duża siła odbicia przy każdym kroku' },
       tier: 'primary',
     },
+    // --- Zbliżenie (widok detail): blok prawego uda na wysokości biopsji, mozaika włókien, mostek poprzeczny ---
+    {
+      anchor: 'd_vastus_lateralis',
+      view: 'detail',
+      namePl: 'M. obszerny boczny',
+      nameLat: 'm. vastus lateralis',
+      role: { rest: 'Przekrój w miejscu biopsji: pracuje mało włókien', sprint: 'Przekrój w miejscu biopsji: pracują wszystkie typy' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_femur',
+      view: 'detail',
+      namePl: 'Kość udowa',
+      nameLat: 'femur',
+      role: { rest: 'Dźwignia dla mięśni uda', sprint: 'Dźwignia dla mięśni uda' },
+      tier: 'secondary',
+    },
+    {
+      anchor: 'd_hamstrings',
+      view: 'detail',
+      namePl: 'M. dwugłowy uda',
+      nameLat: 'm. biceps femoris',
+      role: { rest: 'Prawie bez pracy', sprint: 'Prostuje biodro, hamuje goleń' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_fiber_I',
+      view: 'detail',
+      namePl: 'Włókno typu I',
+      nameLat: 'wolne, tlenowe · ok. 42%',
+      role: { rest: 'Pracuje pierwsze: małe jednostki ruchowe', sprint: 'Pracuje dalej, męczy się powoli' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_fiber_IIa',
+      view: 'detail',
+      namePl: 'Włókno typu IIa',
+      nameLat: 'szybkie, mieszane · ok. 35%',
+      role: { rest: 'Nie pracuje', sprint: 'Dołącza: szybkie i dość wytrzymałe' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_fiber_IIx',
+      view: 'detail',
+      namePl: 'Włókno typu IIx',
+      nameLat: 'najszybsze, beztlenowe · ok. 23%',
+      role: { rest: 'Nie pracuje', sprint: 'Dołącza ostatnie: największa moc, szybko się męczy' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_myosin',
+      view: 'detail',
+      namePl: 'Główka miozyny',
+      nameLat: 'mostek poprzeczny (PDB 5H53)',
+      role: { rest: 'Nieliczne cykle mostków', sprint: 'Chwyta aktynę i ciągnie, zużywając ATP' },
+      tier: 'primary',
+    },
+    {
+      anchor: 'd_actin',
+      view: 'detail',
+      namePl: 'Filament aktynowy',
+      nameLat: 'aktyna F',
+      role: { rest: 'Lina, po której przesuwa się miozyna', sprint: 'Lina, po której przesuwa się miozyna' },
+      tier: 'secondary',
+    },
   ],
   metrics: [
     {
       labelPl: 'Rekrutowane włókna mięśniowe',
       rest: 'typ I',
       sprint: 'typ I + IIa + IIx',
-      referenceIds: ['kenney_2022'],
+      referenceIds: ['henneman_1957', 'gollnick_1974', 'kenney_2022'],
       evidenceLevel: 'established_human',
-      notePl: 'Zasada rozmiaru Hennemana: najpierw małe, wolne jednostki ruchowe, potem duże i szybkie.',
+      notePl:
+        'Zasada rozmiaru Hennemana: najpierw małe, wolne jednostki ruchowe, potem duże i szybkie. Powyżej VO₂max od początku pracują włókna wolne i szybkie (ubytek glikogenu w obu typach).',
+    },
+    {
+      labelPl: 'Skład włókien m. obszernego bocznego (I / IIa / IIx)',
+      rest: '42 / 35 / 23',
+      sprint: '42 / 35 / 23',
+      unit: '%',
+      referenceIds: ['staron_2000'],
+      evidenceLevel: 'established_human',
+      notePl:
+        'Skład się nie zmienia, zmienia się to, które włókna pracują. Średnia ze 150 biopsji młodych, niewytrenowanych osób; rozrzut jest duży (typ I od ok. 17 do 97%).',
     },
     {
       labelPl: 'Udział mięśni w przepływie krwi',
@@ -131,5 +210,5 @@ export const MIESNIOWY: AtlasPlateContent = {
     },
   ],
   creditsPl:
-    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Mostek poprzeczny: PDB 5H53 (Fujii i Namba 2017, struktura z mięśnia królika), Molecular Nodes. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };

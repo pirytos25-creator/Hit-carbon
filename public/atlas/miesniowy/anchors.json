@@ -72,6 +72,52 @@
         0.834,
         0.9717
       ]
+    },
+    "detail": {
+      "images": {
+        "rest": "detail_rest.webp",
+        "sprint": "detail_sprint.webp"
+      },
+      "anchors": {
+        "d_vastus_lateralis": [
+          0.3599,
+          0.243
+        ],
+        "d_femur": [
+          0.459,
+          0.2049
+        ],
+        "d_hamstrings": [
+          0.3971,
+          0.1156
+        ],
+        "d_fiber_I": [
+          0.6634,
+          0.5234
+        ],
+        "d_fiber_IIa": [
+          0.602,
+          0.5956
+        ],
+        "d_fiber_IIx": [
+          0.6201,
+          0.6729
+        ],
+        "d_myosin": [
+          0.5,
+          0.8424
+        ],
+        "d_actin": [
+          0.8422,
+          0.9107
+        ]
+      },
+      "bbox": [
+        0.014,
+        0.01,
+        0.986,
+        0.99
+      ]
     }
   }
 }
