@@ -1,0 +1,101 @@
+{
+  "id": "krwionosny",
+  "resolution": [
+    1000,
+    1800
+  ],
+  "views": {
+    "front": {
+      "images": {
+        "rest": "front_rest.webp",
+        "sprint": "front_sprint.webp"
+      },
+      "anchors": {
+        "carotid": [
+          0.4749,
+          0.1611
+        ],
+        "jugular": [
+          0.459,
+          0.137
+        ],
+        "aortic_arch": [
+          0.4995,
+          0.2277
+        ],
+        "heart": [
+          0.5343,
+          0.2822
+        ],
+        "brachial": [
+          0.3138,
+          0.3291
+        ],
+        "portal": [
+          0.4998,
+          0.3384
+        ],
+        "femoral": [
+          0.4165,
+          0.5631
+        ],
+        "saphenous": [
+          0.4543,
+          0.7839
+        ],
+        "anterior_tibial": [
+          0.406,
+          0.8479
+        ]
+      },
+      "bbox": [
+        0.1623,
+        0.0283,
+        0.8377,
+        0.9717
+      ]
+    },
+    "detail": {
+      "images": {
+        "rest": "detail_rest.webp",
+        "sprint": "detail_sprint.webp"
+      },
+      "anchors": {
+        "d_aortic_arch": [
+          0.3434,
+          0.3725
+        ],
+        "d_pulmonary_trunk": [
+          0.4541,
+          0.4557
+        ],
+        "d_lad": [
+          0.7231,
+          0.7507
+        ],
+        "d_left_ventricle": [
+          0.7735,
+          0.7259
+        ],
+        "d_rca": [
+          0.1965,
+          0.6826
+        ],
+        "d_svc": [
+          0.2034,
+          0.4183
+        ],
+        "d_cardiac_vein": [
+          0.6527,
+          0.6293
+        ]
+      },
+      "bbox": [
+        0.0282,
+        0.0,
+        0.8955,
+        1.0
+      ]
+    }
+  }
+}
