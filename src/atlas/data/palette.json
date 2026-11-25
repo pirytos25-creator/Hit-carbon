@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "description": "Jedno źródło kolorów atlasu dla Pythona (blender/atlas/atlas_lib.py) i TS (src/atlas). Walidator: node scripts/atlas_check_palette.ts. Zmienia tylko integrator.",
+  "restMix": 0.35,
+  "context": {
+    "bone": "#D8D1C4",
+    "muscle": "#8E7A78",
+    "skin": "#9AA4B5",
+    "pageBg": "#070B14"
+  },
+  "systems": [
+    { "key": "nerve", "plate": "nerwowy", "token": "--sys-nerve", "namePl": "Nerwowy", "color": "#E8B23A", "light": "#F6D27A", "glyph": "nerve", "group": "sterowanie" },
+    { "key": "brain", "plate": "mozg", "token": "--sys-brain", "namePl": "Mózg", "color": "#9B7BEA", "light": "#C3AEF5", "glyph": "brain", "group": "sterowanie" },
+    { "key": "endo", "plate": "hormonalny", "token": "--sys-endo", "namePl": "Hormonalny", "color": "#EF872A", "light": "#F6BD8A", "glyph": "endo", "group": "sterowanie" },
+    { "key": "muscle", "plate": "miesniowy", "token": "--sys-muscle", "namePl": "Mięśniowy", "color": "#C8553D", "light": "#EE8A6E", "glyph": "muscle", "group": "naped" },
+    { "key": "bone", "plate": "kostny", "token": "--sys-bone", "namePl": "Kostny", "color": "#A17D2B", "light": "#CBB88A", "glyph": "bone", "group": "naped" },
+    { "key": "artery", "plate": "krwionosny", "token": "--sys-artery", "namePl": "Krwionośny", "color": "#D93240", "light": "#F07A84", "glyph": "heart", "group": "zaopatrzenie" },
+    { "key": "vein", "plate": null, "token": "--sys-vein", "namePl": "Żyły", "color": "#3E6FD8", "light": "#86A6EE", "glyph": "heart", "group": "zaopatrzenie" },
+    { "key": "resp", "plate": "oddechowy", "token": "--sys-resp", "namePl": "Oddechowy", "color": "#4FC3E0", "light": "#94DEF0", "glyph": "lungs", "group": "zaopatrzenie" },
+    { "key": "digest", "plate": "pokarmowy", "token": "--sys-digest", "namePl": "Pokarmowy", "color": "#B4B474", "light": "#D6D6B3", "glyph": "digest", "group": "zaopatrzenie" },
+    { "key": "skin", "plate": "powlokowy", "token": "--sys-skin", "namePl": "Powłokowy", "color": "#FA947A", "light": "#FCC4B6", "glyph": "skin", "group": "rownowaga" },
+    { "key": "urinary", "plate": "wydalniczy", "token": "--sys-urinary", "namePl": "Moczowy", "color": "#276777", "light": "#88ABB4", "glyph": "kidney", "group": "rownowaga" },
+    { "key": "lymph", "plate": "limfatyczny", "token": "--sys-lymph", "namePl": "Limfatyczny", "color": "#73C770", "light": "#B2E0B0", "glyph": "lymph", "group": "rownowaga" },
+    { "key": "repro", "plate": "rozrodczy", "token": "--sys-repro", "namePl": "Rozrodczy", "color": "#EA7BB2", "light": "#F3B6D5", "glyph": "repro", "group": "inne" }
+  ],
+  "groups": [
+    { "key": "sterowanie", "namePl": "Sterowanie" },
+    { "key": "naped", "namePl": "Napęd" },
+    { "key": "zaopatrzenie", "namePl": "Zaopatrzenie" },
+    { "key": "rownowaga", "namePl": "Równowaga" },
+    { "key": "inne", "namePl": "Inne" }
+  ],
+  "validation": {
+    "minDeltaE": 15,
+    "formula": "CIEDE2000; symulacja daltonizmu: Machado, Oliveira i Fernandes 2009 (nasilenie 1,0), deuteranopia i protanopia",
+    "shownTogether": {
+      "rule": "Każdy układ z kolorami kontekstu (kość, mięśnie/tło) oraz z tętnicami i żyłami na planszach, które je pokazują; pary wskazane w briefach. Warunek: zwykłe widzenie ORAZ deuteranopia ORAZ protanopia.",
+      "withContext": ["bone", "muscle"],
+      "withVessels": ["resp", "digest", "urinary", "endo", "skin", "lymph", "repro"],
+      "pairs": [
+        ["artery", "vein", "plansza krwionośna i zbliżenie pęcherzyka"],
+        ["skin", "bone", "bliskie w propozycji (model §4, spór 11)"],
+        ["endo", "urinary", "nadnercza wyróżnione na planszy moczowej (brief agenta 9)"]
+      ]
+    },
+    "menu": {
+      "rule": "Każda para układów w menu: ΔE ≥ 15 przy zwykłym widzeniu. Przy daltonizmie rozróżnia je ikona i nazwa (WCAG 1.4.1).",
+      "exceptions": [
+        ["muscle", "artery", "kolory fazy 1 utrwalone w renderach; nigdy na jednej planszie; w menu rozróżnia je ikona i nazwa"]
+      ]
+    }
+  }
+}

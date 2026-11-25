@@ -54,28 +54,14 @@ RAW = os.environ.get("ATLAS_RAW") or (
 HUBMAP_DIR = os.path.join(RAW, "hubmap")
 
 # ---------------------------------------------------------------- kolory (księga stylu §2)
-SYSTEM_COLORS = {
-    "nerve": "#E8B23A",
-    "muscle": "#C8553D",
-    "brain": "#9B7BEA",
-    "resp": "#4FC3E0",
-    "artery": "#D93240",
-    "vein": "#3E6FD8",
-    # faza 1b: propozycja z docs/ATLAS_KOLEJNE_UKLADY.md §3 (ostateczne wartości: palette.json, etap E0)
-    "endo": "#E0893A",
-    "skin": "#C99A84",
-    "digest": "#A8743A",
-    "urinary": "#2E9C9A",
-    "bone": "#B9A37E",
-    "lymph": "#45A85A",
-    "repro": "#D45D9A",
-}
-CONTEXT_COLORS = {
-    "bone": "#D8D1C4",
-    "muscle": "#8E7A78",
-    "skin": "#9AA4B5",
-}
-REST_MIX = 0.35  # spoczynek: 35% koloru układu + 65% kontekstu
+# Jedno źródło kolorów dla Pythona i TS: src/atlas/data/palette.json (walidator: scripts/atlas_check_palette.ts).
+PALETTE_PATH = os.path.join(ROOT, "src", "atlas", "data", "palette.json")
+with open(PALETTE_PATH, encoding="utf-8") as _f:
+    PALETTE = json.load(_f)
+SYSTEM_COLORS = {s["key"]: s["color"] for s in PALETTE["systems"]}
+SYSTEM_LIGHT = {s["key"]: s["light"] for s in PALETTE["systems"]}
+CONTEXT_COLORS = {k: v for k, v in PALETTE["context"].items() if k != "pageBg"}
+REST_MIX = float(PALETTE["restMix"])  # spoczynek: 35% koloru układu + 65% kontekstu
 
 # Światło. Faza 0 miała klucz 260 W, wypełnienie 90 W, kontrę 220 W: przy emisji sprintu kanał R się obcinał
 # (bursztyn wychodził cytrynowy, ceglasty łososiowy). LIGHT_SCALE mnoży wszystkie trzy lampy, KEY_SCALE dodatkowo klucz.
