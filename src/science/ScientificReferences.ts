@@ -315,6 +315,111 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Podręcznik fizjologii wysiłku: hemodynamika wysiłkowa, wymiana gazowa, mechanizm ślizgowy włókien mięśniowych, termoregulacja, EPOC i adaptacje treningowe.',
   },
+  // --- Atlas układów: plansza „Mózg” (agent 3) ---
+  raichle_gusnard_2002: {
+    id: 'raichle_gusnard_2002',
+    authors: 'Raichle, M. E., & Gusnard, D. A.',
+    year: 2002,
+    title: "Appraising the brain's energy budget",
+    journal: 'Proceedings of the National Academy of Sciences (PNAS), 99(16), 10237–10239',
+    pmid: '12149485',
+    doi: '10.1073/pnas.172399499',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/12149485/',
+    acts: [10],
+    summaryPl:
+      'Komentarz o budżecie energetycznym mózgu: ok. 2% masy ciała, a ok. 20% spoczynkowego zużycia tlenu i energii; większość tej energii idzie na stałą, „spoczynkową” aktywność neuronów.',
+  },
+  van_hall_2009: {
+    id: 'van_hall_2009',
+    authors: 'van Hall, G., Strømstad, M., Rasmussen, P., et al.',
+    year: 2009,
+    title: 'Blood lactate is an important energy source for the human brain',
+    journal: 'Journal of Cerebral Blood Flow & Metabolism, 29(6), 1121–1129',
+    pmid: '19337275',
+    doi: '10.1038/jcbfm.2009.35',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/19337275/',
+    acts: [10],
+    summaryPl:
+      'Pomiar znakowanym mleczanem (13C) u 6 zdrowych osób: mleczan z krwi pokrywał ok. 8% energii mózgu w spoczynku, ok. 19% przy wlewie mleczanu i ok. 27% podczas jazdy na rowerze (75% VO₂max) z wlewem mleczanu.',
+  },
+  quistorff_2008: {
+    id: 'quistorff_2008',
+    authors: 'Quistorff, B., Secher, N. H., & Van Lieshout, J. J.',
+    year: 2008,
+    title: 'Lactate fuels the human brain during exercise',
+    journal: 'The FASEB Journal, 22(10), 3443–3449',
+    pmid: '18653766',
+    doi: '10.1096/fj.08-106104',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18653766/',
+    acts: [10],
+    summaryPl:
+      'Przegląd: przy intensywnym wysiłku mózg pobiera mleczan proporcjonalnie do jego stężenia we krwi; stosunek pobranego O₂ do glukozy i mleczanu (CMR) spada z ok. 6 w spoczynku do poniżej 2.',
+  },
+  kemppainen_2005: {
+    id: 'kemppainen_2005',
+    authors: 'Kemppainen, J., Aalto, S., Fujimoto, T., et al.',
+    year: 2005,
+    title: 'High intensity exercise decreases global brain glucose uptake in humans',
+    journal: 'The Journal of Physiology, 568(1), 323–332',
+    pmid: '16037089',
+    doi: '10.1113/jphysiol.2005.091355',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/16037089/',
+    acts: [10],
+    summaryPl:
+      'Badanie PET ([18F]FDG) u 14 mężczyzn: przy 75% VO₂max mózg pobierał globalnie o ok. 32% mniej glukozy niż przy 30% VO₂max; autorzy wiążą to z przejściem na inne paliwa, najpewniej mleczan.',
+  },
+  ogoh_ainslie_2009: {
+    id: 'ogoh_ainslie_2009',
+    authors: 'Ogoh, S., & Ainslie, P. N.',
+    year: 2009,
+    title: 'Cerebral blood flow during exercise: mechanisms of regulation',
+    journal: 'Journal of Applied Physiology, 107(5), 1370–1380',
+    pmid: '19729591',
+    doi: '10.1152/japplphysiol.00573.2009',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/19729591/',
+    acts: [10],
+    summaryPl:
+      'Przegląd: przepływ krwi przez mózg rośnie do ok. 60% VO₂max, a przy cięższym wysiłku wraca w stronę wartości spoczynkowych, bo hiperwentylacja obniża CO₂ we krwi i zwęża naczynia mózgu.',
+  },
+  rooks_2010: {
+    id: 'rooks_2010',
+    authors: 'Rooks, C. R., Thom, N. J., McCully, K. K., & Dishman, R. K.',
+    year: 2010,
+    title: 'Effects of incremental exercise on cerebral oxygenation measured by near-infrared spectroscopy: a systematic review',
+    journal: 'Progress in Neurobiology, 92(2), 134–150',
+    pmid: '20542078',
+    doi: '10.1016/j.pneurobio.2010.06.002',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/20542078/',
+    acts: [10],
+    summaryPl:
+      'Przegląd systematyczny badań NIRS: utlenowanie kory czołowej rośnie od wysiłku lekkiego do ciężkiego, a przy wysiłku bardzo ciężkim (blisko maksimum) spada.',
+  },
+  dietrich_2003: {
+    id: 'dietrich_2003',
+    authors: 'Dietrich, A.',
+    year: 2003,
+    title: 'Functional neuroanatomy of altered states of consciousness: the transient hypofrontality hypothesis',
+    journal: 'Consciousness and Cognition, 12(2), 231–256',
+    pmid: '12763007',
+    doi: '10.1016/S1053-8100(02)00046-6',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/12763007/',
+    acts: [10],
+    summaryPl:
+      'Hipoteza przejściowej hipofrontalności: w długim biegu i innych odmiennych stanach świadomości kora przedczołowa miałaby czasowo słabnąć. To hipoteza teoretyczna, nie wynik pomiaru.',
+  },
+  rasmussen_2009: {
+    id: 'rasmussen_2009',
+    authors: 'Rasmussen, P., Brassard, P., Adser, H., et al.',
+    year: 2009,
+    title: 'Evidence for a release of brain-derived neurotrophic factor from the brain during exercise',
+    journal: 'Experimental Physiology, 94(10), 1062–1069',
+    pmid: '19666694',
+    doi: '10.1113/expphysiol.2009.048512',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/19666694/',
+    acts: [10],
+    summaryPl:
+      'U 8 wioślarzy (4 h wysiłku) mózg uwalniał BDNF do krwi żylnej szyjnej, w wysiłku 2–3 razy więcej niż w spoczynku, i odpowiadał za ok. 70–80% krążącego BDNF. Dane o miejscu w mózgu pochodzą z badań na myszach.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
