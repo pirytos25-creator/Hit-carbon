@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AtlasPlate } from './AtlasPlate';
+import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { ATLAS_SYSTEMS } from './plates';
 import type { AtlasAnchorsFile, AtlasState, AtlasSystemId } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
@@ -30,6 +30,8 @@ export function AtlasApp() {
   const [anchors, setAnchors] = useState<AtlasAnchorsFile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 760px)').matches);
+  // „Całe ciało / Zbliżenie” (łatka sesji mięśniowej): na szerokim ekranie jedna skala naraz, żeby nic nie było za małe.
+  const [panel, setPanel] = useState<'body' | 'detail'>('body');
   const system = ATLAS_SYSTEMS.find((s) => s.id === systemId)!;
 
   useEffect(() => {
@@ -39,6 +41,13 @@ export function AtlasApp() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
   const content = system.content!;
+  const flows3d = useFlows3d(`${BASE}atlas/${systemId}/flows3d.json`);
+  const detailViews = content.views.filter((v) => v === 'detail');
+  const bodyViews = content.views.filter((v) => v !== 'detail');
+  // Całe ciało (render pionowy ≥ 1,7:1) obok zbliżenia byłoby za małe: wtedy jedna skala naraz.
+  const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
+  const splitScale = detailViews.length > 0 && (bodyViews.length >= 2 || (bodyViews.length >= 1 && wholeBody));
+  useEffect(() => setPanel('body'), [systemId]);
 
   useEffect(() => {
     const onHash = () => setSystemId(systemFromHash());
@@ -131,10 +140,41 @@ export function AtlasApp() {
                 state={state}
                 baseUrl={`${BASE}atlas/${systemId}/`}
                 onlyViews={[v]}
+                flows3d={flows3d}
               />
             ))
           ) : (
-            <AtlasPlate content={content} anchors={anchors} state={state} baseUrl={`${BASE}atlas/${systemId}/`} />
+            <>
+              {splitScale && (
+                <div className="shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 text-sm" role="tablist" aria-label="Skala planszy">
+                  {(['body', 'detail'] as const).map((p) => (
+                    <button
+                      key={p}
+                      role="tab"
+                      aria-selected={panel === p}
+                      onClick={() => setPanel(p)}
+                      className={`rounded-lg px-4 py-1.5 font-display font-semibold transition ${
+                        panel === p ? 'bg-slate-700 text-white' : 'text-slate-400 hover:text-slate-200'
+                      }`}
+                    >
+                      {p === 'body' ? 'Całe ciało' : 'Zbliżenie'}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className="flex-1 min-h-0 w-full flex items-center justify-center">
+                <AtlasPlate
+                  key={`${systemId}-${splitScale ? panel : 'all'}`}
+                  content={content}
+                  anchors={anchors}
+                  state={state}
+                  baseUrl={`${BASE}atlas/${systemId}/`}
+                  onlyViews={splitScale ? (panel === 'detail' ? detailViews : bodyViews) : undefined}
+                  fitHeight
+                  flows3d={flows3d}
+                />
+              </div>
+            </>
           )
         ) : (
           <p className="text-slate-500 text-sm">{error ? `Nie udało się wczytać planszy (${error}).` : 'Wczytywanie planszy…'}</p>

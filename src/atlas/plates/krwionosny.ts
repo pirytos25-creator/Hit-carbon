@@ -211,22 +211,8 @@ export const KRWIONOSNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
     },
   ],
-  // Strzałki przepływu (piksele renderu 1000×1800, wyliczone w Blenderze z przebiegu naczyń prawej nogi).
-  // AtlasPlate ich jeszcze nie rysuje (zadanie integratora, faza 2).
-  flows: [
-    {
-      view: 'front',
-      kind: 'artery',
-      labelPl: 'Z aorty do stopy',
-      points: [[514, 731], [494, 786], [475, 813], [453, 847], [442, 885], [429, 954], [412, 1034], [421, 1133], [402, 1471], [408, 1550], [416, 1619], [413, 1649], [429, 1669]],
-    },
-    {
-      view: 'front',
-      kind: 'vein',
-      labelPl: 'Ze stopy do serca',
-      points: [[458, 1664], [444, 1590], [444, 1471], [461, 1371], [486, 1302], [460, 1192], [443, 1073], [438, 974], [442, 942], [498, 723], [484, 515]],
-    },
-  ],
+  // Strzałki przepływu: public/atlas/krwionosny/flows3d.json (metry, tory po krzywych naczyń Z-Anatomy,
+  // kierunek sprawdzony z topologią drzewa naczyń; generuje blender/atlas/plate_krwionosny.py).
   creditsPl:
-    'Modele: HuBMAP Human Reference Atlas (serce, aorta, żyły główne, naczynia wieńcowe i trzewne; CC BY 4.0) oraz Z-Anatomy (szkielet, skóra; CC BY-SA 4.0, na bazie BodyParts3D © DBCLS). Naczynia kończyn, szyi i głowy dorysowano proceduralnie według przebiegu podręcznikowego (schemat). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Modele: Z-Anatomy (widok całego ciała: naczynia tętnicze i żylne całego ciała, jamy serca, szkielet; CC BY-SA 4.0, na bazie BodyParts3D © DBCLS) oraz HuBMAP Human Reference Atlas (zbliżenie serca: jamy serca, aorta, żyły główne, naczynia wieńcowe i płucne; CC BY 4.0). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };

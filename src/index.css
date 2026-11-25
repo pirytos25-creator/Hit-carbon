@@ -30,6 +30,21 @@
   --sys-artery-light: #f07a84;
   --sys-vein: #3e6fd8;
   --sys-vein-light: #86a6ee;
+  /* Faza 1b: propozycja z docs/ATLAS_KOLEJNE_UKLADY.md §3 (ostateczne wartości: palette.json, etap E0). */
+  --sys-endo: #e0893a;
+  --sys-endo-light: #f2b47f;
+  --sys-skin: #c99a84;
+  --sys-skin-light: #e5c3b3;
+  --sys-digest: #a8743a;
+  --sys-digest-light: #d2a671;
+  --sys-urinary: #2e9c9a;
+  --sys-urinary-light: #7ccfcb;
+  --sys-bone: #b9a37e;
+  --sys-bone-light: #dccdae;
+  --sys-lymph: #45a85a;
+  --sys-lymph-light: #8fd29c;
+  --sys-repro: #d45d9a;
+  --sys-repro-light: #eda1c8;
   --atlas-bg: #070b14;
 }
 
