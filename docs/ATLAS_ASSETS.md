@@ -38,9 +38,9 @@ Dopobrane 2026-11-25 pod kolejne układy (szczegóły: `docs/ATLAS_KOLEJNE_UKLAD
 Razem w `atlas_raw/hubmap/` ok. 95 MB (43 modele).
 
 Dopobrane 2026-11-25 (wieczór) pod planszę rozrodczą: `female/VH_F_skin.glb` (v1.3, 12 MB) i `female/VH_F_Vertebrae.glb` (v1.2, 7,7 MB).
-**Znany problem:** skóra `VH_F_skin.glb` (v1.3) nie pasuje do kości VH_F (`VH_F_Vertebrae`, `VH_F_Pelvis`, v1.2): wersje mają różne
-układy odniesienia. Nie używać skóry VH_F jako kontekstu dla narządów i kości VH_F bez osobnego dopasowania; kontekstem jest miednica
-i kręgosłup VH_F (zgłoszenie agenta rozrodczego, integracja 1b).
+Skóra `VH_F_skin.glb` (v1.3) pasuje do kości VH_F (`VH_F_Vertebrae`, `VH_F_Pelvis`, v1.2) po tym samym przekształceniu
+`align_hubmap` (sprawdzone przez Dyrygenta, integracja 1b). Uwaga przy własnych testach dopasowania: porównywać współrzędne
+świata (po macierzy `align_hubmap`), nie lokalne – test w układzie lokalnym (np. BVHTree bez macierzy) błędnie pokazuje rozjazd.
 Służą jako kontekst żeńskiej sylwetki i do sprawdzenia położenia narządów żeńskich. Narządów żeńskich nie przenosi się na męski szkielet Z-Anatomy.
 Celowo nie pobrano:
 - kolana HuBMAP, bo Z-Anatomy ma kolekcję `Knee joint`;
