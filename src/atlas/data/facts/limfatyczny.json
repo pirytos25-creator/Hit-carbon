@@ -1,0 +1,1527 @@
+{
+ "schemaVersion": 1,
+ "plate": "limfatyczny",
+ "facts": [
+  {
+   "id": "limfatyczny.metric.komorki_nk_we_krwi",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Komórki NK we krwi",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "nieman_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The post-test lymphocytosis can be explained primarily from the 176% increase in natural killer cells (NK) and 28% increase in cytotoxic/suppressor T cells, while the 1-h recovery lymphopenia occurred because of a sharp decrease in total T cells and a moderate decrease in NK cells.",
+   "locator": "Nieman 1992, abstrakt",
+   "conversionNote": "+176% = 2,76× wartości wyjściowej",
+   "protocolMismatch": "30 s sprint maksymalny (Wingate)",
+   "measuredAt": "3 min po wysiłku; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "ok. 2,8×",
+   "notePl": "Komórki NK („naturalni zabójcy”) niszczą komórki zakażone wirusem i nowotworowe. Po 1 h ich liczba spada umiarkowanie, a limfocytów ogółem jest o 36% mniej niż przed wysiłkiem.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26",
+    "reportInferred": true
+   },
+   "order": 0
+  },
+  {
+   "id": "limfatyczny.metric.komorki_nk_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Komórki NK we krwi",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "nieman_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The post-test lymphocytosis can be explained primarily from the 176% increase in natural killer cells (NK) and 28% increase in cytotoxic/suppressor T cells, while the 1-h recovery lymphopenia occurred because of a sharp decrease in total T cells and a moderate decrease in NK cells.",
+   "locator": "Nieman 1992, abstrakt",
+   "conversionNote": "+176% = 2,76× wartości wyjściowej",
+   "protocolMismatch": "30 s sprint maksymalny (Wingate)",
+   "measuredAt": "3 min po wysiłku; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.limfocyty_we_krwi",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Limfocyty we krwi",
+   "unit": "tys./µL",
+   "referenceIds": [
+    "bogdanis_2022",
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1) | Pre 2.3 ± 0.6, Post 4.0 ± 0.9 k/μL (Table 1, HIIE60)",
+   "locator": "Bogdanis 2022, Tabela 1 (HIIE60: Pre 2.3 ± 0.6, Post 4.0 ± 0.9, 1 h post 1.7 ± 0.6 k/μL) i wyniki „Hematologic responses”",
+   "conversionNote": null,
+   "protocolMismatch": "8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)",
+   "measuredAt": "zaraz po ostatnim interwale; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "4,0",
+   "notePl": "Po 1 h: 1,7 tys./µL, czyli mniej niż przed wysiłkiem. Według przeglądu najmniej limfocytów jest 1–2 h po wysiłku, a w ciągu doby ich liczba wraca do normy.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#27",
+     "#28"
+    ],
+    "note": "#27, #28",
+    "reportInferred": true
+   },
+   "order": 1
+  },
+  {
+   "id": "limfatyczny.metric.limfocyty_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Limfocyty we krwi",
+   "unit": "tys./µL",
+   "referenceIds": [
+    "bogdanis_2022",
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1) | Pre 2.3 ± 0.6, Post 4.0 ± 0.9 k/μL (Table 1, HIIE60)",
+   "locator": "Bogdanis 2022, Tabela 1 (HIIE60: Pre 2.3 ± 0.6, Post 4.0 ± 0.9, 1 h post 1.7 ± 0.6 k/μL) i wyniki „Hematologic responses”",
+   "conversionNote": null,
+   "protocolMismatch": "8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)",
+   "measuredAt": "zaraz po ostatnim interwale; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "2,3",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#27",
+     "#28"
+    ],
+    "note": "#27, #28",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.biale_krwinki_leukocyty",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Białe krwinki (leukocyty)",
+   "unit": "tys./µL",
+   "referenceIds": [
+    "bogdanis_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The increase in HIIE60 (from 6.1 ± 1.6 to 9.7 ± 2.6 k/μL) was greater than in all other trials (p < 0.05).",
+   "locator": "Bogdanis 2022, wyniki „Hematologic responses” i Tabela 1 (1 h post: 6.1 ± 1.8)",
+   "conversionNote": null,
+   "protocolMismatch": "8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)",
+   "measuredAt": "zaraz po ostatnim interwale; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "9,7",
+   "notePl": "Po 1 h: 6,1 tys./µL, czyli tyle samo co przed wysiłkiem.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#27",
+     "#28"
+    ],
+    "note": "#27, #28",
+    "reportInferred": true
+   },
+   "order": 2
+  },
+  {
+   "id": "limfatyczny.metric.biale_krwinki_leukocyty.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Białe krwinki (leukocyty)",
+   "unit": "tys./µL",
+   "referenceIds": [
+    "bogdanis_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The increase in HIIE60 (from 6.1 ± 1.6 to 9.7 ± 2.6 k/μL) was greater than in all other trials (p < 0.05).",
+   "locator": "Bogdanis 2022, wyniki „Hematologic responses” i Tabela 1 (1 h post: 6.1 ± 1.8)",
+   "conversionNote": null,
+   "protocolMismatch": "8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)",
+   "measuredAt": "zaraz po ostatnim interwale; po: 1 h po wysiłku",
+   "tier": "primary",
+   "value": "6,1",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#27",
+     "#28"
+    ],
+    "note": "#27, #28",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.objetosc_sledziony",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Objętość śledziony",
+   "unit": "objętości spoczynkowej",
+   "referenceIds": [
+    "stewart_2003"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The incremental ride to exhaustion resulted in a 56% reduction in spleen volume, which recovered to baseline levels within 20 min.",
+   "locator": "Stewart 2003, abstrakt; Tabela 2",
+   "conversionNote": "−56% objętości = 44% wartości spoczynkowej",
+   "protocolMismatch": "test stopniowany do wyczerpania na rowerze (9 mężczyzn, 25 lat)",
+   "measuredAt": "zaraz po wysiłku; po: 20 min po wysiłku",
+   "tier": "primary",
+   "value": "ok. 44%",
+   "notePl": "Śledziona się kurczy i oddaje krew do krążenia. Po wysiłku do wyczerpania jest mniejsza o 56%, po 5–15 min jazdy przy 60% VO₂max o 28–36%. Po ok. 20 min wraca do normy. Na rysunku sprintu śledziona jest mniejsza o ok. 1/3 objętości (ilustracja, ostrożnie).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#29"
+    ],
+    "note": "#29",
+    "reportInferred": true
+   },
+   "order": 3
+  },
+  {
+   "id": "limfatyczny.metric.objetosc_sledziony.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Objętość śledziony",
+   "unit": "objętości spoczynkowej",
+   "referenceIds": [
+    "stewart_2003"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The incremental ride to exhaustion resulted in a 56% reduction in spleen volume, which recovered to baseline levels within 20 min.",
+   "locator": "Stewart 2003, abstrakt; Tabela 2",
+   "conversionNote": "−56% objętości = 44% wartości spoczynkowej",
+   "protocolMismatch": "test stopniowany do wyczerpania na rowerze (9 mężczyzn, 25 lat)",
+   "measuredAt": "zaraz po wysiłku; po: 20 min po wysiłku",
+   "tier": "primary",
+   "value": "100%",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#29"
+    ],
+    "note": "#29",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.komorki_nk_przy_dlugim_intensywnym_wysilku",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Komórki NK przy długim intensywnym wysiłku",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "This response is typified by a dramatic influx of natural killer cells, which rise by up to 10-fold, and CD8+ T cells which increase to a lesser—but still profound—extent by approximately 2.5-fold",
+   "locator": "Campbell i Turner 2018, część A, „Transient Changes to Blood Lymphocyte Frequency in the Hours Following Exercise”",
+   "conversionNote": null,
+   "protocolMismatch": "intensywny wysiłek ciągły trwający co najmniej 45–60 min (przegląd)",
+   "measuredAt": "w trakcie i zaraz po wysiłku",
+   "tier": "student",
+   "value": "do 10×",
+   "notePl": "Limfocyty T CD8 rosną ok. 2,5×. Mechanizm: adrenalina działa na receptory β2 limfocytów.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#30"
+    ],
+    "note": "#30",
+    "reportInferred": true
+   },
+   "order": 4
+  },
+  {
+   "id": "limfatyczny.metric.komorki_nk_przy_dlugim_intensywnym_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Komórki NK przy długim intensywnym wysiłku",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "This response is typified by a dramatic influx of natural killer cells, which rise by up to 10-fold, and CD8+ T cells which increase to a lesser—but still profound—extent by approximately 2.5-fold",
+   "locator": "Campbell i Turner 2018, część A, „Transient Changes to Blood Lymphocyte Frequency in the Hours Following Exercise”",
+   "conversionNote": null,
+   "protocolMismatch": "intensywny wysiłek ciągły trwający co najmniej 45–60 min (przegląd)",
+   "measuredAt": "w trakcie i zaraz po wysiłku",
+   "tier": "student",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#30"
+    ],
+    "note": "#30",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.spadek_limfocytow_po_wysilku",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Spadek limfocytów po wysiłku",
+   "unit": "% (1–2 h po wysiłku)",
+   "referenceIds": [
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Given the 30–60% decrease in lymphocyte numbers post-exercise (89, 101, 102), apoptosis could be a small contributor to exercise-induced lymphopenia",
+   "locator": "Campbell i Turner 2018, część A, „Transient Changes to Blood Lymphocyte Frequency in the Hours Following Exercise”, akapit o apoptozie; moment 1–2 h i powrót w 24 h: ten sam rozdział („This nadir is typically observed approximately 1–2 h post-exercise”)",
+   "conversionNote": null,
+   "protocolMismatch": "intensywny wysiłek ciągły (przegląd)",
+   "measuredAt": "po: 1–2 h po wysiłku",
+   "tier": "student",
+   "value": "−30 do −60",
+   "notePl": "Najmniej limfocytów jest ok. 1–2 h po wysiłku; w ciągu 24 h ich liczba wraca do normy.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#31"
+    ],
+    "note": "#31: cytat podmieniony na zdanie z liczbą (wskazane przez sprawdzającego)",
+    "reportInferred": true
+   },
+   "order": 5
+  },
+  {
+   "id": "limfatyczny.metric.spadek_limfocytow_po_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Spadek limfocytów po wysiłku",
+   "unit": "% (1–2 h po wysiłku)",
+   "referenceIds": [
+    "campbell_turner_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Given the 30–60% decrease in lymphocyte numbers post-exercise (89, 101, 102), apoptosis could be a small contributor to exercise-induced lymphopenia",
+   "locator": "Campbell i Turner 2018, część A, „Transient Changes to Blood Lymphocyte Frequency in the Hours Following Exercise”, akapit o apoptozie; moment 1–2 h i powrót w 24 h: ten sam rozdział („This nadir is typically observed approximately 1–2 h post-exercise”)",
+   "conversionNote": null,
+   "protocolMismatch": "intensywny wysiłek ciągły (przegląd)",
+   "measuredAt": "po: 1–2 h po wysiłku",
+   "tier": "student",
+   "value": "0",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#31"
+    ],
+    "note": "#31: cytat podmieniony na zdanie z liczbą (wskazane przez sprawdzającego)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.odplyw_limfy_z_pracujacego_miesnia",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Odpływ limfy z pracującego mięśnia",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidenceLevel": "preliminary_human",
+   "quote": "Exercise increased the clearance rate three- to sixfold",
+   "locator": "Havas 1997, abstrakt, punkt 3",
+   "conversionNote": "three- to sixfold = 3–6×",
+   "protocolMismatch": "100 skurczów mięśnia uda w 10 min (prostowanie kolana), nie bieg ani rower",
+   "measuredAt": "w trakcie 10 min skurczów",
+   "tier": "student",
+   "value": "3–6×",
+   "notePl": "Pierwsze badania sugerują, że skurcze mięśni wyciskają limfę szybciej. Pomiar pośredni: tempo usuwania znakowanego białka z mięśnia uda (8 mężczyzn). Przepływu w przewodzie piersiowym w wysiłku u ludzi nie zmierzono; dane o nim pochodzą głównie z badań na zwierzętach.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#32"
+    ],
+    "note": "#32",
+    "reportInferred": true
+   },
+   "order": 6
+  },
+  {
+   "id": "limfatyczny.metric.odplyw_limfy_z_pracujacego_miesnia.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Odpływ limfy z pracującego mięśnia",
+   "unit": "względem spoczynku",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidenceLevel": "preliminary_human",
+   "quote": "Exercise increased the clearance rate three- to sixfold",
+   "locator": "Havas 1997, abstrakt, punkt 3",
+   "conversionNote": "three- to sixfold = 3–6×",
+   "protocolMismatch": "100 skurczów mięśnia uda w 10 min (prostowanie kolana), nie bieg ani rower",
+   "measuredAt": "w trakcie 10 min skurczów",
+   "tier": "student",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#32"
+    ],
+    "note": "#32",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.czy_sledziona_dostarcza_limfocytow_w_wysilku",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "Czy śledziona dostarcza limfocytów w wysiłku?",
+   "unit": null,
+   "referenceIds": [
+    "nielsen_1997",
+    "baum_1996"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "the spleen is important for lymphocytosis during exercise, accounting for two-thirds of the increase in T lymphocytes and NK cells",
+   "locator": "Nielsen 1997, abstrakt; strona przeciwna: Baum 1996, abstrakt („the pattern of white blood cell mobilization is unchanged after splenectomy”)",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny do wyczerpania, osoby po usunięciu śledziony",
+   "measuredAt": "w trakcie wysiłku maksymalnego",
+   "tier": "secondary",
+   "value": "sporne",
+   "notePl": "Naukowcy się spierają. U osób bez śledziony limfocytów przybywało mniej (Nielsen 1997: śledziona daje ok. 2/3 wzrostu), ale w innym badaniu nie było różnicy (Baum 1996).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#33"
+    ],
+    "note": "#33",
+    "reportInferred": true
+   },
+   "order": 7
+  },
+  {
+   "id": "limfatyczny.metric.czy_sledziona_dostarcza_limfocytow_w_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "Czy śledziona dostarcza limfocytów w wysiłku?",
+   "unit": null,
+   "referenceIds": [
+    "nielsen_1997",
+    "baum_1996"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "the spleen is important for lymphocytosis during exercise, accounting for two-thirds of the increase in T lymphocytes and NK cells",
+   "locator": "Nielsen 1997, abstrakt; strona przeciwna: Baum 1996, abstrakt („the pattern of white blood cell mobilization is unchanged after splenectomy”)",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny do wyczerpania, osoby po usunięciu śledziony",
+   "measuredAt": "w trakcie wysiłku maksymalnego",
+   "tier": "secondary",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#33"
+    ],
+    "note": "#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.metric.otwarte_okno_na_infekcje_po_wysilku",
+   "kind": "metric",
+   "plate": "limfatyczny",
+   "labelPl": "„Otwarte okno” na infekcje po wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "pedersen_bruunsgaard_1995",
+    "campbell_turner_2018",
+    "simpson_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "During this time of immunodepression, often referred to as ‘the open window’, the host may be more susceptible to micro-organisms bypassing the first line of defence.",
+   "locator": "Pedersen i Bruunsgaard 1995, abstrakt; strona przeciwna: Campbell i Turner 2018, abstrakt („limited reliable evidence exists to support the claim that vigorous exercise heightens risk of opportunistic infections”); Simpson 2020, abstrakt („An issue that remains to be resolved is whether exercise per se is a causative factor of increased infection risk in athletes.”)",
+   "conversionNote": null,
+   "protocolMismatch": "długi, intensywny wysiłek (przeglądy i debata), nie interwały 45 s",
+   "measuredAt": "1–2 h po wysiłku (spadek limfocytów; Campbell i Turner 2018)",
+   "tier": "secondary",
+   "value": "sporne",
+   "notePl": "Naukowcy się spierają, czy spadek limfocytów po wysiłku osłabia odporność. Jedni (Pedersen i Bruunsgaard 1995): po długim, intensywnym wysiłku łatwiej o infekcję („otwarte okno”). Drudzy (Campbell i Turner 2018): mało wiarygodnych dowodów, a komórki przechodzą do tkanek, gdzie pilnują porządku. Wspólny przegląd obu stron (Simpson i wsp. 2020): sprawa wciąż nierozstrzygnięta.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta e)"
+   },
+   "order": 8
+  },
+  {
+   "id": "limfatyczny.metric.otwarte_okno_na_infekcje_po_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "limfatyczny",
+   "labelPl": "„Otwarte okno” na infekcje po wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "pedersen_bruunsgaard_1995",
+    "campbell_turner_2018",
+    "simpson_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "During this time of immunodepression, often referred to as ‘the open window’, the host may be more susceptible to micro-organisms bypassing the first line of defence.",
+   "locator": "Pedersen i Bruunsgaard 1995, abstrakt; strona przeciwna: Campbell i Turner 2018, abstrakt („limited reliable evidence exists to support the claim that vigorous exercise heightens risk of opportunistic infections”); Simpson 2020, abstrakt („An issue that remains to be resolved is whether exercise per se is a causative factor of increased infection risk in athletes.”)",
+   "conversionNote": null,
+   "protocolMismatch": "długi, intensywny wysiłek (przeglądy i debata), nie interwały 45 s",
+   "measuredAt": "1–2 h po wysiłku (spadek limfocytów; Campbell i Turner 2018)",
+   "tier": "secondary",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta e)"
+   }
+  },
+  {
+   "id": "limfatyczny.role.cervical.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "cervical",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_cervicales",
+   "state": "rest",
+   "textPl": "Oczyszczają limfę z głowy i szyi",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.cervical.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "cervical",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_cervicales",
+   "state": "sprint",
+   "textPl": "Oczyszczają limfę z głowy i szyi",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.axillary.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "axillary",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_axillares",
+   "state": "rest",
+   "textPl": "Oczyszczają limfę z ręki i klatki piersiowej",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.axillary.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "axillary",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_axillares",
+   "state": "sprint",
+   "textPl": "Oczyszczają limfę z ręki i klatki piersiowej",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.thymus.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "thymus",
+   "view": "front",
+   "structureId": "thymus",
+   "state": "rest",
+   "textPl": "Tu dojrzewają limfocyty T; u dorosłych jest mała",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.thymus.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "thymus",
+   "view": "front",
+   "structureId": "thymus",
+   "state": "sprint",
+   "textPl": "Tu dojrzewają limfocyty T; u dorosłych jest mała",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.thoracic_duct.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "thoracic_duct",
+   "view": "front",
+   "structureId": "ductus_thoracicus",
+   "state": "rest",
+   "textPl": "Zbiera limfę z nóg, brzucha i lewej połowy ciała",
+   "status": "anatomy",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#7"
+    ],
+    "note": "#7; fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "limfatyczny.role.thoracic_duct.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "thoracic_duct",
+   "view": "front",
+   "structureId": "ductus_thoracicus",
+   "state": "sprint",
+   "textPl": "Prawdopodobnie odprowadza więcej limfy z nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": "preliminary_human",
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#7"
+    ],
+    "note": "#7; fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "limfatyczny.role.spleen.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "spleen",
+   "view": "front",
+   "structureId": "splen_lien",
+   "state": "rest",
+   "textPl": "Filtruje krew i przechowuje krwinki",
+   "status": "anatomy",
+   "referenceIds": [
+    "stewart_2003"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#9",
+     "#10"
+    ],
+    "note": "#9, #10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.role.spleen.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "spleen",
+   "view": "front",
+   "structureId": "splen_lien",
+   "state": "sprint",
+   "textPl": "Kurczy się i oddaje do krążenia krew z krwinkami",
+   "status": "checked_agent",
+   "referenceIds": [
+    "stewart_2003"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#9",
+     "#10"
+    ],
+    "note": "#9, #10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.role.inguinal.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "inguinal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_inguinales",
+   "state": "rest",
+   "textPl": "Oczyszczają limfę z nogi",
+   "status": "anatomy",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "limfatyczny.role.inguinal.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "inguinal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_inguinales",
+   "state": "sprint",
+   "textPl": "Prawdopodobnie dopływa więcej limfy z pracujących nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": "preliminary_human",
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "limfatyczny.role.venous_angle.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "venous_angle",
+   "view": "front",
+   "structureId": "angulus_venosus_sinister",
+   "state": "rest",
+   "textPl": "Limfa wraca do krwi (lewy kąt żylny)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.venous_angle.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "venous_angle",
+   "view": "front",
+   "structureId": "angulus_venosus_sinister",
+   "state": "sprint",
+   "textPl": "Limfa wraca do krwi (lewy kąt żylny)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.leg_lymph.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "leg_lymph",
+   "view": "front",
+   "structureId": "vasa_lymphatica_membri_inferioris",
+   "state": "rest",
+   "textPl": "Limfa płynie powoli w górę (zastawki)",
+   "status": "anatomy",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#14",
+     "#15"
+    ],
+    "note": "#14, #15",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.role.leg_lymph.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "leg_lymph",
+   "view": "front",
+   "structureId": "vasa_lymphatica_membri_inferioris",
+   "state": "sprint",
+   "textPl": "Skurcze mięśni wyciskają limfę szybciej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "havas_1997"
+   ],
+   "evidence": "preliminary_human",
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_limfatyczny.md",
+    "rows": [
+     "#14",
+     "#15"
+    ],
+    "note": "#14, #15",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "limfatyczny.role.cisterna.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "cisterna",
+   "view": "front",
+   "structureId": "cisterna_chyli",
+   "state": "rest",
+   "textPl": "Zbiera limfę z nóg i jelit",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.cisterna.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "cisterna",
+   "view": "front",
+   "structureId": "cisterna_chyli",
+   "state": "sprint",
+   "textPl": "Zbiera limfę z nóg i jelit",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.mediastinal.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "mediastinal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_tracheobronchiales",
+   "state": "rest",
+   "textPl": "Oczyszczają limfę z płuc",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.mediastinal.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "mediastinal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_tracheobronchiales",
+   "state": "sprint",
+   "textPl": "Oczyszczają limfę z płuc",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.abdominal.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "abdominal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_mesenterici",
+   "state": "rest",
+   "textPl": "Oczyszczają limfę z jelit",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.abdominal.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "abdominal",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_mesenterici",
+   "state": "sprint",
+   "textPl": "Oczyszczają limfę z jelit",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.iliac.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "iliac",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_iliaci",
+   "state": "rest",
+   "textPl": "Zbierają limfę z nóg i miednicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.iliac.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "iliac",
+   "view": "front",
+   "structureId": "nodi_lymphoidei_iliaci",
+   "state": "sprint",
+   "textPl": "Zbierają limfę z nóg i miednicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_afferent.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_afferent",
+   "view": "detail",
+   "structureId": "vas_lymphaticum_afferens",
+   "state": "rest",
+   "textPl": "Wnosi limfę do węzła",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_afferent.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_afferent",
+   "view": "detail",
+   "structureId": "vas_lymphaticum_afferens",
+   "state": "sprint",
+   "textPl": "Wnosi limfę do węzła",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_follicle.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_follicle",
+   "view": "detail",
+   "structureId": "nodulus_lymphoideus",
+   "state": "rest",
+   "textPl": "Tu namnażają się limfocyty B",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_follicle.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_follicle",
+   "view": "detail",
+   "structureId": "nodulus_lymphoideus",
+   "state": "sprint",
+   "textPl": "Tu namnażają się limfocyty B",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_efferent.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_efferent",
+   "view": "detail",
+   "structureId": "vas_lymphaticum_efferens",
+   "state": "rest",
+   "textPl": "Wyprowadza limfę z węzła (wnęka)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_efferent.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_efferent",
+   "view": "detail",
+   "structureId": "vas_lymphaticum_efferens",
+   "state": "sprint",
+   "textPl": "Wyprowadza limfę z węzła (wnęka)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_capsule.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_capsule",
+   "view": "detail",
+   "structureId": "capsula",
+   "state": "rest",
+   "textPl": "Otacza węzeł; pod nią płynie limfa",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_capsule.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_capsule",
+   "view": "detail",
+   "structureId": "capsula",
+   "state": "sprint",
+   "textPl": "Otacza węzeł; pod nią płynie limfa",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_paracortex.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_paracortex",
+   "view": "detail",
+   "structureId": "paracortex",
+   "state": "rest",
+   "textPl": "Strefa limfocytów T",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_paracortex.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_paracortex",
+   "view": "detail",
+   "structureId": "paracortex",
+   "state": "sprint",
+   "textPl": "Strefa limfocytów T",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_medulla.rest",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_medulla",
+   "view": "detail",
+   "structureId": "medulla",
+   "state": "rest",
+   "textPl": "Zatoki prowadzą limfę do wnęki",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.role.d_medulla.sprint",
+   "kind": "role",
+   "plate": "limfatyczny",
+   "anchor": "d_medulla",
+   "view": "detail",
+   "structureId": "medulla",
+   "state": "sprint",
+   "textPl": "Zatoki prowadzą limfę do wnęki",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "limfatyczny.summary.rest",
+   "kind": "summary",
+   "plate": "limfatyczny",
+   "state": "rest",
+   "textPl": "Z naczyń krwionośnych wycieka do tkanek płyn tkankowy. Gdy trafi do naczyń chłonnych, staje się limfą. Naczynia chłonne prowadzą ją powoli przez węzły chłonne, które działają jak filtry. Przewód piersiowy oddaje limfę z powrotem do krwi, do żyły przy lewym obojczyku. Część komórek odpornościowych, np. komórek NK, przylega do ścian naczyń krwionośnych.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "campbell_turner_2018"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018"
+   }
+  },
+  {
+   "id": "limfatyczny.summary.sprint",
+   "kind": "summary",
+   "plate": "limfatyczny",
+   "state": "sprint",
+   "textPl": "W wysiłku adrenalina odrywa komórki odpornościowe od ścian naczyń, więc w krwi szybko przybywa komórek NK i limfocytów. Śledziona się kurczy i oddaje krew do krążenia. Pracujące mięśnie wyciskają limfę szybciej. 1–2 godziny po wysiłku limfocytów we krwi jest przejściowo mniej niż przed nim. Naukowcy się spierają, czy to osłabia odporność, czy komórki po prostu przechodzą do tkanek.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "campbell_turner_2018",
+    "nieman_1992",
+    "stewart_2003",
+    "havas_1997",
+    "pedersen_bruunsgaard_1995"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018"
+   }
+  },
+  {
+   "id": "limfatyczny.protocolNote",
+   "kind": "protocol_note",
+   "plate": "limfatyczny",
+   "textPl": "„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie). „Po” to 1 godzina po wysiłku.",
+   "status": "checked_agent",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md, cz. 1a"
+   }
+  }
+ ]
+}

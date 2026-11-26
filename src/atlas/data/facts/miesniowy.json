@@ -1,0 +1,1446 @@
+{
+ "schemaVersion": 1,
+ "plate": "miesniowy",
+ "facts": [
+  {
+   "id": "miesniowy.metric.rekrutowane_wlokna_miesniowe",
+   "kind": "metric",
+   "plate": "miesniowy",
+   "labelPl": "Rekrutowane włókna mięśniowe",
+   "unit": null,
+   "referenceIds": [
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "gollnick_1974"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "glycogen breakdown was observed in all type I and IIA and in about 50% of type IIAB and IIB fibres",
+   "locator": "Vøllestad & Blom 1985, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "rower, wysiłek ciągły przy 91% VO₂max",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "typ I + IIa + część IIx",
+   "notePl": "Zasada rozmiaru: jednostki ruchowe włączają się od najmniejszych do największych (opisana u kotów). Przy 91% VO₂max od początku pracują wszystkie włókna I i IIa oraz ok. połowa IIx.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 0
+  },
+  {
+   "id": "miesniowy.metric.rekrutowane_wlokna_miesniowe.rest",
+   "kind": "metric_rest",
+   "plate": "miesniowy",
+   "labelPl": "Rekrutowane włókna mięśniowe",
+   "unit": null,
+   "referenceIds": [
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "gollnick_1974"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "glycogen breakdown was observed in all type I and IIA and in about 50% of type IIAB and IIB fibres",
+   "locator": "Vøllestad & Blom 1985, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "rower, wysiłek ciągły przy 91% VO₂max",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "typ I",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "miesniowy.metric.sklad_wlokien_m_obszernego_bocznego_i_iia_iix",
+   "kind": "metric",
+   "plate": "miesniowy",
+   "labelPl": "Skład włókien m. obszernego bocznego (I / IIa / IIx)",
+   "unit": "%",
+   "referenceIds": [
+    "staron_2000"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "approximately 41% I, 1% IC, 1% IIC, 31% IIA, 6% IIAB, and 20% IIB",
+   "locator": "Staron 2000, abstrakt; Materials and Methods; tab. 2",
+   "conversionNote": "I = I + IC; IIa = IIC + IIA + ½ IIAB; IIx = ½ IIAB + IIB (wzór autorów); IIB = IIX.",
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "42 / 35 / 23",
+   "notePl": "Skład się nie zmienia, zmienia się to, które włókna pracują. Średnia ze 150 biopsji młodych, niewytrenowanych osób; rozrzut jest duży (typ I od ok. 17 do 97%).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 1
+  },
+  {
+   "id": "miesniowy.metric.sklad_wlokien_m_obszernego_bocznego_i_iia_iix.rest",
+   "kind": "metric_rest",
+   "plate": "miesniowy",
+   "labelPl": "Skład włókien m. obszernego bocznego (I / IIa / IIx)",
+   "unit": "%",
+   "referenceIds": [
+    "staron_2000"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "approximately 41% I, 1% IC, 1% IIC, 31% IIA, 6% IIAB, and 20% IIB",
+   "locator": "Staron 2000, abstrakt; Materials and Methods; tab. 2",
+   "conversionNote": "I = I + IC; IIa = IIC + IIA + ½ IIAB; IIx = ½ IIAB + IIB (wzór autorów); IIB = IIX.",
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "42 / 35 / 23",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "miesniowy.metric.udzial_miesni_w_przeplywie_krwi",
+   "kind": "metric",
+   "plate": "miesniowy",
+   "labelPl": "Udział mięśni w przepływie krwi",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "kenney_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": null,
+   "locator": null,
+   "conversionNote": null,
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 80–85",
+   "notePl": null,
+   "seeAlsoPlate": null,
+   "status": "unverifiable",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 2
+  },
+  {
+   "id": "miesniowy.metric.udzial_miesni_w_przeplywie_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "miesniowy",
+   "labelPl": "Udział mięśni w przepływie krwi",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "kenney_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": null,
+   "locator": null,
+   "conversionNote": null,
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 15–20",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "miesniowy.metric.zapotrzebowanie_miesni_na_atp",
+   "kind": "metric",
+   "plate": "miesniowy",
+   "labelPl": "Zapotrzebowanie mięśni na ATP",
+   "unit": null,
+   "referenceIds": [
+    "baker_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "High-intensity exercise can result in up to a 1,000-fold increase in the rate of ATP demand",
+   "locator": "Baker 2010, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "krótki wysiłek maksymalny; w naszym interwale mniej",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "nawet ok. 1000×",
+   "notePl": "Przy maksymalnym wysiłku. ATP odtwarzają jednocześnie fosfokreatyna, glikoliza i mitochondria.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 3
+  },
+  {
+   "id": "miesniowy.metric.zapotrzebowanie_miesni_na_atp.rest",
+   "kind": "metric_rest",
+   "plate": "miesniowy",
+   "labelPl": "Zapotrzebowanie mięśni na ATP",
+   "unit": null,
+   "referenceIds": [
+    "baker_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "High-intensity exercise can result in up to a 1,000-fold increase in the rate of ATP demand",
+   "locator": "Baker 2010, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "krótki wysiłek maksymalny; w naszym interwale mniej",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "miesniowy.metric.mleczan_we_krwi",
+   "kind": "metric",
+   "plate": "miesniowy",
+   "labelPl": "Mleczan we krwi",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "brooks_2020",
+    "astorino_2025",
+    "brooks_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Peak BLa and energy expenditure were equal to 9.9 ± 3.1 mM",
+   "locator": "Astorino 2025, Results „Physiological data”; Brooks 2020, Background (spoczynek ok. 1,0 mM)",
+   "conversionNote": "Średnie badań 6,6–13,2 mM zaokrąglone do 7–13.",
+   "protocolMismatch": "rower, 8–12 × 30–60 s przy 70–85% mocy maksymalnej; 60 mężczyzn i 44 kobiety, VO₂max ok. 40 mL/kg/min, szczyt ok. 78% VO₂max",
+   "measuredAt": "najwyższa wartość w połowie sesji albo 3 min po niej",
+   "tier": "primary",
+   "value": "ok. 10",
+   "notePl": "Średnie z różnych badań HIIT: ok. 7–13. Mleczan nie jest „odpadem”: serce, mózg i włókna tlenowe zużywają go jako paliwo.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 4
+  },
+  {
+   "id": "miesniowy.metric.mleczan_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "miesniowy",
+   "labelPl": "Mleczan we krwi",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "brooks_2020",
+    "astorino_2025",
+    "brooks_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Peak BLa and energy expenditure were equal to 9.9 ± 3.1 mM",
+   "locator": "Astorino 2025, Results „Physiological data”; Brooks 2020, Background (spoczynek ok. 1,0 mM)",
+   "conversionNote": "Średnie badań 6,6–13,2 mM zaokrąglone do 7–13.",
+   "protocolMismatch": "rower, 8–12 × 30–60 s przy 70–85% mocy maksymalnej; 60 mężczyzn i 44 kobiety, VO₂max ok. 40 mL/kg/min, szczyt ok. 78% VO₂max",
+   "measuredAt": "najwyższa wartość w połowie sesji albo 3 min po niej",
+   "tier": "primary",
+   "value": "ok. 1",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "miesniowy.role.deltoid.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "deltoid",
+   "view": "front",
+   "structureId": "m_deltoideus",
+   "state": "rest",
+   "textPl": "Napięcie posturalne",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#7",
+     "#17"
+    ],
+    "note": "#7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion"
+   }
+  },
+  {
+   "id": "miesniowy.role.deltoid.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "deltoid",
+   "view": "front",
+   "structureId": "m_deltoideus",
+   "state": "sprint",
+   "textPl": "Wymach ramion równoważy obrót nóg (symulacja komputerowa, 1 biegacz)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": "preliminary_human",
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#7",
+     "#17"
+    ],
+    "note": "#7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion"
+   }
+  },
+  {
+   "id": "miesniowy.role.rectus_abdominis.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "rectus_abdominis",
+   "view": "front",
+   "structureId": "m_rectus_abdominis",
+   "state": "rest",
+   "textPl": "Niska aktywność",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#8",
+     "#17"
+    ],
+    "note": "#8, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.rectus_abdominis.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "rectus_abdominis",
+   "view": "front",
+   "structureId": "m_rectus_abdominis",
+   "state": "sprint",
+   "textPl": "Usztywnia tułów przy każdym kroku",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#8",
+     "#17"
+    ],
+    "note": "#8, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.rectus_femoris.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "rectus_femoris",
+   "view": "front",
+   "structureId": "m_rectus_femoris",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#9",
+     "#17"
+    ],
+    "note": "#9, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results"
+   }
+  },
+  {
+   "id": "miesniowy.role.rectus_femoris.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "rectus_femoris",
+   "view": "front",
+   "structureId": "m_rectus_femoris",
+   "state": "sprint",
+   "textPl": "Pomaga prostować kolano",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#9",
+     "#17"
+    ],
+    "note": "#9, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results"
+   }
+  },
+  {
+   "id": "miesniowy.role.vastus_lateralis.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "vastus_lateralis",
+   "view": "front",
+   "structureId": "m_vastus_lateralis",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#10",
+     "#17"
+    ],
+    "note": "#10, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.vastus_lateralis.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "vastus_lateralis",
+   "view": "front",
+   "structureId": "m_vastus_lateralis",
+   "state": "sprint",
+   "textPl": "Prostuje kolano, amortyzuje lądowanie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#10",
+     "#17"
+    ],
+    "note": "#10, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.tibialis_anterior.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "tibialis_anterior",
+   "view": "front",
+   "structureId": "m_tibialis_anterior",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#11",
+     "#17"
+    ],
+    "note": "#11, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.tibialis_anterior.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "tibialis_anterior",
+   "view": "front",
+   "structureId": "m_tibialis_anterior",
+   "state": "sprint",
+   "textPl": "Unosi stopę w fazie wymachu",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#11",
+     "#17"
+    ],
+    "note": "#11, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.gluteus_maximus.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "gluteus_maximus",
+   "view": "back",
+   "structureId": "m_gluteus_maximus",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hamner_2010",
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#12",
+     "#17"
+    ],
+    "note": "#12, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results; Hamner 2010, Results"
+   }
+  },
+  {
+   "id": "miesniowy.role.gluteus_maximus.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "gluteus_maximus",
+   "view": "back",
+   "structureId": "m_gluteus_maximus",
+   "state": "sprint",
+   "textPl": "Prostuje biodro, podpiera ciało po lądowaniu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hamner_2010",
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#12",
+     "#17"
+    ],
+    "note": "#12, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results; Hamner 2010, Results"
+   }
+  },
+  {
+   "id": "miesniowy.role.biceps_femoris.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "biceps_femoris",
+   "view": "back",
+   "structureId": "m_biceps_femoris",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#13",
+     "#17"
+    ],
+    "note": "#13, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.biceps_femoris.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "biceps_femoris",
+   "view": "back",
+   "structureId": "m_biceps_femoris",
+   "state": "sprint",
+   "textPl": "Hamuje goleń przed lądowaniem, prostuje biodro",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#13",
+     "#17"
+    ],
+    "note": "#13, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.semitendinosus.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "semitendinosus",
+   "view": "back",
+   "structureId": "m_semitendinosus",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#14",
+     "#17"
+    ],
+    "note": "#14, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results (HAMS jako grupa)"
+   }
+  },
+  {
+   "id": "miesniowy.role.semitendinosus.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "semitendinosus",
+   "view": "back",
+   "structureId": "m_semitendinosus",
+   "state": "sprint",
+   "textPl": "Hamuje goleń, prostuje biodro",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#14",
+     "#17"
+    ],
+    "note": "#14, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results (HAMS jako grupa)"
+   }
+  },
+  {
+   "id": "miesniowy.role.gastrocnemius.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "gastrocnemius",
+   "view": "back",
+   "structureId": "m_gastrocnemius",
+   "state": "rest",
+   "textPl": "Niska aktywność (postawa)",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#15",
+     "#17"
+    ],
+    "note": "#15, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.gastrocnemius.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "gastrocnemius",
+   "view": "back",
+   "structureId": "m_gastrocnemius",
+   "state": "sprint",
+   "textPl": "Odbicie stopy od taśmy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#15",
+     "#17"
+    ],
+    "note": "#15, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.soleus.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "soleus",
+   "view": "back",
+   "structureId": "m_soleus",
+   "state": "rest",
+   "textPl": "Utrzymuje postawę stojącą",
+   "status": "unverifiable",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#16",
+     "#17"
+    ],
+    "note": "#16, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.soleus.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "soleus",
+   "view": "back",
+   "structureId": "m_soleus",
+   "state": "sprint",
+   "textPl": "Duża siła odbicia przy każdym kroku",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#16",
+     "#17"
+    ],
+    "note": "#16, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_vastus_lateralis.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_vastus_lateralis",
+   "view": "detail",
+   "structureId": "m_vastus_lateralis",
+   "state": "rest",
+   "textPl": "Przekrój w miejscu biopsji: pracuje mało włókien",
+   "status": "unverifiable",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#18",
+     "#17"
+    ],
+    "note": "#18, #17; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_vastus_lateralis.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_vastus_lateralis",
+   "view": "detail",
+   "structureId": "m_vastus_lateralis",
+   "state": "sprint",
+   "textPl": "Przekrój w miejscu biopsji: pracują wszystkie typy (z IIx ok. połowa)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#18",
+     "#17"
+    ],
+    "note": "#18, #17; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_femur.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_femur",
+   "view": "detail",
+   "structureId": "femur",
+   "state": "rest",
+   "textPl": "Dźwignia dla mięśni uda",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26: audyt dopuszcza zwolnienie opisu anatomicznego",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_femur.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_femur",
+   "view": "detail",
+   "structureId": "femur",
+   "state": "sprint",
+   "textPl": "Dźwignia dla mięśni uda",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26: audyt dopuszcza zwolnienie opisu anatomicznego",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_hamstrings.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_hamstrings",
+   "view": "detail",
+   "structureId": "m_biceps_femoris",
+   "state": "rest",
+   "textPl": "Prawie bez pracy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#13",
+     "#17"
+    ],
+    "note": "#13, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_hamstrings.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_hamstrings",
+   "view": "detail",
+   "structureId": "m_biceps_femoris",
+   "state": "sprint",
+   "textPl": "Prostuje biodro, hamuje goleń",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#13",
+     "#17"
+    ],
+    "note": "#13, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_I.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_I",
+   "view": "detail",
+   "structureId": "wolne_tlenowe_ok_42",
+   "state": "rest",
+   "textPl": "Pracuje pierwsze",
+   "status": "checked_agent",
+   "referenceIds": [
+    "gollnick_1974",
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#21",
+     "#18"
+    ],
+    "note": "#21, #18; fakty_draft_K3_ruch.md: Gollnick 1974 pkt 3; Vøllestad & Blom 1985"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_I.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_I",
+   "view": "detail",
+   "structureId": "wolne_tlenowe_ok_42",
+   "state": "sprint",
+   "textPl": "Pracuje dalej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "gollnick_1974",
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#21",
+     "#18"
+    ],
+    "note": "#21, #18; fakty_draft_K3_ruch.md: Gollnick 1974 pkt 3; Vøllestad & Blom 1985"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_IIa.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_IIa",
+   "view": "detail",
+   "structureId": "szybkie_mieszane_ok_35",
+   "state": "rest",
+   "textPl": "Nie pracuje",
+   "status": "unverifiable",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#18",
+     "#22"
+    ],
+    "note": "#18, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_IIa.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_IIa",
+   "view": "detail",
+   "structureId": "szybkie_mieszane_ok_35",
+   "state": "sprint",
+   "textPl": "Dołącza: pracują wszystkie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#18",
+     "#22"
+    ],
+    "note": "#18, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_IIx.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_IIx",
+   "view": "detail",
+   "structureId": "najszybsze_beztlenowe_ok_23",
+   "state": "rest",
+   "textPl": "Nie pracuje",
+   "status": "unverifiable",
+   "referenceIds": [
+    "bottinelli_1996",
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#23",
+     "#22"
+    ],
+    "note": "#23, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985; Bottinelli 1996 pkt 3"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_fiber_IIx.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_fiber_IIx",
+   "view": "detail",
+   "structureId": "najszybsze_beztlenowe_ok_23",
+   "state": "sprint",
+   "textPl": "Dołącza ok. połowa: największa moc",
+   "status": "checked_agent",
+   "referenceIds": [
+    "bottinelli_1996",
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#23",
+     "#22"
+    ],
+    "note": "#23, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985; Bottinelli 1996 pkt 3"
+   }
+  },
+  {
+   "id": "miesniowy.role.d_myosin.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_myosin",
+   "view": "detail",
+   "structureId": "mostek_poprzeczny_pdb_5h53",
+   "state": "rest",
+   "textPl": "Nieliczne cykle mostków",
+   "status": "unverifiable",
+   "referenceIds": [
+    "fujii_namba_2017"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#6",
+     "#24"
+    ],
+    "note": "#6, #24 (model: stan rygoru, bez ATP)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_myosin.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_myosin",
+   "view": "detail",
+   "structureId": "mostek_poprzeczny_pdb_5h53",
+   "state": "sprint",
+   "textPl": "Chwyta aktynę i ciągnie, zużywając ATP",
+   "status": "checked_agent",
+   "referenceIds": [
+    "fujii_namba_2017"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#6",
+     "#24"
+    ],
+    "note": "#6, #24 (model: stan rygoru, bez ATP)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_actin.rest",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_actin",
+   "view": "detail",
+   "structureId": "aktyna_f",
+   "state": "rest",
+   "textPl": "Lina, po której przesuwa się miozyna",
+   "status": "checked_agent",
+   "referenceIds": [
+    "fujii_namba_2017"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#25"
+    ],
+    "note": "#25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.role.d_actin.sprint",
+   "kind": "role",
+   "plate": "miesniowy",
+   "anchor": "d_actin",
+   "view": "detail",
+   "structureId": "aktyna_f",
+   "state": "sprint",
+   "textPl": "Lina, po której przesuwa się miozyna",
+   "status": "checked_agent",
+   "referenceIds": [
+    "fujii_namba_2017"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_miesniowy.md",
+    "rows": [
+     "#25"
+    ],
+    "note": "#25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "miesniowy.summary.rest",
+   "kind": "summary",
+   "plate": "miesniowy",
+   "state": "rest",
+   "textPl": "W spoczynku mięśnie szkieletowe pracują głównie nad postawą. Rekrutowane są nieliczne, małe jednostki ruchowe z włóknami typu I.",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md: Dorn 2012, Hamner 2010, Mendell 2005, Vøllestad 1985, Fujii 2017"
+   }
+  },
+  {
+   "id": "miesniowy.summary.sprint",
+   "kind": "summary",
+   "plate": "miesniowy",
+   "state": "sprint",
+   "textPl": "W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, łydka odbija stopę od taśmy. Zgodnie z zasadą rozmiaru najpierw pracują małe jednostki z włóknami typu I; przy ok. 90% VO₂max dołączają włókna IIa i część włókien IIx. W każdym pracującym włóknie główki miozyny raz za razem chwytają aktynę i ciągną ją, zużywając ATP.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010",
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "fujii_namba_2017"
+   ],
+   "provenance": "model_simulation",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md: Dorn 2012, Hamner 2010, Mendell 2005, Vøllestad 1985, Fujii 2017"
+   }
+  }
+ ]
+}

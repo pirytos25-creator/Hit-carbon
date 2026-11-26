@@ -1,0 +1,1069 @@
+{
+ "schemaVersion": 1,
+ "plate": "mozg",
+ "facts": [
+  {
+   "id": "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "Mleczan z krwi jako paliwo mózgu",
+   "unit": "% energii mózgu",
+   "referenceIds": [
+    "van_hall_2009",
+    "brooks_2018",
+    "quistorff_2008"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "The contribution of systemic lactate to cerebral energy expenditure was 8%+/-2%, 19%+/-4%, and 27%+/-4%",
+   "locator": "van Hall 2009, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 min jazdy przy 75% VO₂max z wlewem mleczanu",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "do ok. 27",
+   "notePl": "Pomiar znakowanym mleczanem u 6 osób: wysiłek 75% VO₂max z wlewem mleczanu, nie sam sprint. Im więcej mleczanu we krwi, tym więcej pobiera go mózg.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 0
+  },
+  {
+   "id": "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "Mleczan z krwi jako paliwo mózgu",
+   "unit": "% energii mózgu",
+   "referenceIds": [
+    "van_hall_2009",
+    "brooks_2018",
+    "quistorff_2008"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "The contribution of systemic lactate to cerebral energy expenditure was 8%+/-2%, 19%+/-4%, and 27%+/-4%",
+   "locator": "van Hall 2009, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 min jazdy przy 75% VO₂max z wlewem mleczanu",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 8",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "mozg.metric.pobor_glukozy_przez_mozg_pet",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "Pobór glukozy przez mózg (PET)",
+   "unit": "µmol/100 g/min",
+   "referenceIds": [
+    "kemppainen_2005"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1 | exercise intensities corresponding to 30, 55 and 75% of [VO2max]",
+   "locator": "Kemppainen 2005, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "35 min jazdy przy 75% VO₂max (pobór uśredniony z 25 min)",
+   "measuredAt": null,
+   "tier": "student",
+   "value": "26,1",
+   "notePl": "Porównanie wysiłku 30% i 75% VO₂max (14 mężczyzn): ok. 32% mniej glukozy przy cięższym wysiłku. Spoczynku w tym badaniu nie mierzono.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 1
+  },
+  {
+   "id": "mozg.metric.pobor_glukozy_przez_mozg_pet.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "Pobór glukozy przez mózg (PET)",
+   "unit": "µmol/100 g/min",
+   "referenceIds": [
+    "kemppainen_2005"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1 | exercise intensities corresponding to 30, 55 and 75% of [VO2max]",
+   "locator": "Kemppainen 2005, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "35 min jazdy przy 75% VO₂max (pobór uśredniony z 25 min)",
+   "measuredAt": null,
+   "tier": "student",
+   "value": "38,6 (lekki wysiłek, 30% VO₂max)",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "mozg.metric.stosunek_tlenu_do_paliwa_w_mozgu_cmr",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "Stosunek tlenu do paliwa w mózgu (CMR)",
+   "unit": null,
+   "referenceIds": [
+    "quistorff_2008",
+    "raichle_gusnard_2002"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "from a resting value of 6 to <2",
+   "locator": "Quistorff 2008, abstrakt; Raichle & Gusnard 2002, s. 10237",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny do wyczerpania (np. wiosłowanie)",
+   "measuredAt": null,
+   "tier": "student",
+   "value": "poniżej 2",
+   "notePl": "W wysiłku mózg pobiera więcej glukozy i mleczanu, niż spala na bieżąco tlenem. W spoczynku mózg (ok. 2% masy ciała) zużywa ok. 20% tlenu całego ciała.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 2
+  },
+  {
+   "id": "mozg.metric.stosunek_tlenu_do_paliwa_w_mozgu_cmr.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "Stosunek tlenu do paliwa w mózgu (CMR)",
+   "unit": null,
+   "referenceIds": [
+    "quistorff_2008",
+    "raichle_gusnard_2002"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "from a resting value of 6 to <2",
+   "locator": "Quistorff 2008, abstrakt; Raichle & Gusnard 2002, s. 10237",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny do wyczerpania (np. wiosłowanie)",
+   "measuredAt": null,
+   "tier": "student",
+   "value": "ok. 6",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "mozg.metric.przeplyw_krwi_przez_mozg",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "Przepływ krwi przez mózg",
+   "unit": null,
+   "referenceIds": [
+    "ogoh_ainslie_2009"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "CBF decreases toward baseline values because of lower Pa(CO(2))",
+   "locator": "Ogoh & Ainslie 2009, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek stopniowany",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "najpierw ↑, przy ciężkim wysiłku wraca w stronę wyjściowego",
+   "notePl": "Rośnie mniej więcej do 60% VO₂max. Przy cięższym wysiłku szybki oddech obniża CO₂ we krwi, a to zwęża naczynia mózgu.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 3
+  },
+  {
+   "id": "mozg.metric.przeplyw_krwi_przez_mozg.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "Przepływ krwi przez mózg",
+   "unit": null,
+   "referenceIds": [
+    "ogoh_ainslie_2009"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "CBF decreases toward baseline values because of lower Pa(CO(2))",
+   "locator": "Ogoh & Ainslie 2009, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek stopniowany",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "wyjściowy",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "mozg.metric.bdnf_we_krwi_po_pojedynczym_wysilku",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "BDNF we krwi po pojedynczym wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "szuhany_2015",
+    "rasmussen_2009",
+    "erickson_2011"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "Hedges' g = 0.46",
+   "locator": "Szuhany 2015, abstrakt; Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, abstrakt; Results (odsyłacz do tab. 2)",
+   "conversionNote": null,
+   "protocolMismatch": "różne pojedyncze wysiłki; udział mózgu: 4 h wiosłowania",
+   "measuredAt": "od zaraz po wysiłku do 60 min po nim",
+   "tier": "primary",
+   "value": "umiarkowany wzrost",
+   "notePl": "Metaanaliza: efekt umiarkowany (g ≈ 0,46), mierzony we krwi, nie w mózgu. Wiele krążącego BDNF pochodzi z mózgu (8 osób, 4 h wiosłowania). Długofalowo: roczny trening aerobowy (marsz, osoby starsze) powiększył hipokamp o ok. 2% (głównie część przednią). To nie był HIIT.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 4
+  },
+  {
+   "id": "mozg.metric.bdnf_we_krwi_po_pojedynczym_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "BDNF we krwi po pojedynczym wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "szuhany_2015",
+    "rasmussen_2009",
+    "erickson_2011"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "Hedges' g = 0.46",
+   "locator": "Szuhany 2015, abstrakt; Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, abstrakt; Results (odsyłacz do tab. 2)",
+   "conversionNote": null,
+   "protocolMismatch": "różne pojedyncze wysiłki; udział mózgu: 4 h wiosłowania",
+   "measuredAt": "od zaraz po wysiłku do 60 min po nim",
+   "tier": "primary",
+   "value": "wyjściowy",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "mozg.metric.utlenowanie_kory_przedczolowej_nirs",
+   "kind": "metric",
+   "plate": "mozg",
+   "labelPl": "Utlenowanie kory przedczołowej (NIRS)",
+   "unit": null,
+   "referenceIds": [
+    "rooks_2010",
+    "dietrich_2003"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.",
+   "locator": "Rooks 2010, abstrakt",
+   "conversionNote": "88% VO₂max = kanon atlasu; u Rooks 2010 mieści się w kategorii hard (60–<100% VO₂peak), w której utlenowanie rośnie",
+   "protocolMismatch": "wysiłek stopniowany do maksimum",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "przy 88% VO₂max zwykle ↑; spada dopiero przy VO₂max",
+   "notePl": "Spadek utlenowania przy wysiłku maksymalnym (≥ VO₂peak) jest zmierzony. Ale to, czy kora przedczołowa naprawdę „przygasa” (hipoteza przejściowej hipofrontalności), pozostaje sporne.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "meta_analysis",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 5
+  },
+  {
+   "id": "mozg.metric.utlenowanie_kory_przedczolowej_nirs.rest",
+   "kind": "metric_rest",
+   "plate": "mozg",
+   "labelPl": "Utlenowanie kory przedczołowej (NIRS)",
+   "unit": null,
+   "referenceIds": [
+    "rooks_2010",
+    "dietrich_2003"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.",
+   "locator": "Rooks 2010, abstrakt",
+   "conversionNote": "88% VO₂max = kanon atlasu; u Rooks 2010 mieści się w kategorii hard (60–<100% VO₂peak), w której utlenowanie rośnie",
+   "protocolMismatch": "wysiłek stopniowany do maksimum",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "wyjściowe",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "meta_analysis",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "mozg.role.prefrontal.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "prefrontal",
+   "view": "side",
+   "structureId": "cortex_praefrontalis",
+   "state": "rest",
+   "textPl": "Planowanie i decyzje",
+   "status": "unverifiable",
+   "referenceIds": [
+    "rooks_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "meta_analysis",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33; fakty_draft_1b.md: Rooks 2010, abstrakt, wniosek"
+   }
+  },
+  {
+   "id": "mozg.role.prefrontal.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "prefrontal",
+   "view": "side",
+   "structureId": "cortex_praefrontalis",
+   "state": "sprint",
+   "textPl": "Tlen rośnie, spada dopiero przy maksimum",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rooks_2010"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "meta_analysis",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33; fakty_draft_1b.md: Rooks 2010, abstrakt, wniosek"
+   }
+  },
+  {
+   "id": "mozg.role.motor_cortex.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "motor_cortex",
+   "view": "side",
+   "structureId": "gyrus_praecentralis",
+   "state": "rest",
+   "textPl": "Niska aktywność ruchowa",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.motor_cortex.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "motor_cortex",
+   "view": "side",
+   "structureId": "gyrus_praecentralis",
+   "state": "sprint",
+   "textPl": "Wysyła rozkazy do mięśni nóg i ramion",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.sensory_cortex.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "sensory_cortex",
+   "view": "side",
+   "structureId": "gyrus_postcentralis",
+   "state": "rest",
+   "textPl": "Odbiera czucie z ciała",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.sensory_cortex.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "sensory_cortex",
+   "view": "side",
+   "structureId": "gyrus_postcentralis",
+   "state": "sprint",
+   "textPl": "Czucie z pracujących mięśni i stóp",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.cerebellum.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "cerebellum",
+   "view": "side",
+   "structureId": "cerebellum",
+   "state": "rest",
+   "textPl": "Napięcie mięśni i postawa",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.cerebellum.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "cerebellum",
+   "view": "side",
+   "structureId": "cerebellum",
+   "state": "sprint",
+   "textPl": "Koryguje każdy krok, rytm i równowagę",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.brainstem.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "brainstem",
+   "view": "side",
+   "structureId": "truncus_encephali",
+   "state": "rest",
+   "textPl": "Spokojny oddech i tętno",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.brainstem.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "brainstem",
+   "view": "side",
+   "structureId": "truncus_encephali",
+   "state": "sprint",
+   "textPl": "Przyspiesza oddech i pracę serca",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.paracentral.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "paracentral",
+   "view": "detail",
+   "structureId": "lobulus_paracentralis",
+   "state": "rest",
+   "textPl": "Pole ruchowe nóg odpoczywa",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.paracentral.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "paracentral",
+   "view": "detail",
+   "structureId": "lobulus_paracentralis",
+   "state": "sprint",
+   "textPl": "Pole nóg kory ruchowej: pełna praca",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.basal_ganglia.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "basal_ganglia",
+   "view": "detail",
+   "structureId": "nuclei_basales",
+   "state": "rest",
+   "textPl": "Hamują zbędne ruchy",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.basal_ganglia.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "basal_ganglia",
+   "view": "detail",
+   "structureId": "nuclei_basales",
+   "state": "sprint",
+   "textPl": "Uruchamiają i rytmizują krok",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.thalamus.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "thalamus",
+   "view": "detail",
+   "structureId": "thalamus",
+   "state": "rest",
+   "textPl": "Przekaźnik czucia do kory",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.thalamus.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "thalamus",
+   "view": "detail",
+   "structureId": "thalamus",
+   "state": "sprint",
+   "textPl": "Przekazuje czucie i sygnały móżdżku",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.hypothalamus.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "hypothalamus",
+   "view": "detail",
+   "structureId": "hypothalamus",
+   "state": "rest",
+   "textPl": "Stała temperatura i hormony",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.hypothalamus.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "hypothalamus",
+   "view": "detail",
+   "structureId": "hypothalamus",
+   "state": "sprint",
+   "textPl": "Chłodzenie (pot) i oś stresu",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.vermis.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "vermis",
+   "view": "detail",
+   "structureId": "vermis_cerebelli",
+   "state": "rest",
+   "textPl": "Postawa i równowaga",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.vermis.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "vermis",
+   "view": "detail",
+   "structureId": "vermis_cerebelli",
+   "state": "sprint",
+   "textPl": "Równowaga tułowia przy każdym kroku",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.medulla.rest",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "medulla",
+   "view": "detail",
+   "structureId": "medulla_oblongata",
+   "state": "rest",
+   "textPl": "Ośrodki oddechu i krążenia",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.role.medulla.sprint",
+   "kind": "role",
+   "plate": "mozg",
+   "anchor": "medulla",
+   "view": "detail",
+   "structureId": "medulla_oblongata",
+   "state": "sprint",
+   "textPl": "Szybszy oddech, wyższe tętno",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_mozg.md",
+    "rows": [
+     "#23",
+     "#33"
+    ],
+    "note": "#23-#33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "mozg.summary.rest",
+   "kind": "summary",
+   "plate": "mozg",
+   "state": "rest",
+   "textPl": "W spoczynku mózg pracuje bez przerwy: zużywa ok. 20% tlenu całego ciała, spalając głównie glukozę.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "raichle_gusnard_2002"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: van Hall 2009, Kemppainen 2005"
+   }
+  },
+  {
+   "id": "mozg.summary.sprint",
+   "kind": "summary",
+   "plate": "mozg",
+   "state": "sprint",
+   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max; mleczan mierzono przy dodatkowym wlewie mleczanu, a glukozę porównano z lekkim wysiłkiem przy 30% VO₂max).",
+   "status": "checked_agent",
+   "referenceIds": [
+    "van_hall_2009",
+    "kemppainen_2005"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: van Hall 2009, Kemppainen 2005"
+   }
+  }
+ ]
+}

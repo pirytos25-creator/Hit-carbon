@@ -1,0 +1,1459 @@
+{
+ "schemaVersion": 1,
+ "plate": "hormonalny",
+ "facts": [
+  {
+   "id": "hormonalny.metric.adrenalina_we_krwi",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Adrenalina we krwi",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996",
+    "brooks_1988"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma norepinephrine and epinephrine likewise increased > 12-fold with no differences among groups",
+   "locator": "Sigal 1996, abstrakt; Sigal 1994, abstrakt (1715 pmol/L w grupie C); Brooks 1988, abstrakt (0,2 → 1,4 nmol/L)",
+   "conversionNote": "1715 pmol/L = 1,7 nmol/L; 1,4 / 0,2 = 7",
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "ponad 12×",
+   "notePl": "Krotność stężenia w spoczynku przy ok. 87% VO₂max; szczyt ok. 1,7 nmol/L. Dla porównania po 30 s sprintu maksymalnego: ok. 7 razy (0,2 → 1,4 nmol/L).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1996/1994, Brooks 1988"
+   },
+   "order": 0
+  },
+  {
+   "id": "hormonalny.metric.adrenalina_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Adrenalina we krwi",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996",
+    "brooks_1988"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma norepinephrine and epinephrine likewise increased > 12-fold with no differences among groups",
+   "locator": "Sigal 1996, abstrakt; Sigal 1994, abstrakt (1715 pmol/L w grupie C); Brooks 1988, abstrakt (0,2 → 1,4 nmol/L)",
+   "conversionNote": "1715 pmol/L = 1,7 nmol/L; 1,4 / 0,2 = 7",
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1996/1994, Brooks 1988"
+   }
+  },
+  {
+   "id": "hormonalny.metric.glukoza_wypuszczana_do_krwi_glownie_z_watroby",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Glukoza wypuszczana do krwi (głównie z wątroby)",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups",
+   "locator": "Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”",
+   "conversionNote": null,
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "4–6×",
+   "notePl": "Napędzają ją głównie adrenalina i noradrenalina, a nie insulina i glukagon.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#38",
+     "#39"
+    ],
+    "note": "#38, #39",
+    "reportInferred": true
+   },
+   "order": 1
+  },
+  {
+   "id": "hormonalny.metric.glukoza_wypuszczana_do_krwi_glownie_z_watroby.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Glukoza wypuszczana do krwi (głównie z wątroby)",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups",
+   "locator": "Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”",
+   "conversionNote": null,
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#38",
+     "#39"
+    ],
+    "note": "#38, #39",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.metric.hormon_wzrostu_we_krwi",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Hormon wzrostu we krwi",
+   "unit": null,
+   "referenceIds": [
+    "stokes_2002",
+    "pritzlaff_1999",
+    "godfrey_2003"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "serum GH was still elevated 60 min after the first sprint. The second sprint in each trial did not elicit a serum GH response",
+   "locator": "Stokes 2002, abstrakt; Results, ryc. 4 (szczyt po 30 min)",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na cykloergometrze",
+   "measuredAt": "60 min po sprincie",
+   "tier": "primary",
+   "value": "nadal wyższy 60 min po",
+   "notePl": "Hormon wzrostu rośnie z opóźnieniem i zostaje podwyższony długo po sprincie. W tym badaniu drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Stokes 2002"
+   },
+   "order": 2
+  },
+  {
+   "id": "hormonalny.metric.hormon_wzrostu_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Hormon wzrostu we krwi",
+   "unit": null,
+   "referenceIds": [
+    "stokes_2002",
+    "pritzlaff_1999",
+    "godfrey_2003"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "serum GH was still elevated 60 min after the first sprint. The second sprint in each trial did not elicit a serum GH response",
+   "locator": "Stokes 2002, abstrakt; Results, ryc. 4 (szczyt po 30 min)",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na cykloergometrze",
+   "measuredAt": "60 min po sprincie",
+   "tier": "primary",
+   "value": "niski",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Stokes 2002"
+   }
+  },
+  {
+   "id": "hormonalny.metric.kortyzol_we_krwi",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Kortyzol we krwi",
+   "unit": null,
+   "referenceIds": [
+    "hill_2008"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The percent change in cortisol from pre- to post-sampling at each session was: resting-control, 40, 60, and 80% sessions (mean+/-SD) =-6.6+/-3.5%, +5.7+/-11.0%, +39.9+/-11.8%, and +83.1+/-18.5%, respectively. | Twelve active moderately trained men performed 30 min of exercise",
+   "locator": "Hill 2008, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 min ciągłego wysiłku przy 80% VO₂max",
+   "measuredAt": "zaraz po 30 min wysiłku",
+   "tier": "primary",
+   "value": "+83% po 30 min",
+   "notePl": "Po 30 min wysiłku przy 80% VO₂max; przy 40% VO₂max kortyzol nie rósł. Część wzrostu to zagęszczenie krwi.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#41",
+     "#42",
+     "#43"
+    ],
+    "note": "#41, #42; usunięte zdanie #43 (disputed)",
+    "reportInferred": true
+   },
+   "order": 3
+  },
+  {
+   "id": "hormonalny.metric.kortyzol_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Kortyzol we krwi",
+   "unit": null,
+   "referenceIds": [
+    "hill_2008"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The percent change in cortisol from pre- to post-sampling at each session was: resting-control, 40, 60, and 80% sessions (mean+/-SD) =-6.6+/-3.5%, +5.7+/-11.0%, +39.9+/-11.8%, and +83.1+/-18.5%, respectively. | Twelve active moderately trained men performed 30 min of exercise",
+   "locator": "Hill 2008, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 min ciągłego wysiłku przy 80% VO₂max",
+   "measuredAt": "zaraz po 30 min wysiłku",
+   "tier": "primary",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#41",
+     "#42",
+     "#43"
+    ],
+    "note": "#41, #42; usunięte zdanie #43 (disputed)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.metric.stosunek_glukagon_insulina",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Stosunek glukagon : insulina",
+   "unit": null,
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the glucagon-to-insulin ratio increased from 0.20 to 0.26 (P = 0.02)",
+   "locator": "Sigal 1996, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "ciągły wysiłek przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "student",
+   "value": "0,26",
+   "notePl": "Przy 87% VO₂max insulina lekko spadła, a glukagon się nie zmienił.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#44",
+     "#45",
+     "#46"
+    ],
+    "note": "#44, #45; zdanie #46 przeniesione do osobnej liczby niżej",
+    "reportInferred": true
+   },
+   "order": 4
+  },
+  {
+   "id": "hormonalny.metric.stosunek_glukagon_insulina.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Stosunek glukagon : insulina",
+   "unit": null,
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the glucagon-to-insulin ratio increased from 0.20 to 0.26 (P = 0.02)",
+   "locator": "Sigal 1996, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "ciągły wysiłek przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "student",
+   "value": "0,20",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#44",
+     "#45",
+     "#46"
+    ],
+    "note": "#44, #45; zdanie #46 przeniesione do osobnej liczby niżej",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.metric.insulina_po_wysilku",
+   "kind": "metric",
+   "plate": "hormonalny",
+   "labelPl": "Insulina po wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "peake_2014"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "requiring a substantial rise in insulin for 40--60 min to restore pre-exercise levels | then doubled to 162 +/- 28 pmol/l until 20 min recovery, before declining | Plasma insulin decreased during recovery from both HIIT and MOD",
+   "locator": "Marliss i Vranic 2002, abstrakt; Marliss 1992, abstrakt; Peake 2014, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek do wyczerpania (przegląd) i interwały przy ok. 82% VO₂max",
+   "measuredAt": "po wysiłku",
+   "tier": "student",
+   "value": "zależy od wysiłku",
+   "notePl": "Po wysiłku do wyczerpania insulina rośnie (ok. 2×) i zostaje podwyższona przez 40–60 min. Po interwałach przy ok. 82% VO₂max (wytrenowani kolarze i triathloniści) spadała.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed -> brzmienie dosłownie wg sprawdzającego"
+   },
+   "order": 5
+  },
+  {
+   "id": "hormonalny.metric.insulina_po_wysilku.rest",
+   "kind": "metric_rest",
+   "plate": "hormonalny",
+   "labelPl": "Insulina po wysiłku",
+   "unit": null,
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "peake_2014"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "requiring a substantial rise in insulin for 40--60 min to restore pre-exercise levels | then doubled to 162 +/- 28 pmol/l until 20 min recovery, before declining | Plasma insulin decreased during recovery from both HIIT and MOD",
+   "locator": "Marliss i Vranic 2002, abstrakt; Marliss 1992, abstrakt; Peake 2014, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek do wyczerpania (przegląd) i interwały przy ok. 82% VO₂max",
+   "measuredAt": "po wysiłku",
+   "tier": "student",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed -> brzmienie dosłownie wg sprawdzającego"
+   }
+  },
+  {
+   "id": "hormonalny.role.hypothalamus.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "hypothalamus",
+   "view": "front",
+   "structureId": "hypothalamus",
+   "state": "rest",
+   "textPl": "Steruje przysadką",
+   "status": "anatomy",
+   "referenceIds": [
+    "hill_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#10",
+     "#11"
+    ],
+    "note": "#10, #11",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.hypothalamus.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "hypothalamus",
+   "view": "front",
+   "structureId": "hypothalamus",
+   "state": "sprint",
+   "textPl": "Uruchamia oś stresu: przysadka i nadnercza",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hill_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#10",
+     "#11"
+    ],
+    "note": "#10, #11",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.pituitary.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pituitary",
+   "view": "front",
+   "structureId": "hypophysis",
+   "state": "rest",
+   "textPl": "Mało ADH i hormonu wzrostu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "convertino_1981",
+    "hill_2008",
+    "stokes_2002",
+    "peake_2014"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#12",
+     "#13"
+    ],
+    "note": "#12, #13",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.pituitary.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pituitary",
+   "view": "front",
+   "structureId": "hypophysis",
+   "state": "sprint",
+   "textPl": "Więcej ADH i ACTH; hormon wzrostu później",
+   "status": "checked_agent",
+   "referenceIds": [
+    "convertino_1981",
+    "hill_2008",
+    "stokes_2002",
+    "peake_2014"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#12",
+     "#13"
+    ],
+    "note": "#12, #13",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.pineal.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pineal",
+   "view": "front",
+   "structureId": "glandula_pinealis",
+   "state": "rest",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.pineal.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pineal",
+   "view": "front",
+   "structureId": "glandula_pinealis",
+   "state": "sprint",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.thyroid.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "thyroid",
+   "view": "front",
+   "structureId": "glandula_thyroidea",
+   "state": "rest",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.thyroid.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "thyroid",
+   "view": "front",
+   "structureId": "glandula_thyroidea",
+   "state": "sprint",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.thymus.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "thymus",
+   "view": "front",
+   "structureId": "thymus",
+   "state": "rest",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.thymus.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "thymus",
+   "view": "front",
+   "structureId": "thymus",
+   "state": "sprint",
+   "textPl": "",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)"
+   }
+  },
+  {
+   "id": "hormonalny.role.liver.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "liver",
+   "view": "front",
+   "structureId": "hepar",
+   "state": "rest",
+   "textPl": "Powoli oddaje glukozę do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#17",
+     "#18"
+    ],
+    "note": "#17, #18",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.liver.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "liver",
+   "view": "front",
+   "structureId": "hepar",
+   "state": "sprint",
+   "textPl": "Oddaje 4–6 razy więcej glukozy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#17",
+     "#18"
+    ],
+    "note": "#17, #18",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.pancreas.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pancreas",
+   "view": "front",
+   "structureId": "pancreas",
+   "state": "rest",
+   "textPl": "Insulina i glukagon trzymają stały cukier",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#19"
+    ],
+    "note": "#19; fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1994/1996, Marliss i Vranic 2002"
+   }
+  },
+  {
+   "id": "hormonalny.role.pancreas.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "pancreas",
+   "view": "front",
+   "structureId": "pancreas",
+   "state": "sprint",
+   "textPl": "Zmiana niewielka: glukagon bez zmian lub lekko w górę",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#19"
+    ],
+    "note": "#19; fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1994/1996, Marliss i Vranic 2002"
+   }
+  },
+  {
+   "id": "hormonalny.role.portal_vein.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "portal_vein",
+   "view": "front",
+   "structureId": "v_portae_hepatis",
+   "state": "rest",
+   "textPl": "Krew z trzustki i jelit do wątroby",
+   "status": "anatomy",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#21",
+     "#22"
+    ],
+    "note": "#21, #22 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.portal_vein.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "portal_vein",
+   "view": "front",
+   "structureId": "v_portae_hepatis",
+   "state": "sprint",
+   "textPl": "Niesie glukagon i insulinę do wątroby",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#21",
+     "#22"
+    ],
+    "note": "#21, #22 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.ivc.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "ivc",
+   "view": "front",
+   "structureId": "v_cava_inferior",
+   "state": "rest",
+   "textPl": "Krew z dolnej części ciała do serca",
+   "status": "anatomy",
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#23",
+     "#24"
+    ],
+    "note": "#23, #24 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.ivc.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "ivc",
+   "view": "front",
+   "structureId": "v_cava_inferior",
+   "state": "sprint",
+   "textPl": "Niesie adrenalinę z nadnerczy do serca",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#23",
+     "#24"
+    ],
+    "note": "#23, #24 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.adrenal.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "glandulae_suprarenales",
+   "state": "rest",
+   "textPl": "Mało adrenaliny we krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988",
+    "kindermann_1982",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#25",
+     "#26"
+    ],
+    "note": "#25, #26",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.adrenal.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "glandulae_suprarenales",
+   "state": "sprint",
+   "textPl": "Wyrzut adrenaliny do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988",
+    "kindermann_1982",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#25",
+     "#26"
+    ],
+    "note": "#25, #26",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.kidney.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "kidney",
+   "view": "front",
+   "structureId": "ren_sinister",
+   "state": "rest",
+   "textPl": "Nadnercze przylega do jej górnego bieguna",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#27"
+    ],
+    "note": "#27 (doprecyzowane wg uwagi audytu)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.kidney.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "kidney",
+   "view": "front",
+   "structureId": "ren_sinister",
+   "state": "sprint",
+   "textPl": "Nadnercze przylega do jej górnego bieguna",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#27"
+    ],
+    "note": "#27 (doprecyzowane wg uwagi audytu)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_cortex.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_cortex",
+   "view": "detail",
+   "structureId": "cortex_glandulae_suprarenalis",
+   "state": "rest",
+   "textPl": "Wydziela kortyzol w rytmie dnia",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hill_2008",
+    "kindermann_1982",
+    "peake_2014"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28; fakty_koncowe_B_horm_mocz_pokarm.md: Hill 2008, Kindermann 1982, Peake 2014"
+   }
+  },
+  {
+   "id": "hormonalny.role.d_cortex.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_cortex",
+   "view": "detail",
+   "structureId": "cortex_glandulae_suprarenalis",
+   "state": "sprint",
+   "textPl": "Kortyzol rośnie w dłuższym albo bardzo intensywnym wysiłku",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hill_2008",
+    "kindermann_1982",
+    "peake_2014"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28; fakty_koncowe_B_horm_mocz_pokarm.md: Hill 2008, Kindermann 1982, Peake 2014"
+   }
+  },
+  {
+   "id": "hormonalny.role.d_medulla.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_medulla",
+   "view": "detail",
+   "structureId": "medulla_glandulae_suprarenalis",
+   "state": "rest",
+   "textPl": "Mało adrenaliny",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#30",
+     "#31"
+    ],
+    "note": "#30 (+ referencja), #31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_medulla.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_medulla",
+   "view": "detail",
+   "structureId": "medulla_glandulae_suprarenalis",
+   "state": "sprint",
+   "textPl": "Adrenalina do krwi: kilkanaście razy więcej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#30",
+     "#31"
+    ],
+    "note": "#30 (+ referencja), #31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_artery.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_artery",
+   "view": "detail",
+   "structureId": "a_suprarenalis_inferior",
+   "state": "rest",
+   "textPl": "Krew z tętnicy nerkowej do nadnercza",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#32"
+    ],
+    "note": "#32",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_artery.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_artery",
+   "view": "detail",
+   "structureId": "a_suprarenalis_inferior",
+   "state": "sprint",
+   "textPl": "Krew z tętnicy nerkowej do nadnercza",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#32"
+    ],
+    "note": "#32",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_ivc.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_ivc",
+   "view": "detail",
+   "structureId": "v_cava_inferior",
+   "state": "rest",
+   "textPl": "Odbiera krew z nadnercza prawego",
+   "status": "anatomy",
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#33",
+     "#34"
+    ],
+    "note": "#33, #34 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_ivc.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_ivc",
+   "view": "detail",
+   "structureId": "v_cava_inferior",
+   "state": "sprint",
+   "textPl": "Zabiera adrenalinę do serca",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#33",
+     "#34"
+    ],
+    "note": "#33, #34 (+ referencja)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_kidney.rest",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_kidney",
+   "view": "detail",
+   "structureId": "ren_dexter",
+   "state": "rest",
+   "textPl": "Górny biegun pod nadnerczem",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#35"
+    ],
+    "note": "#35",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.role.d_kidney.sprint",
+   "kind": "role",
+   "plate": "hormonalny",
+   "anchor": "d_kidney",
+   "view": "detail",
+   "structureId": "ren_dexter",
+   "state": "sprint",
+   "textPl": "Górny biegun pod nadnerczem",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#35"
+    ],
+    "note": "#35",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.summary.rest",
+   "kind": "summary",
+   "plate": "hormonalny",
+   "state": "rest",
+   "textPl": "W spoczynku gruczoły dokrewne wydzielają hormony spokojnie, w rytmie dnia i posiłków. We krwi jest mało adrenaliny. Insulina i glukagon z trzustki utrzymują stały poziom cukru.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "godfrey_2003",
+    "brooks_1988"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#2",
+     "#3",
+     "#7"
+    ],
+    "note": "#2 (+ referencje); #3-#7",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.summary.sprint",
+   "kind": "summary",
+   "plate": "hormonalny",
+   "state": "sprint",
+   "textPl": "W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę. Przy bardzo intensywnym wysiłku jej stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby, a wątroba wypuszcza do krwi kilka razy więcej glukozy. Insulina i glukagon zmieniają się przy tym niewiele. Przysadka wydziela więcej hormonu antydiuretycznego (ADH).",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kindermann_1982",
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002",
+    "convertino_1981"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_hormonalny.md",
+    "rows": [
+     "#2",
+     "#3",
+     "#7"
+    ],
+    "note": "#2 (+ referencje); #3-#7",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "hormonalny.protocolNote",
+   "kind": "protocol_note",
+   "plate": "hormonalny",
+   "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).",
+   "status": "disputed",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte"
+   }
+  }
+ ]
+}

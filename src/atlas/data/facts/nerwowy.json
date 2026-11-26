@@ -1,0 +1,1219 @@
+{
+ "schemaVersion": 1,
+ "plate": "nerwowy",
+ "facts": [
+  {
+   "id": "nerwowy.metric.czestotliwosc_wyladowan_motoneuronu",
+   "kind": "metric",
+   "plate": "nerwowy",
+   "labelPl": "Częstotliwość wyładowań motoneuronu",
+   "unit": "Hz",
+   "referenceIds": [
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the average values are … 29.3 pps for tibialis anterior",
+   "locator": "Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”",
+   "conversionNote": "1 pps (impulsy na sekundę) = 1 Hz.",
+   "protocolMismatch": "skurcz izometryczny m. piszczelowego przedniego",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 30 (skurcz balistyczny: 60–120)",
+   "notePl": "Pomiary w m. piszczelowym przednim: ok. 8–9 Hz to najmniejsza częstotliwość świeżo włączonej jednostki, ok. 30 Hz to średnia częstotliwość szczytowa (badania: ok. 21–42 Hz). Gwałtowny skurcz zaczyna się krótką salwą 60–120 Hz.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 0
+  },
+  {
+   "id": "nerwowy.metric.czestotliwosc_wyladowan_motoneuronu.rest",
+   "kind": "metric_rest",
+   "plate": "nerwowy",
+   "labelPl": "Częstotliwość wyładowań motoneuronu",
+   "unit": "Hz",
+   "referenceIds": [
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the average values are … 29.3 pps for tibialis anterior",
+   "locator": "Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”",
+   "conversionNote": "1 pps (impulsy na sekundę) = 1 Hz.",
+   "protocolMismatch": "skurcz izometryczny m. piszczelowego przedniego",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "cisza; ok. 8–9 przy włączeniu",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "nerwowy.metric.rekrutacja_jednostek_ruchowych",
+   "kind": "metric",
+   "plate": "nerwowy",
+   "labelPl": "Rekrutacja jednostek ruchowych",
+   "unit": null,
+   "referenceIds": [
+    "duchateau_enoka_2022",
+    "vollestad_blom_1985",
+    "enoka_duchateau_2017"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "all type I and IIA and … about 50% of type IIAB and IIB",
+   "locator": "Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction",
+   "conversionNote": null,
+   "protocolMismatch": "rower, 91% VO₂max (mięsień uda)",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "małe i średnie, ok. połowa dużych",
+   "notePl": "Zasada rozmiaru: najpierw małe jednostki, potem coraz większe. W m. piszczelowym przednim komplet jest włączony przy ok. 90% siły maksymalnej w powolnym skurczu, a w szybkim już przy ok. 40%.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   },
+   "order": 1
+  },
+  {
+   "id": "nerwowy.metric.rekrutacja_jednostek_ruchowych.rest",
+   "kind": "metric_rest",
+   "plate": "nerwowy",
+   "labelPl": "Rekrutacja jednostek ruchowych",
+   "unit": null,
+   "referenceIds": [
+    "duchateau_enoka_2022",
+    "vollestad_blom_1985",
+    "enoka_duchateau_2017"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "all type I and IIA and … about 50% of type IIAB and IIB",
+   "locator": "Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction",
+   "conversionNote": null,
+   "protocolMismatch": "rower, 91% VO₂max (mięsień uda)",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "tylko małe (typ I)",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [],
+    "note": "fakty_draft_K3_ruch.md"
+   }
+  },
+  {
+   "id": "nerwowy.metric.noradrenalina_w_osoczu",
+   "kind": "metric",
+   "plate": "nerwowy",
+   "labelPl": "Noradrenalina w osoczu",
+   "unit": "nmol/L",
+   "referenceIds": [
+    "brooks_1988",
+    "zouhal_2008",
+    "goldstein_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "increased from 2.2 +/- 0.6 to 13.4 +/- 6.4 nmol.l-1",
+   "locator": "Brooks 1988, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na bieżni bez napędu",
+   "measuredAt": "po wysiłku",
+   "tier": "primary",
+   "value": "13,4",
+   "notePl": "Średnie po 30 s maksymalnego biegu na bieżni (10 mężczyzn). Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych. W przeglądzie badań wzrost katecholamin w wysiłku wynosi od 1,5 do ponad 20 razy.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 2
+  },
+  {
+   "id": "nerwowy.metric.noradrenalina_w_osoczu.rest",
+   "kind": "metric_rest",
+   "plate": "nerwowy",
+   "labelPl": "Noradrenalina w osoczu",
+   "unit": "nmol/L",
+   "referenceIds": [
+    "brooks_1988",
+    "zouhal_2008",
+    "goldstein_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "increased from 2.2 +/- 0.6 to 13.4 +/- 6.4 nmol.l-1",
+   "locator": "Brooks 1988, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na bieżni bez napędu",
+   "measuredAt": "po wysiłku",
+   "tier": "primary",
+   "value": "2,2",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "nerwowy.metric.adrenalina_w_osoczu",
+   "kind": "metric",
+   "plate": "nerwowy",
+   "labelPl": "Adrenalina w osoczu",
+   "unit": "nmol/L",
+   "referenceIds": [
+    "brooks_1988",
+    "zouhal_2008",
+    "goldstein_2010",
+    "statpearls_ans"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "0.2 +/- 0.2 to 1.4 +/- 0.6 nmol.l-1 … for … adrenaline (AD)",
+   "locator": "Brooks 1988, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na bieżni bez napędu",
+   "measuredAt": "po wysiłku",
+   "tier": "primary",
+   "value": "1,4",
+   "notePl": "To samo badanie (30 s sprintu na bieżni). Adrenalinę wydziela rdzeń nadnerczy na sygnał z nerwów współczulnych.",
+   "seeAlsoPlate": "hormonalny",
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 3
+  },
+  {
+   "id": "nerwowy.metric.adrenalina_w_osoczu.rest",
+   "kind": "metric_rest",
+   "plate": "nerwowy",
+   "labelPl": "Adrenalina w osoczu",
+   "unit": "nmol/L",
+   "referenceIds": [
+    "brooks_1988",
+    "zouhal_2008",
+    "goldstein_2010",
+    "statpearls_ans"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "0.2 +/- 0.2 to 1.4 +/- 0.6 nmol.l-1 … for … adrenaline (AD)",
+   "locator": "Brooks 1988, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "30 s sprint maksymalny na bieżni bez napędu",
+   "measuredAt": "po wysiłku",
+   "tier": "primary",
+   "value": "0,2",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "nerwowy.metric.skad_bierze_sie_zmeczenie",
+   "kind": "metric",
+   "plate": "nerwowy",
+   "labelPl": "Skąd bierze się zmęczenie",
+   "unit": null,
+   "referenceIds": [
+    "taylor_gandevia_2001"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "suboptimal output from the motor cortex, that is, fatigue at a supraspinal level",
+   "locator": "Taylor & Gandevia 2001, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "długi skurcz maksymalny jednego mięśnia",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "mięsień + motoneuron + kora",
+   "notePl": "Badania stymulacją magnetyczną mózgu (TMS) pokazują, że przy zmęczeniu słabnie nie tylko mięsień: część utraty siły powstaje „wyżej”, bo kora ruchowa przestaje wysyłać pełny rozkaz.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 4
+  },
+  {
+   "id": "nerwowy.metric.skad_bierze_sie_zmeczenie.rest",
+   "kind": "metric_rest",
+   "plate": "nerwowy",
+   "labelPl": "Skąd bierze się zmęczenie",
+   "unit": null,
+   "referenceIds": [
+    "taylor_gandevia_2001"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "suboptimal output from the motor cortex, that is, fatigue at a supraspinal level",
+   "locator": "Taylor & Gandevia 2001, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "długi skurcz maksymalny jednego mięśnia",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "nerwowy.role.intercostal.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "intercostal",
+   "view": "front",
+   "structureId": "nn_intercostales",
+   "state": "rest",
+   "textPl": "Pomagają przeponie",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26; fakty_draft_K3_ruch.md: spoczynek unverifiable (brak źródła)"
+   }
+  },
+  {
+   "id": "nerwowy.role.intercostal.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "intercostal",
+   "view": "front",
+   "structureId": "nn_intercostales",
+   "state": "sprint",
+   "textPl": "Szybki, głęboki oddech",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26; fakty_draft_K3_ruch.md: spoczynek unverifiable (brak źródła)"
+   }
+  },
+  {
+   "id": "nerwowy.role.sympathetic_trunk.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "sympathetic_trunk",
+   "view": "front",
+   "structureId": "truncus_sympathicus",
+   "state": "rest",
+   "textPl": "Niska aktywność, przewaga n. błędnego",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_ans",
+    "garcia_2022"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#18",
+     "#27"
+    ],
+    "note": "#18, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.sympathetic_trunk.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "sympathetic_trunk",
+   "view": "front",
+   "structureId": "truncus_sympathicus",
+   "state": "sprint",
+   "textPl": "Mobilizacja: serce, naczynia, pot",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_ans",
+    "garcia_2022"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#18",
+     "#27"
+    ],
+    "note": "#18, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.adrenal.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "medulla_glandulae_suprarenalis",
+   "state": "rest",
+   "textPl": "Mało adrenaliny we krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.adrenal.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "medulla_glandulae_suprarenalis",
+   "state": "sprint",
+   "textPl": "Wyrzut adrenaliny do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_1988"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.lumbar_plexus.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "lumbar_plexus",
+   "view": "front",
+   "structureId": "plexus_lumbalis",
+   "state": "rest",
+   "textPl": "Prawie cisza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lumbar_plexus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#29",
+     "#34"
+    ],
+    "note": "#29, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.lumbar_plexus.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "lumbar_plexus",
+   "view": "front",
+   "structureId": "plexus_lumbalis",
+   "state": "sprint",
+   "textPl": "Rozdziela rozkaz na biodro i udo",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lumbar_plexus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#29",
+     "#34"
+    ],
+    "note": "#29, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.femoral.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "femoral",
+   "view": "front",
+   "structureId": "n_femoralis",
+   "state": "rest",
+   "textPl": "Prawie cisza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_femoral_nerve"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#30",
+     "#34"
+    ],
+    "note": "#30, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.femoral.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "femoral",
+   "view": "front",
+   "structureId": "n_femoralis",
+   "state": "sprint",
+   "textPl": "Czworogłowy prostuje kolano",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_femoral_nerve"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#30",
+     "#34"
+    ],
+    "note": "#30, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.obturator.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "obturator",
+   "view": "front",
+   "structureId": "n_obturatorius",
+   "state": "rest",
+   "textPl": "Prawie cisza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lumbar_plexus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#31",
+     "#34"
+    ],
+    "note": "#31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)"
+   }
+  },
+  {
+   "id": "nerwowy.role.obturator.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "obturator",
+   "view": "front",
+   "structureId": "n_obturatorius",
+   "state": "sprint",
+   "textPl": "Unerwia przywodziciele uda",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lumbar_plexus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#31",
+     "#34"
+    ],
+    "note": "#31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)"
+   }
+  },
+  {
+   "id": "nerwowy.role.deep_fibular.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "deep_fibular",
+   "view": "front",
+   "structureId": "n_fibularis_profundus",
+   "state": "rest",
+   "textPl": "Prawie cisza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#32",
+     "#34"
+    ],
+    "note": "#32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.deep_fibular.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "deep_fibular",
+   "view": "front",
+   "structureId": "n_fibularis_profundus",
+   "state": "sprint",
+   "textPl": "Unerwia przedni przedział goleni",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#32",
+     "#34"
+    ],
+    "note": "#32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.motor_cortex.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "motor_cortex",
+   "view": "back",
+   "structureId": "gyrus_precentralis",
+   "state": "rest",
+   "textPl": "Drobne korekty postawy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lateral_cst",
+    "statpearls_pyramidal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#33",
+     "#34"
+    ],
+    "note": "#33, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.motor_cortex.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "motor_cortex",
+   "view": "back",
+   "structureId": "gyrus_precentralis",
+   "state": "sprint",
+   "textPl": "Wysyła rozkaz ruchu do nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lateral_cst",
+    "statpearls_pyramidal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#33",
+     "#34"
+    ],
+    "note": "#33, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.spinal_cord.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "spinal_cord",
+   "view": "back",
+   "structureId": "medulla_spinalis",
+   "state": "rest",
+   "textPl": "Odruchy i napięcie postawy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_corticospinal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#21",
+     "#34"
+    ],
+    "note": "#21, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.spinal_cord.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "spinal_cord",
+   "view": "back",
+   "structureId": "medulla_spinalis",
+   "state": "sprint",
+   "textPl": "Przekazuje rozkaz motoneuronom",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_corticospinal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#21",
+     "#34"
+    ],
+    "note": "#21, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.cauda_equina.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "cauda_equina",
+   "view": "back",
+   "structureId": "cauda_equina",
+   "state": "rest",
+   "textPl": "Korzenie nerwów nóg, mało impulsów",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lumbar_spine",
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#35",
+     "#34"
+    ],
+    "note": "#35, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.cauda_equina.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "cauda_equina",
+   "view": "back",
+   "structureId": "cauda_equina",
+   "state": "sprint",
+   "textPl": "Korzenie L2–S3 niosą salwy do nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lumbar_spine",
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#35",
+     "#34"
+    ],
+    "note": "#35, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.sciatic.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "sciatic",
+   "view": "back",
+   "structureId": "n_ischiadicus",
+   "state": "rest",
+   "textPl": "Pojedyncze impulsy postawy",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#36",
+     "#34"
+    ],
+    "note": "#36, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.sciatic.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "sciatic",
+   "view": "back",
+   "structureId": "n_ischiadicus",
+   "state": "sprint",
+   "textPl": "Napędza mięśnie tylnej strony uda",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_nerwowy.md",
+    "rows": [
+     "#36",
+     "#34"
+    ],
+    "note": "#36, #34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "nerwowy.role.common_fibular.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "common_fibular",
+   "view": "back",
+   "structureId": "n_fibularis_communis",
+   "state": "rest",
+   "textPl": "Prawie cisza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#37",
+     "#34"
+    ],
+    "note": "#37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.common_fibular.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "common_fibular",
+   "view": "back",
+   "structureId": "n_fibularis_communis",
+   "state": "sprint",
+   "textPl": "Prostowniki stopy i mm. strzałkowe",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#37",
+     "#34"
+    ],
+    "note": "#37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.tibial.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "tibial",
+   "view": "back",
+   "structureId": "n_tibialis",
+   "state": "rest",
+   "textPl": "Napięcie łydki w staniu",
+   "status": "unverifiable",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#38",
+     "#34"
+    ],
+    "note": "#38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.tibial.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "tibial",
+   "view": "back",
+   "structureId": "n_tibialis",
+   "state": "sprint",
+   "textPl": "Unerwia mięśnie łydki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_lower_limb_nerves"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#38",
+     "#34"
+    ],
+    "note": "#38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+   }
+  },
+  {
+   "id": "nerwowy.role.motor_units.rest",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "motor_units",
+   "view": "back",
+   "structureId": "unitates_motoriae",
+   "state": "rest",
+   "textPl": "Pracują nieliczne, małe (typ I)",
+   "status": "unverifiable",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#39",
+     "#7"
+    ],
+    "note": "#39, #7; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "nerwowy.role.motor_units.sprint",
+   "kind": "role",
+   "plate": "nerwowy",
+   "anchor": "motor_units",
+   "view": "back",
+   "structureId": "unitates_motoriae",
+   "state": "sprint",
+   "textPl": "Włączona także część dużych, szybkich (IIx)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "vollestad_blom_1985"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_ruch.md",
+    "rows": [
+     "#39",
+     "#7"
+    ],
+    "note": "#39, #7; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
+   }
+  },
+  {
+   "id": "nerwowy.summary.rest",
+   "kind": "summary",
+   "plate": "nerwowy",
+   "state": "rest",
+   "textPl": "W spoczynku nerwy ruchowe nóg prawie milczą: kilka małych jednostek ruchowych podtrzymuje postawę, wyładowując się z małą częstotliwością. Przeważa nerw błędny, a układ współczulny pracuje oszczędnie.",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: StatPearls (Pyramidal, Corticospinal, Lower Limb, ANS), Enoka 2017, Brooks 1988"
+   }
+  },
+  {
+   "id": "nerwowy.summary.sprint",
+   "kind": "summary",
+   "plate": "nerwowy",
+   "state": "sprint",
+   "textPl": "W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejne jednostki ruchowe (najpierw o niskim, potem o wysokim progu pobudzenia), a ich częstotliwość wyładowań rośnie. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_pyramidal",
+    "statpearls_corticospinal",
+    "statpearls_lower_limb_nerves",
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017",
+    "garcia_2022",
+    "statpearls_ans",
+    "brooks_1988"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: StatPearls (Pyramidal, Corticospinal, Lower Limb, ANS), Enoka 2017, Brooks 1988"
+   }
+  }
+ ]
+}
