@@ -1,343 +1,404 @@
-# Gabloty narządów: plan (serce, nerka, wątroba, mózg)
+# Gabloty narządów: plan (serce, nerka, wątroba, mózg), wersja 3
 
-Stan: 2026-11-26, Wizualizator 3D, gałąź `claude/atlas-wizualizacja-3d-1dc29a`. **To jest wyłącznie plan.** Nie zmieniłem nic w `src/` ani w `blender/`. Kod powstanie dopiero po zgodzie użytkownika.
+Stan: 2026-11-26, Wizualizator 3D, gałąź `claude/atlas-wizualizacja-3d-1dc29a`.
+**To jest wyłącznie plan.** Nie zmieniłem nic w `src/` ani `blender/`. Kod powstanie dopiero po zgodzie użytkownika.
+Pierwszym krokiem będzie test techniczny (§7), też dopiero po zgodzie.
 
-Podstawa decyzji:
-- §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md` z 2026-11-26: (a) atlas służy przede wszystkim licealistom, a HIIT jest przykładem; (b) gabloty narządów; (c) UI/UX prowadzi Reżyser;
-- rozstrzygnięcia Dyrygenta 1–8 (`dyrygent/spory_UX_narzady.md`) i jego raport źródeł (`dyrygent/podstawy_oceny_narzadow.md`).
+Wersja 3 uwzględnia:
+- odpowiedzi użytkownika na pytania z wersji 1;
+- nowe wymagania użytkownika co do jakości animacji i wspólnej pracy z filmem;
+- decyzję Dyrygenta `docs/atlas_audyt/DECYZJA_UX_NARZADY.md` (4ec67df) i jego ocenę (`dyrygent/ocena_NARZADY_PLAN.md`);
+- kartę stylu Reżysera (`docs/atlas_rezyser/UX_POSIEDZENIE.md`).
 
-**Podział ról:** styl (paleta, podpisy, podświetlenie, tempo ruchu) należy do Reżysera i jest tu zapisany jako **parametry** (§2.8). Technika, budżety i wykonalność należą do mnie.
+Podział ról: **styl należy do Reżysera** (tokeny, podpisy, podświetlenie, tempo). Tutaj jest zapisany jako parametry. **Wykonalność i budżet należą do mnie**: tam, gdzie karta przekracza budżet, podaję zamiennik.
 
-Klatki koncepcyjne leżą w `zrzuty/narzady/`, tablica zbiorcza to `narzady_tablica.jpg`. Są to rendery Blendera (EEVEE) **prawdziwych modeli HuBMAP**, ustawionych tak, jak pokazałaby je gablota, a nie zrzuty aplikacji. Klatki powstały przed rozstrzygnięciem „na etapie planu najlepiej bez Blendera”, w slocie `.render_slot_1`, który został zwolniony. Skrypt: `skrypty/concept_narzady.py`. Liczby zmierzone na modelach: `zrzuty/narzady/stats_modeli.json`.
+Klatki koncepcyjne: `zrzuty/narzady/` (tablica zbiorcza `narzady_tablica.jpg`). To rendery Blendera prawdziwych modeli HuBMAP, a nie zrzuty aplikacji. Kolory na klatkach to wersja robocza sprzed karty Reżysera; obowiązują tokeny z §4.2. Skrypt: `skrypty/concept_narzady.py`. Liczby z modeli: `zrzuty/narzady/stats_modeli.json`.
 
 ![tablica](zrzuty/narzady/narzady_tablica.jpg)
 
 ## 0. W skrócie (dla użytkownika)
 
-- **Gablota** to jeden narząd na środku ekranu, w tym samym studiu co widok 3D układów. Daje:
-  - obrót i gotowe ujęcia (w tym przekrój);
-  - nazwę części po najechaniu;
-  - po kliknięciu panel „budowa i funkcja”;
-  - tryb „Sprawdź się” („wskaż lewą komorę”);
-  - przełącznik Spoczynek/Sprint, gdzie HIIT jest przykładem.
-- **Film działania** to przycisk „Jak to działa”: sekwencja ujęć, którą można zatrzymywać krok po kroku.
-  - serce: krążenie krwi i cykl pracy;
-  - nerka: od krwi do moczu, z wejściem do nefronu;
-  - wątroba: krew z jelit → komórki → żółć;
-  - mózg: od decyzji „biegnę” w korze do rdzenia.
-- **Wszystko w czasie rzeczywistym** w ≥ 50 FPS na zwykłej grafice (Intel UHD). Wypiekany film jest tylko rezerwą.
-- **Telefon** dostaje gotowe obrazki ujęć z podpisami zamiast 3D, tak jak dziś plansze.
-- **Geometria:** prawie wszystko jest w darmowym zbiorze HuBMAP (CC BY 4.0). Elementy mikroskopowe (nefron, zrazik, układ bodźcoprzewodzący) budujemy sami jako jawne schematy. Neuron może być prawdziwą rekonstrukcją z NeuroMorpho (CC BY 4.0).
-- **Teksty** mają źródło z cytatem (drugi agent) i czekają na fakty podręcznikowe (E1-K3).
-- **Pierwsze jest serce jako wzór** (ok. 30–40 godzin pracy agentów razem z faktami). Potem nerka, wątroba i mózg. Razem ok. 110–150 godzin.
+- **Animacje mają być dopracowane, nie „kreseczki”:**
+  - krwinki to małe trójwymiarowe krążki, które płyną, obracają się i zwalniają w szerszych miejscach;
+  - ściany serca naprawdę się kurczą, bo odkształcamy prawdziwy model;
+  - światło i materiały są na poziomie filmu;
+  - strzałki zostają tylko jako legenda.
+- **Jedna wspólna „maszyneria” dla gablot, atlasu i filmu:** oś czasu, kamera po szynie, cząstki, materiały i ujęcia. Każda animacja narządu ma z góry wskazane miejsce w filmie 12 aktów (§2).
+- **Wejście do gabloty jest „w świecie”:** klik w serce w widoku 3D układu. Kamera wjeżdża w serce, ciało gaśnie, a narząd zostaje w studiu gabloty. Serce, nerka i wątroba to już dziś **te same modele** w widoku układów i w gablocie, więc żadnej podmiany nie widać. Mózg ma osobny trik (§3).
+- **Słabsze komputery dostają tę samą animację w lżejszej oprawie** (mniej krwinek, prostsze światło), a nie gorszą animację dla wszystkich (§4.4).
+- **Najpierw krótki test techniczny serca** (jedno ujęcie: skurcz i przepływ krwinek, nagranie i pomiar płynności na zwykłej grafice). Dopiero na jego podstawie liczymy resztę. Zamiast godzin podaję **kamienie milowe z wynikiem do obejrzenia** (§8).
+- Pierwsza wersja ma tylko **zakres Podstawowy** (Twoja decyzja). Nefron to wyraźnie oznaczony schemat.
 
-## 1. Wspólne dla czterech gablot
+## 1. Decyzje, na których stoi plan
 
-### 1.1 Źródła i licencje (sprawdzone na plikach)
-
-| Narząd | Siatka makro | Licencja | Wnętrze w danych? | Co trzeba zbudować |
-|---|---|---|---|---|
-| Serce | HuBMAP `VH_M_Heart` (v1.2) + `VH_M_Blood_Vasculature_Heart` | CC BY 4.0 | **Tak.** 2 przedsionki, 2 komory i przegroda to zamknięte bryły (sprawdzone w Blenderze: 0 krawędzi niezamkniętych). Są też 4 zastawki i 5 mięśni brodawkowatych | układ bodźcoprzewodzący (schemat). Zastawki są **jedną siatką bez osobnych płatków**, więc ich ruch wymaga podziału (§3.3) |
-| Nerka | HuBMAP `VH_M_Kidney_L` + naczynia nerkowe + `VH_M_Ureter_L` | CC BY 4.0 | **Częściowo.** Są: torebka, kora zewnętrzna, słupy, 9 piramid, 9 brodawek, wnęka. **Brak nefronu.** Słupy przeplatają się z korą, więc przekrój bez „zalania” to labirynt (klatka `nerka_1`) | nefron (schemat własny) |
-| Wątroba | HuBMAP `VH_M_Liver` + naczynia, pęcherzyk, drogi żółciowe | CC BY 4.0 | **Tak, z poprawką do raportu Dyrygenta:** plik `VH_M_Liver.glb` **ma** 8 osobnych brył segmentowych (płat ogoniasty, 4 prawe, 2 lewe boczne, lewy przyśrodkowy górny i dolny, płat czworoboczny; klatka `watroba_1`). Ma też naczynia wewnątrzwątrobowe: żyłę wrotną z gałęziami i 3 żyły wątrobowe (`VH_M_Blood_Vasculature_Liver`). **Brak zrazika** | zrazik (schemat własny). BodyParts3D (CC BY 4.0) niepotrzebne, chyba że agent faktów nie dopasuje nazw HuBMAP do numeracji I–VIII |
-| Mózg | HuBMAP `Allen_M_Brain` (283 węzły = 141 struktur × L/P) + `VH_M_Spinal_Cord` | **CC BY 4.0 dopiero od v1.3**, a lokalny plik jest w **v1.2** (`ATLAS_ASSETS.md`) | **Tak.** Zakręty, jądra, komory, móżdżek, pień. Płaty składa się z zakrętów: automat przypisał 281 z 283 obszarów | pobrać mózg v1.3+ (oficjalne repo, darmowe, pytanie 1 w §6); neuron z NeuroMorpho albo schemat |
-
-Wszystkie gabloty to wyłącznie pliki HuBMAP, czyli BY, bez Z-Anatomy. Nie ma więc mieszania licencji. Jedyny element Z-Anatomy to lokalizator „gdzie w ciele”, i to jako osobny obrazek (§1.4). Bez NC: nerka, miedniczka i ucho Z-Anatomy pozostają zablokowane (`NC_BLOCKLIST`). Źródła NC do unikania: UMCG (układ bodźcoprzewodzący), Visible Heart Labs, iusmlib.
-
-**Geometria własna (mikro) to schemat, a nie anatomia z pomiaru.**
-- Budujemy ją jako rury i proste bryły według **kolejności i połączeń** podanych w faktach podręcznikowych, a nie z wymyślonych kształtów.
-- Proporcje nie pochodzą z pomiaru. W UI stoi stała plakietka „schemat, bez skali”, a styl różni się od makro (§2.8).
-- Wzorem do sprawdzenia kolejności mogą być ilustracje FTU z HRA 2D (CC BY 4.0, z podaniem atrybucji).
-- Generatorów AI 3D nie używamy.
-- Uploadów ze Sketchfab domyślnie nie używamy (rozstrzygnięcie 7).
-- Uwaga: istnieje schemat zrazika na CC0 (OrganUI `liver-lobule.glb`, generator w repozytorium MIT z plikiem atrybucji). Może służyć jako porównanie, ale domyślnie budujemy własny.
-
-### 1.2 Wydajność (dla każdej gabloty, Intel UHD, 1440×900)
-
-| | Makro (zwiedzanie) | Film (makro + mikro) |
+| Kto | Decyzja | Skutek w planie |
 |---|---|---|
-| Trójkąty | **≤ 400 tys.** (E3: 0,3–0,9 mln przy 50–144 FPS) | ≤ 400 tys. + **≤ 60 tys.** mikro |
-| Wywołania rysowania | **≤ 40**: 1 na plik × warstwę (scalone siatki, ID w wierzchołku jak E3), +2 przebiegi zalania przekroju, +1 cząstki, +1 tor impulsu | ≤ 50 |
-| Pobranie (meshopt + kwantyzacja) | **≤ 4 MB**, szacunek z proporcji E3, do pomiaru w K1 | mikro dociągane przy pierwszym filmie: ≤ 0,5 MB |
-| FPS | **≥ 50**, pomiar `__atlas3dBench` jak w E3 | ≥ 50; poniżej tej wartości dany krok trafia do wypiekanego filmu (rozstrzygnięcie 2) |
-| Wybór pod kursorem | wybór przez GPU: render ID do 1 px pod kursorem przy ruchu myszy, nie częściej niż co 50 ms, ok. 1–2 ms | |
+| Użytkownik | Wejście „osobne, ale diegetyczne po kliknięciu”; menu „Narządy” najwyżej jako dodatek | §3 |
+| Użytkownik | Zastawki: A (stan i przepływ) w pierwszej wersji, B (ruch płatków) później; wcześniej, jeśli test pokaże, że B jest tani | §6.1, §7 |
+| Użytkownik | Nefron: schemat topologiczny „bez skali”, wyraźnie oznaczony | §6.2 |
+| Użytkownik | Pierwsza wersja tylko z zakresem Podstawowym | §6: kolumna R to „później” |
+| Użytkownik | „Dość dopracowane animacje 3D, a nie te kreseczki”; „animacje i grafikę stąd wkomponuj potem do filmu” | §2, §4 |
+| Dyrygent | Rama wspólna Reżysera: lokalizator, chip skali, przełącznik momentu pod sceną, „Jak czytać”, mały przełącznik „Podstawowy \| Rozszerzony” w pasku górnym. Tryby gabloty (Zwiedzaj, Jak to działa, Sprawdź się) są zakładkami w nagłówku panelu bocznego | §5 |
+| Dyrygent | W widoku układów obowiązuje kontrakt 3D Reżysera: wyróżnik ≤ 1 ms GPU na UHD, poniżej 50 FPS nakładka 2D, bez półprzezroczystych nakładek 3D, bez pulsu `sin(uTime)` | dotyczy E3; gablot dotyczy §4.4 |
+| Dyrygent | Kamera gablot (pochylenie ±35°, zoom 0,6–2,5×) to **wyjątek tylko dla gablot**; widok układów E3 zostaje bez zmian (obrót poziomy, ujęcia) | §5.2 |
+| Dyrygent | Kolejność: F1 (N1-K1: eksport serca, pomiar FPS i MB), F2 (OrganView serca na ramie integratora), pokaz i test z licealistami, dopiero potem N2–N4 (może je prowadzić drugi agent 3D) | §8 |
+| Dyrygent | Poziomy: automatyzm serca jest w P (P V.4.9), „proces tworzenia moczu” też w P (P V.5.3) | §6.1, §6.2 |
+| Dyrygent | Fakty podręcznikowe (E1-K3) trzeba wznowić razem z N1, inaczej panel serca będzie pusty | §8 |
 
-Rezerwa wypiekana (gdyby krok nie trzymał 50 FPS): krótki film renderowany w Blenderze w slotach, 1280×720, WebM/MP4, ok. 0,3–0,5 MB na sekundę. Koszt to ok. 1–2 godziny renderu na krok. Film z geometrii HuBMAP ma licencję BY.
+## 2. Architektura wspólna z filmem
 
-### 1.3 Interakcja i dostępność (wspólne)
-- **Kamera:** obrót poziomy z przyciąganiem do ujęć (`Rail` z E3). Bez wolnej orbity i dowolnego zoomu (decyzja z §7). Widoki z góry i z dołu (np. podstawa serca) to **gotowe ujęcia**, a nie swobodne pochylanie.
-- **Najechanie:** struktura pod kursorem dostaje styl podświetlenia z karty Reżysera, a reszta jest przygaszona (klatka `serce_3`). Do tego podpis w stylu E3.
-- **Kliknięcie** otwiera panel „budowa i funkcja” z treścią na poziomie Podstawowym lub Rozszerzonym, statusem faktu i plakietką „Wiedza podręcznikowa” (§3.6 pkt 9). Przycisk „Pokaż w filmie” skacze do kroku z tą strukturą.
-- **„Sprawdź się”:** dwa rodzaje pytań, „Wskaż…” (kliknięcie) i „Co to jest?” (3 odpowiedzi). Pula pytań pochodzi tylko ze struktur, których fakty są `checked_agent`. Wynik zostaje lokalnie, bez kont.
-- **Przekrój:** płaszczyzna przycięcia (jak E3) z **zalaniem przez stencil**, więc ściana ma grubość. Warunek to zamknięta bryła: serce spełnia go na pewno, nerkę i wątrobę sprawdzę w K1. „Otwarcie” to przesunięcie płaszczyzny cięcia, bez rozsuwania części.
+### 2.1 Co już jest w filmie (przejrzane)
+- `src/director/ShotChoreography.ts`: typ `CinematicShot` z punktami pozycji i celu (krzywa), FOV, głębią ostrości, presetem światła i rodzajem przejścia (`continuous`, `occlusion_dive`, `match_cut`), opcjonalnie `dynamicSampler` (np. lot wzdłuż osi naczynia). Funkcja `evaluateActShot` liczy kamerę dla postępu aktu.
+- `src/director/CinematicDirector.tsx`, `CameraSystem.tsx`: światło według presetu i kamera z celem (`erythrocyteCameraTarget`).
+- `src/director/ScaleTransitionSystem.tsx`: przenikanie skal (tło, mgła) bez czarnych ekranów.
+- `src/core/SimulationCore.ts` (`liveSimulationRef`, magazyn stanu) i `TimelineEngine.ts` (12 aktów, 1080 s).
+- `src/core/QualityManager.ts`: poziomy Low, Medium, High, Ultra i Cinematic z mnożnikiem cząstek, DPR, cieniami, postprocesem oraz `AdaptiveQualityController` (histereza po p75 czasu klatki).
+- Shadery: `vascularFlowShader.ts` (ściana naczynia tętnicza lub żylna, fala tętna), `cutawayShader.ts` (przekrój płaski lub kulisty z obwódką), `bioTissueShader.ts`, `actionPotentialShader.ts`.
+- `src/scenes/Act03Cardiopulmonary.tsx`: `cardiopulmonary.glb` i `bloodstream_tunnel.glb` z osią tunelu (`sampleBloodstreamCenterline`).
+- Modele filmu (`public/models/*.glb`) **nie mają opisanego pochodzenia ani licencji** w dokumentach (sprawdziłem `ARCHITECTURE_AND_ART_BIBLE.md`). Modele gablot (HuBMAP i Z-Anatomy z licencją) mogą je zastąpić tam, gdzie pokazują ten sam narząd. To dodatkowy zysk dla filmu.
+
+### 2.2 Wspólny moduł `src/biomotion/` (propozycja; pliki powstaną dopiero przy wdrożeniu)
+
+| Część | Rola | Skąd się bierze | Kto używa |
+|---|---|---|---|
+| `Timeline` | kroki z czasem, pauza, krok wstecz i naprzód, prędkość; tryb „stopklatki” przy `prefers-reduced-motion` | uogólnienie `TimelineEngine` (akty → kroki) | film (akty), gabloty (kroki filmu), atlas (przewodnik „Jeden interwał”) |
+| `ShotRail` | kamera po krzywej z celem, FOV, przejścia `continuous`, `occlusion_dive` i `match_cut` | **typ `CinematicShot` bez zmian**, wydzielony z `ShotChoreography` | film, gabloty (ujęcia i wejście diegetyczne), atlas (ujęcia kluczowe = `Rail` z E3) |
+| `FlowParticles` | cząstki 3D z kształtem (krwinka, kropla, pęcherzyk) na torach; prędkość z przekroju naczynia; orientacja wzdłuż toru i obrót | nowe; tory jak `vessel_path` z E3, liczone w Blenderze z geometrii | film (akt 3 i inne), gabloty, atlas (wyróżnik „ROZDZIAŁ”, „FILTR” zamiast rurek) |
+| `TissueMotion` | odkształcenie prawdziwej siatki: morph target liczony z geometrii i krzywa fazy | nowe; cel morfu z Blendera (§4.2) | gabloty, film |
+| `BioMaterials` | materiały tkanek z poziomami jakości, stan i podświetlenie przez teksturę stanu (`StateTex` z E3), przekrój (`cutawayShader` + zalanie stencil) | scalenie `atlasMaterial` (E3) i shaderów filmu | wszyscy |
+| `QualityTier` | wybór poziomu i automat | **`QualityManager` bez zmian** (te same nazwy poziomów) | wszyscy |
+| `ShotLibrary` | ujęcia narządów jako dane (JSON, metry w ramie ciała) | nowe | gablota i film korzystają z tych samych ujęć |
+
+Zasady:
+- moduł nie zna treści (fakty, teksty), tylko liczby stanu i dane;
+- treść dostarczają gabloty, plansze i akty;
+- styl (tokeny, tempo) przychodzi z karty Reżysera jako parametry.
+
+### 2.3 Gdzie animacje gablot trafią w filmie
+
+| Animacja gabloty | Akt filmu | Jak |
+|---|---|---|
+| Serce: krążenie, cykl, krwinki | **Akt 3** „Serce, płuca i układ krążenia” | ujęcie serca HuBMAP z cyklem i krwinkami zamiast (albo przed) `cardiopulmonary.glb`; lot krwinki to ten sam `FlowParticles` co tunel |
+| Mózg: decyzja „biegnę”, kora ruchowa → rdzeń | **Akt 2** „Mobilizacja układu nerwowego” (podtytuł: „od decyzji o biegu do aktywacji mięśni”) | ten sam tor impulsu i te same ujęcia |
+| Wątroba: glikogen → glukoza do krwi | **Akt 7** „Ciało rozmawia z mózgiem” (mięśnie ↔ wątroba) i **Akt 5** „Wojna o energię” | stan „MAGAZYN”, krople glukozy jako `FlowParticles` |
+| Nerka: krew → filtr → mocz | **Akt 6** „HIIT: granice intensywności” (równowaga) i **Akt 11** „Regeneracja i powrót do równowagi” | przepływ nerkowy w sprincie i po nim |
+
+Licencje w filmie:
+- film z geometrią Z-Anatomy jest utworem zależnym BY-SA (rozstrzygnięcie 3), więc napisy końcowe muszą podawać źródła;
+- HuBMAP wymaga atrybucji BY.
+
+## 3. Wejście diegetyczne (klik w narząd w widoku 3D układu)
+
+Przebieg (np. serce w widoku krwionośnym):
+1. **Klik** (albo Enter na podświetlonej strukturze, bo klawiatura działa tak samo) uruchamia ujęcie `organ_dive` z biblioteki ujęć, typu `occlusion_dive`.
+2. **Najazd (1,2 s, szyna):** kamera jedzie do narządu. Reszta ciała gaśnie ditheringiem: kontekst przechodzi do 0 tym samym mechanizmem co wygaszanie warstw w E3, czyli bez półprzezroczystych nakładek (kontrakt Reżysera). Tło przechodzi z tła układu w tło studia gabloty (`ScaleTransitionSystem`).
+3. **Podmiana geometrii:**
+   - **Serce, nerka, wątroba:** w widoku układów E3 to **już te same pliki HuBMAP** (sprawdzone w `bindings.json`: krwionośny `hra:VH_M_Heart.glb`, wydalniczy `hra:VH_M_Kidney_L/R.glb`, pokarmowy `hra:VH_M_Liver.glb`). Nie ma czego ukrywać. Gablota tylko dociąga **wnętrze** (zastawki i jamy już są, mięśnie brodawkowate, przekrój) i wyższy poziom szczegółu. Pliki gabloty są pobierane w tle, kiedy kursor najedzie na narząd (wyprzedzenie ok. 0,5–1 s). Jeśli klik przyjdzie wcześniej, najazd zwalnia, aż plik będzie gotowy (wskaźnik postępu w lokalizatorze).
+   - **Mózg:** widok układów używa Z-Anatomy. Rekomendacja: **gablota mózgu też na Z-Anatomy/Brainder** (CC BY-SA, osobny plik), §6.4. Wtedy podmiany nie ma. Gdyby wybrano Allen (HuBMAP), podmiana dzieje się **pod pełnym zasłonięciem**: kamera wjeżdża w powierzchnię zakrętu przedśrodkowego, aż kora zajmie cały kadr (przejście `occlusion_dive` z filmu). Wtedy w jednej klatce zamieniamy model i wyjeżdżamy już z modelem Allen ustawionym w tej samej ramie (`align_hubmap`, średni błąd 1,56 cm).
+4. **Ustawienie w studiu (0,9 s):** narząd obraca się do pierwszego ujęcia gabloty, a panel i zakładki wsuwają się.
+5. **Wyjście (Esc, „Wróć do układu”):** to samo ujęcie odtworzone wstecz.
+6. **`prefers-reduced-motion`:** zamiast lotu przenikanie 0,3 s.
+
+Menu „Narządy” w grupie menu atlasu: dodatek, otwiera gablotę bez lotu.
+
+## 4. Jakość animacji („dopracowane 3D”)
+
+### 4.1 Krwinki i cząstki 3D (`FlowParticles`)
+- **Kształt:**
+  - krwinka czerwona to dwuwklęsły krążek z równania kształtu z literatury (np. Evans i Fung 1972; to fakt do bramki, a nie wymysł), siatka 2 poziomów szczegółu: ok. 120 i 320 trójkątów;
+  - płytki i krwinki białe tylko tam, gdzie ma to cel dydaktyczny;
+  - inne cząstki (glukoza, mocz, impuls) jako proste bryły w stylu „SCHEMAT” (§4.3).
+- **Ruch:**
+  - tory to krzywe środkowe naczyń i strugi przez jamy, liczone w Blenderze z geometrii (jak `vessel_path` w E3);
+  - prędkość jest odwrotnie proporcjonalna do pola przekroju naczynia mierzonego na geometrii, czyli wolniej w szerokich miejscach;
+  - rozrzut w przekroju (bliżej osi szybciej), orientacja wzdłuż stycznej toru z obrotem;
+  - w jamach serca strugi „poglądowe”, bo to nie symulacja płynów.
+- **Technika:**
+  - `InstancedMesh`, położenie liczone w shaderze z tekstury toru (punkty, pole przekroju), czyli 1 wywołanie na rodzaj cząstki;
+  - liczba według poziomu jakości (§4.4).
+- **Strzałki** zostają tylko jako legenda (przycisk „pokaż kierunki”) i w nakładce 2D telefonu.
+
+### 4.2 Odkształcenie tkanek (`TissueMotion`)
+- **Skurcz ścian serca:**
+  - dla każdej jamy w Blenderze liczę oś (od koniuszka do środka podstawy, z geometrii);
+  - morph target „skurcz” to przesunięcie każdego wierzchołka ściany w stronę osi o stały ułamek;
+  - w aplikacji wagę morfu steruje krzywa fazy cyklu (z faktów: kolejność i proporcje faz);
+  - wielkość skurczu to liczba, więc do czasu faktu podpisujemy „ruch poglądowy”.
+  Kształt pochodzi z prawdziwego modelu, a ruch go tylko przekształca.
+- **Zastawki:**
+  - wariant A: stan (barwa, obrys) i przepływ krwinek przez otwartą;
+  - wariant B: podział siatki zastawki na płatki (klasyfikacja wierzchołków po kącie wokół osi ujścia) i morph „otwarta”. Test (§7) mierzy koszt B.
+- **Inne narządy:** nerka i wątroba nie mają widocznego ruchu własnego. Ich animacja to przepływ (§4.1) i stan (np. poziom glikogenu jako wypełnienie). Mózg: impuls jako fala jasności po torze i po komórce (puls, który ma zmienną, czyli dozwolony).
+
+### 4.3 Materiały, światło i gramatyka „model / schemat”
+- **Makro:** materiał tkanki jako parametr karty Reżysera. Zalecenie techniczne:
+  - okluzja otoczenia wypieczona w Blenderze do koloru wierzchołków (darmowa w czasie działania, daje głębię zagłębień i bruzd);
+  - światło klucz, wypełnienie i kontra;
+  - na wyższych poziomach połysk wilgotnej tkanki (`sheen`/`clearcoat` w `MeshPhysicalMaterial`) i światło otoczenia z mapy środowiska.
+- **Mapowanie tonów:** w atlasie (E3) wyłączone dla zgodności kolorów z planszami 2D. W gablotach i filmie to wybór Reżysera; technicznie oba warianty kosztują tyle samo.
+- **Gramatyka Reżysera** (przyjęta): CIENIOWANE to prawdziwy kształt z modelu, a SCHEMAT to rysunek lub ilustracja z chipem „SCHEMAT · bez skali”.
+  - Zastrzeżenie wynikające ze słów użytkownika („nie kreseczki”): schematy 3D (nefron, zrazik, układ bodźcoprzewodzący, neuron) proponuję jako **pełne bryły 3D w osobnym materiale schematu** (jednolity `light` układu, płaskie cieniowanie bez faktury, obrys 1,5 px), a nie jako linie 2 px.
+  - Linie zostają dla ilustracji płaskich (izolinie, wymiary, miernik).
+  - To spór 2 z Reżyserem (§9).
+
+### 4.4 Poziomy jakości (zamiast obniżania poprzeczki dla wszystkich)
+
+| Poziom (`QualityManager`) | Sprzęt | Krwinki | Światło i materiały | Cel |
+|---|---|---|---|---|
+| Low | Intel UHD, słabe laptopy | ok. 600–1000 (krążek 120 trójkątów) | AO z wierzchołków, 3 światła, bez postprocesu | **≥ 50 FPS** przy 1440×900 |
+| High | grafika dedykowana (np. RTX 4050) | 3–5 tys. (320 trójkątów) | + połysk, mapa środowiska, SSAO | ≥ 60 FPS |
+| Cinematic | render filmu i wypieki | dowolnie | Blender (EEVEE lub Cycles) w slotach | film i nagrania |
+
+- **Ta sama animacja i te same kroki na każdym poziomie.** Różni się tylko gęstość i oprawa.
+- Automat `AdaptiveQualityController` (istniejący) i ręczny wybór w ustawieniach.
+- Krok, który na Low nie trzyma 50 FPS, dostaje wypiekany film (rozstrzygnięcie 2 Dyrygenta).
+
+### 4.5 Budżet gabloty (Low, Intel UHD, 1440×900)
+
+| | Zwiedzanie | Film |
+|---|---|---|
+| Trójkąty | ≤ 400 tys. narządu + przekrój | + cząstki ≤ 150 tys. (instancje) + schemat mikro ≤ 60 tys. |
+| Wywołania rysowania | ≤ 40 (1 na plik × warstwę, ID w wierzchołku; +2 zalanie przekroju; +1 obrys wybranej struktury) | ≤ 50 |
+| Pobranie | ≤ 4 MB (narząd i morfy; szacunek do pomiaru w F1) | mikro i tory dociągane: ≤ 1 MB |
+| GPU na klatkę | ≤ 20 ms (= 50 FPS); wybór pod kursorem przez GPU ok. 1–2 ms, nie częściej niż co 50 ms | jw. |
+
+Wszystkie liczby to szacunki z proporcji E3 i **zostaną zmierzone w teście (§7)**, zanim padnie jakakolwiek obietnica.
+
+## 5. Gablota (rama i interakcja)
+
+### 5.1 Rama (karta Reżysera i decyzja Dyrygenta)
+- **Pasek górny:** „Atlas › układ › narząd”, cel lekcji i mały przełącznik „Podstawowy | Rozszerzony” (w pierwszej wersji zakres R jest wyłączony).
+- **Pod sceną:** przełącznik momentu Spoczynek/Sprint, jak w atlasie.
+- **Pozostała rama:**
+  - lokalizator „gdzie w ciele” jako wypieczony obrazek 2D (sylwetka Z-Anatomy BY-SA i narząd jako osobne pliki);
+  - chip skali;
+  - „Jak czytać” w lewym dolnym rogu.
+- **Panel boczny:** zakładki **Zwiedzaj · Jak to działa · Sprawdź się** w nagłówku. Treść ma kolejność: pytanie → liczba-bohater → opis (≤ 3 zdania) → Sprawdź się → Więcej.
+- **Podpis:** nazwa Figtree 600 16 px, opis 14 px, liczby JetBrains Mono, tło `#0d1526` przy kryciu ok. 85%, kontrast ≥ 4,5:1, linia 1 px w `light`, kropka na strukturze.
+
+### 5.2 Kamera (wyjątek tylko dla gablot)
+- Obrót poziomy z przyciąganiem do ujęć, pochylenie ±35°, zoom 0,6–2,5× kadru głównego. Kolejne ujęcia: `ShotRail` 1,2 s.
+- Widok układów E3 zostaje bez zmian: obrót poziomy i ujęcia, bez zoomu.
+
+### 5.3 Najechanie, wybór, podświetlenie
+- **Wybór przez GPU** (render ID do 1 px pod kursorem). Na dotyku zamiast tego BVH (three-mesh-bvh, MIT), tylko na tablecie.
+- **Podświetlenie wg karty:** wybrana część w pełnym kolorze z obrysem 2 px `light`, reszta 35% (`restMix`), bez emisji i bez pulsu.
+  - Obrys: technika „odwróconej powłoki” tylko dla wierzchołków z wybranym ID (1 dodatkowe wywołanie, ok. 0,2 ms).
+  - Zamiennik, gdyby obrys przy dużych strukturach był za gruby w zbliżeniu: obrys liczony w ekranie z bufora ID (ok. 1 ms; tylko na High).
+- **Puls** tylko na strukturze z bieżącego zdania filmu, w zbliżeniu.
+
+### 5.4 Przekrój
+- Płaszczyzna przycięcia z **zalaniem przez stencil** (ściana ma grubość). Powierzchnia cięcia w `light` układu, obrys 1,5 px `light`.
+- „Otwarcie” to ruch płaszczyzny, bez rozsuwania części.
+- Warunek to zamknięte bryły: serce spełnia go (sprawdzone), nerkę i wątrobę sprawdzę w ich K1.
+
+### 5.5 Sprawdź się
+- Pytania: „Wskaż…” (klik) i „Co to jest?” (3 odpowiedzi). Pula pytań pochodzi tylko ze struktur z faktami `checked_agent` i z zakresu P.
+- Wynik zostaje lokalnie, bez punktów za czas.
+
+### 5.6 Dostępność i telefon
 - **Klawiatura:**
-  - ← → oraz 1–9 wybierają ujęcia;
-  - Tab i Shift+Tab przechodzą po częściach (to zastępuje najechanie: podświetla część i czyta jej nazwę);
+  - ← → i 1–9 wybierają ujęcia;
+  - Tab i Shift+Tab przechodzą po częściach (podświetlenie i odczyt nazwy);
   - Enter otwiera panel;
-  - S przełącza Spoczynek/Sprint;
-  - spacja to pauza filmu, a , i . krok wstecz i naprzód;
-  - Esc zamyka.
-  Rola `application` jak w E3, a podpisy filmu w regionie `aria-live="polite"`.
-- **`prefers-reduced-motion`:** film jako stopklatki kroków, bez lotu kamery, cząstek i pulsu. Przejścia przenikaniem.
-- **Podpisy filmu:** każdy krok ma 1–2 zdania na ekranie (zawsze, bez dźwięku). Jeśli kiedyś dojdzie lektor, tekst jest ten sam, więc podpisy są zarazem napisami.
-- **Telefon (3D najpierw na komputerze, §7):**
-  - zamiast 3D **plansza 2D gabloty**, czyli wypieczone rendery tych samych ujęć z podpisami HTML jak dziś;
-  - lista struktur do **stuknięcia**: stuknięcie podświetla część na obrazku (maska wypieczona razem z renderem) i otwiera panel;
-  - film jako stopklatki.
-  Przycisk 3D jest ukryty jak w E3.
+  - S zmienia moment;
+  - spacja to pauza, a , i . krok wstecz i naprzód;
+  - Esc wraca do układu.
+  Rola `application`, podpisy filmu w `aria-live="polite"`.
+- **`prefers-reduced-motion`:** film jako stopklatki kroków, przejścia przenikaniem, bez lotu kamery i bez cząstek.
+- **Podpisy filmu** zawsze na ekranie (1–2 zdania na krok). Krok trwa co najmniej max(4 s; 0,3 s na słowo + 1,5 s), z pauzą ręczną i przyciskiem „Dalej” (tempo z karty).
+- **Telefon:** decyzja §7 to „3D najpierw na komputerze”. Telefon dostaje **planszę 2D gabloty**: wypieczone ujęcia (renderowane tym samym modułem w jakości Cinematic) z podpisami HTML. Do tego lista struktur do stuknięcia (maska ID wypieczona z renderem podświetla część i otwiera panel) oraz film jako stopklatki albo krótkie nagranie. **Pytanie do użytkownika:** czy 3D gablot ma od początku działać także na telefonie (§10).
 
-### 1.4 Rama wspólna z atlasem
-Uzgodnione z Reżyserem w wymianie 1 (§5):
-- lokalizator „gdzie to jest w ciele” w rogu, jako **wypieczony obrazek 2D** (sylwetka z podświetlonym narządem), bez drugiego widoku 3D;
-- ten sam pasek Spoczynek/Sprint co w atlasie;
-- wejście do gabloty z planszy układu i z menu (pytanie 3 w §6).
+## 6. Narządy
 
-### 1.5 HIIT jako przykład
-Przełącznik Spoczynek/Sprint działa jak w atlasie: tekstura stanu i przenikanie. Sprint oznacza koniec 45 s pracy w protokole wzorcowym (§3.7). Pokazuje, **jak narząd pracuje pod obciążeniem**, i tylko tyle. Szkolna treść budowy nie zależy od HIIT. Każda liczba sprintu przechodzi bramkę §3.6 z flagą `protocolMismatch`, gdy pochodzi z innego protokołu.
+Zakres P to pierwsza wersja. Kolumna R jest na później. Każdy tekst przechodzi bramkę §3.6 (fakty podręcznikowe z ISBN, drugi agent), więc **teksty zależą od E1-K3**. Geometria, ruch i UI powstają równolegle z polami „czeka na fakt”.
 
-### 1.6 Fakty: zależność od E1-K3
-Podstawa programowa jest ogólna (P V.4.8–9, V.5.1/5.3, V.2.7, V.7.5; R XI.2.x, wg raportu Dyrygenta). Nazwy struktur i przebieg procesów muszą więc mieć **fakty podręcznikowe z ISBN** (§3.6 pkt 9), sprawdzone przez drugiego agenta.
+### 6.1 Serce (gablota wzorcowa)
+- **Źródło:**
+  - HuBMAP `VH_M_Heart` (14 części, 164 tys. trójkątów; jamy i przegroda to zamknięte bryły) i naczynia przy sercu z `VH_M_Blood_Vasculature_Heart` (ok. 70 tys. po przycięciu); CC BY 4.0;
+  - układ bodźcoprzewodzący jako **schemat własny** (węzły i drogi w materiale schematu).
+- **Kolor (P):** jamy prawe `vein`, lewe `artery` (krew, którą zawierają; tokeny krwionośnego), barwa układu dla obrysu i serca z zewnątrz. Ocena Dyrygenta pkt 6, karta Reżysera.
 
-**Żaden tekst gabloty nie trafi na ekran przed E1-K3.** Geometrię, technikę i UI można budować równolegle, z polami tekstu pustymi, oznaczonymi „czeka na fakt”.
-
-Poniżej przy każdym narządzie wypisane są fakty potrzebne do gabloty. Identyfikatory są robocze (`ORG-SERCE-01` …), a nadaje je agent faktów.
-
-## 2. Gabloty po kolei
-
-### 2.1 SERCE (gablota wzorcowa)
-
-**1. Zakres liceum**
-
-| Poziom | Struktury | Procesy |
+| | P (pierwsza wersja) | R (później) |
 |---|---|---|
-| Podstawowy (P V.4.8: budowa serca, obieg płucny i ustrojowy; V.4.9: automatyzm) | 2 przedsionki, 2 komory, przegroda, 4 zastawki (nazwy szkolne), aorta, pień płucny, żyły główne, żyły płucne | dwa obiegi krwi (czerwona = natleniona, niebieska = odtleniona); automatyzm jako „serce samo wytwarza impuls” |
-| Rozszerzony (R XI.2.3 p, q) | + mięśnie brodawkowate, naczynia wieńcowe, różnica grubości ścian komór; układ bodźcoprzewodzący (węzeł zatokowo-przedsionkowy, przedsionkowo-komorowy, pęczek, włókna) | cykl pracy serca (skurcz przedsionków, skurcz komór, rozkurcz) i stan zastawek w każdej fazie |
+| Budowa | 2 przedsionki, 2 komory, przegroda, zastawki (nazwy szkolne), aorta, pień płucny, żyły główne i płucne | mięśnie brodawkowate, naczynia wieńcowe, grubość ścian komór |
+| Działanie | obieg płucny i ustrojowy (P V.4.8); **automatyzm** (P V.4.9): węzeł zatokowo-przedsionkowy i fala pobudzenia w uproszczeniu; skurcz i rozkurcz | pełny układ bodźcoprzewodzący (węzeł AV, pęczek, włókna), fazy cyklu z zastawkami w każdej fazie |
+| HIIT | w sprincie serce bije szybciej i mocniej (liczby po bramce, flaga protokołu) | objętość wyrzutowa i pojemność minutowa |
 
-HIIT: w sprincie serce bije szybciej i wyrzuca więcej krwi (liczby tylko po bramce faktów). W filmie zmienia to tempo cyklu i gęstość cząstek.
+Film (P):
+1. krew wraca żyłami (krwinki `vein`) do prawego przedsionka, z płuc do lewego (krwinki `artery`);
+2. węzeł zatokowo-przedsionkowy, fala pobudzenia po przedsionkach (schemat), skurcz przedsionków (morph);
+3. skurcz komór (morph), zastawki wariant A, krwinki do aorty i pnia płucnego;
+4. rozkurcz, ujęcie podstawy serca od góry;
+5. Sprint: szybszy cykl i gęstsze krwinki.
 
-Potrzebne fakty:
-- nazwy szkolne 4 jam, 4 zastawek i dużych naczyń;
-- kolejność przepływu krwi w obu obiegach;
-- które zastawki są zamknięte, a które otwarte w każdej fazie cyklu;
-- kolejność faz cyklu;
-- gdzie leży węzeł zatokowo-przedsionkowy i przedsionkowo-komorowy (opis położenia do umieszczenia znacznika);
-- kolejność przewodzenia;
-- dlaczego ściana lewej komory jest grubsza;
-- rola mięśni brodawkowatych i strun ścięgnistych;
-- tętno spoczynkowe i w sprincie protokołu wzorcowego;
-- objętość wyrzutowa: spoczynek i sprint, z flagą protokołu;
-- proporcja czasu skurczu i rozkurczu, jeśli film ma pokazać tempo.
+Każdy krok wprowadza najwyżej 1 nowy ruch, a naraz trwają najwyżej 3 (zgoda z Reżyserem).
 
-**2. Siatka:** HuBMAP serce (164 tys. trójkątów) i naczynia przycięte do odcinka przy sercu (153 → ok. 70 tys.), razem ≈ 240 tys. Do tego układ bodźcoprzewodzący własny: 2 znaczniki węzłów i ok. 4 rury po przegrodzie, < 5 tys. trójkątów, plakietka „schemat”.
+Film 12 aktów: **akt 3**.
 
-**3. Animacja (czas rzeczywisty)**
+Fakty potrzebne do P:
+- nazwy szkolne jam, zastawek i naczyń;
+- kolejność przepływu w obu obiegach;
+- położenie węzła zatokowo-przedsionkowego (opis do umieszczenia znacznika);
+- kolejność pobudzenia w uproszczeniu;
+- kolejność skurczu i rozkurczu;
+- tętno: spoczynek i sprint protokołu wzorcowego;
+- równanie kształtu krwinki (źródło, jeśli krążek ma być wierny).
 
-| Krok filmu | Co widać | Technika | Koszt GPU |
-|---|---|---|---|
-| 1 | krew wpływa do przedsionków (żyły główne: niebieska, żyły płucne: czerwona) | cząstki `InstancedMesh` na torach liczonych w Blenderze ze środków przekrojów naczyń i jam | 1 wywołanie, ≤ 3 tys. punktów |
-| 2 | skurcz przedsionków, krew przez zastawki do komór | przesunięcie wierzchołków ścian ku osi jamy w shaderze, siła z tekstury stanu | 0 dodatkowych wywołań |
-| 3 | skurcz komór; zastawki przedsionkowo-komorowe zamknięte, półksiężycowate otwarte | jw. oraz stan zastawek (wariant A albo B, §6) | wariant B: morph target, +0,2 MB |
-| 4 | rozkurcz (ujęcie podstawy serca z góry, 4 zastawki naraz) | szyna kamery | |
-| 5 (R) | pobudzenie: węzeł → przedsionki → pęczek → komory | fala „odległości od węzła” w shaderze na ścianach; tor rur zapala się po kolei | |
-| 6 | Sprint: szybszy cykl, gęstsze cząstki | `uState` | |
+Do R: fazy z zastawkami, elementy układu bodźcoprzewodzącego, grubość ścian, objętość wyrzutowa.
 
-Wielkość ruchu ścian to liczba. Do czasu faktu oznaczamy ją „ruch poglądowy”. Pobranie: ok. 2–2,5 MB (szacunek). FPS: oczekiwane ≥ 55, bo E3 krwionośny ma 60 FPS przy większej geometrii. Rezerwa: wypiekany krok.
+Ryzyka:
+- zastawki to jedna siatka (wariant B wymaga podziału);
+- wielkość skurczu to liczba („ruch poglądowy” do czasu faktu).
 
-**4. Interakcja:** ujęcia przód, tył, przekrój 4 jam, podstawa (góra), lewa komora. Ok. 18 struktur do najechania na poziomie R, 10 na poziomie P.
+### 6.2 Nerka
+- **Źródło:** HuBMAP `VH_M_Kidney_L` (84 tys.; słupy scalone z korą), naczynia nerkowe, `VH_M_Ureter_L`; CC BY 4.0. Nefron jako **schemat własny „bez skali”** (decyzja użytkownika): rury po krzywych, kłębuszek jako kłębek rur, materiał schematu, ok. 20–30 tys. trójkątów.
+- **Kolor:** miąższ w odcieniach tokenu `urinary`, naczynia `artery`/`vein`. Na klatce `nerka_1` są kolory robocze sprzed karty.
+- **Warunek przejścia K1 nerki:** zrzut przekroju **bez „labiryntu”** (kolumny scalone z korą, zalanie stencil) (ocena Dyrygenta pkt 2).
 
-**5. Ryzyka:** zastawki to jedna siatka, ruch ścian to tylko skalowanie, a położenie węzłów zależy od faktu.
-
-### 2.2 NERKA
-
-**1. Zakres liceum**
-
-| Poziom | Struktury | Procesy |
+| | P | R |
 |---|---|---|
-| Podstawowy (P V.5.1: budowa i funkcja; V.5.3: tworzenie moczu i regulacja hormonalna) | kora, rdzeń (piramidy), miedniczka, moczowód, tętnica i żyła nerkowa; nefron jako jednostka | krew wchodzi, mocz wychodzi; tworzenie moczu w 2–3 etapach (nazwy z podręcznika), wpływ hormonu |
-| Rozszerzony (R XI.2.4 e, f; XI.2.5 h) | + brodawki, słupy, kłębuszek, torebka, kanaliki (odcinki), pętla nefronu, kanalik zbiorczy | filtracja, resorpcja, wydzielanie (w którym odcinku), regulacja hormonalna (które hormony i gdzie działają); erytropoetyna jako hormon nerki |
+| Budowa | kora, rdzeń (piramidy), miedniczka, moczowód, tętnica i żyła nerkowa; nefron jako jednostka | brodawki, słupy, kłębuszek, torebka, odcinki kanalików, pętla, kanalik zbiorczy |
+| Działanie | **proces tworzenia moczu** (P V.5.3): filtracja i resorpcja w ujęciu ogólnym; **znaczenie regulacji hormonalnej w ogólnym ujęciu** (to też jest w brzmieniu P V.5.3) | odcinki nefronu, wydzielanie kanalikowe, konkretne hormony (np. wazopresyna, aldosteron), miejsce i kierunek działania |
+| HIIT | w sprincie do nerek płynie mniej krwi (wyróżnik „FILTR”) | liczby przepływu i filtracji |
 
-HIIT: w sprincie do nerek płynie mniej krwi (liczba po bramce) i to jest wyróżnik moczowego „FILTR” u Reżysera.
+Uwaga do oceny Dyrygenta: P V.5.3 brzmi „przedstawia proces tworzenia moczu oraz wyjaśnia znaczenie regulacji hormonalnej w tym procesie”. W P zostawiam więc jedno zdanie o tym, że hormony regulują ilość wody w moczu, bez nazw hormonów. Nazwy i mechanizmy idą do R.
 
-Potrzebne fakty:
+Film (P):
+1. krew tętnicą do nerki (krwinki);
+2. najazd w korę i przenikanie skal do schematu nefronu;
+3. filtracja (małe cząstki przechodzą, duże zostają);
+4. resorpcja (część wraca do krwi);
+5. mocz (krople w kolorze z karty) przez brodawkę do miedniczki i moczowodu;
+6. Sprint.
+
+Film 12 aktów: **akt 6 i akt 11**.
+
+Fakty do P:
 - nazwy szkolne części nerki;
-- kolejność odcinków nefronu i ich położenie (kora czy rdzeń);
-- co przechodzi przez filtr kłębuszka, a co zostaje (kategorie, bez liczb lub z liczbą po bramce);
-- co jest odzyskiwane i gdzie;
-- droga moczu: brodawka → kielich → miedniczka → moczowód;
-- hormony regulujące, miejsce i kierunek działania;
-- przepływ nerkowy: spoczynek i sprint.
+- kolejność drogi krwi i moczu;
+- co przechodzi przez filtr, a co nie (kategorie);
+- co jest odzyskiwane (kategorie);
+- zdanie o regulacji hormonalnej;
+- zmiana przepływu nerkowego w sprincie.
 
-**2. Siatka:** HuBMAP nerka lewa (84 tys.; słupy scalone z korą w jedną strukturę), naczynia (5 tys.), moczowód. Razem ≈ 100 tys. Nefron jako schemat własny: rury po krzywych (kłębuszek jako kłębek rur), ≈ 20–30 tys. trójkątów.
+### 6.3 Wątroba
+- **Źródło:**
+  - HuBMAP `VH_M_Liver` (60 tys.), naczynia (żyła wrotna z gałęziami, tętnice, 3 żyły wątrobowe), pęcherzyk, drogi żółciowe bez przewodów trzustkowych; CC BY 4.0;
+  - plik wątroby **ma 8 brył segmentowych** (sprawdzone), więc BodyParts3D jest niepotrzebne, chyba że agent faktów nie dopasuje nazw do numeracji;
+  - zrazik jako **schemat własny** (graniastosłup sześciokątny z żyłą środkową, triadami w narożach i beleczkami; materiał schematu; ok. 30–50 tys.).
+- **Kolor (karta Reżysera):** miąższ w odcieniach tokenu `digest`; żyła wrotna `vein`; pęcherzyk i drogi żółciowe w `digest.light` z kreskowanym obrysem (kreska w shaderze wzdłuż rury, 0 dodatkowych wywołań); segmenty (R) z **numerem 1–8** jako podpis HTML w środku segmentu, bo kolor nie może być jedynym nośnikiem.
 
-**3. Animacja (czas rzeczywisty):**
-1. krew tętnicą do nerki (cząstki);
-2. najazd kamery w korę, przenikanie do nefronu (plakietka „schemat, bez skali”);
-3. filtracja: cząstki dwóch rodzajów, małe przechodzą, duże zostają;
-4. kanalik: odzysk, czyli cząstki wychodzą do naczyń;
-5. kanalik zbiorczy → powrót do makro: mocz przez brodawkę i miedniczkę do moczowodu;
-6. hormon (R): zmiana odzysku wody, czyli zmiana gęstości cząstek;
-7. Sprint.
-
-Pobranie ok. 1,2–1,5 MB. FPS: oczekiwane ≥ 60.
-
-**4. Ryzyka:** przekrój nerki jest czytelny dopiero po scaleniu słupów i zalaniu (zamkniętość brył do sprawdzenia w K1). Schemat nefronu musi mieć kolejność i nazwy wyłącznie z faktów.
-
-### 2.3 WĄTROBA
-
-**1. Zakres liceum**
-
-| Poziom | Struktury | Procesy |
+| | P | R |
 |---|---|---|
-| Podstawowy (P V.2.3: wydzieliny; V.2.7: rola wątroby w przemianach; V.6.3: glukoza; III.4: glikogenoliza) | płaty, pęcherzyk, przewody żółciowe, żyła wrotna, tętnica wątrobowa, żyły wątrobowe | żółć i jej rola w trawieniu tłuszczów; krew z jelit trafia najpierw do wątroby; magazyn glikogenu i uwalnianie glukozy |
-| Rozszerzony (R XI.2.1 e, i; XI.2.5 e; III.7) | + segmenty, płat ogoniasty i czworoboczny, więzadła, zrazik (żyła środkowa, triada, beleczki) | kierunek krwi i żółci w zraziku, glikogenoliza i glukoneogeneza (schemat), antagonizm hormonów |
+| Budowa | płaty, pęcherzyk, przewody żółciowe, żyła wrotna, tętnica wątrobowa, żyły wątrobowe | segmenty z numerami, więzadła, zrazik |
+| Działanie | rola wątroby w przemianach substancji wchłoniętych (P V.2.7): krew z jelit najpierw do wątroby; żółć i trawienie tłuszczów (P V.2.3); magazyn glikogenu i uwalnianie glukozy, antagonizm hormonów (P V.6.3, III.4) | glikogenoliza i glukoneogeneza ze schematu (R III.7), kierunki krwi i żółci w zraziku |
+| HIIT | w sprincie wątroba uwalnia glukozę (wyróżnik „MAGAZYN”) | liczby wyrzutu glukozy |
 
-HIIT: w sprincie wątroba uwalnia glukozę z glikogenu (wyróżnik pokarmowego „MAGAZYN” u Reżysera). Liczby tylko po bramce.
+Film (P):
+1. żyła wrotna przynosi krew z jelit (krwinki i krople substancji);
+2. „magazyn”: glikogen jako wypełnienie płatów;
+3. żółć drogami do pęcherzyka i dwunastnicy;
+4. Sprint: poziom glikogenu spada, a krople glukozy wychodzą do krwi.
 
-Potrzebne fakty:
-- nazwy szkolne płatów;
-- czy podręcznik liceum w ogóle podaje segmenty; jeśli tak, mapowanie nazw HuBMAP na I–VIII;
-- droga krwi wrotnej (skąd i dokąd) i krwi tętniczej;
-- budowa zrazika: co leży w narożach, co w środku, kierunek krwi i żółci;
-- droga żółci do dwunastnicy i rola pęcherzyka;
-- rola wątroby w przemianach (lista z podręcznika);
-- hormony glikogenolizy;
-- zmiana wyrzutu glukozy z wątroby w sprincie (fakt badawczy, flaga protokołu).
+Zrazik (mikro) dopiero w R.
 
-**2. Siatka:** HuBMAP wątroba (60 tys., 8 brył segmentowych), naczynia (16 tys.), pęcherzyk (2 tys.), drogi żółciowe bez przewodów trzustkowych (≈ 17 tys.). Razem ≈ 95 tys. Zrazik jako schemat własny: graniastosłup sześciokątny z żyłą środkową, 6 triadami i beleczkami, instancjonowany dla kilku sąsiadów, ≈ 30–50 tys.
+Film 12 aktów: **akt 7 i akt 5**.
 
-**3. Animacja (czas rzeczywisty):**
-1. żyła wrotna wnosi krew z jelit (klatka `watroba_2`; barwa krwi wrotnej z karty Reżysera);
-2. najazd do zrazika;
-3. krew od triad do żyły środkowej;
-4. żółć w przeciwną stronę;
-5. powrót do makro: żółć drogami do pęcherzyka;
-6. Sprint: glikogen jako „poziom” w hepatocytach maleje, a strzałka glukozy wychodzi do krwi (miara z karty Reżysera).
+Fakty do P:
+- nazwy płatów;
+- droga krwi wrotnej;
+- rola żółci;
+- rola w przemianach (lista z podręcznika);
+- hormony, które podnoszą i obniżają glukozę (nazwy szkolne);
+- zmiana wyrzutu glukozy w sprincie (badanie, flaga protokołu).
 
-Pobranie ok. 1,2–1,6 MB. FPS: oczekiwane ≥ 60.
+### 6.4 Mózg
+- **Źródło (zmiana rekomendacji):**
+  - **Z-Anatomy/Brainder** (CC BY-SA, osobny plik `za_*`), czyli ten sam mózg co w widoku układów (`bindings.json` mózgu: `za:Precentral gyrus.l` itd.). Daje wejście diegetyczne bez podmiany i ciągłą drogę mózg → pień → rdzeń z jednego źródła (bez przerwy 6,8 mm między Allen a rdzeniem VH). Nie wymaga też pobierania;
+  - Allen (HuBMAP) zostaje alternatywą. Lokalny plik to v1.2, a CC BY obowiązuje od v1.3, więc wymagałby pobrania nowszej wersji;
+  - moje klatki mózgu (`mozg_1`, `mozg_2`) są z Allen v1.2: to dokumentacja wewnętrzna, nie do publikacji;
+  - neuron: rekonstrukcja z NeuroMorpho (CC BY 4.0, 3 cytaty) albo schemat. Dopiero w R.
+- **Kolor:** token `brain`, drogi nerwowe w mózgu `nerve`.
 
-**4. Ryzyka:** segmenty mogą być ponad poziom liceum, więc domyślnie pokazujemy je tylko na poziomie R. Schemat zrazika musi zgadzać się z faktami.
-
-### 2.4 MÓZG
-
-**1. Zakres liceum**
-
-| Poziom | Struktury | Procesy |
+| | P | R |
 |---|---|---|
-| Podstawowy (P V.7.5: budowa i funkcje mózgu, rdzenia, nerwów) | półkule i płaty (czołowy, ciemieniowy, skroniowy, potyliczny), móżdżek, pień (śródmózgowie, most, rdzeń przedłużony), międzymózgowie, rdzeń kręgowy | funkcje części wg podręcznika; droga polecenia ruchu od kory do rdzenia (jako przykład: decyzja sprintu) |
-| Rozszerzony (R XI.2.6 e, f; XI.2.5 c; XI.2.1 j) | + wzgórze, podwzgórze, ciało modzelowate, komory, jądra podstawy, hipokamp, ciało migdałowate | ośrodki autonomiczne (położenie: pień, podwzgórze), nadrzędna rola podwzgórza, ośrodek głodu i sytości, skrzyżowanie dróg ruchowych |
+| Budowa | półkule, płaty (z faktów podręcznikowych; podstawa ich nie wymienia), móżdżek, pień (śródmózgowie, most, rdzeń przedłużony), międzymózgowie, rdzeń kręgowy | wzgórze, podwzgórze, przysadka, ciało modzelowate, komory, jądra podstawy, hipokamp |
+| Działanie | budowa i funkcje mózgu i rdzenia (P V.7.5): co robią główne części; polecenie ruchu z kory do rdzenia jako przykład | ośrodki autonomiczne, oś podwzgórze–przysadka, ośrodek głodu i sytości, skrzyżowanie dróg |
+| HIIT | „decyzja: biegnę” (wyróżnik „OBSZAR + IMPULS”, bez prędkości liczbowej) | |
 
-Podstawa nie wymienia płatów ani ośrodków korowych. Wchodzą tylko przez fakty podręcznikowe.
+Film (P):
+1. płaty (obszary podświetlane po kolei);
+2. kora ruchowa: impuls (fala jasności, `nerve`);
+3. droga w dół przez pień do rdzenia (tor z geometrii);
+4. rdzeń → nerw → mięsień (przejście do widoku mięśniowego).
 
-HIIT: przykład „decyzja: biegnę”, czyli kora ruchowa → droga w dół → rdzeń → mięśnie (wyróżnik nerwowego „IMPULS” i mózgu „OBSZAR” u Reżysera). Bez prędkości liczbowej.
+Film 12 aktów: **akt 2**.
 
-Potrzebne fakty:
-- podział na płaty i przypisanie zakrętów do płatów (klasyfikacja automatu: 281/283; do sprawdzenia, czy zakręt obręczy i przyhipokampowy należą do płatów, czy do układu limbicznego);
-- funkcje płatów, móżdżku, pnia i międzymózgowia;
-- położenie kory ruchowej (zakręt przedśrodkowy);
-- przebieg drogi ruchowej (kolejność pięter) i miejsce skrzyżowania;
-- położenie ośrodków autonomicznych;
-- rola podwzgórza i przysadki (uwaga: przysadki nie ma w HuBMAP Allen; potrzebne źródło siatki albo tylko znacznik);
-- ośrodek głodu i sytości.
+Fakty do P:
+- podział na płaty i ich funkcje (podręcznik);
+- funkcje móżdżku, pnia i międzymózgowia;
+- położenie kory ruchowej;
+- kolejność drogi polecenia ruchu.
 
-**2. Siatka:** Allen (656 tys.) wymaga decymacji. Grupy (12, §2.4 tabela niżej) scala się w struktury, a powierzchnię kory dziesiątkuje do ≈ 250 tys. Do tego rdzeń VH (16 tys.). Neuron: NeuroMorpho (CC BY 4.0, rekonstrukcja SWC ludzkiego neuronu piramidowego; 3 wymagane cytaty) → rury ≈ 20–40 tys. Alternatywa: schemat własny.
+Ryzyko: liczba obszarów Brainder i jej koszt (do pomiaru w K1 mózgu). Rezerwa: scalanie zakrętów w płaty, tak jak przy Allen (281 z 283 obszarów przypisanych automatem).
 
-Grupowanie (automat po nazwach, `stats_modeli.json`):
+## 7. Test techniczny przed wdrożeniem (M0)
 
-| Grupa | Obszarów (L+P) | P | R |
+Robię go **dopiero po zgodzie użytkownika.** Bez zmian w `src/`: osobny szkic w `prototypes/organs_t0/` na porcie 5200–5202.
+
+- **Ujęcie:**
+  - serce HuBMAP w przekroju 4 jam;
+  - jeden cykl w pętli: skurcz przedsionków i komór (morph z Blendera, wielkość „poglądowa”);
+  - krwinki 3D (krążek dwuwklęsły) płyną z lewej komory do aorty i z prawej do pnia płucnego, z prędkością z przekroju;
+  - światło i materiał na poziomach Low i High;
+  - zastawki w wariancie A, a dodatkowo pomiar wariantu B na jednej zastawce.
+- **Wynik do obejrzenia:**
+  - nagranie ekranu (ok. 10 s) z każdego poziomu;
+  - 3 zrzuty;
+  - tabela FPS (Intel UHD przy 1440×900, `__atlas3dBench` z `readPixels`), czas GPU klatki, MB pobrania, liczba trójkątów i wywołań;
+  - wniosek: ile krwinek mieści się w 50 FPS na Low, czy B jest tani.
+- **Kryterium:** Low ≥ 50 FPS przy ≥ 600 krwinkach. Jeśli nie, propozycja poziomów i rezerwy wypiekanej z liczbami.
+- Blender tylko przez sloty `.render_slot_*`.
+
+## 8. Kamienie milowe (zamiast godzin)
+
+Uczciwie: szacunków godzinowych z wersji 2 nie podtrzymuję jako obietnicy. Po M0 przeliczę resztę na podstawie zmierzonego tempa i kosztu.
+
+| Kamień | Wynik do obejrzenia | Warunek przejścia | Niepewność |
 |---|---|---|---|
-| płat czołowy (z zakrętem przedśrodkowym) | 28 | ✓ | ✓ |
-| płat ciemieniowy | 14 | ✓ | ✓ |
-| płat skroniowy | 22 | ✓ | ✓ |
-| płat potyliczny | 10 | ✓ | ✓ |
-| wyspa | 10 | | ✓ |
-| układ limbiczny | 52 (+2 ciało migdałowate) | | ✓ |
-| międzymózgowie | 48 | ✓ | ✓ |
-| jądra podstawy | 24 | | ✓ |
-| istota biała | 17 | | ✓ |
-| komory | 14 | | ✓ |
-| móżdżek | 14 | ✓ | ✓ |
-| pień mózgu | 28 | ✓ | ✓ |
+| **M0** test techniczny serca (§7) | nagranie, zrzuty, tabela FPS i MB | Low ≥ 50 FPS; decyzja o B | wysoka (pierwszy pomiar cząstek i morfów na UHD) |
+| **M1 = F1** (N1-K1) eksport serca | GLB serca (ID, morfy, tory), kontrola licencji, pomiar FPS i MB w aplikacji | budżet §4.5 | średnia |
+| **M2 = F2** OrganView serca na ramie integratora | gablota serca: zwiedzanie, przekrój z zalaniem, najechanie z obrysem, panel P, Sprawdź się, klawiatura; zrzuty 1440 i telefon (plansza 2D) | integrator publikuje kontrakt ramy; fakty P serca z E1-K3 | średnia, zależy od faktów |
+| **M3** film serca i wejście diegetyczne | film P (5 kroków) w gablocie, wejście z widoku krwionośnego, nagranie | ≥ 50 FPS na Low; stopklatki przy reduced-motion | średnia |
+| **M4** moduł `biomotion` w filmie | ujęcie serca w akcie 3 tym samym modułem | brak regresji filmu | średnia |
+| **M5** pokaz i test z licealistami (Dyrygent) | notatka z testu | | |
+| **N2–N4** nerka, wątroba, mózg (każdy: K1 siatka i pomiar, K2 gablota, K3 film i akt filmu) | dla każdego to samo co M1–M4 | nerka K1: przekrój bez labiryntu; mózg K1: koszt Brainder | niższa, bo moduł jest gotowy; mogą iść równolegle u drugiego agenta 3D |
 
-**3. Animacja (czas rzeczywisty):**
-1. płaty (klatka `mozg_1`);
-2. kora ruchowa → neuron (mikro) z impulsem jako pulsem w shaderze po drzewie (odległość od ciała komórki);
-3. droga w dół: tor przez środki obszarów kora → odnoga mózgu → most → piramida (klatka `mozg_2`; tor liczony z geometrii);
-4. skrzyżowanie (schemat linią, plakietka „schemat”);
-5. rdzeń kręgowy → przejście do atlasu mięśniowego.
+Wielkość względna (do przeliczenia po M0): serce to największa część (buduje moduł), nerka i wątroba są mniejsze (dziedziczą moduł, dochodzi schemat mikro), mózg średni (wiele struktur).
 
-Pobranie ok. 2,5–3 MB (po decymacji). FPS: oczekiwane ≥ 50. **To najbardziej zagrożony narząd**, bo ma najwięcej struktur. Rezerwa: kora zredukowana do ok. 150 tys.
+## 9. Uzgodnienia z Reżyserem
 
-**4. Ryzyka:**
-- licencja v1.2 (pytanie 1);
-- przerwa **6,8 mm** między rdzeniem przedłużonym (Allen) a C1 (VH), bo to dwa źródła: maskujemy ją ujęciem i nie dorysowujemy;
-- półkule są lustrzane (szablon symetryczny); to nie przeszkadza w nauce, ale trzeba to opisać w stopce;
-- brak przysadki.
+| Temat | Stan |
+|---|---|
+| Wykonalność karty (a)–(g) | uzgodnione w wymianie 1 (strzałki z przesuwanym wzorem, punkty instancjonowane, linie kostne w 3D z tekstem HTML, miernik oddechu, izolinie ciepła, puls tylko z bieżącego zdania, lokalizator 2D) |
+| Spór 1: jeden ruch na wyróżnik | **zgoda** w wymianie 2: wyróżnik układu to znak gabloty; krok filmu wprowadza najwyżej 1 nowy ruch, naraz trwają najwyżej 3 |
+| Kolory | **zgoda:** tylko tokeny `palette.json`, odcienie części (`color`, `light`, `color` przyciemniony o 25%), przygaszenie 35%, przekrój w `light`; walidator ΔE (`check:atlas`). Klatki koncepcyjne mają kolory robocze, do poprawy przy wdrożeniu |
+| Przekrój i otwarcie | **zgoda** (`light`, obrys 1,5 px, bez rozsuwania, stencil przy ≥ 50 FPS) |
+| Wejście | **zgoda:** oba sposoby. Użytkownik doprecyzował „diegetycznie po kliknięciu” (§3), a menu jako dodatek |
+| Podświetlenie (obrys 2 px, bez emisji) | **zgoda**, technika: odwrócona powłoka, a na High obrys z bufora ID (§5.3) |
+| **Spór 2: schemat = kreska 2 px czy bryła?** | **otwarty (wymiana 1):** wobec słów użytkownika „nie kreseczki” proponuję schemat jako bryłę 3D w osobnym materiale schematu z chipem, a kreskę tylko dla ilustracji płaskich (§4.3) |
+| Klatki docelowe (poprzeczka jakości) | Reżyser przygotowuje. Test M0 porównam z nimi |
 
-## 3. Czas pracy (godziny pracy agentów)
+## 10. Pytania do użytkownika (krótko)
 
-| Etap | Serce | Nerka | Wątroba | Mózg |
-|---|---|---|---|---|
-| Siatka (eksport GLB z ID, przycięcie, decymacja, kontrola licencji) | 3 | 2 | 2 | 5 |
-| Wnętrze (zalanie przekroju, schemat mikro, tory cząstek i impulsu) | 5 | 6 | 6 | 6 |
-| Animacja (oś czasu, szyna kamery, ruch w shaderze, kroki) | 10 | 7 | 6 | 7 |
-| UI (gablota, panel, „Sprawdź się”, klawiatura, telefon 2D: wypieki ujęć i masek) | 8 | 3 | 3 | 4 |
-| Fakty (agent faktów + drugi agent, po E1-K3) | 6 | 5 | 5 | 7 |
-| Testy (FPS UHD, zrzuty, konsola, dostępność, telefon) | 4 | 2 | 2 | 3 |
-| **Razem** | **36** | **25** | **24** | **32** |
+1. **Test techniczny serca (M0):** czy mogę go zrobić? To jedno ujęcie, osobny szkic poza aplikacją, z nagraniem i pomiarem płynności.
+2. **Mózg w gablocie:** ten sam model co w widoku układów (Z-Anatomy, bez pobierania, płynne wejście), czy model Allen z HuBMAP (wymaga pobrania nowszej wersji, ok. 12 MB)? Polecam pierwszy.
+3. **Telefon:** czy gabloty w 3D mają od razu działać na telefonie, czy na początek wystarczą obrazki ujęć i film w stopklatkach, jak dziś plansze?
 
-Razem **ok. 117 godzin**, z rozrzutem ok. 110–150. Serce kosztuje najwięcej, bo buduje wspólną gablotę (`OrganView`: przekrój, wybór, panel, quiz, oś czasu filmu, wypieki telefonu). Pozostałe narządy ją dziedziczą. Fakty idą równolegle i blokują tylko teksty na ekranie.
+## 11. Załącznik: zmierzone liczby modeli
 
-**Gablota wzorcowa: serce.**
-- ma najlepsze dane (zamknięte bryły, wszystkie jamy i zastawki);
-- to sedno wymagania P V.4.8–9;
-- jego film nie wymaga modelu mikro;
-- konwencja czerwone i niebieskie jest od razu czytelna.
-
-**Kolejność dalej:** nerka (wzór „makro → mikro” na schemacie nefronu), potem wątroba (ten sam wzór, zrazik), na końcu mózg (najcięższy, czeka na mózg v1.3+ i decyzję o neuronie).
-
-Punkty kontrolne jak w E3: „PUNKT KONTROLNY N<narząd>-K<n>” po siatce, po gablocie i po filmie. Pliki wdrożenia (po zgodzie): `src/organs/**`, `public/organs/**`, eksport w `blender/organs/**`. Jedyny punkt styku z `src/atlas/**` to wejście do gabloty, uzgadniane z integratorem.
-
-## 4. Ryzyka (krótko)
-
-1. **Teksty czekają na fakty** (E1-K3). Bez nich gablota pokaże tylko nazwy, i to tylko te, które mają fakt.
-2. **Mózg v1.2 a licencja CC BY od v1.3.** Trzeba pobrać nowszą wersję i sprawdzić, czy kształt się nie zmienił. Moje klatki koncepcyjne mózgu powstały z v1.2: to dokumentacja wewnętrzna, nie do publikacji, i po pobraniu v1.3 renderuję je ponownie.
-3. **Zastawki serca nie mają płatków:** ruch płatków to przekształcenie prawdziwej siatki (wariant B) albo tylko stan i przepływ (wariant A).
-4. **Przekrój nerki** bez zalania jest nieczytelny (klatka `nerka_1`).
-5. **Schematy mikro** (nefron, zrazik, układ bodźcoprzewodzący) to geometria własna. Muszą mieć plakietkę „schemat” i kolejność z faktów, inaczej staną się „wymyśloną anatomią”.
-6. **FPS mózgu** przy 141 strukturach: decymacja i rezerwa w postaci wypiekanego kroku.
-7. **Ruch ścian serca i płuc** to liczba. Do czasu faktu jest „poglądowy”.
-
-## 5. Spór z Reżyserem (wymiana 1 z 2)
-
-Reżyser zapytał o wykonalność swojej karty (a)–(g). Moje odpowiedzi:
-- **(a) strzałki 3D:** już istnieją w E3 (rury z grotami z `flows3d`); przesuwany wzór w shaderze to 1 wywołanie na układ.
-- **(b) punkty instancjonowane:** ≤ 200, a nawet kilka tysięcy, to 1 wywołanie.
-- **(c) linie kostne:** w 3D, a teksty wymiarów jako nakładka HTML; bez wypiekania.
-- **(d) płuca:** zgoda na miernik jako główny nośnik; ruch płuc tylko po fakcie i jako „poglądowy”.
-- **(e) ciepło:** zgoda na izolinie z etykietą „ilustracja”.
-- **(f) puls:** zgoda, ozdobny `sin(uTime*3.9)` zastąpi puls na strukturze z bieżącego zdania.
-- **(g) rama gablot:** lokalizator jako wypieczony obrazek, wspólny pasek Spoczynek/Sprint.
-
-Nic z jego karty nie jest za drogie dla UHD.
-
-**SPÓR 1 (otwarty):** Reżyser chce dla każdego układu jednego wyróżnika z **jednym** rodzajem ruchu. Film gabloty serca potrzebuje kilku ruchów (ściany, zastawki, krew).
-
-Moja propozycja:
-- wyróżnik układu jest znakiem gabloty: serce = przepływ i rozdział, nerka = FILTR, wątroba = MAGAZYN, mózg = OBSZAR + IMPULS;
-- film ma kroki, a każdy krok wprowadza najwyżej jeden nowy ruch.
-
-Czekam na jego odpowiedź (wymiana 2). Bez zgody spór trafi do Dyrygenta w jednym akapicie.
-
-## 6. Pytania do użytkownika (prostym językiem)
-
-1. **Mózg:** czy mogę pobrać nowszy, darmowy model mózgu z oficjalnego repozytorium HuBMAP (ok. 12 MB)? Obecny ma starszą wersję, przy której licencja jest niepewna.
-2. **Zastawki serca:** czy wystarczy, że zastawka zmienia kolor i widać płynącą krew, czy chcesz widzieć, jak płatki się otwierają? Druga opcja to uproszczony ruch zbudowany z prawdziwego modelu, ok. 4 godziny pracy więcej.
-3. **Wejście do gablot:** przez osobne menu „Narządy”, przez kliknięcie narządu w widoku układu, czy na oba sposoby?
-4. **Pierwsza wersja:** tylko poziom Podstawowy (szybciej), czy od razu oba poziomy?
-
-## 7. Załącznik: zmierzone liczby modeli
-
-| Plik | Węzły | Trójkąty (surowe) | Rozmiar obrysu |
+| Plik | Węzły | Trójkąty (surowe) | Obrys |
 |---|---|---|---|
 | `VH_M_Heart.glb` | 14 | 164 tys. | 12,4 × 10,5 × 10,5 cm |
 | `VH_M_Blood_Vasculature_Heart.glb` | 37 | 153 tys. | |
@@ -355,4 +416,4 @@ Zamkniętość brył serca (krawędzie niezamknięte / wszystkie):
 - zastawka aortalna: 72 / 4 tys.;
 - 3 małe mięśnie brodawkowate: 21–42.
 
-Zastawki mają po 1 spójnej części (brak osobnych płatków).
+Zastawki mają po 1 spójnej części, czyli brak osobnych płatków. Przerwa między rdzeniem przedłużonym Allen a C1 rdzenia VH: 6,8 mm.
