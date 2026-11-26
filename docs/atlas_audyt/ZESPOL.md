@@ -124,3 +124,4 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
   - brak osobnego trybu „sama budowa”: domyślnie Spoczynek z celem lekcji o budowie.
 
   Odkrycie P2 (podpisy bez sprawdzonego opisu: mózg 21, mięśniowy 19, nerwowy 14, oddechowy 8, powłokowy 4) wzmacnia argument za wznowieniem faktów podręcznikowych.
+- **PLAN 2 obu przyjęty** (Reżyser `8c20b84`, Wizualizator `c640d7e`). **M1 zaliczony**: klatki docelowe w `docs/atlas_rezyser/klatki_docelowe/` (czas rzeczywisty 1,5–2 h wobec szacunku 4–8 h). Następny kamień M2 (test serca) czeka na zgodę użytkownika (pytanie 1 decyzji). Spór 2 (schemat jako bryła) rozstrzygnięty.

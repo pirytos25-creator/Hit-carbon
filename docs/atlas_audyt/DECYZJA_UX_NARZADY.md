@@ -109,6 +109,35 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 
 **Uczciwie o niepewności:** poprzednie szacunki (155–210 h) dotyczyły „kresek”. Nowa poprzeczka (animacja filmowa, wspólny moduł, wejście diegetyczne) podnosi koszt w nieznanym stopniu. Wiarygodną liczbę da dopiero M2′. Do tego czasu nie podajemy łącznej sumy godzin.
 
+### Stan kamieni (aktualizacja 2026-11-26)
+
+**PLAN 2 obu agentów przyjęty:**
+- Reżyser: `UX_POSIEDZENIE.md` v3, `8c20b84`;
+- Wizualizator: `NARZADY_PLAN.md` v3, `c640d7e`.
+
+**M1 Poprzeczka: ZALICZONY.** Klatki w `docs/atlas_rezyser/klatki_docelowe/`, render Blender EEVEE prawdziwych modeli.
+
+| Klatka | Ocena |
+|---|---|
+| (a) serce w przekroju z krwinkami 3D | jamy prawe z krwią odtlenioną, lewe z natlenioną; czytelna i zgodna z anatomią |
+| (b) ROZDZIAŁ | spoczynek a sprint jako gęstość krwinek; różnica widoczna od razu |
+| (c) wejście w serce | kierunek dobry. **Warunek dla M5:** w kadrze końcowym ciało ≤ 5% krycia albo wycięte wokół narządu, bo przy 12% żebra i naczynia zasłaniają serce. W M5 trzeba też poprawić kontrast napisu „SPOCZYNEK” na (b) |
+| (d) wspólny materiał | mat, lekkie SSS, bez połysku; dwa profile wyglądu (atlas Standard, film AgX) z pomiarem ΔE |
+
+**Czas M1:** rzeczywisty ok. 1,5–2 h wobec szacunku 4–8 h. Reżyser słusznie zastrzega, że tego tempa nie przenosimy na M2, bo tam powstaje kod czasu rzeczywistego. Pełne przeliczenie w M2′.
+
+**Ustalenia Reżysera przyjęte:**
+- przy zbliżeniu naczynia mają półprzezroczystą ścianę (koszt mierzy M2);
+- na skali całego ciała znaczenie niesie strumień, a szczegół krwinki pojawia się dopiero w zbliżeniu;
+- tor żylny `flows3d` przez żyłę odpiszczelową trzeba poprawić przy M6;
+- **układ nerwowy w obu (atlas i film) w bursztynie z `palette.json`**.
+
+**Do pokazania użytkownikowi na BRAMCE A, a nie jako osobne pytanie:**
+- propozycja (d), czyli film przechodzi z połysku na mat atlasu;
+- bursztynowy układ nerwowy w filmie.
+
+Wizualizator pokaże w M4 nagranie aktu 3 przed zmianą i po niej. Ostatnie słowo należy do użytkownika, bo zmienia się wygląd filmu, który już zna.
+
 ## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
 
 | Element (atlas lub gablota) | Akt filmu |
