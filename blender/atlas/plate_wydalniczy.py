@@ -332,14 +332,16 @@ def urinary_mat(name, level, emission=0.0, alpha=1.0, ctx=BONE):
 
 
 # Stopnie jasności (ilustracja, nie liczba ze źródła): pełny 1,0 / średni 0,65 / przygaszony 0,35.
+# K3: kolor układu z palette.json (#276777) jest ciemny; przy mieszaniu z kością poniżej ok. 0,5 wychodził szary,
+# więc przygaszenie sprintu to 0,52-0,65 (spoczynek nadal wyraźnie jaśniejszy, kolejność bez zmian).
 LEVELS = {
     #                rest  sprint
-    "kidney":       (0.80, 0.42),
-    "pelvis":       (0.90, 0.50),
-    "ureter":       (0.80, 0.45),
-    "bladder":      (0.55, 0.55),
-    "urethra":      (0.55, 0.55),
-    "nephron":      (0.80, 0.50),
+    "kidney":       (0.85, 0.52),
+    "pelvis":       (0.95, 0.60),
+    "ureter":       (0.85, 0.55),
+    "bladder":      (0.65, 0.65),
+    "urethra":      (0.65, 0.65),
+    "nephron":      (0.85, 0.58),
     "duct":         (0.70, 1.00),   # cewka zbiorcza: w sprincie ADH -> więcej akwaporyn
 }
 
@@ -485,12 +487,13 @@ A = {
     "kidney": {"point": front_surface(kidney_shell["R"], xband=(0.0, 0.55), zband=(0.55, 0.85)), "views": ["front"]},
     "renal_pelvis": {"point": front_surface(pelvis_hub["R"], frac=0.2), "views": ["front"]},
     "renal_artery": {"point": front_surface([art["R"]], xband=(0.35, 0.6), frac=0.25), "views": ["front"]},
-    "renal_vein": {"point": front_surface([vein["L"]], xband=(0.4, 0.65), frac=0.25), "views": ["front"]},
+    "renal_vein": {"point": front_surface([vein["R"]], xband=(0.15, 0.5), frac=0.25), "views": ["front"]},
     # moczowód: nad talerzem kości krzyżowej, poniżej rozwidlenia naczyń biodrowych (tam nie nakłada się na żyłę)
     "ureter": {"point": front_surface([ureter_tube["R"]], zband=(0.28, 0.38), frac=0.3), "views": ["front"]},
     "bladder": {"point": front_surface(bladder, zband=(0.55, 0.9)), "views": ["front"]},
     "urethra": {"curve": "Urethra", "t": 0.25, "views": ["front"]},
-    "adrenal": {"point": front_surface([bpy.data.objects["Suprarenal gland.l"]]), "views": ["front"]},
+    # K3: kotwice na strukturach prawej strony ciała (lewa strona obrazu), bo wszystkie podpisy widoku front są z lewej
+    "adrenal": {"point": front_surface([bpy.data.objects["Suprarenal gland.r"]]), "views": ["front"]},
     "aorta": {"point": al.curve_anchor(aorta_main, z=1.06) + Vector((0, -0.006, 0)), "views": ["front"]},
     "ivc": {"point": al.curve_anchor(ivc_main, z=1.07) + Vector((0, -0.006, 0)), "views": ["front"]},
     "glomerulus": {"point": L + GLOM_C + Vector((-0.02, -0.08, -0.02)), "views": ["detail"]},
@@ -523,7 +526,7 @@ print("WYD_DONE", plate.out_dir)
 # i krwionośnej (obrys kości i mięśni, margines 1,06, 1000×1800). Plate ma jedną rozdzielczość, a anchors.json planszy
 # ma 1150×1600, więc całe ciało renderujemy osobną sceną do folderu tymczasowego i dopisujemy do anchors.json jako
 # widok "body_front" z własnym polem "resolution". Pliki: body_front_rest.webp, body_front_sprint.webp.
-if not os.environ.get("WYD_SKIP_BODY") and not os.environ.get("ATLAS_QUICK"):
+if not any(os.environ.get(k) for k in ("WYD_SKIP_BODY", "ATLAS_QUICK", "ATLAS_ANCHORS_ONLY")):
     import json
     import shutil
     import tempfile
@@ -548,9 +551,9 @@ if not os.environ.get("WYD_SKIP_BODY") and not os.environ.get("ATLAS_QUICK"):
     body.add(bladder + urethra, role="urinary")
     body.custom += [(o, lvl_fn("bladder")) for o in bladder] + [(o, lvl_fn("urethra", ctx=MUSC)) for o in urethra]
     body.set_view("body_front", direction="front", frame=all_bones + muscles_for_frame, margin=1.06)
-    AB = {"b_kidney": {"point": A["kidney"]["point"], "views": ["body_front"]},
-          "b_ureter": {"point": A["ureter"]["point"], "views": ["body_front"]},
-          "b_bladder": {"point": A["bladder"]["point"], "views": ["body_front"]}}
+    # Bez kotwic: warstwy „Całość” potrzebują tylko kamery. Kotwice z własną rozdzielczością widoku myliłyby
+    # scripts/atlas_check_projection.ts, który rzutuje z rozdzielczością całego pliku (1150×1600).
+    AB = {}
     bmeta = body.render(views=("body_front",), states=("rest", "sprint"), anchors=AB)
     vm = bmeta["views"]["body_front"]
     vm["resolution"] = [1000, 1800]

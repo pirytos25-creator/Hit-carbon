@@ -45,11 +45,13 @@ export const WYDALNICZY: AtlasPlateContent = {
   summaryStatus: { rest: 'draft', sprint: 'draft' }, // przeformułowane po K2 (#4, #8, #9)
   protocolNotePl:
     'Sprint to koniec 45 s pracy przy ok. 88% VO₂max. Badania nerek mierzyły zwykle dłuższy wysiłek albo stan tuż po nim, więc liczby pokazują kierunek zmian, nie dokładną wartość dla jednej serii.',
+  // K3: podpisy obu widoków po lewej stronie (jak oddechowy): dwie kolumny tekstu zamiast czterech, większe rendery.
   labels: [
     // ---- widok front (prawa strona ciała = lewa strona obrazu)
     {
       anchor: 'kidney',
       view: 'front',
+      side: 'left',
       namePl: 'Nerka',
       nameLat: 'ren',
       role: { rest: 'Ok. 20% krwi z serca: tworzy mocz', sprint: 'Mniej krwi, mniej moczu (stąd przygaszona)' },
@@ -60,6 +62,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'renal_pelvis',
       view: 'front',
+      side: 'left',
       namePl: 'Miedniczka nerkowa',
       nameLat: 'pelvis renalis',
       role: { rest: 'Zbiera mocz z kielichów nerki', sprint: 'Spływa do niej mniej moczu' },
@@ -70,6 +73,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'renal_artery',
       view: 'front',
+      side: 'left',
       namePl: 'Tętnica nerkowa',
       nameLat: 'arteria renalis',
       role: { rest: 'Doprowadza krew z aorty do nerki', sprint: 'Węższa: mniej krwi dla nerki' },
@@ -80,6 +84,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'renal_vein',
       view: 'front',
+      side: 'left',
       namePl: 'Żyła nerkowa',
       nameLat: 'vena renalis',
       role: { rest: 'Odprowadza krew z nerki', sprint: 'Mniej krwi wraca z nerki' },
@@ -90,6 +95,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'ureter',
       view: 'front',
+      side: 'left',
       namePl: 'Moczowód',
       nameLat: 'ureter',
       role: { rest: 'Przesuwa mocz do pęcherza', sprint: 'Płynie nim mniej moczu' },
@@ -100,6 +106,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'bladder',
       view: 'front',
+      side: 'left',
       namePl: 'Pęcherz moczowy',
       nameLat: 'vesica urinaria',
       role: { rest: 'Gromadzi mocz', sprint: 'Gromadzi mocz' },
@@ -109,6 +116,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'urethra',
       view: 'front',
+      side: 'left',
       namePl: 'Cewka moczowa',
       nameLat: 'urethra',
       role: { rest: 'Wyprowadza mocz na zewnątrz', sprint: 'Wyprowadza mocz na zewnątrz' },
@@ -118,6 +126,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'adrenal',
       view: 'front',
+      side: 'left',
       namePl: 'Nadnercze',
       nameLat: 'glandula suprarenalis',
       role: { rest: 'Mało adrenaliny we krwi', sprint: 'Wyrzut adrenaliny (plansza hormonalna)' },
@@ -128,6 +137,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'aorta',
       view: 'front',
+      side: 'left',
       namePl: 'Aorta brzuszna',
       nameLat: 'pars abdominalis aortae',
       role: { rest: 'Krew z serca do nerek i nóg', sprint: 'Więcej krwi, głównie do mięśni nóg' },
@@ -138,6 +148,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'ivc',
       view: 'front',
+      side: 'left',
       namePl: 'Żyła główna dolna',
       nameLat: 'vena cava inferior',
       role: { rest: 'Krew z nerek i nóg do serca', sprint: 'Więcej krwi wraca z nóg' },
@@ -149,6 +160,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'glomerulus',
       view: 'detail',
+      side: 'left',
       namePl: 'Kłębuszek nerkowy',
       nameLat: 'glomerulus renalis',
       role: { rest: 'Przesącza osocze z krwi', sprint: 'Mniej krwi, przesącza mniej' },
@@ -159,6 +171,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'bowman',
       view: 'detail',
+      side: 'left',
       namePl: 'Torebka kłębuszka',
       nameLat: 'capsula glomeruli',
       role: { rest: 'Zbiera przesącz (mocz pierwotny)', sprint: 'Zbiera mniej przesączu' },
@@ -169,6 +182,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'afferent',
       view: 'detail',
+      side: 'left',
       namePl: 'Tętniczka doprowadzająca',
       nameLat: 'arteriola glomerularis afferens',
       // #35: bez źródła o samej tętniczce doprowadzającej -> opis ogólny (zwężają się naczynia nerki; na schemacie
@@ -181,6 +195,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'tubule',
       view: 'detail',
+      side: 'left',
       namePl: 'Kanalik nerkowy',
       nameLat: 'tubulus renalis',
       role: { rest: 'Odzyskuje prawie całą wodę z przesączu', sprint: 'Mniej przesączu: mniej soli w moczu' },
@@ -191,6 +206,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'loop',
       view: 'detail',
+      side: 'left',
       namePl: 'Pętla nefronu (Henlego)',
       nameLat: 'ansa nephroni',
       role: { rest: 'Tworzy słony płyn w rdzeniu nerki', sprint: 'Tworzy słony płyn w rdzeniu nerki' },
@@ -201,6 +217,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     {
       anchor: 'collecting_duct',
       view: 'detail',
+      side: 'left',
       namePl: 'Kanalik zbiorczy (cewka zbiorcza)',
       nameLat: 'tubulus renalis colligens',
       role: {
