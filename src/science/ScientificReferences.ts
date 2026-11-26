@@ -984,6 +984,61 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Wartość 1 MET = 3,5 mL/kg/min zawyża rzeczywiste spoczynkowe zużycie tlenu średnio o ok. 35%.',
   },
+  // --- Układ kostny (agent 10, faza 1b) ---
+  munro_1987: {
+    id: 'munro_1987',
+    authors: 'Munro, C. F., Miller, D. I., & Fuglevand, A. J.',
+    year: 1987,
+    title: 'Ground reaction forces in running: a reexamination',
+    journal: 'Journal of Biomechanics, 20(2), 147–155',
+    pmid: '3571295',
+    doi: '10.1016/0021-9290(87)90306-x',
+    url: 'https://doi.org/10.1016/0021-9290(87)90306-x',
+    acts: [],
+    summaryPl:
+      '20 mężczyzn (ok. 25 lat, biegający rekreacyjnie) w biegu 3–5 m/s po płycie pomiarowej: szczyt pionowej siły reakcji podłoża rośnie z 2,5 do 2,8 × masa ciała, a czas kontaktu stopy spada z 270 do 198 ms.',
+  },
+  weyand_2000: {
+    id: 'weyand_2000',
+    authors: 'Weyand, P. G., Sternlight, D. B., Bellizzi, M. J., & Wright, S.',
+    year: 2000,
+    title: 'Faster top running speeds are achieved with greater ground forces not more rapid leg movements',
+    journal: 'Journal of Applied Physiology, 89(5), 1991–1999',
+    pmid: '11053354',
+    doi: '10.1152/jappl.2000.89.5.1991',
+    url: 'https://doi.org/10.1152/jappl.2000.89.5.1991',
+    acts: [],
+    summaryPl:
+      'Sprint z maksymalną prędkością na bieżni z płytą pomiarową: szybsi biegacze naciskają mocniej na podłoże przy podobnym czasie wymachu nogi; kontakt stopy ok. 0,1 s.',
+  },
+  sims_martin_2014: {
+    id: 'sims_martin_2014',
+    authors: 'Sims, N. A., & Martin, T. J.',
+    year: 2014,
+    title: 'Coupling the activities of bone formation and resorption: a multitude of signals within the basic multicellular unit',
+    journal: 'BoneKEy Reports, 3, 481',
+    pmid: '24466412',
+    pmcid: 'PMC3899560',
+    doi: '10.1038/bonekey.2013.215',
+    url: 'https://doi.org/10.1038/bonekey.2013.215',
+    acts: [],
+    summaryPl:
+      'Przegląd przebudowy kości: w dorosłej kości resorpcja w jednostce przebudowy trwa ok. 3 tygodnie, a odbudowa 3–4 miesiące; przebudowa pozwala kości dostosować się do obciążeń.',
+  },
+  eriksen_2010: {
+    id: 'eriksen_2010',
+    authors: 'Eriksen, E. F.',
+    year: 2010,
+    title: 'Cellular mechanisms of bone remodeling',
+    journal: 'Reviews in Endocrine and Metabolic Disorders, 11(4), 219–227',
+    pmid: '21188536',
+    pmcid: 'PMC3028072',
+    doi: '10.1007/s11154-010-9153-1',
+    url: 'https://doi.org/10.1007/s11154-010-9153-1',
+    acts: [],
+    summaryPl:
+      'Przegląd: cykl przebudowy kości gąbczastej trwa ok. 200 dni, a kości zbitej ok. 120 dni (mediana).',
+  },
   // --- Karta układu rozrodczego (faza 1b, agent 12)
   hackney_2012: {
     id: 'hackney_2012',
