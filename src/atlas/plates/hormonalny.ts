@@ -65,6 +65,7 @@ export const HORMONALNY: AtlasPlateContent = {
       namePl: 'Szyszynka',
       nameLat: 'glandula pinealis',
       role: { rest: '', sprint: '' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)
       tier: 'secondary',
       side: 'right',
     },
@@ -74,6 +75,7 @@ export const HORMONALNY: AtlasPlateContent = {
       namePl: 'Tarczyca',
       nameLat: 'glandula thyroidea',
       role: { rest: '', sprint: '' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)
       tier: 'primary',
     },
     {
@@ -82,6 +84,7 @@ export const HORMONALNY: AtlasPlateContent = {
       namePl: 'Grasica (narząd limfatyczny)',
       nameLat: 'thymus',
       role: { rest: '', sprint: '' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_B_horm_mocz_pokarm.md: sama nazwa (opis pusty)
       tier: 'secondary',
     },
     {
@@ -104,7 +107,7 @@ export const HORMONALNY: AtlasPlateContent = {
       tier: 'primary',
       side: 'left',
       referenceIds: [...SIGAL, 'marliss_vranic_2002'],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #19; #20 ujednolicone z #45 (zmienione)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #19; fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1994/1996, Marliss i Vranic 2002
     },
     {
       anchor: 'portal_vein',
@@ -156,7 +159,7 @@ export const HORMONALNY: AtlasPlateContent = {
       role: { rest: 'Wydziela kortyzol w rytmie dnia', sprint: 'Kortyzol rośnie w dłuższym albo bardzo intensywnym wysiłku' },
       tier: 'primary',
       referenceIds: ['hill_2008', 'kindermann_1982', 'peake_2014'],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #28; #29 poprawione wg audytu (zmienione)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #28; fakty_koncowe_B_horm_mocz_pokarm.md: Hill 2008, Kindermann 1982, Peake 2014
     },
     {
       anchor: 'd_medulla',
@@ -207,7 +210,7 @@ export const HORMONALNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Krotność stężenia w spoczynku przy ok. 87% VO₂max; szczyt ok. 1,7 nmol/L. Dla porównania po 30 s sprintu maksymalnego: ok. 7 razy (0,2 → 1,4 nmol/L).',
-      status: 'draft', // #36 poprawione wg audytu (zmienione); notatka: #37 + Brooks 1988
+      status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1996/1994, Brooks 1988
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
       quote: 'Plasma norepinephrine and epinephrine likewise increased > 12-fold with no differences among groups',
       locator: 'Sigal 1996, abstrakt; Sigal 1994, abstrakt (1715 pmol/L w grupie C); Brooks 1988, abstrakt (0,2 → 1,4 nmol/L)',
@@ -236,11 +239,11 @@ export const HORMONALNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Hormon wzrostu rośnie z opóźnieniem i zostaje podwyższony długo po sprincie. W tym badaniu drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.',
-      status: 'draft', // #40 poprawione wg abstraktu (zmienione)
+      status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Stokes 2002
       protocolMismatch: '30 s sprint maksymalny na cykloergometrze',
       quote:
         'serum GH was still elevated 60 min after the first sprint. The second sprint in each trial did not elicit a serum GH response',
-      locator: 'Stokes 2002, abstrakt',
+      locator: 'Stokes 2002, abstrakt; Results, ryc. 4 (szczyt po 30 min)',
       measuredAt: '60 min po sprincie',
     },
     {
@@ -276,15 +279,15 @@ export const HORMONALNY: AtlasPlateContent = {
       labelPl: 'Insulina po wysiłku',
       rest: '—',
       sprint: 'zależy od wysiłku',
-      referenceIds: ['marliss_vranic_2002', 'peake_2014'],
-      evidenceLevel: 'contested_debate',
+      referenceIds: ['marliss_vranic_2002', 'marliss_1992', 'peake_2014'],
+      evidenceLevel: 'established_human', // sprawdzający: to zależność od protokołu, nie spór
       notePl:
-        'Po wysiłku do wyczerpania insulina rośnie przez 40–60 min. Po interwałach przy ok. 82% VO₂max (wytrenowani kolarze) spadała.',
-      status: 'draft', // #46 przeformułowane wg audytu (zmienione)
+        'Po wysiłku do wyczerpania insulina rośnie (ok. 2×) i zostaje podwyższona przez 40–60 min. Po interwałach przy ok. 82% VO₂max (wytrenowani kolarze i triathloniści) spadała.',
+      status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: disputed -> brzmienie dosłownie wg sprawdzającego
       protocolMismatch: 'wysiłek do wyczerpania (przegląd) i interwały przy ok. 82% VO₂max',
       quote:
-        'requiring a substantial rise in insulin for 40--60 min to restore pre-exercise levels | Plasma insulin decreased during recovery from both HIIT and MOD',
-      locator: 'Marliss i Vranic 2002, abstrakt; Peake 2014, abstrakt',
+        'requiring a substantial rise in insulin for 40--60 min to restore pre-exercise levels | then doubled to 162 +/- 28 pmol/l until 20 min recovery, before declining | Plasma insulin decreased during recovery from both HIIT and MOD',
+      locator: 'Marliss i Vranic 2002, abstrakt; Marliss 1992, abstrakt; Peake 2014, abstrakt',
       measuredAt: 'po wysiłku',
       tier: 'student',
     },

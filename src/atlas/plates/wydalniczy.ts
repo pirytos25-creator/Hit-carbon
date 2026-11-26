@@ -27,7 +27,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     rest:
       'W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej osocze: około 180 litrów na dobę. Kanaliki odzyskują prawie całą tę wodę, a reszta to mocz. Spływa on do miedniczki nerkowej, a moczowodami do pęcherza moczowego.',
     sprint:
-      'W sprincie nerka dostaje mniej krwi: układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Dlatego na planszy nerki są przygaszone, to nie błąd. Nerki przesączają mniej i tworzą mniej moczu, a hormony ADH i aldosteron, rosnące w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól. Kwas z mięśni najpierw wiążą bufory krwi, a część usuwa oddech jako CO₂. Z moczem wychodzi mniej niż 2% mleczanu: resztę organizm zużywa jako paliwo. Nerki dbają o długotrwałą równowagę kwasowo-zasadową (godziny), ale w usuwaniu mleczanu mają mały udział.',
+      'W sprincie nerka dostaje mniej krwi: układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Dlatego na planszy nerki są przygaszone, to nie błąd. Nerki przesączają mniej i tworzą mniej moczu, a hormony ADH i aldosteron, rosnące w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól. Kwas z mięśni najpierw wiążą bufory krwi, a część usuwa oddech jako CO₂. Z moczem wychodzi mniej niż 2% mleczanu: resztę organizm spala albo przerabia na glukozę. Nerki dbają o długotrwałą równowagę kwasowo-zasadową (godziny), ale z moczem usuwają bardzo mało mleczanu.',
   },
   summaryReferenceIds: {
     rest: ['garza_leslie_2025'],
@@ -40,9 +40,10 @@ export const WYDALNICZY: AtlasPlateContent = {
       'mckelvie_1989',
       'poortmans_1994',
       'brooks_2018',
+      'brooks_2020',
     ],
   },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // przeformułowane po K2 (#4, #8, #9)
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego
   protocolNotePl:
     'Sprint to koniec 45 s pracy przy ok. 88% VO₂max. Badania nerek mierzyły zwykle dłuższy wysiłek albo stan tuż po nim, więc liczby pokazują kierunek zmian, nie dokładną wartość dla jednej serii.',
   // K3: podpisy obu widoków po lewej stronie (jak oddechowy): dwie kolumny tekstu zamiast czterech, większe rendery.
@@ -57,7 +58,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       role: { rest: 'Ok. 20% krwi z serca: tworzy mocz', sprint: 'Mniej krwi, mniej moczu (stąd przygaszona)' },
       tier: 'primary',
       referenceIds: ['garza_leslie_2025', 'kawakami_2018', 'freund_1991'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #11 (zmienione, nowe źródło), #12
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025 („Approximately 20% of total cardiac output”); #12
     },
     {
       anchor: 'renal_pelvis',
@@ -154,7 +155,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       role: { rest: 'Krew z nerek i nóg do serca', sprint: 'Więcej krwi wraca z nóg' },
       tier: 'secondary',
       referenceIds: ['kenney_ho_1995'],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #28; #29 (dodane źródło)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #28; fakty_koncowe_B_horm_mocz_pokarm.md: Kenney i Ho 1995
     },
     // ---- widok detail: nefron (schemat)
     {
@@ -190,7 +191,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       role: { rest: 'Doprowadza krew do kłębuszka', sprint: 'Naczynia nerki zwężone: mniej krwi' },
       tier: 'secondary',
       referenceIds: ['kawakami_2018', 'poortmans_1984'],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #34, #35 (zmienione)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #34; fakty_koncowe_B_horm_mocz_pokarm.md: Kawakami 2018, Poortmans 1984
     },
     {
       anchor: 'tubule',
@@ -201,7 +202,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       role: { rest: 'Odzyskuje prawie całą wodę z przesączu', sprint: 'Mniej przesączu: mniej soli w moczu' },
       tier: 'primary',
       referenceIds: ['garza_leslie_2025', 'freund_1991'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // #36, #37 (zmienione)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025; Freund 1991
     },
     {
       anchor: 'loop',
@@ -212,7 +213,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       role: { rest: 'Tworzy słony płyn w rdzeniu nerki', sprint: 'Tworzy słony płyn w rdzeniu nerki' },
       tier: 'secondary',
       referenceIds: ['sands_layton_2009'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // #38 (zmienione, nowe źródło)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: Sands i Layton 2009
     },
     {
       anchor: 'collecting_duct',
@@ -222,11 +223,11 @@ export const WYDALNICZY: AtlasPlateContent = {
       nameLat: 'tubulus renalis colligens',
       role: {
         rest: 'Mało akwaporyn: część wody zostaje w moczu',
-        sprint: 'Po serii ADH wstawia akwaporyny (model zwierzęcy)',
+        sprint: 'Gdy rośnie ADH, wstawia akwaporyny (model zwierzęcy)',
       },
       tier: 'primary',
       referenceIds: ['freund_1991', 'nielsen_1995'],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #39 (animal_model), #40 (usunięte „minuty”)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #39; fakty_koncowe_B_horm_mocz_pokarm.md: disputed („po serii”) -> brzmienie wg sprawdzającego
     },
   ],
   metrics: [
