@@ -6,6 +6,7 @@ import { KRWIONOSNY } from './krwionosny';
 import { ODDECHOWY } from './oddechowy';
 import { KOSTNY } from './kostny';
 import { POWLOKOWY } from './powlokowy';
+import { LIMFATYCZNY } from './limfatyczny';
 import { ROZRODCZY } from './rozrodczy';
 import { POKARMOWY } from './pokarmowy';
 import { WYDALNICZY } from './wydalniczy';
@@ -23,6 +24,6 @@ export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: strin
   { id: 'pokarmowy', namePl: 'Pokarmowy', colorVar: '--sys-digest', content: POKARMOWY },
   { id: 'wydalniczy', namePl: 'Moczowy', colorVar: '--sys-urinary', content: WYDALNICZY },
   { id: 'kostny', namePl: 'Kostny', colorVar: '--sys-bone', content: KOSTNY },
-  { id: 'limfatyczny', namePl: 'Limfatyczny', colorVar: '--sys-lymph', content: null },
+  { id: 'limfatyczny', namePl: 'Limfatyczny', colorVar: '--sys-lymph', content: LIMFATYCZNY },
   { id: 'rozrodczy', namePl: 'Rozrodczy', colorVar: '--sys-repro', content: ROZRODCZY },
 ];
