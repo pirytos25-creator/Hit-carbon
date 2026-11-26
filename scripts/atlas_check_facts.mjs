@@ -225,8 +225,11 @@ for (const sys of ATLAS_SYSTEMS) {
     if (!SIG_IDS.includes(sg.id)) err(`${where}: id spoza karty Reżysera §3.3`);
     if (!['metric', 'order', 'illustration'].includes(sg.variable?.kind)) err(`${where}: variable.kind`);
     if (sg.variable?.kind === 'metric') {
-      const m = c.metrics.find((x) => x.id === sg.variable.metricId);
-      if (!m || !CHECKED.has(m.status ?? 'draft')) err(`${where}: variable.metricId nie wskazuje sprawdzonej liczby tej planszy`);
+      if (!sg.variable.factIds?.length) err(`${where}: variable.factIds puste (wielkość ruchu tylko z faktów)`);
+      for (const id of sg.variable.factIds ?? []) {
+        const f = factIndex.get(id);
+        if (!f || f.plate !== c.id || !CHECKED.has(f.status)) err(`${where}: variable.factIds: ${id} nie jest sprawdzonym faktem tej planszy`);
+      }
     }
     if (sg.variable?.kind === 'illustration' && !sg.chips.includes('ilustracja')) err(`${where}: zmienna poglądowa bez chipu „ilustracja”`);
     for (const a of sg.anchors) if (!anchorsOf.has(a)) err(`${where}: kotwica ${a} nie istnieje`);

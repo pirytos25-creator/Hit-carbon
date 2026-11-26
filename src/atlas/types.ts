@@ -240,11 +240,16 @@ export interface AtlasQuiz {
 export interface AtlasSignature {
   id: string;
   namePl: string;
-  variable: { kind: 'metric' | 'order' | 'illustration'; metricId?: string; labelPl: string };
+  /**
+   * Test zmiennej: co koduje ruch. kind 'metric' = kierunek i wielkość z faktów `factIds` (liczby albo opisy ról,
+   * status checked_*); 'order' = sama kolejność zdarzeń; 'illustration' = 3 stopnie jakościowe (chip „ilustracja”).
+   */
+  variable: { kind: 'metric' | 'order' | 'illustration'; factIds?: string[]; labelPl: string };
   flows: string[];
   anchors: string[];
   legend: { symbol: 'particle' | 'pulse' | 'glow' | 'counter' | 'flow'; labelPl: string }[];
-  chips: ('powiększone' | 'ilustracja' | 'ruch poglądowy' | 'schemat · bez skali')[];
+  /** Chipy na scenie; „zwolnione ×N” z liczbą N z reguły wyróżnika (np. „zwolnione ×4”). */
+  chips: ('powiększone' | 'ilustracja' | 'ruch poglądowy' | 'schemat · bez skali' | `zwolnione ×${number}`)[];
   acts: number[];
 }
 
