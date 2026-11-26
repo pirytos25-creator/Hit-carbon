@@ -101,7 +101,7 @@ Plik: `klatki_docelowe/D_swiatlo_i_material_z_filmem.jpg`. U góry kadry filmu (
 | świecenie | bloom na sygnałach | **poziom uproszczony (Low):** tylko sygnał (impuls, struktura z bieżącego zdania) jako emisja + tani halo (sprite), bez postprocesu; **poziom pełny (High, Cinematic):** może mieć profil filmowy z postprocesem (bloom tylko na sygnałach). Profile wyglądu i zgodność palety projektuje Wizualizator (jego PLAN 2) |
 | schemat | — | bryła 3D w jednolitym, matowym materiale + chip „schemat, bez skali”; kreska tylko w legendzie |
 
-**Rozbieżność barw do decyzji:** w filmie układ nerwowy jest cyjanowo-błękitny (biblia, akt II), a w atlasie bursztynowy (`nerve` `#E8B23A`, sprawdzony walidatorem ΔE).
+**Rozbieżność barw (ROZSTRZYGNIĘTA przez Dyrygenta 2026-11-26: bursztyn `nerve` w atlasie i w filmie):** w filmie układ nerwowy jest cyjanowo-błękitny (biblia, akt II), a w atlasie bursztynowy (`nerve` `#E8B23A`, sprawdzony walidatorem ΔE).
 Proponuję jedną barwę układu w obu, czyli bursztyn z `palette.json`. Paleta atlasu przeszła test daltonizmu, a jasny rdzeń impulsu (biel) działa w obu stylach. Decyzja należy do Dyrygenta albo użytkownika (§7, pytanie 3).
 
 ---
@@ -299,7 +299,7 @@ Każdy kamień kończy się **wynikiem do obejrzenia**. Godziny są tylko przy M
 
 | Kamień | Wynik do obejrzenia | Udział Reżysera | Niepewność |
 |---|---|---|---|
-| **M1 Poprzeczka** | **gotowe:** 4 klatki w `klatki_docelowe/` z opisem „co widać i czego uczy” (§A) | całość | — |
+| **M1 Poprzeczka** | **ZALICZONY** (Dyrygent, 2026-11-26): 4 klatki w `klatki_docelowe/` z opisem „co widać i czego uczy” (§A) | całość | — |
 | **M2 Test serca** (Wizualizator, `prototypes/**`) | nagranie lub seria zrzutów: krwinki przez jamy, zastawki A (B, jeśli tanie), skurcz z kształtów filmu; FPS UHD dla Low i High; porównanie z klatką (a) | ocena zgodności z klatką (a) według „test zmiennej” i §3.2 | **duża:** gęstość krwinek a FPS, przekrój stencilem lub tylnymi ściankami, kształty skurczu z filmu a HuBMAP |
 | **M2′ Przeliczenie** (Dyrygent) | tabela szacunek a rzeczywistość | dane z M1 (wyżej) | — |
 | **BRAMKA A** | użytkownik ogląda M1 i M2 | — | — |
@@ -310,6 +310,12 @@ Każdy kamień kończy się **wynikiem do obejrzenia**. Godziny są tylko przy M
 | **BRAMKA B** | pokaz użytkownikowi + 2–3 licealistów (5 min, „mów na głos”) | scenariusz testu (3 pytania na planszę) | — |
 | **M7 Rozwinięcie** | 8 pozostałych wyróżników + wpięcie do aktów filmu (§3.3 kolumna „Akt filmu”) | specyfikacje 8 wyróżników, zgodność barw film ↔ atlas (pomiar ΔE) | **duża:** film zmienia barwy i materiał (mat, palety układów) |
 | **M8 Gabloty nerki, wątroby i mózgu** | każda gablota jako osobne nagranie | rdzeń karty (§3.4) | **średnia**: nefron i zrazik jako schemat-bryła |
+
+**Uwagi Dyrygenta po M1 (do M5 i M6):**
+- (c) w końcowym kadrze wjazdu ciało ma ≤ 5% krycia albo jest wycięte wokół narządu, bo przy 12% żebra zasłaniają serce;
+- (b) napis „SPOCZYNEK” ma za słaby kontrast (w aplikacji etykiety momentu ≥ 4,5:1);
+- tor żylny przez żyłę odpiszczelową poprawić przy M6;
+- „film przechodzi na mat atlasu” trafia do użytkownika na bramce A jako porównanie aktu 3 przed i po (nagranie Wizualizatora z M4). Do tego czasu filmu nie zmieniamy.
 
 **M1, uczciwie o czasie:** szacunek Dyrygenta to 4–8 h. Rzeczywiście ok. 1,5–2 h pracy sesji: 4 przebiegi Blendera w slocie 1 (inspekcja + 3 rundy renderu) i składanie tablic.
 Szybciej niż szacunek, bo modele, tory i kamery już były w repo (eksport E3). Tego tempa **nie wolno przenosić** na M2: tam powstaje kod czasu rzeczywistego, nie render.
@@ -331,7 +337,7 @@ Moje pytania rozstrzygnął Dyrygent (2026-11-26):
 | tryb „sama budowa” | nie powstaje; domyślny moment to Spoczynek z celem lekcji o budowie, a sprint jest przykładem (decyzja (a)) |
 | test z licealistami | w pytaniu 4 decyzji |
 
-Otwarta zostaje jedna sprawa dla Dyrygenta, nie dla użytkownika: **barwa układu nerwowego** (film błękit, atlas bursztyn). Proponuję bursztyn z `palette.json` w obu (§A d).
+Barwa układu nerwowego: rozstrzygnięta przez Dyrygenta (bursztyn `nerve` w atlasie i w filmie).
 
 ---
 
