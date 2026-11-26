@@ -182,6 +182,60 @@ for (const sys of ATLAS_SYSTEMS) {
     if (cr.status === 'draft') drafts.push({ plate: c.id, kind: 'hasło podstawy programowej', key: `${cr.scope} ${cr.locator}`, value: cr.quote, note: 'cytat z podstawy programowej (zpe.gov.pl, 2025/2026)' });
   }
   if (c.heroMetricId && !c.metrics.some((m) => m.id === c.heroMetricId)) err(`${c.id}: heroMetricId „${c.heroMetricId}” nie wskazuje liczby tej planszy`);
+  // M6: „Sprawdź się” – pytanie, odpowiedź zgodna z rodzajem, źródła sprawdzone
+  const anchorsOf = new Set(c.labels.map((l) => l.anchor));
+  if (c.quiz) {
+    const q = c.quiz;
+    const where = `${c.id} / „Sprawdź się”`;
+    if (!STATUSES.has(q.status)) err(`${where}: nieznany status „${q.status}”`);
+    if (!q.question?.trim() || !q.explain?.trim()) err(`${where}: brak pytania albo wyjaśnienia`);
+    if (q.type === 'updown' && !['up', 'down', 'same'].includes(q.answer)) err(`${where}: odpowiedź „${q.answer}” (dozwolone up, down, same)`);
+    if (q.type === 'point' && !anchorsOf.has(q.answer)) err(`${where}: odpowiedź „${q.answer}” nie jest kotwicą planszy`);
+    if (q.type === 'updown' && !q.question.trim().endsWith('?')) err(`${where}: pytanie musi kończyć się „?”`);
+    if (!q.derivedFrom?.length) err(`${where}: brak derivedFrom`);
+    for (const id of q.derivedFrom ?? []) {
+      const f = factIndex.get(id);
+      if (!f) err(`${where}: derivedFrom wskazuje nieistniejący fakt ${id}`);
+      else if (!CHECKED.has(f.status)) err(`${where}: derivedFrom wskazuje fakt ${id} bez statusu checked (${f.status})`);
+    }
+    if (shown(q.status)) shownLesson++;
+    if (q.status === 'draft') {
+      const ans = q.type === 'updown' ? { up: '↑ rośnie', down: '↓ maleje', same: '= bez zmian' }[q.answer] : `wskaż: ${q.answer}`;
+      drafts.push({
+        plate: c.id,
+        kind: 'Sprawdź się (pytanie, odpowiedź, wyjaśnienie)',
+        key: 'quiz',
+        value: `PYTANIE: ${q.question} ODPOWIEDŹ: ${ans}. WYJAŚNIENIE: ${q.explain}`,
+        from: (q.derivedFrom ?? []).map((id) => `${id}: ${factIndex.get(id)?.textPl ?? `${factIndex.get(`${id}.rest`)?.value ?? '?'} → ${factIndex.get(id)?.value ?? '?'} ${factIndex.get(id)?.unit ?? ''} (w badaniu: ${factIndex.get(id)?.protocolMismatch ?? '—'}; moment: ${factIndex.get(id)?.measuredAt ?? '—'}; notatka: ${factIndex.get(id)?.notePl ?? '—'})`}`),
+      });
+    }
+  }
+  // M6: „Co się zmieniło” – powiązania liczba → struktury
+  for (const l of c.changeLinks ?? []) {
+    const m = c.metrics.find((x) => x.id === l.metric);
+    if (!m) err(`${c.id} / changeLinks: liczba ${l.metric} nie istnieje na planszy`);
+    for (const a of l.anchors) if (!anchorsOf.has(a)) err(`${c.id} / changeLinks: kotwica ${a} nie istnieje`);
+  }
+  for (const a of c.changeIllustration ?? []) if (!anchorsOf.has(a)) err(`${c.id} / changeIllustration: kotwica ${a} nie istnieje`);
+  // M6: wyróżnik (KONTRAKT_WYROZNIKA.md §5)
+  if (c.signature) {
+    const sg = c.signature;
+    const where = `${c.id} / wyróżnik ${sg.id}`;
+    const SIG_IDS = ['OBSZAR', 'IMPULS', 'NADAWCA_ODBIORCA', 'PRACA', 'KONSTRUKCJA', 'OBJETOSC', 'ROZDZIAL', 'MAGAZYN', 'CIEPLO', 'FILTR', 'PATROL', 'DLUGI_CZAS'];
+    if (!SIG_IDS.includes(sg.id)) err(`${where}: id spoza karty Reżysera §3.3`);
+    if (!['metric', 'order', 'illustration'].includes(sg.variable?.kind)) err(`${where}: variable.kind`);
+    if (sg.variable?.kind === 'metric') {
+      const m = c.metrics.find((x) => x.id === sg.variable.metricId);
+      if (!m || !CHECKED.has(m.status ?? 'draft')) err(`${where}: variable.metricId nie wskazuje sprawdzonej liczby tej planszy`);
+    }
+    if (sg.variable?.kind === 'illustration' && !sg.chips.includes('ilustracja')) err(`${where}: zmienna poglądowa bez chipu „ilustracja”`);
+    for (const a of sg.anchors) if (!anchorsOf.has(a)) err(`${where}: kotwica ${a} nie istnieje`);
+    if (!sg.legend?.length) err(`${where}: pusta legenda „Jak czytać”`);
+    for (const t of [sg.namePl, sg.variable?.labelPl, ...sg.legend.map((x) => x.labelPl)]) if (/\d/.test(t ?? '')) err(`${where}: tekst wyróżnika z cyfrą („${t}”); liczby tylko z metryki`);
+    const f3 = join(root, 'public', 'atlas', c.id, 'flows3d.json');
+    const flowIds = existsSync(f3) ? new Set(JSON.parse(readText(f3)).flows.map((x) => x.id)) : new Set();
+    for (const id of sg.flows) if (!flowIds.has(id)) err(`${where}: tor ${id} nie istnieje w flows3d.json`);
+  }
   for (const state of ['rest', 'sprint']) {
     refsOk(c.summaryReferenceIds?.[state], `${c.id} / podsumowanie ${state}`);
     const st = c.summaryStatus?.[state] ?? 'draft';
@@ -235,9 +289,10 @@ for (const m of app.matchAll(/<StatusNotes\b/g))
   if (!/extended\s*&&\s*$/.test(app.slice(Math.max(0, m.index - 40), m.index))) err('AtlasApp.tsx: <StatusNotes> renderowany poza `extended &&` (statusy tylko w poziomie Rozszerzonym)');
 // Bramki pól tekstowych: protocolNotePl tylko przez shownProtocolNote, teksty lekcji tylko przez lessonText/shownCurriculum
 if (/protocolNotePl/.test(appOutside)) err('AtlasApp.tsx czyta protocolNotePl wprost; tylko przez shownProtocolNote()');
-for (const m of appOutside.matchAll(/content\.(lessonGoal|question|momentLabel|summaryShort|curriculumRef)\b/g))
+for (const m of appOutside.matchAll(/content\.(lessonGoal|question|momentLabel|summaryShort|curriculumRef|quiz)\b/g))
   if (!/lessonText\($/.test(appOutside.slice(Math.max(0, m.index - 11), m.index))) err(`AtlasApp.tsx czyta content.${m[1]} z pominięciem bramki lessonText()/shownCurriculum()`);
 if (!/shownProtocolNote\(/.test(app)) err('AtlasApp.tsx nie używa shownProtocolNote()');
+if (/<QuizBox\b/.test(app) && !/shownQuiz\(content\)/.test(app)) err('AtlasApp.tsx: „Sprawdź się” bez bramki shownQuiz()');
 
 const i = process.argv.indexOf('--drafts');
 if (i > 0) {
