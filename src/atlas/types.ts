@@ -57,6 +57,11 @@ export interface AtlasLabel {
   roleStatus?: Partial<Record<AtlasState, AtlasFactStatus>>;
   /** Wymuszona strona podpisu; domyślnie strona bliższa kotwicy (linia nie przecina struktury). */
   side?: 'left' | 'right';
+  /**
+   * Poziom dowodów opisu roli (np. 'animal_model' dla akwaporyn). Brak = nie pokazujemy dopisku.
+   * Nakładka pokazuje pod opisem zdanie z drabiny sformułowań (model §3.4), gdy poziom ≠ 'established_human'.
+   */
+  evidence?: EvidenceLevel;
 }
 
 /** Liczba w parze spoczynek → sprint. Każda musi mieć źródło. */
@@ -102,7 +107,8 @@ export type AtlasFlowKind =
   | 'lactate'
   | 'glucose'
   | 'urine'
-  | 'force';
+  | 'force'
+  | 'lymph';
 
 /** Strzałka przepływu w SVG. Punkty w PIKSELACH renderu danego widoku (format fazy 1; nowe plansze: flows3d.json). */
 export interface AtlasFlow {
@@ -110,6 +116,8 @@ export interface AtlasFlow {
   points: [number, number][];
   kind: AtlasFlowKind;
   labelPl?: string;
+  /** Stany, w których rysować strzałkę; brak = oba. */
+  states?: AtlasState[];
 }
 
 /** Strzałka w metrach (układ Z-Anatomy), z public/atlas/<id>/flows3d.json. Rzutowana tym samym rzutem co kotwice. */
@@ -119,6 +127,8 @@ export interface AtlasFlow3D {
   labelPl?: string;
   /** Widoki, w których rysować; brak = wszystkie widoki z kamerą. */
   views?: AtlasView[];
+  /** Stany, w których rysować strzałkę; brak = oba. */
+  states?: AtlasState[];
   points: [number, number, number][];
 }
 

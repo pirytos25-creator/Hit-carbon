@@ -108,8 +108,9 @@ scm = al.find_meshes(collection=MUS, include=[r"^Sternocleidomastoid muscle"], s
 zmn, zmx = al.world_bbox(z_lungs)
 hmn, hmx = al.world_bbox(hub_lung_segments)
 zc, hc = (zmn + zmx) / 2, (hmn + hmx) / 2
-T = Matrix.Translation(zc) @ Matrix.Scale(HUB_SCALE, 4) @ Matrix.Translation(-hc)
-transform(list(hub.values()), T)
+# Faza 2 (integrator): wspólna transformacja HuBMAP -> Z-Anatomy z atlas_lib (24 kręgi; płuca 0,9 cm od płuc Z-Anatomy).
+# Dawniej: skala 1,05 i środek płuc do środka płuc (HUB_SCALE).
+al.align_hubmap(list(hub.values()), "male")
 smooth(list(hub.values()))
 print("ALIGN z_lungs", bb(z_lungs), "hub_lungs", bb(hub_lung_segments))
 print("ALIGN hub_trachea", bb([hub["VH_M_trachea"]]), "z_trachea", bb([bpy.data.objects["Trachea"]]))
