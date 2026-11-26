@@ -11,7 +11,8 @@ const TIER = Q.get('q') === 'high' ? 'high' : 'low';
 const LOOK = Q.get('look') === 'film' ? 'film' : 'atlas';
 const VALVES = Q.get('valves') === 'b' ? 'b' : 'a';
 const CUT = Q.get('cut') !== '0';
-const WALLS = Q.get('walls') === 'tissue' ? 'tissue' : 'blood'; // tissue = jak klatka M1 Reżysera (ściana w barwie mięśnia, barwę niesie krew)
+const M1 = Q.get('m1') === '1'; // preset klatki docelowej (a) Reżysera
+const WALLS = M1 || Q.get('walls') === 'tissue' ? 'tissue' : 'blood'; // tissue = jak klatka M1 Reżysera (ściana w barwie mięśnia, barwę niesie krew)
 const GLASS = Q.get('glass') === '1', HASH = Q.get('glass') === '2'; // 2 = dithering (alphaHash, zapis głębi) jak w E3                           // półprzezroczyste ściany naczyń (koszt do zmierzenia w M2)
 const TIERS = {
   low: { dpr: 1, aa: false, rbc: 1500, lathe: [10, 14], physical: false, env: false },
@@ -22,6 +23,7 @@ if (Q.get('n')) T.rbc = +Q.get('n');
 
 // tokeny palety (src/atlas/data/palette.json): artery / vein
 const C = { artery: '#D93240', arteryLight: '#F07A84', vein: '#3E6FD8', veinLight: '#86A6EE', valve: '#EDE3D6' };
+if (Q.get('m1') === '1') C.valve = '#8C8880'; // context.bone #D8D1C4 przygaszone o ok. 35%
 
 // ------------------------------------------------------------------ pasek przełączników
 const top = document.getElementById('top');
@@ -33,7 +35,7 @@ const link = (label, key, val) => {
 top.innerHTML = [link('Poziom: niski (UHD)', 'q', 'low'), link('Poziom: wysoki', 'q', 'high'),
   link('Wygląd: atlas', 'look', 'atlas'), link('Wygląd: film (AgX)', 'look', 'film'),
   link('Zastawki A', 'valves', 'a'), link('Zastawki B', 'valves', 'b'),
-  link('Przekrój', 'cut', '1'), link('Całość', 'cut', '0'), link('Ściany: krew', 'walls', 'blood'), link('Ściany: mięsień', 'walls', 'tissue'), link('Naczynia: szkło', 'glass', '1'), link('Naczynia: dithering', 'glass', '2'),
+  link('Przekrój', 'cut', '1'), link('Całość', 'cut', '0'), link('Ściany: krew', 'walls', 'blood'), link('Ściany: mięsień', 'walls', 'tissue'), link('Naczynia: szkło', 'glass', '1'), link('Naczynia: dithering', 'glass', '2'), link('Preset M1', 'm1', '1'),
   '<span class="note">Spacja: pauza · S: spoczynek/sprint · O: obrót</span>'].join('');
 
 // ------------------------------------------------------------------ renderer i scena
@@ -51,9 +53,9 @@ const dbg = gl.getExtension('WEBGL_debug_renderer_info');
 const GPU = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : 'nieznany';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(26, innerWidth / innerHeight, 0.01, 10);
+const camera = new THREE.PerspectiveCamera(M1 ? 16 : 26, innerWidth / innerHeight, 0.01, 10); // M1: ok. 85 mm (16° w pionie)
 const target = new THREE.Vector3(0.004, 0.006, 0);
-let camDist = 0.44;
+let camDist = M1 ? 0.62 : 0.44;
 scene.add(new THREE.HemisphereLight('#dfe8ff', '#1a2238', 0.7));
 const key = new THREE.DirectionalLight('#fff4e8', 2.6); key.position.set(-0.6, 0.8, 1.0); scene.add(key);
 const fill = new THREE.DirectionalLight('#dde6ff', 0.9); fill.position.set(0.9, 0.1, 0.6); scene.add(fill);
@@ -188,7 +190,7 @@ gltf.scene.updateMatrixWorld(true);
 const pick = (list) => list.map((k) => byName[k]).filter(Boolean);
 const heartNames = [...LEFT, ...RIGHT, 'mitral_valve', 'tricuspid_valve', 'aortic_valve', 'pulmonary_valve'];
 
-const MYO = '#B8434C'; // mięsień sercowy w odcieniu artery (parametr karty Reżysera)
+const MYO = '#992E38'; // karta Reżysera: artery + #4a2a2e 55/45 // mięsień sercowy w odcieniu artery (parametr karty Reżysera)
 const mL = new THREE.Mesh(merge(pick(LEFT), 2, () => (WALLS === 'tissue' ? MYO : C.artery)), tissueMat());
 const mR = new THREE.Mesh(merge(pick(RIGHT), 2, () => (WALLS === 'tissue' ? MYO : C.vein)), tissueMat());
 const valveMat = () => tissueMat({ side: THREE.DoubleSide });
@@ -198,7 +200,7 @@ const vesselParts = Object.entries(byName).filter(([k]) => !heartNames.includes(
 const mV = new THREE.Mesh(merge(vesselParts, 0, (n) => vesselColor(n)), tissueMat(GLASS ? { side: THREE.DoubleSide, transparent: true, opacity: 0.35, depthWrite: false } : HASH ? { side: THREE.DoubleSide, alphaHash: true, opacity: 0.4 } : { side: THREE.DoubleSide }));
 if (GLASS) mV.renderOrder = 8;
 for (const m of [mL, mR, mAV, mSL, mV]) { m.renderOrder = 6; scene.add(m); }
-if (CUT) for (const o of [...capGroup(mL, WALLS === 'tissue' ? '#E58C8F' : C.arteryLight, 1), ...capGroup(mR, WALLS === 'tissue' ? '#E58C8F' : C.veinLight, 2)]) scene.add(o);
+if (CUT) for (const o of [...capGroup(mL, WALLS === 'tissue' ? '#B44E56' : C.arteryLight, 1), ...capGroup(mR, WALLS === 'tissue' ? '#B44E56' : C.veinLight, 2)]) scene.add(o);
 
 // tory
 function radiusAt(P, u) {
@@ -227,7 +229,7 @@ const paths = Object.entries(PJ.paths).map(([name, raw]) => {
   return P;
 });
 
-const RBC_R = 0.0021; // 2,1 mm na ekranie: POWIĘKSZONE ok. 550x (prawdziwa krwinka ok. 7,5 µm średnicy) - poglądowe
+const RBC_R = M1 ? 0.0013 : 0.0021; // M1: średnica 2,6 mm; // 2,1 mm na ekranie: POWIĘKSZONE ok. 550x (prawdziwa krwinka ok. 7,5 µm średnicy) - poglądowe
 const rbcGeo = rbcGeometry(RBC_R, ...T.lathe);
 const rbcMat = T.physical
   ? new THREE.MeshPhysicalMaterial({ roughness: 0.4, sheen: 0.6, sheenColor: new THREE.Color('#ffd0d0'), clearcoat: 0.2, clippingPlanes: clip })

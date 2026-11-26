@@ -8,11 +8,11 @@ Wszystko leży w `prototypes/organs_m2/`. **Bez zmian w `src/`.**
 | Pytanie z M2 | Odpowiedź |
 |---|---|
 | Czy poziom uproszczony trzyma **≥ 50 FPS na Intel UHD przy 1440×900**? | **Tak: 91 FPS** (10,95 ms na klatkę) przy pełnym sercu HuBMAP (271 tys. trójkątów), przekroju z zalaniem ścian, 1500 krwinkach 3D, skurczu i zastawkach B. Na żywo 60 FPS (limit odświeżania ekranu). |
-| Poziom pełny na UHD? | **10,5 FPS** (3500 krwinek, MeshPhysical, mapa środowiska, MSAA, DPR 1,5 przy 2160×1350). To poziom dla mocnej karty. **Na RTX niezmierzone**: Chrome renderuje na Intel UHD, a przełączenie wymaga ustawień grafiki w Windows. |
+| Poziom pełny na UHD? | **10,5 FPS** (z presetem M1: 9,8) (3500 krwinek, MeshPhysical, mapa środowiska, MSAA, DPR 1,5 przy 2160×1350). To poziom dla mocnej karty. **Na RTX niezmierzone**: Chrome renderuje na Intel UHD, a przełączenie wymaga ustawień grafiki w Windows. |
 | Prędkość zależna od przekroju | **Jest.** Tor każdej krwinki ma promień zmierzony na geometrii (przekroje naczyń, jamy, ujścia zastawek). Prędkość ~ 1/r² (ciągłość przepływu) plus profil przyścienny i faza cyklu. Krew czeka przed zamkniętą zastawką. |
 | Zastawki B (ruch płatków): tanie? | **Tanie w GPU: 0 FPS różnicy** (94,8 wobec 91,3). Kształt „otwarta” jest liczony automatycznie z geometrii (obrót wokół linii przyczepu), budowa trwa sekundy. **Wierność umiarkowana:** zastawka otwiera się jak lejek, a płatki się nie rozdzielają (siatka HuBMAP to jedna bryła bez podziału na płatki). Rekomendacja: B od razu, z podpisem „ruch poglądowy”. Rozdzielenie płatków to osobne zadanie z kontrolą anatomii. |
 | Wygląd blisko klatki M1 | Wariant „ściany: mięsień” jest blisko klatki (a) Reżysera (`m2_porownanie_z_M1_A.jpg`, `m2_warianty_scian.jpg`). Różnice i decyzje w §4. |
-| Czas szacowany a rzeczywisty | Szacunek Dyrygenta 6–12 h, mój 4 h. Rzeczywisty czas pracy agenta: **ok. 0,5 h na zbudowanie i pomiary**, plus ok. 0,3 h na ten raport (zegar: start 18:40, prototyp z pomiarami ok. 19:10). Przyczyna: ponowne użycie E3 (meshopt, `__atlas3dBench`, sloty Blendera) i gotowego profilu krwinki z filmu. **Tego tempa nie przenoszę wprost na M4–M5**: tam dochodzi integracja z filmem i aplikacją. |
+| Czas szacowany a rzeczywisty | Szacunek Dyrygenta 6–12 h, mój 4 h. Rzeczywisty czas według zegara systemowego: **start 18:40, koniec ok. 19:05, czyli ok. 25 minut** na budowę zasobu, prototyp, 3 rundy poprawek, pomiary, nagranie i ten raport. Pracował jeden agent i jeden podagent (spis kodu filmu do PLAN 2, poza M2). Przyczyna: ponowne użycie E3 (meshopt, `__atlas3dBench`, sloty Blendera) i gotowego profilu krwinki z filmu. **Tego tempa nie przenoszę wprost na M4–M5**: tam dochodzi integracja z filmem i aplikacją. |
 
 ## 1. Co zbudowano
 
@@ -85,16 +85,36 @@ Rozróżnienie par zostaje wysokie w obu profilach.
 
 ## 4. Porównanie z klatką M1 Reżysera (a) „serce w przekroju z krwinkami w jamach”
 
-| Cecha | M1 (render Blender) | M2 (czas rzeczywisty, poziom niski) | Decyzja |
-|---|---|---|---|
-| Barwa ścian | jedna barwa mięśnia, a barwę niesie krew | domyślnie ściany wg krwi (ocena Dyrygenta pkt 6); wariant `walls=tissue` jak M1 | **proponuję jak M1**: ściana to mięsień, a o „natlenionej / odtlenionej” mówią krwinki. To parametr bez kosztu. Do decyzji Dyrygenta i Reżysera |
-| Krwinki w jamach | gęsto, kształt dwuwklęsły | tak samo (profil Evansa-Funga), płyną i czekają przy zastawkach | zgodne |
-| Przekrój | brzegi cięcia półprzezroczyste | zalanie stencil, czyli ściana jest pełna i ma grubość | zostawiam zalanie (czytelniejsza grubość ścian lewej i prawej komory) |
-| Naczynia | brak w kadrze | widać wyjście krwi do aorty i pnia płucnego | ujęcie do wyboru w gablocie; w zbliżeniu dithering (§2) |
-| Materiał | mat + lekkie SSS | poziom niski: mat + AO z wierzchołków; wysoki: sheen i środowisko | SSS jako „wrap lighting” w shaderze (tanie) do dodania w module |
-| Ruch | brak (klatka) | skurcz, zastawki, przepływ, sprint | — |
+Prototyp ma przełącznik `m1=1`, czyli preset według karty Reżysera:
+- ściana `#992E38` (artery + `#4a2a2e` 55/45);
+- przekrój `#B44E56` (artery + `#8e6a6c`);
+- zastawki `context.bone` przygaszone o 35%;
+- krwinki o średnicy 2,6 mm;
+- obiektyw ok. 85 mm (16° w pionie).
 
-Pliki: `zrzuty/m2/m2_porownanie_z_M1_A.jpg` (lewo M1, prawo M2) i `m2_warianty_scian.jpg` (ściany mięsień: nieprzezroczyste, szkło, dithering losowy).
+Na poziomie niskim przy tym presecie: **77 FPS** na UHD przy 1440×900.
+
+Pliki:
+- `zrzuty/m2/m2_porownanie_z_M1_A.jpg`: lewo M1, prawo M2 z presetem;
+- `m2_cykl_niski.jpg`, `m2_cykl_wysoki.jpg`: 8 klatek cyklu na każdy poziom;
+- `m2_warianty_scian.jpg`.
+
+**Ocena 5 cech podanych przez Reżysera:**
+
+| Cecha | Wynik M2 | Ocena |
+|---|---|---|
+| 1. Ujęcie: przód, przekrój czołowy przez 4 jamy, ok. 85 mm | przód, cięcie 4 mm za środkiem serca, 16° w pionie. Widać obie komory, prawy przedsionek i drogę odpływu. Lewy przedsionek leży za płaszczyzną i jest widoczny słabiej niż w M1. W kadrze są też duże naczynia | **częściowo**. Płaszczyzna i kąt kamery do strojenia w M5 (M1 ma lekko skośne ujęcie). Naczynia zostawiam, bo pokazują, dokąd krew wypływa |
+| 2. Materiał: mat, ściana artery z brązem, przekrój jaśniejszy, zastawki bone przygaszone | barwy z karty 1:1. Poziom niski: mat i AO z wierzchołków, **bez SSS**. Zastawki wyszły ciemniejsze niż na klatce M1 (tam są prawie białe mimo „przygaszone 35%”) | **tak, z wyjątkiem SSS i jasności zastawek**. SSS jako tanie oświetlenie „wrap” w module; jasność zastawek do ustalenia z Reżyserem |
+| 3. Światło: klucz, wypełnienie, kontra, tło studia, Low bez postprocesu, High bez „przepalenia” krwinek | Low tak. **High z profilem film (AgX + środowisko): krwinki tracą kontrast na różowej ścianie** (`m2_cykl_wysoki.jpg`), czyli dokładnie problem z pierwszej wersji Reżysera | **Low tak, High nie**. Poprawka w module: kompensacja barwy przed AGX (§3), mniejsza siła środowiska, krwinki o jeden stopień jaśniejsze od ściany |
+| 4. Krwinki: Evans-Fung, 2,6 mm, ok. 900 w jamach, lewa artery, prawa vein, oś po torze, nic przed przekrojem | kształt, barwy i orientacja zgodne; przycinane płaszczyzną (nic nie wisi przed przekrojem). Liczba: 1500 na wszystkich torach, w tym w naczyniach, więc w jamach jest ich mniej niż ok. 900 w M1; prawy przedsionek wygląda rzadziej | **tak, z wyjątkiem gęstości w jamach**. Liczba na Low ma zapas (91 FPS), więc w M5 dam ok. 900 w samych jamach + strumień w naczyniach |
+| 5. Czytelność: krwinki odcinają się jasnością, 4 jamy i 4 zastawki naraz, kolejność ruchów | Low: krwinki odcinają się od ciemnej ściany. Zastawki widać 3 z 4 (mitralna częściowo zasłonięta). **Kolejność ruchów nie jest jeszcze krokami**: w teście wszystko rusza naraz (cykl). Kroki „najpierw krwinki, potem zastawki, potem skurcz” to oś czasu w M5 | **częściowo**. Kontrast jest. Kroki dopiero w M5, bo M2 sprawdzał koszt, a nie scenariusz |
+
+**Odpowiedzi na pytania techniczne Reżysera:**
+1. **Ok. 1000 krwinek i przekrój z zalaniem stencil na UHD:** tak, 1500 krwinek daje 91 FPS na poziomie niskim, a stencil jest w tym wliczony.
+2. **Czy kolorowanie tylnych ścianek wystarczy zamiast stencila:** siatki komór, przegrody i lewego przedsionka **są szczelne**: 0 krawędzi niezamkniętych, sprawdzone w Blenderze. Prawy przedsionek ma 40 na 72 tys., zastawka aortalna 72 na 4 tys. Stencil działa poprawnie na całym przekroju (`m2_cykl_niski.jpg`).
+   - **Decyzja techniczna:** stencil dla ścian (pełna grubość ściany i płaski przekrój), a kolorowanie tylnych ścianek jako zamiennik dla siatek nieszczelnych (sprawdzę przy nerce i wątrobie w ich K1).
+   - Koszt stencila mieści się w 91 FPS.
+3. **Skurcz domyślnie wyłączony do czasu faktu:** zgoda na kolejność kroków (krwinki → zastawki → skurcz). Skurcz w kroku 3 tylko z chipem „ruch poglądowy”, dopóki fakt o wielkości skurczu nie ma statusu `checked_agent`. Jeśli bramka faktów wymaga wyłączenia, wystarczy przełącznik (waga kształtu = 0), bez innych zmian.
 
 ## 5. Nagranie i zrzuty (`docs/atlas_wizualizacja/zrzuty/m2/`)
 
@@ -103,7 +123,8 @@ Pliki: `zrzuty/m2/m2_porownanie_z_M1_A.jpg` (lewo M1, prawo M2) i `m2_warianty_s
 - `m2_zastawkiB_para.jpg`: zastawki B w rozkurczu (mitralna otwarta) i w skurczu (aortalna otwarta).
 - `m2_niski_atlas.jpg`, `m2_niski_film.jpg`: profile wyglądu.
 - `m2_niski_miesien*.jpg`, `m2_warianty_scian.jpg`: warianty ścian.
-- `m2_porownanie_z_M1_A.jpg`: porównanie z klatką M1.
+- `m2_porownanie_z_M1_A.jpg`: porównanie z klatką M1 (lewo M1, prawo preset `m1=1`).
+- `m2_cykl_niski.jpg` (profil atlas, 77 FPS) i `m2_cykl_wysoki.jpg` (profil film; 9,8 FPS na UHD przy 2160×1350): po 8 klatek z jednego cyklu, co 0,12 s. W fazach 0,28–0,42 widać skurcz lewej komory (mniejszy pierścień), a w rozkurczu otwartą zastawkę mitralną.
 
 ## 6. Uczciwie: czego M2 nie pokazuje
 
@@ -116,7 +137,35 @@ Pliki: `zrzuty/m2/m2_porownanie_z_M1_A.jpg` (lewo M1, prawo M2) i `m2_warianty_s
 - Pojedyncze przycięcia klatek (p95 27 ms) do zbadania w M4.
 - Prototyp nie jest kodem aplikacji. To, co przejdzie do modułu, opisuje `NARZADY_PLAN.md` §2 (PLAN 2).
 
-## 7. Jak uruchomić
+## 7. Wnioski dla M4 (wspólny moduł)
+
+**Wziąłem z filmu bez zmian:**
+- profil krwinki Evansa-Funga (`createBiconcaveErythrocyteGeometry`, `MolecularSimulation.tsx:10-26`): te same współczynniki, w prototypie przepisane do czystego three.js;
+- zasada poziomów jakości z `QualityManager.ts` (nazwy Low/High, mnożnik cząstek, DPR);
+- profil krzywej przyściennej (szybciej przy osi) w uproszczonej postaci.
+
+**Przepisałem albo zbudowałem od nowa:**
+
+| Element filmu | Co jest nie tak dla gablot i atlasu | Co jest w M2 |
+|---|---|---|
+| `cardiopulmonary.glb` (`gen_02_cardiopulmonary.py`) | serce scalone w 4 obiekty i zdecymowane (komory 7500, przedsionki 4500 wielokątów), więc **nie ma ID struktur** do najechania i panelu; skalowane ×4,2 poza ramą ciała. Kształty liczone **od ręcznie wpisanych punktów** (`l_ctr`, `r_ctr`, oś komór jako stała). `Valve_Open` to **rozdęcie całej zastawki promieniowo i przesunięcie w osi**, a nie ruch płatków | pełne serce HuBMAP (14 części), oś komór i środki jam z geometrii, `Valve_Open` jako obrót wolnego brzegu wokół przyczepu, w kierunku przepływu |
+| `InstancedErythrocytes` | tor to jedna krzywa, prędkość bez przekroju (`1,65 − 0,85 r²` + puls), kapilara to zakodowany zakres t. `getPointAt`/`getTangentAt` co klatkę dla każdej krwinki (koszt CPU). Zmiana poziomu odtwarza `InstancedMesh`. Zależy od `useBiogenesisStore`/`liveSimulationRef` | wiele torów z promieniem z geometrii, prędkość ~1/r² i zależna od fazy (czekanie przy zamkniętej zastawce), **tablica próbek** zamiast liczenia krzywej (CPU 3,1 → 0,84 ms), stan podawany z zewnątrz |
+| Kolor | film: AgX + HDRI + postproces; atlas: bez mapowania tonów | jawne profile `atlas`/`film` z pomiarem ΔE (§3) |
+
+**Koszt półprzezroczystej ściany naczynia** (prośba Reżysera z klatek docelowych):
+- prawdziwa przezroczystość: **+15 ms na UHD** (76 → 35 FPS), więc nie mieści się w poziomie Low;
+- dithering: +1,1 ms (70 FPS), ale losowy `alphaHash` szumi;
+- **Decyzja techniczna:** Low = dithering uporządkowany (Bayer, jak w E3), High = prawdziwa przezroczystość.
+
+**Do zrobienia w module (M4):**
+1. tory i stan krwinek w teksturze i shaderze (GPU), co pozwoli na tysiące krwinek bez CPU;
+2. kompensacja barwy dla profilu film;
+3. SSS jako tanie oświetlenie „wrap”;
+4. FXAA/SMAA zamiast MSAA na Low (po decyzji Reżysera);
+5. likwidacja przydziałów pamięci co klatkę (p95 27 ms);
+6. kroki osi czasu: krwinki → zastawki → skurcz.
+
+## 8. Jak uruchomić
 
 ```
 blender --background --factory-startup --python prototypes/organs_m2/tools/build_heart_m2.py -- prototypes/organs_m2/_assets   (przez slot .render_slot_*)
