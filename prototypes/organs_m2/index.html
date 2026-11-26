@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M2: serce, skurcz i krwinki (test techniczny)</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #070b14; color: #e2e8f0; font: 14px/1.35 system-ui, sans-serif; overflow: hidden; }
+    #app { position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 46%, #13203a 0%, #070b14 70%); }
+    canvas { display: block; }
+    .bar { position: fixed; left: 12px; right: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; z-index: 2; }
+    .top { top: 12px; } .bottom { bottom: 12px; }
+    .chip { font: 600 12px/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .06em; padding: 8px 10px; border-radius: 8px;
+      border: 1px solid #1d2a44; background: rgba(13, 21, 38, .85); color: #e2e8f0; text-decoration: none; }
+    .chip.on { border-color: #7dd3fc; color: #fff; }
+    .note { background: rgba(13, 21, 38, .85); padding: 6px 9px; border-radius: 8px; color: #cbd5e1; }
+    #hud { font: 12px/1.4 ui-monospace, monospace; }
+    .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 4px 0 8px; vertical-align: -1px; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="bar top" id="top"></div>
+  <div class="bar bottom">
+    <span class="note">SCHEMAT RUCHU · <b>ruch i tempo poglądowe</b> · <b>krwinki powiększone, nie w skali</b>
+      <span class="sw" style="background:#D93240"></span>krew natleniona <span class="sw" style="background:#3E6FD8"></span>odtleniona</span>
+    <span class="note" id="phase"></span>
+    <span class="note" id="hud"></span>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
