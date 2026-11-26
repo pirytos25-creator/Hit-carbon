@@ -42,3 +42,9 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Integrator: część 2 w toku (na gałęzi `8a116f7`, `a9882fd`, `4ed417f`, `0b54162`); poproszony o dokończenie i raport `PUNKT KONTROLNY 1b cz. 2`.
 - Końcowe sprawdzenie faktów uruchomione od nowa (lista: `docs/atlas_audyt/robocze/drafts_final.md`, 74 pozycje): A powłokowy → `fakty_koncowe_A_powlokowy.md`; B hormonalny+moczowy+pokarmowy → `fakty_koncowe_B_horm_mocz_pokarm.md`; C reszta + kontrola wyrywkowa 10% → `fakty_koncowe_C_reszta_i_kontrola.md`.
 - Dalej: integrator nadaje statusy wg A/B/C → scalenie → zgromadzenie (materiał: `docs/ATLAS_REZYSER_PLAN.md`, P1 Wizualizatora `ba239ff`, P2/P3 jeśli gotowe) → `RAPORT_KONCOWY.md`.
+
+## Stan 2026-11-26 przed zgromadzeniem
+- Integracja 1b cz. 2 przyjęta i scalona (`5fa3f3e`), audyt `integrator_1b_czesc2.md`.
+- Końcowe sprawdzenie faktów: A (powłokowy 5/21/0/5), B (horm+mocz+pokarm 14/8/7/0), C (reszta 12 checked, 2 disputed; kontrola wyrywkowa 25/25 zgodnych) – zatwierdzone (`cf85db4`).
+- Integrator: nadaje statusy wg A/B/C i wprowadza poprawki; reguła ostatniej rundy – brzmienie dosłownie od sprawdzającego (z jego cytatem) = `checked_agent`, własne = `draft` (ukryte, bez kolejnej rundy).
+- Następnie: zgromadzenie (5 ról, statut §6) → decyzja końcowa → `RAPORT_KONCOWY.md`.
