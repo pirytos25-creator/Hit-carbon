@@ -536,8 +536,11 @@ def build(out_dir=None, res=(1000, 1800)):
         "thymus": {"point": surface_point(groups["thymus"]), "views": ["front"]},
         "axillary": {"point": surface_point([obj("Anterior axillary nodes.r")]), "views": ["front"]},
         "mediastinal": {"point": surface_point([obj("Inferior tracheobronchial nodes")]), "views": ["front"]},
-        "spleen": {"point": (lambda b: Vector(((b[0].x + b[1].x) / 2, b[0].y, (b[0].z + b[1].z) / 2)))(al.vert_bbox(groups["spleen"])),
-                   "views": ["front"]},
+        # Dolny biegun śledziony (K3): na telefonie numerowana pinezka zakrywała środek narządu i jego zmniejszenie w sprincie.
+        # Punkt na osi śledziony, 20% wysokości pod środkiem: w rzucie z przodu wewnątrz narządu w obu stanach
+        # (w sprincie śledziona ma skalę 0,88 wokół środka, więc jej dolny brzeg leży 44% wysokości pod środkiem).
+        "spleen": {"point": (lambda b: Vector(((b[0].x + b[1].x) / 2, b[0].y, (b[0].z + b[1].z) / 2 - 0.2 * (b[1].z - b[0].z))))(
+            al.vert_bbox(groups["spleen"])), "views": ["front"]},
         "abdominal": {"point": surface_point([obj("Juxta-intestinal mesenteric nodes")]), "views": ["front"]},
         "iliac": {"point": surface_point([obj("Medial external iliac nodes.l")]), "views": ["front"]},
         "inguinal": {"point": surface_point([obj("Inferior superficial inguinal nodes.r")]), "views": ["front"]},

@@ -79,7 +79,8 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Zbiera limfę z nóg, brzucha i lewej połowy ciała', sprint: 'Prawdopodobnie odprowadza więcej limfy z nóg' }, // K2 #8 disputed -> złagodzone, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      evidence: 'preliminary_human', // pomiar pośredni u ludzi (Havas 1997); przewód piersiowy: dane głównie zwierzęce
+      // evidence: 'preliminary_human' (Havas 1997, pomiar pośredni) - włączyć, gdy opis sprintu dostanie checked_agent;
+      // AtlasPlate pokazuje frazę dowodu w obu stanach, a opis spoczynku jest anatomiczny (K3).
       roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #7 anatomy; #8 przepisane
     },
     {
@@ -100,7 +101,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Oczyszczają limfę z nogi', sprint: 'Prawdopodobnie dopływa więcej limfy z pracujących nóg' }, // K2 #12 disputed -> „prawdopodobnie”, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      evidence: 'preliminary_human', // pomiar pośredni u ludzi (Havas 1997); przewód piersiowy: dane głównie zwierzęce
+      // evidence: 'preliminary_human' (Havas 1997) - jak przy przewodzie piersiowym: włączyć po checked_agent opisu sprintu (K3).
       roleStatus: { rest: 'anatomy', sprint: 'draft' },
     },
     {
