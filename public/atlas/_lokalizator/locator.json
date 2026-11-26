@@ -1,0 +1,47 @@
+{
+ "schemaVersion": 1,
+ "resolution": [
+  240,
+  432
+ ],
+ "views": {
+  "front": {
+   "image": "front.webp",
+   "center": [
+    0.0,
+    -0.00359,
+    0.85701
+   ],
+   "right": [
+    1.0,
+    0.0,
+    -0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "orthoScale": 1.9
+  },
+  "side": {
+   "image": "side.webp",
+   "center": [
+    0.0,
+    -0.00359,
+    0.85701
+   ],
+   "right": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "up": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "orthoScale": 1.9
+  }
+ }
+}
