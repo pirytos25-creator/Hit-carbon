@@ -8,6 +8,7 @@ import { KOSTNY } from './kostny';
 import { POWLOKOWY } from './powlokowy';
 import { ROZRODCZY } from './rozrodczy';
 import { POKARMOWY } from './pokarmowy';
+import { WYDALNICZY } from './wydalniczy';
 
 /** Rejestr plansz. Agent układu podmienia `null` na swoją treść (linia `content`) i dopisuje linię `import`. */
 export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: string; content: AtlasPlateContent | null }[] = [
@@ -20,7 +21,7 @@ export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: strin
   { id: 'hormonalny', namePl: 'Hormonalny', colorVar: '--sys-endo', content: null },
   { id: 'powlokowy', namePl: 'Powłokowy', colorVar: '--sys-skin', content: POWLOKOWY },
   { id: 'pokarmowy', namePl: 'Pokarmowy', colorVar: '--sys-digest', content: POKARMOWY },
-  { id: 'wydalniczy', namePl: 'Moczowy', colorVar: '--sys-urinary', content: null },
+  { id: 'wydalniczy', namePl: 'Moczowy', colorVar: '--sys-urinary', content: WYDALNICZY },
   { id: 'kostny', namePl: 'Kostny', colorVar: '--sys-bone', content: KOSTNY },
   { id: 'limfatyczny', namePl: 'Limfatyczny', colorVar: '--sys-lymph', content: null },
   { id: 'rozrodczy', namePl: 'Rozrodczy', colorVar: '--sys-repro', content: ROZRODCZY },
