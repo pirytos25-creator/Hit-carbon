@@ -1070,7 +1070,7 @@
    "kind": "lesson_goal",
    "plate": "mozg",
    "textPl": "Dowiesz się, czym mózg się żywi w spoczynku i co się zmienia w ciężkim wysiłku.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "raichle_gusnard_2002",
     "van_hall_2009",
@@ -1081,11 +1081,12 @@
     "mozg.summary.sprint"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#10"
+     "#10",
+     "runda 2 #2"
     ],
-    "note": "M3_kontrola.md #10: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #10: brzmienie sprawdzającego; M3_kontrola_runda2.md #2: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1116,8 +1117,8 @@
    "id": "mozg.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "mozg",
-   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max, mleczan przy jego dodatkowym wlewie).",
-   "status": "draft",
+   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max; mleczan mierzono, gdy dodatkowo wlewano go do krwi, a glukozę porównano z lekkim wysiłkiem przy 30% VO₂max).",
+   "status": "checked_agent",
    "referenceIds": [
     "van_hall_2009",
     "kemppainen_2005"
@@ -1127,11 +1128,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#13"
+     "#13",
+     "runda 2 #3"
     ],
-    "note": "M3_kontrola.md #13: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola_runda2.md #3: POPRAWKA (brzmienie rundy 2) + trzecia kontrola Dyrygenta: OK (2026-11-26)"
    }
   },
   {

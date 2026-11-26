@@ -1447,16 +1447,17 @@
    "kind": "protocol_note",
    "plate": "hormonalny",
    "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie): wysiłku ciągłego przy 80–87% VO₂max, 30 s sprintu maksymalnego, wysiłku do wyczerpania albo interwałów przy ok. 82% VO₂max. Dla jednego interwału są więc tylko przybliżeniem.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#26"
+     "#26",
+     "runda 2 #8"
     ],
-    "note": "M3_kontrola.md #26: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #26: brzmienie sprawdzającego; M3_kontrola_runda2.md #8: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1464,7 +1465,7 @@
    "kind": "lesson_goal",
    "plate": "hormonalny",
    "textPl": "Dowiesz się, jak hormony, zwłaszcza adrenalina, przestawiają organizm na wysiłek.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "kindermann_1982",
     "sigal_1994",
@@ -1476,11 +1477,12 @@
     "hormonalny.summary.sprint"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#27"
+     "#27",
+     "runda 2 #9"
     ],
-    "note": "M3_kontrola.md #27: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #27: brzmienie sprawdzającego; M3_kontrola_runda2.md #9: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1537,7 +1539,7 @@
    "kind": "summary_short",
    "plate": "hormonalny",
    "textPl": "W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę; przy bardzo intensywnym wysiłku jej stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby. Wątroba wypuszcza do krwi kilka razy więcej glukozy.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "kindermann_1982",
     "sigal_1994",
@@ -1550,11 +1552,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#31"
+     "#31",
+     "runda 2 #10"
     ],
-    "note": "M3_kontrola.md #31: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #31: brzmienie sprawdzającego; M3_kontrola_runda2.md #10: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {

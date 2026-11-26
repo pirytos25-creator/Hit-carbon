@@ -1548,17 +1548,18 @@
    "id": "pokarmowy.protocolNote",
    "kind": "protocol_note",
    "plate": "pokarmowy",
-   "textPl": "Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły albo wysiłek do wyczerpania, a nie interwały 45 s (opis przy każdej liczbie), więc liczby są tylko przybliżeniem.",
-   "status": "draft",
+   "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły albo wysiłek do wyczerpania, a nie interwały 45 s (opis przy każdej liczbie), więc liczby są tylko przybliżeniem.",
+   "status": "checked_agent",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#39"
+     "#39",
+     "runda 2 #12"
     ],
-    "note": "M3_kontrola.md #39: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #39: brzmienie sprawdzającego; M3_kontrola_runda2.md #12: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1566,7 +1567,7 @@
    "kind": "lesson_goal",
    "plate": "pokarmowy",
    "textPl": "Dowiesz się, jak w wysiłku wątroba oddaje do krwi więcej glukozy, choć dostaje mniej krwi.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "rowell_1964",
     "perko_1998",
@@ -1581,11 +1582,12 @@
     "pokarmowy.summary.sprint"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#40"
+     "#40",
+     "runda 2 #13"
     ],
-    "note": "M3_kontrola.md #40: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #40: brzmienie sprawdzającego; M3_kontrola_runda2.md #13: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1593,7 +1595,7 @@
    "kind": "question",
    "plate": "pokarmowy",
    "textPl": "Skąd bierze się glukoza we krwi, gdy jelita dostają mniej krwi?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "rowell_1964",
     "perko_1998",
@@ -1609,11 +1611,12 @@
     "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#41"
+     "#41",
+     "runda 2 #14"
     ],
-    "note": "M3_kontrola.md #41: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #41: brzmienie sprawdzającego; M3_kontrola_runda2.md #14: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1643,7 +1646,7 @@
    "kind": "summary_short",
    "plate": "pokarmowy",
    "textPl": "W sprincie jelita i żołądek dostają mniej krwi, a przepływ przez wątrobę spada kilkukrotnie. Mimo to wątroba oddaje do krwi glukozę kilka razy szybciej niż w spoczynku (w badaniu przy ok. 87% VO₂max: 4–6 razy), więc glukozy we krwi przybywa. Część mleczanu z mięśni wątroba przerabia z powrotem na glukozę.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "rowell_1964",
     "perko_1998",
@@ -1659,11 +1662,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#44"
+     "#44",
+     "runda 2 #15"
     ],
-    "note": "M3_kontrola.md #44: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #44: brzmienie sprawdzającego; M3_kontrola_runda2.md #15: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {

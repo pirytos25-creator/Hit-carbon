@@ -1472,7 +1472,7 @@
    "kind": "question",
    "plate": "miesniowy",
    "textPl": "Które włókna mięśniowe dołączają do pracy przy bardzo ciężkim wysiłku?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "dorn_2012",
     "hamner_2010",
@@ -1486,11 +1486,12 @@
     "miesniowy.metric.rekrutowane_wlokna_miesniowe"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#7"
+     "#7",
+     "runda 2 #1"
     ],
-    "note": "M3_kontrola.md #7: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #7: brzmienie sprawdzającego; M3_kontrola_runda2.md #1: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {

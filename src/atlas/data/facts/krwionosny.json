@@ -1390,7 +1390,7 @@
    "kind": "lesson_goal",
    "plate": "krwionosny",
    "textPl": "Zobaczysz, jak w wysiłku serce pompuje więcej krwi, a naczynia kierują ją do pracujących mięśni.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015",
     "calbet_joyner_2010",
@@ -1401,11 +1401,12 @@
     "krwionosny.summary.sprint"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#20"
+     "#20",
+     "runda 2 #7"
     ],
-    "note": "M3_kontrola.md #20: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #20: brzmienie sprawdzającego; M3_kontrola_runda2.md #7: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {

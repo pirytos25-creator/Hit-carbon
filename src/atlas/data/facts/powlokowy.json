@@ -1581,17 +1581,18 @@
    "id": "powlokowy.protocolNote",
    "kind": "protocol_note",
    "plate": "powlokowy",
-   "textPl": "Na samym starcie wysiłku naczynia skóry się zwężają, a chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się dopiero, gdy rośnie temperatura wewnętrzna. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s. Liczby pochodzą z badań o innych protokołach, zwykle dłuższego wysiłku ciągłego (opis przy każdej liczbie).",
-   "status": "draft",
+   "textPl": "Na samym starcie wysiłku naczynia skóry się zwężają, a chłodzenie przez skórę (rozszerzone naczynia, więcej potu) rozkręca się dopiero, gdy rośnie temperatura wewnętrzna. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s. Liczby z badań o innych protokołach, zwykle dłuższego wysiłku ciągłego, mają dopisek „W badaniu: …”.",
+   "status": "checked_agent",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#33"
+     "#33",
+     "runda 2 #11"
     ],
-    "note": "M3_kontrola.md #33: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola_runda2.md #11: POPRAWKA (brzmienie rundy 2) + trzecia kontrola Dyrygenta: OK (2026-11-26)"
    }
   },
   {

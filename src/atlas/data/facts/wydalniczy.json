@@ -1536,7 +1536,7 @@
    "kind": "summary_short",
    "plate": "wydalniczy",
    "textPl": "W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej ok. 180 litrów osocza na dobę, a kanaliki odzyskują prawie całą tę wodę. Reszta to mocz, który spływa do miedniczki nerkowej, a moczowodami do pęcherza moczowego.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "garza_leslie_2025"
    ],
@@ -1545,11 +1545,12 @@
    ],
    "state": "rest",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#49"
+     "#49",
+     "runda 2 #16"
     ],
-    "note": "M3_kontrola.md #49: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #49: brzmienie sprawdzającego; M3_kontrola_runda2.md #16: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1557,7 +1558,7 @@
    "kind": "summary_short",
    "plate": "wydalniczy",
    "textPl": "W sprincie nerka dostaje mniej krwi, bo układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Nerki przesączają mniej i tworzą mniej moczu. Hormony ADH i aldosteron, które rosną w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "kawakami_2018",
     "kenney_ho_1995",
@@ -1574,11 +1575,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#50"
+     "#50",
+     "runda 2 #17"
     ],
-    "note": "M3_kontrola.md #50: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #50: brzmienie sprawdzającego; M3_kontrola_runda2.md #17: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {

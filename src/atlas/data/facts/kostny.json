@@ -1374,7 +1374,7 @@
    "kind": "lesson_goal",
    "plate": "kostny",
    "textPl": "Dowiesz się, z jaką siłą podłoże naciska na stopę przy każdym kroku szybkiego biegu i które kości dźwigają ciężar ciała.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "munro_1987",
     "sims_martin_2014",
@@ -1384,11 +1384,12 @@
     "kostny.summary.sprint"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#52"
+     "#52",
+     "runda 2 #18"
     ],
-    "note": "M3_kontrola.md #52: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #52: brzmienie sprawdzającego; M3_kontrola_runda2.md #18: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1396,7 +1397,7 @@
    "kind": "question",
    "plate": "kostny",
    "textPl": "Ile razy większy od ciężaru ciała jest szczyt nacisku podłoża na stopę w szybkim biegu?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "munro_1987",
     "sims_martin_2014",
@@ -1407,11 +1408,12 @@
     "kostny.metric.szczyt_nacisku_podloza_na_stope"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#53"
+     "#53",
+     "runda 2 #19"
     ],
-    "note": "M3_kontrola.md #53: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #53: brzmienie sprawdzającego; M3_kontrola_runda2.md #19: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1419,7 +1421,7 @@
    "kind": "summary_short",
    "plate": "kostny",
    "textPl": "W szybkim biegu podłoże naciska na stopę w szczycie z siłą ok. 2,5–2,7 razy większą niż ciężar ciała, a stopa dotyka podłoża tylko ok. 0,24–0,27 s. Na rysunku wyróżniono kości, które dźwigają ciężar ciała: kości nóg, miednicę i kręgosłup lędźwiowy (ilustracja, nie pomiar). Gęstość kości nie zmienia się po jednym treningu, bo kość przebudowuje się tygodniami i miesiącami.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "munro_1987",
     "sims_martin_2014",
@@ -1430,11 +1432,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#55"
+     "#55",
+     "runda 2 #21"
     ],
-    "note": "M3_kontrola.md #55: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #55: brzmienie sprawdzającego; M3_kontrola_runda2.md #21: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1442,17 +1445,18 @@
    "kind": "moment_label",
    "plate": "kostny",
    "textPl": "Krok szybkiego biegu",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
     "kostny.protocolNote"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#54"
+     "#54",
+     "runda 2 #20"
     ],
-    "note": "M3_kontrola.md #54: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #54: brzmienie sprawdzającego; M3_kontrola_runda2.md #20: OK (drugi niezależny agent, 2026-11-26)"
    }
   }
  ]

@@ -1017,7 +1017,7 @@
    "kind": "lesson_goal",
    "plate": "oddechowy",
    "textPl": "Dowiesz się, jak w spoczynku i w wysiłku pracują przepona i pozostałe mięśnie oddechowe.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "aliverti_1997",
     "detroyer_2005",
@@ -1030,11 +1030,12 @@
     "oddechowy.metric.objetosc_oddechowa"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#15"
+     "#15",
+     "runda 2 #4"
     ],
-    "note": "M3_kontrola.md #15: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #15: brzmienie sprawdzającego; M3_kontrola_runda2.md #4: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1042,7 +1043,7 @@
    "kind": "question",
    "plate": "oddechowy",
    "textPl": "Jak w sprincie zmienia się praca mięśni oddechowych i płuc?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "aliverti_1997",
     "detroyer_2005",
@@ -1054,11 +1055,12 @@
     "oddechowy.metric.wentylacja_minutowa"
    ],
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#16"
+     "#16",
+     "runda 2 #5"
     ],
-    "note": "M3_kontrola.md #16: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #16: brzmienie sprawdzającego; M3_kontrola_runda2.md #5: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
@@ -1088,7 +1090,7 @@
    "kind": "summary_short",
    "plate": "oddechowy",
    "textPl": "W sprincie przepona kurczy się szybciej, mocniej pracują mięśnie wdechowe, a wydech staje się czynny dzięki mięśniom międzyżebrowym wewnętrznym i mięśniom brzucha. Przy wysiłku maksymalnym wentylacja płuc rośnie do ok. 97 litrów powietrza na minutę (średnio u mężczyzn w wieku 20–80 lat). Krew płynie wtedy przez płuca szybciej (w badaniu: wytrenowani sportowcy), więc wymiana gazów musi zdążyć w krótszym czasie.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "aliverti_1997",
     "detroyer_2005",
@@ -1101,11 +1103,12 @@
    ],
    "state": "sprint",
    "checkedBy": {
-    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
     "rows": [
-     "#19"
+     "#19",
+     "runda 2 #6"
     ],
-    "note": "M3_kontrola.md #19: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+    "note": "M3_kontrola.md #19: brzmienie sprawdzającego; M3_kontrola_runda2.md #6: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
