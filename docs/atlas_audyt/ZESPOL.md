@@ -93,3 +93,19 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - E3-K2 i K3 Wizualizatora zaliczone, gałąź scalona do `atlas-uklady` (`a289337`); audyt `wizualizator_E3_K3.md`.
 - 3D „Gablota” działa dla 12 układów: `npm run dev` → `#atlas/<układ>` → „Obróć w 3D” (desktop). GLB lokalnie w `public/atlas3d` (poza Gitem; na nowej kopii: `npm run atlas:export3d`).
 - Czeka na decyzję użytkownika: E1-K3 (fakty podręcznikowe), E2′ (przewodnik „Jeden interwał”), E4/P2 („Scena Całość”), test z licealistami, pomiar na RTX (ustawienia grafiki Windows), kontrola 70 kotwic `nearest`.
+
+## Nowe decyzje użytkownika (2026-11-26, po obejrzeniu 3D) – etap planów, BEZ KODU
+- (a) Atlas służy **przede wszystkim nauce licealistów**; HIIT zostaje jako przykład do nauki.
+- (b) **Gabloty pojedynczych narządów:** serce, wątroba, mózg, nerka. Każda ma interaktywne 3D (obrót, najechanie na strukturę), omówienie budowy i filmową animację działania.
+- (c) **Posiedzenie UI/UX całego atlasu** (widoczność i zrozumienie): wspólny sznyt, a każdy układ z czymś wyróżniającym.
+- Zapisane w `docs/ATLAS_MODEL_ARCHITEKTONICZNY.md` §7.
+
+| Zlecenie | Sesja | Wynik |
+|---|---|---|
+| Reżyser: posiedzenie UI/UX + karta stylu 12 układów | `local_0e06d3c8-a948-4de9-b211-ddf665a1cee7` | `docs/atlas_rezyser/UX_POSIEDZENIE.md` |
+| Wizualizator: plan gablot 4 narządów z animacjami | `local_dc5e6e98-3d75-4195-b564-6b8a39eb661f` | `docs/atlas_wizualizacja/NARZADY_PLAN.md` |
+
+- Dyrygent pilnuje, żeby obaj szli równolegle, i rozstrzyga ich spory (zapis: `side-session-notes/.../dyrygent/spory_UX_narzady.md`).
+- Dyrygent ocenia: biologia liceum, zrozumiałość, ≥ 50 FPS Intel UHD, licencje bez NC, realny czas.
+- Wynik oceny: `docs/atlas_audyt/DECYZJA_UX_NARZADY.md` (kolejność wdrożenia, godziny pracy agentów, pytania do użytkownika).
+- **Wdrożenie dopiero po zgodzie użytkownika.**

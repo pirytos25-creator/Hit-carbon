@@ -401,6 +401,22 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   - przycisk 3D pokazuje się tylko na urządzeniach, które spełniają budżet desktopu (§3.2);
   - wersja 3D na telefon to osobny etap po E5, jeśli pomiary z E3 pokażą, że ma sens.
 
+**Rozstrzygnięte 2026-11-26 (użytkownik, po obejrzeniu 3D „Gablota”):**
+- (a) **Cel atlasu: przede wszystkim nauka licealistów.** Wątek HIIT zostaje jako przykład do nauki, a nie oś całego atlasu.
+  Skutki:
+  - treść i kolejność omawiania układają się wokół biologii w liceum, a sprint pokazuje, jak układ działa pod obciążeniem;
+  - test z §6 pkt 7 („czy pomaga zrozumieć, co robi sprint?”) zastępuje pytanie: „czy pomaga licealiście zrozumieć budowę i działanie?”.
+- (b) **Gabloty pojedynczych narządów:** serce, wątroba, mózg, nerka. Każda gablota daje:
+  - interaktywne 3D z obrotem;
+  - podświetlenie struktury po najechaniu;
+  - omówienie budowy;
+  - filmową animację działania.
+  Plan przygotowuje Wizualizator: `docs/atlas_wizualizacja/NARZADY_PLAN.md`.
+  Fakty w omówieniu przechodzą tę samą bramkę co plansze (§3.6, w tym „Wiedza podręcznikowa”).
+- (c) **Posiedzenie nad UI i UX całego atlasu** pod kątem widoczności i zrozumienia, z „kropką nad i”: wspólny sznyt, a każdy układ z czymś wyróżniającym.
+  Prowadzi Reżyser: `docs/atlas_rezyser/UX_POSIEDZENIE.md`.
+  Oba plany ocenia Dyrygent i składa jedną kolejność wdrożenia. **Wdrożenie dopiero po zgodzie użytkownika.**
+
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)
 - GLB poza historią Gita
