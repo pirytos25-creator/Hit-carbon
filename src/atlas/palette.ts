@@ -1,5 +1,5 @@
 import paletteJson from './data/palette.json';
-import type { AtlasFactStatus, AtlasSystemId } from './types';
+import type { AtlasFactStatus, AtlasPlateContent, AtlasState, AtlasSystemId } from './types';
 import { ATLAS_SHOWN_STATUSES } from './types';
 
 /** Paleta atlasu: jedno źródło kolorów dla Pythona i TS (src/atlas/data/palette.json). */
@@ -38,6 +38,15 @@ export function systemOfPlate(id: AtlasSystemId): AtlasPaletteSystem | undefined
 
 export function isShown(status: AtlasFactStatus | undefined): boolean {
   return ATLAS_SHOWN_STATUSES.includes(status ?? 'draft');
+}
+
+/**
+ * Tekst podsumowania na ekranie (reguła 1b): sprawdzone podsumowanie, a jeśli czeka na sprawdzenie – same zdania już
+ * potwierdzone (`summaryVerified`), a gdy ich nie ma – null (nic). Walidator pilnuje, by UI brał tekst tylko stąd.
+ */
+export function shownSummary(content: AtlasPlateContent, state: AtlasState): string | null {
+  if (isShown(content.summaryStatus?.[state])) return content.summary[state];
+  return content.summaryVerified?.[state]?.text ?? null;
 }
 
 /** Poziom złożoności (model §3.5). */

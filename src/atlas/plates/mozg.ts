@@ -20,6 +20,19 @@ export const MOZG: AtlasPlateContent = {
       'W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
   },
   summaryReferenceIds: { rest: ['raichle_gusnard_2002'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
+  // Reguła 1b: dopóki `summary` czeka na sprawdzenie, na ekranie są tylko zdania już potwierdzone (brzmienie sprawdzone w K3).
+  summaryVerified: {
+    rest: {
+      text: 'W spoczynku mózg pracuje bez przerwy i zużywa dużą część tlenu całego ciała, głównie z glukozy.',
+      referenceIds: ['raichle_gusnard_2002'],
+      source: 'fakty_draft_K3_ruch.md, mozg summary (spoczynek): zd. 1 ma oparcie',
+    },
+    sprint: {
+      text: 'Mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
+      referenceIds: ['van_hall_2009', 'kemppainen_2005'],
+      source: 'fakty_draft_K3_ruch.md, mozg summary (sprint): zd. 3 ma oparcie',
+    },
+  },
   summaryStatus: { rest: 'draft', sprint: 'draft' }, // fakty_draft_K3_ruch.md: oba disputed -> zostały tylko zdania ze źródłem = draft
   labels: [
     // --- widok z boku (podpisy po lewej)

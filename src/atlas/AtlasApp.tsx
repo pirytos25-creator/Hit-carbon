@@ -1,7 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
-import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, systemOfPlate, type AtlasLevel } from './palette';
+import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
 import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
@@ -187,7 +187,8 @@ export function AtlasApp() {
   const shownMetrics = content.metrics.filter((m) => isShown(m.status));
   const metrics = extended ? shownMetrics : shownMetrics.slice(0, BASIC_MAX_METRICS);
   const hiddenMetrics = content.metrics.length - shownMetrics.length;
-  const summaryChecked = isShown(content.summaryStatus?.[shownState]);
+  // Reguła 1b: podsumowanie czekające na sprawdzenie nie jest pokazywane (tylko zdania już potwierdzone albo nic).
+  const summaries = { rest: shownSummary(content, 'rest'), sprint: shownSummary(content, 'sprint') };
   const groups = PALETTE.groups
     .map((g) => ({ ...g, systems: ATLAS_SYSTEMS.filter((s) => systemOfPlate(s.id)?.group === g.key) }))
     .filter((g) => g.systems.length);
@@ -353,22 +354,22 @@ export function AtlasApp() {
           dopisek „W badaniu: …”.
         </p>
 
-        {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu. */}
-        <div className="grid">
-          {(['rest', 'sprint'] as AtlasState[]).map((s) => (
-            <p
-              key={s}
-              aria-hidden={s !== shownState}
-              className={`[grid-area:1/1] text-[15px] leading-relaxed text-slate-200 transition-opacity duration-500 motion-reduce:transition-none ${
-                s === shownState ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
-            >
-              {content.summary[s]}
-            </p>
-          ))}
-        </div>
-        {!summaryChecked && (
-          <p className="text-sm text-slate-500 -mt-2">Opis roboczy: część zdań czeka jeszcze na sprawdzenie źródła.</p>
+        {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu.
+            Gdy bieżący stan nie ma sprawdzonego opisu, nie rezerwujemy miejsca (bez pustej przerwy). */}
+        {summaries[shownState] && (
+          <div className="grid">
+            {(['rest', 'sprint'] as AtlasState[]).filter((s) => summaries[s]).map((s) => (
+              <p
+                key={s}
+                aria-hidden={s !== shownState}
+                className={`[grid-area:1/1] text-[15px] leading-relaxed text-slate-200 transition-opacity duration-500 motion-reduce:transition-none ${
+                  s === shownState ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+              >
+                {summaries[s]}
+              </p>
+            ))}
+          </div>
         )}
 
         <section className="flex flex-col gap-3" aria-label="Liczby: spoczynek i sprint">

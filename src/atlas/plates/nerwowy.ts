@@ -21,6 +21,14 @@ export const NERWOWY: AtlasPlateContent = {
   summaryReferenceIds: {
     sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans', 'brooks_1988'],
   },
+  // Reguła 1b: dopóki `summary.sprint` czeka na sprawdzenie, na ekranie są tylko zdania już potwierdzone (brzmienie sprzed poprawki).
+  summaryVerified: {
+    sprint: {
+      text: 'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Ta droga krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejno coraz większe jednostki ruchowe, a ich częstotliwość wyładowań rośnie.',
+      referenceIds: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'enoka_duchateau_2017', 'duchateau_enoka_2022'],
+      source: 'fakty_draft_K3_ruch.md, nerwowy summary (sprint): zd. 1–4 mają oparcie',
+    },
+  },
   summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // fakty_draft_K3_ruch.md: disputed (nerwy trzewne) -> tekst poprawiony = draft
   labels: [
     {

@@ -151,8 +151,17 @@ export interface AtlasPlateContent {
   summary: Record<AtlasState, string>;
   /** Źródła twierdzeń w podsumowaniu stanu. */
   summaryReferenceIds?: Partial<Record<AtlasState, string[]>>;
-  /** Status podsumowania (opis ogólny); niesprawdzone podsumowanie ma na ekranie dopisek „opis roboczy”. */
+  /**
+   * Status podsumowania. Reguła 1b: podsumowanie bez statusu pokazywanego (draft, disputed, unverifiable) NIE trafia
+   * na ekran; zamiast niego pokazujemy `summaryVerified` (same zdania już sprawdzone), a gdy go nie ma – nic.
+   */
   summaryStatus?: Partial<Record<AtlasState, AtlasFactStatus>>;
+  /**
+   * Zdania podsumowania już potwierdzone przez agenta sprawdzającego (dosłownie w brzmieniu, które sprawdził),
+   * pokazywane tylko wtedy, gdy `summary` czeka na sprawdzenie. `source` = raport i pozycja, np.
+   * 'fakty_rozrodczy.md, poz. 19 i 21'. Usuwamy, gdy `summary` dostanie status checked.
+   */
+  summaryVerified?: Partial<Record<AtlasState, AtlasVerifiedSummary>>;
   /** Krótkie wyjaśnienie, co na tej planszy znaczy „sprint” (poziom podstawowy, model §3.7). */
   protocolNotePl?: string;
   labels: AtlasLabel[];
@@ -191,6 +200,13 @@ export interface AtlasViewMeta {
 }
 
 /** Plik generowany przez blender/atlas/atlas_lib.py. */
+export interface AtlasVerifiedSummary {
+  text: string;
+  referenceIds: string[];
+  /** Raport sprawdzający (plik w docs/atlas_audyt/) i pozycje, z których pochodzą zdania. */
+  source: string;
+}
+
 export interface AtlasAnchorsFile {
   schemaVersion?: number;
   /** Karta bez stanów (zob. AtlasPlateContent.card). */
