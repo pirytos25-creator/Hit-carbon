@@ -295,7 +295,10 @@ SKIN_ALPHA = {"rest": 0.6, "sprint": 0.6}
 SPRINT_ALPHA_HIGH = 0.93  # sprint: krycie rośnie ze stopniem (niski 0,6 jak spoczynek, wysoki 0,93)
 MUSCLE_ALPHA = float(os.environ.get("PWL_MUSCLE_A", "0.3"))  # 0 = bez mięśni
 LEVEL_LOW, LEVEL_HIGH = 0.4, 1.0  # stopnie w sprincie: niski 0,4, średni 0,7, wysoki 1,0 (spoczynek: 0,35)
-SKIN_EMISSION = 0.35  # emisja = 0,35 × stopień (księga stylu: 0,15-0,35 tylko tam, gdzie struktura pracuje)
+# Emisja wg wspólnej reguły (palette.json → emission, al.emission_for): świeci tylko stopień ≥ minLevel (0,6),
+# od min (0,15) do max. Maksimum własne 0,25 zamiast 0,35 z palety: kolor #FA947A ma R = 250, więc przy 0,35 czoło
+# obcinało kanał R (pomiar K3: 2,2% pikseli R = 255 w najjaśniejszej ćwiartce ciała; przy 0,25: 1,0%).
+SKIN_EMISSION_MAX = float(os.environ.get("PWL_SKIN_EMAX", "0.25"))
 
 
 def skin_layer_material(state):
@@ -341,10 +344,23 @@ def skin_layer_material(state):
         nt.links.new(ra.outputs["Result"], bsdf.inputs["Alpha"])
         nt.links.new(out, bsdf.inputs["Base Color"])
         nt.links.new(out, bsdf.inputs["Emission Color"])
-        em = nt.nodes.new("ShaderNodeMath")  # emisja = EMISSION × (pwl_sweat)
+        # emisja = emission_for(stopień): stopień < minLevel -> 0; dalej liniowo min..SKIN_EMISSION_MAX
+        lo = al.EMISSION_RULE["minLevel"]
+        er = nt.nodes.new("ShaderNodeMapRange")
+        er.clamp = True
+        er.inputs["From Min"].default_value = lo
+        er.inputs["From Max"].default_value = 1.0
+        er.inputs["To Min"].default_value = al.EMISSION_RULE["min"]
+        er.inputs["To Max"].default_value = SKIN_EMISSION_MAX
+        nt.links.new(rng.outputs["Result"], er.inputs["Value"])
+        gate = nt.nodes.new("ShaderNodeMath")
+        gate.operation = 'GREATER_THAN'
+        gate.inputs[1].default_value = lo - 1e-4
+        nt.links.new(rng.outputs["Result"], gate.inputs[0])
+        em = nt.nodes.new("ShaderNodeMath")
         em.operation = 'MULTIPLY'
-        em.inputs[1].default_value = SKIN_EMISSION
-        nt.links.new(attr.outputs["Fac"], em.inputs[0])
+        nt.links.new(er.outputs["Result"], em.inputs[0])
+        nt.links.new(gate.outputs["Value"], em.inputs[1])
         nt.links.new(em.outputs["Value"], bsdf.inputs["Emission Strength"])
     try:
         mat.surface_render_method = 'BLENDED'
@@ -598,7 +614,7 @@ detail_objs = [epidermis, dermis, hypodermis, gland_coil, gland_duct, follicle, 
 detail_objs += [o for d in (ves_rest, ves_sprint) for k in d for o in d[k]]
 
 # ============================================================ plansza
-LIGHT_SKIN = al.hex_to_linear("#E5C3B3")
+LIGHT_SKIN = al.hex_to_linear(al.SYSTEM_LIGHT["skin"])
 EPI_COL = al.mix(LIGHT_SKIN, BONE, 0.25)
 DERM_COL = al.mix(SKIN, MUSC, 0.15)
 HYPO_COL = al.mix(BONE, al.hex_to_linear("#E8D6A8"), 0.45)  # tłuszcz: kremowy (jasny kontekst, nie kolor układu)
