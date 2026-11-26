@@ -24,7 +24,6 @@ Zmienne środowiskowe:
   KOST_VIEWS=front,side które widoki renderować (domyślnie "front,side")
   KOST_PREVIEW=<folder> podgląd: oba stany, 50% rozdzielczości, wynik do <folder> (nie do public/)
 """
-import json
 import math
 import os
 import re
@@ -376,20 +375,6 @@ def build_detail(plate):
     return {k: {"point": p, "views": ["detail"]} for k, p in anchors.items() if p is not None}
 
 
-def add_flow_states(out_dir, states):
-    """flows3d.json z atlas_lib nie ma pola stanu: dopisujemy `states` (decyzja Dyrygenta K1, czeka na integratora)."""
-    path = os.path.join(out_dir, "flows3d.json")
-    if not os.path.exists(path):
-        return
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
-    for fl in data["flows"]:
-        if fl["id"] in states:
-            fl["states"] = states[fl["id"]]
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=1, ensure_ascii=False)
-
-
 # ============================================================ plansza
 class BonePlate(al.Plate):
     """Lokalnie: materiały przekroju (rola 'section') zależne od stanu i słabsze światło zbliżenia."""
@@ -437,6 +422,23 @@ plate.set_view("side", direction="right", center=c_side, ortho_scale=s_front,  #
                objects=[o for o, *_ in plate.items if o not in right_arm])
 print("KOST_CAMERA front", plate.view_specs["front"]["center"], round(s_front, 4), "side", c_side, round(s_side, 4))
 
+# Szerokość kadru widoku z boku: AtlasPlate przycina każdy widok do obrysu (bbox) i na telefonie dopasowuje go do szerokości
+# ekranu, więc wąska sylwetka z boku wychodziła ok. 2,5 raza większa niż widok z przodu (audyt K2). Niewidoczna „ramka”
+# (siatka z 2 wierzchołków, bez ścian: nic nie renderuje) poszerza obrys z boku do SIDE_FRAME × szerokość widoku z przodu.
+SIDE_FRAME = 0.8
+if "side" in body_views:
+    fmn, fmx = al.vert_bbox(bones + [hull])
+    smn, smx = al.vert_bbox(bones)
+    half = 0.5 * SIDE_FRAME * (fmx.x - fmn.x)
+    cy, cz = (smn.y + smx.y) / 2, (smn.z + smx.z) / 2
+    if half > (smx.y - smn.y) / 2:
+        fme = bpy.data.meshes.new("KOST_side_frame")
+        fme.from_pydata([(0.0, cy - half, cz), (0.0, cy + half, cz)], [(0, 1)], [])
+        side_frame = bpy.data.objects.new("KOST_side_frame", fme)
+        plate.add([side_frame], role="context_bone", views=("side",))
+        plate.view_specs["side"]["objects"].add(side_frame)  # lista obiektów widoku powstała wcześniej
+        print("KOST_SIDE_FRAME szerokość", round(2 * half, 3), "m (front", round(fmx.x - fmn.x, 3), ")")
+
 # ---------------------------------------------------------------- kotwice
 # Front: prawa strona ciała (.r) leży po lewej stronie obrazu (podpisy w lewo); dwa podpisy z lewej strony ciała (.l)
 # idą w prawo, żeby kolumny były zrównoważone. Side: kamera po prawej stronie ciała.
@@ -470,6 +472,7 @@ flows3d = [{
     "kind": "force",
     "labelPl": "Ilustracja: kości, które dźwigają ciężar ciała (od stopy do miednicy)",
     "views": ["front", "side"],
+    "states": ["sprint"],  # decyzja Dyrygenta K1: strzałka siły tylko w sprincie
     "points": load_path,
 }]
 print("KOST_LOADPATH", [tuple(round(v, 3) for v in p) for p in load_path])
@@ -479,4 +482,3 @@ if "detail" in VIEWS:
 
 views = body_views + (("detail",) if "detail" in VIEWS else ())
 plate.render(views=views, states=("rest", "sprint"), anchors=A, flows3d=flows3d)
-add_flow_states(plate.out_dir, {"load_path_r": ["sprint"]})
