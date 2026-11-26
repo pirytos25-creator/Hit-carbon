@@ -439,6 +439,12 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   4. Pierwsza wersja każdej gabloty: **tylko treści z poziomu Podstawowego**.
 - (h) 2026-11-26: użytkownik zgodził się na **M2** (test techniczny serca w `prototypes/`) i **M3** (poprawki czytelności plansz, U0) według `docs/atlas_audyt/DECYZJA_UX_NARZADY.md`. Pytania 2–4 tej decyzji pozostają otwarte.
 - (i) 2026-11-26, **bramka A:** użytkownik zgodził się na **M4–M6** („Tak, M4–M6”): wspólny moduł z filmem, serce wzorcowe z wejściem diegetycznym, rama i 4 wyróżniki 3D. Barwa ścian serca i mat filmu nie zostały wybrane, więc domyślne są rekomendacje zespołu („mięsień”, wygląd filmu bez zmian do nagrania przed i po w M4). Pytania o fakty podręcznikowe, telefon i test z licealistami pozostają otwarte.
+- (j) 2026-11-26: użytkownik zgodził się na **wznowienie faktów podręcznikowych (E1-K3)** („Tak, wznów”), zgodnie z zasadami §3.6 pkt 9. Kolejność Dyrygenta:
+  1. serce pod M5 (5 twierdzeń ze scenariusza Reżysera i panel „budowa i funkcja” w zakresie Podstawowym);
+  2. 66 podpisów bez opisu roli (mózg 21, mięśniowy 19, nerwowy 14, oddechowy 8, skóra 4);
+  3. nerka, wątroba, mózg pod M8.
+
+  Wyszukuje i sprawdza dwóch niezależnych agentów Dyrygenta. Fakty do danych wpisuje integrator w osobnym commicie.
 
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)
