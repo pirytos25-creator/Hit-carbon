@@ -62,6 +62,8 @@ try {
     ['atlas_check_facts.mjs', 'src/atlas/AtlasApp.tsx', '{extended && <StatusNotes', '{<StatusNotes', /StatusNotes> renderowany poza/],
     ['atlas_check_facts.mjs', 'src/atlas/AtlasApp.tsx', 'const question = lessonText(content.question);', 'const question = { text: content.question?.text ?? "", draft: false };', /content\.question z pominięciem bramki/],
     ['atlas_check_data.mjs', 'src/atlas/plates/kostny.ts', '  heroMetricId:', '  question: "x",\r\n  heroMetricId:', /pole faktu „question”/],
+    // E1-K3: fakt podręcznikowy gabloty bez dosłownego cytatu (pierwszy rekord serce.json traci pole quote)
+    ['atlas_check_data.mjs', 'src/atlas/data/organs/serce.json', '"quote": "', '"quote_usuniety": "', /textbook_consensus bez dosłownego cytatu/],
   ];
   for (const [script, rel, from, to, expect] of cases) {
     const orig = readFileSync(join(tmp, rel), 'utf-8');
