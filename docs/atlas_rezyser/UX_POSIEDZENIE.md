@@ -1,60 +1,108 @@
-# Posiedzenie UI/UX atlasu: widoczność i zrozumienie dla licealisty
+# Posiedzenie UI/UX atlasu: widoczność, zrozumienie i animacje na poziomie filmu
 
-Stan na 2026-11-26 (wersja 2, po zasadach Dyrygenta i dwóch wymianach z Wizualizatorem). Prowadzi Reżyser.
-**To plan, bez kodu.** Kod powstanie dopiero po zgodzie użytkownika (decyzja: Dyrygent razem z użytkownikiem).
+Stan na 2026-11-26. **Wersja 3 („PLAN 2”)**, po wymaganiach użytkownika (d)–(g) i decyzji Dyrygenta v2 (`docs/atlas_audyt/DECYZJA_UX_NARZADY.md`). Prowadzi Reżyser.
+**To plan, bez kodu w `src/`.** Wdrożenie dopiero po zgodzie użytkownika.
 
 Podstawa:
-- decyzje użytkownika z §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md` (commit `6840b29`):
-  - (a) atlas przede wszystkim dla licealistów, a HIIT to przykład do nauki;
+- §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md`, decyzje użytkownika (a)–(g):
+  - (a) licealiści przede wszystkim, HIIT jako przykład;
   - (b) gabloty serca, wątroby, mózgu i nerki;
-  - (c) wspólny sznyt i wyróżnik każdego układu;
-- rozstrzygnięcia z góry Dyrygenta (`dyrygent/spory_UX_narzady.md` w folderze notatek).
+  - (c) wspólny sznyt i wyróżnik;
+  - (d) **animacje 3D na poziomie filmu, a nie „kreseczki”**;
+  - (e) **wspólny moduł z filmem „12 aktów”**;
+  - (f) **kamienie milowe zamiast godzin**;
+  - (g) wejście diegetyczne do gablot;
+- decyzja Dyrygenta v2: spory 1 i 2 rozstrzygnięte, numeracja kamieni M1–M8, mapa „element → akt”.
 
-**Co obejrzałem.** Gałąź `atlas-uklady` (`2c6db64`), wszystkie 12 układów. Własny serwer Vite na porcie 5198, zrzuty headless Chrome przez własny skrypt CDP (bez Playwright MCP).
-
-| Ujęcie | Zakres |
-|---|---|
-| 2D, 1440 px | spoczynek i sprint |
-| 2D, 390 px | sprint, cała strona |
-| 3D „Gablota”, 1440 px | sprint: przód i bok |
-
-Razem 61 zrzutów. Konsola: 0 błędów i 0 wyjątków. Najmniejsza czcionka na wszystkich planszach to 14 px.
-Do tego przejrzałem kod (`src/atlas/AtlasApp.tsx`, `AtlasPlate.tsx`, `src/atlas3d/engine.ts`) i statusy faktów (`src/atlas/data/facts/*.json`).
-
-**Materiały** (`docs/atlas_rezyser/ux/`):
-
-| Plik | Co pokazuje |
-|---|---|
-| `przed/01_2d_12_ukladow_sprint_1440.jpg` | 12 plansz 2D, sprint |
-| `przed/02_3d_12_ukladow_sprint_1440.jpg` | 12 gablot 3D, sprint, przód |
-| `przed/03_telefon_390_pierwszy_ekran.jpg` | pierwszy ekran telefonu |
-| `przed/04_panel_boczny_kolejnosc_tresci.jpg` | panel: krwionośny, pokarmowy, moczowy |
-| `przed/05_krwionosny_2d_ze_strzalkami_vs_3d_bez.jpg` | 2D i 3D obok siebie |
-| `przed/06_skala_skacze_bez_lokalizatora.jpg` | mózg, oddechowy, krwionośny, rozrodczy |
-| `po/00_karta_stylu_12_ukladow.jpg` | karta stylu |
-| `po/klatka_{krew,kosc,nerw,skora}.jpg` | 4 klatki koncepcyjne: ta sama rama, 4 różne wyróżniki |
-| `klatki.html`, `karta_stylu.html` | źródła makiet |
-
-Makiety otwiera serwer Vite aplikacji: `/docs/atlas_rezyser/ux/klatki.html#k=krew` (`kosc`, `nerw`, `skora`).
-Liczby w makietach pochodzą wyłącznie z faktów `checked_agent` obecnych na planszach.
-Barwy makiet pochodzą z `palette.json`. Biel kreski `#E9EEF7` to propozycja nowego tokenu (§3.3).
+Co się zmieniło od wersji 2 (`31d7eb7`):
+1. **Klatki docelowe** (M1, §A): cztery klatki z prawdziwych modeli, wyrenderowane w Blenderze.
+2. Wyróżniki 12 układów to teraz **animacje 3D** z wersją uproszczoną i aktem filmu (§3.3). Strzałki i linie zostają tylko w legendzie „Jak czytać”.
+3. **Schemat to bryła 3D** w osobnym materiale (spór 2, rozstrzygnięty przez Dyrygenta), a nie kreska.
+4. **Kamienie milowe M1–M8** z wynikiem do obejrzenia i jawną niepewnością (§6).
+5. Poziomy nazywają się **„Podstawowy | Rozszerzony”** (decyzja Dyrygenta; wcześniej proponowałem „Uczeń”).
 
 ---
 
 ## 0. Najkrócej
 
-„Kropka nad i” to nie kolejny efekt. To odpowiedź na pytanie ucznia: **„co mam z tego zrozumieć?”**. Dziś:
-- panel zaczyna się od przypisu o protokole i definicji VO₂max;
-- dalej jest ściana tekstu, a liczby i legenda strzałek leżą pod zgięciem ekranu;
-- na planszach mózgu, nerwowej i mięśniowej podpisy w poziomie Podstawowym pokazują **same nazwy**, bez „do czego to służy”, bo opisy czekają na sprawdzenie.
+- **Kropka nad i ma dwie części.**
+  - **Zrozumienie.** Każda plansza i gablota odpowiada na pytanie „co mam z tego zrozumieć”: cel lekcji, pytanie, jedna liczba-bohater, legenda „Jak czytać”, lokalizator. Dziś panel zaczyna się od przypisu, a na trzech kluczowych planszach podpisy w Podstawowym nie mówią, do czego dana struktura służy.
+  - **Jakość ruchu.** Zamiast płaskich strzałek i kresek są cząstki 3D z objętością (krwinki, krople hormonu, komórki NK, cząstki powietrza), impuls biegnący po nerwie, odkształcenie tkanek i światło sygnału. To jedna rodzina animacji z filmem: te same krwinki, materiały, światło i barwy.
+- **Klatki docelowe** (`docs/atlas_rezyser/klatki_docelowe/`) to poprzeczka dla testu serca Wizualizatora (M2):
 
-Propozycja:
-- **wspólna rama** dla 12 plansz, widoku 3D i gablot narządów: cel lekcji, pytanie planszy, jedna liczba-bohater, legenda „Jak czytać”, nazwany moment, lokalizator „gdzie to jest w ciele”;
-- **jeden wyróżnik na układ**: znak, jeden ruch i jedna miara, przypisane do jednej idei z biologii w liceum. Przykłady: kostny = konstrukcja, krwionośny = rozdział krwi, nerwowy = impuls, powłokowy = ciepło;
-- **wspólna gramatyka obrazu**: *cieniowane = prawdziwy kształt z modelu, kreska = schemat albo ilustracja*.
+  | Klatka | Co pokazuje |
+  |---|---|
+  | (a) | serce HuBMAP w przekroju z krwinkami w jamach |
+  | (b) | ROZDZIAŁ jako gęstość krwinek w naczyniu, spoczynek obok sprintu |
+  | (c) | wejście w serce, gdy ciało gaśnie |
+  | (d) | wspólne światło i materiał z filmem |
 
-Wszystko mieści się w ≥ 50 FPS na Intel UHD, co potwierdził Wizualizator (§4), i nie wymaga nowych zasobów spoza CC BY / BY-SA / CC0 (§5).
-Około połowy pracy to **szybkie poprawki ≤ 2 h**, które nie czekają na gabloty ani na siebie nawzajem (§6).
+- **Uczciwie:** dwie rzeczy z klatek jeszcze nie działają w przeglądarce (krwinki widoczne przez ścianę naczynia i skurcz ścian serca), a wielkości ruchów muszą wynikać z faktów. Opisuję to przy każdej klatce i w kamieniach.
+
+---
+
+## A. Klatki docelowe (kamień M1)
+
+Wszystkie z prawdziwych modeli, w Blenderze 5.2 (EEVEE), headless, przez slot `atlas_raw/.render_slot_1`.
+Skrypt: `klatki_docelowe/zrodla/klatki_blender.py`, tryby A, B i C. Żadnych rysunków AI ani płatnych generacji.
+
+Wspólne dla wszystkich klatek:
+- **Krwinka:** dysk dwuwklęsły z opublikowanego profilu Evansa i Funga (1972), a nie kształt wymyślony. Parametry profilu (R₀ = 3,91 µm, C₀ = 0,81, C₂ = 7,83, C₄ = −4,39 µm) sprawdzi agent faktów przed wdrożeniem.
+  Krwinki są **celowo powiększone (skala umowna)**: na skali narządu prawdziwa krwinka (ok. 8 µm) byłaby niewidoczna. W aplikacji mówi o tym chip „powiększone”.
+- **Barwy** tylko z tokenów `palette.json`: krew utlenowana `artery`, odtlenowana `vein`, kontekst `bone`, `muscle` i `skin`.
+- **Materiał:** matowy (szorstkość 0,6–0,7), lekkie SSS 0,05–0,1, bez lakieru.
+- **Światło:** klucz z lewej-góry-przodu, wypełnienie z prawej, kontra z tyłu; tło studia `#13203A → #070B14`; bez bloomu.
+
+### (a) Skurcz serca z krwinkami przez jamy: gablota serca
+
+Plik: `klatki_docelowe/A_serce_krwinki_w_jamach.jpg`
+
+| | |
+|---|---|
+| **Co widać** | `VH_M_Heart` (HuBMAP, CC BY 4.0, 14 części: jamy, przegroda, 4 zastawki, mięśnie brodawkowate) w przekroju czołowym. Wnętrze ścian w jaśniejszym tonie. W prawej komorze i przedsionku krwinki w barwie `vein`, w lewej komorze w barwie `artery`. Oś każdego dysku jest ustawiona prostopadle do toru zastawka wpływu → zastawka wypływu |
+| **Czego uczy** | dwie połowy serca, dwa rodzaje krwi, które się nie mieszają (przegroda); krew zawsze płynie tą samą drogą przez zastawki. Przekrój czołowy pozwala zobaczyć wszystkie 4 jamy naraz, czyli to, co szkolny rysunek serca |
+| **Co się rusza (test M2, nie na klatce)** | 1) krwinki płyną torem wpływ → wypływ, a ich prędkość zależy od fazy cyklu; 2) zastawki: na start wariant A (kolor i cząstki), wariant B (ruch płatków) tylko jeśli M2 pokaże, że jest tani; 3) skurcz ścian według kształtów `Ventricular_Systole` i `Atrial_Systole` z serca filmu (`public/models/cardiopulmonary.glb`) |
+| **Jeden nowy ruch na krok filmu gabloty** | krok 1: krwinki; krok 2: zastawki; krok 3: skurcz (spór 1) |
+| **Niepewność** | kształty skurczu z filmu to przekształcenie modelu; wielkość skurczu wymaga faktu `checked_agent` albo podpisu „ruch poglądowy”. Liczba krwinek (ok. 900 na klatce) w 50 FPS na UHD jest niesprawdzona, to zadanie M2 |
+
+### (b) ROZDZIAŁ krwionośnego w 3D: atlas
+
+Pliki: `klatki_docelowe/B_rozdzial_udo_spoczynek_sprint.jpg` (zbliżenie uda), `B_rozdzial_cialo_spoczynek_sprint.jpg` (całe ciało w kamerze planszy, orto 1,80319).
+
+| | |
+|---|---|
+| **Co widać** | naczynia Z-Anatomy (CC BY-SA 4.0) z atlasu 3D; tętnica i żyła udowa z **półprzezroczystą ścianą** w zbliżeniu; krwinki na torach `flows3d.json`. Spoczynek: rzadko. Sprint: gęsty strumień w tętnicy do nogi i w żyle powrotnej |
+| **Czego uczy** | „w sprincie więcej krwi płynie do pracujących mięśni”. Uczeń widzi to jako **więcej i szybciej płynących krwinek**, a nie jako grubszą kreskę |
+| **Co się rusza** | krwinki płyną wzdłuż toru; gęstość × prędkość ∝ przepływ (reguła nad faktami planszy: udział rzutu serca dla mięśni w spoczynku i sprincie), a prędkość zależy od przekroju naczynia (luka filmu do zamknięcia w module) |
+| **Wnioski z renderu** | 1) **krwinki w nieprzezroczystym naczyniu są niewidoczne** (pierwszy render), więc w zbliżeniu ściana musi być półprzezroczysta (dithering jak w E3); 2) **na skali całego ciała krwinka ma ułamek piksela**, więc znaczenie niesie strumień: powiększone, jaśniejsze krwinki na torze; pojedyncze krwinki dopiero w zbliżeniu; 3) tor żylny z `flows3d` biegnie częściowo żyłą odpiszczelową obok żyły udowej (znana niedokładność toru z audytu K2) |
+| **Niepewność** | gęstości na klatce to 3 stopnie **ilustracji**, nie dane; reguła z faktów do ustalenia w M6; koszt półprzezroczystej ściany na UHD do pomiaru |
+
+### (c) Wejście diegetyczne: kamera wjeżdża w serce, ciało gaśnie
+
+Plik: `klatki_docelowe/C_wejscie_w_serce.jpg`
+
+| | |
+|---|---|
+| **Co widać** | klatka „w połowie wjazdu”: kamera perspektywiczna wewnątrz klatki piersiowej. Szkielet, sylwetka i naczynia ciała (Z-Anatomy) wygaszone do ok. 12% krycia; serce HuBMAP (ustawione transformacją `HUBMAP_ALIGN`) w przekroju, z krwinkami |
+| **Czego uczy** | **gdzie** jest serce i jak jest duże względem żeber i mostka. Skala i położenie przechodzą płynnie z widoku układu do gabloty, bez cięcia, więc orientacja w ciele nie ginie |
+| **Co się rusza** | kamera po szynie (1,2 s, ease-in-out); krycie ciała 100% → 12%; podmiana modelu (serce Z-Anatomy na HuBMAP) w chwili, gdy kamera jest najbliżej i ruch ją ukrywa |
+| **Niepewność** | różni osobnicy (Z-Anatomy i HuBMAP, błąd dopasowania ok. 1,5 cm) mogą dać widoczny „przeskok” przy podmianie; M5 to sprawdzi. Półprzezroczyste ciało na UHD: wersja uproszczona gasi ciało do ciemnej, nieprzezroczystej barwy zamiast krycia |
+
+### (d) Wspólny język światła i materiału z filmem „12 aktów”
+
+Plik: `klatki_docelowe/D_swiatlo_i_material_z_filmem.jpg`. U góry kadry filmu (akt III: serce i krwiobieg), u dołu klatki atlasu (a) i (b).
+
+| Element | Film dziś | Wspólny język (atlas, gabloty, film) |
+|---|---|---|
+| materiał tkanki | połysk „plastiku” (biblia filmu sama go wyklucza: „brak plastikowego wyglądu”) | mat, szorstkość 0,6–0,7, SSS 0,05–0,1, coat 0; **film przechodzi na mat atlasu** |
+| krwinka | `InstancedErythrocytes` (`MolecularSimulation.tsx`) | jedna siatka (profil Evansa–Funga), instancjonowana, zorientowana wzdłuż toru, prędkość z przekroju |
+| światło | presety aktów, AgX, bloom | presety aktów zostają w filmie; tkanka ma ten sam materiał; studio klucz/wypełnienie/kontra w atlasie i gablotach |
+| barwa | palety aktów (np. nerwy cyjanowe w akcie II) | **barwy układów z `palette.json` także w filmie** (nerwowy = bursztyn `nerve`); dwa profile wyglądu: atlas Standard, film AgX; zgodność potwierdza pomiar ΔE na zrzutach |
+| świecenie | bloom na sygnałach | tylko sygnał (impuls, struktura z bieżącego zdania): emisja + tani halo (sprite); bloom pełnoekranowy tylko w profilu filmowym na mocnej karcie |
+| schemat | — | bryła 3D w jednolitym, matowym materiale + chip „schemat, bez skali”; kreska tylko w legendzie |
+
+**Rozbieżność barw do decyzji:** w filmie układ nerwowy jest cyjanowo-błękitny (biblia, akt II), a w atlasie bursztynowy (`nerve` `#E8B23A`, sprawdzony walidatorem ΔE).
+Proponuję jedną barwę układu w obu, czyli bursztyn z `palette.json`. Paleta atlasu przeszła test daltonizmu, a jasny rdzeń impulsu (biel) działa w obu stylach. Decyzja należy do Dyrygenta albo użytkownika (§7, pytanie 3).
 
 ---
 
@@ -63,271 +111,225 @@ Około połowy pracy to **szybkie poprawki ≤ 2 h**, które nie czekają na gab
 ### 1.1 Zasady
 
 - **Dwa poziomy atlasu odpowiadają dwóm zakresom szkolnym:**
-  - „Podstawowy”, na ekranie **„Uczeń”**, odpowiada zakresowi podstawowemu;
-  - „Rozszerzony” odpowiada zakresowi rozszerzonemu, z dodatkami dla studentów.
-- **Odniesienie do podstawy programowej** podaje się dokładnym punktem wymagań z rozporządzenia ministra edukacji w sprawie podstawy programowej kształcenia ogólnego dla liceum (2018, z późniejszymi zmianami).
-  **Numerów punktów nie podaję z pamięci.** Wpisuje je agent treści z dosłownym cytatem wymagania, a sprawdza osobny agent, tak jak fakty (§3.6 modelu).
-  Podstawa jest ogólna (np. „przedstawia budowę…”), więc szczegóły struktur nadal potrzebują faktów podręcznikowych (rozstrzygnięcie Dyrygenta, pkt 8).
-- **Nowe pole w danych planszy:** `curriculumRef`, z identyfikatorem punktu, dosłownym cytatem wymagania i zakresem (P/R). Plansza bez tego pola nie dostaje celu lekcji.
-- **HIIT to przykład, nie temat.** Cel lekcji zawsze mówi o budowie lub funkcji układu, a sprint pokazuje ją w działaniu.
-  Przykład: „Jak krew trafia tam, gdzie jest potrzebna” zamiast „Co robi krew w HIIT”.
-- **Uproszczenie nie zmienia faktu.** Metafory („chłodnica”, „magazyn”, „filtr”) są w danych oznaczone jako metafora (`metaphor: true`) i mają dopisek w Rozszerzonym.
+  - **Podstawowy** odpowiada zakresowi podstawowemu;
+  - **Rozszerzony** odpowiada zakresowi rozszerzonemu, z dodatkami dla studentów.
+- **Odniesienie do podstawy programowej** podaje się dokładnym punktem wymagań z rozporządzenia w sprawie podstawy programowej kształcenia ogólnego dla liceum.
+  Numerów punktów nie podaję z pamięci: wpisuje je agent treści z dosłownym cytatem, a sprawdza osobny agent.
+  Dyrygent potwierdził już dwa: automatyzm serca P V.4.9 i tworzenie moczu P V.5.3, oba w Podstawowym.
+- Nowe pole w danych planszy i gabloty: `curriculumRef` (punkt, cytat wymagania, zakres P/R). Bez niego nie ma celu lekcji.
+- **HIIT to przykład, nie temat.** Cel lekcji mówi o budowie lub funkcji, a sprint pokazuje ją w działaniu.
+- **Uproszczenie nie zmienia faktu.** Metafory („magazyn”, „filtr”, „chłodnica”) mają w danych `metaphor: true`.
+- Pierwsza wersja każdej gabloty to **tylko Podstawowy** (§7 (g) 4).
 
-### 1.2 Co należy do którego poziomu (propozycja; zakresy do potwierdzenia cytatem z podstawy)
+### 1.2 Co należy do którego poziomu (propozycja; do potwierdzenia cytatem z podstawy)
 
-| Układ | Uczeń (Podstawowy): budowa i funkcja + 1 zmiana w wysiłku | Rozszerzony: dodatki |
+| Układ | Podstawowy: budowa i funkcja + 1 zmiana w wysiłku | Rozszerzony: dodatki |
 |---|---|---|
-| Mózg | główne części (kora, móżdżek, pień) i ich ogólne funkcje; kora ruchowa steruje ruchem | płaty i obszary kory, drogi, zużycie paliw przez mózg |
-| Nerwowy | ośrodkowy i obwodowy; nerw przewodzi rozkaz do mięśnia; współczulny przyspiesza pracę narządów | sploty, rdzeń nadnerczy, rekrutacja jednostek ruchowych |
+| Mózg | kora, móżdżek, pień i ich ogólne funkcje; kora ruchowa steruje ruchem | płaty i obszary, drogi, paliwa mózgu |
+| Nerwowy | ośrodkowy i obwodowy; nerw przewodzi rozkaz do mięśnia; współczulny przyspiesza narządy | sploty, rdzeń nadnerczy, rekrutacja jednostek |
 | Hormonalny | gruczoł → hormon → krew → narząd docelowy; adrenalina w wysiłku | oś podwzgórze–przysadka, ADH, insulina i glukagon, czasy narastania |
-| Mięśniowy | mięśnie szkieletowe, praca w parach (antagonizm), skurcz | typy włókien I / IIa / IIx, zasada rozmiaru |
-| Kostny | szkielet jako podpora i dźwignia, stawy | obciążenia (× masa ciała), przebudowa kości |
-| Oddechowy | drogi oddechowe, płuca, wymiana gazowa w pęcherzykach, przepona | mięśnie wdechowe dodatkowe, objętości, wentylacja |
-| Krwionośny | serce, tętnice, żyły; krążenie duże i małe; rozdział krwi w wysiłku | rzut serca, objętość wyrzutowa, krążenie wieńcowe |
-| Pokarmowy | narządy przewodu, wątroba jako magazyn glukozy (glikogen) | cykl Cori, przepływ trzewny |
-| Powłokowy | skóra a termoregulacja, pot | przepływ skórny w czasie, ograniczenia wysiłku w upale |
-| Moczowy | nerki filtrują krew i tworzą mocz; bilans wody | nefron, ADH, aldosteron, równowaga kwasowo-zasadowa |
-| Limfatyczny | węzły chłonne, limfa, odporność | mobilizacja komórek NK, spór o „okno” po wysiłku (`contested_debate`) |
-| Rozrodczy | budowa narządów (karta, bez stanu sprintu) | hormony płciowe a trening w czasie tygodni |
-
-To propozycja przydziału. Agent treści sprawdza ją z tekstem podstawy i podręcznikiem.
-Jeśli coś z kolumny „Uczeń” leży w podstawie tylko w zakresie rozszerzonym, przenosi to w prawo.
+| Mięśniowy | mięśnie szkieletowe, praca w parach, skurcz | typy włókien, zasada rozmiaru |
+| Kostny | szkielet jako podpora i dźwignia, stawy | obciążenia (× masa ciała), przebudowa |
+| Oddechowy | drogi oddechowe, płuca, wymiana gazowa, przepona | mięśnie dodatkowe, objętości, wentylacja |
+| Krwionośny | serce, tętnice, żyły, krążenie duże i małe; rozdział krwi w wysiłku | rzut serca, objętość wyrzutowa, krążenie wieńcowe |
+| Pokarmowy | narządy przewodu, wątroba jako magazyn glukozy | cykl Cori, przepływ trzewny |
+| Powłokowy | skóra a termoregulacja, pot | przepływ skórny w czasie |
+| Moczowy | nerki filtrują krew i tworzą mocz, bilans wody | nefron, ADH, aldosteron |
+| Limfatyczny | węzły, limfa, odporność | komórki NK, spór o „okno” po wysiłku |
+| Rozrodczy | budowa (karta bez stanu sprintu) | hormony płciowe w czasie tygodni |
 
 ---
 
-## 2. Zrozumiałość: problemy i poprawki
+## 2. Zrozumiałość: problemy i poprawki (dowody: `docs/atlas_rezyser/ux/przed/`)
 
-### 2.1 Co jest dobre (zostaje)
+Przegląd: gałąź `atlas-uklady` (`2c6db64`), 12 układów, 61 zrzutów (2D przy 1440 i 390, 3D przy 1440), konsola 0 błędów, czcionka ≥ 14 px.
 
-- prawdziwa anatomia (Z-Anatomy, HuBMAP), sprawdzone kotwice, fakty z cytatem;
-- kolor i ikona układu w menu, w przycisku sprintu i w podpisach (zalążek sznytu);
-- telefon: numerowane pinezki, lista pod obrazem, przełącznik stanu przyklejony u dołu (`przed/03`);
-- 3D „Gablota”: obrót w poziomie, 4 widoki, gotowe zbliżenia, podpisy na ciemnym tle, ≥ 50 FPS na UHD; spójne z 2D;
-- czcionka ≥ 14 px wszędzie (pomiar skryptem).
+### 2.1 Szybkie poprawki: kamień M3, nie zależą od animacji
 
-### 2.2 Szybkie poprawki (≤ 2 h agenta każda, nie czekają na gabloty)
+| # | Problem | Plik / zrzut | Poprawka |
+|---|---|---|---|
+| S1 (K1) | panel zaczyna się od przypisu o protokole i definicji VO₂max | `przed/04`; `AtlasApp.tsx` (`protocolNote`, `glossary`) | rozwijane „ⓘ Co znaczy »sprint«” |
+| S2 (K4) | teksty robocze na ekranie ucznia: „…jego opis czeka na sprawdzenie” (hormonalny, pokarmowy, powłokowy), „N liczb czeka na sprawdzenie źródła” | `AtlasApp.tsx:282`, `:558–561`, `AtlasPlate.tsx:38/377` | w Podstawowym nic zamiast faktu niesprawdzonego; status tylko w Rozszerzonym, w „Więcej”; walidator wszystkich pól tekstowych (decyzja Dyrygenta) |
+| S3 (K3) | telefon: brak tytułu nad obrazem, pasek 12 układów ucięty | `przed/03` | tytuł w 1 linii nad obrazem; „›” albo „12 układów ▾” |
+| S4 (W4) | dwa identyczne przełączniki jeden pod drugim | `przed/04` | „Podstawowy / Rozszerzony” mały, w nagłówku |
+| S5 (W5) | „Sprint” znaczy na planszach różne rzeczy | `przed/04` | `momentLabelPl` na przycisku („Koniec 45 s pracy”, „Po treningu”, „Krok biegu”) |
+| S6 (W9) | różne nazwy w menu i tytule | `palette.json` `namePl`, `plates/*.ts` | jedna nazwa szkolna |
+| S7 (W3) | legenda strzałek pod opisem, daleko od obrazu | `AtlasApp.tsx` „Legenda strzałek” | „Jak czytać” w rogu sceny |
+| S8 (W8) | skróty „t.”, „ż.”, „m.” w Podstawowym | `plates/*.ts` `namePl` | pełne słowa w Podstawowym |
+| S9 | 3D: pulsowanie `sin(uTime*3.9)` bez zmiennej | `src/atlas3d/engine.ts` | puls tylko na strukturze z bieżącego zdania |
+| S10 | 3D: przełączniki i w pasku 3D, i w panelu | `przed/02` | jedno sterowanie |
+| S11 | tło płaskie w 2D | `przed/01` | gradient studia + podest |
+| S12 | skala nieznana | `przed/06` | chip skali z `camera.orthoScale` |
+| S13 | kontrast przycisku sprintu na jasnych barwach (pokarmowy, powłokowy) | `palette.json` `onColor` | pomiar 4,5:1, ewentualna zmiana |
 
-| # | Problem | Plik / zrzut | Poprawka | Kto | h |
-|---|---|---|---|---|---|
-| S1 | Panel zaczyna się od przypisu o protokole i definicji VO₂max (ten sam tekst na każdej planszy) | `przed/04`; `AtlasApp.tsx` (sekcja `protocolNote` i `glossary`) | przenieść do rozwijanego „ⓘ Co znaczy »sprint«” pod przełącznikiem momentu | integrator | 1 |
-| S2 | **Teksty robocze na ekranie ucznia:** „„Sprint” ma na tej planszy własne znaczenie; jego opis czeka na sprawdzenie.” (hormonalny, pokarmowy, powłokowy) i „N liczb czeka na sprawdzenie źródła…” | `przed/01`, `przed/04`; `AtlasApp.tsx:282`, `AtlasApp.tsx:558–561`, `AtlasPlate.tsx:38/377` | w poziomie Uczeń nic nie pokazywać zamiast faktu niesprawdzonego; komunikaty o statusie tylko w Rozszerzonym, w „Więcej” | integrator | 1 |
-| S3 | Telefon: pierwszy ekran nie mówi, co to za układ; pasek 12 układów ucięty („Mię…”) bez wskazówki | `przed/03` | tytuł planszy (1 linia) nad obrazem; na pasku cień i strzałka „›” na krawędzi albo przycisk „12 układów ▾” | integrator | 2 |
-| S4 | Dwa identyczne przełączniki jeden pod drugim (moment i poziom) | `przed/04` | poziom jako mały przełącznik „Uczeń / Rozszerzony” w nagłówku; moment zostaje duży, w kolorze układu | integrator | 1 |
-| S5 | „Sprint” znaczy na planszach różne rzeczy (koniec 45 s pracy, koniec treningu, krok biegu, „po”) | `przed/04`; dane planszy | pole `momentLabelPl` i etykieta wprost na przycisku („Koniec 45 s pracy”, „Po treningu”, „Krok biegu”) | integrator 1 h + treść 1 h | 2 |
-| S6 | Nazwy w menu i tytule się różnią („Moczowy” / „Układ moczowy (wydalniczy)”, „Powłokowy” / „Skóra (układ powłokowy)”) | `przed/01`; `palette.json` `namePl`, `plates/*.ts` `titlePl` | jedna nazwa szkolna w obu miejscach, zgodna z podstawą (cytat w `curriculumRef`) | integrator + treść | 1 |
-| S7 | Legendy strzałek nie widać przy obrazie (jest pod opisem) | `przed/01`; `AtlasApp.tsx` sekcja „Legenda strzałek” | „Jak czytać” w lewym dolnym rogu sceny (ta sama treść, inne miejsce) | integrator | 2 |
-| S8 | Skróty w Podstawowym: „t.”, „ż.”, „m.” w nazwach podpisów | `przed/01`; `plates/*.ts` `namePl` (nazwy to nie fakty, bez bramki) | pełne słowa w poziomie Uczeń, skrót tylko w Rozszerzonym | treść | 2 |
-| S9 | 3D: pulsowanie emisji `sin(uTime*3.9)` nie koduje żadnej zmiennej | `przed/02`; `src/atlas3d/engine.ts` (łatka `color_fragment`) | puls tylko na strukturze z bieżącego zdania, w zbliżeniu; przy `reduced-motion` brak | Wizualizator | 0,5 |
-| S10 | 3D: przełączniki momentu i poziomu są i w pasku 3D, i w panelu (dwa źródła sterowania) | `przed/02` | jedno sterowanie: pasek 3D znika, panel steruje obydwoma widokami | Wizualizator + integrator | 2 |
-| S11 | Tło płaskie, ciało „na kartce” | `przed/01` | gradient studia `#13203A → #070B14` i miękki podest (już w 3D, brakuje w 2D) | integrator | 1 |
-| S12 | Skala nieznana; tytuł widoku pod obrazem jest mało widoczny | `przed/06` | chip skali w lewym górnym rogu sceny, liczony z `camera.orthoScale` w `anchors.json` | integrator | 2 |
-| S13 | Kontrast tekstu na jasnych przyciskach sprintu (pokarmowy, powłokowy) niezmierzony | `przed/01`; `palette.json` `onColor` | pomiar 4,5:1 skryptem, ewentualna zmiana `onColor` | integrator | 0,5 |
+### 2.2 Przebudowy
 
-**Razem S1–S13: ok. 18 h.** Wszystkie poza S9 i S10 to pliki integratora, a S9 i S10 to pliki Wizualizatora.
-
-### 2.3 Przebudowy (> 2 h)
-
-| # | Problem | Plik / zrzut | Poprawka | Kto | h | Czeka na gabloty? |
-|---|---|---|---|---|---|---|
-| P1 | **Brak celu lekcji i hierarchii**: nigdzie nie pada pytanie; opis ma 8–15 linii; wszystkie liczby mają tę samą wagę | `przed/01`, `przed/04` | panel w stałej kolejności: pytanie planszy → **liczba-bohater** → miara wyróżnika → opis ≤ 3 zdania → Sprawdź się → „Więcej”; nowe pola `lessonGoalPl`, `questionPl`, `heroMetricId`, `curriculumRef` | integrator 6 + treść 8 + sprawdzenie 4 | **18** | nie |
-| P2 | **Podpisy bez funkcji w poziomie Uczeń.** Opisy ról bez statusu `checked_agent` są w Podstawowym ukryte, więc zostaje sama nazwa: mózg 21 opisów, mięśniowy 19, nerwowy 14, oddechowy 8, powłokowy 4 (liczone w `facts/*.json`, oba stany) | `przed/01` (mózg: „Kora ruchowa”, „Móżdżek” bez opisu) | doprowadzić opisy ról do `checked_agent`, zaczynając od podpisów `primary`, albo zastąpić je opisem z podręcznika z cytatem | agent faktów (osobna sesja) | **10–12** | nie |
-| P3 | **Skala skacze bez lokalizatora**: 5 plansz to zbliżenia narządów, 7 to całe ciało | `przed/06` | lokalizator: mini-sylwetka (wypieczony obrazek 2D, Z-Anatomy BY-SA osobnym plikiem) z prostokątem kadru z `camera`; ten sam element w gablotach narządów | integrator 3 + render 1 | **4** | nie (gabloty go dziedziczą) |
-| P4 | **Strzałek w 3D nie widać**: rury z `flows3d` istnieją (`makeFlow`, `engine.ts:248`), ale mają ok. 9 mm średnicy, czyli ok. 2 px w ujęciu całego ciała, nie ruszają się, a grot ginie | `przed/05` | przesuwany wzór w shaderze (kierunek), grubość wg wyróżnika ROZDZIAŁ, w Rozszerzonym 3 stopnie | Wizualizator | **3** | nie |
-| P5 | **Brak „Co się zmieniło”**: spoczynek i sprint różnią się nasyceniem całego obrazu | `przed/01` | 2D: obraz sprintu przygaszony do 35%, pełny kolor w obrysach kotwic z największą zmianą (reguła nad faktami); 3D: tekstura stanu (tanie) | integrator 5 + Wizualizator 2 | **7** | nie |
-| P6 | **Brak sprawdzenia wiedzy** przy priorytecie „nauka” | — | „Sprawdź się”: 1 pytanie ↑/↓ albo „wskaż…” na planszę, z odpowiedzią z faktu planszy; bez zapisu wyników (pytanie 2 do użytkownika) | integrator 4 + treść 3 | **7** | nie |
-| P7 | **Brak wyróżnika układu** (prośba użytkownika) | `po/klatka_*.jpg` | §3: nakładki 2D (pilot 4 układy, potem 8) i 3D | agenci układów + Wizualizator | **50–60** | nie |
-| P8 | Pierwsze otwarcie 3D bywa wolne (limfatyczny > 7 s w przebiegu headless, przy dłuższym oczekiwaniu działa) | `ux2/` (scratchpad) | zmierzyć w zwykłym Chrome; jeśli > 3 s, pasek postępu z rozmiarem pliku | Wizualizator | **2** | nie |
+| # | Problem | Dowód | Poprawka | Kamień |
+|---|---|---|---|---|
+| P1 | brak celu lekcji i hierarchii; opis 8–15 linii; liczby równoważne | `przed/01`, `przed/04` | panel: pytanie → liczba-bohater → miara wyróżnika → opis ≤ 3 zdania → Sprawdź się → Więcej; pola `lessonGoalPl`, `questionPl`, `heroMetricId`, `curriculumRef` | M3 (pola, treść) + M6 (rama) |
+| P2 | **podpisy bez funkcji w Podstawowym**: opisy ról bez `checked_agent` są ukryte, zostaje sama nazwa. Mózg 21, mięśniowy 19, nerwowy 14, oddechowy 8, powłokowy 4 (oba stany, z `facts/*.json`) | `przed/01` (mózg: „Kora ruchowa”, „Móżdżek” bez opisu) | doprowadzić opisy ról do `checked_agent`, najpierw `primary` | równolegle z M2 (pytanie 2 Dyrygenta: wznowić fakty) |
+| P3 | skala skacze bez lokalizatora | `przed/06` | lokalizator: wypieczona mini-sylwetka z prostokątem kadru (BY-SA osobnym plikiem); ten sam w gablotach | M6 |
+| P4 | **płaskie strzałki i linie przepływu** (2D: przerywane kreski; 3D: nieruchome rury ok. 9 mm, ok. 2 px w ujęciu całego ciała) nie mają jakości filmu i słabo pokazują kierunek | `przed/05`, `przed/01` | **cząstki 3D** według §3.3 (krwinki, krople, komórki, powietrze, impuls); tory `flows3d` jako dane torów; strzałka tylko w legendzie | M6 (pilot), M7 (reszta) |
+| P5 | brak „Co się zmieniło” | `przed/01` | 3D: tekstura stanu; 2D: przygaszenie + pełny kolor w obrysach kotwic z największą zmianą | M6 |
+| P6 | brak sprawdzenia wiedzy | — | „Sprawdź się”: 1 pytanie ↑/↓ albo „wskaż…” | M6 (atlas), M5 (gablota serca) |
+| P7 | brak wyróżnika układu | `ux/po/klatka_*.jpg` | §3.3 jako animacje 3D | M6 / M7 |
+| P8 | pierwsze otwarcie 3D bywa wolne (limfatyczny > 7 s headless) | — | pomiar w zwykłym Chrome, pasek postępu, jeśli > 3 s | M4 |
 
 ---
 
-## 3. Karta stylu 12 układów
+## 3. Karta stylu: atlas, gabloty i film
 
-### 3.1 Wspólna rama (2D, 3D, gabloty narządów)
+### 3.1 Wspólna rama (atlas 2D, atlas 3D, gabloty)
 
-1. **Nagłówek:** „Atlas › grupa › układ (› narząd)”, cel lekcji jednym zdaniem, mały przełącznik „Uczeń | Rozszerzony”.
-2. **Scena-studio:** gradient, podest, chip skali; w zbliżeniach **lokalizator**.
-3. **Przełącznik momentu pod sceną:** `Spoczynek | <nazwany moment> | Co się zmieniło`, w kolorze układu, w tym samym miejscu w 2D, 3D i gablotach.
-4. **„Jak czytać”** w lewym dolnym rogu sceny: 2–3 symbole wyróżnika z opisem.
-5. **Panel w stałej kolejności:** pytanie → liczba-bohater → miara wyróżnika → opis ≤ 3 zdania → Sprawdź się → „▸ Więcej liczb i źródła · ▸ Co znaczy sprint · ▸ Zobacz w filmie”.
+1. **Nagłówek:** „Atlas › grupa › układ (› narząd)”, cel lekcji jednym zdaniem, mały przełącznik „Podstawowy | Rozszerzony”, w gablotach zakładki trybów (Zwiedzaj, Jak to działa, Sprawdź się).
+2. **Scena-studio:** gradient, podest, chip skali, lokalizator; chip „powiększone” przy cząstkach w skali umownej.
+3. **Przełącznik momentu pod sceną:** `Spoczynek | <nazwany moment> | Co się zmieniło`, w kolorze układu.
+4. **„Jak czytać”** w lewym dolnym rogu: legenda wyróżnika (tu, i tylko tu, są strzałki i kreski).
+5. **Panel:** pytanie → liczba-bohater → miara wyróżnika → opis ≤ 3 zdania → Sprawdź się → Więcej.
 6. **Podpis:**
    - nazwa: Figtree 600, 16 px;
    - opis: 14 px;
    - łacina: 14 px kursywą, tylko w Rozszerzonym;
    - liczby: JetBrains Mono;
-   - tło `#0D1526` z kryciem ok. 85%, kontrast ≥ 4,5:1; linia odnośnika 1 px w `light` układu; kropka na strukturze.
-7. **Podświetlenie:** wybrana struktura w pełnym kolorze z obrysem 2 px w `light`, reszta przygaszona do **35%** (ta sama liczba co `restMix` w `palette.json`). Bez emisji i bez pulsu dla ozdoby.
+   - tło `#0D1526` z kryciem ok. 85%, kontrast ≥ 4,5:1.
+7. **Podświetlenie:** wybrana struktura w pełnym kolorze z obrysem 2 px w `light`, reszta 35% (`restMix`).
 8. **Ruch i tempo:**
 
    | Element | Parametr |
    |---|---|
    | zmiana stanu | 0,9 s, ease-in-out |
    | kamera po szynie | 1,2 s |
-   | krok filmu lub przewodnika | co najmniej max(4 s; 0,3 s na słowo podpisu + 1,5 s), pauza ręczna |
-   | nowe ruchy | najwyżej 1 nowy ruch na krok i 3 ruchy naraz |
-   | okres pętli przepływu | 2,6 / 1,6 / 1,0 s dla stopni 1 / 2 / 3 |
+   | krok filmu | co najmniej max(4 s; 0,3 s na słowo + 1,5 s), pauza ręczna |
+   | nowe ruchy | 1 nowy ruch na krok, najwyżej 3 naraz |
+   | okres pętli cząstek | 2,6 / 1,6 / 1,0 s dla stopni 1 / 2 / 3 |
    | `prefers-reduced-motion` | stopklatki |
 
-9. **Telefon:** tytuł i pytanie nad obrazem, przełącznik momentu u dołu, pod obrazem kolejno liczba-bohater, pinezki i Sprawdź się.
+### 3.2 Wspólna gramatyka obrazu (po sporze 2)
 
-### 3.2 Wspólna gramatyka obrazu (ustalona z Wizualizatorem)
+| Rodzaj | Materiał | Przykłady |
+|---|---|---|
+| **model z danych** | realistyczny mat (SSS, światło studia) | narządy, kości, naczynia z Z-Anatomy, HuBMAP i BodyParts3D |
+| **schemat lub ilustracja** | **bryła 3D w jednolitym, matowym materiale bez tekstury** + chip „schemat, bez skali” albo „ilustracja” | nefron, zrazik, układ bodźcoprzewodzący, skrzyżowanie piramid, miernik objętości |
+| **cząstka w skali umownej** | ten sam materiał co model, z chipem „powiększone” | krwinka, kropla hormonu, komórka NK, cząstka powietrza |
+| **sygnał** | jasny rdzeń (biel) + halo w barwie układu | impuls nerwowy, struktura z bieżącego zdania |
+| **legenda** | kreska, strzałka, symbol | tylko „Jak czytać” |
 
-- **Cieniowane** (matowe, światło studia) to **prawdziwy kształt z modelu** (Z-Anatomy, HuBMAP, BodyParts3D).
-- **Kreska** (linie 2 px w `light` układu, bez cieniowania, chip „SCHEMAT · bez skali” albo „ILUSTRACJA”) to **schemat albo ilustracja**. Należą do niej:
-  - nefron, zrazik wątroby, neuron (gabloty);
-  - linie konstrukcji kostnej;
-  - izolinie ciepła;
-  - miernik oddechu;
-  - tory impulsu.
-- Uczeń od razu widzi, co jest modelem, a co rysunkiem. AI nie tworzy kształtów anatomicznych, a schematy to jawnie rysunki.
+### 3.3 Wyróżniki 12 układów jako animacje 3D
 
-### 3.3 Wyróżnik: znak + jeden ruch + jedna miara
+Dla każdego: **co się rusza i z jakiej zmiennej** (test zmiennej), **wersja uproszczona** (`QualityManager` Low, Intel UHD ≥ 50 FPS, ≤ 1 ms GPU na wyróżnik, bez półprzezroczystych nakładek) i **akt filmu** (mapa z decyzji Dyrygenta v2 §3, uzgodniona z Wizualizatorem).
+Barwy wyłącznie z `palette.json`. Wielkości ruchu wyłącznie z faktów `checked_agent`, a bez faktu: 3 stopnie z chipem „ilustracja”.
 
-Barwy wyłącznie z tokenów `palette.json`: `color`, `light`, `onColor`, kolory kontekstu, `artery` i `vein`.
-Biel kreski (`#E9EEF7`) i ewentualne nowe barwy dodaje tylko integrator jako token, z walidatorem ΔE (`check:atlas`, ΔE ≥ 15 dla par pokazywanych razem).
+| Układ | Wyróżnik | Co się rusza (pełny poziom) | Zmienna | Wersja uproszczona (UHD) | Akt filmu |
+|---|---|---|---|---|---|
+| Mózg | **OBSZAR** | obszar kory zapala się (emisja `brain` w strukturze z ID), potem fala aktywacji schodzi drogą ruchową do pnia i przechodzi w IMPULS | która struktura działa w bieżącym kroku (graf przyczyn) | zapalenie z tekstury stanu, bez fali | 2 (decyzja ruchu), 8 (gablota mózgu) |
+| Nerwowy | **IMPULS** | jasny pakiet (rdzeń biały, halo `nerve`) biegnie po nerwie mózg → rdzeń → nerw → mięsień; w sprincie seria pakietów częściej | kolejność; częstość serii w 3 stopniach (ilustracja, brak liczby) | 1 pakiet naraz, bez halo (emisja na odcinku rury) | 2 |
+| Hormonalny | **NADAWCA → ODBIORCA** | krople hormonu (instancje, `endo`) wypływają z nadnercza do żyły, płyną z krwinkami i docierają do serca i wątroby, które zmieniają stan | opóźnienie: sekundy vs minuty (`tSecFromBoutStart` z faktów) | ≤ 100 kropli, bez krwinek tła | 2 (ujęcie 3: nadnercza), 7, 8 |
+| Mięśniowy | **PRACA** | brzusiec mięśnia odkształca się w rytmie kroku (cele morph, ruch poglądowy); w zbliżeniu udo → włókna zapalają się kolejno I → IIa → IIx | rekrutacja typów włókien (fakty planszy) | tylko zapalanie włókien w przekroju, bez odkształcenia | 4, 1 (ujęcie 5: najazd na udo) |
+| Kostny | **KONSTRUKCJA** | „fala obciążenia” biegnie w górę kości: stopa → piszczel → udowa → miednica (rozjaśnienie przesuwa się po kościach) w rytmie kroku; licznik „× masa ciała” | szczyt nacisku podłoża ok. 2,5–2,7 × masa ciała (`checked_agent`) | rozjaśnienie per kość z tekstury stanu, kolejno 4 kości | 1 (ujęcie 2: krok na bieżni), 12 |
+| Oddechowy | **OBJĘTOŚĆ** | cząstki powietrza (`resp`) płyną tchawicą do oskrzeli w rytmie oddechu; w pęcherzyku (schemat-bryła) O₂ przechodzi do naczynia, a CO₂ w drugą stronę; miernik objętości; ruch płuc tylko po fakcie i z chipem „ruch poglądowy” | częstość i objętość oddechu (fakty planszy) | ≤ 300 cząstek, bez wymiany w pęcherzyku | 3 (ujęcie 3: pęcherzyki) |
+| Krwionośny | **ROZDZIAŁ** | krwinki 3D w naczyniach (klatka b): gęstość × prędkość ∝ przepływ, prędkość z przekroju; w zbliżeniu półprzezroczysta ściana | udział rzutu serca do mięśni (fakty planszy) | ok. 500 krwinek, ściana nieprzezroczysta, krwinki na zewnątrz osi naczynia jako „strumień” | 3 (tunel), 6 |
+| Pokarmowy | **MAGAZYN** | w wątrobie granulki glikogenu (instancje, `digest`) maleją, a krople glukozy wypływają żyłami wątrobowymi do krwi; w naczyniach jelit mniej krwinek w sprincie | kierunek (wątroba oddaje glukozę); zapas w 3 stopniach (ilustracja) | ≤ 150 kropli, granulki statyczne | 5, 11 (cykl Cori) |
+| Powłokowy | **CIEPŁO** | ciepła poświata podpowierzchniowa skóry narasta (emisja `skin` w 3 stopniach); krople potu (nieprzezroczyste instancje) pojawiają się na czole i plecach; więcej krwinek w żyłach powierzchownych po pracy | przepływ skórny: najpierw ↓, potem ↑ (`checked_agent`) | tylko barwa i emisja skóry, bez kropli | 6 |
+| Moczowy | **FILTR** | w gablocie nerki krwinki wpływają tętnicą nerkową; w nefronie (schemat-bryła) cząstki osocza przechodzą przez kłębuszek do kanalika, a krwinki zostają; w sprincie wpływa mniej krwinek | przepływ nerkowy ↓ (fakt planszy) | mniej cząstek, nefron bez cząstek osocza | 6, 11 |
+| Limfatyczny | **PATROL** | komórki NK (instancje z jądrem, `lymph`) odrywają się od ścian naczyń i ze śledziony i wchodzą do strumienia krwi; licznik ×N; po wysiłku część wraca, z chipem „naukowcy się spierają” | liczba komórek NK we krwi (fakt planszy, `contested_debate` po wysiłku) | ≤ 100 komórek | 7 |
+| Rozrodczy | **DŁUGI CZAS** | brak animacji sprintu (karta); oś tygodni w legendzie; ewentualnie krótkotrwały wzrost hormonu jako krople, jeśli fakt planszy to uzasadnia | tygodnie, nie sekundy | to samo | 12 |
 
-| Układ | Wyróżnik | Znak | Ruch | Miara (panel) | Tokeny | Idea z liceum |
-|---|---|---|---|---|---|---|
-| Mózg | **OBSZAR** | strefy z obrysem, jedna w pełnym kolorze | zapalenie strefy przy podpisie | która część za co odpowiada | `brain` | części mózgu i funkcje |
-| Nerwowy | **IMPULS** | świecący punkt na torze, etapy 1–4 (kreska) | punkt biegnie mózg → rdzeń → nerw → mięsień | kolejność, nie prędkość | `nerve` | droga ruchowa, współczulny |
-| Hormonalny | **NADAWCA → ODBIORCA** | gruczoł, krople w naczyniu, narząd docelowy | krople płyną krwią do celu | opóźnienie: sekundy vs minuty | `endo`, `artery` | gruczoł, hormon, cel |
-| Mięśniowy | **PRACA** | pasek rekrutacji I → IIa → IIx; strzałka ciągnięcia | wypełnienie paska przy zmianie momentu | ile włókien pracuje | `muscle` | antagonizm, włókna |
-| Kostny | **KONSTRUKCJA** | rysunek techniczny: strzałka nacisku, osie stawów, wymiar (kreska, biel) | jedno „uderzenie” strzałki przy kroku | × masa ciała | `bone`, biel kreski | dźwignia, staw, przebudowa |
-| Oddechowy | **OBJĘTOŚĆ** | miernik obok płuc; fala powietrza w tchawicy | fala wdechu i wydechu w tempie z faktu | litry na oddech, oddechy na minutę | `resp` | wentylacja, wymiana gazowa |
-| Krwionośny | **ROZDZIAŁ** | grube i cienkie strzałki; pasek „gdzie idzie krew” | strzałki płyną; grubość = udział krwi | % krwi do mięśni | `artery`, `vein` | krążenie, rozdział krwi |
-| Pokarmowy | **MAGAZYN** | wątroba jako zbiornik z poziomem; jelita przygaszone | strzałka glukozy z wątroby do krwi | poziom zapasu (3 stopnie, ilustracja) | `digest`, `artery` | glikogen, wątroba |
-| Powłokowy | **CIEPŁO** | izolinie i strzałki ciepła; krople potu (kreska) | strzałki ciepła wychodzą ze skóry | kierunek przepływu skórnego ↓/↑ | `skin` (`light`) | termoregulacja |
-| Moczowy | **FILTR** | nerka jako filtr: krew wchodzi, mocz wychodzi | przepływ przez filtr zwalnia w sprincie | przepływ nerkowy ↓ | `urinary`, `artery` | nefron, filtracja |
-| Limfatyczny | **PATROL** | węzły jako punkty kontrolne; kropki-komórki | kropki przechodzą z węzłów do krwi | ×N komórek NK we krwi | `lymph` | odporność, limfa |
-| Rozrodczy | **DŁUGI CZAS** | oś tygodni zamiast sprintu; „brak widocznej zmiany” | brak (karta) | tygodnie, nie sekundy | `repro` | budowa, hormony w czasie |
+Strażnicy czytelności (bez zmian):
+- jeden wyróżnik na planszę;
+- ruch tylko z powodu;
+- kolor nigdy jedynym nośnikiem (kształt cząstki, chip, licznik);
+- cząstki nie zasłaniają kotwic podpisów;
+- `prefers-reduced-motion` zamienia ruch na stopklatki.
 
-Strażnicy czytelności:
-- **jeden wyróżnik na planszę**;
-- **ruch tylko z powodu** (zmiana momentu, żądanie albo pętla przepływu);
-- **kolor nigdy nie jest jedynym nośnikiem**: grubość, kształt kropli, numer etapu, izolinia przerywana;
-- **nakładka nie zasłania kotwic podpisów** (sprawdza to kontrola wizualna kotwic);
-- **liczby i wielkości tylko z faktów `checked_agent`**, a gdy faktu brak, 3 stopnie jakościowe z dopiskiem „ilustracja”;
-- brakujące kotwice (osie stawów, objętość) dopisuje agent układu w swoich plikach.
+### 3.4 Rdzeń dla gablot narządów (uzgodniony z Wizualizatorem)
 
-### 3.4 Rdzeń dla gablot narządów (wysłany Wizualizatorowi 2026-11-26)
-
-| Gablota | Znak układu | Barwy części narządu | Uwaga do klatek koncepcyjnych Wizualizatora (`bd9650c`) |
+| Gablota | Znak układu | Barwy części | Poprawka do klatek Wizualizatora (`bd9650c`) |
 |---|---|---|---|
-| Serce | ROZDZIAŁ / przepływ | `artery`, `vein` (oba już w palecie); mięsień jako odcień `artery` | zgodne |
-| Nerka | FILTR | miąższ w odcieniach `urinary` (`#276777`, ciemny morski), naczynia `artery` i `vein` | klatka jest w czerwieniach i kremie: do zmiany |
-| Wątroba | MAGAZYN | odcienie `digest`; segmenty z **numerem 1–8**; żyła wrotna `vein` | klatka w żółciach, wrotna fioletowa (fiolet = mózg), drogi żółciowe zielone (zieleń = limfatyczny): do zmiany |
-| Mózg | OBSZAR + IMPULS | płaty w odcieniach `brain` (fiolet), drogi w `nerve` | zgodne |
+| Serce | ROZDZIAŁ, przepływ | `artery`, `vein`; mięsień jako ciemny odcień `artery` (klatka a) | zgodne |
+| Nerka | FILTR | odcienie `urinary` (`#276777`), naczynia `artery` i `vein` | dziś w czerwieniach i kremie: do zmiany |
+| Wątroba | MAGAZYN | odcienie `digest` (`#B4B474`), segmenty z numerem 1–8, żyła wrotna `vein` | dziś żółcie, wrotna fioletowa, drogi żółciowe zielone: do zmiany |
+| Mózg | OBSZAR + IMPULS | `brain` (fiolet), drogi w `nerve` | zgodne |
 
 Przekrój:
-- powierzchnia cięcia w `light` układu, obrys 1,5 px;
-- bez rozsuwania „eksplodującego”;
-- serce: otwarcie przedniej ściany komór.
+- powierzchnia cięcia w `light` układu;
+- bez rozsuwania;
+- w sercu otwarcie przedniej ściany komór. Klatka (a) pokazuje cięcie przez kolorowanie tylnych ścianek, bez booleanów; pytanie do Wizualizatora, czy to wystarczy zamiast stencila.
 
-Wejście do gabloty: z planszy („Gablota: serce ›” przy podpisie i klik w narząd w 3D) oraz z piątej grupy menu „Narządy”.
-
----
-
-## 4. Wydajność (≥ 50 FPS na Intel UHD przy 1440×900)
-
-Stan wyjściowy (pomiar E3-K3):
-- wszystkie 12 układów ≥ 50 FPS;
-- **moczowy na granicy (50)**, oddechowy 56, krwionośny 60.
-
-Wizualizator potwierdził (wymiana 1), że każdy element karty mieści się w budżecie:
-
-| Element | Technika (decyzja Wizualizatora) | Koszt |
-|---|---|---|
-| strzałki przepływu z kierunkiem | istniejące rury `makeFlow` + przesuwany wzór UV w shaderze | 1 wywołanie na układ, < 0,5 ms |
-| impuls, krople hormonu, kropki NK | `InstancedMesh`, pozycja z toru w shaderze | 1 wywołanie (nawet przy 4 tys.) |
-| konstrukcja kostna | grube linie w 3D (1 wywołanie na rodzaj) + teksty wymiarów jako nakładka HTML (rzut punktu) | kilka wywołań |
-| izolinie ciepła | pasma w shaderze albo 3 linie | pomijalny |
-| miernik oddechu | HTML obok modelu; ruch płuc tylko po fakcie `checked_agent` i z podpisem „ruch poglądowy” | 0 |
-| lokalizator | wypieczony obraz 2D | 0 GPU |
-| usunięcie `sin(uTime)` | — | mniej pracy |
-| gabloty narządów | ≤ 400 tys. trójkątów, ≤ 40 wywołań, przekrój przez stencil (2 przebiegi) | budżet Wizualizatora |
-
-Reguły do kontraktu 3D:
-1. **Każdy wyróżnik w 3D najwyżej 1 ms GPU na UHD przy 1440×900.** Pomiar jak w E3-K3, dla 12 układów, w obu stanach, z włączonym wyróżnikiem.
-2. **Spadek poniżej 50 FPS** oznacza, że wyróżnik przechodzi na nakładkę 2D rzutowaną z `anchors3d`. Animację, która nie mieści się w budżecie, wypieka się do filmu (rozstrzygnięcie Dyrygenta, pkt 2).
-3. **Bez półprzezroczystych nakładek pełnoekranowych, bez postprocesu i bez bloomu.**
+Wejście do gabloty: diegetyczne (klatka c), z menu „Narządy” najwyżej jako dodatek (§7 (g)).
 
 ---
+
+## 4. Wydajność
+
+- **Poziomy jakości z filmu** (`QualityManager`: Low, High, Cinematic). Low = wersja uproszczona z §3.3, ≥ 50 FPS na Intel UHD przy 1440×900.
+- **Kontrakt na poziomie Low** (przyjęty przez Dyrygenta):
+  - ≤ 1 ms GPU na wyróżnik w widoku układów;
+  - zakaz półprzezroczystych nakładek pełnoekranowych;
+  - automatyczny powrót do nakładki 2D, gdy FPS < 50;
+  - usunięcie `sin(uTime)`.
+- Cząstki: `InstancedMesh`, pozycja z toru w shaderze, 1 wywołanie rysowania na rodzaj. Wizualizator: ≤ 4 tys. cząstek to pomijalny koszt.
+- **Dwa koszty do zmierzenia w M2 i M6:**
+  1. półprzezroczysta ściana naczynia w zbliżeniu (dithering);
+  2. ok. 1000 krwinek w gablocie serca z przekrojem.
+- Jeśli krok nie mieści się nawet w Low, wypieka się go do filmu z Blendera (rozstrzygnięcie Dyrygenta, pkt 2).
 
 ## 5. Licencje
 
-- **Bez nowych zasobów zewnętrznych.** Wszystko w tym planie powstaje z danych, które już są w repo:
-  - rendery Z-Anatomy (CC BY-SA 4.0) i HuBMAP (CC BY 4.0);
-  - `anchors3d`, `flows3d`;
-  - fakty;
-  - własny kod i własne rysunki: kreska, ikony, nakładki SVG.
-- **Utwory zależne:** lokalizator z sylwetki Z-Anatomy to BY-SA; narząd HuBMAP na lokalizatorze to osobny plik BY. Pliki BY-SA i BY nie są scalane (model §2, pkt 8).
-- **NC wykluczone:** nerka i ucho wewnętrzne Z-Anatomy zostają zablokowane (`NC_BLOCKLIST`); nerka w gablocie tylko z HuBMAP (rozstrzygnięcie Dyrygenta, pkt 6).
-- **Czcionki:** Figtree i JetBrains Mono na licencji SIL OFL 1.1 (bez zmian; licencja zgodna z użyciem w aplikacji).
-- **Schematy mikroskopowe** (nefron, zrazik) to własna geometria kreskowa. Bez Sketchfab, chyba że autor i licencja dają się zweryfikować.
-- **Dźwięk** (jeśli w przewodniku) to własna synteza WebAudio. Bez lektora z głosów o niejasnej licencji.
+- Klatki docelowe: Z-Anatomy (CC BY-SA 4.0) i HuBMAP (CC BY 4.0), w osobnych plikach GLB, jak w atlasie 3D. Kadry filmu z `docs/screenshots/after`.
+- Nowe zasoby zewnętrzne: brak. Krwinka i schematy to własna geometria: profil z publikacji to wzór matematyczny, nie plik.
+- Film po wpięciu elementów z Z-Anatomy staje się w tych częściach utworem zależnym BY-SA (rozstrzygnięcie Dyrygenta, pkt 3). Stopka filmu i `docs/LICENSES_AND_ASSETS.md` do uzupełnienia przy M7.
+- Zero NC: nerka tylko z HuBMAP.
+- Czcionki na SIL OFL 1.1, bez zmian.
 
 ---
 
-## 6. Czas i kolejność
+## 6. Kamienie milowe (numeracja z decyzji Dyrygenta v2)
 
-| Etap | Pozycje | Kto | Godziny | Czeka na gabloty? | Czeka na |
-|---|---|---|---|---|---|
-| **U0** szybkie poprawki | S1–S13 | integrator (S9–S10: Wizualizator) | **18** | nie | nic; może ruszyć od razu |
-| **U0-fakty** | P2: opisy ról do `checked_agent` (najpierw `primary`: mózg, mięśniowy, nerwowy) | agent faktów | **10–12** | nie | równolegle z U0 |
-| **U1** rama | P1 (pytanie, cel, bohater, `curriculumRef`), P3 lokalizator, P5 „Co się zmieniło”, P6 Sprawdź się | integrator + treść + sprawdzenie | **36** | nie (gabloty ją dziedziczą) | U0 |
-| **U2a** pilot wyróżników 2D | krwionośny, kostny, nerwowy, powłokowy (skrajnie różne) | 1–2 agentów układów (`src/atlas/signatures/<uklad>.tsx`, nowe) | **12** | nie | interfejs `signature` z U1 |
-| audyt | „test zmiennej” + test zrozumienia na zrzutach | Dyrygent | — | — | U2a |
-| **U2b** pozostałe 8 | jak U2a | 2–3 agentów wg grup ról | **20** | nie | audyt |
-| **U3** 3D | P4 (strzałki z kierunkiem), wyróżniki 3D, P5 w 3D, P8, wspólne sterowanie | Wizualizator | **18–22** + pomiary **4** | nie (równolegle do gablot, ten sam kod ramy) | U2a (znaczenie ustala 2D) |
-| **U4** test | 2–3 licealistów, „pomyśl na głos”, 5 min na osobę; poprawki | użytkownik + agent UX | **4–6** | nie | U1 i U2a wystarczą do pierwszego testu |
+Każdy kamień kończy się **wynikiem do obejrzenia**. Godziny są tylko przy M1 (wynik) i M2 (szacunek Wizualizatora), bo po nich Dyrygent przelicza resztę (M2′).
 
-**Razem: ok. 125–140 godzin pracy agentów**, z czego U0 i U0-fakty (ok. 30 h) dają największy zysk dla ucznia przy najmniejszym ryzyku.
-Wersja 1 tego planu podawała 80–110 h. Wzrost wynika z doliczenia P2 (opisy ról), P5, P6 i sprawdzenia nowych zdań.
-Przy 3–4 sesjach równolegle to ok. 4–5 dni. Koszt pieniężny: 0 zł.
+| Kamień | Wynik do obejrzenia | Udział Reżysera | Niepewność |
+|---|---|---|---|
+| **M1 Poprzeczka** | **gotowe:** 4 klatki w `klatki_docelowe/` z opisem „co widać i czego uczy” (§A) | całość | — |
+| **M2 Test serca** (Wizualizator, `prototypes/**`) | nagranie lub seria zrzutów: krwinki przez jamy, zastawki A (B, jeśli tanie), skurcz z kształtów filmu; FPS UHD dla Low i High; porównanie z klatką (a) | ocena zgodności z klatką (a) według „test zmiennej” i §3.2 | **duża:** gęstość krwinek a FPS, przekrój stencilem lub tylnymi ściankami, kształty skurczu z filmu a HuBMAP |
+| **M2′ Przeliczenie** (Dyrygent) | tabela szacunek a rzeczywistość | dane z M1 (wyżej) | — |
+| **BRAMKA A** | użytkownik ogląda M1 i M2 | — | — |
+| **M3 Czytelność** (integrator, treść, sprawdzający) | 24 zrzuty przed i po: S1–S13 + pola P1 | lista S1–S13 (§2.1), odbiór zrzutów | **mała**: zmiany w znanych plikach; ryzyko tylko w nowych zdaniach (bramka faktów) |
+| **M4 Wspólny moduł** (`src/biomotion`, Wizualizator + integrator) | akt 3 filmu bez regresji na module (nagranie przed i po, FPS) | wspólne parametry ruchu i materiału z §3.1–3.2 jako stałe modułu | **duża:** sprzężenia w filmie (`liveSimulationRef`, cykl ShotChoreography ↔ scenes, jeden `useFrame`) |
+| **M5 Serce wzorcowe** | nagranie: widok krwionośny 3D → klik w serce → wjazd (klatka c) → gablota → film cyklu; FPS | scenariusz kroków filmu gabloty (1 nowy ruch na krok), audyt zgodności z klatkami (a) i (c) | **średnio-duża:** podmiana modelu przy wjeździe, treść Podstawowa wymaga faktów |
+| **M6 Rama i pilot wyróżników** | rama (lokalizator, chip, Jak czytać, Co się zmieniło, Sprawdź się) + 4 wyróżniki 3D (krwionośny, kostny, nerwowy, powłokowy) w Low i High; nagrania 2D i 3D | specyfikacja 4 wyróżników z §3.3, odbiór „test zmiennej” | **średnia:** reguły wielkości z faktów (gęstość, częstość) mogą nie mieć źródeł, wtedy 3 stopnie „ilustracja” |
+| **BRAMKA B** | pokaz użytkownikowi + 2–3 licealistów (5 min, „mów na głos”) | scenariusz testu (3 pytania na planszę) | — |
+| **M7 Rozwinięcie** | 8 pozostałych wyróżników + wpięcie do aktów filmu (§3.3 kolumna „Akt filmu”) | specyfikacje 8 wyróżników, zgodność barw film ↔ atlas (pomiar ΔE) | **duża:** film zmienia barwy i materiał (mat, palety układów) |
+| **M8 Gabloty nerki, wątroby i mózgu** | każda gablota jako osobne nagranie | rdzeń karty (§3.4) | **średnia**: nefron i zrazik jako schemat-bryła |
 
-**Kolejność:** U0 ‖ U0-fakty → U1 → U2a → audyt → U2b ‖ U3 → U4.
-**Nic z tego nie czeka na gabloty.** To gabloty korzystają z U1 (rama, lokalizator, podświetlenie, tempo), a rdzeń ramy Wizualizator dostał już teraz (§3.4).
+**M1, uczciwie o czasie:** szacunek Dyrygenta to 4–8 h. Rzeczywiście ok. 1,5–2 h pracy sesji: 4 przebiegi Blendera w slocie 1 (inspekcja + 3 rundy renderu) i składanie tablic.
+Szybciej niż szacunek, bo modele, tory i kamery już były w repo (eksport E3). Tego tempa **nie wolno przenosić** na M2: tam powstaje kod czasu rzeczywistego, nie render.
 
-Granice plików (model §5):
-- integrator: wspólne pliki `src/atlas/**`, `palette.json`, `types.ts`;
-- agenci układów: swoje pliki + nowe `src/atlas/signatures/<uklad>.tsx`;
-- Wizualizator: `src/atlas3d/**`;
-- agent treści i agent faktów: `facts/*.json` (nowe pola i statusy);
-- Reżyser: tylko `docs/atlas_rezyser/**`.
+**Co da się zrobić bez czekania na gabloty i animacje:** M3 (wszystkie szybkie poprawki) i P2 (sprawdzenie opisów ról). Obie rzeczy są niezależne od M2 i M4.
 
 ---
 
 ## 7. Pytania do użytkownika
 
-1. **Łacina dla ucznia:** w poziomie „Uczeń” ukrywamy nazwy łacińskie całkiem (zostają w „Rozszerzonym”)? *Proponuję: tak.*
-2. **„Sprawdź się”:** tylko pytanie i od razu odpowiedź, czy zapamiętywać wyniki ucznia (postęp)? *Proponuję: bez zapamiętywania na start.*
-3. **Telefon czy komputer w szkole:** na czym uczniowie będą najczęściej oglądać atlas? Od tego zależy, czy poprawki telefonu idą na sam początek.
-4. **HIIT w tle:** czy plansza ma mieć też tryb „sama budowa” (bez sprintu) do zwykłej lekcji, czy sprint zostaje zawsze jako przykład?
-5. **Test z uczniami:** czy masz 2–3 licealistów, którzy obejrzą atlas po 5 minut i powiedzą na głos, co rozumieją?
+Pytania o start M2 i M3, fakty, telefon i test z uczniami zadaje Dyrygent w decyzji v2 §4. Moje dodatkowe:
+
+1. **Łacina w Podstawowym:** ukryć całkiem (zostaje w Rozszerzonym)? *Proponuję: tak.*
+2. **„Sprawdź się”:** tylko odpowiedź od razu, czy zapamiętywać wyniki ucznia? *Proponuję na start bez zapamiętywania.*
+3. **Barwa układu nerwowego:** w filmie jest błękitna, w atlasie bursztynowa. Czy ujednolicić na bursztyn z atlasu (sprawdzony dla daltonistów)? *Proponuję: tak.*
+4. **Tryb „sama budowa”:** czy plansza ma mieć też widok bez sprintu do zwykłej lekcji?
 
 ---
 
 ## 8. Spór z Wizualizatorem (protokół)
 
-**Wymiana 1** (Reżyser → Wizualizator): 7 pytań o wykonalność (a)–(g). Odpowiedź Wizualizatora:
-- wszystko mieści się w ≥ 50 FPS;
-- korekta: strzałki w 3D już są (`makeFlow`);
-- warunek: ruch płuc tylko po fakcie `checked_agent` i z podpisem „ruch poglądowy”;
-- lokalizator jako wypieczony obraz 2D.
+| Wymiana | Treść | Wynik |
+|---|---|---|
+| 1 (R → W) | 7 pytań o wykonalność | wszystko ≥ 50 FPS; strzałki w 3D już są (`makeFlow`); ruch płuc tylko po fakcie z chipem „ruch poglądowy”; lokalizator wypieczony |
+| spór 1 (W) | „jeden ruch” a film gabloty | **zgoda**: znak gabloty = wyróżnik; 1 nowy ruch na krok, najwyżej 3 naraz (potwierdził Dyrygent) |
+| 2 (R → W) | rdzeń karty, poprawki barw gablot, gramatyka „kreska = schemat” | gramatykę **zmienił Dyrygent (spór 2): schemat to bryła 3D**. Przyjmuję; §3.2 poprawiona |
+| 3 (R → W) | klatka docelowa serca (a) + pytania o 1000 krwinek i cięcie tylnymi ściankami | czeka na odpowiedź i wynik M2 |
 
-**Spór 1** (Wizualizator): wyróżnik = „jeden ruch” kontra film gabloty, który pokazuje kilka ruchów naraz (skurcz, zastawki, przepływ).
-**Rozstrzygnięty zgodnie w wymianie 2:**
-- wyróżnik układu jest *znakiem* gabloty;
-- w filmie każdy krok wprowadza najwyżej 1 nowy ruch, a najwyżej 3 ruchy trwają naraz.
-
-**Wymiana 2** (Reżyser → Wizualizator): rdzeń karty stylu (§3.1, §3.4) oraz zgoda w jego punktach 2, 3 i 6, z poprawkami barw:
-- nerka w barwie układu moczowego (`urinary`);
-- wątroba w barwie pokarmowego, z numerami segmentów;
-- żyła wrotna niebieska, nie fioletowa;
-- drogi żółciowe nie na zielono;
-- mózg w tokenie `brain`.
-
-Odpowiedź Wizualizatora na wymianę 2 jeszcze nie przyszła.
-**Do Dyrygenta nie idzie żaden spór:** po dwóch wymianach nie ma niezgody. Jeśli Wizualizator odrzuci poprawki barw, wyślę spór w jednym akapicie.
+Sprostowanie: w wymianie 2 podałem złe wartości barw (`urinary`, `digest`), skopiowane ze starej propozycji. Wartości poprawiłem w wiadomości do Wizualizatora; obowiązuje `palette.json`.
+Poprawki barw jego klatek gablot (nerka, wątroba) nie dostały jeszcze odpowiedzi. Jeśli je odrzuci, spór trafi do Dyrygenta jednym akapitem.
 
 ---
 
@@ -335,10 +337,11 @@ Odpowiedź Wizualizatora na wymianę 2 jeszcze nie przyszła.
 
 | Ryzyko | Zabezpieczenie |
 |---|---|
-| wyróżnik staje się ozdobą | „test zmiennej” w audycie: każdy element nakładki wskazuje zmienną albo fakt |
-| nowe zdania (cel, pytanie, opis ≤ 3 zdania, Sprawdź się) to nowa treść | ta sama bramka faktów (§3.6); skrót sprawdzonego zdania też trzeba sprawdzić |
-| P2 nie da się w całości sprawdzić (brak dostępu do źródeł) | podpis zostaje bez opisu w poziomie Uczeń; priorytet mają podpisy `primary` |
-| moczowy w 3D na granicy 50 FPS | reguła awaryjna „nakładka 2D” w kontrakcie |
-| kolizje plików | U0 i U1 tylko integrator; wyróżniki w nowych plikach `signatures/<uklad>.tsx` |
-| przydział P/R niezgodny z podstawą | `curriculumRef` z dosłownym cytatem wymagania, sprawdzany przez osobnego agenta |
-| barwy wyróżników łamią paletę | tylko tokeny `palette.json`; nowe barwy przez integratora i walidator ΔE |
+| animacja staje się ozdobą („wow” zamiast nauki) | test zmiennej w każdym audycie; kolumna „Zmienna” w §3.3 jest obowiązkowa |
+| wielkości ruchu bez źródła (gęstość, częstość, skurcz) | tylko fakty `checked_agent`; bez faktu 3 stopnie z chipem „ilustracja” albo „ruch poglądowy” |
+| skala umowna cząstek myli ucznia | chip „powiększone”; w Rozszerzonym prawdziwy rozmiar (ok. 8 µm) w „Więcej” |
+| krwinki niewidoczne w naczyniach albo zbyt drobne na całym ciele | wnioski z klatki (b): półprzezroczysta ściana w zbliżeniu, strumień na całym ciele |
+| koszt na UHD | poziomy jakości; Low z §3.3; nakładka 2D lub wypiekany film jako zapas |
+| film traci własny charakter po ujednoliceniu | presety światła aktów zostają; ujednolicamy tylko materiał tkanki, barwy układów i krwinkę |
+| kolizje plików | M3 integrator, M4 granice modułu ustala integrator, wyróżniki w nowych plikach |
+| przydział P/R niezgodny z podstawą | `curriculumRef` z cytatem, sprawdzany osobno |
