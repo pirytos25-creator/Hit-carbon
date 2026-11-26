@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas 3D · P2 Scena Całość</title>
+  <link rel="stylesheet" href="../shared/ui.css" />
+  <style>
+    #caption { left: 16px; top: 64px; width: min(420px, 30vw); padding: 12px 16px; }
+    #predict { flex-wrap: wrap; }
+    #caption h3 { margin: 0 0 4px; font-size: 20px; }
+    #caption .src { font-size: 12px; color: var(--dim); margin-top: 6px; }
+    #predict { margin-top: 8px; display: none; gap: 8px; align-items: center; }
+    #predict.on { display: flex; }
+    #bar { left: 16px; right: 16px; bottom: 16px; display: flex; gap: 10px; align-items: center; padding: 10px 12px; }
+    #axis { position: relative; flex: 1; height: 30px; border-radius: 6px; overflow: hidden; cursor: pointer;
+      background: linear-gradient(90deg, rgba(255,90,79,.35) 0 50%, rgba(95,208,198,.3) 50% 100%); }
+    #axis .tick { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.35); }
+    #axis .tick span { position: absolute; top: 7px; left: 4px; font: 600 10px 'JetBrains Mono', monospace; color: #e7ecf5; white-space: nowrap; }
+    #axis .head { position: absolute; top: 0; bottom: 0; width: 3px; background: #fff; box-shadow: 0 0 8px #fff; }
+    #legend { right: 16px; top: 64px; width: 220px; font-size: 14px; }
+    #legend div { display: flex; align-items: center; gap: 8px; margin: 4px 0; transition: opacity .6s; }
+    #legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div id="stage"></div>
+  <div class="chip left">ATLAS 3D · <b>P2 Scena Całość</b> · jeden interwał · 1,8 m · ciało</div>
+  <div class="chip right" id="hud">INTERWAŁ 1/6 · PRACA · 00:00</div>
+  <div class="panel" id="legend"><div class="cap">Warstwy w tym kroku</div><div id="legendItems"></div>
+    <p class="proto-note">Najwyżej 3 kolory naraz (plan Reżysera §4.8). Kolejność kroków: storyboard §3.2. Zdania kroków to szkic; liczby tylko z podpisów plansz (checked_agent).</p></div>
+  <div class="panel" id="caption"><h3 id="capTitle"></h3><div id="capText"></div>
+    <div id="predict"><b id="pq"></b><button class="btn" data-a="up">↑ rośnie</button><button class="btn" data-a="down">↓ maleje</button></div>
+    <div class="src" id="capSrc"></div></div>
+  <div class="panel" id="bar">
+    <button class="btn" id="play">▶ Start</button>
+    <button class="btn" id="next">Dalej ⏭</button>
+    <div id="axis"><div class="head" id="head"></div></div>
+    <button class="btn" id="skip">Pomiń, chcę sam</button>
+  </div>
+  <div class="lic">Modele: Z-Anatomy (CC BY-SA 4.0), nerki HuBMAP (CC BY 4.0, osobny plik). Prototyp.</div>
+  <div class="loading" id="loading">WCZYTUJĘ WSZYSTKIE UKŁADY…</div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

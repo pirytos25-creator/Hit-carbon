@@ -126,15 +126,17 @@ function layerRole(lname) {
 }
 
 // ---------------------------------------------------------------- stan w teksturze danych
-// teksel ID: R = indeks układu, G = poziom pracy w sprincie (−1 = "dim"), B = widoczność 0-1, A = wyróżnienie 0-1
+// wiersz 0, teksel ID: R = indeks układu, G = poziom pracy w sprincie (−1 = "dim"), B = widoczność 0-1, A = wyróżnienie 0-1
+// wiersz 1, teksel ID: R = własny moment struktury 0-1 (−1 = wspólny uState materiału); używa go łańcuch w P2
 export class StateTexture {
   constructor(n) {
     this.n = n;
-    this.data = new Float32Array(n * 4);
-    this.tex = new THREE.DataTexture(this.data, n, 1, THREE.RGBAFormat, THREE.FloatType);
+    this.data = new Float32Array(n * 4 * 2);
+    this.tex = new THREE.DataTexture(this.data, n, 2, THREE.RGBAFormat, THREE.FloatType);
     this.tex.minFilter = this.tex.magFilter = THREE.NearestFilter;
-    for (let i = 0; i < n; i++) this.data[i * 4 + 2] = 1;
+    for (let i = 0; i < n; i++) { this.data[i * 4 + 2] = 1; this.data[(n + i) * 4] = -1; }
   }
+  setMoment(id, m) { this.data[(this.n + id) * 4] = m; }
   setStructure(id, s) {
     const d = this.data, k = id * 4;
     d[k] = SYS[s.system]?.index ?? 0;
@@ -189,6 +191,8 @@ export function makeAtlasMaterial(state, { role, ctx, dimMix, opacity = 1 }) {
         float emiFor(float lv){ if (lv < uEmiLo) return 0.; return uEmiMin + (uEmiMax-uEmiMin)*clamp((lv-uEmiLo)/max(1e-4,1.-uEmiLo),0.,1.); }`)
       .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
         vec4 st = texelFetch(uStateTex, ivec2(int(vId + .5), 0), 0);
+        float own = texelFetch(uStateTex, ivec2(int(vId + .5), 1), 0).r;
+        float S = own < -.5 ? uState : own;
         float vis = st.b * uLayerVis;
         if (uRole != 2 && vis < .999 && vis <= bayer4(gl_FragCoord.xy)) discard; // wygaszanie przez dithering
         if (uRole == 2 && vis < .01) discard;`)
@@ -198,12 +202,12 @@ export function makeAtlasMaterial(state, { role, ctx, dimMix, opacity = 1 }) {
         vec3 restC = mix(uCtx, sysCol, uDimMix);
         float tS = lv < 0. ? uDimMix : max(${REST_MIX.toFixed(2)}, lv);
         vec3 sprintC = mix(uCtx, sysCol, tS);
-        vec3 baseC = uRole == 0 ? mix(restC, sprintC, uState) : uCtx;
+        vec3 baseC = uRole == 0 ? mix(restC, sprintC, S) : uCtx;
         float hi = st.a * (.55 + .45*sin(uTime*3.9));
         diffuseColor.rgb = mix(baseC, sysCol*1.15 + .08, hi*.55);
         if (uRole == 2) diffuseColor.a *= vis;`)
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-        float emi = (uRole == 0 && lv >= 0.) ? emiFor(lv) * uState : 0.;
+        float emi = (uRole == 0 && lv >= 0.) ? emiFor(lv) * S : 0.;
         totalEmissiveRadiance = sysCol * emi + sysCol * hi * .35;`);
   };
   mat.customProgramCacheKey = () => 'atlas-' + role;
