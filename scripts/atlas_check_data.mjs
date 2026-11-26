@@ -227,7 +227,23 @@ for (const f of [...facts, ...organFacts]) {
 const CHANGE = /\b(więcej|mniej|rośnie|rosną|spada|spadają|szybciej|wolniej|większ\w*|mniejsz\w*|zwęża\w*|rozszerza\w*|przyspiesza\w*|zwalnia\w*)\b|[↑↓]/i;
 for (const f of facts) if (f.status === 'anatomy' && CHANGE.test(f.textPl ?? '')) err(`fakt ${f.id}: status anatomy, a tekst mówi o zmianie („${f.textPl}”)`);
 
+// Raport rozbieżności (Dyrygent, kontrola M6 pkt 7): ta sama wielkość (topic) na kilku planszach, WSZYSTKIE statusy.
+// Nie jest to błąd ani uwaga: niesprawdzona wartość nie trafia na ekran, a uzgodnienie przechodzi przez kontrolę faktów.
+const allByTopic = new Map();
+for (const f of facts.filter((x) => x.kind === 'metric' && x.topic)) {
+  if (!allByTopic.has(f.topic)) allByTopic.set(f.topic, []);
+  allByTopic.get(f.topic).push(f);
+}
+let topicReports = 0;
+for (const [topic, list] of allByTopic) {
+  if (new Set(list.map((f) => f.plate)).size < 2) continue;
+  const fmt = (f) => `${byId.get(`${f.id}.rest`)?.value ?? '—'} → ${f.value}${f.unit ? ' ' + f.unit : ''}`;
+  if (new Set(list.map(fmt)).size < 2) continue;
+  topicReports++;
+  console.log(`RAPORT rozbieżność „${topic}”: ${list.map((f) => `${f.plate}: ${fmt(f)} [${f.status}/spoczynek ${byId.get(`${f.id}.rest`)?.status ?? '—'}]`).join(' | ')}`);
+}
 console.log(`Wielkości pokazane na kilku planszach (topic albo ta sama nazwa): ${crossPairs}`);
+console.log(`Raport rozbieżności tej samej wielkości (wszystkie statusy, do kontroli faktów): ${topicReports}`);
 console.log(`Gabloty: ${organDir.length} plik(ów), ${organFacts.length} faktów; „Wiedza podręcznikowa” na ekranie: ${textbookShown} (w tym z pochodzeniem tylko wyliczonym w K1: ${textbookInferred})`);
 console.log(`Dane L1: ${structures.structures.length} pojęć, ${bindings.bindings.length} powiązań siatek (nierozwiązane: ${unresolved}), ${facts.length} rekordów faktów w ${factFiles.length} plikach`);
 console.log(`Na ekranie (dane = plansze): liczby ${dataCount.metrics}, opisy ról ${dataCount.roles}, opisy budowy ${dataCount.anatomy}, podsumowania ${dataCount.summaries}`);
