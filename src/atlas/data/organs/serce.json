@@ -1016,12 +1016,19 @@
    "kind": "curriculum_ref",
    "plate": null,
    "organ": "serce",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.4.9) (numeracja 2024; w numeracji 2018: V.4.11)",
    "quote": "przedstawia automatyzm pracy serca;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.); cytat z dyrygent/podstawy_oceny_narzadow.md §A2"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.); cytat z dyrygent/podstawy_oceny_narzadow.md §A2",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/podstawy_oceny_narzadow.md; side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "§A2 V.4.9)"
+    ],
+    "note": "Cytat z podstawy programowej (zpe.gov.pl, 2025/2026) w dyrygent/podstawy_oceny_narzadow.md §A2; zgodność z tym plikiem potwierdzona w kontroli M3; decyzja Dyrygenta 2026-11-26. Numeracja: 2024 V.4.9), 2018 V.4.11)."
+   }
   }
  ]
 }

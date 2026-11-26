@@ -146,15 +146,15 @@
    "notePl": null,
    "seeAlsoPlate": null,
    "status": "unverifiable",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
    "checkedBy": null,
    "order": 2,
-   "topic": "udzial_miesni_w_rzucie_serca"
+   "topic": "udzial_miesni_w_rzucie_serca",
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "miesniowy.metric.udzial_miesni_w_przeplywie_krwi.rest",
@@ -175,13 +175,13 @@
    "value": "ok. 15–20",
    "status": "unverifiable",
    "restStatusExplicit": true,
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
-   "checkedBy": null
+   "checkedBy": null,
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "miesniowy.metric.zapotrzebowanie_miesni_na_atp",

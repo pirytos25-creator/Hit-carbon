@@ -1416,16 +1416,15 @@
    "referenceIds": [
     "garza_leslie_2025"
    ],
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
     "rows": [],
     "note": "fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "wydalniczy.summary.sprint",

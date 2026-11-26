@@ -341,14 +341,14 @@
    "notePl": "Ciśnienie rozkurczowe zmienia się niewiele albo lekko spada.",
    "seeAlsoPlate": null,
    "status": "unverifiable",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
    "checkedBy": null,
-   "order": 5
+   "order": 5,
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "krwionosny.metric.cisnienie_skurczowe.rest",
@@ -369,13 +369,13 @@
    "value": "ok. 120",
    "status": "unverifiable",
    "restStatusExplicit": true,
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
-   "checkedBy": null
+   "checkedBy": null,
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "krwionosny.metric.pobor_tlenu_z_krwi_roznica_tetniczo_zylna",
