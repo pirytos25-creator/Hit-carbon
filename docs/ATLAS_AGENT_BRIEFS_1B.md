@@ -63,6 +63,9 @@ powieliłoby te obejścia siedem razy. Dlatego faza 1b czeka na fazę 2.
 
 Agenci 1b zakładają, że poniższe **już istnieje**. Jeśli czegoś brakuje, agent nie dopisuje tego do wspólnego kodu, tylko zgłasza.
 
+**Stan po fazie 2 (integrator, 2026-11-25):** wszystkie pozycje z tabel poniżej są zrobione (punkty kontrolne K2 i K3 integratora).
+Opis API: docstring `blender/atlas/atlas_lib.py`, zasady: `docs/ATLAS_STYLE_BIBLE.md` §2–§4 i §9. Wzór planszy na krzywych: `plate_krwionosny.py`.
+
 ### `blender/atlas/atlas_lib.py`
 | Funkcja / zmiana | Zgłosili | Po co |
 |---|---|---|
@@ -157,7 +160,7 @@ Agenci 1b zakładają, że poniższe **już istnieje**. Jeśli czegoś brakuje, 
 Każde zadanie podaje, co pokazać, źródła modeli (nazwy obiektów sprawdzone w spisie 2026-11-25), widoki, różnicę spoczynek/sprint,
 liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczegóły, jeśli render pokaże, że coś nie działa, i opisuje to w raporcie.
 
-### Agent 6: Hormonalny (`hormonalny`, `--sys-endo` `#E0893A`)
+### Agent 6: Hormonalny (`hormonalny`, `--sys-endo` `#EF872A`)
 - **Teza planszy:** sprint uruchamia oś „mózg → nadnercza → krew → narządy”. Katecholaminy rosną w sekundach, a reszta hormonów zmienia się wolniej.
 - **Struktury (Z-Anatomy):**
   - `Endocrine glands`: `Adenohypophysis`, `Neurohypophysis`, `Pineal gland`, `Suprarenal gland.l/.r`, `Thyroid gland`
@@ -186,7 +189,7 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
   - pokazywać ostre zmiany, nie adaptacje
 - **Opcjonalne zbliżenie molekularne:** PDB `4LDO` (receptor β2 z adrenaliną, `atlas_raw/pdb/4LDO.cif`), `3I40` (insulina ludzka), `1GCN` (glukagon).
 
-### Agent 7: Powłokowy (`powlokowy`, `--sys-skin` `#C99A84`)
+### Agent 7: Powłokowy (`powlokowy`, `--sys-skin` `#FA947A`)
 - **Teza planszy:** w sprincie skóra i mięśnie konkurują o krew. W krótkim HIIT ciepło rośnie szybciej, niż ciało zdąży je oddać,
   a po interwale skóra przejmuje chłodzenie.
 - **Struktury:**
@@ -210,7 +213,7 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
 - **Strzałki:** `artery` w skórze (ciepło z rdzenia do powierzchni). Typ `heat` dla wypływu ciepła dodaje integrator.
 - **Spina:** z planszą krwionośną (redystrybucja przepływu). Liczby wspólne trzeba wziąć z tego samego źródła.
 
-### Agent 8: Pokarmowy (`pokarmowy`, `--sys-digest` `#A8743A`)
+### Agent 8: Pokarmowy (`pokarmowy`, `--sys-digest` `#B4B474`)
 - **Teza planszy:** w sprincie trawienie staje na boczny tor (mniej krwi w trzewiach), a wątroba staje się „elektrownią”:
   uwalnia glukozę i przerabia mleczan z mięśni.
 - **Struktury (Z-Anatomy, `Digestive system`):**
@@ -237,7 +240,7 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
   - typ `lactate`/`glucose` dla cyklu Cori dodaje integrator; agent zapisuje dane i zgłasza
 - **Opcjonalnie:** PDB `6LZ0` (transporter mleczanu MCT1, ludzki).
 
-### Agent 9: Wydalniczy (`wydalniczy`, `--sys-urinary` `#2E9C9A`)
+### Agent 9: Wydalniczy (`wydalniczy`, `--sys-urinary` `#276777`)
 - **Teza planszy:** nerka w sprincie dostaje mniej krwi i oszczędza wodę oraz sód. Kwasowość zbuforowuje oddech w minutach,
   a nerka w godzinach.
 - **Struktury:**
@@ -262,13 +265,13 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
 - **Strzałki:** `artery` do nerek (cienka w sprincie). Typ `urine` dla moczu dodaje integrator.
 - **Opcjonalnie:** PDB `4NEF` (akwaporyna 2, ludzka) i `3KS3` (anhydraza węglanowa II, bufor wodorowęglanowy).
 
-### Agent 10: Kostny (`kostny`, `--sys-bone` `#B9A37E`)
+### Agent 10: Kostny (`kostny`, `--sys-bone` `#A17D2B`)
 - **Teza planszy:** szkielet w sprincie to układ dźwigni i amortyzatorów. Przy każdym kroku kości nóg przyjmują siłę równą wielokrotności masy ciała.
 - **Struktury:**
   - Z-Anatomy `1: Skeletal system` (cały szkielet)
   - stawy z `3: Joints`: `Knee joint`, `Hip joint`, stawy stopy
   - HuBMAP kolana nie jest potrzebny, bo Z-Anatomy ma kolekcję stawu kolanowego
-- **Kolor:** szkielet staje się układem aktywnym, więc dostaje `--sys-bone` (piaskowy), wyraźnie odróżniony od kości kontekstowej `#D8D1C4`.
+- **Kolor:** szkielet staje się układem aktywnym, więc dostaje `--sys-bone` (ochra, `palette.json`), wyraźnie odróżniony od kości kontekstowej `#D8D1C4`.
   Mięśnie są wtedy kontekstem.
 - **Widoki:**
   - `front` i `side` (strzałka siły reakcji podłoża przy lądowaniu)
@@ -281,7 +284,7 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
 - **Strzałki:** typ `force` dla wektora siły dodaje integrator. Do tego czasu agent zapisuje dane i zgłasza.
 - **Pułapka:** gęstość kości to adaptacja długoterminowa, nie efekt jednego sprintu. Pokazywać tylko z etykietą.
 
-### Agent 11: Limfatyczny i odpornościowy (`limfatyczny`, `--sys-lymph` `#45A85A`)
+### Agent 11: Limfatyczny i odpornościowy (`limfatyczny`, `--sys-lymph` `#73C770`)
 - **Teza planszy:** sprint wypycha komórki odpornościowe do krwi (adrenalina), a pompa mięśniowa przyspiesza limfę. Po wysiłku liczba komórek
   przejściowo spada.
 - **Struktury:**
@@ -301,7 +304,7 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
   - przepływ limfy w wysiłku (dane głównie zwierzęce, więc etykieta ostrożna)
 - **Pułapka:** „otwarte okno” infekcji po wysiłku jest sporne. Tylko z etykietą `contested_debate`, cytując obie strony (Campbell i Turner 2018 kontra wcześniejsze prace).
 
-### Agent 12: Rozrodczy (`rozrodczy`, `--sys-repro` `#D45D9A`)
+### Agent 12: Rozrodczy (`rozrodczy`, `--sys-repro` `#EA7BB2`)
 - **Teza planszy:** spokojna, rzeczowa. Pojedynczy sprint wpływa na ten układ słabo i niejednoznacznie. Plansza pokazuje budowę obu płci
   i uczciwie mówi, czego nie wiadomo.
 - **Struktury:**
@@ -378,8 +381,8 @@ na starym formacie, ale agenci muszą przestrzegać poniższych zasad, żeby pó
 5. **Ograniczenia na ekranie:**
    - 6–10 podpisów i najwyżej 4 liczby na planszę;
    - jasność struktur w sprincie to ilustracja w 3 stopniach, a nie liczba „ze źródła”.
-6. **Kolor układu nie może być jedynym nośnikiem informacji.** Kolor `--sys-bone` jest do zmiany (bliski powłokowemu).
-   Agent kostny czeka na decyzję integratora w `palette.json`.
+6. **Kolor układu nie może być jedynym nośnikiem informacji.** Kolor `--sys-bone` zmieniony przez integratora na `#A17D2B` (`palette.json`, walidator ΔE).
+   Kolory wszystkich układów: `src/atlas/data/palette.json`.
 7. **Odbiorcy (decyzja użytkownika 2026-11-25):** laicy i uczniowie liceum, z dodatkami dla studentów. Model §3.5 opisuje dwa poziomy.
    Każda plansza ma:
    - 6–10 podpisów `tier: 'primary'`: nazwy szkolne, zrozumiałe dla licealisty, zgodne z podstawą programową biologii;

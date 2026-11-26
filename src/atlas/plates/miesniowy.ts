@@ -19,7 +19,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       'W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, łydka odbija stopę od taśmy. Zgodnie z zasadą rozmiaru najpierw pracują małe jednostki z włóknami typu I; przy ok. 90% VO₂max dołączają włókna IIa i część włókien IIx. W każdym pracującym włóknie główki miozyny raz za razem chwytają aktynę i ciągną ją, zużywając ATP.',
   },
   summaryReferenceIds: { sprint: ['dorn_2012', 'hamner_2010', 'vollestad_blom_1985', 'mendell_2005', 'fujii_namba_2017'] },
-  summaryStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #1; #2-#6 (#5 poprawione)
+  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // K3: zmienione = draft
   labels: [
     {
       anchor: 'deltoid',
@@ -29,7 +29,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy skręt tułowia' },
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #7 (poprawione), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7 (poprawione), #17
     },
     {
       anchor: 'rectus_abdominis',
@@ -48,7 +48,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Pomaga prostować kolano' },
       tier: 'primary',
       referenceIds: ['dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #9 (bez „wymachu uda”), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #9 (bez „wymachu uda”), #17
     },
     {
       anchor: 'vastus_lateralis',
@@ -77,7 +77,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Prostuje biodro, podpiera ciało po lądowaniu' },
       tier: 'primary',
       referenceIds: ['hamner_2010', 'dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #12 (poprawione), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #12 (poprawione), #17
     },
     {
       anchor: 'biceps_femoris',
@@ -97,7 +97,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Hamuje goleń, prostuje biodro' },
       tier: 'primary',
       referenceIds: ['dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #14, #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #14, #17
     },
     {
       anchor: 'gastrocnemius',
@@ -128,7 +128,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Przekrój w miejscu biopsji: pracuje mało włókien', sprint: 'Przekrój w miejscu biopsji: pracują wszystkie typy (z IIx ok. połowa)' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #18, #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #18, #17
     },
     {
       anchor: 'd_femur',
@@ -137,7 +137,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       nameLat: 'femur',
       role: { rest: 'Dźwignia dla mięśni uda', sprint: 'Dźwignia dla mięśni uda' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // #26: audyt dopuszcza zwolnienie opisu anatomicznego
+      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #26: audyt dopuszcza zwolnienie opisu anatomicznego
     },
     {
       anchor: 'd_hamstrings',
@@ -157,7 +157,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Pracuje pierwsze', sprint: 'Pracuje dalej' },
       tier: 'primary',
       referenceIds: ['gollnick_1974', 'vollestad_blom_1985'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #21, #18 (bez męczliwości: #22)
+      roleStatus: { rest: 'draft', sprint: 'draft' }, // #21, #18 (bez męczliwości: #22)
     },
     {
       anchor: 'd_fiber_IIa',
@@ -167,7 +167,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Nie pracuje', sprint: 'Dołącza: pracują wszystkie' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #18, #22
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #18, #22
     },
     {
       anchor: 'd_fiber_IIx',
@@ -177,7 +177,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Nie pracuje', sprint: 'Dołącza ok. połowa: największa moc' },
       tier: 'primary',
       referenceIds: ['bottinelli_1996', 'vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #23, #22
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23, #22
     },
     {
       anchor: 'd_myosin',
@@ -209,11 +209,10 @@ export const MIESNIOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Zasada rozmiaru: jednostki ruchowe włączają się od najmniejszych do największych (opisana u kotów). Przy 91% VO₂max od początku pracują wszystkie włókna I i IIa oraz ok. połowa IIx.',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #27: brak źródła dla „spoczynek: typ I”
       protocolMismatch: 'rower, wysiłek ciągły przy 91% VO₂max',
       quote: 'glycogen breakdown was observed in all type I and IIA and in about 50% of type IIAB and IIB fibres',
       locator: 'Vøllestad & Blom 1985, abstrakt',
+      status: 'draft',
     },
     {
       labelPl: 'Skład włókien m. obszernego bocznego (I / IIa / IIx)',
@@ -223,11 +222,11 @@ export const MIESNIOWY: AtlasPlateContent = {
       referenceIds: ['staron_2000'],
       evidenceLevel: 'established_human',
       notePl:
-        'Skład się nie zmienia, zmienia się to, które włókna pracują. Średnia ze 150 biopsji młodych, niewytrenowanych osób; rozrzut jest duży (u mężczyzn typ I od ok. 18 do 66%).',
-      status: 'checked_agent',
+        'Skład się nie zmienia, zmienia się to, które włókna pracują. Średnia ze 150 biopsji młodych, niewytrenowanych osób; rozrzut jest duży (typ I od ok. 17 do 97%).',
       conversionNote: 'I = I + IC; IIa = IIC + IIA + ½ IIAB; IIx = ½ IIAB + IIB (wzór autorów); IIB = IIX.',
       quote: 'approximately 41% I, 1% IC, 1% IIC, 31% IIA, 6% IIAB, and 20% IIB',
       locator: 'Staron 2000, abstrakt; Materials and Methods; tab. 2',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Udział mięśni w przepływie krwi',
@@ -236,7 +235,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       unit: '% rzutu serca',
       referenceIds: ['kenney_2022'],
       evidenceLevel: 'established_human',
-      status: 'unverifiable', // #30, #31: brak cytatu; sprawdzona wersja jest na planszy krwionośnej
+      status: 'unverifiable',
     },
     {
       labelPl: 'Zapotrzebowanie mięśni na ATP',
@@ -244,11 +243,11 @@ export const MIESNIOWY: AtlasPlateContent = {
       sprint: 'nawet ok. 1000×',
       referenceIds: ['baker_2010'],
       evidenceLevel: 'established_human',
-      notePl: 'W krótkim wysiłku maksymalnym; w naszym interwale mniej. ATP odtwarzają jednocześnie fosfokreatyna, glikoliza i mitochondria.',
-      status: 'checked_agent',
-      protocolMismatch: 'krótki wysiłek maksymalny',
+      notePl: 'Przy maksymalnym wysiłku. ATP odtwarzają jednocześnie fosfokreatyna, glikoliza i mitochondria.',
+      protocolMismatch: 'krótki wysiłek maksymalny; w naszym interwale mniej',
       quote: 'High-intensity exercise can result in up to a 1,000-fold increase in the rate of ATP demand',
       locator: 'Baker 2010, abstrakt',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Mleczan we krwi',
@@ -258,12 +257,12 @@ export const MIESNIOWY: AtlasPlateContent = {
       referenceIds: ['brooks_2020', 'astorino_2025', 'brooks_2018'],
       evidenceLevel: 'established_human',
       notePl: 'Średnie z różnych badań HIIT: ok. 7–13. Mleczan nie jest „odpadem”: serce, mózg i włókna tlenowe zużywają go jako paliwo.',
-      status: 'checked_agent',
       measuredAt: 'najwyższa wartość w połowie sesji albo 3 min po niej',
       protocolMismatch: 'rower, 8–12 × 30–60 s przy 70–85% mocy maksymalnej',
       conversionNote: 'Średnie badań 6,6–13,2 mM zaokrąglone do 7–13.',
       quote: 'Peak BLa and energy expenditure were equal to 9.9 ± 3.1 mM',
       locator: 'Astorino 2025, Results „Physiological data”; Brooks 2020, Background (spoczynek ok. 1,0 mM)',
+      status: 'draft',
     },
   ],
   creditsPl:

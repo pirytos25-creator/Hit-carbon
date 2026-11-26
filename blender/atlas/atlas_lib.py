@@ -54,28 +54,24 @@ RAW = os.environ.get("ATLAS_RAW") or (
 HUBMAP_DIR = os.path.join(RAW, "hubmap")
 
 # ---------------------------------------------------------------- kolory (księga stylu §2)
-SYSTEM_COLORS = {
-    "nerve": "#E8B23A",
-    "muscle": "#C8553D",
-    "brain": "#9B7BEA",
-    "resp": "#4FC3E0",
-    "artery": "#D93240",
-    "vein": "#3E6FD8",
-    # faza 1b: propozycja z docs/ATLAS_KOLEJNE_UKLADY.md §3 (ostateczne wartości: palette.json, etap E0)
-    "endo": "#E0893A",
-    "skin": "#C99A84",
-    "digest": "#A8743A",
-    "urinary": "#2E9C9A",
-    "bone": "#B9A37E",
-    "lymph": "#45A85A",
-    "repro": "#D45D9A",
-}
-CONTEXT_COLORS = {
-    "bone": "#D8D1C4",
-    "muscle": "#8E7A78",
-    "skin": "#9AA4B5",
-}
-REST_MIX = 0.35  # spoczynek: 35% koloru układu + 65% kontekstu
+# Jedno źródło kolorów dla Pythona i TS: src/atlas/data/palette.json (walidator: scripts/atlas_check_palette.ts).
+PALETTE_PATH = os.path.join(ROOT, "src", "atlas", "data", "palette.json")
+with open(PALETTE_PATH, encoding="utf-8") as _f:
+    PALETTE = json.load(_f)
+SYSTEM_COLORS = {s["key"]: s["color"] for s in PALETTE["systems"]}
+SYSTEM_LIGHT = {s["key"]: s["light"] for s in PALETTE["systems"]}
+CONTEXT_COLORS = {k: v for k, v in PALETTE["context"].items() if k != "pageBg"}
+REST_MIX = float(PALETTE["restMix"])  # spoczynek: 35% koloru układu + 65% kontekstu
+EMISSION_RULE = PALETTE["emission"]
+
+
+def emission_for(level):
+    """Siła emisji w sprincie dla poziomu pracy 0-1 (0 poniżej progu struktur pracujących)."""
+    lo = EMISSION_RULE["minLevel"]
+    if level < lo:
+        return 0.0
+    f = (level - lo) / max(1e-6, 1.0 - lo)
+    return EMISSION_RULE["min"] + (EMISSION_RULE["max"] - EMISSION_RULE["min"]) * min(1.0, f)
 
 # Światło. Faza 0 miała klucz 260 W, wypełnienie 90 W, kontrę 220 W: przy emisji sprintu kanał R się obcinał
 # (bursztyn wychodził cytrynowy, ceglasty łososiowy). LIGHT_SCALE mnoży wszystkie trzy lampy, KEY_SCALE dodatkowo klucz.
@@ -84,7 +80,7 @@ REST_MIX = 0.35  # spoczynek: 35% koloru układu + 65% kontekstu
 # ΔE (mediana kuli, CIE76) ≤ 2,6 względem tabeli i 0-2% obciętych pikseli.
 LIGHT_SCALE = float(os.environ.get("ATLAS_LIGHT", "0.45"))
 KEY_SCALE = 0.7
-EMISSION = 0.3  # emisja sprintu = EMISSION × poziom
+# Emisja (księga stylu §2): świecą tylko struktury pracujące w sprincie; reguła z palette.json → "emission".
 
 
 def hex_to_linear(h):
@@ -469,10 +465,33 @@ def vessel_direction(obj):
     return pts, f"rodzic {par.name}: odległość końców {min(d0, d1) * 1000:.1f} mm"
 
 
-def vessel_path(names):
+_HEART_C = None
+
+
+def heart_center():
+    """Środek serca Z-Anatomy (kolekcja "Heart"); punkt odniesienia kierunku przepływu w aorcie i żyłach głównych."""
+    global _HEART_C
+    if _HEART_C is None:
+        objs = find_meshes(collection="Heart") if bpy.data.collections.get("Heart") else []
+        if objs:
+            mn, mx = vert_bbox(objs)
+            _HEART_C = (mn + mx) / 2
+        else:
+            _HEART_C = Vector((0.02, -0.02, 1.28))  # przybliżenie, gdyby kolekcji nie było
+    return _HEART_C
+
+
+def _is_vein(obj):
+    mat = (obj.data.materials[0].name if obj.data.materials and obj.data.materials[0] else "").lower()
+    return "vein" in mat or "vein" in obj.name.lower() or "vena" in obj.name.lower()
+
+
+def vessel_path(names, start_near=None):
     """Tor przepływu przez kolejne naczynia (krzywe Z-Anatomy, najdłuższy splajn każdej).
     Naczynie potomne często odchodzi (albo uchodzi) w połowie naczynia macierzystego, a nie na jego końcu, dlatego:
-      wejście = punkt naczynia najbliższy końcowi poprzedniego odcinka (pierwsze naczynie: koniec dalszy od wyjścia),
+      wejście = punkt naczynia najbliższy końcowi poprzedniego odcinka; pierwsze naczynie: koniec wskazany przez
+                start_near, a bez niego koniec z topologii drzewa albo, gdy drzewo nie rozstrzyga (np. aorta), tętnica
+                od końca bliższego sercu, żyła od końca dalszego od serca,
       wyjście = punkt najbliższy następnemu naczyniu (ostatnie: koniec dalszy od wejścia).
     Kierunek każdego odcinka jest potem porównany z kierunkiem z topologii drzewa (vessel_direction), jeśli da się go
     ustalić. Zwraca (punkty, raport): przerwy w mm i zgodność z drzewem."""
@@ -492,8 +511,16 @@ def vessel_path(names):
             exit_i = None
         if out:
             entry_i = nearest(pts, [out[-1]])
+        elif start_near is not None:
+            entry_i = 0 if (pts[0] - Vector(start_near)).length <= (pts[-1] - Vector(start_near)).length else last
         else:
-            entry_i = last if (exit_i is not None and exit_i < last / 2) else 0
+            topo0, note0 = vessel_direction(n)
+            if not note0.startswith("brak"):
+                entry_i = 0 if (pts[0] - topo0[0]).length <= (pts[-1] - topo0[0]).length else last
+            else:
+                hc = heart_center()
+                near0 = (pts[0] - hc).length <= (pts[-1] - hc).length
+                entry_i = (last if near0 else 0) if _is_vein(curves[i]) else (0 if near0 else last)
         if exit_i is None:
             exit_i = 0 if entry_i > last / 2 else last
         seg = pts[entry_i:exit_i + 1] if entry_i <= exit_i else pts[exit_i:entry_i + 1][::-1]
@@ -576,7 +603,7 @@ def active_color(system, state="sprint", level=1.0, ctx=None):
     if state == "rest" or level == "dim":
         return mix(ctx_col, sys_col, REST_MIX), 0.0, REST_MIX
     t = max(REST_MIX, float(level))
-    return mix(ctx_col, sys_col, t), EMISSION * float(level), t
+    return mix(ctx_col, sys_col, t), emission_for(float(level)), t
 
 
 def role_material(role, system=None, state="sprint", level=1.0, alpha=None, ctx=None):
@@ -1057,6 +1084,7 @@ class Plate:
             pts = resample([Vector(p) for p in fl["points"]], step)
             out["flows"].append({k: v for k, v in {
                 "id": fl["id"], "kind": fl["kind"], "labelPl": fl.get("labelPl"), "views": fl.get("views"),
+                "states": fl.get("states"),
                 "points": [[round(v, 4) for v in p] for p in pts]}.items() if v is not None})
         path = os.path.join(self.out_dir, "flows3d.json")
         with open(path, "w", encoding="utf-8") as f:

@@ -2,8 +2,7 @@ import type { AtlasPlateContent } from '../types';
 
 /**
  * Plansza układu nerwowego (faza 1, agent 1). Render: blender/atlas/plate_nerwowy.py.
- * Kotwice podpisów i punkty strzałek pochodzą z public/atlas/nerwowy/anchors.json i flows.json
- * (strzałki przepisane tutaj w pikselach renderu 1000×1800; po nowym renderze trzeba je skopiować ponownie).
+ * Kotwice podpisów: public/atlas/nerwowy/anchors.json. Strzałki: flows3d.json (metry, rzutowane kamerą widoku).
  * Fakty: docs/atlas_audyt/fakty_nerwowy.md (statusy, cytaty i lokalizatory stamtąd; numery # = wiersze audytu).
  */
 export const NERWOWY: AtlasPlateContent = {
@@ -22,7 +21,7 @@ export const NERWOWY: AtlasPlateContent = {
   summaryReferenceIds: {
     sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans'],
   },
-  summaryStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #17, #18; #19-#25 (#25 poprawione)
+  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // K3: zmienione = draft
   labels: [
     {
       anchor: 'intercostal',
@@ -31,7 +30,7 @@ export const NERWOWY: AtlasPlateContent = {
       nameLat: 'nn. intercostales',
       role: { rest: 'Pomagają przeponie', sprint: 'Szybki, głęboki oddech' },
       tier: 'secondary',
-      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #26
+      roleStatus: { rest: 'draft', sprint: 'unverifiable' }, // #26
     },
     {
       anchor: 'sympathetic_trunk',
@@ -81,7 +80,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Unerwia przywodziciele uda' },
       tier: 'secondary',
       referenceIds: ['statpearls_lumbar_plexus'],
-      roleStatus: { rest: 'unverifiable', sprint: 'anatomy' }, // #31 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #31 (sama anatomia), #34
     },
     {
       anchor: 'deep_fibular',
@@ -91,7 +90,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Unerwia przedni przedział goleni' },
       tier: 'secondary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'anatomy' }, // #32 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #32 (sama anatomia), #34
     },
     {
       anchor: 'motor_cortex',
@@ -141,7 +140,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Prostowniki stopy i mm. strzałkowe' },
       tier: 'primary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'anatomy' }, // #37 (poprawione do anatomii), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #37 (poprawione do anatomii), #34
     },
     {
       anchor: 'tibial',
@@ -151,7 +150,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Napięcie łydki w staniu', sprint: 'Unerwia mięśnie łydki' },
       tier: 'primary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'anatomy' }, // #38 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #38 (sama anatomia), #34
     },
     {
       anchor: 'motor_units',
@@ -161,7 +160,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Pracują nieliczne, małe (typ I)', sprint: 'Włączona także część dużych, szybkich (IIx)' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #39, #7
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #39, #7
     },
   ],
   metrics: [
@@ -174,12 +173,11 @@ export const NERWOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Pomiary w m. piszczelowym przednim: ok. 8–9 Hz to najmniejsza częstotliwość świeżo włączonej jednostki, ok. 30 Hz to średnia częstotliwość szczytowa (badania: ok. 21–42 Hz). Gwałtowny skurcz zaczyna się krótką salwą 60–120 Hz.',
-      status: 'checked_agent',
-      restStatus: 'disputed', // #2: „spoczynek” to nie próg włączenia; „cisza” bez cytatu
       protocolMismatch: 'skurcz izometryczny m. piszczelowego przedniego',
       conversionNote: '1 pps (impulsy na sekundę) = 1 Hz.',
       quote: 'the average values are … 29.3 pps for tibialis anterior',
       locator: 'Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”',
+      status: 'draft',
     },
     {
       labelPl: 'Rekrutacja jednostek ruchowych',
@@ -189,11 +187,10 @@ export const NERWOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Zasada rozmiaru: najpierw małe jednostki, potem coraz większe. W m. piszczelowym przednim komplet jest włączony przy ok. 90% siły maksymalnej w powolnym skurczu, a w szybkim już przy ok. 40%.',
-      status: 'checked_agent',
-      restStatus: 'unverifiable', // #7
       protocolMismatch: 'rower, 91% VO₂max (mięsień uda)',
       quote: 'all type I and IIA and … about 50% of type IIAB and IIB',
       locator: 'Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction',
+      status: 'draft',
     },
     {
       labelPl: 'Noradrenalina w osoczu',
@@ -203,12 +200,12 @@ export const NERWOWY: AtlasPlateContent = {
       referenceIds: ['brooks_1988', 'zouhal_2008', 'goldstein_2010'],
       evidenceLevel: 'established_human',
       notePl:
-        'Średnie po 30 s maksymalnego biegu na bieżni bez napędu (10 mężczyzn); przy 45 s pracy przy 88% VO₂max wartość jest najpewniej niższa. Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych. W przeglądzie badań wzrost katecholamin w wysiłku wynosi od 1,5 do ponad 20 razy.',
-      status: 'checked_agent',
+        'Średnie po 30 s maksymalnego biegu na bieżni (10 mężczyzn). Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych. W przeglądzie badań wzrost katecholamin w wysiłku wynosi od 1,5 do ponad 20 razy.',
       measuredAt: 'po wysiłku',
-      protocolMismatch: '30 s sprint maksymalny',
+      protocolMismatch: '30 s sprint maksymalny na bieżni bez napędu',
       quote: 'increased from 2.2 +/- 0.6 to 13.4 +/- 6.4 nmol.l-1',
       locator: 'Brooks 1988, abstrakt',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Adrenalina w osoczu',
@@ -218,11 +215,11 @@ export const NERWOWY: AtlasPlateContent = {
       referenceIds: ['brooks_1988', 'zouhal_2008', 'goldstein_2010', 'statpearls_ans'],
       evidenceLevel: 'established_human',
       notePl: 'To samo badanie (30 s sprintu na bieżni). Adrenalinę wydziela rdzeń nadnerczy na sygnał z nerwów współczulnych.',
-      status: 'checked_agent',
       measuredAt: 'po wysiłku',
-      protocolMismatch: '30 s sprint maksymalny',
+      protocolMismatch: '30 s sprint maksymalny na bieżni bez napędu',
       quote: '0.2 +/- 0.2 to 1.4 +/- 0.6 nmol.l-1 … for … adrenaline (AD)',
       locator: 'Brooks 1988, abstrakt',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Skąd bierze się zmęczenie',
@@ -232,41 +229,13 @@ export const NERWOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Badania stymulacją magnetyczną mózgu (TMS) pokazują, że przy zmęczeniu słabnie nie tylko mięsień: część utraty siły powstaje „wyżej”, bo kora ruchowa przestaje wysyłać pełny rozkaz.',
-      status: 'checked_agent',
       protocolMismatch: 'długi skurcz maksymalny jednego mięśnia',
       quote: 'suboptimal output from the motor cortex, that is, fatigue at a supraspinal level',
       locator: 'Taylor & Gandevia 2001, abstrakt',
+      status: 'checked_agent',
     },
   ],
-  flows: [
-    {
-      view: 'back',
-      kind: 'nerve',
-      labelPl: 'Rozkaz ruchu: lewa kora → skrzyżowanie w rdzeniu przedłużonym → rdzeń → nerw kulszowy → łydka',
-      points: [
-        [464, 76], [500, 199], [504, 233], [504, 417], [504, 601], [504, 693], [530, 779], [536, 810], [549, 857],
-        [553, 897], [569, 1014], [577, 1186], [584, 1252], [588, 1356], [595, 1432],
-      ],
-    },
-    {
-      view: 'front',
-      kind: 'nerve',
-      labelPl: 'Rdzeń lędźwiowy → nerw udowy → mięsień czworogłowy',
-      points: [
-        [500, 603], [500, 643], [488, 657], [473, 664], [449, 678], [413, 768], [423, 823], [431, 852], [437, 895],
-        [438, 1020], [435, 1128],
-      ],
-    },
-    {
-      view: 'front',
-      kind: 'nerve',
-      labelPl: 'Układ współczulny: rdzeń kręgowy → (przez pień, bez przełączenia) nerwy trzewne → rdzeń nadnercza (adrenalina)',
-      points: [
-        [486, 255], [494, 275], [494, 302], [491, 324], [486, 346], [486, 376], [484, 408], [483, 447], [482, 473],
-        [482, 500], [482, 536], [479, 563], [479, 587], [454, 616],
-      ],
-    },
-  ],
+  // Strzałki impulsu: public/atlas/nerwowy/flows3d.json (metry; generuje plate_nerwowy.py, rzutuje AtlasPlate).
   creditsPl:
     'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Sylwetka wyliczona z tych samych modeli. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };
