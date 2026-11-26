@@ -14,7 +14,7 @@ Koordynator (sesja nadrzędna): `local_522be64d-3ad8-4991-8085-7f34b69c40a3`.
 | wydalniczy | `local_37e1ca28-e80a-4465-a772-f7cebfdf8e93` | 5194 | zaliczony | warunkowo, poprawki wprowadzone | sygnał wysłany, w toku |
 | kostny | `local_e40f4943-860f-4eee-9aaf-2615cee60e38` | 5195 | zaliczony | warunkowo, poprawki wprowadzone | sygnał wysłany, w toku |
 | limfatyczny | `local_562c4781-155b-408c-9843-240bfffcb276` | 5196 | zaliczony | warunkowo, poprawki w toku | — |
-| rozrodczy | `local_38e25e6a-ea22-4f47-9266-0aa8758cd6d5` | 5197 | zaliczony | warunkowo, poprawki wprowadzone | sygnał wysłany, w toku |
+| rozrodczy | `local_38e25e6a-ea22-4f47-9266-0aa8758cd6d5` | 5197 | zaliczony | zaliczony | **zaliczony, scalony** |
 | Reżyser | `local_0e06d3c8-a948-4de9-b211-ddf665a1cee7` | 5198 | plan gotowy (`docs/ATLAS_REZYSER_PLAN.md`), czeka na decyzję użytkownika | | |
 
 Sprawdzanie faktów w toku:
