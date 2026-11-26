@@ -392,7 +392,7 @@ export function AtlasApp() {
   // Przełącznik momentu (S5, S13): „Spoczynek | <nazwa momentu>”; tekst na kolorze układu = onColor (kontrast ≥ 4,5:1).
   const momentSwitch = !isCard && (
     <div
-      className="shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 w-full max-w-[420px] max-lg:fixed max-lg:bottom-3 max-lg:left-3 max-lg:right-3 max-lg:w-auto max-lg:max-w-none max-lg:z-30 max-lg:shadow-lg max-lg:shadow-black/60 max-lg:border max-lg:border-slate-700"
+      className="relative z-40 shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 w-full max-w-[420px] max-lg:fixed max-lg:bottom-3 max-lg:left-3 max-lg:right-3 max-lg:w-auto max-lg:max-w-none max-lg:z-30 max-lg:shadow-lg max-lg:shadow-black/60 max-lg:border max-lg:border-slate-700"
       role="tablist"
       aria-label="Stan organizmu"
     >
@@ -540,7 +540,12 @@ export function AtlasApp() {
           </button>
         )}
         {show3d && (
-          <div className="absolute inset-0 z-30 bg-[var(--atlas-bg)]" role="dialog" aria-label={`Widok 3D: ${content.titlePl}`}>
+          // Widok 3D zajmuje scenę nad przełącznikiem momentu (S4/S5: moment steruje też widokiem 3D, więc musi być widoczny).
+          <div
+            className={`absolute inset-x-0 top-0 z-30 bg-[var(--atlas-bg)] ${isCard ? 'bottom-0' : 'bottom-16'}`}
+            role="dialog"
+            aria-label={`Widok 3D: ${content.titlePl}`}
+          >
             {(() => {
               const unavailable = (
                 <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300">
