@@ -1,8 +1,9 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
-import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
+import { EVIDENCE_PHRASE, PALETTE, flowStyle, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
+import { ATLAS_GLOSSARY } from './glossary';
 import { viewResolution } from './projection';
 import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
@@ -55,18 +56,27 @@ function MetricCard({ m, sprint, colorLight, extended }: { m: AtlasMetric; sprin
         {restOk ? (
           <span className={sprint ? 'text-slate-400' : 'text-white'}>{m.rest}</span>
         ) : (
-          <span className="text-slate-500" title="Brak sprawdzonej wartości spoczynkowej">
+          <span className="text-slate-400" title="Brak sprawdzonej wartości spoczynkowej">
             —<span className="sr-only">brak sprawdzonej wartości spoczynkowej</span>
           </span>
         )}
-        <span className="text-slate-500"> → </span>
+        <span className="text-slate-400"> → </span>
         <span style={{ color: sprint ? colorLight : '#94a3b8' }} className="font-semibold">
           {m.sprint}
         </span>
         {m.unit && <span className="text-slate-400 text-sm"> {m.unit}</span>}
       </p>
       {m.protocolMismatch && (
-        <p className="text-sm text-amber-200/90 mt-1">W badaniu: {m.protocolMismatch}.</p>
+        <p className="text-sm text-amber-200/90 mt-1">
+          W badaniu: {extended || !m.protocolMismatch.includes(';') ? m.protocolMismatch : `${m.protocolMismatch.split(';')[0]} (…)`}.
+        </p>
+      )}
+      {m.seeAlsoPlate && (
+        <p className="text-sm mt-1">
+          <a href={`#atlas/${m.seeAlsoPlate}`} className="text-sky-300 underline underline-offset-2 hover:text-sky-200">
+            Porównaj: {ATLAS_SYSTEMS.find((s) => s.id === m.seeAlsoPlate)?.content?.titlePl ?? m.seeAlsoPlate}
+          </a>
+        </p>
       )}
       {m.notePl && <p className="text-sm text-slate-400 mt-1.5 leading-snug">{m.notePl}</p>}
       <p className="text-sm text-slate-400 mt-1.5 flex items-start gap-1.5">
@@ -91,7 +101,7 @@ function MetricCard({ m, sprint, colorLight, extended }: { m: AtlasMetric; sprin
               <li key={id}>{fullCite(id)}</li>
             ))}
           </ul>
-          <p className="text-slate-500">Sprawdzone przez agenta AI z dosłownym cytatem (nie przez eksperta).</p>
+          <p className="text-slate-400">Sprawdzone przez agenta AI z dosłownym cytatem (nie przez eksperta).</p>
         </div>
       )}
     </div>
@@ -195,18 +205,14 @@ export function AtlasApp() {
     };
   }, [systemId]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const t = e.target as HTMLElement | null;
-      if (t && (t.tagName === 'BUTTON' || t.tagName === 'INPUT' || t.tagName === 'A')) return; // spacja na przycisku = klik
-      if (e.key === 's' || e.key === 'S' || e.key === ' ') {
-        e.preventDefault();
-        setState((s) => (s === 'rest' ? 'sprint' : 'rest'));
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  // Skrót S przełącza stan tylko z fokusem na planszy (<main>); spacja nie przełącza stanu (przewija stronę, klika przycisk).
+  const onPlateKey = (e: React.KeyboardEvent) => {
+    if (e.key !== 's' && e.key !== 'S') return;
+    const t = e.target as HTMLElement | null;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+    e.preventDefault();
+    setState((s) => (s === 'rest' ? 'sprint' : 'rest'));
+  };
 
   // Karta bez stanów (np. rozrodczy): przełącznik stanów ukryty, pokazujemy opis spoczynku.
   const isCard = !!content.card || !!anchors?.card;
@@ -224,6 +230,24 @@ export function AtlasApp() {
         .sort((a, b) => tierRank(a) - tierRank(b))
         .slice(0, BASIC_MAX_METRICS);
   const hiddenMetrics = content.metrics.length - shownMetrics.length;
+  const onColor = systemOfPlate(systemId)?.onColor ?? '#0b1020';
+  const protocolNote = !content.protocolNotePl
+    ? '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.'
+    : isShown(content.protocolNoteStatus)
+      ? content.protocolNotePl
+      : '„Sprint” ma na tej planszy własne znaczenie; jego opis czeka na sprawdzenie.';
+  const glossary = ATLAS_GLOSSARY.filter((g) => isShown(g.status));
+  // Legenda strzałek (zgromadzenie, dostępność): podpis `labelPl` i wzór kreski rodzaju, dla widoków na ekranie.
+  const shownViews: string[] = narrow || !splitScale ? viewsPresent : panels[panelIdx]?.views ?? viewsPresent;
+  const legend: { kind: string; label: string }[] = [];
+  const pushLegend = (kind: string, label?: string, views?: string[], states?: AtlasState[]) => {
+    if (states && !states.includes(shownState)) return;
+    if (views && !views.some((v) => shownViews.includes(v))) return;
+    const l = label ?? flowStyle(kind).namePl;
+    if (!legend.some((x) => x.kind === kind && x.label === l)) legend.push({ kind, label: l });
+  };
+  for (const f of content.flows ?? []) pushLegend(f.kind, f.labelPl, [f.view], f.states);
+  for (const f of flows3d?.flows ?? []) pushLegend(f.kind, f.labelPl, f.views, f.states);
   // Reguła 1b: podsumowanie czekające na sprawdzenie nie jest pokazywane (tylko zdania już potwierdzone albo nic).
   const summaries = { rest: shownSummary(content, 'rest'), sprint: shownSummary(content, 'sprint') };
   const groups = PALETTE.groups
@@ -232,7 +256,7 @@ export function AtlasApp() {
 
   return (
     <div
-      className="w-screen h-screen overflow-auto lg:overflow-hidden bg-[var(--atlas-bg)] text-slate-100 flex flex-col lg:flex-row"
+      className="w-screen h-screen overflow-auto lg:overflow-hidden bg-[var(--atlas-bg)] text-slate-100 flex flex-col lg:flex-row pb-20 lg:pb-0"
       style={paletteCssVars() as CSSProperties}
     >
       {/* Nawigacja układów: ikona + nazwa (kolor nie jest jedynym nośnikiem informacji) */}
@@ -241,12 +265,12 @@ export function AtlasApp() {
         className="shrink-0 lg:w-[156px] border-b lg:border-b-0 lg:border-r border-slate-800 p-2 lg:p-3 flex lg:flex-col gap-1 overflow-x-auto lg:overflow-y-auto bio-scroll relative"
       >
         <div className="hidden lg:block mb-2 px-1">
-          <p className="font-mono-tech text-[11px] tracking-[0.18em] text-slate-400 uppercase">Atlas</p>
+          <p className="font-mono-tech text-[14px] tracking-[0.14em] text-slate-400 uppercase">Atlas</p>
           <p className="font-display text-sm font-bold leading-tight">układów</p>
         </div>
         {groups.map((g) => (
           <div key={g.key} className="contents lg:flex lg:flex-col lg:gap-0.5">
-            <p className="hidden lg:block mt-2 px-1 font-mono-tech text-[10px] tracking-[0.14em] uppercase text-slate-500">{g.namePl}</p>
+            <p className="hidden lg:block mt-2 px-1 font-mono-tech text-[14px] tracking-[0.06em] uppercase text-slate-400">{g.namePl}</p>
             {g.systems.map((s) => {
               const active = s.id === systemId;
               const ready = !!s.content;
@@ -259,7 +283,7 @@ export function AtlasApp() {
                   aria-current={active ? 'page' : undefined}
                   title={ready ? s.namePl : `${s.namePl}: plansza w przygotowaniu`}
                   className={`shrink-0 flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm transition text-left ${
-                    active ? 'bg-slate-800 text-white' : ready ? 'text-slate-200 hover:bg-slate-800/50' : 'text-slate-500 cursor-not-allowed'
+                    active ? 'bg-slate-800 text-white' : ready ? 'text-slate-200 hover:bg-slate-800/50' : 'text-slate-400 cursor-not-allowed'
                   }`}
                   style={active ? { boxShadow: `inset 3px 0 0 var(${s.colorVar})` } : undefined}
                 >
@@ -268,20 +292,25 @@ export function AtlasApp() {
                   </span>
                   <span className="font-display font-semibold leading-tight">
                     {s.namePl}
-                    {!ready && <span className="block text-[11px] font-normal text-slate-500">wkrótce</span>}
+                    {!ready && <span className="block text-[14px] font-normal text-slate-400">wkrótce</span>}
                   </span>
                 </button>
               );
             })}
           </div>
         ))}
-        <a href="#" className="hidden lg:block mt-auto px-1 pt-3 text-[12px] leading-tight text-slate-400 hover:text-slate-200">
+        <a href="#" className="shrink-0 self-center lg:self-auto lg:mt-auto px-2 lg:px-1 lg:pt-3 text-[14px] leading-tight text-slate-300 hover:text-white whitespace-nowrap">
           ← Podróż filmowa
         </a>
       </nav>
 
       {/* Plansza */}
-      <main className="flex-1 min-w-0 lg:min-h-0 p-2 lg:p-6 flex flex-col items-center justify-center gap-2">
+      <main
+        className="flex-1 min-w-0 lg:min-h-0 p-2 lg:p-6 flex flex-col items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+        tabIndex={0}
+        onKeyDown={onPlateKey}
+        aria-label={`Plansza: ${content.titlePl}. Klawisz S przełącza spoczynek i sprint.`}
+      >
         {anchors ? (
           narrow ? (
             content.views.map((v) => (
@@ -344,7 +373,7 @@ export function AtlasApp() {
       {/* Panel informacji */}
       <aside className="shrink-0 lg:w-[360px] border-t lg:border-t-0 lg:border-l border-slate-800 p-5 flex flex-col gap-4 lg:overflow-y-auto bio-scroll">
         <header>
-          <p className="font-mono-tech text-[12px] tracking-[0.2em] uppercase flex items-center gap-2" style={{ color: colorLight }}>
+          <p className="font-mono-tech text-[14px] tracking-[0.14em] uppercase flex items-center gap-2" style={{ color: colorLight }}>
             <AtlasGlyph glyph={systemOfPlate(systemId)?.glyph ?? 'heart'} size={16} />
             Plansza
           </p>
@@ -353,7 +382,11 @@ export function AtlasApp() {
         </header>
 
         {!isCard && (
-        <div className="grid grid-cols-2 rounded-xl bg-slate-900 p-1" role="tablist" aria-label="Stan organizmu">
+        <div
+          className="grid grid-cols-2 rounded-xl bg-slate-900 p-1 max-lg:fixed max-lg:bottom-3 max-lg:left-3 max-lg:right-3 max-lg:z-30 max-lg:shadow-lg max-lg:shadow-black/60 max-lg:border max-lg:border-slate-700"
+          role="tablist"
+          aria-label="Stan organizmu"
+        >
           {(['rest', 'sprint'] as AtlasState[]).map((s) => (
             <button
               key={s}
@@ -363,7 +396,7 @@ export function AtlasApp() {
               className={`rounded-lg py-2 text-sm font-display font-semibold transition ${
                 state === s ? 'text-white' : 'text-slate-300 hover:text-white'
               }`}
-              style={state === s ? { background: s === 'sprint' ? color : '#334155', color: s === 'sprint' ? '#0b1020' : undefined } : undefined}
+              style={state === s ? { background: s === 'sprint' ? color : '#334155', color: s === 'sprint' ? onColor : undefined } : undefined}
             >
               {s === 'rest' ? 'Spoczynek' : 'Sprint HIIT'}
             </button>
@@ -387,10 +420,12 @@ export function AtlasApp() {
           ))}
         </div>
 
-        <p className="text-sm text-slate-400 leading-snug">
-          {content.protocolNotePl ??
-            '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.'}
-        </p>
+        <p className="text-sm text-slate-400 leading-snug">{protocolNote}</p>
+        {glossary.map((g) => (
+          <p key={g.id} className="text-sm text-slate-400 leading-snug -mt-2">
+            {g.textPl}
+          </p>
+        ))}
 
         {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu.
             Gdy bieżący stan nie ma sprawdzonego opisu, nie rezerwujemy miejsca (bez pustej przerwy). */}
@@ -410,8 +445,31 @@ export function AtlasApp() {
           </div>
         )}
 
+        {legend.length > 0 && (
+          <section className="flex flex-col gap-1.5" aria-label="Legenda strzałek">
+            <h3 className="font-mono-tech text-[14px] tracking-[0.14em] uppercase text-slate-400">Strzałki</h3>
+            <ul className="flex flex-col gap-1.5 list-none p-0 m-0">
+              {legend.map((it) => {
+                const fs = flowStyle(it.kind);
+                return (
+                  <li key={`${it.kind}-${it.label}`} className="flex items-start gap-2 text-sm text-slate-300 leading-snug">
+                    <svg width="34" height="12" viewBox="0 0 34 12" className="mt-1 shrink-0" aria-hidden="true">
+                      <line x1="1" y1="6" x2="27" y2="6" stroke={fs.color} strokeWidth="2.6" strokeDasharray={fs.dash.map((d) => d * 0.6).join(' ')} />
+                      <path d="M26,1 L33,6 L26,11 z" fill={fs.color} />
+                    </svg>
+                    <span>
+                      {it.label}
+                      <span className="text-slate-400"> ({fs.namePl})</span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
         <section className="flex flex-col gap-3" aria-label="Liczby: spoczynek i sprint">
-          <h3 className="font-mono-tech text-[12px] tracking-[0.2em] uppercase text-slate-400">Spoczynek → sprint</h3>
+          <h3 className="font-mono-tech text-[14px] tracking-[0.14em] uppercase text-slate-400">Spoczynek → sprint</h3>
           {metrics.map((m) => (
             <MetricCard key={m.labelPl} m={m} sprint={sprint} colorLight={colorLight} extended={extended} />
           ))}
@@ -419,19 +477,35 @@ export function AtlasApp() {
             <p className="text-sm text-slate-400">Więcej liczb w poziomie „Rozszerzony”.</p>
           )}
           {hiddenMetrics > 0 && (
-            <p className="text-sm text-slate-500">
-              {hiddenMetrics === 1 ? '1 liczba czeka' : `${hiddenMetrics} liczby czekają`} na sprawdzenie źródła i nie są pokazywane.
+            <p className="text-sm text-slate-400">
+              {hiddenMetrics === 1
+                ? '1 liczba czeka na sprawdzenie źródła i nie jest pokazywana.'
+                : hiddenMetrics % 10 >= 2 && hiddenMetrics % 10 <= 4 && (hiddenMetrics % 100 < 12 || hiddenMetrics % 100 > 14)
+                  ? `${hiddenMetrics} liczby czekają na sprawdzenie źródła i nie są pokazywane.`
+                  : `${hiddenMetrics} liczb czeka na sprawdzenie źródła i nie jest pokazywanych.`}
             </p>
           )}
         </section>
 
-        <p className="text-[12px] text-slate-400 leading-snug mt-auto">
+        <p className="text-[14px] text-slate-400 leading-snug mt-auto">
           {content.creditsPl}
           <br />
-          Licencje: Z-Anatomy – CC BY-SA 4.0 (na bazie BodyParts3D © DBCLS, CC BY-SA 2.1 JP); HuBMAP Human Reference Atlas –
-          CC BY 4.0. Modele z licencją niekomercyjną (NC) są zablokowane. Plansze atlasu: CC BY-SA 4.0.
+          Licencje:{' '}
+          <a className="underline underline-offset-2 hover:text-slate-200" href="https://creativecommons.org/licenses/by-sa/4.0/deed.pl" target="_blank" rel="noreferrer">
+            Z-Anatomy – CC BY-SA 4.0
+          </a>{' '}
+          (na bazie BodyParts3D © DBCLS,{' '}
+          <a className="underline underline-offset-2 hover:text-slate-200" href="https://creativecommons.org/licenses/by-sa/2.1/jp/" target="_blank" rel="noreferrer">
+            CC BY-SA 2.1 JP
+          </a>
+          );{' '}
+          <a className="underline underline-offset-2 hover:text-slate-200" href="https://creativecommons.org/licenses/by/4.0/deed.pl" target="_blank" rel="noreferrer">
+            HuBMAP Human Reference Atlas – CC BY 4.0
+          </a>{' '}
+          (NIH Visible Human / Indiana University). Zmiany w modelach: dopasowanie, wybór i uproszczenie struktur, kolory,
+          render. Modele z licencją niekomercyjną (NC) są zablokowane. Plansze atlasu: CC BY-SA 4.0.
           <br />
-          Klawisz S przełącza stan. Podpis wyróżnia najechanie, klawisz Tab albo dotknięcie.
+          Klawisz S (gdy plansza ma fokus) przełącza stan. Podpis wyróżnia najechanie, klawisz Tab albo dotknięcie.
         </p>
       </aside>
     </div>
