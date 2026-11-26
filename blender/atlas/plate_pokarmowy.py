@@ -186,17 +186,9 @@ for zn, hs in (("Liver", [h_capsule]), ("Gallbladder", h_gb), ("Pancreas", h_pan
 
 
 # ============================================================ materiały i plansza
-def level_material(system, level, ctx="bone", alpha=1.0, emission=0.0, tag=""):
-    """Kolor układu zmieszany z kontekstem w proporcji `level` (bez świecenia, jeśli emission=0)."""
-    col = al.mix(al.hex_to_linear(al.CONTEXT_COLORS[ctx]), al.hex_to_linear(al.SYSTEM_COLORS[system]), level)
-    name = f"DIG_{system}_{ctx}_{int(level * 100)}_{int(emission * 100)}_{int(alpha * 100)}{tag}"
-    return al.make_material(name, col, roughness=0.6, subsurface=0.08 if alpha >= 1 else 0.0, emission=emission,
-                            alpha=alpha, backface_culling=True if alpha < 1 else None)
-
-
 class DigestPlate(al.Plate):
-    """Lokalnie: (1) poziom koloru w spoczynku (`rest_level`; atlas_lib zawsze daje 35%),
-    (2) materiały własne (custom: obj -> fn(state)), (3) zapis poza repo (ATLAS_OUT / ATLAS_FIT)."""
+    """Lokalnie: (1) materiały własne (custom: obj -> fn(state)), (2) zapis poza repo (ATLAS_OUT / ATLAS_FIT).
+    Poziom koloru w spoczynku (`rest_level`) liczy atlas_lib (integracja 1b cz. 2; dawniej lokalne obejście)."""
 
     def __init__(self, *a, **kw):
         super().__init__(*a, **kw)
@@ -204,13 +196,9 @@ class DigestPlate(al.Plate):
 
     def _apply_state(self, state):
         super()._apply_state(state)
-        for o, role, system, levels in self.items:
-            ex = self.extra.get(o.name, {})
+        for o, *_ in self.items:
             if o.name in self.custom:
                 al.assign(o, self.custom[o.name](state))
-            elif role == "active" and state == "rest" and levels.get("rest") is not None:
-                al.assign(o, level_material(system, float(levels["rest"]), ctx=ex.get("ctx") or "bone",
-                                            alpha=ex.get("alpha") or 1.0))
 
 
 def front_surface(objs, frac=0.12, zband=None, xband=None):
