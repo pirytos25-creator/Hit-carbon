@@ -58,9 +58,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       namePl: 'Serce',
       nameLat: 'cor',
       role: { rest: 'Ok. 60 uderzeń na minutę', sprint: 'Bije szybko; maksimum w wieku 25 lat to ok. 190/min' },
+      conversionNote: '208 − 0,7 × 25 = 190,5 /min (Tanaka 2001).',
       tier: 'primary',
       referenceIds: [JOYNER, 'tanaka_2001'],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #1, #3; fakty_draft_K3_zaopatrzenie.md: disputed („blisko maksimum”) -> tekst poprawiony = draft
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #1, #3; fakty_draft_1b.md: Tanaka 2001, abstrakt, Conclusions (+ conversionNote)
     },
     {
       anchor: 'brachial',
@@ -129,7 +130,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       // #28: „Szybszy powrót krwi” bez oparcia w źródłach; zostaje opis anatomiczny.
       role: { rest: 'Krew z głowy i ramion', sprint: 'Krew z głowy i ramion' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // fakty_draft_K3_zaopatrzenie.md: sprint bez źródła (propozycja: anatomy)
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_draft_K3_zaopatrzenie.md: sprint = ten sam opis budowy (anatomy, decyzja Dyrygenta 1b)
     },
     {
       anchor: 'd_pulmonary_trunk',
@@ -208,8 +209,8 @@ export const KRWIONOSNY: AtlasPlateContent = {
       notePl: 'Osoba rekreacyjnie aktywna. U wyczynowych sportowców wytrzymałościowych (elita) ok. 150–200 mL.',
       protocolMismatch: 'wysiłek maksymalny',
       quote: 'Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125',
-      locator: 'Joyner & Casey 2015, tab. 1 (komórki tabeli)',
-      status: 'draft', // fakty_draft_K3_zaopatrzenie.md: disputed (notatka „wytrenowani” = Elite) -> tekst poprawiony = draft
+      locator: 'Joyner & Casey 2015, tab. 1, Reference Man, Rest / Exercise (maximal) (komórki tabeli)',
+      status: 'checked_agent', // fakty_draft_1b.md
     },
     {
       labelPl: 'Rzut serca',

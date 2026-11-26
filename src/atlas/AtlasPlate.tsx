@@ -83,6 +83,11 @@ interface Props {
   fitHeight?: boolean;
   flows3d?: AtlasFlows3DFile | null;
   level: AtlasLevel;
+  /**
+   * Widoki, z którymi ten panel ma mieć wspólną skalę obrazu (telefon: każdy widok osobno, ale przód i bok tego samego
+   * ciała w tej samej skali). Skala jest liczona dla najszerszego kadru z listy.
+   */
+  scaleWithViews?: AtlasView[];
 }
 
 interface Placed {
@@ -95,7 +100,7 @@ interface Placed {
   hPx: number;
 }
 
-export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHeight, flows3d, level }: Props) {
+export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHeight, flows3d, level, scaleWithViews }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [box, setBox] = useState({ w: 900, h: 700 });
   const [hover, setHover] = useState<string | null>(null);
@@ -160,7 +165,16 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   const cols = frames.reduce((n, f) => n + (f.hasLeft ? 1 : 0) + (f.hasRight ? 1 : 0), 0);
   const colPx = Math.round(Math.min(COL_MAX, Math.max(COL_MIN, (box.w * 0.5) / Math.max(1, cols))));
   const gapPx = 16;
-  const imagesW = frames.reduce((acc, f) => acc + f.fw, 0);
+  const cropW = (view: AtlasView) => {
+    const b = anchors.views[view]?.bbox ?? [0, 0, 1, 1];
+    return (Math.min(1, b[2] + CROP_MARGIN) - Math.max(0, b[0] - CROP_MARGIN)) * W;
+  };
+  const ownW = frames.reduce((acc, f) => acc + f.fw, 0);
+  // Wspólna skala (jeden widok na panel): dzielimy przez najszerszy kadr z grupy, więc węższy kadr nie jest powiększany.
+  const imagesW =
+    scaleWithViews && frames.length === 1
+      ? Math.max(ownW, ...scaleWithViews.filter((v) => anchors.views[v]).map(cropW))
+      : ownW;
   const titlePx = FONT.title * 2.2;
   const sW = (box.w - cols * colPx - gapPx * Math.max(0, frames.length - 1) - 8) / Math.max(1, imagesW);
   const sH = (box.h - titlePx) / H;

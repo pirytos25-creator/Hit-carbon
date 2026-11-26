@@ -1,9 +1,9 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
-import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, systemOfPlate, type AtlasLevel } from './palette';
+import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
-import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId } from './types';
+import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
 
@@ -105,7 +105,7 @@ export function AtlasApp() {
   const [error, setError] = useState<string | null>(null);
   const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 760px)').matches);
   // „Całe ciało / Zbliżenie” (łatka sesji mięśniowej): na szerokim ekranie jedna skala naraz, żeby nic nie było za małe.
-  const [panel, setPanel] = useState<'body' | 'detail'>('body');
+  const [panel, setPanel] = useState(0);
   const system = ATLAS_SYSTEMS.find((s) => s.id === systemId)!;
   const extended = level === 'extended';
 
@@ -125,18 +125,34 @@ export function AtlasApp() {
 
   const content = system.content!;
   const flows3d = useFlows3d(`${BASE}atlas/${systemId}/flows3d.json`);
-  const detailViews = content.views.filter((v) => v === 'detail');
-  const bodyViews = content.views.filter((v) => v !== 'detail');
-  // Całe ciało (render pionowy ≥ 1,7:1) obok zbliżenia byłoby za małe: wtedy jedna skala naraz.
+  // Panele planszy na szerokim ekranie: które widoki stoją obok siebie, a które dostają własną zakładkę.
+  // Pomiar przy 1440×900 (obszar planszy 876×804 px): jeden widok 1150×1600 zajmuje 556×773 px, dwa takie widoki
+  // obok siebie z kolumnami podpisów tylko ok. 150–210 px szerokości. Dlatego obok siebie stoją wyłącznie wąskie
+  // widoki całego ciała (render pionowy ≥ 1,7:1, np. przód i tył: 292×526 px każdy); każdy inny widok
+  // (zbliżenie, render 1150×1600, render poziomy) ma własną zakładkę i całą wysokość planszy.
+  // Napis zakładki = tytuł widoku z planszy (`viewTitlesPl`), np. na hormonalnym „front” to tułów z głową.
+  const viewTitle = (v: AtlasView) => content.viewTitlesPl[v] ?? (v === 'detail' ? 'Zbliżenie' : v);
   const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
-  // Render poziomy (np. mózg) z dwoma widokami i 4 kolumnami podpisów też byłby za mały: jeden widok naraz.
-  const landscape = !!anchors && anchors.resolution[0] >= anchors.resolution[1];
-  // Każda plansza ze zbliżeniem pokazuje jedną skalę naraz (integracja 1b: oddechowy przy 1440 był za mały obok zbliżenia).
-  const splitScale = detailViews.length > 0 && bodyViews.length >= 1;
-  void landscape;
-  const panelLabel = (p: 'body' | 'detail') =>
-    wholeBody ? (p === 'body' ? 'Całe ciało' : 'Zbliżenie') : (content.viewTitlesPl[p === 'body' ? bodyViews[0] : 'detail'] ?? p);
-  useEffect(() => setPanel('body'), [systemId]);
+  const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
+  const bodyViews = viewsPresent.filter((v) => v !== 'detail');
+  const panels: { views: AtlasView[]; label: string }[] = [];
+  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
+  for (const v of viewsPresent) {
+    if (wholeBody && v !== 'detail') continue;
+    panels.push({ views: [v], label: viewTitle(v) });
+  }
+  // Telefon: każdy widok osobno, ale widoki z tą samą kamerą (ta sama skala ortho, bez zbliżeń), np. przód i bok
+  // szkieletu, dostają wspólną skalę obrazu. Widoki z inną kamerą (zbliżenie, wycinek jamy brzusznej) – własną.
+  const orthoOf = (v: AtlasView) => anchors?.views[v]?.camera?.orthoScale;
+  const sameScaleViews = (v: AtlasView): AtlasView[] | undefined => {
+    const o = orthoOf(v);
+    if (v === 'detail' || o === undefined) return undefined;
+    const group = viewsPresent.filter((x) => x !== 'detail' && orthoOf(x) !== undefined && Math.abs(orthoOf(x)! - o) < 1e-4);
+    return group.length > 1 ? group : undefined;
+  };
+  const splitScale = panels.length > 1;
+  const panelIdx = Math.min(panel, Math.max(0, panels.length - 1));
+  useEffect(() => setPanel(0), [systemId]);
 
   useEffect(() => {
     const onHash = () => setSystemId(systemFromHash());
@@ -180,9 +196,17 @@ export function AtlasApp() {
   const color = `var(${content.colorVar})`;
   const colorLight = `var(${content.colorVar}-light)`;
   const shownMetrics = content.metrics.filter((m) => isShown(m.status));
-  const metrics = extended ? shownMetrics : shownMetrics.slice(0, BASIC_MAX_METRICS);
+  // Poziom podstawowy: najpierw liczby 'primary' (brak tier = primary), potem 'secondary'; liczby 'student' tylko w rozszerzonym.
+  const tierRank = (m: AtlasMetric) => (m.tier === 'secondary' ? 1 : m.tier === 'student' ? 2 : 0);
+  const metrics = extended
+    ? shownMetrics
+    : shownMetrics
+        .filter((m) => m.tier !== 'student')
+        .sort((a, b) => tierRank(a) - tierRank(b))
+        .slice(0, BASIC_MAX_METRICS);
   const hiddenMetrics = content.metrics.length - shownMetrics.length;
-  const summaryChecked = isShown(content.summaryStatus?.[shownState]);
+  // Reguła 1b: podsumowanie czekające na sprawdzenie nie jest pokazywane (tylko zdania już potwierdzone albo nic).
+  const summaries = { rest: shownSummary(content, 'rest'), sprint: shownSummary(content, 'sprint') };
   const groups = PALETTE.groups
     .map((g) => ({ ...g, systems: ATLAS_SYSTEMS.filter((s) => systemOfPlate(s.id)?.group === g.key) }))
     .filter((g) => g.systems.length);
@@ -251,35 +275,41 @@ export function AtlasApp() {
                 onlyViews={[v]}
                 flows3d={flows3d}
                 level={level}
+                scaleWithViews={sameScaleViews(v)}
               />
             ))
           ) : (
             <>
               {splitScale && (
-                <div className="shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 text-sm" role="tablist" aria-label="Skala planszy">
-                  {(['body', 'detail'] as const).map((p) => (
+                <div
+                  className="shrink-0 grid rounded-xl bg-slate-900 p-1 text-sm"
+                  style={{ gridTemplateColumns: `repeat(${panels.length}, minmax(0, auto))` }}
+                  role="tablist"
+                  aria-label="Widok planszy"
+                >
+                  {panels.map((p, i) => (
                     <button
-                      key={p}
+                      key={p.label}
                       role="tab"
-                      aria-selected={panel === p}
-                      onClick={() => setPanel(p)}
+                      aria-selected={panelIdx === i}
+                      onClick={() => setPanel(i)}
                       className={`rounded-lg px-4 py-1.5 font-display font-semibold transition ${
-                        panel === p ? 'bg-slate-700 text-white' : 'text-slate-300 hover:text-white'
+                        panelIdx === i ? 'bg-slate-700 text-white' : 'text-slate-300 hover:text-white'
                       }`}
                     >
-                      {panelLabel(p)}
+                      {p.label}
                     </button>
                   ))}
                 </div>
               )}
               <div className="flex-1 min-h-0 w-full flex items-center justify-center">
                 <AtlasPlate
-                  key={`${systemId}-${splitScale ? panel : 'all'}`}
+                  key={`${systemId}-${splitScale ? panelIdx : 'all'}`}
                   content={content}
                   anchors={anchors}
                   state={shownState}
                   baseUrl={`${BASE}atlas/${systemId}/`}
-                  onlyViews={splitScale ? (panel === 'detail' ? detailViews : bodyViews) : undefined}
+                  onlyViews={splitScale ? panels[panelIdx].views : undefined}
                   fitHeight
                   flows3d={flows3d}
                   level={level}
@@ -339,26 +369,26 @@ export function AtlasApp() {
         </div>
 
         <p className="text-sm text-slate-400 leading-snug">
-          „Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają
-          dopisek „W badaniu: …”.
+          {content.protocolNotePl ??
+            '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.'}
         </p>
 
-        {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu. */}
-        <div className="grid">
-          {(['rest', 'sprint'] as AtlasState[]).map((s) => (
-            <p
-              key={s}
-              aria-hidden={s !== shownState}
-              className={`[grid-area:1/1] text-[15px] leading-relaxed text-slate-200 transition-opacity duration-500 motion-reduce:transition-none ${
-                s === shownState ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
-            >
-              {content.summary[s]}
-            </p>
-          ))}
-        </div>
-        {!summaryChecked && (
-          <p className="text-sm text-slate-500 -mt-2">Opis roboczy: część zdań czeka jeszcze na sprawdzenie źródła.</p>
+        {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu.
+            Gdy bieżący stan nie ma sprawdzonego opisu, nie rezerwujemy miejsca (bez pustej przerwy). */}
+        {summaries[shownState] && (
+          <div className="grid">
+            {(['rest', 'sprint'] as AtlasState[]).filter((s) => summaries[s]).map((s) => (
+              <p
+                key={s}
+                aria-hidden={s !== shownState}
+                className={`[grid-area:1/1] text-[15px] leading-relaxed text-slate-200 transition-opacity duration-500 motion-reduce:transition-none ${
+                  s === shownState ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+              >
+                {summaries[s]}
+              </p>
+            ))}
+          </div>
         )}
 
         <section className="flex flex-col gap-3" aria-label="Liczby: spoczynek i sprint">
