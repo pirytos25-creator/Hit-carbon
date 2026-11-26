@@ -1582,7 +1582,7 @@
    "kind": "protocol_note",
    "plate": "powlokowy",
    "textPl": "Naczynia skóry zwężają się już w pierwszych sekundach wysiłku, ale chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się w minutach. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s.",
-   "status": "disputed",
+   "status": "draft",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
@@ -1591,6 +1591,100 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md: „w pierwszych sekundach” (źródła: na początku, w pierwszej minucie) - ukryte"
    }
+  },
+  {
+   "id": "powlokowy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "powlokowy",
+   "textPl": "Dowiesz się, jak skóra pomaga pozbyć się ciepła z pracujących mięśni.",
+   "status": "draft",
+   "referenceIds": [
+    "wendt_2007",
+    "gonzalez_alonso_2008",
+    "johnson_2010",
+    "yanagimoto_2003",
+    "baker_2019",
+    "smith_havenith_2011",
+    "kenny_2007",
+    "kenny_2008"
+   ],
+   "derivedFrom": [
+    "powlokowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "powlokowy.question",
+   "kind": "question",
+   "plate": "powlokowy",
+   "textPl": "Jak skóra chłodzi organizm, gdy mięśnie wytwarzają dużo ciepła?",
+   "status": "draft",
+   "referenceIds": [
+    "wendt_2007",
+    "gonzalez_alonso_2008",
+    "johnson_2010",
+    "yanagimoto_2003",
+    "baker_2019",
+    "smith_havenith_2011",
+    "kenny_2007",
+    "kenny_2008",
+    "periard_2021"
+   ],
+   "derivedFrom": [
+    "powlokowy.summary.sprint",
+    "powlokowy.metric.energia_z_pracy_miesni_zamieniana_w_cieplo"
+   ]
+  },
+  {
+   "id": "powlokowy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "powlokowy",
+   "textPl": "Pracujące mięśnie zamieniają w ciepło ponad 3/4 zużytej energii. Gdy temperatura wewnętrzna rośnie, naczynia skóry się rozszerzają, a pocenie wyraźnie przybiera, najmocniej na czole i plecach. Po treningu ciepło zostaje w ciele jeszcze przez kilkadziesiąt minut.",
+   "status": "draft",
+   "referenceIds": [
+    "wendt_2007",
+    "gonzalez_alonso_2008",
+    "johnson_2010",
+    "yanagimoto_2003",
+    "baker_2019",
+    "smith_havenith_2011",
+    "kenny_2007",
+    "kenny_2008"
+   ],
+   "derivedFrom": [
+    "powlokowy.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "powlokowy.momentLabel",
+   "kind": "moment_label",
+   "plate": "powlokowy",
+   "textPl": "Koniec treningu",
+   "status": "draft",
+   "referenceIds": [
+    "wendt_2007",
+    "gonzalez_alonso_2008",
+    "johnson_2010",
+    "yanagimoto_2003",
+    "baker_2019",
+    "smith_havenith_2011",
+    "kenny_2007",
+    "kenny_2008"
+   ],
+   "derivedFrom": [
+    "powlokowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "powlokowy.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "powlokowy",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.1.5)",
+   "quote": "przedstawia mechanizmy warunkujące homeostazę (termoregulacja, osmoregulacja, ciśnienie krwi).",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }

@@ -6,6 +6,7 @@
 import type {
   AtlasFactStatus,
   AtlasLabel,
+  AtlasLessonText,
   AtlasMetric,
   AtlasPlateContent,
   AtlasState,
@@ -18,7 +19,20 @@ import type { EvidenceLevel } from '../types/biogenesis';
 /** Rekord faktu (src/atlas/data/schema/facts.schema.json). Pola `null` w JSON-ie = brak. */
 export interface AtlasFactRecord {
   id: string;
-  kind: 'metric' | 'metric_rest' | 'role' | 'summary' | 'summary_verified' | 'protocol_note' | 'glossary';
+  kind:
+    | 'metric'
+    | 'metric_rest'
+    | 'role'
+    | 'summary'
+    | 'summary_verified'
+    | 'protocol_note'
+    | 'glossary'
+    // M3 (U0): nowe teksty lekcji; każdy powstaje z przeformułowania sprawdzonych faktów (`derivedFrom`)
+    | 'lesson_goal'
+    | 'question'
+    | 'summary_short'
+    | 'moment_label'
+    | 'curriculum_ref';
   plate: string | null;
   status: AtlasFactStatus;
   referenceIds: string[];
@@ -44,6 +58,10 @@ export interface AtlasFactRecord {
   provenance?: string | null;
   accessMode?: string | null;
   checkedBy?: { report: string | null; rows: string[]; note: string } | null;
+  /** M3: ID sprawdzonych faktów (`checked_agent`), z których przeformułowano ten tekst. */
+  derivedFrom?: string[];
+  /** curriculum_ref: zakres podstawy programowej. */
+  scope?: 'P' | 'R';
 }
 export interface AtlasFactsFile {
   schemaVersion: number;
@@ -57,7 +75,19 @@ export type AtlasLayoutLabel = Omit<AtlasLabel, 'role' | 'roleStatus' | 'referen
 /** Układ planszy (plates/<plansza>.ts): wszystko poza treścią faktów. */
 export type AtlasPlateLayout = Omit<
   AtlasPlateContent,
-  'summary' | 'summaryReferenceIds' | 'summaryStatus' | 'summaryVerified' | 'protocolNotePl' | 'protocolNoteStatus' | 'metrics' | 'labels'
+  | 'summary'
+  | 'summaryReferenceIds'
+  | 'summaryStatus'
+  | 'summaryVerified'
+  | 'protocolNotePl'
+  | 'protocolNoteStatus'
+  | 'metrics'
+  | 'labels'
+  | 'lessonGoal'
+  | 'question'
+  | 'summaryShort'
+  | 'momentLabel'
+  | 'curriculumRef'
 > & { labels: AtlasLayoutLabel[] };
 
 const u = <T>(v: T | null | undefined): T | undefined => (v === null ? undefined : v);
@@ -95,6 +125,7 @@ export function buildPlate(layout: AtlasPlateLayout, file: AtlasFactsFile): Atla
     .map((m) => {
       const rest = byId.get(`${m.id}.rest`);
       const metric: AtlasMetric = {
+        id: m.id,
         labelPl: m.labelPl ?? m.id,
         rest: rest?.value ?? '—',
         sprint: m.value ?? '',
@@ -140,5 +171,23 @@ export function buildPlate(layout: AtlasPlateLayout, file: AtlasFactsFile): Atla
     content.protocolNotePl = note.textPl;
     content.protocolNoteStatus = note.status;
   }
+  // M3: teksty lekcji (każdy z własnym statusem; bramka w palette.ts: lessonText)
+  const lesson = (f: AtlasFactRecord | undefined): AtlasLessonText | undefined =>
+    f && f.textPl ? { text: f.textPl, status: f.status, derivedFrom: f.derivedFrom ?? [] } : undefined;
+  const one = (kind: AtlasFactRecord['kind']) => facts.find((f) => f.kind === kind);
+  const goal = lesson(one('lesson_goal'));
+  if (goal) content.lessonGoal = goal;
+  const question = lesson(one('question'));
+  if (question) content.question = question;
+  const moment = lesson(one('moment_label'));
+  if (moment) content.momentLabel = moment;
+  const short: Partial<Record<AtlasState, AtlasLessonText>> = {};
+  for (const st of ['rest', 'sprint'] as AtlasState[]) {
+    const t = lesson(byId.get(`${layout.id}.summaryShort.${st}`));
+    if (t) short[st] = t;
+  }
+  if (short.rest || short.sprint) content.summaryShort = short;
+  const cur = one('curriculum_ref');
+  if (cur?.quote && cur.locator) content.curriculumRef = { scope: cur.scope ?? 'P', locator: cur.locator, quote: cur.quote, status: cur.status };
   return content;
 }

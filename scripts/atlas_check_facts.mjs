@@ -7,11 +7,17 @@
  *  - reguła 1b: podsumowanie draft/disputed/unverifiable nie trafia na ekran. UI bierze tekst tylko z `shownSummary`
  *    (AtlasApp.tsx nie może czytać `content.summary[...]` wprost); `summaryVerified` (zdania już potwierdzone) ma
  *    źródła i wskazuje istniejący raport w docs/atlas_audyt/, i wolno go użyć tylko przy niesprawdzonym `summary`.
+ *  - M3 (U0, S2/K4): WSZYSTKIE pola tekstowe planszy przechodzą bramkę: podsumowania (shownSummary), zdanie o „sprincie”
+ *    (shownProtocolNote), teksty lekcji – cel, pytanie, opis ≤ 3 zdania, nazwa momentu (lessonText), hasło podstawy
+ *    programowej (shownCurriculum). Każdy tekst lekcji ma `derivedFrom` = istniejące fakty checked_*; opis ma ≤ 3 zdania,
+ *    pytanie kończy się „?”, nazwa momentu mieści się na przycisku.
+ *  - M3: zdania robocze („czeka na sprawdzenie” itp.) tylko w komponencie StatusNotes (AtlasApp.tsx), renderowanym wyłącznie
+ *    pod `extended &&`; AtlasApp nie czyta pól protocolNotePl i tekstów lekcji z pominięciem bramek.
  * Wypisuje też listę faktów `draft` (dla agenta sprawdzającego). Kod 0 = OK.
  * Uruchomienie: npm run check:atlas  (albo: node scripts/atlas_check_facts.mjs [--drafts plik.md])
  */
 import { build } from 'esbuild';
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -36,6 +42,17 @@ export { ATLAS_GLOSSARY } from './src/atlas/glossary.ts';`,
 const { ATLAS_SYSTEMS, SCIENTIFIC_REFERENCES, ATLAS_SHOWN_STATUSES, ATLAS_GLOSSARY } = await import(pathToFileURL(out).href);
 
 const CHECKED = new Set(['checked_agent', 'checked_human']);
+const STATUSES = new Set(['draft', 'checked_agent', 'disputed', 'unverifiable', 'checked_human', 'anatomy']);
+const factIndex = new Map();
+for (const f of readdirSync(join(root, 'src', 'atlas', 'data', 'facts')))
+  for (const r of JSON.parse(readFileSync(join(root, 'src', 'atlas', 'data', 'facts', f), 'utf-8')).facts) factIndex.set(r.id, r);
+// Zdania w tekście (kropka/!/? przed wielką literą albo końcem; bez skrótów „ok.”, „np.”, „m.”, „t.”, „ż.” itd.)
+const sentences = (t) =>
+  String(t ?? '')
+    .replace(/\b(ok|np|tzw|itd|itp|wg|ang|łac|in|m|mm|t|tt|ż|żż)\./giu, '$1§')
+    .split(/[.!?](?=\s+[\p{Lu}\d„]|\s*$)/u)
+    .filter((x) => x.trim()).length;
+let shownLesson = 0;
 const shown = (st) => ATLAS_SHOWN_STATUSES.includes(st ?? 'draft');
 let errors = 0;
 const err = (m) => {
@@ -110,6 +127,47 @@ for (const sys of ATLAS_SYSTEMS) {
     if (shown(st)) shownNotes++;
     if (st === 'draft') drafts.push({ plate: c.id, kind: 'zdanie o „sprincie” (protocolNotePl)', key: 'protocolNotePl', value: c.protocolNotePl });
   }
+  // M3: teksty lekcji (cel, pytanie, opis ≤ 3 zdania, nazwa momentu) – każdy z własnym statusem i źródłem przeformułowania
+  const lessonFields = [
+    ['lessonGoal', 'cel lekcji', c.lessonGoal],
+    ['question', 'pytanie planszy', c.question],
+    ['momentLabel', 'nazwa momentu (przycisk)', c.momentLabel],
+    ['summaryShort.rest', 'opis ≤ 3 zdania (spoczynek)', c.summaryShort?.rest],
+    ['summaryShort.sprint', 'opis ≤ 3 zdania (sprint)', c.summaryShort?.sprint],
+  ];
+  for (const [key, kind, t] of lessonFields) {
+    if (!t) continue;
+    const where = `${c.id} / ${kind}`;
+    if (!STATUSES.has(t.status)) err(`${where}: nieznany status „${t.status}”`);
+    if (!t.text?.trim()) err(`${where}: pusty tekst`);
+    if (!t.derivedFrom?.length) err(`${where}: brak derivedFrom (z jakich sprawdzonych faktów powstał tekst)`);
+    for (const id of t.derivedFrom ?? []) {
+      const f = factIndex.get(id);
+      if (!f) err(`${where}: derivedFrom wskazuje nieistniejący fakt ${id}`);
+      else if (!CHECKED.has(f.status)) err(`${where}: derivedFrom wskazuje fakt ${id} bez statusu checked (${f.status}); nowy tekst wolno tylko przeformułować ze sprawdzonego`);
+    }
+    if (key.startsWith('summaryShort') && sentences(t.text) > 3) err(`${where}: ${sentences(t.text)} zdań (najwyżej 3)`);
+    if (key === 'question' && !t.text.trim().endsWith('?')) err(`${where}: pytanie musi kończyć się „?”`);
+    if (key === 'momentLabel' && t.text.length > 24) err(`${where}: za długi napis przycisku (${t.text.length} > 24 znaki)`);
+    if (shown(t.status)) shownLesson++;
+    if (t.status === 'draft')
+      drafts.push({
+        plate: c.id,
+        kind,
+        key,
+        value: t.text,
+        from: (t.derivedFrom ?? []).map((id) => `${id}: ${factIndex.get(id)?.textPl ?? factIndex.get(id)?.value ?? '?'}`),
+      });
+  }
+  if (c.curriculumRef) {
+    const cr = c.curriculumRef;
+    const where = `${c.id} / podstawa programowa`;
+    if (!cr.quote || !cr.locator) err(`${where}: hasło bez dosłownego cytatu albo numeru`);
+    if (!STATUSES.has(cr.status)) err(`${where}: nieznany status „${cr.status}”`);
+    if (shown(cr.status)) shownLesson++;
+    if (cr.status === 'draft') drafts.push({ plate: c.id, kind: 'hasło podstawy programowej', key: `${cr.scope} ${cr.locator}`, value: cr.quote, note: 'cytat z podstawy programowej (zpe.gov.pl, 2025/2026)' });
+  }
+  if (c.heroMetricId && !c.metrics.some((m) => m.id === c.heroMetricId)) err(`${c.id}: heroMetricId „${c.heroMetricId}” nie wskazuje liczby tej planszy`);
   for (const state of ['rest', 'sprint']) {
     refsOk(c.summaryReferenceIds?.[state], `${c.id} / podsumowanie ${state}`);
     const st = c.summaryStatus?.[state] ?? 'draft';
@@ -149,14 +207,31 @@ if (numWarn.length) {
 const app = readFileSync(join(root, 'src', 'atlas', 'AtlasApp.tsx'), 'utf-8');
 if (/content\.summary\s*\[/.test(app)) err('AtlasApp.tsx czyta content.summary[...] wprost; podsumowanie tylko przez shownSummary()');
 if (!/shownSummary\(/.test(app)) err('AtlasApp.tsx nie używa shownSummary(); podsumowanie draft mogłoby trafić na ekran');
+// M3 (S2/K4): zdania robocze dla autora tylko w StatusNotes; StatusNotes tylko w poziomie Rozszerzonym
+const noComments = (t) => t.replace(/\{\/\*[\s\S]*?\*\/\}/g, '').replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/.*$/gm, '$1');
+const WORK = /czeka|czekaj|niesprawdz|sprawdzenie źródła/i;
+const statusBlock = (app.match(/\nfunction StatusNotes\([\s\S]*?\n\}\n/) ?? [''])[0];
+if (!statusBlock) err('AtlasApp.tsx: brak komponentu StatusNotes (jedyne miejsce statusów sprawdzania)');
+const appOutside = noComments(app.replace(statusBlock, ''));
+for (const [name, src] of [['AtlasApp.tsx (poza StatusNotes)', appOutside], ['AtlasPlate.tsx', noComments(readFileSync(join(root, 'src', 'atlas', 'AtlasPlate.tsx'), 'utf-8'))]]) {
+  const m = src.match(new RegExp(`[^\\n]*(${WORK.source})[^\\n]*`, 'i'));
+  if (m) err(`${name}: zdanie robocze dla autora poza StatusNotes: „${m[0].trim().slice(0, 90)}”`);
+}
+for (const m of app.matchAll(/<StatusNotes\b/g))
+  if (!/extended\s*&&\s*$/.test(app.slice(Math.max(0, m.index - 40), m.index))) err('AtlasApp.tsx: <StatusNotes> renderowany poza `extended &&` (statusy tylko w poziomie Rozszerzonym)');
+// Bramki pól tekstowych: protocolNotePl tylko przez shownProtocolNote, teksty lekcji tylko przez lessonText/shownCurriculum
+if (/protocolNotePl/.test(appOutside)) err('AtlasApp.tsx czyta protocolNotePl wprost; tylko przez shownProtocolNote()');
+for (const m of appOutside.matchAll(/content\.(lessonGoal|question|momentLabel|summaryShort|curriculumRef)\b/g))
+  if (!/lessonText\($/.test(appOutside.slice(Math.max(0, m.index - 11), m.index))) err(`AtlasApp.tsx czyta content.${m[1]} z pominięciem bramki lessonText()/shownCurriculum()`);
+if (!/shownProtocolNote\(/.test(app)) err('AtlasApp.tsx nie używa shownProtocolNote()');
 
 const i = process.argv.indexOf('--drafts');
 if (i > 0) {
-  const lines = ['| plansza | rodzaj | klucz | nowa treść | źródła | lokalizator | cytat |', '|---|---|---|---|---|---|---|'];
+  const lines = ['| plansza | rodzaj | klucz | nowa treść | przeformułowane z (sprawdzone fakty) | źródła | lokalizator | cytat |', '|---|---|---|---|---|---|---|---|'];
   const esc = (t) => String(t ?? '').replace(/\|/g, '/').replace(/\n/g, ' ');
-  for (const d of drafts) lines.push(`| ${d.plate} | ${d.kind} | ${esc(d.key)} | ${esc(d.value)}${d.note ? ` (notatka: ${esc(d.note)})` : ''} | ${esc((d.refs ?? []).join(', '))} | ${esc(d.locator)} | ${esc(d.quote)} |`);
+  for (const d of drafts) lines.push(`| ${d.plate} | ${d.kind} | ${esc(d.key)} | ${esc(d.value)}${d.note ? ` (notatka: ${esc(d.note)})` : ''} | ${esc((d.from ?? []).join(' ◆ '))} | ${esc((d.refs ?? []).join(', '))} | ${esc(d.locator)} | ${esc(d.quote)} |`);
   writeFileSync(process.argv[i + 1], lines.join('\n') + '\n', 'utf-8');
 }
-console.log(`Liczby na ekranie: ${shownMetrics} (w tym wartości spoczynkowe: ${shownRest}), opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, zdania o „sprincie” i słowniczek na ekranie: ${shownNotes}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
+console.log(`Liczby na ekranie: ${shownMetrics} (w tym wartości spoczynkowe: ${shownRest}), opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, zdania o „sprincie” i słowniczek na ekranie: ${shownNotes}, teksty lekcji na ekranie: ${shownLesson}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
 console.log(errors ? `WYNIK: ${errors} błędów` : 'WYNIK: fakty OK');
 process.exit(errors ? 1 : 0);

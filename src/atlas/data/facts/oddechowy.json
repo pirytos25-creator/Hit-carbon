@@ -1011,6 +1011,86 @@
     "rows": [],
     "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Aliverti 1997, De Troyer 2005, Blackie 1991, Hopkins 1996 (+ dopisek o protokole wg sprawdzającego)"
    }
+  },
+  {
+   "id": "oddechowy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "oddechowy",
+   "textPl": "Dowiesz się, jak oddychanie przyspiesza i pogłębia się w wysiłku.",
+   "status": "draft",
+   "referenceIds": [
+    "aliverti_1997",
+    "detroyer_2005",
+    "blackie_1991",
+    "hopkins_1996"
+   ],
+   "derivedFrom": [
+    "oddechowy.summary.sprint",
+    "oddechowy.metric.czestosc_oddechow",
+    "oddechowy.metric.objetosc_oddechowa"
+   ]
+  },
+  {
+   "id": "oddechowy.question",
+   "kind": "question",
+   "plate": "oddechowy",
+   "textPl": "Jak płuca nadążają z dostarczaniem tlenu w sprincie?",
+   "status": "draft",
+   "referenceIds": [
+    "aliverti_1997",
+    "detroyer_2005",
+    "blackie_1991",
+    "hopkins_1996"
+   ],
+   "derivedFrom": [
+    "oddechowy.summary.sprint",
+    "oddechowy.metric.wentylacja_minutowa"
+   ]
+  },
+  {
+   "id": "oddechowy.summaryShort.rest",
+   "kind": "summary_short",
+   "plate": "oddechowy",
+   "textPl": "W spoczynku oddech jest spokojny: wdech robi przepona z pomocą mięśni międzyżebrowych przymostkowych i pochyłych. Wydech jest bierny, bo mięśnie wydechowe prawie nie pracują.",
+   "status": "draft",
+   "referenceIds": [
+    "detroyer_estenne_1984",
+    "aliverti_1997"
+   ],
+   "derivedFrom": [
+    "oddechowy.summary.rest"
+   ],
+   "state": "rest"
+  },
+  {
+   "id": "oddechowy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "oddechowy",
+   "textPl": "W sprincie przepona kurczy się szybciej, mocniej pracują mięśnie wdechowe, a wydech staje się czynny dzięki mięśniom międzyżebrowym wewnętrznym i mięśniom brzucha. Przy wysiłku maksymalnym przez płuca przepływa ok. 97 litrów powietrza na minutę. Krew płynie przez płuca szybciej, więc wymiana gazów musi zdążyć w krótszym czasie.",
+   "status": "draft",
+   "referenceIds": [
+    "aliverti_1997",
+    "detroyer_2005",
+    "blackie_1991",
+    "hopkins_1996"
+   ],
+   "derivedFrom": [
+    "oddechowy.summary.sprint",
+    "oddechowy.metric.wentylacja_minutowa"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "oddechowy.momentLabel",
+   "kind": "moment_label",
+   "plate": "oddechowy",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
   }
  ]
 }

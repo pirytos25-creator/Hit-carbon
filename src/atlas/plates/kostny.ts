@@ -11,6 +11,7 @@ export const KOSTNY: AtlasPlateLayout = {
   titlePl: "Układ kostny",
   subtitlePl: "Ile waży każdy krok: nacisk podłoża na stopę",
   colorVar: "--sys-bone",
+  heroMetricId: "kostny.metric.szczyt_nacisku_podloza_na_stope",
   views: [
     "front",
     "side",

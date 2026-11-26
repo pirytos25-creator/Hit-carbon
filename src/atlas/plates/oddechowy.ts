@@ -11,6 +11,8 @@ export const ODDECHOWY: AtlasPlateLayout = {
   titlePl: "Układ oddechowy",
   subtitlePl: "Skąd bierze się tlen na sprint i dokąd znika CO₂",
   colorVar: "--sys-resp",
+  heroMetricId: "oddechowy.metric.wentylacja_minutowa",
+  scaleFreeViews: ["detail"],
   views: [
     "front",
     "detail"

@@ -8,9 +8,11 @@ import type { AtlasPlateLayout } from '../facts';
  */
 export const POWLOKOWY: AtlasPlateLayout = {
   id: "powlokowy",
-  titlePl: "Skóra (układ powłokowy)",
+  titlePl: "Skóra",
   subtitlePl: "Jak skóra pozbywa się ciepła z pracujących mięśni",
   colorVar: "--sys-skin",
+  heroMetricId: "powlokowy.metric.energia_z_pracy_miesni_zamieniana_w_cieplo",
+  scaleFreeViews: ["detail"],
   views: [
     "front",
     "back",

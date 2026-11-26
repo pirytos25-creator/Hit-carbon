@@ -8,9 +8,10 @@ import type { AtlasPlateLayout } from '../facts';
  */
 export const HORMONALNY: AtlasPlateLayout = {
   id: "hormonalny",
-  titlePl: "Układ dokrewny (hormonalny)",
+  titlePl: "Układ hormonalny",
   subtitlePl: "Jak mózg i nadnercza w kilka chwil przestawiają ciało na sprint",
   colorVar: "--sys-endo",
+  heroMetricId: "hormonalny.metric.adrenalina_we_krwi",
   views: [
     "front",
     "detail"

@@ -1549,7 +1549,7 @@
    "kind": "protocol_note",
    "plate": "pokarmowy",
    "textPl": "Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły, kilkunastominutowy, więc liczby są przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).",
-   "status": "disputed",
+   "status": "draft",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
@@ -1558,6 +1558,106 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte"
    }
+  },
+  {
+   "id": "pokarmowy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "pokarmowy",
+   "textPl": "Dowiesz się, jak wątroba dostarcza mięśniom paliwa, gdy trawienie zwalnia.",
+   "status": "draft",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998",
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "brooks_2020",
+    "kenney_ho_1995",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "derivedFrom": [
+    "pokarmowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "pokarmowy.question",
+   "kind": "question",
+   "plate": "pokarmowy",
+   "textPl": "Skąd mięśnie biorą cukier, gdy jelita dostają mniej krwi?",
+   "status": "draft",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998",
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "brooks_2020",
+    "kenney_ho_1995",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "derivedFrom": [
+    "pokarmowy.summary.sprint",
+    "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi"
+   ]
+  },
+  {
+   "id": "pokarmowy.summaryShort.rest",
+   "kind": "summary_short",
+   "plate": "pokarmowy",
+   "textPl": "W spoczynku żołądek, jelita i wątroba dostają dużo krwi: przez samą wątrobę płynie ok. 1,6 litra krwi na minutę. Przewód pokarmowy trawi i wchłania pokarm, a wątroba powoli oddaje do krwi glukozę.",
+   "status": "draft",
+   "referenceIds": [
+    "rowell_1964",
+    "marliss_1992"
+   ],
+   "derivedFrom": [
+    "pokarmowy.summary.rest"
+   ],
+   "state": "rest"
+  },
+  {
+   "id": "pokarmowy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "pokarmowy",
+   "textPl": "W sprincie jelita i żołądek dostają mniej krwi, a przepływ przez wątrobę spada kilkukrotnie. Mimo to wątroba oddaje do krwi glukozę 4–6 razy szybciej niż w spoczynku, więc glukozy we krwi przybywa. Część mleczanu z mięśni wątroba przerabia z powrotem na glukozę.",
+   "status": "draft",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998",
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "brooks_2020",
+    "kenney_ho_1995",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "derivedFrom": [
+    "pokarmowy.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "pokarmowy.momentLabel",
+   "kind": "moment_label",
+   "plate": "pokarmowy",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
+  },
+  {
+   "id": "pokarmowy.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "pokarmowy",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.2.7)",
+   "quote": "przedstawia rolę wątroby w przemianach substancji wchłoniętych w przewodzie pokarmowym;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }

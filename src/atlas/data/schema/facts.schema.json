@@ -40,7 +40,12 @@
               "summary",
               "summary_verified",
               "protocol_note",
-              "glossary"
+              "glossary",
+              "lesson_goal",
+              "question",
+              "summary_short",
+              "moment_label",
+              "curriculum_ref"
             ]
           },
           "plate": {
@@ -156,6 +161,20 @@
             "type": "string",
             "pattern": "^[a-z0-9_]+$",
             "description": "ta sama wielkość na kilku planszach (walidator: ta sama wartość albo seeAlsoPlate)"
+          },
+          "derivedFrom": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "M3: ID sprawdzonych faktów (checked_agent/checked_human), z których przeformułowano tekst"
+          },
+          "scope": {
+            "enum": [
+              "P",
+              "R"
+            ],
+            "description": "curriculum_ref: zakres podstawy programowej"
           }
         }
       }

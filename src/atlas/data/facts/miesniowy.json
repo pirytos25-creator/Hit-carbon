@@ -1442,6 +1442,72 @@
     "rows": [],
     "note": "fakty_draft_K3_ruch.md: Dorn 2012, Hamner 2010, Mendell 2005, Vøllestad 1985, Fujii 2017"
    }
+  },
+  {
+   "id": "miesniowy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "miesniowy",
+   "textPl": "Dowiesz się, które mięśnie napędzają bieg i jak włókna mięśniowe dołączają do pracy.",
+   "status": "draft",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010",
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "fujii_namba_2017"
+   ],
+   "derivedFrom": [
+    "miesniowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "miesniowy.question",
+   "kind": "question",
+   "plate": "miesniowy",
+   "textPl": "Które włókna mięśniowe dołączają do pracy dopiero w sprincie?",
+   "status": "draft",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010",
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "fujii_namba_2017",
+    "gollnick_1974"
+   ],
+   "derivedFrom": [
+    "miesniowy.summary.sprint",
+    "miesniowy.metric.rekrutowane_wlokna_miesniowe"
+   ]
+  },
+  {
+   "id": "miesniowy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "miesniowy",
+   "textPl": "W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, a łydka odbija stopę. Najpierw pracują małe jednostki z włóknami typu I, a przy ok. 90% VO₂max dołączają włókna IIa i część włókien IIx. W każdym pracującym włóknie główki miozyny raz za razem ciągną aktynę, zużywając ATP.",
+   "status": "draft",
+   "referenceIds": [
+    "dorn_2012",
+    "hamner_2010",
+    "vollestad_blom_1985",
+    "mendell_2005",
+    "fujii_namba_2017"
+   ],
+   "derivedFrom": [
+    "miesniowy.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "miesniowy.momentLabel",
+   "kind": "moment_label",
+   "plate": "miesniowy",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
   }
  ]
 }

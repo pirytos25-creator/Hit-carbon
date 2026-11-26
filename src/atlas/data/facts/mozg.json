@@ -1064,6 +1064,77 @@
     "rows": [],
     "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: van Hall 2009, Kemppainen 2005"
    }
+  },
+  {
+   "id": "mozg.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "mozg",
+   "textPl": "Dowiesz się, czym mózg się żywi i jak zmienia paliwo w ciężkim wysiłku.",
+   "status": "draft",
+   "referenceIds": [
+    "raichle_gusnard_2002",
+    "van_hall_2009",
+    "kemppainen_2005"
+   ],
+   "derivedFrom": [
+    "mozg.summary.rest",
+    "mozg.summary.sprint"
+   ]
+  },
+  {
+   "id": "mozg.question",
+   "kind": "question",
+   "plate": "mozg",
+   "textPl": "Czy w ciężkim wysiłku mózg spala tylko glukozę?",
+   "status": "draft",
+   "referenceIds": [
+    "van_hall_2009",
+    "kemppainen_2005",
+    "brooks_2018",
+    "quistorff_2008"
+   ],
+   "derivedFrom": [
+    "mozg.summary.sprint",
+    "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu"
+   ]
+  },
+  {
+   "id": "mozg.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "mozg",
+   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy.",
+   "status": "draft",
+   "referenceIds": [
+    "van_hall_2009",
+    "kemppainen_2005"
+   ],
+   "derivedFrom": [
+    "mozg.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "mozg.momentLabel",
+   "kind": "moment_label",
+   "plate": "mozg",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
+  },
+  {
+   "id": "mozg.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "mozg",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.7.5)",
+   "quote": "przedstawia budowę i funkcje mózgu, rdzenia kręgowego i nerwów;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }
