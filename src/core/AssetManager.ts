@@ -23,19 +23,22 @@ export const MODEL_PATHS: Record<ModelKey, string> = {
   synapse_hero: '/models/synapse_hero.glb',
 };
 
+// Zgodne z modelami, które sceny faktycznie wczytują (useGLTF / AthleteGymRig); poprawka M4 (przegląd filmu):
+// akt 2 nie używa sportowca ani neural_forest, a używa brain_macro; akt 6 nie używa cardiopulmonary;
+// akt 12 nie używa mitochondrion.glb (mitochondria w akcie 12 są proceduralne).
 const ACT_MODEL_MAP: Record<ActId, ModelKey[]> = {
   1: ['athlete_gym'],
-  2: ['athlete_gym', 'neural_forest', 'synapse_hero'],
+  2: ['brain_macro', 'synapse_hero'],
   3: ['cardiopulmonary', 'bloodstream_tunnel'],
   4: ['muscle_sarcomere'],
   5: ['mitochondrion'],
-  6: ['athlete_gym', 'cardiopulmonary'],
+  6: ['athlete_gym'],
   7: ['bloodstream_tunnel'],
   8: ['brain_macro', 'neural_forest'],
   9: ['neural_forest', 'synapse_hero'],
   10: ['neural_forest', 'synapse_hero', 'brain_macro'],
   11: ['athlete_gym'],
-  12: ['cardiopulmonary', 'mitochondrion', 'brain_macro'],
+  12: ['cardiopulmonary', 'brain_macro'],
 };
 
 class AssetManagerImpl {

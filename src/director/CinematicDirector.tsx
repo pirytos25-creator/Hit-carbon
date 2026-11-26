@@ -1,7 +1,8 @@
 import { Suspense, useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import { EffectComposer, Bloom, Vignette, DepthOfField } from '@react-three/postprocessing';
+import { EffectComposer, Bloom, Vignette, DepthOfField, ToneMapping } from '@react-three/postprocessing';
+import { ToneMappingMode } from 'postprocessing';
 import * as THREE from 'three';
 import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
 import { QUALITY_PRESETS, AdaptiveQualityController } from '../core/QualityManager';
@@ -12,8 +13,24 @@ import { narrationEngine } from '../audio/NarrationEngine';
 import { CameraSystem, liveCameraMetaRef } from './CameraSystem';
 import { ScaleTransitionSystem } from './ScaleTransitionSystem';
 import { LightingPresetId } from './ShotChoreography';
+import { BioClock, createBioFrame, applyMatte, type LookProfileId } from '../biomotion';
 
 const adaptiveController = new AdaptiveQualityController();
+
+/**
+ * Stan klatki filmu dla wspólnego modułu (src/biomotion). Moduł nie czyta magazynu filmu:
+ * film (ten plik) wypełnia BioFrame co klatkę, a akty przekazują go komponentom modułu.
+ */
+export const filmBioFrame = createBioFrame();
+const filmClock = new BioClock();
+
+/**
+ * Profil wyglądu filmu. Domyślnie `film` (obecny wygląd). `filmMatte` (mat atlasu) tylko do porównania
+ * dla użytkownika: window.__BIOMOTION_LOOK__ = 'filmMatte'.
+ */
+declare global {
+  interface Window { __BIOMOTION_LOOK__?: LookProfileId }
+}
 
 interface LightingConfig {
   ambientColor: string;
@@ -158,6 +175,8 @@ export function CinematicDirector() {
   const hemiRef = useRef<THREE.HemisphereLight>(null);
   const keyRef = useRef<THREE.DirectionalLight>(null);
   const rimRef = useRef<THREE.DirectionalLight>(null);
+  const appliedLook = useRef<LookProfileId>('film');
+  const matteTick = useRef(0);
 
   useEffect(() => {
     gl.info.autoReset = false;
@@ -172,6 +191,37 @@ export function CinematicDirector() {
 
     // 1. Advance master deterministic simulation clock
     store.tickSimulation(dt);
+
+    // 1b. Wspólny moduł: fazy serca i oddechu całkowane w czasie (BioClock). Naprawa skoku fazy przy zmianie
+    //     zaokrąglonego tętna (PhysiologyEngine liczył (t·HR/60) % 1). Nadpisujemy fazy w stanie filmu,
+    //     więc korzystają z tego wszystkie akty, dźwięk bicia serca i HUD.
+    {
+      const o = liveSimulationRef.organism;
+      const { dt: simDt, seeked } = filmClock.update(liveSimulationRef.masterTimeSec, o.heartRate, o.respiratoryRate);
+      o.beatPhase = filmClock.beatPhase;
+      o.breathPhase = filmClock.breathPhase;
+      const f = filmBioFrame;
+      f.timeSec = liveSimulationRef.masterTimeSec;
+      f.dtSec = store.started && store.isPlaying ? simDt : 0;
+      f.seeked = seeked;
+      f.playing = store.started && store.isPlaying;
+      f.beatPhase = o.beatPhase;
+      f.breathPhase = o.breathPhase;
+      f.heartRate = o.heartRate;
+      f.respiratoryRate = o.respiratoryRate;
+      f.cardiacOutputLpm = o.cardiacOutputLpm;
+      f.strokeVolumeMl = o.strokeVolumeMl;
+      f.quality = store.qualityTier;
+    }
+
+    // 1c. Profil wyglądu (porównanie „film dziś / mat atlasu”): zmiana nakładana tylko przy przełączeniu
+    const look = window.__BIOMOTION_LOOK__ ?? 'film';
+    if (look !== appliedLook.current) {
+      applyMatte(scene, look === 'filmMatte');
+      appliedLook.current = look;
+    } else if (look === 'filmMatte' && ++matteTick.current % 120 === 0) {
+      applyMatte(scene, true); // materiały aktów wczytanych później (co 120 klatek, idempotentne)
+    }
 
     // 2. Record telemetry & adaptive quality hysteresis, then reset gl.info for next frame
     performanceMonitor.recordFrame(dt, gl);
@@ -299,6 +349,7 @@ export function CinematicDirector() {
             intensity={0.32}
             mipmapBlur
           />
+          <ToneMapping mode={ToneMappingMode.AGX} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}
@@ -310,11 +361,13 @@ export function CinematicDirector() {
             intensity={0.32}
             mipmapBlur
           />
+          <ToneMapping mode={ToneMappingMode.AGX} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}
       {preset.postprocessing && !preset.dof && !preset.bloom && (
         <EffectComposer multisampling={preset.msaaSamples}>
+          <ToneMapping mode={ToneMappingMode.AGX} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}

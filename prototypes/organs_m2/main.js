@@ -23,6 +23,16 @@ if (Q.get('n')) T.rbc = +Q.get('n');
 
 // tokeny palety (src/atlas/data/palette.json): artery / vein
 const C = { artery: '#D93240', arteryLight: '#F07A84', vein: '#3E6FD8', veinLight: '#86A6EE', valve: '#EDE3D6' };
+// M4: kompensacja barw przed AgX ze wspólnego modułu (?comp=1, tylko z look=film): token po AgX ma trafić w token (ΔE00 ≤ 10)
+const COMP = (Q.get('comp') === '1' || Q.get('comp') === 'artery') && LOOK === 'film';
+const COMP_KEYS = Q.get('comp') === 'artery' ? ['artery', 'arteryLight'] : ['artery', 'vein', 'arteryLight', 'veinLight']; // zasada: kompensować tokeny z ΔE00 bez kompensacji > 10
+if (COMP) {
+  const { compensateHexForAgX, fitLightModel } = await import('../../src/biomotion/look/agx.ts');
+  // model światła tej sceny dopasowany z pomiaru BEZ kompensacji (mediany pikseli artery #C47376, vein #4F78B3, M4)
+  const light = fitLightModel([{ tokenHex: '#D93240', measuredHex: '#C47376' }, { tokenHex: '#3E6FD8', measuredHex: '#4F78B3' }]);
+  window.__m2Light = light;
+  for (const k of COMP_KEYS) C[k] = compensateHexForAgX(C[k], light);
+}
 if (Q.get('m1') === '1') C.valve = '#BAB4AA'; // context.bone -35% mieszane liniowo z #6B6460 (Reżyser); kontrast >= 2:1 wobec przekroju #B44E56
 
 // ------------------------------------------------------------------ pasek przełączników

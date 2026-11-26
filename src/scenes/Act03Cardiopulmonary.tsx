@@ -3,9 +3,37 @@ import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import { MODEL_PATHS } from '../core/AssetManager';
-import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
+import { liveSimulationRef } from '../core/SimulationCore';
 import { erythrocyteCameraTarget } from '../director/CameraSystem';
-import { InstancedErythrocytes, MoleculeSwarm } from './MolecularSimulation';
+import { MoleculeSwarm } from './MolecularSimulation';
+import { filmBioFrame } from '../director/CinematicDirector';
+import { heartCycle, createHeartWeights, setMorph, PRESET_FILM_ACT3, type BioFrame } from '../biomotion';
+import { BioFlowParticles } from '../biomotion/r3f/BioFlowParticles';
+
+const _heart = createHeartWeights();
+const _colOxy = new THREE.Color('#ef4444');
+const _colDeoxy = new THREE.Color('#6b1d45');
+const _heroOffset = new THREE.Vector3(0, 0.1, 0.14);
+const CAPILLARY_RANGE: [number, number] = [0.66, 0.98];
+const smooth = (x: number, a: number, b: number) => {
+  const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
+  return t * t * (3 - 2 * t);
+};
+/**
+ * Względny przekrój CAŁEGO łożyska wzdłuż tunelu: tętniczka → naczynia włosowate.
+ * Każde naczynie włosowate jest wąskie, ale jest ich bardzo wiele, więc łączny przekrój rośnie, a krew zwalnia
+ * (wiedza podręcznikowa do potwierdzenia przez agenta faktów; wielkość ×3 jest POGLĄDOWA, bez liczby na ekranie).
+ */
+const tunnelBedArea = (u: number) => 1 + 2 * smooth(u, CAPILLARY_RANGE[0], CAPILLARY_RANGE[1]);
+/** Tempo przepływu z rzutu serca, liczone co klatkę (w filmie liczone przy renderze, więc się „starzało”). */
+const tunnelSpeed = (f: BioFrame) => 0.085 + (f.cardiacOutputLpm / 26) * 0.14;
+const tunnelSqueeze = (u: number) => smooth(u, CAPILLARY_RANGE[0], CAPILLARY_RANGE[1]);
+const tunnelOxygenation = (u: number, out: THREE.Color) => out.copy(_colDeoxy).lerp(_colOxy, smooth(u, 0.24, 0.62));
+const tunnelHero = (pos: THREE.Vector3, _look: THREE.Vector3, tangent: THREE.Vector3) => {
+  erythrocyteCameraTarget.active = true;
+  erythrocyteCameraTarget.position.copy(pos).addScaledVector(tangent, -0.55).add(_heroOffset);
+  erythrocyteCameraTarget.lookAt.copy(pos).addScaledVector(tangent, 1.35);
+};
 import { applyBioPbrSurface } from '../shaders/bioPbrTextures';
 
 export const BLOODSTREAM_STAGE_OFFSET = new THREE.Vector3(0, -24, 0);
@@ -109,39 +137,21 @@ export function Act03Cardiopulmonary() {
     const brp = org.breathPhase;
     const u = liveSimulationRef.actProgress;
 
-    const setMorph = (mesh: THREE.Mesh | null, key: string, val: number) => {
-      if (!mesh || !mesh.morphTargetDictionary || !mesh.morphTargetInfluences) return;
-      const idx = mesh.morphTargetDictionary[key];
-      if (idx !== undefined) {
-        mesh.morphTargetInfluences[idx] = THREE.MathUtils.clamp(val, 0, 1);
-      }
-    };
-
-    // 1. Coordinated Cardiac Cycle via Blender Regional Morph Targets (no uniform scaling!)
-    const atrialContract = bp < 0.22 ? Math.sin((bp / 0.22) * Math.PI) : 0;
+    // 1. Cykl serca ze wspólnego modułu (src/biomotion/tissue/heartCycle, preset 1:1 z dotychczasowymi formułami aktu).
+    //    Faza bp jest całkowana (BioClock w CinematicDirector), więc nie skacze przy zmianie tętna.
     const svDrive = THREE.MathUtils.clamp(0.68 + (org.strokeVolumeMl - 70) / 120, 0.55, 1.0);
-    const ventContract =
-      bp >= 0.16 && bp < 0.52 ? Math.sin(((bp - 0.16) / 0.36) * Math.PI) * svDrive : 0;
-    const helicalTwist =
-      bp >= 0.18 && bp < 0.50 ? Math.sin(((bp - 0.18) / 0.32) * Math.PI) * svDrive : 0;
-
-    setMorph(parts.atria, 'Atrial_Systole', atrialContract);
-    setMorph(parts.ventricles, 'Ventricular_Systole', ventContract);
-    setMorph(parts.ventricles, 'Apex_Helical_Twist', helicalTwist);
-
+    const hc = heartCycle(bp, svDrive, PRESET_FILM_ACT3, _heart);
+    setMorph(parts.atria, 'Atrial_Systole', hc.atrial);
+    setMorph(parts.ventricles, 'Ventricular_Systole', hc.ventricular);
+    setMorph(parts.ventricles, 'Apex_Helical_Twist', hc.twist);
     // AV valves open in ventricular filling diastole; Semilunar valves snap open in ejection!
-    const avOpen = bp >= 0.16 && bp < 0.50 ? 0.08 : 0.95;
-    const slOpen = bp >= 0.19 && bp < 0.48 ? 0.98 : 0.06;
-    setMorph(parts.avValves, 'Valve_Open', avOpen);
-    setMorph(parts.slValves, 'Valve_Open', slOpen);
+    setMorph(parts.avValves, 'Valve_Open', hc.avOpen);
+    setMorph(parts.slValves, 'Valve_Open', hc.slOpen);
 
     // Conduction system SA -> AV -> Purkinje depolarization wave
     if (parts.conduction) {
       const m = parts.conduction.material as THREE.MeshStandardMaterial;
-      if (m) {
-        const wave = bp < 0.30 ? Math.sin((bp / 0.30) * Math.PI) : 0;
-        m.emissiveIntensity = 0.7 + wave * 3.0;
-      }
+      if (m) m.emissiveIntensity = 0.7 + hc.conduction * 3.0;
     }
 
     // Coronary perfusion subtle systolic/diastolic pulse
@@ -183,7 +193,6 @@ export function Act03Cardiopulmonary() {
     }
   });
 
-  const bloodstreamSpeed = 0.085 + (liveSimulationRef.organism.cardiacOutputLpm / 26) * 0.14;
 
   return (
     <group>
@@ -234,22 +243,19 @@ export function Act03Cardiopulmonary() {
         <pointLight position={[3.2, BLOODSTREAM_STAGE_OFFSET.y - 0.1, 0.4]} intensity={4.5} color="#f43f5e" distance={8} />
 
         {/* Poiseuille-profile + Windkessel-pulsatile biconcave RBCs squeezing into narrow capillary bed */}
-        <InstancedErythrocytes
+        {/* Krwinki ze wspólnego modułu: prędkość z przekroju łożyska (wolniej w naczyniach włosowatych), profil przyścienny,
+            puls skurczowy, ściskanie w kapilarach, utlenowanie wzdłuż toru, krwinka-bohater dla kamery. */}
+        <BioFlowParticles
+          frame={filmBioFrame}
           curve={bloodstreamCurve}
+          area={tunnelBedArea}
           baseCount={360}
           cellRadius={0.044}
           radiusSpread={0.42}
-          speedScale={bloodstreamSpeed}
-          oxygenationMode="alveolar_transition"
-          capillaryDeformRange={[0.66, 0.98]}
-          onHeroSample={(pos, _look, tangent) => {
-            erythrocyteCameraTarget.active = true;
-            erythrocyteCameraTarget.position
-              .copy(pos)
-              .addScaledVector(tangent, -0.55)
-              .add(new THREE.Vector3(0, 0.10, 0.14));
-            erythrocyteCameraTarget.lookAt.copy(pos).addScaledVector(tangent, 1.35);
-          }}
+          speedScale={tunnelSpeed}
+          squeeze={tunnelSqueeze}
+          colorAt={tunnelOxygenation}
+          onHero={tunnelHero}
         />
 
         {/* Plasma proteins / suspended O2 & metabolic stream flowing inside tunnel */}
