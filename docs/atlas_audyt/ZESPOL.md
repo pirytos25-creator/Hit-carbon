@@ -128,3 +128,6 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - **2026-11-26: zgoda użytkownika na M2 i M3.**
   - M2: Wizualizator, test serca w `prototypes/**`, szacunek 6–12 h.
   - M3: integrator, U0 według `UX_POSIEDZENIE.md` §2. Nowe teksty mają status `draft` do czasu niezależnego sprawdzenia przez Dyrygenta.
+- **M2 ZALICZONY** (`wizualizator_M2.md`). Low 91 FPS na UHD (widoczne okno; pomiar Dyrygenta headless potwierdza względnie). Zastawki B od razu. High tylko dla RTX (niezmierzone). Warunek M4: ΔE00 profilu film ≤ 10. Czas rzeczywisty ok. 25 min wobec szacunku 6–12 h. Gałąź Wizualizatora (tylko docs i prototypy) scalona.
+- Barwa ścian serca („mięsień” czy „krew”) trafia na bramkę A jako porównanie.
+- S9/S10 (Wizualizator, `e899bd1`) scalone (`d234200`): bez pulsu sin(uTime), jedno sterowanie w 3D. Build 0, check:atlas 0, check:atlas3d 0. Integrator przed oddaniem M3 robi `git merge atlas-uklady`.

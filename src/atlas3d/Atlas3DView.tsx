@@ -9,7 +9,6 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { Atlas3DViewProps } from '../atlas/AtlasApp';
 import type { AtlasState } from '../atlas/types';
-import type { AtlasLevel } from '../atlas/palette';
 import { ATLAS_SYSTEMS } from '../atlas/plates';
 import { usePrefersReducedMotion } from '../atlas/AtlasPlate';
 import { disposeFiles, loadAtlasData, loadFiles, MissingDataError } from './engine';
@@ -56,15 +55,12 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
   const layerRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<Phase>({ kind: 'loading', mb: 0 });
-  const [st, setSt] = useState<AtlasState>(state);
-  const [lv, setLv] = useState<AtlasLevel>(level);
+  // Moment i poziom steruje wyłącznie panel planszy (AtlasApp): jedno sterowanie (S10). Klawisz S obsługuje <main> planszy.
   const [mode, setMode] = useState<Mode>({ kind: 'main' });
   const [kv, setKv] = useState<string | null>('front');
   const [hiddenN, setHiddenN] = useState(0);
   const dragRef = useRef<{ x: number; id: number } | null>(null);
 
-  useEffect(() => setSt(state), [state]);
-  useEffect(() => setLv(level), [level]);
 
   // wczytanie danych i modeli (GLB poza Gitem: przy braku czytelny komunikat zamiast pustej sceny)
   useEffect(() => {
@@ -90,8 +86,10 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
   }, [system, content]);
 
   const ctrl = phase.kind === 'ready' ? phase.ctrl : null;
+  const stateless = ctrl?.stateless ?? !!content?.card;
+  const st: AtlasState = stateless ? 'rest' : state;
   useEffect(() => { if (ctrl) { ctrl.reduced = reduced; ctrl.setState(st); } }, [ctrl, st, reduced]);
-  useEffect(() => { if (ctrl) ctrl.setLevel(lv); }, [ctrl, lv]);
+  useEffect(() => { if (ctrl) ctrl.setLevel(level); }, [ctrl, level]);
   useEffect(() => {
     if (!ctrl) return;
     ctrl.onKeyView = setKv;
@@ -103,8 +101,6 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
     const prev = document.activeElement as HTMLElement | null;
     return () => { if (prev && document.contains(prev)) prev.focus({ preventScroll: true }); };
   }, []);
-  const stateless = ctrl?.stateless ?? !!content?.card;
-  useEffect(() => { if (stateless) setSt('rest'); }, [stateless]);
 
   const go = (m: Mode) => { setMode(m); ctrl?.setMode(m); };
   const onKey = (e: React.KeyboardEvent) => {
@@ -115,7 +111,7 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
     if ((e.key === 'Enter' || e.key === ' ') && (e.target as HTMLElement).closest('button')) return; // przyciski same
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { handled(); ctrl.rotate(e.key === 'ArrowLeft' ? 90 : -90); }
     else if (/^[1-4]$/.test(e.key)) { handled(); setMode({ kind: 'main' }); ctrl.keyView(KEY_VIEWS[+e.key - 1].az); }
-    else if ((e.key === 's' || e.key === 'S') && !stateless) { handled(); setSt((x) => (x === 'sprint' ? 'rest' : 'sprint')); }
+    // S nie jest tu obsługiwane: zdarzenie idzie do <main> planszy, która przełącza stan (jedno sterowanie)
   };
   const details = ctrl?.details ?? [];
   const title = content?.titlePl ?? system;
@@ -141,14 +137,7 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
 
       <div className="atlas3d-bar atlas3d-top">
         <span className="atlas3d-chip">3D · {title}</span>
-        {!stateless && <div className="atlas3d-seg" role="group" aria-label="Moment">
-          <button type="button" className={seg(st === 'rest')} aria-pressed={st === 'rest'} onClick={() => setSt('rest')}>Spoczynek</button>
-          <button type="button" className={seg(st === 'sprint', st === 'sprint' ? '!bg-[#c8343f]' : '')} aria-pressed={st === 'sprint'} onClick={() => setSt('sprint')}>Sprint HIIT</button>
-        </div>}
-        <div className="atlas3d-seg" role="group" aria-label="Poziom">
-          <button type="button" className={seg(lv === 'basic')} aria-pressed={lv === 'basic'} onClick={() => setLv('basic')}>Podstawowy</button>
-          <button type="button" className={seg(lv === 'extended')} aria-pressed={lv === 'extended'} onClick={() => setLv('extended')}>Rozszerzony</button>
-        </div>
+        {!stateless && <span className="atlas3d-hint" aria-live="polite">{st === 'sprint' ? 'Sprint HIIT' : 'Spoczynek'} · zmiana w panelu obok lub klawiszem S</span>}
         <button type="button" className={`${btn} ml-auto bg-slate-800 text-slate-100 hover:bg-slate-700`} onClick={onClose}>← Wróć do planszy</button>
       </div>
 
