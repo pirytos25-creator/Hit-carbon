@@ -32,3 +32,8 @@ Decyzja użytkownika potrzebna: wdrożenie planu Reżysera (rekomendacja Dyrygen
 2. Zaraz potem wiadomość do Wizualizatora 3D: w `atlas-uklady` jest 12 plansz (doszły limfatyczna, hormonalna, dokończenie 1b) – `git merge atlas-uklady` u siebie.
 3. Bez czekania na użytkownika: integracja 1b cz. 2 (przegląd spójności 12 plansz; integrator, w toku od scalenia limfatycznego) → końcowe sprawdzenie wszystkich `draft` → zgromadzenie (statut §6; materiał: plan Reżysera, propozycje Wizualizatora) → decyzja końcowa i `RAPORT_KONCOWY.md`.
 Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ramą ciała (x = 20–30 m) – nie przerabiamy w 2D (nie wpływa na plansze), opis w raporcie końcowym jako zadanie dla E3.
+
+## Wstrzymanie (polecenie użytkownika, 2026-11-26 wieczorem)
+- Prace kończą się na przeglądzie spójności (integracja 1b cz. 2, integrator w toku). Po jego audycie i scaleniu – STOP.
+- Końcowe sprawdzenie faktów było już uruchomione (3 agenci: A powłokowy, B hormonalny+moczowy+pokarmowy, C reszta + kontrola wyrywkowa 10%) i zostało **zatrzymane** zgodnie z poleceniem; ich pliki `fakty_koncowe_*.md` mogą nie istnieć lub być niepełne – jutro uruchomić od nowa.
+- Listę faktów `draft` generuje: `node scripts/atlas_check_facts.mjs --drafts <plik.md>` (stan przed przeglądem spójności: 74 – powłokowy 31, hormonalny 11, moczowy 10, pokarmowy 8, kostny 4, limfatyczny 4, oddechowy 2, mięśniowy/mózg/nerwowy/rozrodczy po 1).
