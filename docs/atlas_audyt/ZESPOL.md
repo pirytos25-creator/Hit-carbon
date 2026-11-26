@@ -72,3 +72,8 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Najpierw integrator zapisuje listę luk: `docs/atlas_audyt/robocze/luki_spoczynku.md`.
 - Dyrygent: podagent wyszukujący (fakty podręcznikowe: role mózgu, wartości spoczynkowe) → osobny podagent sprawdzający → lista dla integratora (K3).
 - Na koniec `docs/atlas_audyt/RAPORT_E1.md`.
+
+## Zmiana priorytetu (użytkownik): najpierw 3D
+- **E1-K3 (fakty podręcznikowe) wstrzymane.** Dwóch wyszukujących zatrzymano przed zapisaniem wyników (brak częściowych plików). Lista luk: `side-session-notes/.../dyrygent/luki_spoczynku.md` (kopia z gałęzi integratora, commit `7441665`). Wrócimy po obejrzeniu 3D przez użytkownika.
+- Integrator kończy E1-K1 i K2 (dane, przepięcie, walidator) + **punkt montażu 3D w `AtlasApp`** (lazy `src/atlas3d/Atlas3DView`, props `system/state/level/onClose`, przycisk „Obróć w 3D” tylko desktop i przy `public/atlas3d/<uklad>/manifest.json`).
+- **E3 = P1 „Gablota”**: Wizualizator 3D (`local_dc5e6e98…`, uruchamia koordynator), pliki `src/atlas3d/**`, `blender/atlas/atlas_export_glb.py`, `public/atlas3d/**`; K1 eksport GLB krwionośny+mięśniowy i budżet, K2 widok, K3 integracja. Audyty Dyrygenta.
