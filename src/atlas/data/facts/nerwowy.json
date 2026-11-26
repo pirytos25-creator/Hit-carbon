@@ -1215,6 +1215,90 @@
     "rows": [],
     "note": "fakty_koncowe_C_reszta_i_kontrola.md: StatPearls (Pyramidal, Corticospinal, Lower Limb, ANS), Enoka 2017, Brooks 1988"
    }
+  },
+  {
+   "id": "nerwowy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "nerwowy",
+   "textPl": "Dowiesz się, jak rozkaz ruchu biegnie z mózgu do mięśni nóg.",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_pyramidal",
+    "statpearls_corticospinal",
+    "statpearls_lower_limb_nerves",
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017",
+    "garcia_2022",
+    "statpearls_ans",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "nerwowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "nerwowy.question",
+   "kind": "question",
+   "plate": "nerwowy",
+   "textPl": "Jak rozkaz z kory ruchowej dociera do mięśnia nogi?",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_pyramidal",
+    "statpearls_corticospinal",
+    "statpearls_lower_limb_nerves",
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017",
+    "garcia_2022",
+    "statpearls_ans",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "nerwowy.summary.sprint"
+   ]
+  },
+  {
+   "id": "nerwowy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "nerwowy",
+   "textPl": "W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową, a w rdzeniu kręgowym przechodzi on na motoneurony i biegnie nerwami do mięśni nóg. Większość włókien tej drogi krzyżuje się, więc lewa półkula steruje głównie prawą nogą. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_pyramidal",
+    "statpearls_corticospinal",
+    "statpearls_lower_limb_nerves",
+    "duchateau_enoka_2022",
+    "enoka_duchateau_2017",
+    "garcia_2022",
+    "statpearls_ans",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "nerwowy.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "nerwowy.momentLabel",
+   "kind": "moment_label",
+   "plate": "nerwowy",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
+  },
+  {
+   "id": "nerwowy.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "nerwowy",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.7.5)",
+   "quote": "przedstawia budowę i funkcje mózgu, rdzenia kręgowego i nerwów;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }

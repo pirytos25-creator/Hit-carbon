@@ -11,6 +11,7 @@ export const NERWOWY: AtlasPlateLayout = {
   titlePl: "Układ nerwowy",
   subtitlePl: "Jak rozkaz z mózgu dociera do nóg i jak układ współczulny mobilizuje ciało",
   colorVar: "--sys-nerve",
+  heroMetricId: "nerwowy.metric.rekrutacja_jednostek_ruchowych",
   views: [
     "front",
     "back"

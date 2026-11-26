@@ -8,9 +8,11 @@ import type { AtlasPlateLayout } from '../facts';
  */
 export const WYDALNICZY: AtlasPlateLayout = {
   id: "wydalniczy",
-  titlePl: "Układ moczowy (wydalniczy)",
+  titlePl: "Układ moczowy",
   subtitlePl: "Dlaczego w sprincie nerki pracują ciszej i oszczędzają wodę",
   colorVar: "--sys-urinary",
+  heroMetricId: "wydalniczy.metric.przeplyw_krwi_przez_nerki",
+  scaleFreeViews: ["detail"],
   views: [
     "front",
     "detail"

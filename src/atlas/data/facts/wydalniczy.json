@@ -1470,6 +1470,110 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md, cz. 1a"
    }
+  },
+  {
+   "id": "wydalniczy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "wydalniczy",
+   "textPl": "Dowiesz się, jak nerki tworzą mocz i dlaczego w wysiłku oszczędzają wodę.",
+   "status": "draft",
+   "referenceIds": [
+    "garza_leslie_2025",
+    "kawakami_2018",
+    "kenney_ho_1995",
+    "poortmans_1984",
+    "freund_1991",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994",
+    "brooks_2018",
+    "brooks_2020"
+   ],
+   "derivedFrom": [
+    "wydalniczy.summary.rest",
+    "wydalniczy.summary.sprint"
+   ]
+  },
+  {
+   "id": "wydalniczy.question",
+   "kind": "question",
+   "plate": "wydalniczy",
+   "textPl": "Dlaczego w sprincie nerki tworzą mniej moczu?",
+   "status": "draft",
+   "referenceIds": [
+    "kawakami_2018",
+    "kenney_ho_1995",
+    "poortmans_1984",
+    "freund_1991",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994",
+    "brooks_2018",
+    "brooks_2020",
+    "kawakami_2024"
+   ],
+   "derivedFrom": [
+    "wydalniczy.summary.sprint",
+    "wydalniczy.metric.przeplyw_krwi_przez_nerki"
+   ]
+  },
+  {
+   "id": "wydalniczy.summaryShort.rest",
+   "kind": "summary_short",
+   "plate": "wydalniczy",
+   "textPl": "W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej ok. 180 litrów osocza na dobę, a kanaliki odzyskują prawie całą tę wodę. Mocz spływa do miedniczki nerkowej, a moczowodami do pęcherza moczowego.",
+   "status": "draft",
+   "referenceIds": [
+    "garza_leslie_2025"
+   ],
+   "derivedFrom": [
+    "wydalniczy.summary.rest"
+   ],
+   "state": "rest"
+  },
+  {
+   "id": "wydalniczy.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "wydalniczy",
+   "textPl": "W sprincie nerka dostaje mniej krwi, bo układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Nerki przesączają mniej i tworzą mniej moczu. Hormony ADH i aldosteron każą wtedy oszczędzać wodę i sól.",
+   "status": "draft",
+   "referenceIds": [
+    "kawakami_2018",
+    "kenney_ho_1995",
+    "poortmans_1984",
+    "freund_1991",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994",
+    "brooks_2018",
+    "brooks_2020"
+   ],
+   "derivedFrom": [
+    "wydalniczy.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "wydalniczy.momentLabel",
+   "kind": "moment_label",
+   "plate": "wydalniczy",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote"
+   ]
+  },
+  {
+   "id": "wydalniczy.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "wydalniczy",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.5.3)",
+   "quote": "przedstawia proces tworzenia moczu oraz wyjaśnia znaczenie regulacji hormonalnej w tym procesie;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }

@@ -1318,6 +1318,58 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md, cz. 1a"
    }
+  },
+  {
+   "id": "rozrodczy.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "rozrodczy",
+   "textPl": "Poznasz budowę układu rozrodczego mężczyzny i kobiety.",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_testes",
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle",
+    "statpearls_female_internal",
+    "statpearls_uterus"
+   ],
+   "derivedFrom": [
+    "rozrodczy.summary.rest"
+   ]
+  },
+  {
+   "id": "rozrodczy.question",
+   "kind": "question",
+   "plate": "rozrodczy",
+   "textPl": "Gdzie leżą narządy rozrodcze mężczyzny i kobiety?",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_testes",
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle",
+    "statpearls_female_internal",
+    "statpearls_uterus"
+   ],
+   "derivedFrom": [
+    "rozrodczy.summary.rest"
+   ]
+  },
+  {
+   "id": "rozrodczy.summaryShort.rest",
+   "kind": "summary_short",
+   "plate": "rozrodczy",
+   "textPl": "Karta pokazuje układ rozrodczy mężczyzny i kobiety z boku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_testes",
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle",
+    "statpearls_female_internal",
+    "statpearls_uterus"
+   ],
+   "derivedFrom": [
+    "rozrodczy.summary.rest"
+   ],
+   "state": "rest"
   }
  ]
 }

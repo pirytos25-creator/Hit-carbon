@@ -11,6 +11,7 @@ export const MIESNIOWY: AtlasPlateLayout = {
   titlePl: "Układ mięśniowy",
   subtitlePl: "Które mięśnie napędzają sprint na bieżni",
   colorVar: "--sys-muscle",
+  heroMetricId: "miesniowy.metric.rekrutowane_wlokna_miesniowe",
   views: [
     "front",
     "back",

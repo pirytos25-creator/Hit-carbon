@@ -8,9 +8,11 @@ import type { AtlasPlateLayout } from '../facts';
  */
 export const LIMFATYCZNY: AtlasPlateLayout = {
   id: "limfatyczny",
-  titlePl: "Układ limfatyczny i odpornościowy",
+  titlePl: "Układ limfatyczny",
   subtitlePl: "Jak wysiłek wypycha komórki odpornościowe do krwi",
   colorVar: "--sys-lymph",
+  heroMetricId: "limfatyczny.metric.komorki_nk_we_krwi",
+  scaleFreeViews: ["detail"],
   views: [
     "front",
     "detail"

@@ -8,9 +8,10 @@ import type { AtlasPlateLayout } from '../facts';
  */
 export const POKARMOWY: AtlasPlateLayout = {
   id: "pokarmowy",
-  titlePl: "Układ pokarmowy i wątroba",
+  titlePl: "Układ pokarmowy",
   subtitlePl: "Trawienie zwalnia, a wątroba uwalnia paliwo dla mięśni",
   colorVar: "--sys-digest",
+  heroMetricId: "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi",
   views: [
     "front",
     "detail"

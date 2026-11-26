@@ -11,6 +11,7 @@ export const KRWIONOSNY: AtlasPlateLayout = {
   titlePl: "Układ krwionośny",
   subtitlePl: "Jak serce i naczynia przerzucają krew do nóg w sprincie",
   colorVar: "--sys-artery",
+  heroMetricId: "krwionosny.metric.udzial_miesni_w_przeplywie_krwi",
   views: [
     "front",
     "detail"

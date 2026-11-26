@@ -1368,6 +1368,64 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md, cz. 1a"
    }
+  },
+  {
+   "id": "kostny.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "kostny",
+   "textPl": "Dowiesz się, jakie siły działają na kości nóg przy każdym kroku biegu.",
+   "status": "draft",
+   "referenceIds": [
+    "munro_1987",
+    "sims_martin_2014",
+    "eriksen_2010"
+   ],
+   "derivedFrom": [
+    "kostny.summary.sprint"
+   ]
+  },
+  {
+   "id": "kostny.question",
+   "kind": "question",
+   "plate": "kostny",
+   "textPl": "Ile razy mocniej niż ciężar ciała podłoże naciska na stopę w biegu?",
+   "status": "draft",
+   "referenceIds": [
+    "munro_1987",
+    "sims_martin_2014",
+    "eriksen_2010"
+   ],
+   "derivedFrom": [
+    "kostny.summary.sprint",
+    "kostny.metric.szczyt_nacisku_podloza_na_stope"
+   ]
+  },
+  {
+   "id": "kostny.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "kostny",
+   "textPl": "W szybkim biegu podłoże naciska na stopę w szczycie z siłą ok. 2,5–2,7 razy większą niż ciężar ciała, a stopa dotyka podłoża tylko ok. 0,24–0,27 s. Na rysunku wyróżniono kości, które dźwigają ciężar ciała: kości nóg, miednicę i kręgosłup lędźwiowy. Gęstość kości nie zmienia się po jednym treningu, bo kość przebudowuje się tygodniami i miesiącami.",
+   "status": "draft",
+   "referenceIds": [
+    "munro_1987",
+    "sims_martin_2014",
+    "eriksen_2010"
+   ],
+   "derivedFrom": [
+    "kostny.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "kostny.momentLabel",
+   "kind": "moment_label",
+   "plate": "kostny",
+   "textPl": "Krok biegu",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "kostny.protocolNote"
+   ]
   }
  ]
 }

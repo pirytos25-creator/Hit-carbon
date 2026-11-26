@@ -1447,7 +1447,7 @@
    "kind": "protocol_note",
    "plate": "hormonalny",
    "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).",
-   "status": "disputed",
+   "status": "draft",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
@@ -1456,6 +1456,99 @@
     "rows": [],
     "note": "fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte"
    }
+  },
+  {
+   "id": "hormonalny.lessonGoal",
+   "kind": "lesson_goal",
+   "plate": "hormonalny",
+   "textPl": "Dowiesz się, jak hormony w kilka chwil przestawiają organizm na wysiłek.",
+   "status": "draft",
+   "referenceIds": [
+    "kindermann_1982",
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002",
+    "convertino_1981"
+   ],
+   "derivedFrom": [
+    "hormonalny.summary.sprint"
+   ]
+  },
+  {
+   "id": "hormonalny.question",
+   "kind": "question",
+   "plate": "hormonalny",
+   "textPl": "Jak adrenalina przestawia organizm na sprint?",
+   "status": "draft",
+   "referenceIds": [
+    "kindermann_1982",
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002",
+    "convertino_1981",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "hormonalny.summary.sprint",
+    "hormonalny.metric.adrenalina_we_krwi"
+   ]
+  },
+  {
+   "id": "hormonalny.summaryShort.rest",
+   "kind": "summary_short",
+   "plate": "hormonalny",
+   "textPl": "W spoczynku gruczoły dokrewne wydzielają hormony spokojnie, w rytmie dnia i posiłków. We krwi jest mało adrenaliny, a insulina i glukagon z trzustki utrzymują stały poziom cukru.",
+   "status": "draft",
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "godfrey_2003",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "hormonalny.summary.rest"
+   ],
+   "state": "rest"
+  },
+  {
+   "id": "hormonalny.summaryShort.sprint",
+   "kind": "summary_short",
+   "plate": "hormonalny",
+   "textPl": "W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę, której stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby. Wątroba wypuszcza wtedy do krwi kilka razy więcej glukozy.",
+   "status": "draft",
+   "referenceIds": [
+    "kindermann_1982",
+    "sigal_1994",
+    "sigal_1996",
+    "marliss_vranic_2002",
+    "convertino_1981"
+   ],
+   "derivedFrom": [
+    "hormonalny.summary.sprint"
+   ],
+   "state": "sprint"
+  },
+  {
+   "id": "hormonalny.momentLabel",
+   "kind": "moment_label",
+   "plate": "hormonalny",
+   "textPl": "Koniec 45 s pracy",
+   "status": "draft",
+   "referenceIds": [],
+   "derivedFrom": [
+    "wydalniczy.protocolNote",
+    "limfatyczny.protocolNote"
+   ]
+  },
+  {
+   "id": "hormonalny.curriculum",
+   "kind": "curriculum_ref",
+   "plate": "hormonalny",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.6.3)",
+   "quote": "przedstawia antagonistyczne działanie hormonów na przykładzie regulacji poziomu glukozy we krwi;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
   }
  ]
 }

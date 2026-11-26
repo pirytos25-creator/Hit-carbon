@@ -34,7 +34,7 @@ export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: strin
   { id: 'krwionosny', namePl: 'Krwionośny', colorVar: '--sys-artery', content: buildPlate(KRWIONOSNY, KRWIONOSNY_FAKTY as AtlasFactsFile) },
   // Faza 1b (agenci 6-12): podmieniają `null` na swoją treść i dopisują linię `import`.
   { id: 'hormonalny', namePl: 'Hormonalny', colorVar: '--sys-endo', content: buildPlate(HORMONALNY, HORMONALNY_FAKTY as AtlasFactsFile) },
-  { id: 'powlokowy', namePl: 'Powłokowy', colorVar: '--sys-skin', content: buildPlate(POWLOKOWY, POWLOKOWY_FAKTY as AtlasFactsFile) },
+  { id: 'powlokowy', namePl: 'Skóra', colorVar: '--sys-skin', content: buildPlate(POWLOKOWY, POWLOKOWY_FAKTY as AtlasFactsFile) },
   { id: 'pokarmowy', namePl: 'Pokarmowy', colorVar: '--sys-digest', content: buildPlate(POKARMOWY, POKARMOWY_FAKTY as AtlasFactsFile) },
   { id: 'wydalniczy', namePl: 'Moczowy', colorVar: '--sys-urinary', content: buildPlate(WYDALNICZY, WYDALNICZY_FAKTY as AtlasFactsFile) },
   { id: 'kostny', namePl: 'Kostny', colorVar: '--sys-bone', content: buildPlate(KOSTNY, KOSTNY_FAKTY as AtlasFactsFile) },

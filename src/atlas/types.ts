@@ -69,6 +69,8 @@ export interface AtlasLabel {
 
 /** Liczba w parze spoczynek → sprint. Każda musi mieć źródło. */
 export interface AtlasMetric {
+  /** ID rekordu faktu (facts/<plansza>.json), np. 'krwionosny.metric.rzut_serca'; wskazuje go `heroMetricId`. */
+  id?: string;
   labelPl: string;
   rest: string;
   sprint: string;
@@ -179,6 +181,21 @@ export interface AtlasPlateContent {
   labels: AtlasLabel[];
   metrics: AtlasMetric[];
   flows?: AtlasFlow[];
+  // ---- M3 (U0, lekcja licealisty): pola P1 i S5. Każdy tekst ma własny status i przechodzi bramkę faktów.
+  /** Cel lekcji: czego uczeń się dowie z planszy (jedno zdanie). */
+  lessonGoal?: AtlasLessonText;
+  /** Pytanie planszy, od którego zaczyna się panel. */
+  question?: AtlasLessonText;
+  /** Opis stanu w najwyżej 3 zdaniach (poziom Podstawowy); pełne podsumowanie zostaje pod „Więcej”. */
+  summaryShort?: Partial<Record<AtlasState, AtlasLessonText>>;
+  /** Napis przycisku momentu „sprint”, np. „Koniec 45 s pracy”, „Krok biegu”, „Koniec treningu”. */
+  momentLabel?: AtlasLessonText;
+  /** Odwołanie do podstawy programowej (dosłowny cytat); brak = pole puste. */
+  curriculumRef?: AtlasCurriculumRef;
+  /** Liczba-bohater: ID metryki (`AtlasMetric.id`) pokazywanej jako pierwsza i największa (układ planszy). */
+  heroMetricId?: string;
+  /** Widoki-schematy bez prawdziwej skali (chip „schemat, bez skali” zamiast wysokości kadru). */
+  scaleFreeViews?: AtlasView[];
   /** Atrybucja modeli (licencje CC). */
   creditsPl: string;
   /**
@@ -186,6 +203,24 @@ export interface AtlasPlateContent {
    * ukryty. To samo może ustawić skrypt planszy w anchors.json (`"card": true`).
    */
   card?: boolean;
+}
+
+/** Nowy tekst lekcji (M3) ze statusem; `derivedFrom` = sprawdzone fakty, z których go przeformułowano. */
+export interface AtlasLessonText {
+  text: string;
+  status: AtlasFactStatus;
+  derivedFrom: string[];
+}
+
+/** Hasło podstawy programowej (liceum, biologia) z dosłownym cytatem. */
+export interface AtlasCurriculumRef {
+  /** Zakres: P (podstawowy) albo R (rozszerzony). */
+  scope: 'P' | 'R';
+  /** Numer hasła, np. „V.4.8)”. */
+  locator: string;
+  /** Dosłowne brzmienie hasła. */
+  quote: string;
+  status: AtlasFactStatus;
 }
 
 /** Parametry rzutu ortograficznego kamery widoku (atlas_lib.Plate.camera_meta). */
