@@ -11,7 +11,7 @@ Koordynator (sesja nadrzędna): `local_522be64d-3ad8-4991-8085-7f34b69c40a3`.
 | hormonalny | `local_ea8edc9b-cb7f-40ae-9ae2-81613e24be2c` | 5191 | zaliczony (zmiana kadru) | w toku | — |
 | powłokowy | `local_e1dedfd1-808a-4610-9b7e-b27f70554bb6` | 5192 | zaliczony | zaliczony | **zaliczony, scalony** |
 | pokarmowy | `local_dc0d456d-5b08-4b78-885d-fbb7b4512592` | 5193 | zaliczony | zaliczony | **zaliczony, scalony** |
-| wydalniczy | `local_37e1ca28-e80a-4465-a772-f7cebfdf8e93` | 5194 | zaliczony | warunkowo, poprawki wprowadzone | sygnał wysłany, w toku |
+| wydalniczy | `local_37e1ca28-e80a-4465-a772-f7cebfdf8e93` | 5194 | zaliczony | zaliczony | **zaliczony, scalony** |
 | kostny | `local_e40f4943-860f-4eee-9aaf-2615cee60e38` | 5195 | zaliczony | zaliczony | **zaliczony, scalony** |
 | limfatyczny | `local_562c4781-155b-408c-9843-240bfffcb276` | 5196 | zaliczony | warunkowo, poprawki w toku | — |
 | rozrodczy | `local_38e25e6a-ea22-4f47-9266-0aa8758cd6d5` | 5197 | zaliczony | zaliczony | **zaliczony, scalony** |
