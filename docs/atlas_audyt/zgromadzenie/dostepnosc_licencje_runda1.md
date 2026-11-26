@@ -1,0 +1,34 @@
+# Zgromadzenie, runda 1: Strażnik dostępności i licencji
+
+Materiał: gałąź `atlas-uklady` (c4420f9), kod `src/atlas/*`, `index.css`, `palette.json`, walidator, `atlas_lib.py`, `plate_*.py`, dokumenty licencji, 24 zrzuty końcowe (wszystkie 390 px oraz moczowy i pokarmowy w 1440 px). Przeliczenia zrobiłem sam (kontrast WCAG, CIEDE2000 tą samą symulacją co walidator). Blendera nie uruchamiałem, więc `tools_license_test.py` oceniam tylko z kodu.
+
+## Ocena ogólna
+**Licencje: dobrze, do poprawy tylko dokumenty. Dostępność: solidna podstawa, ale 2 problemy wysokiej wagi.** Blokada NC działa w trzech miejscach. Każda plansza osobno przypisuje źródła na licencjach BY-SA i BY. Dwie luki w dostępności: na planszy moczowej tekst na kolorze układu ma za mały kontrast, a znaczenie strzałek przepływu przekazuje tylko kolor, którego walidator nie sprawdza.
+
+## Problemy według wagi
+
+**WYSOKA**
+1. **Ciemny tekst `#0b1020` na kolorze głównym układu** (`AtlasApp.tsx:366` przycisk „Sprint HIIT”, `AtlasPlate.tsx:476–481` pinezki i `:542–547` numery listy). Kontrast: moczowy **2,97:1** (widać na zrzutach `wydalniczy_1440_sprint` i `wydalniczy_390_*`, gdzie numery pinezek prawie nie są czytelne), krwionośny 4,04:1, mięśniowy 4,35:1. Wymóg to 4,5:1, bo 14 px pogrubione to nie jest duży tekst. Pinezka ma dodatkowo `fillOpacity 0.78`, więc kontrast spada jeszcze bardziej. *Propozycja:* kolor tekstu dobierany dla każdego układu (biały na moczowym daje 6,4:1) albo tło w jasnym wariancie (ciemny tekst na `#88ABB4` daje 7,7:1). Do walidatora dodać 5. test: tekst na kolorze głównym ≥ 4,5:1.
+2. **Strzałki przepływu: znaczenie niesie tylko kolor, a kolory nie są sprawdzane.** `labelPl` przepływów jest wczytywane (`AtlasPlate.tsx:322, 332`), ale nigdzie się nie wyświetla. Nie ma też legendy. Strzałki rysuje się jasnymi wariantami (`FLOW_COLOR`), a walidator sprawdza tylko kolory główne. Pary jasnych wariantów pokazywane w jednym widoku mają ΔE < 15: powłokowy (front) tętnica–ciepło 12,3 (deuteranopia); moczowy (front i zbliżenie) żyła–mocz 14,4 (deuteranopia), tętnica–mocz 14,5 (protanopia); pokarmowy (zbliżenie) mleczan–glukoza 13,1 (deuteranopia). To narusza WCAG 1.4.1 i własną zasadę z biblii stylu (§2). *Propozycja:* mała legenda pod widokiem (kreska w kolorze + nazwa z `labelPl`), dla każdego rodzaju inny wzór kreski. Walidator rozszerzyć o jasne warianty par z `flows3d.json` w tym samym widoku.
+
+**ŚREDNIA**
+
+3. **`text-slate-500` ma kontrast 4,14:1 na tle i 3,75:1 na kartach**, czyli poniżej 4,5:1. Dotyczy to tytułów widoków pod obrazem (`AtlasPlate.tsx:492`, 14 px), zdania „Sprawdzone przez agenta AI…”, „N liczby czekają…”, „opis czeka na sprawdzenie źródła”, nagłówków grup menu i napisu „wkrótce”. *Propozycja:* `slate-400` (7,7:1).
+4. **Tekst poniżej 14 px**, wbrew biblii stylu („nic poniżej 14 px”): nagłówki grup menu 10 px, „Atlas” i „wkrótce” 11 px, nagłówki sekcji 12 px, **stopka z licencjami 12 px** (`AtlasApp.tsx:428`) i link „← Podróż filmowa” 12 px. *Propozycja:* wszystko co najmniej 14 px, a stopkę licencji podnieść w pierwszej kolejności.
+5. **Skrót bez modyfikatora** S i spacja na całym oknie (`AtlasApp.tsx:198–209`), co narusza WCAG 2.1.4. Na telefonie i w wąskim oknie strona się przewija, a spacja zamiast przewijać przełącza stan. *Propozycja:* spacji nie przechwytywać. Skrót S działa tylko wtedy, gdy fokus jest w planszy, albo da się go wyłączyć.
+6. **Telefon (390 px):** link „← Podróż filmowa” i nagłówki grup są ukryte (`hidden lg:block`), więc z atlasu nie da się wrócić. Pasek menu ucina się na czwartej pozycji („Mię…”) i nic poza tym nie podpowiada przewijania. Pinezek nie da się dotknąć, działa tylko lista (to w porządku, ale lista nie przewija do obrazu). Stopka na telefonie mówi o klawiszu S i Tab. *Propozycja:* pokazać link powrotu na telefonie, dodać zanikający brzeg paska, tekst stopki zależny od urządzenia.
+
+**NISKA**
+
+7. ARIA: `role="tab"` bez `tabpanel` i `aria-controls`, nie działają strzałki klawiatury (`AtlasApp.tsx:302–323, 356–371`). Przełącznik stanu lepiej opisać jako `radiogroup`, tak jak poziom.
+8. **Dokumenty a pęcherz żeński HRA:** `VH_F_Urinary_Bladder.glb` (CC BY 4.0) jest poprawnie opisany w `plate_rozrodczy.py:108–111` i w stopce planszy (`rozrodczy.ts`, „pęcherz moczowy”). Brakuje go jednak w spisie `ATLAS_ASSETS.md` §2 (lista `female/`) i w tabeli „Układy” w `LICENSES_AND_ASSETS.md` §6 (wiersz Rozrodczy). Ten sam wiersz nie wymienia prostaty Z-Anatomy. `ATLAS_ASSETS.md` §1 („nie używać w projekcie komercyjnym”) warto zastąpić odsyłaczem do blokady NC.
+9. **Pełność atrybucji CC BY / BY-SA 4.0:** w aplikacji brakuje odnośników do treści licencji i informacji, że modele zmieniono (render, kolory, decymacja). HuBMAP występuje bez „Indiana University / NIH Visible Human”, choć w dokumencie te nazwy są. `License.txt` Z-Anatomy wymienia też modele dołączone do paczki: „Cranial Nerves and Foramina” (University of Dundee, CC BY 4.0) oraz Brainder i White matter (University of Washington). Trzeba sprawdzić, czy siatki nerwowego i mózgu z nich pochodzą, i jeśli tak, dopisać ich autorów.
+10. **Blokada NC opiera się na nazwach.** Obiekt ze znacznikiem `atl_source` zaczynającym się od „hubmap” jest zawsze zwolniony, a znacznik można nadać parametrem `source=`. Dziś nie stanowi to zagrożenia, ale warto dopisać komentarz albo test.
+
+## Co jest dobre
+- **Walidator palety przechodzi:** 43 pary pokazywane razem, najmniejsza ΔE 15,3 przy wszystkich trzech rodzajach widzenia; 77 par w menu, najmniejsza ΔE 15,9; jasne warianty ≥ 4,5:1; tokeny CSS zgodne z `palette.json`.
+- **NC zablokowane na trzech poziomach:** `find_meshes`/`find_curves`, `Plate.add` i `Plate.render` (każdy widok). Do tego jest test. Lista blokad obejmuje wszystkie siatki NC ze spisu `za_inventory.json`: kolekcje Cochlea i Vestibule mają tylko po 2 siatki, l i r. Naczynia wewnątrznerkowe blokowane są ostrożnościowo. Na planszach moczowej i hormonalnej nerki pochodzą z HuBMAP. Moczowy dodatkowo sprawdza licencję przed renderem i celowo pomija krzywe moczowodów Z-Anatomy, które kończą się w miedniczce NC.
+- **Stopki plansz rozdzielają źródła BY-SA i BY** wraz z listą narządów. Wspólny wiersz licencji wymienia BodyParts3D (CC BY-SA 2.1 JP). Rendery na CC BY-SA 4.0 to poprawny wybór (wymóg share-alike).
+- **`prefers-reduced-motion` obsłużone w całości:** animacja SVG, pulsowanie, przenikanie obrazów, opis i globalny CSS.
+- Kolor nie jest jedynym nośnikiem informacji w menu (ikona + nazwa), w poziomie dowodów (kropka + zdanie) i w podpisach (numer + lista). Podpisy mają 15 i 14 px. Fokus jest widoczny (`focus-visible`). Podpis wybiera się najechaniem, klawiszem Tab albo dotknięciem.
+- Na 390 px żadna z 12 plansz nie ma przewijania w poziomie i błędów w konsoli (`console_report.json`). Pinezki bliskich kotwic się rozsuwają. Lista pod obrazem jest czytelna.

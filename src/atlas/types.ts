@@ -60,8 +60,9 @@ export interface AtlasLabel {
   /**
    * Poziom dowodów opisu roli (np. 'animal_model' dla akwaporyn). Brak = nie pokazujemy dopisku.
    * Nakładka pokazuje pod opisem zdanie z drabiny sformułowań (model §3.4), gdy poziom ≠ 'established_human'.
+   * Może być osobno dla stanu, np. `{ sprint: 'preliminary_human' }` (limfatyczny: spoczynek to opis anatomiczny).
    */
-  evidence?: EvidenceLevel;
+  evidence?: EvidenceLevel | Partial<Record<AtlasState, EvidenceLevel>>;
   /** Przeliczenie, gdy liczby z opisu roli nie ma dosłownie w cytacie (np. „208 − 0,7 × 25 = 190,5”). */
   conversionNote?: string;
 }
@@ -93,6 +94,8 @@ export interface AtlasMetric {
   /** Moment pomiaru, np. „koniec 45 s pracy”, „3 min po serii”. */
   measuredAt?: string;
   tier?: AtlasTier;
+  /** Odsyłacz do innej planszy z tą samą wielkością (bez nowej liczby), np. adrenalina: nerwowy → hormonalny. */
+  seeAlsoPlate?: AtlasSystemId;
 }
 
 /** Rodzaje strzałek. Kolor: tętnice/żyły jak w księdze stylu, pozostałe w kolorze układu planszy. */
@@ -111,7 +114,9 @@ export type AtlasFlowKind =
   | 'urine'
   | 'force'
   | 'lymph'
-  | 'repro';
+  | 'repro'
+  // runda końcowa: impuls współczulny (inny wzór kreski niż ruchowy, nerwowy)
+  | 'autonomic';
 
 /** Strzałka przepływu w SVG. Punkty w PIKSELACH renderu danego widoku (format fazy 1; nowe plansze: flows3d.json). */
 export interface AtlasFlow {
@@ -166,6 +171,11 @@ export interface AtlasPlateContent {
   summaryVerified?: Partial<Record<AtlasState, AtlasVerifiedSummary>>;
   /** Krótkie wyjaśnienie, co na tej planszy znaczy „sprint” (poziom podstawowy, model §3.7). */
   protocolNotePl?: string;
+  /**
+   * Status zdania o „sprincie” (runda końcowa, bramka faktów). Brak = 'draft'. Niesprawdzone zdanie nie trafia na
+   * ekran: zamiast niego neutralna informacja, że opis czeka na sprawdzenie.
+   */
+  protocolNoteStatus?: AtlasFactStatus;
   labels: AtlasLabel[];
   metrics: AtlasMetric[];
   flows?: AtlasFlow[];
@@ -199,6 +209,11 @@ export interface AtlasViewMeta {
   bbox?: [number, number, number, number];
   /** Kamera widoku; od schemaVersion 2 (starsze rendery jej nie mają, wtedy strzałki 3D są pomijane). */
   camera?: AtlasCamera;
+  /**
+   * Rozdzielczość obrazu tego widoku [szer., wys.], gdy różni się od `resolution` pliku (np. moczowy: `body_front`
+   * 1000×1800 przy planszy 1150×1600). Brak = `resolution` pliku. Kotwice i bbox są w skali 0-1 tego obrazu.
+   */
+  resolution?: [number, number];
 }
 
 /** Plik generowany przez blender/atlas/atlas_lib.py. */
@@ -214,6 +229,7 @@ export interface AtlasAnchorsFile {
   /** Karta bez stanów (zob. AtlasPlateContent.card). */
   card?: boolean;
   id: string;
+  /** Rozdzielczość domyślna widoków (widok może mieć własną: AtlasViewMeta.resolution). */
   resolution: [number, number];
   views: Partial<Record<AtlasView, AtlasViewMeta>>;
 }

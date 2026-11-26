@@ -263,6 +263,11 @@ Ponieważ nie ma człowieka-fizjologa, procedura musi być twarda i sprawdzalna 
    Pole `checked_human` zostaje w schemacie na przyszłość (np. recenzja nauczyciela biologii).
 8. **Liczby podręcznikowe** (`kenney_2022` bez badania pierwotnego) dostają pochodzenie `textbook_consensus`.
    Agent sprawdzający szuka do nich badania pierwotnego albo cytatu z podręcznika. Bez tego taka liczba nie dostaje statusu `checked_agent`.
+9. **Fakty podręcznikowe z numerem ISBN** (decyzja użytkownika z 2026-11-26) są dopuszczone na ekran na tych samych zasadach co badania:
+   - **źródło:** podręcznik lub opracowanie z numerem ISBN albo stałym identyfikatorem (np. OpenStax, StatPearls/NCBI Bookshelf z NBK lub PMID), podane z wydaniem, rozdziałem i stroną albo sekcją;
+   - **cytat:** dosłowny, 1–2 zdania, sprawdzony przez drugiego, niezależnego agenta;
+   - **pochodzenie** w danych: `textbook_consensus`; na ekranie dopisek „Wiedza podręcznikowa”;
+   - **zastosowanie:** wartości spoczynkowe, budowa i rola struktur (np. mózg). Dla zmian w sprincie nadal pierwszeństwo mają badania (PMID/DOI); podręcznik wolno użyć tylko wtedy, gdy podaje wartość wprost i nie ma lepszego źródła.
 
 ### 3.7 Protokół wzorcowy (decyzja użytkownika z 2026-11-25)
 
@@ -380,6 +385,7 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
 - Odbiorcy to **laicy i uczniowie liceum, z dodatkami dla studentów**. Skutki opisuje §3.5.
 - Fakty zatwierdza **drugi agent z dosłownym cytatem** (status `checked_agent`). Użytkownik nie przegląda arkusza faktów.
   Zasady opisuje §3.6.
+- 2026-11-26: dopuszczone są **fakty z podręczników z numerem ISBN** z dosłownym cytatem i drugim sprawdzającym, oznaczone „Wiedza podręcznikowa” (§3.6 pkt 9).
 - Cel 3D: **obrót w poziomie + widoki kluczowe**, a nie swobodne 3D jak w BioDigital.
   - Technicznie: GLB z ograniczoną kamerą (§3.3), bo to ok. 6 MB na układ wobec ok. 86 MB dla sekwencji klatek.
     Jeśli prototyp E3 nie zmieści się w budżecie telefonu, telefon dostaje sekwencję klatek tylko dla „Całości”.

@@ -22,7 +22,8 @@ await build({
   stdin: {
     contents: `export { ATLAS_SYSTEMS } from './src/atlas/plates/index.ts';
 export { SCIENTIFIC_REFERENCES } from './src/science/ScientificReferences.ts';
-export { ATLAS_SHOWN_STATUSES } from './src/atlas/types.ts';`,
+export { ATLAS_SHOWN_STATUSES } from './src/atlas/types.ts';
+export { ATLAS_GLOSSARY } from './src/atlas/glossary.ts';`,
     resolveDir: root,
     loader: 'ts',
   },
@@ -32,7 +33,7 @@ export { ATLAS_SHOWN_STATUSES } from './src/atlas/types.ts';`,
   outfile: out,
   logLevel: 'silent',
 });
-const { ATLAS_SYSTEMS, SCIENTIFIC_REFERENCES, ATLAS_SHOWN_STATUSES } = await import(pathToFileURL(out).href);
+const { ATLAS_SYSTEMS, SCIENTIFIC_REFERENCES, ATLAS_SHOWN_STATUSES, ATLAS_GLOSSARY } = await import(pathToFileURL(out).href);
 
 const CHECKED = new Set(['checked_agent', 'checked_human']);
 const shown = (st) => ATLAS_SHOWN_STATUSES.includes(st ?? 'draft');
@@ -49,6 +50,21 @@ let shownMetrics = 0;
 let shownRoles = 0;
 let anatomyRoles = 0;
 let shownSummaries = 0;
+let shownRest = 0;
+let shownNotes = 0;
+const numWarn = [];
+// Liczby z tekstu faktu (np. „ok. 1,6”, „7–8×”, „−50 / −32”): każda musi być w cytacie albo mieć conversionNote.
+const numbersIn = (t) => (String(t ?? '').match(/\d+(?:[.,]\d+)?/g) ?? []).map((x) => x.replace(',', '.'));
+// Liczba jest w cytacie, gdy ma tę samą wartość (4.9 = 4.90; 1,000 = 1000) albo stoi tam słowem (sixfold, double).
+const NUM_WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, double: 2, twice: 2 };
+const inQuote = (n, q) => {
+  const qq = String(q ?? '').replace(/(\d),(\d{3})\b/g, '$1$2').replace(/(\d),(\d)/g, '$1.$2');
+  const vals = (qq.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
+  for (const m of qq.toLowerCase().matchAll(/\b(one|two|three|four|five|six|seven|eight|nine|ten|double|twice)(?:-?fold)?\b/g)) vals.push(NUM_WORDS[m[1]]);
+  return vals.some((v) => Math.abs(v - Number(n)) < 1e-9);
+};
+// Wartość odniesienia spoczynku (1×, 0, 100%) nie wymaga cytatu.
+const isBaseline = (t) => /^\s*(1×|0|100\s?%)\s*$/.test(String(t ?? ''));
 
 for (const sys of ATLAS_SYSTEMS) {
   const c = sys.content;
@@ -63,7 +79,16 @@ for (const sys of ATLAS_SYSTEMS) {
       if (!m.quote) err(`${where}: brak dosłownego cytatu (quote)`);
       if (!m.locator) err(`${where}: brak lokalizatora (locator)`);
       if (!m.referenceIds?.length) err(`${where}: brak referenceIds`);
+      // D1 (zgromadzenie): liczba z faktu jest w cytacie albo ma opis przeliczenia (conversionNote)
+      if (!m.conversionNote) {
+        const missing = [...numbersIn(m.sprint), ...(shown(m.restStatus ?? st) && !isBaseline(m.rest) ? numbersIn(m.rest) : [])].filter((n) => !inQuote(n, m.quote));
+        if (missing.length) numWarn.push(`${where}: ${missing.join(', ')}`);
+      }
+      // D1: wartość spoczynkowa ma jawny status i jest liczona osobno
+      if (m.rest && m.rest !== '—' && !m.restStatus) err(`${where}: brak restStatus (wartość spoczynkowa „${m.rest}”)`);
+      if (shown(m.restStatus ?? st) && m.rest && m.rest !== '—') shownRest++;
     }
+
     if (st === 'draft') drafts.push({ plate: c.id, kind: 'liczba', key: m.labelPl, value: `${m.rest} → ${m.sprint}${m.unit ? ' ' + m.unit : ''}`, refs: m.referenceIds, locator: m.locator, quote: m.quote, note: m.notePl });
   }
   for (const l of c.labels) {
@@ -78,6 +103,12 @@ for (const sys of ATLAS_SYSTEMS) {
       }
       if (st === 'draft') drafts.push({ plate: c.id, kind: `opis podpisu (${state === 'rest' ? 'spoczynek' : 'sprint'})`, key: `${l.anchor} (${l.namePl})`, value: l.role[state], refs: l.referenceIds });
     }
+  }
+  if (c.protocolNotePl) {
+    const st = c.protocolNoteStatus ?? 'draft';
+    if (!c.protocolNoteStatus) err(`${c.id} / zdanie o „sprincie” (protocolNotePl): brak protocolNoteStatus`);
+    if (shown(st)) shownNotes++;
+    if (st === 'draft') drafts.push({ plate: c.id, kind: 'zdanie o „sprincie” (protocolNotePl)', key: 'protocolNotePl', value: c.protocolNotePl });
   }
   for (const state of ['rest', 'sprint']) {
     refsOk(c.summaryReferenceIds?.[state], `${c.id} / podsumowanie ${state}`);
@@ -100,6 +131,20 @@ for (const sys of ATLAS_SYSTEMS) {
   }
 }
 
+// Słowniczek wspólny (np. definicja VO₂max): ta sama bramka
+for (const g of ATLAS_GLOSSARY) {
+  refsOk(g.referenceIds, `słowniczek „${g.id}”`);
+  if (shown(g.status)) {
+    shownNotes++;
+    if (!g.referenceIds?.length) err(`słowniczek „${g.id}”: pokazywany bez referenceIds`);
+  }
+  if (g.status === 'draft') drafts.push({ plate: '(wspólne)', kind: 'słowniczek', key: g.id, value: g.textPl, refs: g.referenceIds });
+}
+if (numWarn.length) {
+  console.log(`UWAGA (D1): liczba z faktu nie występuje w cytacie i fakt nie ma conversionNote (${numWarn.length}); do niezależnej kontroli:`);
+  for (const w of numWarn) console.log('  - ' + w);
+}
+
 // UI: tekst podsumowania tylko przez shownSummary (reguła 1b).
 const app = readFileSync(join(root, 'src', 'atlas', 'AtlasApp.tsx'), 'utf-8');
 if (/content\.summary\s*\[/.test(app)) err('AtlasApp.tsx czyta content.summary[...] wprost; podsumowanie tylko przez shownSummary()');
@@ -112,6 +157,6 @@ if (i > 0) {
   for (const d of drafts) lines.push(`| ${d.plate} | ${d.kind} | ${esc(d.key)} | ${esc(d.value)}${d.note ? ` (notatka: ${esc(d.note)})` : ''} | ${esc((d.refs ?? []).join(', '))} | ${esc(d.locator)} | ${esc(d.quote)} |`);
   writeFileSync(process.argv[i + 1], lines.join('\n') + '\n', 'utf-8');
 }
-console.log(`Liczby na ekranie: ${shownMetrics}, opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
+console.log(`Liczby na ekranie: ${shownMetrics} (w tym wartości spoczynkowe: ${shownRest}), opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, zdania o „sprincie” i słowniczek na ekranie: ${shownNotes}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
 console.log(errors ? `WYNIK: ${errors} błędów` : 'WYNIK: fakty OK');
 process.exit(errors ? 1 : 0);

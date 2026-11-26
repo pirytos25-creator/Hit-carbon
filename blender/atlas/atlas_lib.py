@@ -616,14 +616,18 @@ def role_material(role, system=None, state="sprint", level=1.0, alpha=None, ctx=
     level (0..1 albo 'dim'): jak mocno struktura pracuje w danym stanie. alpha: aktywny półprzezroczysty."""
     if role == "context_bone":
         return make_material("ATL_bone", hex_to_linear(CONTEXT_COLORS["bone"]), roughness=0.75)
+    # Materiały kontekstu z własną alfą mają alfę w nazwie: make_material bierze materiał po nazwie, więc wspólne
+    # "ATL_bone_ghost" nadpisywało różne alfy (zgłoszenie hormonalnego K3). Alfa domyślna = dawna nazwa (bez zmian obrazu).
     if role == "context_bone_ghost":
-        return make_material("ATL_bone_ghost", hex_to_linear(CONTEXT_COLORS["bone"]), roughness=0.75,
-                             alpha=alpha or 0.22, backface_culling=True)
+        a = alpha or 0.22
+        return make_material("ATL_bone_ghost" if a == 0.22 else f"ATL_bone_ghost_{int(round(a * 100))}",
+                             hex_to_linear(CONTEXT_COLORS["bone"]), roughness=0.75, alpha=a, backface_culling=True)
     if role == "context_muscle":
         return make_material("ATL_ctx_muscle", hex_to_linear(CONTEXT_COLORS["muscle"]), roughness=0.7, subsurface=0.05)
     if role == "context_skin":
-        return make_material("ATL_skin", hex_to_linear(CONTEXT_COLORS["skin"]), roughness=0.6, alpha=alpha or 0.12,
-                             backface_culling=True)
+        a = alpha or 0.12
+        return make_material("ATL_skin" if a == 0.12 else f"ATL_skin_{int(round(a * 100))}",
+                             hex_to_linear(CONTEXT_COLORS["skin"]), roughness=0.6, alpha=a, backface_culling=True)
     if role == "active":
         col, emi, t = active_color(system, state, level, ctx)
         a = 1.0 if alpha is None else alpha

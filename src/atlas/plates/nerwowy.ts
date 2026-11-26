@@ -21,15 +21,7 @@ export const NERWOWY: AtlasPlateContent = {
   summaryReferenceIds: {
     sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans', 'brooks_1988'],
   },
-  // Reguła 1b: dopóki `summary.sprint` czeka na sprawdzenie, na ekranie są tylko zdania już potwierdzone (brzmienie sprzed poprawki).
-  summaryVerified: {
-    sprint: {
-      text: 'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.',
-      referenceIds: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'statpearls_ans', 'garcia_2022'],
-      source: 'fakty_draft_1b.md, nerwowy summary (sprint): zdania 1, 2, 3 i 5 mają oparcie',
-    },
-  },
-  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // fakty_draft_1b.md: disputed („coraz większe”) -> „niski, potem wysoki próg” = draft
+  summaryStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: StatPearls (Pyramidal, Corticospinal, Lower Limb, ANS), Enoka 2017, Brooks 1988
   labels: [
     {
       anchor: 'intercostal',
@@ -186,6 +178,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'the average values are … 29.3 pps for tibialis anterior',
       locator: 'Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Rekrutacja jednostek ruchowych',
@@ -199,6 +192,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'all type I and IIA and … about 50% of type IIAB and IIB',
       locator: 'Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Noradrenalina w osoczu',
@@ -214,6 +208,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'increased from 2.2 +/- 0.6 to 13.4 +/- 6.4 nmol.l-1',
       locator: 'Brooks 1988, abstrakt',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Adrenalina w osoczu',
@@ -227,7 +222,9 @@ export const NERWOWY: AtlasPlateContent = {
       protocolMismatch: '30 s sprint maksymalny na bieżni bez napędu',
       quote: '0.2 +/- 0.2 to 1.4 +/- 0.6 nmol.l-1 … for … adrenaline (AD)',
       locator: 'Brooks 1988, abstrakt',
+      seeAlsoPlate: 'hormonalny', // zgromadzenie, runda końcowa: spójność liczb (ponad 12× przy 87% VO₂max)
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Skąd bierze się zmęczenie',
@@ -245,5 +242,5 @@ export const NERWOWY: AtlasPlateContent = {
   ],
   // Strzałki impulsu: public/atlas/nerwowy/flows3d.json (metry; generuje plate_nerwowy.py, rzutuje AtlasPlate).
   creditsPl:
-    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Sylwetka wyliczona z tych samych modeli. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP); w Z-Anatomy użyto też modeli „Brainder” (University of Washington) i „Cranial Nerves and Foramina” (University of Dundee, CAHID, CC BY 4.0). Sylwetka wyliczona z tych samych modeli. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };

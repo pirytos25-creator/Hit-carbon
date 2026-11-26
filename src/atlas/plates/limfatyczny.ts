@@ -38,9 +38,10 @@ export const LIMFATYCZNY: AtlasPlateContent = {
     sprint: [CAMPBELL, NIEMAN, STEWART, 'havas_1997', 'pedersen_bruunsgaard_1995'],
   },
   // K2 (sprawdzający, docs/atlas_audyt/fakty_limfatyczny.md): rest #1 disputed -> przepisane (draft), sprint #2 checked_agent
-  summaryStatus: { rest: 'draft', sprint: 'checked_agent' },
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018
   protocolNotePl:
     '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie). „Po” to 1 godzina po wysiłku.',
+  protocolNoteStatus: 'checked_agent', // fakty_kontrola_koncowa.md, cz. 1a
   labels: [
     // ---------------- widok z przodu: podstawowe (7)
     {
@@ -79,9 +80,9 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Zbiera limfę z nóg, brzucha i lewej połowy ciała', sprint: 'Prawdopodobnie odprowadza więcej limfy z nóg' }, // K2 #8 disputed -> złagodzone, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      // evidence: 'preliminary_human' (Havas 1997, pomiar pośredni) - włączyć, gdy opis sprintu dostanie checked_agent;
+      evidence: { sprint: 'preliminary_human' }, // Havas 1997, pomiar pośredni (warunek sprawdzającego C)
       // AtlasPlate pokazuje frazę dowodu w obu stanach, a opis spoczynku jest anatomiczny (K3).
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #7 anatomy; #8 przepisane
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #7; fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3
     },
     {
       anchor: 'spleen',
@@ -101,8 +102,8 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Oczyszczają limfę z nogi', sprint: 'Prawdopodobnie dopływa więcej limfy z pracujących nóg' }, // K2 #12 disputed -> „prawdopodobnie”, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      // evidence: 'preliminary_human' (Havas 1997) - jak przy przewodzie piersiowym: włączyć po checked_agent opisu sprintu (K3).
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      evidence: { sprint: 'preliminary_human' }, // Havas 1997, pomiar pośredni (warunek sprawdzającego C)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3
     },
     {
       anchor: 'venous_angle',
@@ -122,7 +123,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Limfa płynie powoli w górę (zastawki)', sprint: 'Skurcze mięśni wyciskają limfę szybciej' },
       tier: 'secondary',
       referenceIds: ['havas_1997'],
-      evidence: 'preliminary_human', // pomiar pośredni u ludzi (Havas 1997)
+      evidence: { sprint: 'preliminary_human' }, // pomiar pośredni u ludzi (Havas 1997); spoczynek = opis budowy
       roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #14, #15
     },
     {
@@ -229,6 +230,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Komórki NK („naturalni zabójcy”) niszczą komórki zakażone wirusem i nowotworowe. Po 1 h ich liczba spada umiarkowanie, a limfocytów ogółem jest o 36% mniej niż przed wysiłkiem.',
       status: 'checked_agent', // #26
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '30 s sprint maksymalny (Wingate)',
       measuredAt: '3 min po wysiłku; po: 1 h po wysiłku',
       conversionNote: '+176% = 2,76× wartości wyjściowej',
@@ -247,10 +249,11 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Po 1 h: 1,7 tys./µL, czyli mniej niż przed wysiłkiem. Według przeglądu najmniej limfocytów jest 1–2 h po wysiłku, a w ciągu doby ich liczba wraca do normy.',
       status: 'checked_agent', // #27, #28
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)',
       measuredAt: 'zaraz po ostatnim interwale; po: 1 h po wysiłku',
       quote:
-        'lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1)',
+        'lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1) | Pre 2.3 ± 0.6, Post 4.0 ± 0.9 k/μL (Table 1, HIIE60)',
       locator: 'Bogdanis 2022, Tabela 1 (HIIE60: Pre 2.3 ± 0.6, Post 4.0 ± 0.9, 1 h post 1.7 ± 0.6 k/μL) i wyniki „Hematologic responses”',
       tier: 'primary',
     },
@@ -263,6 +266,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Po 1 h: 6,1 tys./µL, czyli tyle samo co przed wysiłkiem.',
       status: 'checked_agent', // #27, #28
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)',
       measuredAt: 'zaraz po ostatnim interwale; po: 1 h po wysiłku',
       quote: 'The increase in HIIE60 (from 6.1 ± 1.6 to 9.7 ± 2.6 k/μL) was greater than in all other trials (p < 0.05).',
@@ -279,6 +283,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Śledziona się kurczy i oddaje krew do krążenia. Po wysiłku do wyczerpania jest mniejsza o 56%, po 5–15 min jazdy przy 60% VO₂max o 28–36%. Po ok. 20 min wraca do normy. Na rysunku sprintu śledziona jest mniejsza o ok. 1/3 objętości (ilustracja, ostrożnie).',
       status: 'checked_agent', // #29
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'test stopniowany do wyczerpania na rowerze (9 mężczyzn, 25 lat)',
       measuredAt: 'zaraz po wysiłku; po: 20 min po wysiłku',
       conversionNote: '−56% objętości = 44% wartości spoczynkowej',
@@ -297,6 +302,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Limfocyty T CD8 rosną ok. 2,5×. Mechanizm: adrenalina działa na receptory β2 limfocytów.',
       status: 'checked_agent', // #30
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'intensywny wysiłek ciągły trwający co najmniej 45–60 min (przegląd)',
       measuredAt: 'w trakcie i zaraz po wysiłku',
       quote:
@@ -313,6 +319,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Najmniej limfocytów jest ok. 1–2 h po wysiłku; w ciągu 24 h ich liczba wraca do normy.',
       status: 'checked_agent', // #31: cytat podmieniony na zdanie z liczbą (wskazane przez sprawdzającego)
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'intensywny wysiłek ciągły (przegląd)',
       measuredAt: 'po: 1–2 h po wysiłku',
       quote:
@@ -331,8 +338,10 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Pierwsze badania sugerują, że skurcze mięśni wyciskają limfę szybciej. Pomiar pośredni: tempo usuwania znakowanego białka z mięśnia uda (8 mężczyzn). Przepływu w przewodzie piersiowym w wysiłku u ludzi nie zmierzono; dane o nim pochodzą głównie z badań na zwierzętach.',
       status: 'checked_agent', // #32
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '100 skurczów mięśnia uda w 10 min (prostowanie kolana), nie bieg ani rower',
       measuredAt: 'w trakcie 10 min skurczów',
+      conversionNote: 'three- to sixfold = 3–6×', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'Exercise increased the clearance rate three- to sixfold',
       locator: 'Havas 1997, abstrakt, punkt 3',
       tier: 'student',
@@ -362,8 +371,9 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'contested_debate',
       // K2 #34 disputed -> bez „przez kilka godzin” (brak u Pedersena), dodany wspólny przegląd obu stron (Simpson 2020); draft
       notePl:
-        'Naukowcy się spierają, czy spadek limfocytów po wysiłku osłabia odporność. Jedni (Pedersen i Bruunsgaard 1995): po długim, intensywnym wysiłku łatwiej o infekcję („otwarte okno”). Drudzy (Campbell i Turner 2018): brak wiarygodnych dowodów, a komórki przechodzą do tkanek, gdzie pilnują porządku. Wspólny przegląd obu stron (Simpson i wsp. 2020): sprawa wciąż nierozstrzygnięta.',
-      status: 'draft',
+        'Naukowcy się spierają, czy spadek limfocytów po wysiłku osłabia odporność. Jedni (Pedersen i Bruunsgaard 1995): po długim, intensywnym wysiłku łatwiej o infekcję („otwarte okno”). Drudzy (Campbell i Turner 2018): mało wiarygodnych dowodów, a komórki przechodzą do tkanek, gdzie pilnują porządku. Wspólny przegląd obu stron (Simpson i wsp. 2020): sprawa wciąż nierozstrzygnięta.',
+      status: 'checked_agent', // fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta e)
+      protocolMismatch: 'długi, intensywny wysiłek (przeglądy i debata), nie interwały 45 s',
       measuredAt: '1–2 h po wysiłku (spadek limfocytów; Campbell i Turner 2018)',
       quote:
         'During this time of immunodepression, often referred to as ‘the open window’, the host may be more susceptible to micro-organisms bypassing the first line of defence.',

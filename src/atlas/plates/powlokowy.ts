@@ -24,10 +24,11 @@ export const POWLOKOWY: AtlasPlateContent = {
   viewTitlesPl: { front: 'Widok z przodu', back: 'Widok z tyłu', detail: 'Przekrój skóry (schemat)' },
   protocolNotePl:
     'Naczynia skóry zwężają się już w pierwszych sekundach wysiłku, ale chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się w minutach. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s.',
+  protocolNoteStatus: 'disputed', // fakty_kontrola_koncowa.md: „w pierwszych sekundach” (źródła: na początku, w pierwszej minucie) - ukryte
   summary: {
     rest: 'Przed treningiem ciało wytwarza mało ciepła, a skóra spokojnie oddaje je do otoczenia.',
     sprint:
-      'Obraz „Sprint” pokazuje skórę pod koniec treningu. Pracujące mięśnie zamieniają w ciepło ponad 3/4 zużytej energii. Na samym starcie wysiłku naczynia skóry się zwężają, choć pocenie może lekko wzrosnąć już w pierwszej minucie. Gdy temperatura wewnętrzna rośnie, naczynia skóry się rozszerzają, a pocenie wyraźnie przybiera, najmocniej na czole i tułowiu. Skóra i mięśnie konkurują wtedy o krew, zwłaszcza w upale. Po treningu pocenie i przepływ krwi w skórze szybko spadają, a ciepło zostaje w ciele jeszcze przez kilkadziesiąt minut.',
+      'Obraz „Sprint” pokazuje skórę pod koniec treningu. Pracujące mięśnie zamieniają w ciepło ponad 3/4 zużytej energii. Na samym starcie wysiłku naczynia skóry się zwężają, choć pocenie może lekko wzrosnąć już w pierwszej minucie. Gdy temperatura wewnętrzna rośnie, naczynia skóry się rozszerzają, a pocenie wyraźnie przybiera, najmocniej na czole i plecach. Skóra i mięśnie konkurują wtedy o krew, zwłaszcza w upale. Po treningu pocenie i przepływ krwi w skórze szybko spadają, a ciepło zostaje w ciele jeszcze przez kilkadziesiąt minut.',
   },
   summaryReferenceIds: {
     rest: ['periard_2021'],
@@ -42,7 +43,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       'kenny_2008',
     ],
   },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // #13 (dopisane źródło); #17, #19 poprawione
+  summaryStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek bez cytatu; sprint 9 cytatów (Wendt, G-A, Yanagimoto, Baker, Smith i Havenith, Kenny 2007/2008)
   labels: [
     // --- całe ciało: przód ---
     {
@@ -53,7 +54,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Oddaje ciepło spoczynkowe do otoczenia', sprint: 'Tu pot płynie najobficiej' },
       tier: 'primary',
       referenceIds: ['periard_2021', 'smith_havenith_2011'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #32 (dopisane źródło); #23
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek bez cytatu (Périard 2021 niedostępny); #23
     },
     {
       anchor: 'skin_trunk',
@@ -63,7 +64,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Oddaje ciepło spoczynkowe do otoczenia', sprint: 'Ukrwiona i spocona: oddaje ciepło' },
       tier: 'primary',
       referenceIds: ['periard_2021', 'gonzalez_alonso_2008', 'smith_havenith_2011'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #32; #25
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek bez cytatu; #25
     },
     {
       anchor: 'external_jugular',
@@ -73,7 +74,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (położenie), #32
       role: { rest: 'Biegnie pod skórą bocznej części szyi', sprint: 'Biegnie pod skórą bocznej części szyi' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'cephalic',
@@ -83,7 +84,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Odprowadza krew ze skóry ręki', sprint: 'Odprowadza więcej krwi ze skóry ręki' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { sprint: 'checked_agent' }, // #26
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #26
     },
     {
       anchor: 'median_cubital',
@@ -93,7 +94,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (połączenie żył), #32
       role: { rest: 'Łączy ż. odpromieniową i odłokciową', sprint: 'Łączy ż. odpromieniową i odłokciową' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'basilic',
@@ -103,7 +104,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Odprowadza krew ze skóry ręki', sprint: 'Odprowadza więcej krwi ze skóry ręki' },
       tier: 'secondary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { sprint: 'checked_agent' }, // #26
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #26
     },
     {
       anchor: 'hand_veins',
@@ -113,7 +114,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (położenie), #32, #33
       role: { rest: 'Pod skórą grzbietu dłoni', sprint: 'Pod skórą grzbietu dłoni' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'great_saphenous',
@@ -123,7 +124,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Odprowadza krew ze skóry nogi', sprint: 'Odprowadza więcej krwi ze skóry nogi' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { sprint: 'checked_agent' }, // #26
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #26
     },
     // --- całe ciało: tył ---
     {
@@ -134,7 +135,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Oddaje ciepło spoczynkowe do otoczenia', sprint: 'Najmocniej pocąca się część tułowia' },
       tier: 'primary',
       referenceIds: ['periard_2021', 'smith_havenith_2011'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // #32; #24 poprawione („najmocniej na tułowiu”)
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: sprint Smith i Havenith 2011, abstrakt („highest sweat rates … back”)
     },
     {
       anchor: 'small_saphenous',
@@ -144,7 +145,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Odprowadza krew ze skóry łydki', sprint: 'Odprowadza więcej krwi ze skóry łydki' },
       tier: 'secondary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { sprint: 'checked_agent' }, // #26
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #26
     },
     // --- przekrój skóry (schemat) ---
     {
@@ -155,7 +156,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Zewnętrzna warstwa skóry', sprint: 'Pot wypływa porami na powierzchnię' },
       tier: 'primary',
       referenceIds: ['baker_2019'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // opis anatomiczny; #30
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #30
     },
     {
       anchor: 'sweat_pore',
@@ -174,16 +175,16 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Naczynia, gruczoły i mieszki włosowe', sprint: 'Więcej krwi w rozszerzonych naczyniach' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // opis anatomiczny; #27
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #27
     },
     {
       anchor: 'vessels_sup',
       view: 'detail',
       namePl: 'Naczynia krwionośne skóry',
-      role: { rest: 'Węższe: skóra dostaje mniej krwi', sprint: 'Rozszerzone: krew oddaje ciepło skórze' },
+      role: { rest: 'Umiarkowany przepływ', sprint: 'Rozszerzone: krew oddaje ciepło skórze' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008', 'johnson_1992'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #28
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_kontrola_koncowa.md: „Umiarkowany przepływ” bez źródła (ukryte); #28
     },
     {
       anchor: 'arrector_pili',
@@ -193,7 +194,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (przyczep), #32
       role: { rest: 'Drobny mięsień przy mieszku włosowym', sprint: 'Drobny mięsień przy mieszku włosowym' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'sebaceous',
@@ -203,7 +204,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (ujście), #32
       role: { rest: 'Uchodzi do mieszka włosowego', sprint: 'Uchodzi do mieszka włosowego' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'hair_follicle',
@@ -213,7 +214,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny, #32
       role: { rest: 'Otacza korzeń włosa', sprint: 'Otacza korzeń włosa' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
     {
       anchor: 'sweat_gland',
@@ -232,7 +233,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Doprowadza krew do skóry', sprint: 'Doprowadza do skóry ciepłą krew' },
       tier: 'secondary',
       referenceIds: ['gonzalez_alonso_2008'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // opis anatomiczny; #29
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_A_powlokowy.md: spoczynek opis budowy; #29
     },
     {
       anchor: 'hypodermis',
@@ -242,7 +243,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       // opis anatomiczny (budowa i położenie), #32
       role: { rest: 'Warstwa tłuszczu pod skórą właściwą', sprint: 'Warstwa tłuszczu pod skórą właściwą' },
       tier: 'primary',
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_koncowe_A_powlokowy.md: opis budowy
     },
   ],
   metrics: [
@@ -270,7 +271,8 @@ export const POWLOKOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'W badaniu: 15 min ciągłej jazdy przy 75% VO₂max. Po treningu 6 × 45 s temperatura będzie raczej niższa. Po wysiłku spada powoli: ciało oddaje ciepło wolniej, niż je zebrało.',
-      status: 'draft', // #3 (dopisany kierunek błędu), #4
+      status: 'unverifiable', // fakty_koncowe_A_powlokowy.md: tabela 3 Kenny i McGinn 2017 niedostępna
+      restStatus: 'unverifiable', // jawnie (zgromadzenie D1): spoczynek = status liczby
       measuredAt: 'przed wysiłkiem; koniec wysiłku; 15 min po wysiłku (siedząc)',
       protocolMismatch: '15 min ciągłej jazdy na rowerze przy 75% VO₂max, 24 °C (większe obciążenie cieplne niż 6 × 45 s)',
       quote:
@@ -300,16 +302,16 @@ export const POWLOKOWY: AtlasPlateContent = {
       rest: '—',
       sprint: '30–50',
       unit: '% ciepła zebranego w wysiłku',
-      referenceIds: ['kenny_mcginn_2017'],
+      referenceIds: ['kenny_mcginn_2017', 'kenny_2008'],
       evidenceLevel: 'established_human',
       notePl:
-        'Dotyczy odpoczynku po wysiłku trwającym kilkanaście do kilkudziesięciu minut, nie krótkich przerw 45 s między interwałami.',
-      status: 'draft', // #7, #8 poprawione (bez przenoszenia na interwały)
+        'Dotyczy odpoczynku po wysiłku trwającym kilkanaście do kilkudziesięciu minut, nie krótkich przerw 45 s między interwałami. W badaniu Kenny 2008 po 60 min wysiłku i 60 min odpoczynku oddało się 53% ciepła.',
+      status: 'checked_agent', // fakty_kontrola_koncowa.md: Kenny i McGinn 2017 (Exa) + Kenny 2008, abstrakt (53%)
       measuredAt: 'odpoczynek po wysiłku, tak długi jak wysiłek',
-      protocolMismatch: 'wysiłek i odpoczynek po 15–60 min (1:1), nie 45 s / 45 s',
+      protocolMismatch: 'np. 60 min wysiłku i 60 min odpoczynku (Kenny 2008), nie 45 s / 45 s',
       quote:
         'only 30–50% of the heat gained during exercise is lost during a recovery of similar duration (based on 1:1 work to rest ratio)',
-      locator: 'Kenny i McGinn 2017, rozdz. „Postexercise Thermoregulatory Control”, akapit 1',
+      locator: 'Kenny i McGinn 2017, rozdz. „Postexercise Thermoregulatory Control”, akapit 1 (cytat z indeksu wyszukiwarki Exa; pełny tekst wydawcy jest zablokowany dla automatów)',
       tier: 'primary',
     },
     {
@@ -321,12 +323,12 @@ export const POWLOKOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'To granica osiągana przy temperaturze wewnętrznej ok. 38 °C, nie stan po krótkim HIIT. Powyżej niej wysiłek hamuje dalsze rozszerzanie naczyń skóry, a krwi potrzebują też mięśnie.',
-      status: 'draft', // #9 poprawione (warunek 38 °C), #10
+      status: 'checked_agent', // fakty_koncowe_A_powlokowy.md
       measuredAt: 'długi wysiłek, temperatura wewnętrzna ok. 38 °C',
       protocolMismatch: 'długi wysiłek o umiarkowanej intensywności, zwłaszcza w cieple',
       quote:
         'skin blood flow reaches an apparent upper limit at an internal temperature of around 38°C … This occurs at a skin blood flow estimated to be around 50% of maximal',
-      locator: 'González-Alonso 2008, rozdz. o przepływie skórnym, ryc. 2',
+      locator: 'González-Alonso 2008, rozdz. »Skin circulation«, akapit 2; ryc. 2 (C)',
       tier: 'secondary',
     },
     {
@@ -337,9 +339,10 @@ export const POWLOKOWY: AtlasPlateContent = {
       referenceIds: ['kenny_2008'],
       evidenceLevel: 'established_human',
       notePl: 'Pocenie gaśnie szybko, choć temperatura wewnętrzna jest wciąż podwyższona.',
-      status: 'draft', // #11 (dopisana niska intensywność), #12
+      status: 'checked_agent', // fakty_koncowe_A_powlokowy.md
       measuredAt: '10 min po wysiłku',
       protocolMismatch: '60 min jazdy na rowerze przy 70 W (niska intensywność), 30 °C, 8 osób',
+      conversionNote: '22,9% ≈ 23%', // fakty_kontrola_koncowa.md, cz. 1b
       quote:
         'After a 10-min recovery, metabolic heat production returned to pre-exercise levels, and H(E) was only 22.9 +/- 6.9% of the end-exercise value despite elevations in all core temperatures.',
       locator: 'Kenny 2008, abstrakt (Results)',

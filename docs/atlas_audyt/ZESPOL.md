@@ -37,3 +37,38 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Prace kończą się na przeglądzie spójności (integracja 1b cz. 2, integrator w toku). Po jego audycie i scaleniu – STOP.
 - Końcowe sprawdzenie faktów było już uruchomione (3 agenci: A powłokowy, B hormonalny+moczowy+pokarmowy, C reszta + kontrola wyrywkowa 10%) i zostało **zatrzymane** zgodnie z poleceniem; ich pliki `fakty_koncowe_*.md` mogą nie istnieć lub być niepełne – jutro uruchomić od nowa.
 - Listę faktów `draft` generuje: `node scripts/atlas_check_facts.mjs --drafts <plik.md>` (stan przed przeglądem spójności: 74 – powłokowy 31, hormonalny 11, moczowy 10, pokarmowy 8, kostny 4, limfatyczny 4, oddechowy 2, mięśniowy/mózg/nerwowy/rozrodczy po 1).
+
+## Wznowienie 2026-11-26, 10:50
+- Integrator: część 2 w toku (na gałęzi `8a116f7`, `a9882fd`, `4ed417f`, `0b54162`); poproszony o dokończenie i raport `PUNKT KONTROLNY 1b cz. 2`.
+- Końcowe sprawdzenie faktów uruchomione od nowa (lista: `docs/atlas_audyt/robocze/drafts_final.md`, 74 pozycje): A powłokowy → `fakty_koncowe_A_powlokowy.md`; B hormonalny+moczowy+pokarmowy → `fakty_koncowe_B_horm_mocz_pokarm.md`; C reszta + kontrola wyrywkowa 10% → `fakty_koncowe_C_reszta_i_kontrola.md`.
+- Dalej: integrator nadaje statusy wg A/B/C → scalenie → zgromadzenie (materiał: `docs/ATLAS_REZYSER_PLAN.md`, P1 Wizualizatora `ba239ff`, P2/P3 jeśli gotowe) → `RAPORT_KONCOWY.md`.
+
+## Stan 2026-11-26 przed zgromadzeniem
+- Integracja 1b cz. 2 przyjęta i scalona (`5fa3f3e`), audyt `integrator_1b_czesc2.md`.
+- Końcowe sprawdzenie faktów: A (powłokowy 5/21/0/5), B (horm+mocz+pokarm 14/8/7/0), C (reszta 12 checked, 2 disputed; kontrola wyrywkowa 25/25 zgodnych) – zatwierdzone (`cf85db4`).
+- Integrator: nadaje statusy wg A/B/C i wprowadza poprawki; reguła ostatniej rundy – brzmienie dosłownie od sprawdzającego (z jego cytatem) = `checked_agent`, własne = `draft` (ukryte, bez kolejnej rundy).
+- Następnie: zgromadzenie (5 ról, statut §6) → decyzja końcowa → `RAPORT_KONCOWY.md`.
+
+## 100% osiągnięte (statut §6) – zgromadzenie w toku
+- Fakty końcowe scalone (`cce0f36`, `157171c`, `48fd880`): `check:atlas` – 71 liczb, 165 opisów ról (+162 budowy), 21 podsumowań, **0 `draft`**; build 0; 24 zrzuty 12 plansz bez błędów konsoli (kopie: `side-session-notes/.../dyrygent/zrzuty_koncowe/`).
+- Zgromadzenie, runda 1 (5 podagentów): anatom, architekt 3D, dydaktyk, strażnik faktów, dostępność i licencje → `docs/atlas_audyt/zgromadzenie/*_runda1.md`. Potem runda 2 (wzajemna krytyka), decyzja końcowa, `RAPORT_KONCOWY.md`.
+
+## Zgromadzenie zakończone (2026-11-26)
+- 10 werdyktów (5 ról × 2 rundy) + `zgromadzenie/DECYZJA_KONCOWA.md` (`9916381`): **przyjęty z jedną ostatnią rundą poprawek** (A treść, B dostępność, C licencje, D bramka faktów).
+- W toku: integrator – runda końcowa → `PUNKT KONTROLNY runda końcowa`.
+- Potem: niezależna kontrola (nowe brzmienia `draft`, 9 pozycji reguły ostatniej rundy, ≥ 10% ról i podsumowań na układ, dopasowanie opisu do struktury) → integrator nadaje statusy → scalenie → `RAPORT_KONCOWY.md`.
+
+## ZAKOŃCZONE (2026-11-26)
+- Kontrola końcowa (`0d3e895`) i statusy wg niej scalone; walidator naprawiony. Stan: 71 liczb, 164 opisy ról, 162 budowy, 21 podsumowań, 0 `draft`; build i `check:atlas` 0; 24 zrzuty bez błędów.
+- `RAPORT_KONCOWY.md` zatwierdzony. Prace Dyrygenta zakończone; bez push.
+
+## Decyzja użytkownika 2026-11-26: fakty podręcznikowe – „Tak, dopuść”
+- Zapisana w `docs/ATLAS_MODEL_ARCHITEKTONICZNY.md` §3.6 pkt 9 i §7 (przez koordynatora).
+- Zasady: podręcznik z ISBN lub stałym identyfikatorem (OpenStax, StatPearls/NCBI Bookshelf), wydanie i strona/sekcja; dosłowny cytat + drugi niezależny sprawdzający; w danych `textbook_consensus`, na ekranie „Wiedza podręcznikowa”; głównie wartości spoczynkowe, budowa i role struktur – dla zmian w sprincie pierwszeństwo mają badania.
+- Następny etap (wzbogacenie mózgu i wartości spoczynkowych razem z E1) – czeka na zgodę użytkownika; Dyrygent nie zaczyna prac.
+
+## Etap E1 + fakty podręcznikowe (start 2026-11-26, zgoda użytkownika „Tak, ruszaj”)
+- Integrator (`local_172431d6…`): K1 dane i schemat (bez zmiany wyglądu), K2 przepięcie plansz + walidator (spójność między planszami, `anatomy` bez zmian, `textbook_consensus`), K3 wpisanie faktów podręcznikowych sprawdzonych przez niezależnego agenta.
+- Najpierw integrator zapisuje listę luk: `docs/atlas_audyt/robocze/luki_spoczynku.md`.
+- Dyrygent: podagent wyszukujący (fakty podręcznikowe: role mózgu, wartości spoczynkowe) → osobny podagent sprawdzający → lista dla integratora (K3).
+- Na koniec `docs/atlas_audyt/RAPORT_E1.md`.

@@ -26,15 +26,16 @@ export const ROZRODCZY: AtlasPlateContent = {
     rest:
       'Karta pokazuje budowę układu rozrodczego mężczyzny i kobiety z boku, jak przekrój w podręczniku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.',
     sprint:
-      'Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle; znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
+      'Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle (w badaniu: wytrenowani biegacze, 90 s biegu przy 100–110% VO₂max przez ok. 45 min); znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym lub silnym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
   },
   summaryReferenceIds: {
     rest: ['statpearls_testes', 'statpearls_male_gu', 'statpearls_seminal_vesicle', 'statpearls_female_internal', 'statpearls_uterus'],
     sprint: ['hackney_2012', 'velasco_orjuela_2018', 'mountjoy_2023'],
   },
-  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek StatPearls Testes, Male GU, Seminal Vesicle, Female Internal Genitals; sprint disputed -> 3 poprawki = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)
   protocolNotePl:
     'To karta budowy, a nie plansza ze stanami: „sprint” (koniec 45 s pracy przy ok. 88% VO₂max) nie zmienia tu obrazu.',
+  protocolNoteStatus: 'checked_agent', // fakty_kontrola_koncowa.md, cz. 1a
   labels: [
     // --- miednica męska (widok `side`): przód ciała po lewej stronie obrazu
     {
@@ -249,6 +250,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       notePl:
         'We wczesnej fazie folikularnej (pierwsze dni cyklu) wydolność może być bardzo nieznacznie niższa. Jakość dowodów jest niska, więc autorzy nie dają ogólnych zaleceń, tylko radzą obserwować własne reakcje.',
       status: 'checked_agent', // poz. 31-32, 34
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'metaanaliza 78 badań z różnymi testami wytrzymałości i siły, nie interwały 45/45 s',
       quote:
         'exercise performance might be trivially reduced during the early follicular phase of the MC, compared to all other phases.',
@@ -265,6 +267,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       notePl:
         'Gdy przez dłuższy czas je się za mało w stosunku do treningu, cierpi zdrowie (także praca układu rozrodczego) i wyniki, u kobiet i u mężczyzn. Jeden trening tego nie wywołuje.',
       status: 'checked_agent', // poz. 35-36; zmieniona tylko nazwa skrótu wg sprawdzającego
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'nie dotyczy pojedynczego wysiłku: to skutek długotrwałego niedoboru energii',
       quote:
         'a syndrome of deleterious health and performance outcomes experienced by female and male athletes exposed to low energy availability (LEA; inadequate energy intake in relation to exercise energy expenditure)',
@@ -285,7 +288,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       quote: '(ES0.5 = - 0.06 [95% credible interval (CrI): - 0.16 to 0.04])',
       locator: 'McNulty 2020, abstrakt (Results)',
       measuredAt: 'testy wysiłkowe powtarzane w różnych fazach cyklu',
-      tier: 'secondary',
+      tier: 'student', // zgromadzenie, runda końcowa
     },
   ],
   creditsPl:

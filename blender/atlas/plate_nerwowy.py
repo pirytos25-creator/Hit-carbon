@@ -369,7 +369,7 @@ def curve_anchor(key, obj_name, z):
 
 
 A = {
-    "motor_cortex": {"objects": ["Precentral gyrus.r"], "views": ["back"], "offset": (0.0, 0.015)},
+    "motor_cortex": {"objects": ["Precentral gyrus.l"], "views": ["back"], "offset": (0.0, 0.015)},  # lewa półkula: początek strzałki (zgromadzenie, anatom)
     "spinal_cord": {"objects": ["Spinal dura"], "views": ["back"], "offset": (0.0, 0.08)},
     "cauda_equina": {"objects": ["Cauda equina"], "views": ["back"], "offset": (0.012, -0.02)},
     "sciatic": {"objects": [curve_anchor("sciatic", "Sciatic nerve.r", 0.70)], "views": ["back"]},
@@ -440,12 +440,17 @@ paths["back_motor"] = ("back", back_path, "Rozkaz ruchu: kora → rdzeń → ner
 fem = curve_points("Femoral nerve.r")
 # Rdzeń kończy się na wys. L1-L2, a nerw udowy zaczyna się niżej (korzenie L2-L4), więc linia schodzi
 # z dolnego końca rdzenia prosto do początku nerwu.
-paths["front_femoral"] = ("front", cord_line(dura_mn.z + 0.10, dura_mn.z + 0.06, n=2) + fem,
-                          "Nerw udowy → mięsień czworogłowy")
+# Zgromadzenie (anatom): z rdzenia L2–L4 przez splot lędźwiowy (w m. lędźwiowym), z dala od nadnercza - linia
+# wychodzi poziomo z kanału kręgowego na wysokości początku nerwu udowego, bez odcinka w górę ku nadnerczu.
+paths["front_femoral"] = ("front", cord_line(fem[0].z, fem[0].z, n=2) + fem,
+                          "Rozkaz ruchu: rdzeń (L2–L4) → splot lędźwiowy → nerw udowy → mięsień czworogłowy")
 # Współczulny: pień współczulny -> nerw trzewny -> nadnercze (rdzeń nadnerczy wydziela adrenalinę).
 st = curve_points("Sympathetic trunk.r")
-paths["front_sympathetic"] = ("front", [p for p in st if p.z > obj_center("Suprarenal gland.r").z] +
-                              [obj_center("Suprarenal gland.r")], "Współczulny: rdzeń kręgowy → (przez pień, bez przełączenia) nerwy trzewne → rdzeń nadnerczy")
+# Zgromadzenie (anatom): włókna przedzwojowe do rdzenia nadnerczy wychodzą z odcinka piersiowego (ok. Th5–Th12),
+# więc strzałka zaczyna się ok. 22 cm nad nadnerczem (Th5), nie w odcinku szyjnym.
+adr_z = obj_center("Suprarenal gland.r").z
+paths["front_sympathetic"] = ("front", [p for p in st if adr_z < p.z < adr_z + 0.22] + [obj_center("Suprarenal gland.r")],
+                              "Współczulny: odcinek piersiowy rdzenia → pień (bez przełączenia) → nerwy trzewne → rdzeń nadnerczy")
 
 W, H = plate.res
 flows = []
@@ -464,5 +469,6 @@ with open(os.path.join(plate.out_dir, "flows.json"), "w", encoding="utf-8") as f
     json.dump(flows, f, indent=1, ensure_ascii=False)
 print("ATLAS_FLOWS", [(fl["key"], len(fl["points"])) for fl in flows])
 # Faza 2: te same tory w metrach (flows3d.json); AtlasPlate rzutuje je kamerą widoku z anchors.json.
-plate.write_flows3d([{"id": key, "kind": "nerve", "labelPl": label, "views": [view], "points": pts}
+plate.write_flows3d([{"id": key, "kind": "autonomic" if key == "front_sympathetic" else "nerve", "labelPl": label,
+                      "views": [view], "points": pts}
                      for key, (view, pts, label) in paths.items() if view in VIEWS])

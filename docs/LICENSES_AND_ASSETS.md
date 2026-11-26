@@ -48,3 +48,42 @@ Wszystkie pliki atomowe z bazy **RCSB PDB / wwPDB** należą do **domeny publicz
 - **Ścieżka dźwiękowa i SFX** (`AdaptiveMusicEngine.ts`, `SpatialAudioSystem.ts`): syntezowana lokalnie w czasie rzeczywistym za pomocą Web Audio API (0 zewnętrznych próbek płatnych).
 - **Lektor polski** (`public/audio/narration/*.mp3`): wygenerowany lokalnie za pomocą otwartego narzędzia `edge-tts` (głosy `pl-PL-MarekNeural` oraz `pl-PL-ZofiaNeural`).
 - **Oprogramowanie i biblioteki UI/3D:** React, Three.js, React Three Fiber, Drei, Postprocessing, GSAP, Zustand, Tailwind CSS, Lucide Icons — otwarte licencje MIT. Blender 5.2.1 LTS oraz FFmpeg 9.0 użyte wyłącznie jako lokalne narzędzia produkcyjne offline.
+
+---
+
+## 6. Atlas układów (`#atlas`, 12 plansz)
+**Zmiany w modelach (wymóg CC BY / CC BY-SA):** dopasowanie modeli HuBMAP do szkieletu Z-Anatomy (`align_hubmap`), wybór i uproszczenie struktur, przekroje, kolory układów i render 2D. Stopka każdej planszy podaje to samo i linkuje do treści licencji.
+
+Rendery plansz (`public/atlas/<układ>/*.webp`) powstały lokalnie w Blenderze 5.2.1 z trzech źródeł. Każda plansza ma atrybucję w stopce (`creditsPl` w `src/atlas/plates/<układ>.ts`, pokazywaną pod panelem informacji) i wspólny wiersz licencji (`AtlasApp`). Lista plików źródłowych: `docs/ATLAS_ASSETS.md`.
+
+**Licencja plansz:** rendery i opracowanie BIOGENESIS udostępniamy na **CC BY-SA 4.0**. To wymóg licencji Z-Anatomy (na tych samych warunkach), a HuBMAP (CC BY 4.0) na to pozwala.
+
+### Źródła i licencje (osobno)
+| Źródło | Licencja | Wymagana atrybucja | Użycie w atlasie |
+|---|---|---|---|
+| **Z-Anatomy** (`Startup.blend`) | **CC BY-SA 4.0** | Z-Anatomy (Gauthier Kervyn, Marcin Zieliński) | szkielet, mięśnie, naczynia (krzywe), nerwy, narządy, mózg, gruczoły |
+| **BodyParts3D** (baza większości modeli Z-Anatomy) | **CC BY-SA 2.1 JP** | © The Database Center for Life Science (DBCLS) | pośrednio, przez Z-Anatomy |
+| **HuBMAP Human Reference Atlas**, CCF 3D Reference Object Library (VH Male / VH Female) | **CC BY 4.0** | HuBMAP; NIH Visible Human / Indiana University | narządy w zbliżeniach i wybrane narządy w widokach całego ciała (tabela niżej) |
+| **RCSB PDB** (`5H53`, przez Molecular Nodes) | domena publiczna / CC0 | Fujii i Namba 2017 (źródło struktury) | mięśniowy: mostek poprzeczny |
+| Modele dołączone do Z-Anatomy (wg `License.txt` Z-Anatomy): „Brainder” i „White matter” (University of Washington), „Cranial Nerves and Foramina” (University of Dundee, CAHID, **CC BY 4.0**) | w ramach Z-Anatomy | University of Washington; University of Dundee, CAHID | mózg i nerwy czaszkowe (wzór lub część modeli Z-Anatomy) |
+
+### Blokada licencji NC
+Z-Anatomy zawiera dwa modele na licencjach niekomercyjnych: **nerkę (CC BY-NC)** i **ucho wewnętrzne (CC BY-NC-SA)**. `blender/atlas/atlas_lib.py` (`NC_BLOCKLIST`, `license_check`) przerywa render (`LicenseError`), gdy którykolwiek z tych obiektów (nerka, miedniczka nerkowa, ślimak, przedsionek, naczynia wewnątrznerkowe) trafiłby na planszę. Nerki na planszach moczowej i hormonalnej pochodzą więc z HuBMAP (CC BY 4.0).
+
+### Układy
+| Plansza | Z-Anatomy (CC BY-SA 4.0, na bazie BodyParts3D) | HuBMAP (CC BY 4.0) | Inne |
+|---|---|---|---|
+| Nerwowy | nerwy, rdzeń, mózg, szkielet | – | – |
+| Mózg | półkule, móżdżek, pień, struktury przekroju | – | – |
+| Dokrewny (hormonalny) | gruczoły dokrewne, naczynia, szkielet | nerki (VH Male) | schemat kory i rdzenia nadnercza: BIOGENESIS |
+| Mięśniowy | mięśnie, szkielet | – | PDB 5H53 (domena publiczna) |
+| Kostny | szkielet | – | schemat wnętrza kości: BIOGENESIS |
+| Krwionośny | naczynia całego ciała, jamy serca, szkielet | serce z naczyniami w zbliżeniu | – |
+| Oddechowy | szkielet, mięśnie oddechowe | płuca, tchawica, oskrzela główne, krtań (VH Male v1.4) | schemat pęcherzyka: BIOGENESIS |
+| Pokarmowy | narządy jamy brzusznej, naczynia, szkielet | wątroba z naczyniami, drogi żółciowe, pęcherzyk, trzustka, dwunastnica (zbliżenie) | – |
+| Powłokowy | szkielet, mięśnie, żyły powierzchowne (sylwetka skóry z nich) | – | schemat przekroju skóry: BIOGENESIS |
+| Moczowy (wydalniczy) | pęcherz, cewka, nadnercza, aorta, żyła główna dolna, szkielet, mięśnie | nerki, miedniczki, kielichy, moczowody, naczynia nerkowe | schemat nefronu: BIOGENESIS |
+| Limfatyczny | węzły chłonne, śledziona, grasica, migdałki, szkielet, żyły | węzeł chłonny (NIH_M_Lymph_Node) | schemat naczyń chłonnych: BIOGENESIS |
+| Rozrodczy | miednica i narządy płciowe mężczyzny | narządy żeńskie, pęcherz moczowy, miednica i kręgi (VH Female) | – |
+
+Sprawdzenie: `blender/atlas/tools_license_test.py` (render z obiektem NC musi zakończyć się błędem).

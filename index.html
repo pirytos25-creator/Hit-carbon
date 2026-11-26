@@ -11,8 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" href="/models/athlete_gym.glb" as="fetch" crossorigin />
-    <link rel="preload" href="/audio/narration/manifest.json" as="fetch" crossorigin />
+    <!-- Wczesne wczytanie modelu siłowni i manifestu narracji: tylko w trybie filmu (src/main.tsx), nie w #atlas. -->
   </head>
   <body class="bg-[#04070d] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-100 overflow-hidden">
     <div id="root"></div>

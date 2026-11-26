@@ -322,15 +322,6 @@ MUSC = al.hex_to_linear(al.CONTEXT_COLORS["muscle"])
 BONE = al.hex_to_linear(al.CONTEXT_COLORS["bone"])
 
 
-def urinary_mat(name, level, emission=0.0, alpha=1.0, ctx=BONE):
-    """Kolor układu zmieszany z kontekstem w stopniu `level` (0,35 = jak spoczynek w księdze stylu)."""
-    col = al.mix(ctx, URIN, level)
-    m = al.make_material(f"WYD_{name}_{int(level * 100)}_{int(emission * 100)}_{int(alpha * 100)}", col, roughness=0.6,
-                         subsurface=0.08 if alpha >= 1 else 0.0, emission=emission, alpha=alpha,
-                         backface_culling=True if alpha < 1 else None)
-    return m
-
-
 # Stopnie jasności (ilustracja, nie liczba ze źródła): pełny 1,0 / średni 0,65 / przygaszony 0,35.
 # K3: kolor układu z palette.json (#276777) jest ciemny; przy mieszaniu z kością poniżej ok. 0,5 wychodził szary,
 # więc przygaszenie sprintu to 0,52-0,65 (spoczynek nadal wyraźnie jaśniejszy, kolejność bez zmian).
@@ -346,9 +337,15 @@ LEVELS = {
 }
 
 
-def lvl_fn(key, emission_sprint=0.0, alpha=1.0, ctx=BONE):
+# Integracja 1b cz. 2: poziomy z LEVELS liczy atlas_lib (Plate.add z rest_level/sprint_level), jak w innych planszach:
+# spoczynek bez świecenia, w sprincie świecenie wg reguły palette.json (poziom >= 0,6). Dawniej lokalne materiały
+# (lvl_fn) i naczynia liczone stanem „sprint” także w spoczynku (świeciły w spoczynku).
+CTX = {id(BONE): "bone", id(MUSC): "muscle"}
+
+
+def add_lvl(p, objs, key, alpha=None, ctx=BONE, views=None):
     r, s = LEVELS[key]
-    return lambda st: urinary_mat(key, r if st == "rest" else s, 0.0 if st == "rest" else emission_sprint, alpha, ctx)
+    p.add(objs, role="active", system="urinary", rest_level=r, sprint_level=s, alpha=alpha, ctx=CTX[id(ctx)], views=views)
 
 
 class UroPlate(al.Plate):
@@ -430,47 +427,31 @@ plate.add(aorta, role="active", system="artery", sprint_level=1.0, ctx="muscle",
 plate.add(ivc, role="active", system="vein", sprint_level=1.0, ctx="muscle", views=FRONT)
 # naczynia nerkowe: pełne w spoczynku, przygaszone w sprincie (mniej krwi w nerkach)
 art_objs, vein_objs = list(art.values()), list(vein.values())
-plate.add(art_objs + vein_objs, role="renal_vessel", views=FRONT)
-for o in art_objs:
-    plate.custom.append((o, lambda st: al.role_material("active", "artery", "sprint", 1.0 if st == "rest" else "dim", ctx="muscle")))
-for o in vein_objs:
-    plate.custom.append((o, lambda st: al.role_material("active", "vein", "sprint", 0.9 if st == "rest" else "dim", ctx="muscle")))
+plate.add(art_objs, role="active", system="artery", rest_level=1.0, sprint_level="dim", ctx="muscle", views=FRONT)
+plate.add(vein_objs, role="active", system="vein", rest_level=0.9, sprint_level="dim", ctx="muscle", views=FRONT)
 for s in ("L", "R"):
-    plate.add(kidney_shell[s], role="urinary", views=FRONT)
     # półprzezroczysta torebka: widać miedniczkę i kielichy (HuBMAP) wewnątrz nerki
-    plate.custom += [(o, lvl_fn("kidney", alpha=0.6)) for o in kidney_shell[s]]
-    plate.add(pelvis_hub[s], role="urinary", views=FRONT)
-    plate.custom += [(o, lvl_fn("pelvis")) for o in pelvis_hub[s]]
-    plate.add([ureter_tube[s]], role="urinary", views=FRONT)
-    plate.custom.append((ureter_tube[s], lvl_fn("ureter", ctx=MUSC)))
-plate.add(bladder, role="urinary", views=FRONT)
-plate.custom += [(o, lvl_fn("bladder")) for o in bladder]
-plate.add(urethra, role="urinary", views=FRONT)
-plate.custom += [(o, lvl_fn("urethra", ctx=MUSC)) for o in urethra]
+    add_lvl(plate, kidney_shell[s], "kidney", alpha=0.6, views=FRONT)
+    add_lvl(plate, pelvis_hub[s], "pelvis", views=FRONT)
+    add_lvl(plate, [ureter_tube[s]], "ureter", ctx=MUSC, views=FRONT)
+add_lvl(plate, bladder, "bladder", views=FRONT)
+add_lvl(plate, urethra, "urethra", ctx=MUSC, views=FRONT)
 # nadnercza: spoczynek przygaszony, sprint pełny kolor (rdzeń nadnerczy: adrenalina; spina z planszą hormonalną)
 plate.add(adrenals, role="active", system="endo", sprint_level=1.0, views=FRONT)
 
 # --- zbliżenie: nefron (schemat)
-plate.add(NEPHRON[:-1], role="urinary", views=DETAIL)
-for o in (pct, loop, dct):
-    plate.custom.append((o, lvl_fn("nephron")))
-plate.custom.append((capsule, lvl_fn("nephron", alpha=0.55)))
-plate.add([cd], role="urinary", views=DETAIL)
-plate.custom.append((cd, lvl_fn("duct", emission_sprint=0.1)))
+add_lvl(plate, [pct, loop, dct], "nephron", views=DETAIL)
+add_lvl(plate, [capsule], "nephron", alpha=0.55, views=DETAIL)
+add_lvl(plate, [cd], "duct", views=DETAIL)
 plate.add([aqp_rest, aqp_sprint], role="urinary", views=DETAIL)
 for o in (aqp_rest, aqp_sprint):
     plate.custom.append((o, lambda st: al.make_material("WYD_aqp", al.hex_to_linear("#E9F7F6"), roughness=0.5, emission=0.25)))
 plate.only_state.update({aqp_rest.name: "rest", aqp_sprint.name: "sprint"})
-plate.add(glom_loops, role="renal_vessel", views=DETAIL)
-for o in glom_loops:
-    plate.custom.append((o, lambda st: al.role_material("active", "artery", "sprint", 1.0 if st == "rest" else 0.6, ctx="muscle")))
+plate.add(glom_loops, role="active", system="artery", rest_level=1.0, sprint_level=0.6, ctx="muscle", views=DETAIL)
 for st in ("rest", "sprint"):
-    plate.add([aff[st], eff[st]], role="renal_vessel", views=DETAIL)
+    plate.add([aff[st], eff[st]], role="active", system="artery", rest_level=1.0, sprint_level=1.0, ctx="muscle", views=DETAIL)
     plate.only_state.update({aff[st].name: st, eff[st].name: st})
-    for o in (aff[st], eff[st]):
-        plate.custom.append((o, lambda s_: al.role_material("active", "artery", "sprint", 1.0, ctx="muscle")))
-plate.add([peri], role="renal_vessel", views=DETAIL)
-plate.custom.append((peri, lambda st: al.role_material("active", "vein", "sprint", 0.9, ctx="muscle")))
+plate.add([peri], role="active", system="vein", rest_level=0.9, sprint_level=0.9, ctx="muscle", views=DETAIL)
 
 
 plate.set_view("front", direction="front", center=FRAME_C, ortho_scale=FRAME_H)
@@ -538,18 +519,14 @@ if not any(os.environ.get(k) for k in ("WYD_SKIP_BODY", "ATLAS_QUICK", "ATLAS_AN
     muscles_for_frame = al.find_meshes(collection="4: Muscular system", exclude_materials=al.MUSCLE_COVER_MATERIALS)
     body.add(al.find_meshes(collection="1: Skeletal system", exclude=SKIP_BONES), role="context_bone")
     body.add([hull], role="context_skin")
-    body.add(art_objs + vein_objs, role="renal_vessel")
-    for o in art_objs:
-        body.custom.append((o, lambda st: al.role_material("active", "artery", "sprint", 1.0 if st == "rest" else "dim", ctx="muscle")))
-    for o in vein_objs:
-        body.custom.append((o, lambda st: al.role_material("active", "vein", "sprint", 0.9 if st == "rest" else "dim", ctx="muscle")))
+    body.add(art_objs, role="active", system="artery", rest_level=1.0, sprint_level="dim", ctx="muscle")
+    body.add(vein_objs, role="active", system="vein", rest_level=0.9, sprint_level="dim", ctx="muscle")
     for s in ("L", "R"):
-        body.add(kidney_shell[s] + pelvis_hub[s] + [ureter_tube[s]], role="urinary")
-        body.custom += [(o, lvl_fn("kidney")) for o in kidney_shell[s]]
-        body.custom += [(o, lvl_fn("pelvis")) for o in pelvis_hub[s]]
-        body.custom.append((ureter_tube[s], lvl_fn("ureter", ctx=MUSC)))
-    body.add(bladder + urethra, role="urinary")
-    body.custom += [(o, lvl_fn("bladder")) for o in bladder] + [(o, lvl_fn("urethra", ctx=MUSC)) for o in urethra]
+        add_lvl(body, kidney_shell[s], "kidney")
+        add_lvl(body, pelvis_hub[s], "pelvis")
+        add_lvl(body, [ureter_tube[s]], "ureter", ctx=MUSC)
+    add_lvl(body, bladder, "bladder")
+    add_lvl(body, urethra, "urethra", ctx=MUSC)
     body.set_view("body_front", direction="front", frame=all_bones + muscles_for_frame, margin=1.06)
     # Bez kotwic: warstwy „Całość” potrzebują tylko kamery. Kotwice z własną rozdzielczością widoku myliłyby
     # scripts/atlas_check_projection.ts, który rzutuje z rozdzielczością całego pliku (1150×1600).

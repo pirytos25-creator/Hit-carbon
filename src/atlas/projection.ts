@@ -1,4 +1,9 @@
-import type { AtlasCamera } from './types';
+import type { AtlasAnchorsFile, AtlasCamera, AtlasView } from './types';
+
+/** Rozdzielczość obrazu widoku: własna widoku albo domyślna pliku anchors.json. */
+export function viewResolution(a: Pick<AtlasAnchorsFile, 'resolution' | 'views'>, view: AtlasView | string): [number, number] {
+  return (a.views as Record<string, { resolution?: [number, number] } | undefined>)[view]?.resolution ?? a.resolution;
+}
 
 /**
  * Rzut ortograficzny punktu świata (metry, układ Z-Anatomy) na obraz widoku: wynik [u, v] w skali 0-1,

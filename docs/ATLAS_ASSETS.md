@@ -33,7 +33,7 @@ Dopobrane 2026-11-25 pod kolejne układy (szczegóły: `docs/ATLAS_KOLEJNE_UKLAD
 - **limfatyczny:** śledziona, grasica, węzeł chłonny, migdałki
 - **rozrodczy (M):** prostata
 - **kostny:** miednica
-- **rozrodczy (K), w `female/`:** macica, jajniki, jajowody, pochwa, więzadła, naczynia macicy, miednica
+- **rozrodczy (K), w `female/`:** macica, jajniki, jajowody, pochwa, więzadła, naczynia macicy, miednica, pęcherz moczowy (VH_F, CC BY 4.0)
 
 Razem w `atlas_raw/hubmap/` ok. 95 MB (43 modele).
 
