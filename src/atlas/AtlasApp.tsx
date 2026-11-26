@@ -130,15 +130,26 @@ export function AtlasApp() {
   // obok siebie z kolumnami podpisów tylko ok. 150–210 px szerokości. Dlatego obok siebie stoją wyłącznie wąskie
   // widoki całego ciała (render pionowy ≥ 1,7:1, np. przód i tył: 292×526 px każdy); każdy inny widok
   // (zbliżenie, render 1150×1600, render poziomy) ma własną zakładkę i całą wysokość planszy.
+  // Napis zakładki = tytuł widoku z planszy (`viewTitlesPl`), np. na hormonalnym „front” to tułów z głową.
+  const viewTitle = (v: AtlasView) => content.viewTitlesPl[v] ?? (v === 'detail' ? 'Zbliżenie' : v);
   const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
   const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
   const bodyViews = viewsPresent.filter((v) => v !== 'detail');
   const panels: { views: AtlasView[]; label: string }[] = [];
-  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: 'Całe ciało' });
+  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
   for (const v of viewsPresent) {
     if (wholeBody && v !== 'detail') continue;
-    panels.push({ views: [v], label: wholeBody && v === 'detail' ? 'Zbliżenie' : content.viewTitlesPl[v] ?? v });
+    panels.push({ views: [v], label: viewTitle(v) });
   }
+  // Telefon: każdy widok osobno, ale widoki z tą samą kamerą (ta sama skala ortho, bez zbliżeń), np. przód i bok
+  // szkieletu, dostają wspólną skalę obrazu. Widoki z inną kamerą (zbliżenie, wycinek jamy brzusznej) – własną.
+  const orthoOf = (v: AtlasView) => anchors?.views[v]?.camera?.orthoScale;
+  const sameScaleViews = (v: AtlasView): AtlasView[] | undefined => {
+    const o = orthoOf(v);
+    if (v === 'detail' || o === undefined) return undefined;
+    const group = viewsPresent.filter((x) => x !== 'detail' && orthoOf(x) !== undefined && Math.abs(orthoOf(x)! - o) < 1e-4);
+    return group.length > 1 ? group : undefined;
+  };
   const splitScale = panels.length > 1;
   const panelIdx = Math.min(panel, Math.max(0, panels.length - 1));
   useEffect(() => setPanel(0), [systemId]);
@@ -185,7 +196,14 @@ export function AtlasApp() {
   const color = `var(${content.colorVar})`;
   const colorLight = `var(${content.colorVar}-light)`;
   const shownMetrics = content.metrics.filter((m) => isShown(m.status));
-  const metrics = extended ? shownMetrics : shownMetrics.slice(0, BASIC_MAX_METRICS);
+  // Poziom podstawowy: najpierw liczby 'primary' (brak tier = primary), potem 'secondary'; liczby 'student' tylko w rozszerzonym.
+  const tierRank = (m: AtlasMetric) => (m.tier === 'secondary' ? 1 : m.tier === 'student' ? 2 : 0);
+  const metrics = extended
+    ? shownMetrics
+    : shownMetrics
+        .filter((m) => m.tier !== 'student')
+        .sort((a, b) => tierRank(a) - tierRank(b))
+        .slice(0, BASIC_MAX_METRICS);
   const hiddenMetrics = content.metrics.length - shownMetrics.length;
   // Reguła 1b: podsumowanie czekające na sprawdzenie nie jest pokazywane (tylko zdania już potwierdzone albo nic).
   const summaries = { rest: shownSummary(content, 'rest'), sprint: shownSummary(content, 'sprint') };
@@ -257,6 +275,7 @@ export function AtlasApp() {
                 onlyViews={[v]}
                 flows3d={flows3d}
                 level={level}
+                scaleWithViews={sameScaleViews(v)}
               />
             ))
           ) : (
@@ -350,8 +369,8 @@ export function AtlasApp() {
         </div>
 
         <p className="text-sm text-slate-400 leading-snug">
-          „Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają
-          dopisek „W badaniu: …”.
+          {content.protocolNotePl ??
+            '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.'}
         </p>
 
         {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu.
