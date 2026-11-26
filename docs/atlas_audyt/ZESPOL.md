@@ -13,9 +13,10 @@ Koordynator (sesja nadrzędna): `local_522be64d-3ad8-4991-8085-7f34b69c40a3`.
 | pokarmowy | `local_dc0d456d-5b08-4b78-885d-fbb7b4512592` | 5193 | zaliczony | zaliczony | **zaliczony, scalony** |
 | wydalniczy | `local_37e1ca28-e80a-4465-a772-f7cebfdf8e93` | 5194 | zaliczony | zaliczony | **zaliczony, scalony** |
 | kostny | `local_e40f4943-860f-4eee-9aaf-2615cee60e38` | 5195 | zaliczony | zaliczony | **zaliczony, scalony** |
-| limfatyczny | `local_562c4781-155b-408c-9843-240bfffcb276` | 5196 | zaliczony | warunkowo, poprawki w toku | — |
+| limfatyczny | `local_562c4781-155b-408c-9843-240bfffcb276` | 5196 | zaliczony | zaliczony | **zaliczony, scalony** |
 | rozrodczy | `local_38e25e6a-ea22-4f47-9266-0aa8758cd6d5` | 5197 | zaliczony | zaliczony | **zaliczony, scalony** |
 | Reżyser | `local_0e06d3c8-a948-4de9-b211-ddf665a1cee7` | 5198 | plan gotowy (`docs/ATLAS_REZYSER_PLAN.md`), czeka na decyzję użytkownika | | |
+| Wizualizacja 3D (prototypy P1–P3) | `local_dc5e6e98-3d75-4195-b564-6b8a39eb661f` | 5200–5202 | uruchomiony przez koordynatora; worktree, `prototypes/atlas3d/`, nie scala do `atlas-uklady`; streszczenie do zgromadzenia | | |
 
 Sprawdzanie faktów w toku:
 - 55 faktów `draft` 5 plansz po K3 integratora: `fakty_draft_K3_zaopatrzenie.md` (17/5/5), `fakty_draft_K3_ruch.md` (22/4/2) – oba gotowe, przekazane integratorowi. Po obu – integrator nadaje statusy w 1b.
