@@ -10,9 +10,10 @@ Architektura: `BIOMOTION_ARCHITEKTURA.md`. Nagrania i zrzuty: `zrzuty/m4/`.
 | 1. Akt 3 (i 12) na module, **bez regresji**, nagranie przed i po, FPS Low i High | **spełniony.** Ta sama klatka Low przed i po: średnia różnica pikseli **0,3/255**. Nagranie obok siebie: `m4_akt3_przed_po_low.mp4`. Pomiar A/B w tej samej karcie (Low): stary kod serce 19–24 FPS i tunel 41 FPS, moduł serce 22–25 FPS i tunel 42–44 FPS. Akt 12 na zegarze i cyklu serca modułu, konsola czysta |
 | 2. Profil `film` = obecny wygląd; mat atlasu tylko jako nagranie porównawcze | **spełniony.** Domyślnie `film`. Mat atlasu (`filmMatte`) włącza się tylko ręcznie (`window.__BIOMOTION_LOOK__ = 'filmMatte'`). Nagranie: `m4_akt3_film_vs_mat.mp4`, klatka: `film_dzis_vs_mat_atlasu_t190.jpg` |
 | 3. Kompensacja przed AgX: ΔE00 ≤ 10 dla `artery` i `vein` (zrzuty) | **spełniony: artery 9,7, vein 4,9** (bez kompensacji: 14,3 i 4,9), §3 |
-| 4. Błędy filmu | **naprawione:** `beatPhase` (zegar całkowany `BioClock`; test: błąd przyrostu fazy 2,5·10⁻¹⁵ wobec skoku do 0,5 cyklu w starej formule), `ACT_MODEL_MAP` zgodny ze scenami, **AgX był pomijany na Medium i wyżej (potwierdzone)**, teraz efekt `ToneMapping(AGX)` w kompozytorze (§4) |
+| 4. Błędy filmu | **naprawione** (AgX na Medium+ za przełącznikiem, domyślnie wyłączonym, warunek Dyrygenta): `beatPhase` (zegar całkowany `BioClock`; test: błąd przyrostu fazy 2,5·10⁻¹⁵ wobec skoku do 0,5 cyklu w starej formule), `ACT_MODEL_MAP` zgodny ze scenami, **AgX był pomijany na Medium i wyżej (potwierdzone)**, teraz efekt `ToneMapping(AGX)` w kompozytorze (§4) |
 | 5. Moduł nie importuje `useBiogenesisStore` ani `liveSimulationRef` | **spełniony** (grep: tylko komentarz w `frame.ts`). Stan przez `BioFrame`, wypełniany w `CinematicDirector` (`filmBioFrame`) |
 | 6. Testy | build OK, `tsc` OK, `check:atlas` 0, `check:atlas3d` 0, `node src/biomotion/__tests__/selftest.mjs`: **biomotion OK** (10 testów). Atlas 3D krwionośny: scena bez zmian (`m4_atlas3d_przed_po.jpg`; różnice ramy po lewej i prawej pochodzą ze scalonej M3 integratora, nie z M4), 61 FPS, konsola czysta |
+| Wydajność filmu (stan zastany) | **film już przed M4 ma na Low ok. 23 FPS w ujęciu serca aktu 3** (Intel UHD, 1440×900). To nie regresja M4; wchodzi do M7 (§5) |
 | Czas | szacunek przed M4: **3–5 h** pracy agenta (niepewność wysoka). Rzeczywisty zegar: **19:55 → ok. 20:45, czyli ok. 50 min** z nagraniami i raportem |
 
 ## 1. Co jest w module (`src/biomotion`)
@@ -83,8 +84,10 @@ Co wyszło po drodze:
    - akt 6: bez `cardiopulmonary`;
    - akt 12: bez `mitochondrion.glb`.
 3. **AgX na Medium i wyżej: potwierdzone pomijanie.** `@react-three/postprocessing` (`EffectComposer.js:117-118`) na czas renderu ustawia `NoToneMapping`, więc na poziomach z kompozytorem film nie miał AgX (obraz przesycony, `przed_low_vs_medium_t190.jpg`).
-   - Teraz w każdym łańcuchu kompozytora jest `ToneMapping(AGX)` przed winietą.
-   - **To widoczna zmiana wyglądu filmu na Medium i wyżej** (`przed_po_low_medium_t190.jpg`): kolory spokojniejsze, zgodne z Low. Jasność Medium nadal wyższa niż Low przez oświetlenie HDRI, którego Low nie ma, i tak było wcześniej.
+   - W każdym łańcuchu kompozytora jest `ToneMapping(AGX)` przed winietą, ale **domyślnie WYŁĄCZONY** (`blendFunction: SKIP`): profil `film` = wygląd znany użytkownikowi, dopóki on nie zdecyduje (warunek Dyrygenta po audycie M4).
+   - Włączenie do pokazu: `window.__BIOMOTION_AGX_ALL_TIERS__ = true`, a potem zmiana poziomu jakości; w danych: `LOOK_PROFILES.film.agxAllTiers`.
+   - Sprawdzone: Medium domyślnie ma jasność 160,5, tak samo jak przed M4 (160,5).
+   - **Do decyzji użytkownika:** `m4_medium_agx_dzis_vs_naprawa.jpg` (Medium dziś / po naprawie: kolory spokojniejsze, zgodne z Low, serce bledsze).
    - Na Low (bez kompozytora) bez zmian.
 
 ## 5. FPS (Intel UHD 0xA7A8, Chrome ANGLE D3D11, 1440×900, rAF w oknie na wierzchu, bez nagrywania)

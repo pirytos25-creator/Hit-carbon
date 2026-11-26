@@ -15,12 +15,17 @@ export interface LookProfile {
   exposure: number;
   /** nadpisanie materiałów (mat atlasu) */
   matte: boolean;
+  /**
+   * AgX także na poziomach z kompozytorem (Medium+). Poprawne technicznie, ale zmienia znany wygląd filmu,
+   * więc w profilu `film` domyślnie false do decyzji użytkownika (porównanie: docs/atlas_wizualizacja/zrzuty/m4).
+   */
+  agxAllTiers: boolean;
 }
 
 export const LOOK_PROFILES: Record<LookProfileId, LookProfile> = {
-  film: { id: 'film', toneMapping: THREE.AgXToneMapping, exposure: 1.05, matte: false },
-  atlas: { id: 'atlas', toneMapping: THREE.NoToneMapping, exposure: 1, matte: false },
-  filmMatte: { id: 'filmMatte', toneMapping: THREE.AgXToneMapping, exposure: 1.05, matte: true },
+  film: { id: 'film', toneMapping: THREE.AgXToneMapping, exposure: 1.05, matte: false, agxAllTiers: false },
+  atlas: { id: 'atlas', toneMapping: THREE.NoToneMapping, exposure: 1, matte: false, agxAllTiers: false },
+  filmMatte: { id: 'filmMatte', toneMapping: THREE.AgXToneMapping, exposure: 1.05, matte: true, agxAllTiers: false },
 };
 
 /** Barwa tokenu dla materiału w danym profilu (w `film` z kompensacją przed AgX). */

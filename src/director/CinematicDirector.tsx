@@ -2,7 +2,7 @@ import { Suspense, useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
 import { EffectComposer, Bloom, Vignette, DepthOfField, ToneMapping } from '@react-three/postprocessing';
-import { ToneMappingMode } from 'postprocessing';
+import { ToneMappingMode, BlendFunction } from 'postprocessing';
 import * as THREE from 'three';
 import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
 import { QUALITY_PRESETS, AdaptiveQualityController } from '../core/QualityManager';
@@ -13,7 +13,7 @@ import { narrationEngine } from '../audio/NarrationEngine';
 import { CameraSystem, liveCameraMetaRef } from './CameraSystem';
 import { ScaleTransitionSystem } from './ScaleTransitionSystem';
 import { LightingPresetId } from './ShotChoreography';
-import { BioClock, createBioFrame, applyMatte, type LookProfileId } from '../biomotion';
+import { BioClock, createBioFrame, applyMatte, LOOK_PROFILES, type LookProfileId } from '../biomotion';
 
 const adaptiveController = new AdaptiveQualityController();
 
@@ -29,7 +29,15 @@ const filmClock = new BioClock();
  * dla użytkownika: window.__BIOMOTION_LOOK__ = 'filmMatte'.
  */
 declare global {
-  interface Window { __BIOMOTION_LOOK__?: LookProfileId }
+  interface Window {
+    __BIOMOTION_LOOK__?: LookProfileId;
+    /**
+     * Naprawa AgX na Medium+ (kompozytor @react-three/postprocessing pomija mapowanie tonów renderera).
+     * Domyślnie WYŁĄCZONA: profil film = wygląd znany użytkownikowi, dopóki on nie zdecyduje (decyzja Dyrygenta po M4).
+     * Pokaz: window.__BIOMOTION_AGX_ALL_TIERS__ = true, potem zmiana poziomu jakości.
+     */
+    __BIOMOTION_AGX_ALL_TIERS__?: boolean;
+  }
 }
 
 interface LightingConfig {
@@ -311,6 +319,7 @@ export function CinematicDirector() {
   });
 
   const isMacroDepth = currentActId >= 8 && currentActId <= 10;
+  const agxAllTiers = (typeof window !== 'undefined' && window.__BIOMOTION_AGX_ALL_TIERS__) ?? LOOK_PROFILES.film.agxAllTiers;
 
   return (
     <>
@@ -349,7 +358,7 @@ export function CinematicDirector() {
             intensity={0.32}
             mipmapBlur
           />
-          <ToneMapping mode={ToneMappingMode.AGX} />
+          <ToneMapping mode={ToneMappingMode.AGX} blendFunction={agxAllTiers ? BlendFunction.NORMAL : BlendFunction.SKIP} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}
@@ -361,13 +370,13 @@ export function CinematicDirector() {
             intensity={0.32}
             mipmapBlur
           />
-          <ToneMapping mode={ToneMappingMode.AGX} />
+          <ToneMapping mode={ToneMappingMode.AGX} blendFunction={agxAllTiers ? BlendFunction.NORMAL : BlendFunction.SKIP} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}
       {preset.postprocessing && !preset.dof && !preset.bloom && (
         <EffectComposer multisampling={preset.msaaSamples}>
-          <ToneMapping mode={ToneMappingMode.AGX} />
+          <ToneMapping mode={ToneMappingMode.AGX} blendFunction={agxAllTiers ? BlendFunction.NORMAL : BlendFunction.SKIP} />
           <Vignette eskil={false} offset={0.22} darkness={0.55} />
         </EffectComposer>
       )}
