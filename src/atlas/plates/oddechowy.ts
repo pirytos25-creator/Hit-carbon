@@ -17,13 +17,13 @@ export const ODDECHOWY: AtlasPlateContent = {
     rest:
       'W spoczynku oddech jest spokojny: wdech robi przepona z pomocą mięśni międzyżebrowych przymostkowych i pochyłych, a wydech jest bierny (mięśnie wydechowe prawie nie pracują).',
     sprint:
-      'W sprincie przepona kurczy się szybko (ok. 6,5 razy szybciej niż w spoczynku; w badaniu: rower, 70% mocy maksymalnej), mocniej pracują mięśnie wdechowe klatki piersiowej, a wydech staje się czynny (mięśnie międzyżebrowe wewnętrzne i brzucha). Wentylacja rośnie do ok. 97 L/min przy wysiłku maksymalnym (średnio u mężczyzn w wieku 20–80 lat), a krew przepływa przez płuca szybciej, więc wymiana gazów musi zdążyć w krótszym czasie.',
+      'W sprincie przepona kurczy się szybko (ok. 6,5 razy szybciej niż w spoczynku; w badaniu: rower, 70% mocy maksymalnej), mocniej pracują mięśnie wdechowe klatki piersiowej, a wydech staje się czynny (mięśnie międzyżebrowe wewnętrzne i brzucha). Wentylacja rośnie do ok. 97 L/min przy wysiłku maksymalnym (średnio u mężczyzn w wieku 20–80 lat), a krew przepływa przez płuca szybciej (w badaniu: wytrenowani sportowcy, wysiłek maksymalny), więc wymiana gazów musi zdążyć w krótszym czasie.',
   },
   summaryReferenceIds: {
     rest: ['detroyer_estenne_1984', 'aliverti_1997'],
     sprint: ['aliverti_1997', 'detroyer_2005', 'blackie_1991', 'hopkins_1996'],
   },
-  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek De Troyer 1984 zd. 3, Aliverti 1997 zd. 7; sprint disputed (protokół, populacja) -> dopiski = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Aliverti 1997, De Troyer 2005, Blackie 1991, Hopkins 1996 (+ dopisek o protokole wg sprawdzającego)
   labels: [
     {
       anchor: 'larynx',
@@ -82,7 +82,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Pracują przy każdym wdechu (przymostkowe)', sprint: 'Unoszą żebra (wdech), ściągają (wydech)' },
       tier: 'primary',
       referenceIds: ['detroyer_estenne_1984', 'detroyer_2005', 'aliverti_1997'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // #17, #18; fakty_draft_1b.md: „lekko” disputed -> usunięte = draft
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: De Troyer i Estenne 1984, abstrakt; #18
     },
     {
       anchor: 'diaphragm',

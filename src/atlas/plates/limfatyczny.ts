@@ -38,7 +38,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
     sprint: [CAMPBELL, NIEMAN, STEWART, 'havas_1997', 'pedersen_bruunsgaard_1995'],
   },
   // K2 (sprawdzający, docs/atlas_audyt/fakty_limfatyczny.md): rest #1 disputed -> przepisane (draft), sprint #2 checked_agent
-  summaryStatus: { rest: 'draft', sprint: 'checked_agent' },
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018
   protocolNotePl:
     '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie). „Po” to 1 godzina po wysiłku.',
   labels: [
@@ -79,9 +79,9 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Zbiera limfę z nóg, brzucha i lewej połowy ciała', sprint: 'Prawdopodobnie odprowadza więcej limfy z nóg' }, // K2 #8 disputed -> złagodzone, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      // evidence: 'preliminary_human' (Havas 1997, pomiar pośredni) - włączyć, gdy opis sprintu dostanie checked_agent;
+      evidence: { sprint: 'preliminary_human' }, // Havas 1997, pomiar pośredni (warunek sprawdzającego C)
       // AtlasPlate pokazuje frazę dowodu w obu stanach, a opis spoczynku jest anatomiczny (K3).
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #7 anatomy; #8 przepisane
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #7; fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3
     },
     {
       anchor: 'spleen',
@@ -101,8 +101,8 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Oczyszczają limfę z nogi', sprint: 'Prawdopodobnie dopływa więcej limfy z pracujących nóg' }, // K2 #12 disputed -> „prawdopodobnie”, draft
       tier: 'primary',
       referenceIds: ['havas_1997'],
-      // evidence: 'preliminary_human' (Havas 1997) - jak przy przewodzie piersiowym: włączyć po checked_agent opisu sprintu (K3).
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      evidence: { sprint: 'preliminary_human' }, // Havas 1997, pomiar pośredni (warunek sprawdzającego C)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: Havas 1997, abstrakt pkt 3
     },
     {
       anchor: 'venous_angle',
@@ -362,8 +362,9 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'contested_debate',
       // K2 #34 disputed -> bez „przez kilka godzin” (brak u Pedersena), dodany wspólny przegląd obu stron (Simpson 2020); draft
       notePl:
-        'Naukowcy się spierają, czy spadek limfocytów po wysiłku osłabia odporność. Jedni (Pedersen i Bruunsgaard 1995): po długim, intensywnym wysiłku łatwiej o infekcję („otwarte okno”). Drudzy (Campbell i Turner 2018): brak wiarygodnych dowodów, a komórki przechodzą do tkanek, gdzie pilnują porządku. Wspólny przegląd obu stron (Simpson i wsp. 2020): sprawa wciąż nierozstrzygnięta.',
-      status: 'draft',
+        'Naukowcy się spierają, czy spadek limfocytów po wysiłku osłabia odporność. Jedni (Pedersen i Bruunsgaard 1995): po długim, intensywnym wysiłku łatwiej o infekcję („otwarte okno”). Drudzy (Campbell i Turner 2018): mało wiarygodnych dowodów, a komórki przechodzą do tkanek, gdzie pilnują porządku. Wspólny przegląd obu stron (Simpson i wsp. 2020): sprawa wciąż nierozstrzygnięta.',
+      status: 'checked_agent', // fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta e)
+      protocolMismatch: 'długi, intensywny wysiłek (przeglądy i debata), nie interwały 45 s',
       measuredAt: '1–2 h po wysiłku (spadek limfocytów; Campbell i Turner 2018)',
       quote:
         'During this time of immunodepression, often referred to as ‘the open window’, the host may be more susceptible to micro-organisms bypassing the first line of defence.',
