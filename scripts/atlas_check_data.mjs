@@ -137,7 +137,7 @@ for (const k of Object.keys(planCount)) if (planCount[k] !== dataCount[k]) err(`
 
 // ---------------------------------------------------------------- 3b. E1-K2: treść faktów tylko w facts/*.json
 // Plik planszy trzyma sam układ. Pola faktów (opis roli, statusy, źródła, liczby, cytaty, podsumowania) są zakazane.
-const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus)\s*:/m;
+const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus|lessonGoal|question|summaryShort|momentLabel|curriculumRef)\s*:/m;
 for (const f of readdirSync(join(root, 'src/atlas/plates'))) {
   if (!f.endsWith('.ts') || f === 'index.ts') continue;
   const src = readFileSync(join(root, 'src/atlas/plates', f), 'utf-8');
