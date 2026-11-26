@@ -1596,6 +1596,24 @@
     ],
     "note": "M3_kontrola.md #32: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "hormonalny.quiz",
+   "kind": "quiz",
+   "plate": "hormonalny",
+   "textPl": "Jak zmienia się stężenie adrenaliny we krwi przy bardzo intensywnym wysiłku?",
+   "quizType": "updown",
+   "answer": "up",
+   "explainPl": "Rośnie: ponad 12 razy w porównaniu ze spoczynkiem (w badaniu: ok. 14 min ciągłego wysiłku przy 87% VO₂max). Po 30 s sprintu maksymalnego wzrost wynosił ok. 7 razy.",
+   "status": "draft",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996",
+    "brooks_1988"
+   ],
+   "derivedFrom": [
+    "hormonalny.metric.adrenalina_we_krwi"
+   ]
   }
  ]
 }

@@ -196,6 +196,18 @@ export interface AtlasPlateContent {
   heroMetricId?: string;
   /** Widoki-schematy bez prawdziwej skali (chip „schemat, bez skali” zamiast wysokości kadru). */
   scaleFreeViews?: AtlasView[];
+  // ---- M6 (rama): „Co się zmieniło”, „Sprawdź się”, wyróżnik
+  /**
+   * „Co się zmieniło” (P5): powiązania liczb planszy ze strukturami. Rama liczy krotność zmiany ze sprawdzonych wartości
+   * (spoczynek → moment) i w pełnym kolorze zostawia struktury liczb o zmianie ≥ 70% największej (AtlasChange).
+   */
+  changeLinks?: { metric: string; anchors: string[] }[];
+  /** Gdy liczb nie da się porównać (brak sprawdzonego spoczynku): struktury wyróżnione poglądowo, z chipem „ilustracja”. */
+  changeIllustration?: string[];
+  /** „Sprawdź się” (P6): jedno pytanie na planszę (z facts/<plansza>.json, rekord kind 'quiz'). */
+  quiz?: AtlasQuiz;
+  /** Wyróżnik układu (docs/atlas_wizualizacja/KONTRAKT_WYROZNIKA.md); brak = plansza bez wyróżnika. */
+  signature?: AtlasSignature;
   /** Atrybucja modeli (licencje CC). */
   creditsPl: string;
   /**
@@ -210,6 +222,35 @@ export interface AtlasLessonText {
   text: string;
   status: AtlasFactStatus;
   derivedFrom: string[];
+}
+
+/** „Sprawdź się”: pytanie ↑/↓ (jak zmienia się wielkość) albo „wskaż …” (kotwica planszy). */
+export interface AtlasQuiz {
+  type: 'updown' | 'point';
+  question: string;
+  /** updown: 'up' | 'down' | 'same'; point: klucz kotwicy (anchor). */
+  answer: string;
+  /** Wyjaśnienie po odpowiedzi (z faktu planszy). */
+  explain: string;
+  status: AtlasFactStatus;
+  derivedFrom: string[];
+}
+
+/** Wyróżnik układu: dane dla komponentu 2D (src/atlas/signatures) i wtyczki 3D (kontrakt §1). */
+export interface AtlasSignature {
+  id: string;
+  namePl: string;
+  /**
+   * Test zmiennej: co koduje ruch. kind 'metric' = kierunek i wielkość z faktów `factIds` (liczby albo opisy ról,
+   * status checked_*); 'order' = sama kolejność zdarzeń; 'illustration' = 3 stopnie jakościowe (chip „ilustracja”).
+   */
+  variable: { kind: 'metric' | 'order' | 'illustration'; factIds?: string[]; labelPl: string };
+  flows: string[];
+  anchors: string[];
+  legend: { symbol: 'particle' | 'pulse' | 'glow' | 'counter' | 'flow'; labelPl: string }[];
+  /** Chipy na scenie; „zwolnione ×N” z liczbą N z reguły wyróżnika (np. „zwolnione ×4”). */
+  chips: ('powiększone' | 'ilustracja' | 'ruch poglądowy' | 'schemat · bez skali' | `zwolnione ×${number}`)[];
+  acts: number[];
 }
 
 /** Hasło podstawy programowej (liceum, biologia) z dosłownym cytatem. */

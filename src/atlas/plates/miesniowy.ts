@@ -11,6 +11,9 @@ export const MIESNIOWY: AtlasPlateLayout = {
   titlePl: "Układ mięśniowy",
   subtitlePl: "Które mięśnie napędzają sprint na bieżni",
   colorVar: "--sys-muscle",
+  changeLinks: [
+    { metric: "miesniowy.metric.zapotrzebowanie_miesni_na_atp", anchors: ["rectus_femoris","vastus_lateralis","gluteus_maximus","biceps_femoris","semitendinosus","gastrocnemius","soleus","tibialis_anterior","d_vastus_lateralis","d_hamstrings"] },
+  ],
   heroMetricId: "miesniowy.metric.rekrutowane_wlokna_miesniowe",
   views: [
     "front",

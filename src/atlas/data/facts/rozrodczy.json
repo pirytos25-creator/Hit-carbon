@@ -1391,6 +1391,26 @@
     ],
     "note": "M3_kontrola.md #63: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "rozrodczy.quiz",
+   "kind": "quiz",
+   "plate": "rozrodczy",
+   "textPl": "Wskaż na planszy narząd, który u mężczyzny leży w mosznie poza miednicą.",
+   "quizType": "point",
+   "answer": "testis",
+   "explainPl": "To jądro. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej.",
+   "status": "draft",
+   "referenceIds": [
+    "statpearls_testes",
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle",
+    "statpearls_female_internal",
+    "statpearls_uterus"
+   ],
+   "derivedFrom": [
+    "rozrodczy.summary.rest"
+   ]
   }
  ]
 }

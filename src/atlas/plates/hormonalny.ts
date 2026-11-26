@@ -11,6 +11,11 @@ export const HORMONALNY: AtlasPlateLayout = {
   titlePl: "Układ hormonalny",
   subtitlePl: "Jak hormony, zwłaszcza adrenalina, przestawiają organizm na wysiłek",
   colorVar: "--sys-endo",
+  changeLinks: [
+    { metric: "hormonalny.metric.adrenalina_we_krwi", anchors: ["adrenal","d_medulla"] },
+    { metric: "hormonalny.metric.glukoza_wypuszczana_do_krwi_glownie_z_watroby", anchors: ["liver"] },
+    { metric: "hormonalny.metric.stosunek_glukagon_insulina", anchors: ["pancreas"] },
+  ],
   heroMetricId: "hormonalny.metric.adrenalina_we_krwi",
   views: [
     "front",

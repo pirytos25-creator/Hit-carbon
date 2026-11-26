@@ -1458,6 +1458,24 @@
     ],
     "note": "M3_kontrola.md #54: brzmienie sprawdzającego; M3_kontrola_runda2.md #20: OK (drugi niezależny agent, 2026-11-26)"
    }
+  },
+  {
+   "id": "kostny.quiz",
+   "kind": "quiz",
+   "plate": "kostny",
+   "textPl": "Jak zmienia się gęstość kości po jednym treningu?",
+   "quizType": "updown",
+   "answer": "same",
+   "explainPl": "Nie zmienia się: kość przebudowuje się tygodniami i miesiącami, a nie po jednym treningu.",
+   "status": "draft",
+   "referenceIds": [
+    "munro_1987",
+    "sims_martin_2014",
+    "eriksen_2010"
+   ],
+   "derivedFrom": [
+    "kostny.summary.sprint"
+   ]
   }
  ]
 }
