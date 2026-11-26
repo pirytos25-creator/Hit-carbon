@@ -61,3 +61,8 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 ## ZAKOŃCZONE (2026-11-26)
 - Kontrola końcowa (`0d3e895`) i statusy wg niej scalone; walidator naprawiony. Stan: 71 liczb, 164 opisy ról, 162 budowy, 21 podsumowań, 0 `draft`; build i `check:atlas` 0; 24 zrzuty bez błędów.
 - `RAPORT_KONCOWY.md` zatwierdzony. Prace Dyrygenta zakończone; bez push.
+
+## Decyzja użytkownika 2026-11-26: fakty podręcznikowe – „Tak, dopuść”
+- Zapisana w `docs/ATLAS_MODEL_ARCHITEKTONICZNY.md` §3.6 pkt 9 i §7 (przez koordynatora).
+- Zasady: podręcznik z ISBN lub stałym identyfikatorem (OpenStax, StatPearls/NCBI Bookshelf), wydanie i strona/sekcja; dosłowny cytat + drugi niezależny sprawdzający; w danych `textbook_consensus`, na ekranie „Wiedza podręcznikowa”; głównie wartości spoczynkowe, budowa i role struktur – dla zmian w sprincie pierwszeństwo mają badania.
+- Następny etap (wzbogacenie mózgu i wartości spoczynkowych razem z E1) – czeka na zgodę użytkownika; Dyrygent nie zaczyna prac.
