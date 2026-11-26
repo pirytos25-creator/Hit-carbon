@@ -66,3 +66,9 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Zapisana w `docs/ATLAS_MODEL_ARCHITEKTONICZNY.md` §3.6 pkt 9 i §7 (przez koordynatora).
 - Zasady: podręcznik z ISBN lub stałym identyfikatorem (OpenStax, StatPearls/NCBI Bookshelf), wydanie i strona/sekcja; dosłowny cytat + drugi niezależny sprawdzający; w danych `textbook_consensus`, na ekranie „Wiedza podręcznikowa”; głównie wartości spoczynkowe, budowa i role struktur – dla zmian w sprincie pierwszeństwo mają badania.
 - Następny etap (wzbogacenie mózgu i wartości spoczynkowych razem z E1) – czeka na zgodę użytkownika; Dyrygent nie zaczyna prac.
+
+## Etap E1 + fakty podręcznikowe (start 2026-11-26, zgoda użytkownika „Tak, ruszaj”)
+- Integrator (`local_172431d6…`): K1 dane i schemat (bez zmiany wyglądu), K2 przepięcie plansz + walidator (spójność między planszami, `anatomy` bez zmian, `textbook_consensus`), K3 wpisanie faktów podręcznikowych sprawdzonych przez niezależnego agenta.
+- Najpierw integrator zapisuje listę luk: `docs/atlas_audyt/robocze/luki_spoczynku.md`.
+- Dyrygent: podagent wyszukujący (fakty podręcznikowe: role mózgu, wartości spoczynkowe) → osobny podagent sprawdzający → lista dla integratora (K3).
+- Na koniec `docs/atlas_audyt/RAPORT_E1.md`.
