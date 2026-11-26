@@ -1221,7 +1221,7 @@
    "kind": "lesson_goal",
    "plate": "nerwowy",
    "textPl": "Dowiesz się, jak rozkaz ruchu biegnie z mózgu do mięśni nóg.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_pyramidal",
     "statpearls_corticospinal",
@@ -1234,14 +1234,21 @@
    ],
    "derivedFrom": [
     "nerwowy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#1"
+    ],
+    "note": "M3_kontrola.md #1: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "nerwowy.question",
    "kind": "question",
    "plate": "nerwowy",
    "textPl": "Jak rozkaz z kory ruchowej dociera do mięśnia nogi?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_pyramidal",
     "statpearls_corticospinal",
@@ -1254,14 +1261,21 @@
    ],
    "derivedFrom": [
     "nerwowy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#2"
+    ],
+    "note": "M3_kontrola.md #2: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "nerwowy.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "nerwowy",
    "textPl": "W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową, a w rdzeniu kręgowym przechodzi on na motoneurony i biegnie nerwami do mięśni nóg. Większość włókien tej drogi krzyżuje się, więc lewa półkula steruje głównie prawą nogą. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_pyramidal",
     "statpearls_corticospinal",
@@ -1275,30 +1289,50 @@
    "derivedFrom": [
     "nerwowy.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#4"
+    ],
+    "note": "M3_kontrola.md #4: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "nerwowy.momentLabel",
    "kind": "moment_label",
    "plate": "nerwowy",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#3"
+    ],
+    "note": "M3_kontrola.md #3: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "nerwowy.curriculum",
    "kind": "curriculum_ref",
    "plate": "nerwowy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.7.5)",
    "quote": "przedstawia budowę i funkcje mózgu, rdzenia kręgowego i nerwów;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#5"
+    ],
+    "note": "M3_kontrola.md #5: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

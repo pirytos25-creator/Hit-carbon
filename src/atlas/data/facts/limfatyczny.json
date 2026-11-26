@@ -1528,7 +1528,7 @@
    "kind": "lesson_goal",
    "plate": "limfatyczny",
    "textPl": "Dowiesz się, jak płynie limfa i co wysiłek robi z komórkami odpornościowymi we krwi.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "campbell_turner_2018",
     "nieman_1992",
@@ -1539,14 +1539,21 @@
    "derivedFrom": [
     "limfatyczny.summary.rest",
     "limfatyczny.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#56"
+    ],
+    "note": "M3_kontrola.md #56: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "limfatyczny.question",
    "kind": "question",
    "plate": "limfatyczny",
    "textPl": "Skąd w wysiłku bierze się we krwi więcej komórek odpornościowych?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "campbell_turner_2018",
     "nieman_1992",
@@ -1557,28 +1564,42 @@
    "derivedFrom": [
     "limfatyczny.summary.sprint",
     "limfatyczny.metric.komorki_nk_we_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#57"
+    ],
+    "note": "M3_kontrola.md #57: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "limfatyczny.summaryShort.rest",
    "kind": "summary_short",
    "plate": "limfatyczny",
    "textPl": "Z naczyń krwionośnych wycieka do tkanek płyn tkankowy, który w naczyniach chłonnych staje się limfą. Naczynia chłonne prowadzą ją przez węzły chłonne, które działają jak filtry. Przewód piersiowy oddaje limfę z powrotem do krwi, do żyły przy lewym obojczyku.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "campbell_turner_2018"
    ],
    "derivedFrom": [
     "limfatyczny.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#59"
+    ],
+    "note": "M3_kontrola.md #59: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "limfatyczny.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "limfatyczny",
    "textPl": "W wysiłku adrenalina odrywa komórki odpornościowe od ścian naczyń, więc we krwi szybko przybywa komórek NK i limfocytów. Śledziona się kurczy, a pracujące mięśnie szybciej wyciskają limfę. 1–2 godziny po wysiłku limfocytów we krwi jest przejściowo mniej niż przed nim.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "campbell_turner_2018",
     "nieman_1992",
@@ -1589,18 +1610,32 @@
    "derivedFrom": [
     "limfatyczny.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#60"
+    ],
+    "note": "M3_kontrola.md #60: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "limfatyczny.momentLabel",
    "kind": "moment_label",
    "plate": "limfatyczny",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
     "limfatyczny.protocolNote"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#58"
+    ],
+    "note": "M3_kontrola.md #58: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

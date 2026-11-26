@@ -1016,7 +1016,7 @@
    "id": "oddechowy.lessonGoal",
    "kind": "lesson_goal",
    "plate": "oddechowy",
-   "textPl": "Dowiesz się, jak oddychanie przyspiesza i pogłębia się w wysiłku.",
+   "textPl": "Dowiesz się, jak w spoczynku i w wysiłku pracują przepona i pozostałe mięśnie oddechowe.",
    "status": "draft",
    "referenceIds": [
     "aliverti_1997",
@@ -1028,13 +1028,20 @@
     "oddechowy.summary.sprint",
     "oddechowy.metric.czestosc_oddechow",
     "oddechowy.metric.objetosc_oddechowa"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#15"
+    ],
+    "note": "M3_kontrola.md #15: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+   }
   },
   {
    "id": "oddechowy.question",
    "kind": "question",
    "plate": "oddechowy",
-   "textPl": "Jak płuca nadążają z dostarczaniem tlenu w sprincie?",
+   "textPl": "Jak w sprincie zmienia się praca mięśni oddechowych i płuc?",
    "status": "draft",
    "referenceIds": [
     "aliverti_1997",
@@ -1045,14 +1052,21 @@
    "derivedFrom": [
     "oddechowy.summary.sprint",
     "oddechowy.metric.wentylacja_minutowa"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#16"
+    ],
+    "note": "M3_kontrola.md #16: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+   }
   },
   {
    "id": "oddechowy.summaryShort.rest",
    "kind": "summary_short",
    "plate": "oddechowy",
    "textPl": "W spoczynku oddech jest spokojny: wdech robi przepona z pomocą mięśni międzyżebrowych przymostkowych i pochyłych. Wydech jest bierny, bo mięśnie wydechowe prawie nie pracują.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "detroyer_estenne_1984",
     "aliverti_1997"
@@ -1060,13 +1074,20 @@
    "derivedFrom": [
     "oddechowy.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#18"
+    ],
+    "note": "M3_kontrola.md #18: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "oddechowy.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "oddechowy",
-   "textPl": "W sprincie przepona kurczy się szybciej, mocniej pracują mięśnie wdechowe, a wydech staje się czynny dzięki mięśniom międzyżebrowym wewnętrznym i mięśniom brzucha. Przy wysiłku maksymalnym przez płuca przepływa ok. 97 litrów powietrza na minutę. Krew płynie przez płuca szybciej, więc wymiana gazów musi zdążyć w krótszym czasie.",
+   "textPl": "W sprincie przepona kurczy się szybciej, mocniej pracują mięśnie wdechowe, a wydech staje się czynny dzięki mięśniom międzyżebrowym wewnętrznym i mięśniom brzucha. Przy wysiłku maksymalnym wentylacja płuc rośnie do ok. 97 litrów powietrza na minutę (średnio u mężczyzn w wieku 20–80 lat). Krew płynie wtedy przez płuca szybciej (w badaniu: wytrenowani sportowcy), więc wymiana gazów musi zdążyć w krótszym czasie.",
    "status": "draft",
    "referenceIds": [
     "aliverti_1997",
@@ -1078,19 +1099,32 @@
     "oddechowy.summary.sprint",
     "oddechowy.metric.wentylacja_minutowa"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#19"
+    ],
+    "note": "M3_kontrola.md #19: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+   }
   },
   {
    "id": "oddechowy.momentLabel",
    "kind": "moment_label",
    "plate": "oddechowy",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#17"
+    ],
+    "note": "M3_kontrola.md #17: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

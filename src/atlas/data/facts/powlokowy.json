@@ -1581,15 +1581,17 @@
    "id": "powlokowy.protocolNote",
    "kind": "protocol_note",
    "plate": "powlokowy",
-   "textPl": "Naczynia skóry zwężają się już w pierwszych sekundach wysiłku, ale chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się w minutach. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s.",
+   "textPl": "Na samym starcie wysiłku naczynia skóry się zwężają, a chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się dopiero, gdy rośnie temperatura wewnętrzna. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s. Liczby pochodzą z badań o innych protokołach, zwykle dłuższego wysiłku ciągłego (opis przy każdej liczbie).",
    "status": "draft",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
    "checkedBy": {
-    "report": "fakty_kontrola_koncowa.md",
-    "rows": [],
-    "note": "fakty_kontrola_koncowa.md: „w pierwszych sekundach” (źródła: na początku, w pierwszej minucie) - ukryte"
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#33"
+    ],
+    "note": "M3_kontrola.md #33: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
    }
   },
   {
@@ -1597,7 +1599,7 @@
    "kind": "lesson_goal",
    "plate": "powlokowy",
    "textPl": "Dowiesz się, jak skóra pomaga pozbyć się ciepła z pracujących mięśni.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "wendt_2007",
     "gonzalez_alonso_2008",
@@ -1610,14 +1612,21 @@
    ],
    "derivedFrom": [
     "powlokowy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#34"
+    ],
+    "note": "M3_kontrola.md #34: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "powlokowy.question",
    "kind": "question",
    "plate": "powlokowy",
    "textPl": "Jak skóra chłodzi organizm, gdy mięśnie wytwarzają dużo ciepła?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "wendt_2007",
     "gonzalez_alonso_2008",
@@ -1632,14 +1641,21 @@
    "derivedFrom": [
     "powlokowy.summary.sprint",
     "powlokowy.metric.energia_z_pracy_miesni_zamieniana_w_cieplo"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#35"
+    ],
+    "note": "M3_kontrola.md #35: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "powlokowy.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "powlokowy",
    "textPl": "Pracujące mięśnie zamieniają w ciepło ponad 3/4 zużytej energii. Gdy temperatura wewnętrzna rośnie, naczynia skóry się rozszerzają, a pocenie wyraźnie przybiera, najmocniej na czole i plecach. Po treningu ciepło zostaje w ciele jeszcze przez kilkadziesiąt minut.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "wendt_2007",
     "gonzalez_alonso_2008",
@@ -1653,14 +1669,21 @@
    "derivedFrom": [
     "powlokowy.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#37"
+    ],
+    "note": "M3_kontrola.md #37: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "powlokowy.momentLabel",
    "kind": "moment_label",
    "plate": "powlokowy",
    "textPl": "Koniec treningu",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "wendt_2007",
     "gonzalez_alonso_2008",
@@ -1673,18 +1696,32 @@
    ],
    "derivedFrom": [
     "powlokowy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#36"
+    ],
+    "note": "M3_kontrola.md #36: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "powlokowy.curriculum",
    "kind": "curriculum_ref",
    "plate": "powlokowy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.1.5)",
    "quote": "przedstawia mechanizmy warunkujące homeostazę (termoregulacja, osmoregulacja, ciśnienie krwi).",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#38"
+    ],
+    "note": "M3_kontrola.md #38: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

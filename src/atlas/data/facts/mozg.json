@@ -1069,7 +1069,7 @@
    "id": "mozg.lessonGoal",
    "kind": "lesson_goal",
    "plate": "mozg",
-   "textPl": "Dowiesz się, czym mózg się żywi i jak zmienia paliwo w ciężkim wysiłku.",
+   "textPl": "Dowiesz się, czym mózg się żywi w spoczynku i co się zmienia w ciężkim wysiłku.",
    "status": "draft",
    "referenceIds": [
     "raichle_gusnard_2002",
@@ -1079,14 +1079,21 @@
    "derivedFrom": [
     "mozg.summary.rest",
     "mozg.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#10"
+    ],
+    "note": "M3_kontrola.md #10: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+   }
   },
   {
    "id": "mozg.question",
    "kind": "question",
    "plate": "mozg",
    "textPl": "Czy w ciężkim wysiłku mózg spala tylko glukozę?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "van_hall_2009",
     "kemppainen_2005",
@@ -1096,13 +1103,20 @@
    "derivedFrom": [
     "mozg.summary.sprint",
     "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#11"
+    ],
+    "note": "M3_kontrola.md #11: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "mozg.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "mozg",
-   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy.",
+   "textPl": "W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max, mleczan przy jego dodatkowym wlewie).",
    "status": "draft",
    "referenceIds": [
     "van_hall_2009",
@@ -1111,30 +1125,50 @@
    "derivedFrom": [
     "mozg.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#13"
+    ],
+    "note": "M3_kontrola.md #13: POPRAWKA, brzmienie sprawdzającego; czeka na drugiego niezależnego agenta (§3.6)"
+   }
   },
   {
    "id": "mozg.momentLabel",
    "kind": "moment_label",
    "plate": "mozg",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#12"
+    ],
+    "note": "M3_kontrola.md #12: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "mozg.curriculum",
    "kind": "curriculum_ref",
    "plate": "mozg",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.7.5)",
    "quote": "przedstawia budowę i funkcje mózgu, rdzenia kręgowego i nerwów;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#14"
+    ],
+    "note": "M3_kontrola.md #14: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

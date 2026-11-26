@@ -1324,7 +1324,7 @@
    "kind": "lesson_goal",
    "plate": "rozrodczy",
    "textPl": "Poznasz budowę układu rozrodczego mężczyzny i kobiety.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_testes",
     "statpearls_male_gu",
@@ -1334,14 +1334,21 @@
    ],
    "derivedFrom": [
     "rozrodczy.summary.rest"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#61"
+    ],
+    "note": "M3_kontrola.md #61: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "rozrodczy.question",
    "kind": "question",
    "plate": "rozrodczy",
    "textPl": "Gdzie leżą narządy rozrodcze mężczyzny i kobiety?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_testes",
     "statpearls_male_gu",
@@ -1351,14 +1358,21 @@
    ],
    "derivedFrom": [
     "rozrodczy.summary.rest"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#62"
+    ],
+    "note": "M3_kontrola.md #62: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "rozrodczy.summaryShort.rest",
    "kind": "summary_short",
    "plate": "rozrodczy",
    "textPl": "Karta pokazuje układ rozrodczy mężczyzny i kobiety z boku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_testes",
     "statpearls_male_gu",
@@ -1369,7 +1383,14 @@
    "derivedFrom": [
     "rozrodczy.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#63"
+    ],
+    "note": "M3_kontrola.md #63: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }
