@@ -101,7 +101,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Powrót krwi z nogi', sprint: 'Spływa do żył głębokich, które pompa mięśniowa opróżnia szybciej' },
       tier: 'primary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // zgromadzenie, runda końcowa: pompa ściska żyły głębokie, nie powierzchowne
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_kontrola_koncowa.md: Joyner i Casey 2015, III.B
     },
     {
       anchor: 'anterior_tibial',
@@ -252,6 +252,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       notePl:
         'Serce już w spoczynku pobiera z krwi 70–80% tlenu, więc więcej tlenu dostaje głównie dzięki większemu przepływowi. U ludzi zmierzono ok. 3–4×.',
       protocolMismatch: 'wysiłek maksymalny, częściowo badania na zwierzętach',
+      conversionNote: 'three to five times = 3–5×; spoczynek = 1×', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'peak values during maximal exercise typically three to five times the resting level',
       locator: 'Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md

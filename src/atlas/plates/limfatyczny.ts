@@ -41,7 +41,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018
   protocolNotePl:
     '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie). „Po” to 1 godzina po wysiłku.',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
+  protocolNoteStatus: 'checked_agent', // fakty_kontrola_koncowa.md, cz. 1a
   labels: [
     // ---------------- widok z przodu: podstawowe (7)
     {
@@ -253,7 +253,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       protocolMismatch: '8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)',
       measuredAt: 'zaraz po ostatnim interwale; po: 1 h po wysiłku',
       quote:
-        'lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1)',
+        'lymphocyte count was reduced 1 h post-exercise compared to baseline in all HIIE trials (p < 0.05, Table 1) | Pre 2.3 ± 0.6, Post 4.0 ± 0.9 k/μL (Table 1, HIIE60)',
       locator: 'Bogdanis 2022, Tabela 1 (HIIE60: Pre 2.3 ± 0.6, Post 4.0 ± 0.9, 1 h post 1.7 ± 0.6 k/μL) i wyniki „Hematologic responses”',
       tier: 'primary',
     },
@@ -341,6 +341,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '100 skurczów mięśnia uda w 10 min (prostowanie kolana), nie bieg ani rower',
       measuredAt: 'w trakcie 10 min skurczów',
+      conversionNote: 'three- to sixfold = 3–6×', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'Exercise increased the clearance rate three- to sixfold',
       locator: 'Havas 1997, abstrakt, punkt 3',
       tier: 'student',

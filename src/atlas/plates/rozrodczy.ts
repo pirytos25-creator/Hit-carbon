@@ -35,7 +35,7 @@ export const ROZRODCZY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)
   protocolNotePl:
     'To karta budowy, a nie plansza ze stanami: „sprint” (koniec 45 s pracy przy ok. 88% VO₂max) nie zmienia tu obrazu.',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
+  protocolNoteStatus: 'checked_agent', // fakty_kontrola_koncowa.md, cz. 1a
   labels: [
     // --- miednica męska (widok `side`): przód ciała po lewej stronie obrazu
     {

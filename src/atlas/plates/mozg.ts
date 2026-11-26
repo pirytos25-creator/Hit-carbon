@@ -150,7 +150,7 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'probable_human',
       notePl: 'Porównanie wysiłku 30% i 75% VO₂max (14 mężczyzn): ok. 32% mniej glukozy przy cięższym wysiłku. Spoczynku w tym badaniu nie mierzono.',
       protocolMismatch: '35 min jazdy przy 75% VO₂max (pobór uśredniony z 25 min)',
-      quote: '38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1',
+      quote: '38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1 | exercise intensities corresponding to 30, 55 and 75% of [VO2max]',
       locator: 'Kemppainen 2005, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
@@ -209,6 +209,7 @@ export const MOZG: AtlasPlateContent = {
       notePl:
         'Spadek utlenowania przy wysiłku maksymalnym (≥ VO₂peak) jest zmierzony. Ale to, czy kora przedczołowa naprawdę „przygasa” (hipoteza przejściowej hipofrontalności), pozostaje sporne.',
       protocolMismatch: 'wysiłek stopniowany do maksimum',
+      conversionNote: '88% VO₂max = kanon atlasu; u Rooks 2010 mieści się w kategorii hard (60–<100% VO₂peak), w której utlenowanie rośnie', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.',
       locator: 'Rooks 2010, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md

@@ -38,7 +38,7 @@ export const POKARMOWY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' },
   protocolNotePl:
     'Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły, kilkunastominutowy, więc liczby są przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: nowe brzmienie (skala czasu)
+  protocolNoteStatus: 'disputed', // fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte
   labels: [
     // ---------------------------------------------------------------- widok z przodu (Z-Anatomy)
     {
@@ -263,7 +263,7 @@ export const POKARMOWY: AtlasPlateContent = {
       status: 'checked_agent', // jak hormonalny „Glukoza wypuszczana do krwi” (#38, #39)
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
-      quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001).',
+      quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups',
       locator: 'Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”',
       measuredAt: 'w czasie wysiłku',
       tier: 'primary',
@@ -279,6 +279,7 @@ export const POKARMOWY: AtlasPlateContent = {
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch:
         'wysiłek do wyczerpania (rower, 80% maks. obciążenia, ok. 100% VO₂max; przegląd: wysiłek > 80% VO₂max)',
+      conversionNote: 'seven- to eightfold = 7–8×', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'In contrast, in intense exercise, GP rises seven- to eightfold and GU rises three- to fourfold',
       locator: 'Marliss & Vranic 2002, abstrakt; badanie pierwotne: Marliss 1992, abstrakt („Ra increased 7-fold by exhaustion”)',
       measuredAt: 'w chwili wyczerpania (koniec wysiłku)',
@@ -349,6 +350,7 @@ export const POKARMOWY: AtlasPlateContent = {
       status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Bogdanis 2022
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy 100% mocy z testu VO₂max, przerwy 90 s przy 15% (11 zdrowych młodych mężczyzn)',
+      conversionNote: '6,56 ≈ 6,6', // fakty_kontrola_koncowa.md, cz. 1b
       quote:
         'Post-exercise leukocyte count (mean ± SD; 9.7 ± 2.8 k μL-1), uric acid concentration (0.35 ± 0.10 mmol L-1), glucose concentration (6.56 ± 1.44 mmol L-1), and plasma volume change (-13.5 ± 4.4%) were greater in HIIE60 compared to all other trials (p < 0.05).',
       locator: 'Bogdanis 2022, abstrakt (Results); wartość wyjściowa: ryc. 1A',

@@ -24,7 +24,7 @@ export const POWLOKOWY: AtlasPlateContent = {
   viewTitlesPl: { front: 'Widok z przodu', back: 'Widok z tyłu', detail: 'Przekrój skóry (schemat)' },
   protocolNotePl:
     'Naczynia skóry zwężają się już w pierwszych sekundach wysiłku, ale chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się w minutach. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s.',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
+  protocolNoteStatus: 'disputed', // fakty_kontrola_koncowa.md: „w pierwszych sekundach” (źródła: na początku, w pierwszej minucie) - ukryte
   summary: {
     rest: 'Przed treningiem ciało wytwarza mało ciepła, a skóra spokojnie oddaje je do otoczenia.',
     sprint:
@@ -184,7 +184,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       role: { rest: 'Umiarkowany przepływ', sprint: 'Rozszerzone: krew oddaje ciepło skórze' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008', 'johnson_1992'],
-      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // zgromadzenie, runda końcowa: „Węższe” opisywało start wysiłku; #28
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_kontrola_koncowa.md: „Umiarkowany przepływ” bez źródła (ukryte); #28
     },
     {
       anchor: 'arrector_pili',
@@ -306,7 +306,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Dotyczy odpoczynku po wysiłku trwającym kilkanaście do kilkudziesięciu minut, nie krótkich przerw 45 s między interwałami. W badaniu Kenny 2008 po 60 min wysiłku i 60 min odpoczynku oddało się 53% ciepła.',
-      status: 'draft', // zgromadzenie, runda końcowa: dopisek o 53% (Kenny 2008); dawniej: fakty_koncowe_A_powlokowy.md; decyzja Dyrygenta b): cytat z indeksu wyszukiwarki
+      status: 'checked_agent', // fakty_kontrola_koncowa.md: Kenny i McGinn 2017 (Exa) + Kenny 2008, abstrakt (53%)
       measuredAt: 'odpoczynek po wysiłku, tak długi jak wysiłek',
       protocolMismatch: 'np. 60 min wysiłku i 60 min odpoczynku (Kenny 2008), nie 45 s / 45 s',
       quote:
@@ -342,6 +342,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       status: 'checked_agent', // fakty_koncowe_A_powlokowy.md
       measuredAt: '10 min po wysiłku',
       protocolMismatch: '60 min jazdy na rowerze przy 70 W (niska intensywność), 30 °C, 8 osób',
+      conversionNote: '22,9% ≈ 23%', // fakty_kontrola_koncowa.md, cz. 1b
       quote:
         'After a 10-min recovery, metabolic heat production returned to pre-exercise levels, and H(E) was only 22.9 +/- 6.9% of the end-exercise value despite elevations in all core temperatures.',
       locator: 'Kenny 2008, abstrakt (Results)',
