@@ -1133,11 +1133,11 @@
    "id": "oddechowy.quiz",
    "kind": "quiz",
    "plate": "oddechowy",
-   "textPl": "Jak zmienia się pobór tlenu (VO₂) od spoczynku do końca 45 s pracy?",
+   "textPl": "Jak zmienia się pobór tlenu (VO₂) od spoczynku do końca 45-sekundowego odcinka pracy w treningu?",
    "quizType": "updown",
    "answer": "up",
-   "explainPl": "Rośnie: z ok. 0,25 do ok. 3–3,4 litra tlenu na minutę (ok. 88% VO₂max).",
-   "status": "draft",
+   "explainPl": "Rośnie: z ok. 0,25 do ok. 3–3,4 litra tlenu na minutę, czyli do ok. 88% maksymalnego poboru tlenu (VO₂max). To wartość przyjęta w atlasie dla przeciętnego mężczyzny w wieku 20–29 lat, nie pomiar.",
+   "status": "checked_agent",
    "referenceIds": [
     "jette_1990",
     "kaminsky_2015",
@@ -1145,7 +1145,14 @@
    ],
    "derivedFrom": [
     "oddechowy.metric.pobor_tlenu_vo"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #4"
+    ],
+    "note": "M6_kontrola.md: brzmienie rundy 2, trzecia kontrola OK (2026-11-26)"
+   }
   }
  ]
 }

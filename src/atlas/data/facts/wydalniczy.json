@@ -1416,16 +1416,15 @@
    "referenceIds": [
     "garza_leslie_2025"
    ],
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
     "rows": [],
     "note": "fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "wydalniczy.summary.sprint",
@@ -1623,18 +1622,25 @@
    "id": "wydalniczy.quiz",
    "kind": "quiz",
    "plate": "wydalniczy",
-   "textPl": "Jak zmienia się przepływ krwi przez nerki w ciężkim wysiłku?",
+   "textPl": "Jak zmienia się przepływ krwi przez nerki kilka minut po ciężkim wysiłku na rowerze, w którym obciążenie rośnie co 4 minuty?",
    "quizType": "updown",
    "answer": "down",
-   "explainPl": "Maleje: o ok. 30%, a 5 min po wysiłku do wyczerpania nawet o ok. 50% (w badaniu: rower, etapy po 4 min, pomiar zaraz po etapie).",
-   "status": "draft",
+   "explainPl": "Maleje: o ok. 30% (w badaniu: rower, coraz cięższe etapy po 4 min, pomiar zaraz po etapie), a 5 min po wysiłku do wyczerpania nawet o ok. 50%.",
+   "status": "checked_agent",
    "referenceIds": [
     "kawakami_2018",
     "kawakami_2024"
    ],
    "derivedFrom": [
     "wydalniczy.metric.przeplyw_krwi_przez_nerki"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #9"
+    ],
+    "note": "M6_kontrola.md: pytanie: korekta Dyrygenta („kilka minut”); wyjaśnienie: runda 1 = runda 2 (2026-11-26)"
+   }
   }
  ]
 }

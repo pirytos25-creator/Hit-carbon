@@ -100,7 +100,8 @@ for (const f of organDir) {
     if (seen.has(x.id)) err(`organs: powtórzone ID ${x.id}`);
     seen.add(x.id);
     for (const id of x.referenceIds ?? []) if (!SCIENTIFIC_REFERENCES[id]) err(`organs: ${x.id} – brak źródła ${id}`);
-    if (shown(x.status) && !x.referenceIds?.length) err(`organs: ${x.id} pokazywany bez referenceIds`);
+    if (shown(x.status) && x.kind !== 'curriculum_ref' && !x.referenceIds?.length) err(`organs: ${x.id} pokazywany bez referenceIds`);
+    if (x.kind === 'curriculum_ref' && shown(x.status) && (!x.quote || !x.locator)) err(`organs: ${x.id} – hasło podstawy bez cytatu albo numeru`);
   }
 }
 
@@ -212,13 +213,8 @@ for (const f of [...facts, ...organFacts]) {
   textbookShown++;
   if (!f.referenceIds?.length) err(`fakt ${f.id}: textbook_consensus bez referenceIds`);
   for (const id of f.referenceIds ?? []) if (!hasBookId(SCIENTIFIC_REFERENCES[id] ?? {})) err(`fakt ${f.id}: textbook_consensus, a źródło ${id} bez ISBN/NBK`);
-  // Pochodzenie wyliczone regułą w K1 (`auto` zawiera 'provenance') nie jest potwierdzonym faktem podręcznikowym:
-  // dla niego tylko ISBN/NBK i uwaga o lokalizatorze (jak przed K3). Jawne textbook_consensus (E1-K3): pełna reguła.
-  if ((f.auto ?? []).includes('provenance')) {
-    textbookInferred++;
-    if ('locator' in f && !f.locator) warn(`fakt ${f.id}: textbook_consensus (wyliczone) bez lokalizatora`);
-    continue;
-  }
+  // Decyzja Dyrygenta (E1-K3): ostra reguła dla KAŻDEGO textbook_consensus, także wyliczonego (takie wpisy mają już provenance null).
+  if ((f.auto ?? []).includes('provenance')) textbookInferred++;
   if (!f.quote) err(`fakt ${f.id}: textbook_consensus bez dosłownego cytatu (quote)`);
   if (!f.locator) err(`fakt ${f.id}: textbook_consensus bez lokalizatora (rozdział i sekcja)`);
 }

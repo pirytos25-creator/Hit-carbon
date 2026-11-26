@@ -1467,7 +1467,7 @@
    "quizType": "updown",
    "answer": "same",
    "explainPl": "Nie zmienia się: kość przebudowuje się tygodniami i miesiącami, a nie po jednym treningu.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "munro_1987",
     "sims_martin_2014",
@@ -1475,7 +1475,14 @@
    ],
    "derivedFrom": [
     "kostny.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #10"
+    ],
+    "note": "M6_kontrola.md: runda 2: zmiana słowa odrzucona, zostaje brzmienie szkicu (2026-11-26)"
+   }
   }
  ]
 }

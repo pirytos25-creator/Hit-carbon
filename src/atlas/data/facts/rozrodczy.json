@@ -296,16 +296,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.testis.sprint",
@@ -323,16 +322,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.epididymis.rest",
@@ -350,16 +348,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.epididymis.sprint",
@@ -377,16 +374,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ductus_deferens.rest",
@@ -405,16 +401,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Seminal Vesicle (2023), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ductus_deferens.sprint",
@@ -433,16 +428,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Seminal Vesicle (2023), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.seminal_gland.rest",
@@ -460,16 +454,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Seminal Vesicle (2023), Introduction; Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.seminal_gland.sprint",
@@ -487,16 +480,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Seminal Vesicle (2023), Introduction; Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.prostate.rest",
@@ -514,16 +506,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.prostate.sprint",
@@ -541,16 +532,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.penis.rest",
@@ -568,16 +558,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.penis.sprint",
@@ -595,16 +584,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ejaculatory_duct.rest",
@@ -622,16 +610,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ejaculatory_duct.sprint",
@@ -649,16 +636,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.urethra_m.rest",
@@ -676,16 +662,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Penis (2023), Introduction"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.urethra_m.sprint",
@@ -703,16 +688,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Penis (2023), Introduction"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.bladder_m.rest",
@@ -730,16 +714,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.bladder_m.sprint",
@@ -757,16 +740,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.testicular_vessels.rest",
@@ -784,16 +766,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Testes (2023), Blood Supply and Lymphatics"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.testicular_vessels.sprint",
@@ -811,16 +792,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Testes (2023), Blood Supply and Lymphatics"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ovary.rest",
@@ -838,16 +818,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ovary.sprint",
@@ -865,16 +844,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterine_tube.rest",
@@ -892,16 +870,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterine_tube.sprint",
@@ -919,16 +896,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterus.rest",
@@ -946,16 +922,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterus.sprint",
@@ -973,16 +948,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.vagina.rest",
@@ -1001,16 +975,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.vagina.sprint",
@@ -1029,16 +1002,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.cervix.rest",
@@ -1056,16 +1028,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.cervix.sprint",
@@ -1083,16 +1054,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ovarian_ligament.rest",
@@ -1110,16 +1080,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Ovary (2023), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.ovarian_ligament.sprint",
@@ -1137,16 +1106,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Ovary (2023), Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterine_artery.rest",
@@ -1164,16 +1132,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Uterus (2025), Blood Supply and Lymphatics"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.uterine_artery.sprint",
@@ -1191,16 +1158,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md: StatPearls Uterus (2025), Blood Supply and Lymphatics"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.bladder_f.rest",
@@ -1218,16 +1184,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.role.bladder_f.sprint",
@@ -1245,16 +1210,15 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_rozrodczy.md",
     "rows": [],
     "note": "fakty_rozrodczy.md: checked_agent"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.summary.rest",
@@ -1270,16 +1234,15 @@
     "statpearls_female_internal",
     "statpearls_uterus"
    ],
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_1b.md",
     "rows": [],
     "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "rozrodczy.summary.sprint",
@@ -1396,11 +1359,11 @@
    "id": "rozrodczy.quiz",
    "kind": "quiz",
    "plate": "rozrodczy",
-   "textPl": "Wskaż na planszy narząd, który u mężczyzny leży w mosznie poza miednicą.",
+   "textPl": "Wskaż na planszy męski gruczoł płciowy, który leży w mosznie poza miednicą.",
    "quizType": "point",
    "answer": "testis",
-   "explainPl": "To jądro. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej.",
-   "status": "draft",
+   "explainPl": "To jądro, męski gruczoł płciowy: powstają w nim plemniki i hormony. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej.",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_testes",
     "statpearls_male_gu",
@@ -1410,7 +1373,14 @@
    ],
    "derivedFrom": [
     "rozrodczy.summary.rest"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #12"
+    ],
+    "note": "M6_kontrola.md: runda 1 POPRAWKA, runda 2 OK (2026-11-26)"
+   }
   }
  ]
 }

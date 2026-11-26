@@ -509,11 +509,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -522,7 +520,8 @@
     ],
     "note": "#29, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.lumbar_plexus.sprint",
@@ -540,11 +539,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -553,7 +550,8 @@
     ],
     "note": "#29, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.femoral.rest",
@@ -571,11 +569,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -584,7 +580,8 @@
     ],
     "note": "#30, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.femoral.sprint",
@@ -602,11 +599,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -615,7 +610,8 @@
     ],
     "note": "#30, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.obturator.rest",
@@ -633,11 +629,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -645,7 +639,8 @@
      "#34"
     ],
     "note": "#31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.obturator.sprint",
@@ -663,11 +658,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -675,7 +668,8 @@
      "#34"
     ],
     "note": "#31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.deep_fibular.rest",
@@ -693,11 +687,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -705,7 +697,8 @@
      "#34"
     ],
     "note": "#32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.deep_fibular.sprint",
@@ -723,11 +716,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -735,7 +726,8 @@
      "#34"
     ],
     "note": "#32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.motor_cortex.rest",
@@ -754,11 +746,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -767,7 +757,8 @@
     ],
     "note": "#33, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.motor_cortex.sprint",
@@ -786,11 +777,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -799,7 +788,8 @@
     ],
     "note": "#33, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.spinal_cord.rest",
@@ -817,11 +807,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -830,7 +818,8 @@
     ],
     "note": "#21, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.spinal_cord.sprint",
@@ -848,11 +837,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -861,7 +848,8 @@
     ],
     "note": "#21, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.cauda_equina.rest",
@@ -880,11 +868,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -893,7 +879,8 @@
     ],
     "note": "#35, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.cauda_equina.sprint",
@@ -912,11 +899,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -925,7 +910,8 @@
     ],
     "note": "#35, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.sciatic.rest",
@@ -943,11 +929,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -956,7 +940,8 @@
     ],
     "note": "#36, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.sciatic.sprint",
@@ -974,11 +959,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_nerwowy.md",
     "rows": [
@@ -987,7 +970,8 @@
     ],
     "note": "#36, #34",
     "reportInferred": true
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.common_fibular.rest",
@@ -1005,11 +989,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -1017,7 +999,8 @@
      "#34"
     ],
     "note": "#37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.common_fibular.sprint",
@@ -1035,11 +1018,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -1047,7 +1028,8 @@
      "#34"
     ],
     "note": "#37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.tibial.rest",
@@ -1065,11 +1047,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -1077,7 +1057,8 @@
      "#34"
     ],
     "note": "#38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.tibial.sprint",
@@ -1095,11 +1076,9 @@
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "auto": [],
    "checkedBy": {
     "report": "fakty_draft_K3_ruch.md",
     "rows": [
@@ -1107,7 +1086,8 @@
      "#34"
     ],
     "note": "#38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
-   }
+   },
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "nerwowy.role.motor_units.rest",
@@ -1342,7 +1322,7 @@
    "quizType": "updown",
    "answer": "up",
    "explainPl": "Rośnie: z 2,2 do 13,4 nmol/L (w badaniu: 30 s sprintu maksymalnego na bieżni, pomiar po wysiłku). Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "brooks_1988",
     "zouhal_2008",
@@ -1350,7 +1330,14 @@
    ],
    "derivedFrom": [
     "nerwowy.metric.noradrenalina_w_osoczu"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #1"
+    ],
+    "note": "M6_kontrola.md: runda 1 OK (brzmienie szkicu) (2026-11-26)"
+   }
   }
  ]
 }

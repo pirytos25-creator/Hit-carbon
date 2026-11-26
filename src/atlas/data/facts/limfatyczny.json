@@ -1645,13 +1645,20 @@
    "quizType": "updown",
    "answer": "down",
    "explainPl": "Maleje: do ok. 44% objętości spoczynkowej (w badaniu: test stopniowany do wyczerpania na rowerze, pomiar zaraz po wysiłku). Śledziona się kurczy i oddaje krew do krążenia.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "stewart_2003"
    ],
    "derivedFrom": [
     "limfatyczny.metric.objetosc_sledziony"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #11"
+    ],
+    "note": "M6_kontrola.md: runda 1 OK (brzmienie szkicu) (2026-11-26)"
+   }
   }
  ]
 }
