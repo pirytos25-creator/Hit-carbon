@@ -8,7 +8,7 @@ Koordynator (sesja nadrzędna): `local_522be64d-3ad8-4991-8085-7f34b69c40a3`.
 | Agent | Sesja | Port | K1 | K2 | K3 |
 |---|---|---|---|---|---|
 | integrator | `local_172431d6-a66e-4c5b-a8af-65b81ba57f5d` | 5190 | zaliczony | zaliczony | **zaliczony, scalony** (227befb) → teraz integracja 1b cz. 1 |
-| hormonalny | `local_ea8edc9b-cb7f-40ae-9ae2-81613e24be2c` | 5191 | zaliczony (zmiana kadru) | warunkowo, poprawki w toku | po poprawkach |
+| hormonalny | `local_ea8edc9b-cb7f-40ae-9ae2-81613e24be2c` | 5191 | zaliczony (zmiana kadru) | zaliczony | **zaliczony, scalony** (12/12) |
 | powłokowy | `local_e1dedfd1-808a-4610-9b7e-b27f70554bb6` | 5192 | zaliczony | zaliczony | **zaliczony, scalony** |
 | pokarmowy | `local_dc0d456d-5b08-4b78-885d-fbb7b4512592` | 5193 | zaliczony | zaliczony | **zaliczony, scalony** |
 | wydalniczy | `local_37e1ca28-e80a-4465-a772-f7cebfdf8e93` | 5194 | zaliczony | zaliczony | **zaliczony, scalony** |
