@@ -139,6 +139,7 @@ export const MOZG: AtlasPlateContent = {
       quote: 'The contribution of systemic lactate to cerebral energy expenditure was 8%+/-2%, 19%+/-4%, and 27%+/-4%',
       locator: 'van Hall 2009, abstrakt',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Pobór glukozy przez mózg (PET)',
@@ -152,6 +153,8 @@ export const MOZG: AtlasPlateContent = {
       quote: '38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1',
       locator: 'Kemppainen 2005, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
+      tier: 'student', // zgromadzenie, runda końcowa: tylko Rozszerzony (sprzeczność PET / CMR dla laika)
     },
     {
       labelPl: 'Stosunek tlenu do paliwa w mózgu (CMR)',
@@ -165,6 +168,8 @@ export const MOZG: AtlasPlateContent = {
       quote: 'from a resting value of 6 to <2',
       locator: 'Quistorff 2008, abstrakt; Raichle & Gusnard 2002, s. 10237',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
+      tier: 'student', // zgromadzenie, runda końcowa: tylko Rozszerzony (sprzeczność PET / CMR dla laika)
     },
     {
       labelPl: 'Przepływ krwi przez mózg',
@@ -178,6 +183,7 @@ export const MOZG: AtlasPlateContent = {
       quote: 'CBF decreases toward baseline values because of lower Pa(CO(2))',
       locator: 'Ogoh & Ainslie 2009, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'BDNF we krwi po pojedynczym wysiłku',
@@ -192,6 +198,7 @@ export const MOZG: AtlasPlateContent = {
       quote: "Hedges' g = 0.46",
       locator: 'Szuhany 2015, abstrakt; Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, abstrakt; Results (odsyłacz do tab. 2)',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Utlenowanie kory przedczołowej (NIRS)',
@@ -205,6 +212,7 @@ export const MOZG: AtlasPlateContent = {
       quote: 'After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.',
       locator: 'Rooks 2010, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
   ],
   // Mleczan jako paliwo mózgu (brooks_2018, van_hall_2009): krew wpływa od dołu (t. kręgowe i podstawna przed pniem),
@@ -215,7 +223,7 @@ export const MOZG: AtlasPlateContent = {
     {
       view: 'detail',
       kind: 'artery',
-      labelPl: 'Krew przynosi mleczan i glukozę',
+      labelPl: 'Krew przynosi mleczan i glukozę (schemat drogi, nie przebieg naczyń)',
       points: [
         [640, 1057],
         [585, 914],
@@ -231,5 +239,5 @@ export const MOZG: AtlasPlateContent = {
     },
   ],
   creditsPl:
-    'Model: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Model: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP); w Z-Anatomy użyto też modeli „Brainder” i „White matter” (University of Washington). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };

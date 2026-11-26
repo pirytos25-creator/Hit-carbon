@@ -27,7 +27,7 @@ export const WYDALNICZY: AtlasPlateContent = {
     rest:
       'W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej osocze: około 180 litrów na dobę. Kanaliki odzyskują prawie całą tę wodę, a reszta to mocz. Spływa on do miedniczki nerkowej, a moczowodami do pęcherza moczowego.',
     sprint:
-      'W sprincie nerka dostaje mniej krwi: układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Dlatego na planszy nerki są przygaszone, to nie błąd. Nerki przesączają mniej i tworzą mniej moczu, a hormony ADH i aldosteron, rosnące w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól. Kwas z mięśni najpierw wiążą bufory krwi, a część usuwa oddech jako CO₂. Z moczem wychodzi mniej niż 2% mleczanu: resztę organizm spala albo przerabia na glukozę. Nerki dbają o długotrwałą równowagę kwasowo-zasadową (godziny), ale z moczem usuwają bardzo mało mleczanu.',
+      'W sprincie nerka dostaje mniej krwi: układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Dlatego na planszy nerki są przygaszone, to nie błąd. Nerki przesączają mniej i tworzą mniej moczu, a hormony ADH i aldosteron, rosnące w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól. Kwas z mięśni wiążą bufory krwi, a część usuwa oddech jako CO₂. Z moczem wychodzi mniej niż 2% mleczanu: resztę organizm spala albo przerabia na glukozę. Nerki dbają o długotrwałą równowagę kwasowo-zasadową (godziny), ale z moczem usuwają bardzo mało mleczanu.',
   },
   summaryReferenceIds: {
     rest: ['garza_leslie_2025'],
@@ -46,6 +46,7 @@ export const WYDALNICZY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego
   protocolNotePl:
     'Sprint to koniec 45 s pracy przy ok. 88% VO₂max. Badania nerek mierzyły zwykle dłuższy wysiłek albo stan tuż po nim, więc liczby pokazują kierunek zmian, nie dokładną wartość dla jednej serii.',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
   // K3: podpisy obu widoków po lewej stronie (jak oddechowy): dwie kolumny tekstu zamiast czterech, większe rendery.
   labels: [
     // ---- widok front (prawa strona ciała = lewa strona obrazu)
@@ -258,6 +259,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Przy tej samej intensywności spadały filtracja w kłębuszkach i ilość moczu. ADH każe kanalikom zbiorczym odzyskiwać wodę.',
       status: 'checked_agent', // #44, #45
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '20 min ciągłej jazdy przy 25–80% VO₂max',
       quote:
         'Plasma vasopressin (ADH), aldosterone, and plasma renin activity tended to increase progressively with increases in work load, with the increases for all hormones reaching statistical significance when the level of exercise reached greater than or equal to 60% of maximal oxygen consumption.',
@@ -287,7 +289,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       referenceIds: ['del_coso_2010', 'shaw_2022', 'mckelvie_1989', 'poortmans_1994'],
       evidenceLevel: 'established_human',
       notePl:
-        'Kwas z mięśni najpierw wiążą bufory krwi, a część usuwa oddech jako CO₂. Nerki dbają o długotrwałą równowagę (godziny), ale z moczem wychodzi mniej niż 2% mleczanu.',
+        'Kwas z mięśni wiążą bufory krwi, a część usuwa oddech jako CO₂. Nerki dbają o długotrwałą równowagę (godziny), ale z moczem wychodzi mniej niż 2% mleczanu.',
       status: 'checked_agent', // #48
       restStatus: 'checked_agent', // #49
       protocolMismatch:
@@ -309,6 +311,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Klirens PAH w trakcie jazdy, młodzi i starsi mężczyźni; przy 35% VO₂peak prawie bez zmian.',
       status: 'checked_agent', // #51
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'jazda ciągła przy 35 i 60% VO₂peak, 22 i 36 °C',
       quote:
         'Renal blood flow was lower at rest in the O group, remained relatively constant at 35% VO2peak, then decreased by 20-25% in both groups at 60% VO2peak.',
@@ -324,6 +327,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Przepływ osocza spada bardziej niż filtracja, więc większa jego część przechodzi przez filtr.',
       status: 'checked_agent', // #52
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'wysiłek maksymalny (przegląd); Kawakami 2018: wzrost istotny przy 120% progu mleczanowego',
       quote: 'Despite a major reduction in the renal plasma flow, the filtration fraction can double with maximal exercise',
       locator: 'Poortmans i Vanderstraeten 1994, abstrakt; Kawakami 2018, pełny tekst Fig. 4c',

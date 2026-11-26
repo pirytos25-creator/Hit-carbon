@@ -179,6 +179,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       quote: 'the 50th percentile VO 2max of men and women aged 20 to 29 years decreased from 48.0 and 37.6',
       locator: 'Kaminsky 2015, abstrakt (Results; 48,0 = mężczyźni); Jetté 1990, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Tlen zużywany przez mięśnie oddechowe',

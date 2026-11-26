@@ -98,10 +98,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       view: 'front',
       namePl: 'Ż. odpiszczelowa',
       nameLat: 'v. saphena magna',
-      role: { rest: 'Powrót krwi z nogi', sprint: 'Pompa mięśniowa przyspiesza powrót' },
+      role: { rest: 'Powrót krwi z nogi', sprint: 'Spływa do żył głębokich, które pompa mięśniowa opróżnia szybciej' },
       tier: 'primary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #22
+      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // zgromadzenie, runda końcowa: pompa ściska żyły głębokie, nie powierzchowne
     },
     {
       anchor: 'anterior_tibial',
@@ -198,6 +198,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: 'A regression equation to predict HRmax is 208 - 0.7 x age in healthy adults.',
       locator: 'Tanaka 2001, abstrakt (Conclusions); Joyner & Casey 2015, tab. 1',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Objętość wyrzutowa',
@@ -211,6 +212,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: 'Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125',
       locator: 'Joyner & Casey 2015, tab. 1, Reference Man, Rest / Exercise (maximal) (komórki tabeli)',
       status: 'checked_agent', // fakty_draft_1b.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Rzut serca',
@@ -224,6 +226,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: 'CO, l/min Sed ∼5 ∼20 … Active ∼5–6 ∼25',
       locator: 'Joyner & Casey 2015, tab. 1',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Udział mięśni w przepływie krwi',
@@ -238,6 +241,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: '70–80% (or perhaps more) of cardiac output is directed towards the active muscles',
       locator: 'Calbet & Joyner 2010, rozdz. o układzie współczulnym; Joyner & Casey 2015, rozdz. III.C',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Przepływ wieńcowy',
@@ -251,6 +255,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: 'peak values during maximal exercise typically three to five times the resting level',
       locator: 'Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Ciśnienie skurczowe',
@@ -262,6 +267,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       notePl: 'Ciśnienie rozkurczowe zmienia się niewiele albo lekko spada.',
       protocolMismatch: 'wysiłek maksymalny',
       status: 'unverifiable',
+      restStatus: 'unverifiable', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Pobór tlenu z krwi (różnica tętniczo-żylna)',
@@ -275,6 +281,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       quote: '∼140–150 ml of oxygen is extracted by the peripheral tissues for each liter of cardiac output',
       locator: 'Joyner & Casey 2015, rozdz. III.B',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
   ],
   // Strzałki przepływu: public/atlas/krwionosny/flows3d.json (metry, tory po krzywych naczyń Z-Anatomy,

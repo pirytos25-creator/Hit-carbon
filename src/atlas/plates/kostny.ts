@@ -29,6 +29,7 @@ export const KOSTNY: AtlasPlateContent = {
   summaryStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: Munro 1987 tab. 2 i 3, Sims i Martin 2014
   protocolNotePl:
     'Sprint = koniec 45 s szybkiego biegu przy ok. 88% VO₂max (to ok. 3,0–3,7 m/s, szacunek). Siły podłoża zmierzono w pojedynczych krokach biegu ze stałą prędkością 3–5 m/s, w stanie wypoczętym, nie w naszym interwale.',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
   labels: [
     // --- Widok z przodu: prawa strona ciała (po lewej na obrazie), dwa podpisy z lewej strony ciała ---
     {

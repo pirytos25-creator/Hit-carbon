@@ -28,7 +28,7 @@ export const POKARMOWY: AtlasPlateContent = {
     rest:
       'W spoczynku żołądek, jelita i wątroba dostają dużo krwi: przez samą wątrobę płynie ok. 1,6 litra krwi na minutę. Przewód pokarmowy trawi i wchłania pokarm, a wątroba powoli oddaje do krwi glukozę.',
     sprint:
-      'W sprincie jelita i żołądek dostają mniej krwi, bo krew płynie do pracujących mięśni. Przepływ przez wątrobę spada kilkukrotnie. Mimo to wątroba pracuje pełną parą: oddaje do krwi glukozę kilka razy szybciej niż w spoczynku (przy ok. 87% VO₂max 4–6 razy, przy wysiłku do wyczerpania 7–8 razy), więc glukozy we krwi przybywa. Część mleczanu z mięśni wątroba przerabia z powrotem na glukozę (cykl Cori).',
+      'W sprincie jelita i żołądek dostają mniej krwi, bo krew płynie do pracujących mięśni. Przepływ przez wątrobę spada kilkukrotnie. Mimo to wątroba pracuje pełną parą: oddaje do krwi glukozę kilka razy szybciej niż w spoczynku (przy ok. 87% VO₂max 4–6 razy), więc glukozy we krwi przybywa. Część mleczanu z mięśni wątroba przerabia z powrotem na glukozę (cykl Cori).',
   },
   summaryReferenceIds: {
     rest: [ROWELL, MARLISS],
@@ -37,7 +37,8 @@ export const POKARMOWY: AtlasPlateContent = {
   // rest: #1 audytu faktów; sprint: fakty_koncowe_B_horm_mocz_pokarm.md (disputed -> brzmienie dosłownie wg sprawdzającego, + kenney_ho_1995)
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' },
   protocolNotePl:
-    'Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły, kilkunastominutowy, więc liczby są przybliżeniem.',
+    'Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły, kilkunastominutowy, więc liczby są przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: nowe brzmienie (skala czasu)
   labels: [
     // ---------------------------------------------------------------- widok z przodu (Z-Anatomy)
     {
@@ -260,6 +261,7 @@ export const POKARMOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Napędzają je głównie adrenalina i noradrenalina, a nie insulina i glukagon.',
       status: 'checked_agent', // jak hormonalny „Glukoza wypuszczana do krwi” (#38, #39)
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
       quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001).',
       locator: 'Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”',
@@ -274,6 +276,7 @@ export const POKARMOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Tempo pojawiania się glukozy we krwi, mierzone znakowaną glukozą. Napędzają je głównie adrenalina i noradrenalina.',
       status: 'checked_agent', // #34
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch:
         'wysiłek do wyczerpania (rower, 80% maks. obciążenia, ok. 100% VO₂max; przegląd: wysiłek > 80% VO₂max)',
       quote: 'In contrast, in intense exercise, GP rises seven- to eightfold and GU rises three- to fourfold',
@@ -290,6 +293,7 @@ export const POKARMOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Tuż po intensywnym wysiłku glukozy we krwi jest więcej, bo wątroba oddaje jej więcej, niż mięśnie zużywają.',
       status: 'checked_agent', // #35
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'jazda na rowerze do wyczerpania przy 80% maks. obciążenia (ok. 100% VO₂max); 18 wytrenowanych mężczyzn',
       quote:
         'Plasma glucose was 4.90 +/- 0.08 mM/L at rest, increased during exercise, then abruptly to 6.91 +/- 0.40 mM/L at 4 min recovery then gradually declined.',
@@ -307,6 +311,7 @@ export const POKARMOWY: AtlasPlateContent = {
       notePl:
         'Reszta, ok. 25% mleczanu, wraca do wątroby (i nerek) i zamienia się w glukozę: to cykl Cori. Mleczan to główny surowiec, z którego wątroba robi nową glukozę.',
       status: 'checked_agent', // #36
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'wysiłek ciągły (przegląd); brak danych dla interwałów 45 s',
       quote:
         'Because the majority of lactate disposal occurs via direct oxidation (≈50% at rest and 75–80% during sustained exercise) [14, 47], the discussion above on lactate utilization centered on oxidative disposal. However, while approximately 25% of lactate disposal is via gluconeogenesis [12, 48], lactate is by far the major gluconeogenic precursor [61, 92].',
@@ -324,6 +329,7 @@ export const POKARMOWY: AtlasPlateContent = {
       notePl:
         'Pomiar USG Dopplera na czczo. Pień trzewny zaopatruje wątrobę, żołądek i śledzionę; t. krezkowa górna jelito cienkie, okrężnicę wstępującą i część poprzecznej.',
       status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: disputed (protokół) -> opis wg sprawdzającego
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'jazda w pozycji półleżącej, obciążenie zaplanowane na 75% VO₂max (zmierzone VO₂ ok. 65%), pomiar w 15.–30. min',
       quote:
         'During fasting, cycling increased mesenteric, coeliac and splanchnic resistances by 76, 165 and 126 %, respectively, and it reduced corresponding blood flows by 32, 50 and 43 %',
@@ -341,6 +347,7 @@ export const POKARMOWY: AtlasPlateContent = {
       notePl:
         'Protokół bliższy atlasowi niż Marliss 1992. Glukoza wzrosła względem wartości wyjściowej tylko po interwałach 30 s i 60 s, nie po 10 s.',
       status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Bogdanis 2022
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy 100% mocy z testu VO₂max, przerwy 90 s przy 15% (11 zdrowych młodych mężczyzn)',
       quote:
         'Post-exercise leukocyte count (mean ± SD; 9.7 ± 2.8 k μL-1), uric acid concentration (0.35 ± 0.10 mmol L-1), glucose concentration (6.56 ± 1.44 mmol L-1), and plasma volume change (-13.5 ± 4.4%) were greater in HIIE60 compared to all other trials (p < 0.05).',

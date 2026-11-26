@@ -24,6 +24,7 @@ export const POWLOKOWY: AtlasPlateContent = {
   viewTitlesPl: { front: 'Widok z przodu', back: 'Widok z tyłu', detail: 'Przekrój skóry (schemat)' },
   protocolNotePl:
     'Naczynia skóry zwężają się już w pierwszych sekundach wysiłku, ale chłodzenie przez skórę (rozszerzone naczynia, obfity pot) rozkręca się w minutach. Dlatego „Sprint” na tej planszy to koniec treningu 6 × (45 s pracy / 45 s przerwy), a nie pojedyncze 45 s.',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
   summary: {
     rest: 'Przed treningiem ciało wytwarza mało ciepła, a skóra spokojnie oddaje je do otoczenia.',
     sprint:
@@ -180,10 +181,10 @@ export const POWLOKOWY: AtlasPlateContent = {
       anchor: 'vessels_sup',
       view: 'detail',
       namePl: 'Naczynia krwionośne skóry',
-      role: { rest: 'Węższe: skóra dostaje mniej krwi', sprint: 'Rozszerzone: krew oddaje ciepło skórze' },
+      role: { rest: 'Umiarkowany przepływ', sprint: 'Rozszerzone: krew oddaje ciepło skórze' },
       tier: 'primary',
       referenceIds: ['gonzalez_alonso_2008', 'johnson_1992'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #28
+      roleStatus: { rest: 'draft', sprint: 'checked_agent' }, // zgromadzenie, runda końcowa: „Węższe” opisywało start wysiłku; #28
     },
     {
       anchor: 'arrector_pili',
@@ -271,6 +272,7 @@ export const POWLOKOWY: AtlasPlateContent = {
       notePl:
         'W badaniu: 15 min ciągłej jazdy przy 75% VO₂max. Po treningu 6 × 45 s temperatura będzie raczej niższa. Po wysiłku spada powoli: ciało oddaje ciepło wolniej, niż je zebrało.',
       status: 'unverifiable', // fakty_koncowe_A_powlokowy.md: tabela 3 Kenny i McGinn 2017 niedostępna
+      restStatus: 'unverifiable', // jawnie (zgromadzenie D1): spoczynek = status liczby
       measuredAt: 'przed wysiłkiem; koniec wysiłku; 15 min po wysiłku (siedząc)',
       protocolMismatch: '15 min ciągłej jazdy na rowerze przy 75% VO₂max, 24 °C (większe obciążenie cieplne niż 6 × 45 s)',
       quote:
@@ -300,11 +302,11 @@ export const POWLOKOWY: AtlasPlateContent = {
       rest: '—',
       sprint: '30–50',
       unit: '% ciepła zebranego w wysiłku',
-      referenceIds: ['kenny_mcginn_2017'],
+      referenceIds: ['kenny_mcginn_2017', 'kenny_2008'],
       evidenceLevel: 'established_human',
       notePl:
-        'Dotyczy odpoczynku po wysiłku trwającym kilkanaście do kilkudziesięciu minut, nie krótkich przerw 45 s między interwałami.',
-      status: 'checked_agent', // fakty_koncowe_A_powlokowy.md; decyzja Dyrygenta b): cytat z indeksu wyszukiwarki
+        'Dotyczy odpoczynku po wysiłku trwającym kilkanaście do kilkudziesięciu minut, nie krótkich przerw 45 s między interwałami. W badaniu Kenny 2008 po 60 min wysiłku i 60 min odpoczynku oddało się 53% ciepła.',
+      status: 'draft', // zgromadzenie, runda końcowa: dopisek o 53% (Kenny 2008); dawniej: fakty_koncowe_A_powlokowy.md; decyzja Dyrygenta b): cytat z indeksu wyszukiwarki
       measuredAt: 'odpoczynek po wysiłku, tak długi jak wysiłek',
       protocolMismatch: 'np. 60 min wysiłku i 60 min odpoczynku (Kenny 2008), nie 45 s / 45 s',
       quote:

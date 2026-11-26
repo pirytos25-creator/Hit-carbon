@@ -178,6 +178,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'the average values are … 29.3 pps for tibialis anterior',
       locator: 'Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Rekrutacja jednostek ruchowych',
@@ -191,6 +192,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'all type I and IIA and … about 50% of type IIAB and IIB',
       locator: 'Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Noradrenalina w osoczu',
@@ -206,6 +208,7 @@ export const NERWOWY: AtlasPlateContent = {
       quote: 'increased from 2.2 +/- 0.6 to 13.4 +/- 6.4 nmol.l-1',
       locator: 'Brooks 1988, abstrakt',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Adrenalina w osoczu',
@@ -219,7 +222,9 @@ export const NERWOWY: AtlasPlateContent = {
       protocolMismatch: '30 s sprint maksymalny na bieżni bez napędu',
       quote: '0.2 +/- 0.2 to 1.4 +/- 0.6 nmol.l-1 … for … adrenaline (AD)',
       locator: 'Brooks 1988, abstrakt',
+      seeAlsoPlate: 'hormonalny', // zgromadzenie, runda końcowa: spójność liczb (ponad 12× przy 87% VO₂max)
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Skąd bierze się zmęczenie',
@@ -237,5 +242,5 @@ export const NERWOWY: AtlasPlateContent = {
   ],
   // Strzałki impulsu: public/atlas/nerwowy/flows3d.json (metry; generuje plate_nerwowy.py, rzutuje AtlasPlate).
   creditsPl:
-    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Sylwetka wyliczona z tych samych modeli. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Modele: Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP); w Z-Anatomy użyto też modeli „Brainder” (University of Washington) i „Cranial Nerves and Foramina” (University of Dundee, CAHID, CC BY 4.0). Sylwetka wyliczona z tych samych modeli. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };

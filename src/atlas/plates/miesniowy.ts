@@ -26,11 +26,11 @@ export const MIESNIOWY: AtlasPlateContent = {
       view: 'front',
       namePl: 'M. naramienny',
       nameLat: 'm. deltoideus',
-      role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy obrót nóg' },
+      role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy obrót nóg (symulacja komputerowa, 1 biegacz)' },
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
       evidence: { sprint: 'preliminary_human' }, // fakty_koncowe_C_reszta_i_kontrola.md: symulacja komputerowa jednego biegacza (Hamner 2010)
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion
     },
     {
       anchor: 'rectus_abdominis',
@@ -214,6 +214,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       quote: 'glycogen breakdown was observed in all type I and IIA and in about 50% of type IIAB and IIB fibres',
       locator: 'Vøllestad & Blom 1985, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Skład włókien m. obszernego bocznego (I / IIa / IIx)',
@@ -228,6 +229,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       quote: 'approximately 41% I, 1% IC, 1% IIC, 31% IIA, 6% IIAB, and 20% IIB',
       locator: 'Staron 2000, abstrakt; Materials and Methods; tab. 2',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Udział mięśni w przepływie krwi',
@@ -237,6 +239,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       referenceIds: ['kenney_2022'],
       evidenceLevel: 'established_human',
       status: 'unverifiable',
+      restStatus: 'unverifiable', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Zapotrzebowanie mięśni na ATP',
@@ -249,6 +252,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       quote: 'High-intensity exercise can result in up to a 1,000-fold increase in the rate of ATP demand',
       locator: 'Baker 2010, abstrakt',
       status: 'checked_agent',
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
     {
       labelPl: 'Mleczan we krwi',
@@ -264,6 +268,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       quote: 'Peak BLa and energy expenditure were equal to 9.9 ± 3.1 mM',
       locator: 'Astorino 2025, Results „Physiological data”; Brooks 2020, Background (spoczynek ok. 1,0 mM)',
       status: 'checked_agent', // fakty_draft_K3_ruch.md
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
     },
   ],
   creditsPl:
