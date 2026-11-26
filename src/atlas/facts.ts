@@ -123,7 +123,9 @@ export function buildPlate(layout: AtlasPlateLayout, file: AtlasFactsFile): Atla
       role: { rest: r.textPl ?? '', sprint: s.textPl ?? '' },
       roleStatus: { rest: r.status, sprint: s.status },
     };
-    if (r.referenceIds.length) label.referenceIds = r.referenceIds;
+    // źródła podpisu: oba stany (np. spoczynek to opis budowy bez źródła, a moment to opis z podręcznika – E1-K3)
+    const refs = [...new Set([...r.referenceIds, ...s.referenceIds])];
+    if (refs.length) label.referenceIds = refs;
     if (ev.rest || ev.sprint) label.evidence = ev.rest && ev.sprint && ev.rest === ev.sprint ? ev.rest : ev;
     if (s.conversionNote ?? r.conversionNote) label.conversionNote = u(s.conversionNote ?? r.conversionNote);
     return label;

@@ -1605,7 +1605,7 @@
    "quizType": "updown",
    "answer": "up",
    "explainPl": "Rośnie: ponad 12 razy w porównaniu ze spoczynkiem (w badaniu: ok. 14 min ciągłego wysiłku przy 87% VO₂max). Po 30 s sprintu maksymalnego wzrost wynosił ok. 7 razy.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "sigal_1994",
     "sigal_1996",
@@ -1613,7 +1613,14 @@
    ],
    "derivedFrom": [
     "hormonalny.metric.adrenalina_we_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #6"
+    ],
+    "note": "M6_kontrola.md: runda 1 OK (brzmienie szkicu) (2026-11-26)"
+   }
   }
  ]
 }

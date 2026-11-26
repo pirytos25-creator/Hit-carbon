@@ -33,9 +33,14 @@ export interface Atlas3DViewProps {
   onClose: () => void;
   /**
    * M6 (punkt wejścia gabloty): widok 3D wywołuje to na końcu wejścia diegetycznego (OrganDive, wizualizator)
-   * z ID narządu, np. 'heart'. AtlasApp montuje wtedy OrganView; zamknięcie gabloty wraca do widoku 3D.
+   * z ID narządu, np. 'serce' (jak src/atlas/data/organs/serce.json i organPanel('serce')). AtlasApp montuje wtedy
+   * OrganView; zamknięcie gabloty wraca do widoku 3D.
    */
   onOpenOrgan?: (organ: string) => void;
+  /** Tryb „Co się zmieniło” (trzeci przycisk momentu); widok 3D podaje go wtyczce wyróżnika (frame.changeView). */
+  changeView?: boolean;
+  /** ID narządu, z którego gabloty właśnie wrócono; widok 3D odgrywa wtedy wyjazd wstecz (OrganDive). */
+  returnFromOrgan?: string;
 }
 
 /** Kontrakt gabloty narządu: src/organs/OrganView (wizualizator: scena; integrator: rama i montaż w AtlasApp). */
@@ -45,6 +50,11 @@ export interface OrganViewProps {
   state: AtlasState;
   level: AtlasLevel;
   onClose: () => void;
+  /**
+   * Gablota gotowa (pierwsza klatka narysowana). AtlasApp montuje OrganView nad widokiem 3D z kryciem 0 i odsłania go
+   * dopiero po onReady, więc kadr końcowy wjazdu i kadr startowy gabloty są identyczne (bez pustej klatki).
+   */
+  onReady?: () => void;
 }
 const organLoaders = import.meta.glob<{ default?: ComponentType<OrganViewProps>; OrganView?: ComponentType<OrganViewProps> }>(
   '../organs/OrganView.{tsx,ts,jsx,js}',
@@ -333,6 +343,27 @@ export function AtlasApp() {
   const [picking, setPicking] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [organ, setOrgan] = useState<string | null>(null);
+  const [organReady, setOrganReady] = useState(false);
+  const [returnFromOrgan, setReturnFromOrgan] = useState<string | undefined>(undefined);
+  // Gablota odsłaniana po onReady; zapas 5 s, gdyby moduł nie zgłosił gotowości (nie zostaje niewidoczna na zawsze).
+  useEffect(() => {
+    setOrganReady(false);
+    if (!organ) return;
+    if (!OrganView) {
+      setOrganReady(true);
+      return;
+    }
+    const t = window.setTimeout(() => setOrganReady(true), 5000);
+    return () => window.clearTimeout(t);
+  }, [organ]);
+  const closeOrgan = () => {
+    setReturnFromOrgan(organ ?? undefined);
+    setOrgan(null);
+  };
+  const openOrgan = (o: string) => {
+    setReturnFromOrgan(undefined);
+    setOrgan(o);
+  };
   const [level, setLevel] = useState<AtlasLevel>(readLevel);
   const [anchors, setAnchors] = useState<AtlasAnchorsFile | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -720,7 +751,15 @@ export function AtlasApp() {
               return Atlas3DView ? (
                 <View3DBoundary fallback={unavailable}>
                   <Suspense fallback={<p className="h-full flex items-center justify-center text-slate-400">Wczytywanie widoku 3D…</p>}>
-                    <Atlas3DView system={systemId} state={shownState} level={level} onClose={() => setShow3d(false)} onOpenOrgan={setOrgan} />
+                    <Atlas3DView
+                      system={systemId}
+                      state={shownState}
+                      level={level}
+                      onClose={() => setShow3d(false)}
+                      onOpenOrgan={openOrgan}
+                      changeView={changeOn}
+                      returnFromOrgan={returnFromOrgan}
+                    />
                   </Suspense>
                 </View3DBoundary>
               ) : (
@@ -731,12 +770,19 @@ export function AtlasApp() {
         )}
         {organ && (
           // Gablota narządu (M5, wizualizator) nad widokiem 3D; zamknięcie wraca do widoku 3D (setOrgan(null)).
-          <div className="absolute inset-x-0 top-0 bottom-0 z-[35] bg-[var(--atlas-bg)]" role="dialog" aria-label={`Gablota: ${organ}`}>
+          <div
+            className="absolute inset-x-0 top-0 bottom-0 z-[35] bg-[var(--atlas-bg)] transition-opacity duration-200"
+            style={{ opacity: organReady ? 1 : 0, pointerEvents: organReady ? undefined : 'none' }}
+            role="dialog"
+            aria-label={`Gablota: ${organ}`}
+            aria-hidden={!organReady}
+          >
             {(() => {
+              // Błąd modułu albo brak gabloty: komunikat od razu widoczny.
               const back = (
                 <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300">
                   <p>Gablota tego narządu nie jest jeszcze dostępna w tej wersji.</p>
-                  <button type="button" onClick={() => setOrgan(null)} className="rounded-lg bg-slate-800 px-3 py-1.5 text-sm hover:bg-slate-700">
+                  <button type="button" onClick={closeOrgan} className="rounded-lg bg-slate-800 px-3 py-1.5 text-sm hover:bg-slate-700">
                     Wróć do widoku 3D
                   </button>
                 </div>
@@ -744,7 +790,7 @@ export function AtlasApp() {
               return OrganView ? (
                 <View3DBoundary fallback={back}>
                   <Suspense fallback={<p className="h-full flex items-center justify-center text-slate-400">Wczytywanie gabloty…</p>}>
-                    <OrganView organ={organ} system={systemId} state={shownState} level={level} onClose={() => setOrgan(null)} />
+                    <OrganView organ={organ} system={systemId} state={shownState} level={level} onClose={closeOrgan} onReady={() => setOrganReady(true)} />
                   </Suspense>
                 </View3DBoundary>
               ) : (

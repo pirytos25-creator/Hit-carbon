@@ -521,7 +521,7 @@
    "status": "checked_agent",
    "provenance": "textbook_consensus",
    "accessMode": "full_text",
-   "quote": "Anyone who has observed a specimen of venous blood in a tube can confirm that it is not blue.",
+   "quote": null,
    "locator": "CM, wyd. 3 (1990), rozdz. 45 Cyanosis › Basic Science, NBK367",
    "url": "https://www.ncbi.nlm.nih.gov/books/NBK367/",
    "referenceIds": [
@@ -534,7 +534,8 @@
      "serce.funkcja.barwa_krwi_nie_niebieska"
     ],
     "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
-   }
+   },
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: all rights reserved): side-session-notes/dyrygent/E1K3_serce_wyszukane.md"
   },
   {
    "id": "serce.role.right_atrium",
@@ -1016,12 +1017,19 @@
    "kind": "curriculum_ref",
    "plate": null,
    "organ": "serce",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.4.9) (numeracja 2024; w numeracji 2018: V.4.11)",
    "quote": "przedstawia automatyzm pracy serca;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.); cytat z dyrygent/podstawy_oceny_narzadow.md §A2"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.); cytat z dyrygent/podstawy_oceny_narzadow.md §A2",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/podstawy_oceny_narzadow.md; side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "§A2 V.4.9)"
+    ],
+    "note": "Cytat z podstawy programowej (zpe.gov.pl, 2025/2026) w dyrygent/podstawy_oceny_narzadow.md §A2; zgodność z tym plikiem potwierdzona w kontroli M3; decyzja Dyrygenta 2026-11-26. Numeracja: 2024 V.4.9), 2018 V.4.11)."
+   }
   }
  ]
 }

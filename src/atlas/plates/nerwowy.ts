@@ -14,7 +14,7 @@ export const NERWOWY: AtlasPlateLayout = {
   changeLinks: [
     { metric: "nerwowy.metric.noradrenalina_w_osoczu", anchors: ["sympathetic_trunk"] },
     { metric: "nerwowy.metric.adrenalina_w_osoczu", anchors: ["adrenal"] },
-    { metric: "nerwowy.metric.czestotliwosc_wyladowan_motoneuronu", anchors: ["motor_units","sciatic","femoral"] },
+    { metric: "nerwowy.metric.czestotliwosc_wyladowan_motoneuronu", anchors: ["motor_units","sciatic","deep_fibular","common_fibular"] },
   ],
   heroMetricId: "nerwowy.metric.rekrutacja_jednostek_ruchowych",
   views: [

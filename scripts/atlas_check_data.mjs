@@ -100,7 +100,8 @@ for (const f of organDir) {
     if (seen.has(x.id)) err(`organs: powtórzone ID ${x.id}`);
     seen.add(x.id);
     for (const id of x.referenceIds ?? []) if (!SCIENTIFIC_REFERENCES[id]) err(`organs: ${x.id} – brak źródła ${id}`);
-    if (shown(x.status) && !x.referenceIds?.length) err(`organs: ${x.id} pokazywany bez referenceIds`);
+    if (shown(x.status) && x.kind !== 'curriculum_ref' && !x.referenceIds?.length) err(`organs: ${x.id} pokazywany bez referenceIds`);
+    if (x.kind === 'curriculum_ref' && shown(x.status) && (!x.quote || !x.locator)) err(`organs: ${x.id} – hasło podstawy bez cytatu albo numeru`);
   }
 }
 
@@ -205,6 +206,25 @@ for (const list of shownMetricsByTopic.values()) {
 // ---------------------------------------------------------------- 4. textbook_consensus
 const hasBookId = (r) => /NBK\d+|ISBN/i.test(`${r.journal} ${r.url ?? ''} ${r.title}`);
 // E1-K3 (Dyrygent): „Wiedza podręcznikowa” na ekranie = dosłowny cytat + lokalizator (rozdział i sekcja) + źródło z ISBN/NBK.
+// ---------------------------------------------------------------- 4a. licencje cytatów (decyzja (l): użytek komercyjny)
+// Źródło z licencją NC/ND albo z zastrzeżonymi prawami (ScientificReferences.sourceLicense): w danych produktu
+// (facts/*.json, organs/*.json) NIE MA dosłownego cytatu z tego źródła. Fakt mieszany: quoteSource wskazuje źródła cytatu.
+const restrictedLic = (id) => /NC|ND|reserved/i.test(SCIENTIFIC_REFERENCES[id]?.sourceLicense ?? '');
+let quotesRestrictedRefs = 0;
+for (const f of [...facts, ...organFacts]) {
+  if (!f.quote) continue;
+  const restrictedRefs = (f.referenceIds ?? []).filter(restrictedLic);
+  if (!restrictedRefs.length) continue;
+  quotesRestrictedRefs++;
+  if (!f.quoteSource?.length) {
+    err(`fakt ${f.id}: cytat przy źródle ${restrictedRefs.join(', ')} (${SCIENTIFIC_REFERENCES[restrictedRefs[0]].sourceLicense}); usuń cytat albo wskaż quoteSource (źródło otwarte)`);
+    continue;
+  }
+  for (const id of f.quoteSource) {
+    if (!(f.referenceIds ?? []).includes(id)) err(`fakt ${f.id}: quoteSource ${id} spoza referenceIds`);
+    if (restrictedLic(id)) err(`fakt ${f.id}: cytat ze źródła ${id} (${SCIENTIFIC_REFERENCES[id].sourceLicense}) w danych produktu`);
+  }
+}
 let textbookShown = 0;
 let textbookInferred = 0;
 for (const f of [...facts, ...organFacts]) {
@@ -212,14 +232,13 @@ for (const f of [...facts, ...organFacts]) {
   textbookShown++;
   if (!f.referenceIds?.length) err(`fakt ${f.id}: textbook_consensus bez referenceIds`);
   for (const id of f.referenceIds ?? []) if (!hasBookId(SCIENTIFIC_REFERENCES[id] ?? {})) err(`fakt ${f.id}: textbook_consensus, a źródło ${id} bez ISBN/NBK`);
-  // Pochodzenie wyliczone regułą w K1 (`auto` zawiera 'provenance') nie jest potwierdzonym faktem podręcznikowym:
-  // dla niego tylko ISBN/NBK i uwaga o lokalizatorze (jak przed K3). Jawne textbook_consensus (E1-K3): pełna reguła.
-  if ((f.auto ?? []).includes('provenance')) {
-    textbookInferred++;
-    if ('locator' in f && !f.locator) warn(`fakt ${f.id}: textbook_consensus (wyliczone) bez lokalizatora`);
-    continue;
-  }
-  if (!f.quote) err(`fakt ${f.id}: textbook_consensus bez dosłownego cytatu (quote)`);
+  // Decyzja Dyrygenta (E1-K3): ostra reguła dla KAŻDEGO textbook_consensus, także wyliczonego (takie wpisy mają już provenance null).
+  if ((f.auto ?? []).includes('provenance')) textbookInferred++;
+  // źródła NC/ND/zastrzeżone (decyzja (l)): bez cytatu w danych produktu; zostaje lokalizator i adres
+  const allRestricted = (f.referenceIds ?? []).length > 0 && f.referenceIds.every((id) => restrictedLic(id));
+  if (allRestricted) {
+    if (!f.url) err(`fakt ${f.id}: textbook_consensus ze źródła zastrzeżonego bez url (odnośnik zamiast cytatu)`);
+  } else if (!f.quote) err(`fakt ${f.id}: textbook_consensus bez dosłownego cytatu (quote)`);
   if (!f.locator) err(`fakt ${f.id}: textbook_consensus bez lokalizatora (rozdział i sekcja)`);
 }
 
@@ -227,7 +246,24 @@ for (const f of [...facts, ...organFacts]) {
 const CHANGE = /\b(więcej|mniej|rośnie|rosną|spada|spadają|szybciej|wolniej|większ\w*|mniejsz\w*|zwęża\w*|rozszerza\w*|przyspiesza\w*|zwalnia\w*)\b|[↑↓]/i;
 for (const f of facts) if (f.status === 'anatomy' && CHANGE.test(f.textPl ?? '')) err(`fakt ${f.id}: status anatomy, a tekst mówi o zmianie („${f.textPl}”)`);
 
+// Raport rozbieżności (Dyrygent, kontrola M6 pkt 7): ta sama wielkość (topic) na kilku planszach, WSZYSTKIE statusy.
+// Nie jest to błąd ani uwaga: niesprawdzona wartość nie trafia na ekran, a uzgodnienie przechodzi przez kontrolę faktów.
+const allByTopic = new Map();
+for (const f of facts.filter((x) => x.kind === 'metric' && x.topic)) {
+  if (!allByTopic.has(f.topic)) allByTopic.set(f.topic, []);
+  allByTopic.get(f.topic).push(f);
+}
+let topicReports = 0;
+for (const [topic, list] of allByTopic) {
+  if (new Set(list.map((f) => f.plate)).size < 2) continue;
+  const fmt = (f) => `${byId.get(`${f.id}.rest`)?.value ?? '—'} → ${f.value}${f.unit ? ' ' + f.unit : ''}`;
+  if (new Set(list.map(fmt)).size < 2) continue;
+  topicReports++;
+  console.log(`RAPORT rozbieżność „${topic}”: ${list.map((f) => `${f.plate}: ${fmt(f)} [${f.status}/spoczynek ${byId.get(`${f.id}.rest`)?.status ?? '—'}]`).join(' | ')}`);
+}
 console.log(`Wielkości pokazane na kilku planszach (topic albo ta sama nazwa): ${crossPairs}`);
+console.log(`Raport rozbieżności tej samej wielkości (wszystkie statusy, do kontroli faktów): ${topicReports}`);
+console.log(`Cytaty przy źródłach zastrzeżonych (zostają tylko części z quoteSource): ${quotesRestrictedRefs}`);
 console.log(`Gabloty: ${organDir.length} plik(ów), ${organFacts.length} faktów; „Wiedza podręcznikowa” na ekranie: ${textbookShown} (w tym z pochodzeniem tylko wyliczonym w K1: ${textbookInferred})`);
 console.log(`Dane L1: ${structures.structures.length} pojęć, ${bindings.bindings.length} powiązań siatek (nierozwiązane: ${unresolved}), ${facts.length} rekordów faktów w ${factFiles.length} plikach`);
 console.log(`Na ekranie (dane = plansze): liczby ${dataCount.metrics}, opisy ról ${dataCount.roles}, opisy budowy ${dataCount.anatomy}, podsumowania ${dataCount.summaries}`);

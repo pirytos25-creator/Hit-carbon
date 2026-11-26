@@ -390,27 +390,27 @@
    "view": "side",
    "structureId": "cortex_praefrontalis",
    "state": "rest",
-   "textPl": "Planowanie i decyzje",
-   "status": "unverifiable",
+   "textPl": "W dużej mierze odpowiada za nasze zamiary i ich realizację",
+   "status": "checked_agent",
    "referenceIds": [
-    "rooks_2010"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "meta_analysis",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_1b.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.prefrontal.rest"
     ],
-    "note": "#23-#33; fakty_draft_1b.md: Rooks 2010, abstrakt, wniosek"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "The functions of the prefrontal cortex are integral to the personality of an individual, because it is largely responsible for what a person intends to do and how they accomplish those plans.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §14.3 Motor Responses",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
   },
   {
    "id": "mozg.role.prefrontal.sprint",
@@ -450,26 +450,27 @@
    "view": "side",
    "structureId": "gyrus_praecentralis",
    "state": "rest",
-   "textPl": "Niska aktywność ruchowa",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Kora ruchowa: przez rdzeń kręgowy uruchamia mięśnie szkieletowe",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.motor_cortex.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The precentral gyrus is the primary motor cortex. Cells from this region of the cerebral cortex are the upper motor neurons that instruct cells in the spinal cord to move skeletal muscles.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.motor_cortex.sprint",
@@ -479,26 +480,27 @@
    "view": "side",
    "structureId": "gyrus_praecentralis",
    "state": "sprint",
-   "textPl": "Wysyła rozkazy do mięśni nóg i ramion",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przez rdzeń kręgowy wysyła polecenia ruchu do mięśni szkieletowych",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.motor_cortex.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "…the upper motor neurons that instruct cells in the spinal cord to move skeletal muscles.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.sensory_cortex.rest",
@@ -508,26 +510,27 @@
    "view": "side",
    "structureId": "gyrus_postcentralis",
    "state": "rest",
-   "textPl": "Odbiera czucie z ciała",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przetwarza czucie z ciała: dotyk, ból, ułożenie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.sensory_cortex.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "All of the tactile senses are processed in this area, including touch, pressure, tickle, pain, itch, and vibration, as well as more general senses of the body such as proprioception and kinesthesia, which are the senses of body position and movement, respectively.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.sensory_cortex.sprint",
@@ -537,26 +540,28 @@
    "view": "side",
    "structureId": "gyrus_postcentralis",
    "state": "sprint",
-   "textPl": "Czucie z pracujących mięśni i stóp",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Odpowiada za czucie ułożenia ciała",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk549825"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.sensory_cortex.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Neuroanatomy, Postcentral Gyrus” (2023), NBK549825, Introduction; PMID 31751015",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK549825/ ; https://pubmed.ncbi.nlm.nih.gov/31751015/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.cerebellum.rest",
@@ -566,26 +571,28 @@
    "view": "side",
    "structureId": "cerebellum",
    "state": "rest",
-   "textPl": "Napięcie mięśni i postawa",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Utrzymuje postawę i kontroluje napięcie mięśni",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk538167"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.cerebellum.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Neuroanatomy, Cerebellum” (2023), NBK538167, Introduction; PMID 30844194",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538167/ ; https://pubmed.ncbi.nlm.nih.gov/30844194/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.cerebellum.sprint",
@@ -595,26 +602,27 @@
    "view": "side",
    "structureId": "cerebellum",
    "state": "sprint",
-   "textPl": "Koryguje każdy krok, rytm i równowagę",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Porównuje rozkazy ruchu z czuciem ułożenia ciała",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.cerebellum.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The cerebellum is important in contributing to the motor system because it compares cerebral motor commands with proprioceptive feedback.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §14.3 Motor Responses",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
   },
   {
    "id": "mozg.role.brainstem.rest",
@@ -624,26 +632,28 @@
    "view": "side",
    "structureId": "truncus_encephali",
    "state": "rest",
-   "textPl": "Spokojny oddech i tętno",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Steruje oddechem, ciśnieniem krwi i tętnem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk544297"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.brainstem.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Neuroanatomy, Brainstem” (2023), NBK544297, Introduction; PMID 31335017",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK544297/ ; https://pubmed.ncbi.nlm.nih.gov/31335017/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.brainstem.sprint",
@@ -653,26 +663,27 @@
    "view": "side",
    "structureId": "truncus_encephali",
    "state": "sprint",
-   "textPl": "Przyspiesza oddech i pracę serca",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "W wysiłku zwiększa pobudzenie serca",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.brainstem.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "Nervous control over HR is centralized within the two paired cardiovascular centers of the medulla oblongata […] Increased physical activity results in increased rates of firing by various proprioreceptors located in muscles, joint capsules, and tendons. … The cardiac centers monitor these increased rates of firing, and suppress parasympathetic stimulation and increase sympathetic stimulation as needed in order to increase blood flow. + The brain stem comprises three regions: the midbrain, the pons, and the medulla.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §19.4 Cardiac Physiology + OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System › The Brain Stem",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
   },
   {
    "id": "mozg.role.paracentral.rest",
@@ -740,26 +751,28 @@
    "view": "detail",
    "structureId": "nuclei_basales",
    "state": "rest",
-   "textPl": "Hamują zbędne ruchy",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Uważa się, że wybierają, które ruchy dopuścić, a które zahamować",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk537141"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.basal_ganglia.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Neuroanatomy, Basal Ganglia” (2023), NBK537141, Introduction; PMID 30725826",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537141/ ; https://pubmed.ncbi.nlm.nih.gov/30725826/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.basal_ganglia.sprint",
@@ -769,26 +782,27 @@
    "view": "detail",
    "structureId": "nuclei_basales",
    "state": "sprint",
-   "textPl": "Uruchamiają i rytmizują krok",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Wpływają na to, czy ruch się zacznie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.basal_ganglia.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The basal nuclei are a set of nuclei in the cerebrum responsible for comparing cortical processing with the general state of activity in the nervous system to influence the likelihood of movement taking place.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.thalamus.rest",
@@ -798,26 +812,27 @@
    "view": "detail",
    "structureId": "thalamus",
    "state": "rest",
-   "textPl": "Przekaźnik czucia do kory",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przekazuje do kory sygnały ze zmysłów (oprócz węchu)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.thalamus.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The thalamus is a collection of nuclei that relay information between the cerebral cortex and the periphery, spinal cord, or brain stem. All sensory information, except for the sense of smell, passes through the thalamus before processing by the cortex.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.thalamus.sprint",
@@ -827,26 +842,28 @@
    "view": "detail",
    "structureId": "thalamus",
    "state": "sprint",
-   "textPl": "Przekazuje czucie i sygnały móżdżku",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przekazuje sygnały czuciowe i ruchowe",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk542184"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.thalamus.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Neuroanatomy, Thalamus” (2023), NBK542184, Introduction; PMID 31194341",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542184/ ; https://pubmed.ncbi.nlm.nih.gov/31194341/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.hypothalamus.rest",
@@ -856,26 +873,27 @@
    "view": "detail",
    "structureId": "hypothalamus",
    "state": "rest",
-   "textPl": "Stała temperatura i hormony",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Termostat ciała; steruje też hormonami",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.hypothalamus.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The hypothalamus in the brain is the master switch that works as a thermostat to regulate the body’s core temperature […] + The hypothalamus is the executive region in charge of the autonomic nervous system and the endocrine system through its regulation of the anterior pituitary gland.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §24.6 Energy and Heat Balance + §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/24-6-energy-and-heat-balance ; https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "mozg.role.hypothalamus.sprint",
@@ -885,26 +903,27 @@
    "view": "detail",
    "structureId": "hypothalamus",
    "state": "sprint",
-   "textPl": "Chłodzenie (pot) i oś stresu",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Gdy ciało za ciepłe: pot i krew do skóry",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.hypothalamus.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "If the temperature is too high, the hypothalamus can initiate several processes to lower it. These include increasing the circulation of the blood to the surface of the body to allow for the dissipation of heat through the skin and initiation of sweating to allow evaporation of water on the skin to cool its surface.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §24.6 Energy and Heat Balance",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/24-6-energy-and-heat-balance"
   },
   {
    "id": "mozg.role.vermis.rest",
@@ -972,26 +991,27 @@
    "view": "detail",
    "structureId": "medulla_oblongata",
    "state": "rest",
-   "textPl": "Ośrodki oddechu i krążenia",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Ośrodki sterujące częstością oddechów oraz pracą serca i naczyń",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.medulla.rest"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The respiratory rate is controlled by the respiratory center located within the medulla oblongata in the brain… + The medulla contains nuclei referred to as the cardiovascular center, which controls the smooth and cardiac muscle of the cardiovascular system through autonomic connections.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.3 The Process of Breathing + §15.3 Central Control",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing ; https://openstax.org/books/anatomy-and-physiology-2e/pages/15-3-central-control"
   },
   {
    "id": "mozg.role.medulla.sprint",
@@ -1001,26 +1021,27 @@
    "view": "detail",
    "structureId": "medulla_oblongata",
    "state": "sprint",
-   "textPl": "Szybszy oddech, wyższe tętno",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przy wysiłku pobudza serce, by zwiększyć przepływ krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_mozg.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#23",
-     "#33"
+     "mozg.role.medulla.sprint"
     ],
-    "note": "#23-#33",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "…cardiovascular centers of the medulla oblongata […] The cardiac centers monitor these increased rates of firing, and suppress parasympathetic stimulation and increase sympathetic stimulation as needed in order to increase blood flow.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §19.4 Cardiac Physiology",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"
   },
   {
    "id": "mozg.summary.rest",
@@ -1176,11 +1197,11 @@
    "id": "mozg.quiz",
    "kind": "quiz",
    "plate": "mozg",
-   "textPl": "Jak zmienia się udział mleczanu w energii mózgu, gdy we krwi jest go dużo?",
+   "textPl": "Jak zmienia się część energii mózgu pochodząca z mleczanu, gdy we krwi jest go dużo?",
    "quizType": "updown",
    "answer": "up",
-   "explainPl": "Rośnie: z ok. 8% do ok. 27% energii mózgu (w badaniu: 30 min jazdy przy 75% VO₂max z wlewem mleczanu, nie sam sprint).",
-   "status": "draft",
+   "explainPl": "Rośnie: z ok. 8% do ok. 27% energii mózgu (w badaniu: 30 min jazdy przy 75% VO₂max, z mleczanem podawanym do żyły; nie sam sprint).",
+   "status": "checked_agent",
    "referenceIds": [
     "van_hall_2009",
     "brooks_2018",
@@ -1188,7 +1209,14 @@
    ],
    "derivedFrom": [
     "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #3"
+    ],
+    "note": "M6_kontrola.md: runda 1 POPRAWKA, runda 2 OK (2026-11-26)"
+   }
   }
  ]
 }

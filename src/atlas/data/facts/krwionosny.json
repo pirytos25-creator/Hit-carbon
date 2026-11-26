@@ -341,14 +341,14 @@
    "notePl": "Ciśnienie rozkurczowe zmienia się niewiele albo lekko spada.",
    "seeAlsoPlate": null,
    "status": "unverifiable",
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
    "checkedBy": null,
-   "order": 5
+   "order": 5,
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "krwionosny.metric.cisnienie_skurczowe.rest",
@@ -369,13 +369,13 @@
    "value": "ok. 120",
    "status": "unverifiable",
    "restStatusExplicit": true,
-   "provenance": "textbook_consensus",
+   "provenance": null,
    "accessMode": null,
    "auto": [
-    "provenance",
     "accessMode"
    ],
-   "checkedBy": null
+   "checkedBy": null,
+   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
   },
   {
    "id": "krwionosny.metric.pobor_tlenu_z_krwi_roznica_tetniczo_zylna",
@@ -1516,18 +1516,25 @@
    "id": "krwionosny.quiz",
    "kind": "quiz",
    "plate": "krwionosny",
-   "textPl": "Jak zmienia się część krwi z serca, która płynie do pracujących mięśni, przy wysiłku maksymalnym?",
+   "textPl": "Jak zmienia się część krwi pompowanej przez serce, która trafia do pracujących mięśni, przy wysiłku maksymalnym?",
    "quizType": "updown",
    "answer": "up",
-   "explainPl": "Rośnie: z poniżej 20% do ok. 80% rzutu serca (w badaniu: wysiłek maksymalny całego ciała). Naczynia trzewi i nerek się zwężają, a naczynia pracujących mięśni się rozszerzają.",
-   "status": "draft",
+   "explainPl": "Rośnie: z poniżej 20% do ok. 80% krwi pompowanej przez serce, czyli rzutu serca (w badaniu: wysiłek maksymalny całego ciała). Naczynia narządów jamy brzusznej (trzewi) i nerek się zwężają, a naczynia pracujących mięśni się rozszerzają.",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015",
     "calbet_joyner_2010"
    ],
    "derivedFrom": [
     "krwionosny.metric.udzial_miesni_w_przeplywie_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #5"
+    ],
+    "note": "M6_kontrola.md: brzmienie rundy 2, trzecia kontrola OK (2026-11-26)"
+   }
   }
  ]
 }
