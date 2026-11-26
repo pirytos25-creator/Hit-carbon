@@ -3,7 +3,8 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
-import { evaluateActShot, LightingPresetId } from './ShotChoreography';
+import { ACT_SHOT_CHOREOGRAPHY, LightingPresetId } from './ShotChoreography';
+import { evaluateShots, followShot, dampFov, dollyZoom, microDrift } from '../biomotion';
 
 export const erythrocyteCameraTarget = {
   active: false,
@@ -28,6 +29,8 @@ const _desiredTarget = new THREE.Vector3();
 const _currentTarget = new THREE.Vector3(0, 1.05, 0);
 const _lookMatrix = new THREE.Matrix4();
 const _targetQuat = new THREE.Quaternion();
+// Szyna kamery, tłumienie, dolly-zoom i mikrodryf pochodzą ze wspólnego modułu (src/biomotion, M4);
+// ewaluacja ujęć jest 1:1 z dawnym evaluateActShot, więc ruch kamery filmu się nie zmienia.
 
 export function CameraSystem() {
   const { camera } = useThree();
@@ -71,40 +74,21 @@ export function CameraSystem() {
       return;
     }
 
-    const evalRes = evaluateActShot(actId, u, _desiredPos, _desiredTarget);
+    const evalRes = evaluateShots(ACT_SHOT_CHOREOGRAPHY[actId], u, _desiredPos, _desiredTarget);
     liveCameraMetaRef.lightingPreset = evalRes.lightingPreset;
     liveCameraMetaRef.dofFocusDistance = evalRes.dofFocusDistance;
     liveCameraMetaRef.dofBokehScale = evalRes.dofBokehScale;
     liveCameraMetaRef.activeShotId = evalRes.shot.id;
 
     // Subtle FPS-independent organic breathing micro-drift derived from masterTimeSec (never causes simulator sickness!)
-    const t = liveSimulationRef.masterTimeSec;
-    const driftAmp = actId === 1 || actId === 6 || actId === 11 ? 0.016 : 0.008;
-    _desiredPos.x += Math.sin(t * 0.45) * driftAmp;
-    _desiredPos.y += Math.cos(t * 0.36) * driftAmp * 0.55;
+    microDrift(_desiredPos, liveSimulationRef.masterTimeSec, actId === 1 || actId === 6 || actId === 11 ? 0.016 : 0.008);
 
     // Dolly-zoom compression during cross-scale portal dive (last 5s of Act)
-    let targetFov = evalRes.fov;
-    const blend = liveSimulationRef.transitionBlend;
-    if (blend > 0) {
-      targetFov -= blend * 6.5;
-      _desiredPos.lerp(_desiredTarget, blend * 0.22);
-    }
+    const targetFov = dollyZoom(_desiredPos, _desiredTarget, evalRes.fov, liveSimulationRef.transitionBlend);
 
-    const dampPos = 1 - Math.exp(-4.2 * dt);
-    const dampRot = 1 - Math.exp(-4.8 * dt);
-    cam.position.lerp(_desiredPos, dampPos);
-    _currentTarget.lerp(_desiredTarget, dampRot);
-
-    // Smooth quaternion slerp orientation (no harsh snap between shots!)
-    _lookMatrix.lookAt(cam.position, _currentTarget, cam.up);
-    _targetQuat.setFromRotationMatrix(_lookMatrix);
-    cam.quaternion.slerp(_targetQuat, dampRot);
-
-    if (Math.abs(cam.fov - targetFov) > 0.04) {
-      cam.fov = THREE.MathUtils.lerp(cam.fov, targetFov, dampPos);
-      cam.updateProjectionMatrix();
-    }
+    // Damped follow + smooth quaternion slerp orientation (no harsh snap between shots!)
+    const { dampPos } = followShot(cam, _desiredPos, _desiredTarget, _currentTarget, dt);
+    dampFov(cam, targetFov, dampPos);
   });
 
   if (isFreeOrbit && !(currentActId === 3 && followErythrocyteCam)) {

@@ -6,6 +6,10 @@ import { MODEL_PATHS } from '../core/AssetManager';
 import { liveSimulationRef, useBiogenesisStore } from '../core/SimulationCore';
 import { TemporalHorizon } from '../types/biogenesis';
 import { NeuralPathwayTube } from './NeuralSimulation';
+import { BioClock, heartCycle, createHeartWeights, setMorph, PRESET_FILM_ACT12 } from '../biomotion';
+
+const act12Clock = new BioClock();
+const _act12Heart = createHeartWeights();
 
 const HORIZON_PROGRESS: Record<TemporalHorizon, number> = {
   acute: 0.15,
@@ -26,6 +30,7 @@ export function Act12WeekMonthYear() {
   const temporalHorizon = useBiogenesisStore((s) => s.temporalHorizon);
 
   const heartGroupRef = useRef<THREE.Group>(null);
+  const ventMeshRef = useRef<THREE.Mesh | null>(null);
   const mitoGroupRef = useRef<THREE.Group>(null);
   const hippoGroupRef = useRef<THREE.Group>(null);
 
@@ -85,15 +90,13 @@ export function Act12WeekMonthYear() {
     const t = liveSimulationRef.masterTimeSec;
     const adapt = HORIZON_PROGRESS[temporalHorizon];
 
-    // Cardiac remodeling via real HuBMAP Ventricular Systole Morph Targets + resting bradycardia
+    // Cardiac remodeling via real HuBMAP Ventricular Systole Morph Targets + resting bradycardia.
+    // Faza całkowana zegarem modułu (BioClock): zmiana horyzontu (tempa) nie powoduje już skoku skurczu.
     const beatRate = 1.35 - adapt * 0.35;
-    const bp = (t * beatRate) % 1;
-    const vent = bp >= 0.16 && bp < 0.50 ? Math.sin(((bp - 0.16) / 0.34) * Math.PI) * (0.6 + adapt * 0.38) : 0;
-    const ventMesh = clonedHeart.getObjectByName('Heart_Ventricles') as THREE.Mesh | null;
-    if (ventMesh?.morphTargetDictionary && ventMesh.morphTargetInfluences) {
-      const idx = ventMesh.morphTargetDictionary['Ventricular_Systole'];
-      if (idx !== undefined) ventMesh.morphTargetInfluences[idx] = vent;
-    }
+    act12Clock.update(t, beatRate * 60, 12);
+    const hc = heartCycle(act12Clock.beatPhase, 0.6 + adapt * 0.38, PRESET_FILM_ACT12, _act12Heart);
+    if (!ventMeshRef.current) ventMeshRef.current = clonedHeart.getObjectByName('Heart_Ventricles') as THREE.Mesh | null;
+    setMorph(ventMeshRef.current, 'Ventricular_Systole', hc.ventricular);
     if (heartGroupRef.current) {
       heartGroupRef.current.scale.setScalar(1.35 + adapt * 0.28);
     }
