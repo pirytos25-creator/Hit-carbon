@@ -1,115 +1,106 @@
-# Decyzja Dyrygenta: UI/UX atlasu i gabloty narządów (wspólna kolejność wdrożenia)
+# Decyzja Dyrygenta: UI/UX atlasu, gabloty narządów i film (wersja 2)
 
-Data: 2026-11-26.
-
-> **ZAWIESZONA (2026-11-26).** Doszły nowe wymagania użytkownika (d)–(g) z §7 modelu: jakość animacji na poziomie filmu, wspólny moduł z filmem „12 aktów”, kamienie milowe zamiast godzin oraz odpowiedzi o gablotach. Oba plany wracają do poprawki. Ta decyzja zostanie zastąpiona nową wersją po ocenie poprawionych planów, klatek docelowych i testu technicznego serca. Ustalenia z §2–§3 (wspólna rama, K4, poziomy według podstawy programowej, nerka, nefron) pozostają w mocy.
+Data: 2026-11-26. Wersja 1 (`4ec67df`) jest zastąpiona; jej ustalenia z §3 przechodzą tutaj.
 
 Podstawa:
-- decyzje użytkownika (a)–(c) z §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md`;
+- §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md`, decyzje (a)–(g), w tym nowe wymagania użytkownika:
+  - animacje 3D dopracowane, a nie „kreseczki”;
+  - wspólny moduł z filmem „12 aktów”;
+  - kamienie milowe zamiast godzin;
+  - odpowiedzi o gablotach;
 - plan Reżysera `docs/atlas_rezyser/UX_POSIEDZENIE.md` (`77dd298`);
-- plan Wizualizatora `docs/atlas_wizualizacja/NARZADY_PLAN.md` (`bd9650c`, gałąź `claude/atlas-wizualizacja-3d-1dc29a`, jeszcze nie scalona);
-- niezależne sprawdzenie Dyrygenta: podstawa programowa i licencje siatek (`side-session-notes/…/dyrygent/podstawy_oceny_narzadow.md`, `ocena_NARZADY_PLAN.md`).
+- plan Wizualizatora `docs/atlas_wizualizacja/NARZADY_PLAN.md` (`efb73c0`, gałąź `claude/atlas-wizualizacja-3d-1dc29a`);
+- niezależne sprawdzenia Dyrygenta: `side-session-notes/…/dyrygent/podstawy_oceny_narzadow.md` i `ocena_NARZADY_PLAN.md`.
 
-**To jest plan.** Wdrożenie rusza dopiero po zgodzie użytkownika.
+Oba plany są w poprawce pod (d)–(g) („PLAN 2”). Ta decyzja ustala ramę, którą PLAN 2 musi spełnić. Szczegóły kamieni M4–M8 uzupełnię po kamieniach M1–M2.
 
-## 1. Werdykt
+**Nic nie jest wdrażane bez zgody użytkownika.**
 
-| Plan | Ocena | Warunki |
-|---|---|---|
-| Reżyser: UI/UX i karta stylu 12 układów | **przyjęty** | poprawki z §3 tej decyzji |
-| Wizualizator: gabloty serca, nerki, wątroby i mózgu | **przyjęty** | poprawki poziomów treści i nerki (§3), wspólna rama z §2 |
+## 1. Zasady (obowiązują oba plany)
 
-Ocena według kryteriów:
+1. **Poprzeczka jakości: film.**
+   - Przepływy to krwinki i cząstki 3D z objętością, zorientowane wzdłuż toru, z prędkością zależną od przekroju naczynia.
+   - Tkanki ruszają się przez odkształcenie prawdziwej geometrii (cele morph, przemieszczenie w shaderze).
+   - Światło i materiał są na poziomie filmu.
+   - Strzałki i linie są tylko legendą „Jak czytać”.
+   - Tory `flows3d` zostają jako **dane torów dla cząstek**, nie jako rysowane strzałki. W wersji 1 U3 opierało się na strzałkach i jest to unieważnione.
+2. **Poziomy jakości zamiast niższej poprzeczki.**
+   - Pełny poziom na mocnej karcie.
+   - Uproszczony na Intel UHD przy ≥ 50 FPS: mniej cząstek, prostszy materiał, ten sam ruch i to samo znaczenie.
+   - Wypiekany film z Blendera tylko wtedy, gdy krok nie mieści się nawet w poziomie uproszczonym.
+   - Kontrakt Reżysera (≤ 1 ms GPU na wyróżnik w widoku układów, zakaz półprzezroczystych nakładek) obowiązuje na poziomie uproszczonym.
+3. **Jeden wspólny moduł animacji dla trzech odbiorców:** atlas 3D, gabloty narządów i film „12 aktów”.
+   - Moduł obejmuje cząstki, odkształcenia, materiały, światło, oś czasu kroków, kamerę po szynie, przejścia skali i poziomy jakości.
+   - Budujemy na tym, co film już ma (`src/director`, `src/core/SimulationCore.ts`, `TimelineEngine.ts`, `QualityManager.ts`, `src/shaders/*`, `src/scenes/Act*`), a nie obok.
+   - Granice plików i właściciela modułu ustala PLAN 2 Wizualizatora na podstawie przeglądu filmu (`FILM_PRZEGLAD.md`).
+4. **Każdy element ma swój akt filmu** (mapa w §3).
+5. **Wejście do gabloty jest diegetyczne.**
+   - Kliknięcie narządu w widoku układu w świecie 3D uruchamia wjazd kamery w narząd, a ciało gaśnie.
+   - Podmiana modelu (Z-Anatomy na HuBMAP, różni osobnicy) jest ukryta w ruchu kamery.
+   - Bez menu i bez zwykłego przenikania ekranu. Menu „Narządy” najwyżej jako dodatek.
+6. **Treść:** pierwsza wersja gablot ma tylko poziom Podstawowy, z poziomami zgodnymi z podstawą programową:
+   - automatyzm serca (P V.4.9) i tworzenie moczu (P V.5.3) są w Podstawowym;
+   - każdy tekst przechodzi bramkę §3.6.
+7. **Ustalenia przeniesione z wersji 1:**
+   - wspólna rama Reżysera także w gablotach;
+   - nazwa poziomów „Podstawowy | Rozszerzony”;
+   - K4 (teksty robocze na ekranie ucznia, pole `protocolNotePl` na 3 planszach) naprawiane w M3 i walidator obejmujący wszystkie pola tekstowe;
+   - przekrój nerki bez „labiryntu”;
+   - nefron, zrazik i układ bodźcoprzewodzący jako jawny „schemat, bez skali”;
+   - zastawki: wariant A, a B wcześniej, jeśli M2 pokaże, że jest tani.
+8. **Licencje:**
+   - gabloty na HuBMAP (CC BY 4.0);
+   - mózg Allen tylko w wersji ≥ v1.3 (lokalny plik to v1.2). Zgoda Dyrygenta na darmowe pobranie z oficjalnego repozytorium HuBMAP zgodnie ze statutem;
+   - zero NC.
 
-| Kryterium | UX (Reżyser) | Gabloty (Wizualizator) |
-|---|---|---|
-| Biologia w liceum | rama „cel lekcji → pytanie → 1 liczba → Sprawdź się” odpowiada lekcji; wyróżniki przypisane do idei z liceum | struktura Podstawowy/Rozszerzony. Po poprawce zgodna z podstawą programową: automatyzm serca P V.4.9, tworzenie moczu P V.5.3, wątroba P V.2.7, mózg P V.7.5 |
-| Zrozumiałość | trafna diagnoza: przypis protokołu przed celem, ściana tekstu, liczby pod zgięciem, telefon bez tytułu, teksty robocze | przekrój bez „eksplozji”, najechanie z przygaszeniem reszty, film krok po kroku; przekrój nerki na klatce nieczytelny (warunek K1) |
-| Wydajność (≥ 50 FPS Intel UHD) | budżet 1 ms GPU na wyróżnik, automatyczny powrót do nakładki 2D, bez postprocesu | ≤ 4 MB, ≤ 400 tys. trójkątów makro + 60 tys. mikro; pomiar w N1-K1, zanim cokolwiek obiecamy |
-| Licencje (bez NC) | bez nowych zasobów: nakładki na istniejących kotwicach | wyłącznie HuBMAP (CC BY 4.0), NeuroMorpho (CC BY 4.0), zrazik OrganUI (CC0); nerka Z-Anatomy (NC) wykluczona; nefron domyślnie jako własny schemat |
-| Realny czas | 80–110 h | 75–105 h (z faktami) |
+### Rozstrzygnięty spór 1 (Reżyser i Wizualizator): „jeden ruch na wyróżnik” a film serca
+- **W widoku układu (plansza 2D i 3D)** wyróżnik ma jeden ruch, zgodnie z kartą Reżysera.
+- **W filmie gabloty i w akcie filmu** każdy krok wprowadza **najwyżej jeden nowy ruch**. Ruchy z poprzednich kroków mogą trwać dalej (propozycja Wizualizatora).
+- Uzasadnienie: obie strony chronią to samo. Uczeń w każdej chwili ma jedną nową rzecz do zrozumienia.
 
-## 2. Rozstrzygnięte spory i wspólny język
+## 2. Kamienie milowe (zamiast godzin)
 
-1. **Gabloty narządów dostają wspólną ramę Reżysera.** Wspólne elementy:
-   - okruszki i cel lekcji;
-   - chip skali i lokalizator „gdzie w ciele”;
-   - przełącznik momentu pod sceną;
-   - „Jak czytać” w lewym dolnym rogu;
-   - mały przełącznik poziomu w pasku górnym.
+Każdy kamień kończy się **wynikiem do obejrzenia**. Przy M1 i M2 podaję szacunek czasu, żeby po nich porównać go z rzeczywistością. Dalsze szacunki przeliczę według tego porównania.
 
-   Tryby gabloty („Zwiedzaj · Jak to działa · Sprawdź się”) to zakładki w nagłówku panelu bocznego, a nie drugi pasek pod sceną. Pod sceną jest tylko jeden przełącznik.
-2. **Nazwa poziomu: „Podstawowy | Rozszerzony”**, a nie „Uczeń | Rozszerzony”. To słowa ze szkoły i z matury.
-3. **Etykieta momentu pochodzi z danych.**
-   - Na planszach: „Koniec 45 s pracy”, „Po treningu”, „Krok biegu” (W5).
-   - W gablotach: „Spoczynek | Wysiłek”, dopóki fakt nie pozwoli na dokładniejszą nazwę.
-4. **Kontrakt 3D** (stanowisko Reżysera §4.2, przyjęte):
-   - wyróżnik kosztuje ≤ 1 ms GPU na UHD przy 1440 px;
-   - poniżej 50 FPS wyróżnik sam przechodzi na nakładkę 2D;
-   - półprzezroczyste nakładki 3D są zakazane.
-
-   Pulsowanie `sin(uTime)` w widoku układów usuwamy, bo nie koduje żadnej zmiennej. Puls zostaje tylko na strukturze z podpisu w fokusie. Wizualizator może się odwołać, przynosząc pomiar z U3.
-5. **Kamera gabloty** (przechylenie ±35°, zoom 0,6–2,5×) to wyjątek tylko dla gablot. Widok układów zostaje przy obrocie poziomym (§7).
-6. **Kolory:** narząd w barwie swojego układu. Wyjątki dydaktyczne: krew natleniona czerwona i odtleniona niebieska (jamy serca według krwi, którą zawierają), żółć zielona, mocz złoty. Barwy dobiera Reżyser z palety, a walidator `check:atlas` sprawdza ΔE.
-
-Jeśli Wizualizator nie zgodzi się z §2.4 po pomiarach, rozstrzyga Dyrygent na podstawie liczb.
-
-## 3. Poprawki obowiązkowe przed wdrożeniem
-
-1. **K4 (teksty robocze na ekranie): luka potwierdzona przez Dyrygenta.**
-   - Na planszach hormonalnej, pokarmowej i powłokowej pole `protocolNotePl` ma status inny niż sprawdzony, więc `AtlasApp.tsx` pokazuje uczniowi zdanie „…opis czeka na sprawdzenie”.
-   - Kontrola końcowa faktów (liczby, role, budowa, podsumowania) nie objęła tego pola. To błąd zakresu kontroli Dyrygenta.
-   - Naprawa w U0:
-     - (a) agent faktów sprawdza 3 opisy momentu (cytat i drugi sprawdzający);
-     - (b) bramka nie pokazuje uczniowi żadnego zdania zastępczego dla autora;
-     - (c) walidator obejmuje odtąd wszystkie pola tekstowe planszy, a nie tylko cztery rodzaje.
-2. **Poziomy treści gablot według podstawy programowej:**
-   - automatyzm serca (węzeł zatokowo-przedsionkowy, fala pobudzenia, w uproszczeniu) przechodzi do Podstawowego;
-   - filtracja i resorpcja w ogólnym ujęciu przechodzą do Podstawowego;
-   - odcinki nefronu i hormony zostają w Rozszerzonym.
-3. **Nerka:** warunkiem K1 jest zrzut przekroju bez „labiryntu” (kolumny scalone z korą, zalanie przekroju).
-4. **Nefron:** domyślnie własny schemat „bez skali”, jak w podręcznikach. Modele z Sketchfab i NIH 3D tylko po weryfikacji autora i licencji.
-5. **Nowe zdania** (cel lekcji, pytanie planszy, opis ≤ 3 zdania, „Sprawdź się”, panele gablot) przechodzą bramkę §3.6. Skrót sprawdzonego zdania też jest nowym zdaniem.
-
-## 4. Wspólna kolejność wdrożenia
-
-Zasada: najpierw to, co najbardziej pomaga licealiście przy najmniejszym koszcie. Potem jedna plansza wzorcowa i jedna gablota wzorcowa. Potem **test z licealistami jako bramka**, a dopiero po nim rozwinięcie na całość.
-
-| Faza | Co | Kto (pliki) | Godziny agentów | Warunek wyjścia |
+| Kamień | Wynik do obejrzenia | Kto | Szacunek | Warunek przejścia |
 |---|---|---|---|---|
-| **F1** szybkie poprawki (równolegle) | U0: kolejność panelu, protokół do „ⓘ”, K4, nazwany moment, przełącznik poziomu, telefon (tytuł nad obrazem, pasek „więcej”), jednolite nazwy | integrator (`src/atlas/**`) | 8–10 | zrzuty 12 × (1440, 390), konsola czysta, `check:atlas` 0 |
-| | U0-treść: 12 × cel lekcji, pytanie, liczba-bohater, opis ≤ 3 zdania; 3 opisy momentu (K4) | agent treści + sprawdzający (`facts/*.json`) | 10–13 | 0 tekstów niesprawdzonych na ekranie |
-| | N1-K1: eksport serca (HuBMAP), `_ID`, licencje, **pomiar FPS i MB** | Wizualizator (`public/organs/**`, `scripts/`) | 3–4 | ≥ 50 FPS UHD, ≤ 4 MB |
-| | fakty podręcznikowe serca (wznowienie E1-K3 w zakresie serca) | agent faktów + sprawdzający | 4–6 | panel serca z cytatami |
-| **F2** rama i serce wzorcowe | U1: wspólna rama (scena-studio, chip skali, lokalizator, „Jak czytać”, „Co się zmieniło”, „Sprawdź się”, interfejs wyróżnika). Integrator **najpierw publikuje kontrakt ramy** (ok. 2 h), żeby Wizualizator nie czekał | integrator | 12–16 | 1 plansza wzorcowa + zrzuty |
-| | N1-K2/K3: `OrganView` serca na ramie z U1 (przekrój, wybór, panel, Sprawdź się, Spoczynek/Wysiłek) i film cyklu serca (wariant zastawek A) | Wizualizator (`src/organs/**`) | 16–22 | ≥ 50 FPS, zrzuty, audyt Dyrygenta |
-| **F3** pilot wyróżników | U2a: 4 wyróżniki 2D (krwionośny, kostny, nerwowy, powłokowy) | 1–2 agentów układów (`src/atlas/signatures/<uklad>.tsx`) | 10–12 | audyt Dyrygenta + „test zmiennej” |
-| **Bramka** | **pokaz użytkownikowi + test z 2–3 licealistami** (U4 przeniesiony wcześniej): plansza wzorcowa, 4 wyróżniki, gablota serca | użytkownik + agent UX | 4–6 | lista poprawek; decyzja o F4 |
-| **F4** rozwinięcie | U2b: 8 pozostałych wyróżników 2D | 2–3 agentów układów | 18–24 | audyt |
-| | U3: wyróżniki w 3D widoku układów (strzałki `flows3d`, punkty, bez `sin(uTime)`) | Wizualizator (`src/atlas3d/**`) | 20–24 | ≥ 50 FPS dla 12 układów |
-| | N2–N4: nerka, wątroba, mózg na wzorcu serca, wraz z faktami. Proponowany **drugi agent 3D**, bo `src/organs/**` i `src/atlas3d/**` są rozłączne, a jeden Wizualizator byłby wąskim gardłem | drugi agent 3D + agent faktów | 38–52 + fakty 12–18 | każda gablota: K1–K3 i audyt |
+| **M1 Poprzeczka** | 4 klatki docelowe z prawdziwych modeli: serce z krwinkami 3D, ROZDZIAŁ krwionośnego w 3D, wejście diegetyczne w serce, wspólny język światła z filmem; przy każdej opis „co tu widać i czego uczy” | Reżyser | 4–8 h (niepewność duża) | akceptacja Dyrygenta, pokaz użytkownikowi |
+| **M2 Test serca** | prototyp jednego ujęcia (skurcz serca HuBMAP + krwinki 3D przez jamy i zastawki), tylko w `prototypes/**`; nagranie lub seria zrzutów; FPS na Intel UHD (1440×900) dla obu poziomów; porównanie z klatką M1; czas szacowany i rzeczywisty; ocena kosztu zastawek B | Wizualizator | 6–12 h (niepewność duża) | uproszczony ≥ 50 FPS UHD; wygląd blisko M1 |
+| **M2′ Przeliczenie** | tabela: szacunek a rzeczywistość dla M1 i M2, nowe przedziały dla M3–M8 | Dyrygent | — | raport do koordynatora |
+| **BRAMKA A** | użytkownik ogląda M1 i M2 i decyduje o kierunku | użytkownik | — | zgoda na M3–M6 |
+| **M3 Czytelność (U0)** | 24 zrzuty przed i po (12 plansz × 1440 i 390): cel lekcji, pytanie, liczba-bohater, protokół w „ⓘ”, nazwany moment, telefon z tytułem, 0 tekstów roboczych | integrator + agent treści + sprawdzający | po M2′ | `check:atlas` 0, konsola czysta |
+| **M4 Wspólny moduł** | moduł wydzielony z filmu; **akt 3 filmu (Cardiopulmonary) działa na nim bez regresji** (nagranie przed i po, FPS); ten sam moduł w prototypie gabloty | Wizualizator (+ integrator dla punktu wpięcia) | po M2′ | film bez regresji, oba poziomy jakości |
+| **M5 Serce wzorcowe** | nagranie: widok krwionośny 3D → kliknięcie serca → wjazd kamery → gablota (obrót, ujęcia, przekrój, najechanie, panel Podstawowy, Sprawdź się) → film cyklu serca; FPS na UHD dla obu poziomów | Wizualizator + agent faktów | po M2′ | audyt Dyrygenta (K1–K3 jak w E3) |
+| **M6 Rama i pilot wyróżników** | wspólna rama (U1) i 4 wyróżniki jako animacje 3D (krwionośny, kostny, nerwowy, powłokowy) z wersją uproszczoną; nagrania 2D i 3D | integrator + agenci układów + Wizualizator | po M2′ | „test zmiennej”, ≥ 50 FPS UHD |
+| **BRAMKA B** | pokaz użytkownikowi i test z 2–3 licealistami (ok. 5 min na osobę, „mów na głos”) | użytkownik | — | lista poprawek, zgoda na M7–M8 |
+| **M7 Rozwinięcie atlasu** | 8 pozostałych wyróżników 3D + wpięcie do aktów filmu (§3) | agenci układów + Wizualizator | po bramce B | nagrania, FPS |
+| **M8 Gabloty nerki, wątroby i mózgu** | każda gablota jako osobny kamień z nagraniem wejścia, gabloty i filmu działania + wpięcie do aktu filmu | drugi agent 3D + agent faktów | po bramce B | audyt każdej gabloty |
 
-**Szacunek łączny:** ok. **155–210 godzin pracy agentów**. Wspólna rama i „Sprawdź się” oszczędzają kilka godzin na gablotach.
+M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równolegle** z M1–M2.
 
-| Odcinek | Godziny agentów |
+**Uczciwie o niepewności:** poprzednie szacunki (155–210 h) dotyczyły „kresek”. Nowa poprzeczka (animacja filmowa, wspólny moduł, wejście diegetyczne) podnosi koszt w nieznanym stopniu. Wiarygodną liczbę da dopiero M2′. Do tego czasu nie podajemy łącznej sumy godzin.
+
+## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
+
+| Element (atlas lub gablota) | Akt filmu |
 |---|---|
-| F1–F3 i bramka | ok. 65–90 |
-| F4 | ok. 90–120 |
+| serce: skurcz, krwinki przez jamy i zastawki | Akt 3 Cardiopulmonary |
+| oddechowy: OBJĘTOŚĆ (wentylacja) | Akt 3 Cardiopulmonary |
+| krwionośny: ROZDZIAŁ krwi do mięśni | Akt 3 i Akt 6 HIIT Limits |
+| nerwowy: IMPULS; mózg: droga ruchowa „decyzja sprint” | Akt 2 Neural Mobilization |
+| mięśniowy: PRACA (rekrutacja włókien) | Akt 4 Muscle Engines |
+| wątroba: glikogen → glukoza; pokarmowy: MAGAZYN | Akt 5 Energy Mitochondria |
+| powłokowy: CIEPŁO (pot, przepływ skórny) | Akt 6 HIIT Limits |
+| hormonalny: NADAWCA → ODBIORCA | Akt 8 Neurochemical Symphony (i Akt 7 Crosstalk) |
+| limfatyczny: PATROL (komórki NK) | Akt 7 Body-Brain Crosstalk |
+| nerka: filtracja, mniej krwi w wysiłku; moczowy: FILTR | Akt 11 Recovery Homeostasis |
+| kostny: KONSTRUKCJA; rozrodczy: DŁUGI CZAS | Akt 12 Week-Month-Year (adaptacja) i Akt 1 Gym Awakening (krok biegu) |
 
-Przy 3–4 sesjach równolegle:
-- F1–F3: ok. 2–3 dni kalendarzowe;
-- F4: ok. 3–4 dni.
+## 4. Pytania do użytkownika (zostają tylko te)
 
-**Koszt pieniężny: 0 zł.** Pobrania są darmowe i z oficjalnych źródeł: HuBMAP, NeuroMorpho, OrganUI.
+1. **Start:** czy zaczynamy od M1 (klatki docelowe) i M2 (test serca), a potem pokaz (bramka A)? Czy przy okazji równolegle M3 (poprawki czytelności plansz)?
+2. **Fakty podręcznikowe:** czy wznowić ich sprawdzanie? Bez nich gabloty nie mają opisu budowy. Rekomendacja: tak, równolegle z M2.
+3. **Telefon:** czy licealiści mają mieć gabloty na telefonie? Plan zakłada na telefonie planszę 2D z wypieczonymi ujęciami i stukaniem w części, a pełne 3D na komputerze.
+4. **Test:** czy możesz po M6 pokazać atlas 2–3 licealistom (ok. 5 minut na osobę)?
 
-Wąskie gardło: **agent faktów** (U0-treść, opisy momentu, panele 4 gablot, grupowanie obszarów mózgu). Dlatego pierwsza wersja gablot powstaje na poziomie Podstawowym.
-
-## 5. Pytania do użytkownika
-
-1. **Start:** czy ruszamy z F1–F3 (szybkie poprawki, wspólna rama, serce wzorcowe, 4 wyróżniki), a potem pokaz? (ok. 65–90 h pracy agentów)
-2. **Fakty podręcznikowe:** czy wznowić ich sprawdzanie (wstrzymane przy 3D)? Bez nich gabloty nie mają opisu budowy. Rekomendacja: tak.
-3. **Telefon:** czy licealiści mają mieć gabloty i 3D także na telefonie? Dziś 3D działa tylko na komputerze, a na telefonie są plansze 2D. Rekomendacja: gabloty na telefonie w lżejszej wersji po teście.
-4. **Test:** czy możesz po F3 pokazać atlas 2–3 licealistom (ok. 5 minut na osobę, „mów na głos, co widzisz”)?
-5. **Wejście do gablot:** osobne menu „Narządy” i skrót przez kliknięcie serca w widoku układu krwionośnego. Rekomendacja: oba.
-6. **Zastawki serca:** w pierwszej wersji zmiana koloru i przepływ krwi, bez ruchu płatków. Ruch płatków później jako dodatek. Rekomendacja: tak.
-7. **Nefron:** czy schemat „bez skali”, jak w podręczniku, jest w porządku? Rekomendacja: tak.
+Pytania o wejście do gablot, zastawki, nefron i zakres treści są zamknięte (§7 (g)).
