@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas 3D · P1 Gablota</title>
+  <link rel="stylesheet" href="../shared/ui.css" />
+  <style>
+    #side { left: 16px; top: 64px; width: 270px; }
+    #summary { right: 16px; top: 64px; width: 270px; font-size: 15px; line-height: 1.45; }
+    #compass { left: 50%; transform: translateX(-50%); bottom: 16px; display: flex; gap: 6px; align-items: center; padding: 8px 10px; }
+    #compass .btn[aria-pressed='true'] { background: #253350; }
+    #dial { width: 46px; height: 46px; }
+  </style>
+</head>
+<body>
+  <div id="stage"></div>
+  <div class="chip left">ATLAS 3D · <b>P1 Gablota</b> · prototyp</div>
+  <div class="chip right" id="chipR">SPOCZYNEK</div>
+  <div class="panel" id="side">
+    <div class="cap">Układ</div>
+    <div class="seg" id="sys">
+      <button data-v="krwionosny" aria-pressed="true">Krwionośny</button>
+      <button data-v="miesniowy">Mięśniowy</button>
+    </div>
+    <div class="cap">Moment</div>
+    <div class="seg" id="state">
+      <button data-v="rest" aria-pressed="true">Spoczynek</button>
+      <button data-v="sprint" class="sprint">Sprint HIIT</button>
+    </div>
+    <div class="cap">Poziom</div>
+    <div class="seg" id="tier">
+      <button data-v="primary" aria-pressed="true">Podstawowy</button>
+      <button data-v="all">Rozszerzony</button>
+    </div>
+    <div class="cap">Zbliżenie</div>
+    <div class="seg" id="detail"></div>
+    <p class="hint">Przeciągnij w poziomie, żeby obrócić. Po puszczeniu widok wraca do najbliższego ujęcia kluczowego. Strzałki ← → obracają o 90°.</p>
+    <p class="proto-note">Prototyp do porównania. Zgodny z decyzją z §7 modelu: tylko obrót poziomy i gotowe ujęcia.</p>
+  </div>
+  <div class="panel" id="summary"></div>
+  <div class="panel" id="compass">
+    <svg id="dial" viewBox="-25 -25 50 50"><circle r="20" fill="none" stroke="#33456b" /><line id="needle" x1="0" y1="0" x2="0" y2="-18" stroke="#fff" stroke-width="2" /><text y="5" text-anchor="middle" fill="#8c97ab" font-size="9">góra</text></svg>
+    <button class="btn" data-az="0">Przód</button>
+    <button class="btn" data-az="90">Bok lewy</button>
+    <button class="btn" data-az="180">Tył</button>
+    <button class="btn" data-az="270">Bok prawy</button>
+  </div>
+  <div class="lic" id="lic"></div>
+  <div class="loading" id="loading">WCZYTUJĘ MODELE Z-ANATOMY…</div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

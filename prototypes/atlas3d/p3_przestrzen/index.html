@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas 3D · P3 Pełna przestrzeń</title>
+  <link rel="stylesheet" href="../shared/ui.css" />
+  <style>
+    #side { left: 16px; top: 64px; width: 260px; max-height: calc(100vh - 110px); overflow: auto; }
+    #side label { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 3px 0; cursor: pointer; }
+    #side i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+    #side input[type=range] { width: 100%; }
+    #info { right: 16px; top: 64px; width: 280px; font-size: 14px; display: none; }
+    #fly { left: 50%; transform: translateX(-50%); bottom: 16px; padding: 10px 14px; display: none; text-align: center; min-width: 380px; }
+    #warn { right: 16px; bottom: 40px; width: 300px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div id="stage"></div>
+  <div class="chip left">ATLAS 3D · <b>P3 Pełna przestrzeń</b> · propozycja poza decyzją §7</div>
+  <div class="chip right" id="chipR">SPOCZYNEK</div>
+  <div class="panel" id="side">
+    <div class="cap">Moment</div>
+    <div class="seg" id="state"><button data-v="rest" aria-pressed="true">Spoczynek</button><button data-v="sprint" class="sprint">Sprint HIIT</button></div>
+    <div class="cap">Warstwy</div>
+    <div id="layers"></div>
+    <div class="cap" style="margin-top:10px">Krycie mięśni i kości</div>
+    <input type="range" id="opacity" min="0.08" max="1" step="0.01" value="1" />
+    <div class="cap" style="margin-top:10px">Przelot</div>
+    <button class="btn" id="flyBtn" style="width:100%">Wzdłuż tętnicy: aorta → stopa</button>
+    <button class="btn" id="reset" style="width:100%;margin-top:6px">Widok startowy</button>
+    <p class="hint">Lewy przycisk: obrót w każdą stronę. Kółko: przybliżenie do kursora. Prawy przycisk: przesuwanie. Kliknięcie: nazwa struktury.</p>
+  </div>
+  <div class="panel" id="info"></div>
+  <div class="panel" id="fly"><div class="cap">Przelot wzdłuż toru krwi (flows3d, tętnica)</div><div id="flyTxt"></div>
+    <button class="btn" id="flyStop" style="margin-top:6px">Zakończ przelot</button></div>
+  <div class="panel proto-note" id="warn">P3 wykracza poza decyzję użytkownika z 2026-11-25 (model §7: obrót poziomy + widoki kluczowe, bez wolnej orbity i dowolnego zoomu). Zbudowana tylko do porównania.</div>
+  <div class="lic">Modele: Z-Anatomy (CC BY-SA 4.0), nerki HuBMAP (CC BY 4.0, osobny plik). Prototyp.</div>
+  <div class="loading" id="loading">WCZYTUJĘ CAŁE CIAŁO…</div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
