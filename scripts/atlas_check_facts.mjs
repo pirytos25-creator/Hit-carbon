@@ -234,6 +234,7 @@ for (const sys of ATLAS_SYSTEMS) {
     if (sg.variable?.kind === 'illustration' && !sg.chips.includes('ilustracja')) err(`${where}: zmienna poglądowa bez chipu „ilustracja”`);
     for (const a of sg.anchors) if (!anchorsOf.has(a)) err(`${where}: kotwica ${a} nie istnieje`);
     if (!sg.legend?.length) err(`${where}: pusta legenda „Jak czytać”`);
+    for (const ch of sg.chips ?? []) if (!['powiększone', 'ilustracja', 'ruch poglądowy', 'schemat · bez skali'].includes(ch) && !/^zwolnione ×\d+(,\d+)?$/.test(ch)) err(`${where}: chip „${ch}” spoza listy (kontrakt §1)`);
     for (const t of [sg.namePl, sg.variable?.labelPl, ...sg.legend.map((x) => x.labelPl)]) if (/\d/.test(t ?? '')) err(`${where}: tekst wyróżnika z cyfrą („${t}”); liczby tylko z metryki`);
     const f3 = join(root, 'public', 'atlas', c.id, 'flows3d.json');
     const flowIds = existsSync(f3) ? new Set(JSON.parse(readText(f3)).flows.map((x) => x.id)) : new Set();

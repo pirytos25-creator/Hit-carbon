@@ -25,7 +25,7 @@ signature: {
     ],
     labelPl: 'dokąd idzie krew', // co pokazuje ruch (słowami)
   },
-  flows: ['aorta_to_leg', 'leg_to_heart'],  // ID torów z public/atlas/<uklad>/flows3d.json (dane dla cząstek); [] = bez torów
+  flows: ['artery_leg', 'vein_leg'],        // ID torów z public/atlas/<uklad>/flows3d.json (dane dla cząstek); [] = bez torów
   anchors: ['aortic_arch', 'femoral'],      // kotwice, przy których dzieje się ruch (nie zasłaniamy ich podpisów)
   legend: [                                 // „Jak czytać”: JEDYNE miejsce na symbole i kreski (decyzja Dyrygenta)
     { symbol: 'particle', labelPl: 'krwinka (powiększona)' },
@@ -39,6 +39,7 @@ signature: {
 Zasady danych:
 - **Wielkość ruchu tylko z faktu** `checked_*` (`variable.kind = 'metric'`, walidator sprawdza każdy `factIds`: istnieje, ta plansza, status checked). Gdy fakty dają kierunek, a krok między stopniami jest umowny (np. ROZDZIAŁ: 3 stopnie przepływu), `kind: 'metric'` + chip „ilustracja”. Bez faktu: `kind: 'illustration'` z najwyżej 3 stopniami i chipem „ilustracja”; `kind: 'order'` dla samej kolejności zdarzeń (np. IMPULS: mózg → rdzeń → nerw → mięsień).
 - Teksty `namePl`, `variable.labelPl`, `legend[].labelPl` to teksty interfejsu, nie fakty. Nie mogą zawierać liczb ani twierdzeń o zmianie (walidator: brak cyfr). Liczba trafia na ekran tylko z metryki.
+- Chipy nie podlegają regule „bez cyfr”, ale muszą być z listy: „powiększone”, „ilustracja”, „ruch poglądowy”, „schemat · bez skali” albo „zwolnione ×N” z konkretną liczbą N (np. „zwolnione ×4”), którą wyznacza reguła wyróżnika. Walidator odrzuca inne chipy i „×N” bez liczby.
 - `flows` to **dane torów**, a nie rysowane strzałki. Cząstki jadą po torze; strzałka istnieje tylko w legendzie.
 
 ### 1a. Pola specyfikacji Reżysera → kontrakt
