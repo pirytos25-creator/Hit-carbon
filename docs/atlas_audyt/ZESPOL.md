@@ -57,3 +57,7 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - 10 werdyktów (5 ról × 2 rundy) + `zgromadzenie/DECYZJA_KONCOWA.md` (`9916381`): **przyjęty z jedną ostatnią rundą poprawek** (A treść, B dostępność, C licencje, D bramka faktów).
 - W toku: integrator – runda końcowa → `PUNKT KONTROLNY runda końcowa`.
 - Potem: niezależna kontrola (nowe brzmienia `draft`, 9 pozycji reguły ostatniej rundy, ≥ 10% ról i podsumowań na układ, dopasowanie opisu do struktury) → integrator nadaje statusy → scalenie → `RAPORT_KONCOWY.md`.
+
+## ZAKOŃCZONE (2026-11-26)
+- Kontrola końcowa (`0d3e895`) i statusy wg niej scalone; walidator naprawiony. Stan: 71 liczb, 164 opisy ról, 162 budowy, 21 podsumowań, 0 `draft`; build i `check:atlas` 0; 24 zrzuty bez błędów.
+- `RAPORT_KONCOWY.md` zatwierdzony. Prace Dyrygenta zakończone; bez push.
