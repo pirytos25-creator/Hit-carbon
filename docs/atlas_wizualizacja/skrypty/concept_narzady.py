@@ -1,6 +1,6 @@
 # Klatki koncepcyjne „Gablot narządów” (plan NARZADY_PLAN.md). Tylko render poglądowy, nie eksport do aplikacji.
 # Geometria: wyłącznie HuBMAP (CC BY 4.0), bez Z-Anatomy w tym samym pliku/ujęciu. Kolory: palette.json.
-# Uruchomienie (przez slot): blender --background --factory-startup --python blender/atlas/concept_narzady.py -- <out_dir> [klatka ...]
+# Uruchomienie (przez slot): blender --background --factory-startup --python docs/atlas_wizualizacja/skrypty/concept_narzady.py -- <out_dir> [klatka ...]
 import bpy, bmesh, sys, os, math, json
 from mathutils import Vector
 
