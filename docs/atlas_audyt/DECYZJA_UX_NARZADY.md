@@ -183,6 +183,26 @@ Kalendarzowo, przy 2–3 sesjach równolegle i sprawnych decyzjach: ok. 3–6 dn
 | Reżyser | scenariusz kroków filmu serca (M5; najwyżej 1 nowy ruch na krok) i specyfikacje 4 wyróżników (krwionośny ROZDZIAŁ, kostny KONSTRUKCJA, nerwowy IMPULS, powłokowy CIEPŁO): zmienna, Low, „Jak czytać” | `docs/atlas_rezyser/**` | teraz |
 | Agenci 4 układów | **M6 wyróżniki**: 2D `src/atlas/signatures/<uklad>.tsx` i 3D jako wtyczka do modułu według kontraktu | każdy tylko swoje pliki | po M4 i kontrakcie |
 
+### Kamień ML: licencje i wdrożenie w szkołach (po audycie komercyjnym, 2026-11-26)
+Podstawa: `docs/atlas_audyt/AUDYT_KOMERCYJNY.md` (koordynator) i wymóg (l). Kamień rusza **po M5**, żeby nie blokować gabloty serca. Pozycje blokujące czekają na decyzję użytkownika.
+
+| Pozycja | Kto | Kiedy |
+|---|---|---|
+| **Mózg filmu** (`brain_macro.glb`, Allen v1.2 bez komercji): przebudowa z kory Brainder (rekomendacja) albo Allen v1.3 | Wizualizator | **decyzja użytkownika** |
+| **Lektor filmu** (68 MP3 z Edge „Czytaj na głos”, brak zgody na komercję): Azure płatny / Piper lokalny / lektor-człowiek | integrator | **decyzja użytkownika** |
+| Ekran „Źródła i licencje” z manifestów i `creditsPl`, stały link w atlasie, 3D, filmie i gablotach | integrator | po M5 |
+| Krok prebuild: publiczne fakty bez `quote`, `checkedBy`, `auto` (152 cytaty poza bundlem); `check:licencje` z błędem, gdy w dist są te pola lub zewnętrzne CDN | integrator | po M5 |
+| Cytaty ze źródeł NC-ND i zastrzeżonych (StatPearls, Clinical Methods) w ogóle poza repozytorium produktu, tylko w dokumentacji kontroli | integrator | teraz (partia 2) |
+| Pole `license` w `ScientificReferences`; pełny podpis OpenStax („Access for free at…”) | integrator | po M5 |
+| **Wstrzymanie automatycznego pobierania OpenStax przez agentów** (zastrzeżenie OpenStax wobec AI); partia 3 E1-K3 czeka na nowe zasady źródeł | Dyrygent | od teraz |
+| Atrybucje z URI licencji: DBCLS CC BY-SA 2.1 JP, Brainder, Dundee, HuBMAP z cytowaniem Browne 2020 i opisem zmian | Wizualizator | po M5 |
+| Sprawdzenie nerwu VIII, gałęzi tętnicy nerkowej i kosteczek słuchowych pod `NC_BLOCKLIST` | Wizualizator | po M5 |
+| Czcionki u siebie (@fontsource, OFL), usunięcie nieużywanego gsap; zgłoszenie zmian `package.json` koordynatorowi | integrator | po M5 |
+| Film: skróty klawiszowe tylko przy fokusie, wersja tekstowa aktów, `BASE_URL` w `AssetManager`, start na Low na słabym GPU, ekran dla telefonu | integrator | po M5 |
+| Poprawki `docs/LICENSES_AND_ASSETS.md` (Allen, „lokalny” lektor, GSAP, lucide ISC, postprocessing Zlib, BodyParts3D CC BY 4.0) i pliki LICENSE/NOTICE | integrator | razem z atrybucją Brainder |
+| Rejestr zasobów `docs/ASSET_REGISTRY.json` | integrator + Wizualizator | po M5 |
+| Projekty regulaminu, polityki prywatności, deklaracji dostępności i raportu WCAG; tabela zgodności z podstawą 2024/2027 | Dyrygent (projekty) → prawnik i nauczyciel | po M6 |
+
 ## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
 
 | Element (atlas lub gablota) | Akt filmu |
