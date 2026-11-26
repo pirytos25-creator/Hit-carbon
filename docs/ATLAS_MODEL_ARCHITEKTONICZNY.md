@@ -445,6 +445,10 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   3. nerka, wątroba, mózg pod M8.
 
   Wyszukuje i sprawdza dwóch niezależnych agentów Dyrygenta. Fakty do danych wpisuje integrator w osobnym commicie.
+- (k) 2026-11-26: po przeglądzie wcześniejszego NeuroAtlasu (AtlasClaude) użytkownik zdecydował: **do atlasu HIIT nie wchodzą żadne dane FreeSurfer** (fsaverage, aseg, brain.mgz) i **nie ma trzeciego prefiksu licencji** (tylko `za_` i `hra_`).
+  - Z AtlasClaude przenosimy wyłącznie koncepcje: fala impulsu po rurze nerwu, kamera za impulsem, przekrój mózgu na GPU.
+  - Kod kopiujemy dopiero wtedy, gdy tamto repozytorium dostanie plik LICENSE.
+  - Do sprawdzenia: pochodzenie i licencja mózgu Brainder w Z-Anatomy (nazwy obszarów Destrieux z FreeSurfera), zanim stanie się bazą gabloty mózgu (M8).
 
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)
