@@ -17,23 +17,10 @@ export const MOZG: AtlasPlateContent = {
   summary: {
     rest: 'W spoczynku mózg pracuje bez przerwy: zużywa ok. 20% tlenu całego ciała, spalając głównie glukozę.',
     sprint:
-      'W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
+      'W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max; mleczan mierzono przy dodatkowym wlewie mleczanu, a glukozę porównano z lekkim wysiłkiem przy 30% VO₂max).',
   },
   summaryReferenceIds: { rest: ['raichle_gusnard_2002'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
-  // Reguła 1b: dopóki `summary` czeka na sprawdzenie, na ekranie są tylko zdania już potwierdzone (brzmienie sprawdzone w K3).
-  summaryVerified: {
-    rest: {
-      text: 'W spoczynku mózg pracuje bez przerwy i zużywa dużą część tlenu całego ciała, głównie z glukozy.',
-      referenceIds: ['raichle_gusnard_2002'],
-      source: 'fakty_draft_K3_ruch.md, mozg summary (spoczynek): zd. 1 ma oparcie',
-    },
-    sprint: {
-      text: 'Mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
-      referenceIds: ['van_hall_2009', 'kemppainen_2005'],
-      source: 'fakty_draft_K3_ruch.md, mozg summary (sprint): zd. 3 ma oparcie',
-    },
-  },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // fakty_draft_K3_ruch.md: oba disputed -> zostały tylko zdania ze źródłem = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek Raichle & Gusnard 2002 akapit 1-2; sprint disputed (protokół) -> dopisek = draft
   labels: [
     // --- widok z boku (podpisy po lewej)
     {
@@ -44,7 +31,7 @@ export const MOZG: AtlasPlateContent = {
       role: { rest: 'Planowanie i decyzje', sprint: 'Tlen rośnie, spada dopiero przy maksimum' },
       tier: 'secondary',
       referenceIds: ['rooks_2010'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23-#33; fakty_draft_K3_ruch.md: unverifiable -> bez „Pilnuje celu”, + rooks_2010 = draft
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #23-#33; fakty_draft_1b.md: Rooks 2010, abstrakt, wniosek
     },
     {
       anchor: 'motor_cortex',

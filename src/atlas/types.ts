@@ -62,6 +62,8 @@ export interface AtlasLabel {
    * Nakładka pokazuje pod opisem zdanie z drabiny sformułowań (model §3.4), gdy poziom ≠ 'established_human'.
    */
   evidence?: EvidenceLevel;
+  /** Przeliczenie, gdy liczby z opisu roli nie ma dosłownie w cytacie (np. „208 − 0,7 × 25 = 190,5”). */
+  conversionNote?: string;
 }
 
 /** Liczba w parze spoczynek → sprint. Każda musi mieć źródło. */
