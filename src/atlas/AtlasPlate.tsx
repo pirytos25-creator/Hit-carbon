@@ -35,7 +35,6 @@ const FONT = { name: 15, lat: 14, role: 14, title: 14, pin: 14 };
 const COL_MAX = 216;
 const COL_MIN = 140;
 const CHAR = 0.56; // szacunkowa szerokość znaku względem rozmiaru czcionki (zawijanie, wysokość bloku)
-const PENDING = 'opis czeka na sprawdzenie źródła';
 
 /** Poziom podstawowy: rozwinięte skróty na początku nazwy (zgromadzenie, dydaktyk): „T.” → „Tętnica” itd. */
 const NAME_ABBR: [RegExp, string][] = [
@@ -49,6 +48,39 @@ const NAME_ABBR: [RegExp, string][] = [
 export function expandName(name: string): string {
   for (const [re, full] of NAME_ABBR) if (re.test(name)) return name.replace(re, full);
   return name;
+}
+
+/**
+ * M3 (S8): poziom podstawowy bez skrótów „t.”, „ż.”, „tt.”, „żż.” także w środku tekstu (podpisy strzałek, opisy).
+ * Forma rzeczownika wg końcówki przymiotnika: „ż. wrotnej” → „żyły wrotnej”, „żż. wątrobowe” → „żyły wątrobowe”.
+ */
+export function fullWords(text: string): string {
+  return expandName(text).replace(/(^|[\s(→,;:])(żż|tt|mm|ż|t|m)\. (\p{Ll}+)/gu, (_m, pre: string, ab: string, w: string, at: number, all: string) => {
+    if (ab[0] === 'm') {
+      // mięsień: „m. piszczelowy” → „mięsień piszczelowy”, „m. czworogłowego” → „mięśnia …”, „mm. …ych” → „mięśni …”
+      const noun =
+        ab === 'mm' ? (/ych$/.test(w) ? 'mięśni' : 'mięśnie') : /(ego|iego)$/.test(w) ? 'mięśnia' : /(ym|im)$/.test(w) ? (/(^|\s)[wW]$/.test(all.slice(0, at).trimEnd()) ? 'mięśniu' : 'mięśniem') : 'mięsień';
+      return `${pre}${noun} ${w}`;
+    }
+    const vein = ab[0] === 'ż';
+    let noun: string;
+    if (ab.length === 2) noun = /ych$/.test(w) ? (vein ? 'żył' : 'tętnic') : vein ? 'żyły' : 'tętnice';
+    else if (/ej$/.test(w)) noun = vein ? 'żyły' : 'tętnicy';
+    else if (/ą$/.test(w)) noun = vein ? 'żyłę' : 'tętnicę'; // biernik: „łączy ż. odpromieniową” → „żyłę”
+    else noun = vein ? 'żyła' : 'tętnica';
+    return `${pre}${noun} ${w}`;
+  });
+}
+
+/** M3 (S12): chip skali widoku: wysokość kadru z kamery ortho albo „schemat, bez skali”. */
+export function scaleChip(anchors: AtlasAnchorsFile, view: AtlasView, scaleFree?: AtlasView[]): string | null {
+  if (scaleFree?.includes(view)) return 'schemat, bez skali';
+  const cam = anchors.views[view]?.camera;
+  if (!cam) return null;
+  const [w, h] = viewResolution(anchors, view);
+  const m = (cam.orthoScale * h) / Math.max(w, h);
+  const txt = m >= 1 ? `${m.toFixed(1).replace('.', ',')} m` : m >= 0.1 ? `${Math.round(m * 100)} cm` : `${Math.round(m * 1000)} mm`;
+  return `wysokość kadru ok. ${txt}`;
 }
 
 function wrapCount(text: string, maxChars: number): number {
@@ -194,13 +226,13 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   const blockPxC = (l: AtlasLabel, c: number) => {
     const charsFor = (f: number) => Math.max(10, Math.floor((c - 16) / (f * CHAR)));
     const rt = roleText(l);
-    const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
+    const roleLines = rt ? wrapCount(extended ? rt : fullWords(rt), charsFor(FONT.role)) : 0;
     const ev = roleEvidence(l);
     const evLines = rt && ev && ev !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[ev], charsFor(FONT.role)) : 0;
     return (
       evLines * FONT.role * 1.3 +
-      wrapCount(extended ? l.namePl : expandName(l.namePl), charsFor(FONT.name)) * FONT.name * 1.22 +
-      (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
+      wrapCount(extended ? l.namePl : fullWords(l.namePl), charsFor(FONT.name)) * FONT.name * 1.22 +
+      (extended && l.nameLat ? wrapCount(`(${l.nameLat})`, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
       roleLines * FONT.role * 1.35 +
       6
     );
@@ -355,16 +387,16 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     return (
       <>
         <span className="block font-display font-bold text-slate-50" style={{ fontSize: FONT.name, lineHeight: 1.22 }}>
-          {extended ? l.namePl : expandName(l.namePl)}
+          {extended ? l.namePl : fullWords(l.namePl)}
         </span>
         {extended && l.nameLat && (
           <span className="block italic text-slate-400" style={{ fontSize: FONT.lat, lineHeight: 1.3 }}>
-            {l.nameLat}
+            ({l.nameLat})
           </span>
         )}
         {rt ? (
           <span className="block" style={{ fontSize: FONT.role, lineHeight: 1.35, color: sprint && primary ? colorLight : '#cbd5e1', textAlign: align }}>
-            {rt}
+            {extended ? rt : fullWords(rt)}
           </span>
         ) : null}
         {rt && roleEvidence(l) && roleEvidence(l) !== 'established_human' ? (
@@ -372,11 +404,6 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
             {EVIDENCE_PHRASE[roleEvidence(l)!]}
           </span>
         ) : null}
-        {!rt && extended && (
-          <span className="block italic text-slate-400" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
-            {PENDING}
-          </span>
-        )}
       </>
     );
   };
@@ -503,6 +530,11 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
             }}
           >
             {content.viewTitlesPl[f.view as AtlasView] ?? f.view}
+            {scaleChip(anchors, f.view as AtlasView, content.scaleFreeViews) && (
+              <span className="ml-2 inline-block rounded-full border border-slate-700 bg-slate-900/70 px-2 normal-case tracking-normal font-normal text-slate-300">
+                {scaleChip(anchors, f.view as AtlasView, content.scaleFreeViews)}
+              </span>
+            )}
           </figcaption>
         ))}
         {!pinsMode &&

@@ -1,5 +1,5 @@
 import paletteJson from './data/palette.json';
-import type { AtlasFactStatus, AtlasPlateContent, AtlasState, AtlasSystemId } from './types';
+import type { AtlasCurriculumRef, AtlasFactStatus, AtlasLessonText, AtlasPlateContent, AtlasState, AtlasSystemId } from './types';
 import { ATLAS_SHOWN_STATUSES } from './types';
 
 /** Paleta atlasu: jedno źródło kolorów dla Pythona i TS (src/atlas/data/palette.json). */
@@ -64,6 +64,41 @@ export function isShown(status: AtlasFactStatus | undefined): boolean {
 export function shownSummary(content: AtlasPlateContent, state: AtlasState): string | null {
   if (isShown(content.summaryStatus?.[state])) return content.summary[state];
   return content.summaryVerified?.[state]?.text ?? null;
+}
+
+/**
+ * Zdanie o „sprincie” dla planszy bez własnego opisu momentu (protokół wzorcowy aplikacji, model §3.7).
+ * To samo w sobie nie jest faktem z planszy, tylko definicją atlasu.
+ */
+export const DEFAULT_PROTOCOL_NOTE =
+  '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.';
+
+/**
+ * Bramka pola protocolNotePl (M3, S2): plansza bez własnego opisu dostaje zdanie wzorcowe; własny opis tylko sprawdzony.
+ * Niesprawdzony opis = null: w Podstawowym nie ma żadnego zdania zastępczego (status tylko w Rozszerzonym, pod „Więcej”).
+ */
+export function shownProtocolNote(content: AtlasPlateContent): string | null {
+  if (!content.protocolNotePl) return DEFAULT_PROTOCOL_NOTE;
+  return isShown(content.protocolNoteStatus) ? content.protocolNotePl : null;
+}
+
+/**
+ * Podgląd szkiców (`?szkice=1` w adresie): pokazuje nowe teksty lekcji ze statusem `draft` z wyraźnym znacznikiem
+ * „szkic”, wyłącznie do zrzutów dla agenta sprawdzającego. Bez parametru szkic nie istnieje na ekranie.
+ */
+export const DRAFT_PREVIEW = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('szkice');
+
+/** Bramka tekstów lekcji (M3): sprawdzony tekst albo nic (szkic tylko w podglądzie `?szkice=1`). */
+export function lessonText(t: AtlasLessonText | undefined): { text: string; draft: boolean } | null {
+  if (!t) return null;
+  if (isShown(t.status)) return { text: t.text, draft: false };
+  return DRAFT_PREVIEW && t.status === 'draft' ? { text: t.text, draft: true } : null;
+}
+
+/** Bramka hasła podstawy programowej (M3): sprawdzone albo szkic w podglądzie `?szkice=1`. */
+export function shownCurriculum(content: AtlasPlateContent): AtlasCurriculumRef | null {
+  const c = content.curriculumRef;
+  return c && (isShown(c.status) || (DRAFT_PREVIEW && c.status === 'draft')) ? c : null;
 }
 
 /** Poziom złożoności (model §3.5). */
