@@ -1106,7 +1106,6 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Wspólny przegląd zwolenników i przeciwników „otwartego okna”: zgadzają się, że podatność na infekcje zależy od wielu czynników; nierozstrzygnięte zostaje, czy sam wysiłek zwiększa ryzyko infekcji u sportowców.',
   },
-  },
   // Atlas układów: układ dokrewny (hormonalny). marliss_vranic_2002 i peake_2014: wpisy identyczne z gałęzią pokarmowego
   // (przy scaleniu zostawić jedną kopię).
   // --- Układ kostny (agent 10, faza 1b) ---
