@@ -47,6 +47,9 @@ export class Controller {
   private stats = { frames: 0, t0: performance.now(), bytes: 0 };
   onKeyView?: (kv: string | null) => void;
   private lastKv: string | null = null;
+  /** Wejście diegetyczne do gabloty (OrganDive): wjazd kamery, ciało gaśnie ditheringiem, na końcu onDone. */
+  private dive: { organ: string; t: number; alpha0: Map<LoadedFile, Float32Array>; onDone: (organ: string) => void } | null = null;
+  get diving() { return this.dive !== null; }
 
   constructor(
     readonly data: AtlasData, readonly files: LoadedFile[], readonly content: AtlasPlateContent,
@@ -294,10 +297,91 @@ export class Controller {
     for (const p of proj) if (!p.ok) { const e = this.els.get(p.it.key)!; e.d.style.display = 'none'; e.line.style.display = e.dot.style.display = 'none'; }
   }
 
+  // ------------------------------------------------ gabloty narządów (M5)
+  /** Narząd pod pikselem (kliknięcie): promień na siatki, ID struktury z wierzchołka. Na razie: serce. */
+  organAt(x: number, y: number): string | null {
+    const el = this.host;
+    const ndc = new THREE.Vector2((x / el.clientWidth) * 2 - 1, -(y / el.clientHeight) * 2 + 1);
+    const ray = new THREE.Raycaster();
+    ray.setFromCamera(ndc, this.camera);
+    const meshes = this.files.flatMap((f) => f.meshes.filter((m) => m.visible).map((m) => ({ m, f })));
+    const hits = ray.intersectObjects(meshes.map((x) => x.m), false);
+    for (const h of hits) {
+      const f = meshes.find((x) => x.m === h.object)?.f;
+      const idAttr = (h.object as THREE.Mesh).geometry.getAttribute('_id');
+      if (!f || !idAttr || !h.face) continue;
+      const id = Math.round(idAttr.getX(h.face.a));
+      if (f.state.getAlpha(id) < 0.5) continue; // struktury przygaszone (np. sylwetka) nie zasłaniają
+      const meshId = f.ids[id - 1] ?? '';
+      return meshId.startsWith('hra:VH_M_Heart.glb/') ? 'serce' : null;
+    }
+    return null;
+  }
+
+  /** Punkt narządu w scenie: środek jego siatek (z wierzchołków, raz). */
+  private organCenter(organ: string): THREE.Vector3 | null {
+    if (organ !== 'serce') return null;
+    const box = new THREE.Box3(), v = new THREE.Vector3();
+    for (const f of this.files) for (const m of f.meshes) {
+      const idAttr = m.geometry.getAttribute('_id'), pos = m.geometry.getAttribute('position');
+      if (!idAttr) continue;
+      m.updateWorldMatrix(true, false);
+      for (let i = 0; i < pos.count; i += 7) {
+        const meshId = f.ids[Math.round(idAttr.getX(i)) - 1] ?? '';
+        if (meshId.startsWith('hra:VH_M_Heart.glb/')) box.expandByPoint(v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld));
+      }
+    }
+    return box.isEmpty() ? null : box.getCenter(new THREE.Vector3());
+  }
+
+  /**
+   * OrganDive (BIOMOTION_ARCHITEKTURA §4): wjazd 1,2 s do narządu, reszta ciała gaśnie ditheringiem do 0
+   * (bez półprzezroczystych nakładek; w kadrze końcowym ciało 0% krycia, warunek Dyrygenta ≤ 5%).
+   * Serce w widoku krwionośnym to ten sam plik HuBMAP co w gablocie, więc nie ma podmiany modelu.
+   */
+  startDive(organ: string, onDone: (organ: string) => void) {
+    const c = this.organCenter(organ);
+    if (!c || this.dive) return false;
+    const alpha0 = new Map<LoadedFile, Float32Array>();
+    for (const f of this.files) alpha0.set(f, Float32Array.from({ length: f.ids.length + 1 }, (_, id) => f.state.getAlpha(id)));
+    this.dive = { organ, t: 0, alpha0, onDone };
+    this.rail.go({ az: 0, el: 0, target: c, dist: 0.62 }, this.reduced ? 0 : 1.2);
+    return true;
+  }
+
+  /** Przywraca widok układu (pod nakładką gabloty, więc bez widocznego skoku). */
+  endDive() {
+    const d = this.dive;
+    if (!d) return;
+    for (const [f, a] of d.alpha0) { for (let id = 1; id < a.length; id++) f.state.setAlpha(id, a[id]); f.state.commit(); }
+    this.dive = null;
+    this.setMode(this.mode);
+  }
+
+  private stepDive(dt: number) {
+    const d = this.dive;
+    if (!d) return;
+    d.t = Math.min(1, d.t + (this.reduced ? 1 : dt / 1.2));
+    const e = d.t * d.t * (3 - 2 * d.t);
+    for (const [f, a] of d.alpha0) {
+      for (let id = 1; id < a.length; id++) {
+        const heart = (f.ids[id - 1] ?? '').startsWith('hra:VH_M_Heart.glb/');
+        f.state.setAlpha(id, heart ? a[id] : a[id] * (1 - e));
+      }
+      f.state.commit();
+    }
+    if (d.t >= 1 && !this.rail.moving) {
+      const done = d.onDone, organ = d.organ;
+      d.t = 2; // jednorazowo
+      done(organ);
+    }
+  }
+
   // ------------------------------------------------ klatka
   frame(dt: number, gl: THREE.WebGLRenderer) {
     this.time += this.reduced ? 0 : dt;
     this.rail.update(dt);
+    if (this.dive && this.dive.t <= 1) this.stepDive(dt);
     const target = this.state === 'sprint' ? 1 : 0;
     this.stateMix += Math.sign(target - this.stateMix) * Math.min(Math.abs(target - this.stateMix), dt / 0.9); // przenikanie 0,9 s
     setUniform(this.files, 'uState', this.stateMix);

@@ -32,8 +32,13 @@ export interface Signature3DContext {
   camera: THREE.Camera;
   /** tory z signature.flows (tylko istniejące w flows3d.json i w bieżącym widoku) */
   paths: SignaturePath[];
-  /** siatki struktury po meshId z bindings.json (np. kości dla KONSTRUKCJI, skóra dla CIEPŁA); null = brak w tym widoku */
-  meshes: (meshId: string) => THREE.Mesh[] | null;
+  /**
+   * Siatki struktury po meshId z bindings.json (np. kości dla KONSTRUKCJI, skóra dla CIEPŁA); null = brak w tym widoku.
+   * Zwraca SCALONE siatki pliku (wiele struktur, atrybut wierzchołka `_id`) razem z numerem `_id` tej struktury:
+   * wtyczka filtruje trójkąty po `_id` (np. `Math.round(_id.getX(index[i])) === id`) i NIE modyfikuje tych siatek
+   * (własna kopia trójkątów, własny materiał).
+   */
+  meshes: (meshId: string) => { mesh: THREE.Mesh; id: number }[] | null;
   /** poziom jakości z QualityManager i parametry modułu dla niego (gęstość cząstek, przezroczystość, LOD) */
   quality: QualityTier;
   tier: BioTierParams;

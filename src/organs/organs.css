@@ -1,0 +1,57 @@
+/* Gablota narządu: rama jak widok 3D atlasu (studio #13203A → #070B14), podpisy wg karty Reżysera. */
+.organ-root { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 340px; grid-template-rows: 52px 1fr; padding-bottom: 72px; /* miejsce na przełącznik momentu ramy AtlasApp */
+  grid-template-areas: 'top top' 'stage panel'; outline: none; color: #e2e8f0;
+  background: radial-gradient(ellipse at 40% 46%, #13203a 0%, var(--atlas-bg, #070b14) 70%); font-family: 'Figtree', system-ui, sans-serif; }
+.organ-root:focus-visible { box-shadow: inset 0 0 0 2px #7dd3fc; }
+.organ-center { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; color: #94a3b8; text-align: center; padding: 16px; }
+.organ-top { grid-area: top; display: flex; gap: 12px; align-items: center; padding: 10px 14px; }
+.organ-crumb { font-size: 14px; color: #cbd5e1; }
+.organ-crumb b { color: #fff; }
+.organ-goal { font-size: 15px; font-weight: 600; color: #F07A84; }
+.organ-back { margin-left: auto; }
+.organ-stage { grid-area: stage; position: relative; overflow: hidden; cursor: grab; touch-action: none; }
+.organ-stage:active { cursor: grabbing; }
+.organ-stage canvas { display: block; }
+.organ-tip { position: absolute; pointer-events: none; background: rgba(13, 21, 38, .88); color: #e6ecf5; padding: 4px 8px; border-radius: 6px;
+  font-size: 15px; font-weight: 600; border-left: 2px solid #F07A84; white-space: nowrap; }
+.organ-chips { position: absolute; top: 8px; left: 10px; display: flex; gap: 6px; flex-wrap: wrap; pointer-events: none; }
+.organ-chip { display: inline-block; font: 600 11px/1 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 8px; border-radius: 7px; border: 1px solid #1d2a44; background: rgba(13, 21, 38, .85); color: #cbd5e1; }
+.organ-legend { position: absolute; left: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 4px; max-width: 330px; font-size: 13px;
+  background: rgba(13, 21, 38, .86); padding: 8px 10px; border-radius: 8px; color: #cbd5e1; }
+.organ-legend b { color: #fff; font-size: 13px; }
+.organ-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: -1px; }
+.organ-legend .dot.glow { background: #fff; box-shadow: 0 0 0 3px #F07A84; }
+.organ-legend .dot.schema { background: #F07A84; border-radius: 2px; }
+.organ-under { grid-area: stage; align-self: start; justify-self: end; z-index: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; padding: 8px; pointer-events: none; }
+.organ-under > * { pointer-events: auto; }
+.organ-seg { display: inline-flex; gap: 3px; padding: 3px; border-radius: 9px; background: rgba(11, 18, 32, .85); border: 1px solid #1d2a44; flex-wrap: wrap; }
+.organ-seg button, .organ-btn, .organ-tabs button, .organ-list button { font: 600 13px/1.2 'Figtree', system-ui, sans-serif; color: #cbd5e1; background: transparent;
+  border: 0; border-radius: 7px; padding: 7px 10px; cursor: pointer; }
+.organ-btn { background: #1e293b; color: #f1f5f9; }
+.organ-seg button[aria-pressed='true'], .organ-list button[aria-pressed='true'] { background: #334155; color: #fff; }
+.organ-seg button:disabled { opacity: .55; cursor: default; }
+.organ-seg button:focus-visible, .organ-btn:focus-visible, .organ-tabs button:focus-visible, .organ-list button:focus-visible { outline: 2px solid #7dd3fc; }
+.organ-panel { grid-area: panel; display: flex; flex-direction: column; border-left: 1px solid #1d2a44; background: rgba(7, 11, 20, .7); min-height: 0; }
+.organ-tabs { display: flex; gap: 2px; padding: 8px; border-bottom: 1px solid #1d2a44; }
+.organ-tabs button[aria-selected='true'] { background: #334155; color: #fff; }
+.organ-body { padding: 12px 14px; overflow: auto; flex: 1; font-size: 15px; line-height: 1.45; }
+.organ-body h3 { margin: 4px 0 8px; font-size: 18px; color: #fff; }
+.organ-body p { margin: 0 0 10px; }
+.organ-small { font-size: 13px; color: #94a3b8; }
+.organ-badge { display: inline-block; font-size: 11px; color: #93c5fd; border: 1px solid #1e3a5f; border-radius: 6px; padding: 1px 6px; margin-left: 4px; white-space: nowrap; }
+.organ-list { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.organ-list button { background: #111a2e; }
+.organ-metric { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; margin-bottom: 8px; border-radius: 8px; background: #0d1526; }
+.organ-metric b { font: 700 18px/1.2 'JetBrains Mono', ui-monospace, monospace; color: #fff; }
+.organ-metric i { font-size: 12px; color: #fcd34d; font-style: normal; }
+.organ-answer { margin-top: 10px; padding: 10px; border-radius: 8px; background: #0d1526; border-left: 3px solid #64748b; }
+.organ-answer.ok { border-left-color: #4ade80; }
+.organ-answer.bad { border-left-color: #f59e0b; }
+.organ-lic { margin: 0; padding: 6px 12px 8px; font-size: 11px; color: #94a3b8; }
+@media (max-width: 900px) {
+  .organ-root { grid-template-columns: 1fr; grid-template-rows: 52px 1fr 40%; grid-template-areas: 'top' 'stage' 'panel'; }
+  .organ-panel { border-left: 0; border-top: 1px solid #1d2a44; }
+  .organ-goal { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .organ-root * { transition: none !important; } }
