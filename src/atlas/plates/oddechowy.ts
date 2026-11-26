@@ -1,231 +1,276 @@
-import type { AtlasPlateContent } from '../types';
+import type { AtlasPlateLayout } from '../facts';
 
 /**
- * Plansza układu oddechowego (faza 1, agent 4). Render: blender/atlas/plate_oddechowy.py
- * Fakty: docs/atlas_audyt/fakty_oddechowy.md (statusy, cytaty i lokalizatory stamtąd; numery # = wiersze audytu).
- * Decyzja integratora (K3): podręcznik OpenStax nie ma DOI ani PMID, więc według §3.6 pkt 2 fakty oparte tylko na nim
- * mają status `unverifiable` (wiersze 13, 15, 28, 30 audytu). Wystarczy zmiana statusu, jeśli Dyrygent zdecyduje inaczej.
+ * Układ planszy „Układ oddechowy” (E1-K2): kotwice, widoki, kolejność, tier, nazwy struktur i strzałki.
+ * Treść faktów (opisy ról, statusy, źródła, liczby, podsumowania, zdanie o „sprincie”) jest wyłącznie w
+ * src/atlas/data/facts/oddechowy.json; planszę składa src/atlas/facts.ts (buildPlate). Walidator
+ * scripts/atlas_check_data.mjs pilnuje, żeby w tym pliku nie było tekstów faktów.
  */
-export const ODDECHOWY: AtlasPlateContent = {
-  id: 'oddechowy',
-  titlePl: 'Układ oddechowy',
-  subtitlePl: 'Skąd bierze się tlen na sprint i dokąd znika CO₂',
-  colorVar: '--sys-resp',
-  views: ['front', 'detail'],
-  viewTitlesPl: { front: 'Widok z przodu', detail: 'Pęcherzyk płucny (schemat)' },
-  summary: {
-    rest:
-      'W spoczynku oddech jest spokojny: wdech robi przepona z pomocą mięśni międzyżebrowych przymostkowych i pochyłych, a wydech jest bierny (mięśnie wydechowe prawie nie pracują).',
-    sprint:
-      'W sprincie przepona kurczy się szybko (ok. 6,5 razy szybciej niż w spoczynku; w badaniu: rower, 70% mocy maksymalnej), mocniej pracują mięśnie wdechowe klatki piersiowej, a wydech staje się czynny (mięśnie międzyżebrowe wewnętrzne i brzucha). Wentylacja rośnie do ok. 97 L/min przy wysiłku maksymalnym (średnio u mężczyzn w wieku 20–80 lat), a krew przepływa przez płuca szybciej (w badaniu: wytrenowani sportowcy, wysiłek maksymalny), więc wymiana gazów musi zdążyć w krótszym czasie.',
+export const ODDECHOWY: AtlasPlateLayout = {
+  id: "oddechowy",
+  titlePl: "Układ oddechowy",
+  subtitlePl: "Skąd bierze się tlen na sprint i dokąd znika CO₂",
+  colorVar: "--sys-resp",
+  views: [
+    "front",
+    "detail"
+  ],
+  viewTitlesPl: {
+    front: "Widok z przodu",
+    detail: "Pęcherzyk płucny (schemat)"
   },
-  summaryReferenceIds: {
-    rest: ['detroyer_estenne_1984', 'aliverti_1997'],
-    sprint: ['aliverti_1997', 'detroyer_2005', 'blackie_1991', 'hopkins_1996'],
-  },
-  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Aliverti 1997, De Troyer 2005, Blackie 1991, Hopkins 1996 (+ dopisek o protokole wg sprawdzającego)
   labels: [
     {
-      anchor: 'larynx',
-      view: 'front',
-      namePl: 'Krtań',
-      nameLat: 'larynx',
-      role: { rest: 'Głośnia lekko otwarta', sprint: 'Głośnia szeroko otwarta, mniejszy opór' },
-      tier: 'secondary',
-      referenceIds: ['england_1982'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #10
+      anchor: "larynx",
+      view: "front",
+      namePl: "Krtań",
+      nameLat: "larynx",
+      tier: "secondary"
     },
     {
-      anchor: 'trachea',
-      view: 'front',
-      namePl: 'Tchawica',
-      nameLat: 'trachea',
-      role: { rest: 'Spokojny przepływ powietrza', sprint: 'Bardzo szybki przepływ powietrza' },
-      tier: 'primary',
-      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #11; fakty_draft_K3_zaopatrzenie.md: sprint bez źródła
+      anchor: "trachea",
+      view: "front",
+      namePl: "Tchawica",
+      nameLat: "trachea",
+      tier: "primary"
     },
     {
-      anchor: 'scalene',
-      view: 'front',
-      namePl: 'Mm. pochyłe',
-      nameLat: 'mm. scaleni',
-      role: { rest: 'Lekko unoszą żebra', sprint: 'Mocno unoszą górne żebra przy wdechu' },
-      tier: 'secondary',
-      referenceIds: ['detroyer_estenne_1984'],
-      roleStatus: { rest: 'checked_agent', sprint: 'unverifiable' }, // #12; #13 (tylko OpenStax)
+      anchor: "scalene",
+      view: "front",
+      namePl: "Mm. pochyłe",
+      nameLat: "mm. scaleni",
+      tier: "secondary"
     },
     {
-      anchor: 'main_bronchus',
-      view: 'front',
-      namePl: 'Oskrzele główne prawe',
-      nameLat: 'bronchus principalis dexter',
-      role: { rest: 'Rozprowadza powietrze do płuca', sprint: 'Oskrzela lekko się rozszerzają' },
-      tier: 'primary',
-      referenceIds: ['antonelli_2012'],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #14; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)
+      anchor: "main_bronchus",
+      view: "front",
+      namePl: "Oskrzele główne prawe",
+      nameLat: "bronchus principalis dexter",
+      tier: "primary"
     },
     {
-      anchor: 'lung',
-      view: 'front',
-      namePl: 'Płuco prawe',
-      nameLat: 'pulmo dexter',
-      role: { rest: 'Wdech (oba płuca) ok. 0,5 L', sprint: 'Wdech (oba płuca) ok. 2,7 L' },
-      tier: 'primary',
-      referenceIds: ['blackie_1991'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #15, #16; fakty_draft_K3_zaopatrzenie.md: sprint Blackie 1991 abstrakt; spoczynek bez źródła 0,5 L
+      anchor: "lung",
+      view: "front",
+      namePl: "Płuco prawe",
+      nameLat: "pulmo dexter",
+      tier: "primary"
     },
     {
-      anchor: 'intercostal',
-      view: 'front',
-      namePl: 'Mm. międzyżebrowe',
-      nameLat: 'mm. intercostales',
-      role: { rest: 'Pracują przy każdym wdechu (przymostkowe)', sprint: 'Unoszą żebra (wdech), ściągają (wydech)' },
-      tier: 'primary',
-      referenceIds: ['detroyer_estenne_1984', 'detroyer_2005', 'aliverti_1997'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: De Troyer i Estenne 1984, abstrakt; #18
+      anchor: "intercostal",
+      view: "front",
+      namePl: "Mm. międzyżebrowe",
+      nameLat: "mm. intercostales",
+      tier: "primary"
     },
     {
-      anchor: 'diaphragm',
-      view: 'front',
-      namePl: 'Przepona',
-      nameLat: 'diaphragma',
-      role: { rest: 'Główny mięsień spokojnego wdechu', sprint: 'Kurczy się bardzo szybko i napędza przepływ' },
-      tier: 'primary',
-      referenceIds: ['aliverti_1997'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #19, #20; fakty_draft_K3_zaopatrzenie.md: Aliverti 1997, abstrakt
+      anchor: "diaphragm",
+      view: "front",
+      namePl: "Przepona",
+      nameLat: "diaphragma",
+      tier: "primary"
     },
     {
-      anchor: 'bronchiole',
-      view: 'detail',
-      namePl: 'Oskrzelik końcowy',
-      nameLat: 'bronchiolus terminalis',
-      role: { rest: 'Doprowadza świeże powietrze', sprint: 'Dużo więcej powietrza na minutę' },
-      tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // #21; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)
+      anchor: "bronchiole",
+      view: "detail",
+      namePl: "Oskrzelik końcowy",
+      nameLat: "bronchiolus terminalis",
+      tier: "secondary"
     },
     {
-      anchor: 'alveolus',
-      view: 'detail',
-      namePl: 'Pęcherzyk płucny',
-      nameLat: 'alveolus pulmonis',
-      role: { rest: 'O₂ do krwi, CO₂ do powietrza', sprint: 'Więcej O₂ i CO₂ w krótszym czasie' },
-      tier: 'primary',
-      referenceIds: ['hopkins_1996'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #22, #23
+      anchor: "alveolus",
+      view: "detail",
+      namePl: "Pęcherzyk płucny",
+      nameLat: "alveolus pulmonis",
+      tier: "primary"
     },
     {
-      anchor: 'capillary',
-      view: 'detail',
-      namePl: 'Naczynia włosowate',
-      nameLat: 'vasa capillaria',
-      role: { rest: 'Krew płynie spokojnie', sprint: 'Krew płynie szybciej, więcej naczyń otwartych' },
-      tier: 'primary',
-      referenceIds: ['hopkins_1996'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #24
-    },
+      anchor: "capillary",
+      view: "detail",
+      namePl: "Naczynia włosowate",
+      nameLat: "vasa capillaria",
+      tier: "primary"
+    }
   ],
-  metrics: [
-    {
-      labelPl: 'Wentylacja minutowa',
-      rest: 'ok. 6',
-      sprint: 'ok. 97',
-      unit: 'L/min',
-      referenceIds: ['blackie_1991'],
-      evidenceLevel: 'established_human',
-      notePl: 'Objętość oddechowa × częstość oddechów. Średnia zdrowych mężczyzn na końcu testu maksymalnego: 97 ± 25 L/min; przy 88% VO₂max zwykle mniej.',
-      protocolMismatch: 'koniec testu maksymalnego na cykloergometrze, mężczyźni 20–80 lat',
-      quote: 'Mean ventilation at the end of exercise (Vemax) was significantly higher in men (mean +/- SD, 97 +/- 25 L/min)',
-      locator: 'Blackie 1991, abstrakt',
-      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
-      restStatus: 'unverifiable',
-    },
-    {
-      labelPl: 'Częstość oddechów',
-      rest: 'ok. 12–16',
-      sprint: 'ok. 36',
-      unit: '/min',
-      referenceIds: ['blackie_1991'],
-      evidenceLevel: 'established_human',
-      protocolMismatch: 'koniec testu maksymalnego na cykloergometrze, kobiety i mężczyźni 20–80 lat',
-      quote: 'Respiratory rate at the end of exercise (RRmax) was 36.1 +/- 9.2 breaths per minute',
-      locator: 'Blackie 1991, abstrakt',
-      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
-      restStatus: 'unverifiable',
-    },
-    {
-      labelPl: 'Objętość oddechowa',
-      rest: 'ok. 0,5',
-      sprint: 'ok. 2–3',
-      unit: 'L na oddech',
-      referenceIds: ['blackie_1991'],
-      evidenceLevel: 'established_human',
-      protocolMismatch: 'koniec testu maksymalnego',
-      conversionNote: '2,70 ± 0,48 L (mężczyźni) → ok. 2–3 L', // fakty_kontrola_koncowa.md, cz. 1b
-      quote: 'Tidal volume at the end of exercise (Vtmax) was higher in men (2.70 +/- 0.48 L)',
-      locator: 'Blackie 1991, abstrakt',
-      status: 'checked_agent',
-      restStatus: 'unverifiable',
-    },
-    {
-      labelPl: 'Pobór tlenu VO₂',
-      rest: 'ok. 0,25 (3,5 mL/kg/min)',
-      sprint: 'ok. 3–3,4 (ok. 88% VO₂max)',
-      unit: 'L/min',
-      referenceIds: ['jette_1990', 'kaminsky_2015', 'byrne_2005'],
-      evidenceLevel: 'established_human',
-      notePl:
-        'Kanon atlasu: 45 s pracy przy ok. 88% VO₂max. Mediana VO₂max mężczyzn w wieku 20–29 lat to 48 mL/kg/min. Spoczynkowe 3,5 mL/kg/min to umowna wartość (1 MET).',
-      conversionNote:
-        'Spoczynek: 3,5 mL/kg/min × 70 kg = 0,245 L/min. Sprint: 48 mL/kg/min × 70–80 kg × 0,88 = 2,96–3,38 L/min.',
-      quote: 'the 50th percentile VO 2max of men and women aged 20 to 29 years decreased from 48.0 and 37.6',
-      locator: 'Kaminsky 2015, abstrakt (Results; 48,0 = mężczyźni); Jetté 1990, abstrakt',
-      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
-      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
-    },
-    {
-      labelPl: 'Tlen zużywany przez mięśnie oddechowe',
-      rest: 'niewielka część',
-      sprint: 'ok. 10 (do 15)',
-      unit: '% VO₂max',
-      referenceIds: ['aaron_1992'],
-      evidenceLevel: 'established_human',
-      notePl: 'Praca wszystkich mięśni oddechowych przy wysiłku maksymalnym (badanie na zdrowych młodych osobach).',
-      protocolMismatch: 'wysiłek maksymalny',
-      quote: 'At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max. | the VO2RM required 13-15% of VO2max',
-      locator: 'Aaron 1992, abstrakt',
-      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
-      restStatus: 'unverifiable',
-    },
-    {
-      labelPl: 'Krew dla mięśni oddechowych',
-      rest: 'niewielka część',
-      sprint: 'do 14–16',
-      unit: '% rzutu serca',
-      referenceIds: ['harms_1998'],
-      evidenceLevel: 'established_human',
-      notePl: 'Przy VO₂max mięśnie oddechowe „konkurują” o krew z mięśniami nóg (badanie u wytrenowanych kolarzy).',
-      protocolMismatch: 'kolarze, wysiłek maksymalny',
-      quote: 'up to 14-16% of the CO is directed to the respiratory muscles',
-      locator: 'Harms 1998, abstrakt',
-      status: 'checked_agent',
-      restStatus: 'unverifiable',
-    },
-  ],
-  /**
-   * Strzałki przepływu (piksele renderu 1150×1600), policzone w plate_oddechowy.py z położenia krtani, tchawicy
-   * i oskrzeli HuBMAP (kopia: public/atlas/oddechowy/flows.json). Rysuje je AtlasPlate (faza 2).
-   */
   flows: [
-    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca prawego', points: [[573, 179], [573, 298], [573, 597], [505, 665], [466, 767], [377, 817]] },
-    { view: 'front', kind: 'air', labelPl: 'Wdech: powietrze do płuca lewego', points: [[573, 597], [716, 699], [722, 757], [825, 855]] },
-    { view: 'front', kind: 'air', labelPl: 'Płat górny prawy', points: [[505, 665], [439, 562]] },
-    { view: 'front', kind: 'air', labelPl: 'Płat górny lewy', points: [[716, 699], [753, 584]] },
-    { view: 'detail', kind: 'air', labelPl: 'Powietrze do pęcherzyków', points: [[632, 111], [586, 498], [575, 930]] },
-    { view: 'detail', kind: 'air', labelPl: 'O₂: z pęcherzyka do krwi', points: [[552, 1089], [427, 998], [302, 930]] },
-    { view: 'detail', kind: 'air', labelPl: 'CO₂: z krwi do pęcherzyka', points: [[870, 907], [734, 975], [620, 1043]] },
-    { view: 'detail', kind: 'vein', labelPl: 'Krew odtlenowana z serca', points: [[52, 634], [189, 861], [302, 1043]] },
-    { view: 'detail', kind: 'artery', labelPl: 'Krew utlenowana do serca', points: [[859, 1089], [984, 1293], [1098, 1543]] },
+    {
+      view: "front",
+      kind: "air",
+      labelPl: "Wdech: powietrze do płuca prawego",
+      points: [
+        [
+          573,
+          179
+        ],
+        [
+          573,
+          298
+        ],
+        [
+          573,
+          597
+        ],
+        [
+          505,
+          665
+        ],
+        [
+          466,
+          767
+        ],
+        [
+          377,
+          817
+        ]
+      ]
+    },
+    {
+      view: "front",
+      kind: "air",
+      labelPl: "Wdech: powietrze do płuca lewego",
+      points: [
+        [
+          573,
+          597
+        ],
+        [
+          716,
+          699
+        ],
+        [
+          722,
+          757
+        ],
+        [
+          825,
+          855
+        ]
+      ]
+    },
+    {
+      view: "front",
+      kind: "air",
+      labelPl: "Płat górny prawy",
+      points: [
+        [
+          505,
+          665
+        ],
+        [
+          439,
+          562
+        ]
+      ]
+    },
+    {
+      view: "front",
+      kind: "air",
+      labelPl: "Płat górny lewy",
+      points: [
+        [
+          716,
+          699
+        ],
+        [
+          753,
+          584
+        ]
+      ]
+    },
+    {
+      view: "detail",
+      kind: "air",
+      labelPl: "Powietrze do pęcherzyków",
+      points: [
+        [
+          632,
+          111
+        ],
+        [
+          586,
+          498
+        ],
+        [
+          575,
+          930
+        ]
+      ]
+    },
+    {
+      view: "detail",
+      kind: "air",
+      labelPl: "O₂: z pęcherzyka do krwi",
+      points: [
+        [
+          552,
+          1089
+        ],
+        [
+          427,
+          998
+        ],
+        [
+          302,
+          930
+        ]
+      ]
+    },
+    {
+      view: "detail",
+      kind: "air",
+      labelPl: "CO₂: z krwi do pęcherzyka",
+      points: [
+        [
+          870,
+          907
+        ],
+        [
+          734,
+          975
+        ],
+        [
+          620,
+          1043
+        ]
+      ]
+    },
+    {
+      view: "detail",
+      kind: "vein",
+      labelPl: "Krew odtlenowana z serca",
+      points: [
+        [
+          52,
+          634
+        ],
+        [
+          189,
+          861
+        ],
+        [
+          302,
+          1043
+        ]
+      ]
+    },
+    {
+      view: "detail",
+      kind: "artery",
+      labelPl: "Krew utlenowana do serca",
+      points: [
+        [
+          859,
+          1089
+        ],
+        [
+          984,
+          1293
+        ],
+        [
+          1098,
+          1543
+        ]
+      ]
+    }
   ],
-  creditsPl:
-    'Modele: HuBMAP Human Reference Atlas, VH Male v1.4 (płuca, tchawica, oskrzela główne, krtań; CC BY 4.0) oraz Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Schemat pęcherzyka: BIOGENESIS. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+  creditsPl: "Modele: HuBMAP Human Reference Atlas, VH Male v1.4 (płuca, tchawica, oskrzela główne, krtań; CC BY 4.0) oraz Z-Anatomy (CC BY-SA 4.0), na bazie BodyParts3D © DBCLS (CC BY-SA 2.1 JP). Schemat pęcherzyka: BIOGENESIS. Render i opracowanie: BIOGENESIS, CC BY-SA 4.0."
 };
