@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "atlas/mesh_bindings.schema.json",
+  "title": "Powiązania siatek z pojęciami",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "bindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "plate",
+          "anchor",
+          "structureId",
+          "resolved"
+        ],
+        "properties": {
+          "plate": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          },
+          "structureId": {
+            "type": "string"
+          },
+          "side": {
+            "enum": [
+              "l",
+              "r",
+              "mid",
+              null
+            ]
+          },
+          "source": {
+            "enum": [
+              "Z-Anatomy",
+              "HuBMAP HRA",
+              null
+            ]
+          },
+          "license": {
+            "enum": [
+              "CC BY-SA 4.0",
+              "CC BY 4.0",
+              null
+            ]
+          },
+          "resolved": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          },
+          "meshId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(za:[^/]+|hra:[^/]+\\.glb/.+)$",
+            "description": "za:<obiekt Z-Anatomy> albo hra:<plik.glb>/<węzeł> (bez sufiksów kopii .001)"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "method": {
+            "enum": [
+              "static",
+              "objects",
+              "nearest"
+            ],
+            "description": "static = ze skryptu planszy (K1); objects/nearest = z eksportu 3D (anchorMethod)"
+          },
+          "distanceMm": {
+            "type": "number",
+            "minimum": 0,
+            "description": "dla method nearest: odległość punktu kotwicy od struktury"
+          }
+        }
+      }
+    }
+  }
+}

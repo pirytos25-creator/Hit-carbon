@@ -1,8 +1,10 @@
 import type { AtlasFactStatus } from './types';
+import type { AtlasFactsFile } from './facts';
+import WSPOLNE from './data/facts/_wspolne.json';
 
 /**
- * Zdania wspólne dla wszystkich plansz (runda końcowa zgromadzenia, pkt A7). Przechodzą przez tę samą bramkę faktów:
- * na ekran trafia tylko status pokazywany (walidator: scripts/atlas_check_facts.mjs).
+ * Zdania wspólne dla wszystkich plansz (runda końcowa zgromadzenia, pkt A7). Treść i status żyją w
+ * src/atlas/data/facts/_wspolne.json (E1-K2) i przechodzą przez tę samą bramkę faktów co plansze.
  */
 export interface AtlasGlossaryEntry {
   id: string;
@@ -13,14 +15,13 @@ export interface AtlasGlossaryEntry {
   locator?: string;
 }
 
-export const ATLAS_GLOSSARY: AtlasGlossaryEntry[] = [
-  {
-    id: 'vo2max',
-    textPl:
-      'VO₂max to największa ilość tlenu, jaką organizm potrafi zużyć w ciągu minuty w wysiłku maksymalnym; mierzy się ją w teście wysiłkowym do maksimum (np. na bieżni).',
-    referenceIds: ['kaminsky_2015'],
-    status: 'checked_agent', // fakty_kontrola_koncowa.md: brzmienie sprawdzającego (bez „albo rowerze”)
-    quote: 'Percentiles of maximal oxygen consumption (VO 2max)… | 7783 maximal… treadmill tests',
-    locator: 'Kaminsky 2015, abstrakt',
-  },
-];
+export const ATLAS_GLOSSARY: AtlasGlossaryEntry[] = (WSPOLNE as AtlasFactsFile).facts
+  .filter((f) => f.kind === 'glossary')
+  .map((f) => ({
+    id: f.id.replace(/^_wspolne\.glossary\./, ''),
+    textPl: f.textPl ?? '',
+    referenceIds: f.referenceIds,
+    status: f.status,
+    quote: f.quote ?? undefined,
+    locator: f.locator ?? undefined,
+  }));

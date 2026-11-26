@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "atlas/facts.schema.json",
+  "title": "Fakty atlasu (jeden plik na planszę)",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "facts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "plate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "referenceIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z_]+\\.[A-Za-z_]+(\\.[A-Za-z0-9_]+)*$"
+          },
+          "kind": {
+            "enum": [
+              "metric",
+              "metric_rest",
+              "role",
+              "summary",
+              "summary_verified",
+              "protocol_note",
+              "glossary"
+            ]
+          },
+          "plate": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "checked_agent",
+              "disputed",
+              "unverifiable",
+              "checked_human",
+              "anatomy"
+            ]
+          },
+          "value": {
+            "type": "string"
+          },
+          "textPl": {
+            "type": "string"
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "measuredAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "provenance": {
+            "enum": [
+              "primary_study",
+              "meta_analysis",
+              "textbook_consensus",
+              "model_simulation",
+              null
+            ]
+          },
+          "accessMode": {
+            "enum": [
+              "full_text",
+              "abstract",
+              "search_index",
+              "third_party_scan",
+              null
+            ]
+          },
+          "quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "referenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "structureId": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "rest",
+              "sprint"
+            ]
+          },
+          "checkedBy": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "report": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rows": {
+                "type": "array"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "auto": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "provenance",
+                "accessMode"
+              ]
+            },
+            "description": "pola wyliczone regułami przy migracji (do potwierdzenia przez sprawdzającego)"
+          },
+          "topic": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "ta sama wielkość na kilku planszach (walidator: ta sama wartość albo seeAlsoPlate)"
+          }
+        }
+      }
+    }
+  }
+}

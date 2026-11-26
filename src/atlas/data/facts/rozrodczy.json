@@ -1,0 +1,1323 @@
+{
+ "schemaVersion": 1,
+ "plate": "rozrodczy",
+ "facts": [
+  {
+   "id": "rozrodczy.metric.wolny_testosteron_we_krwi_mezczyzni",
+   "kind": "metric",
+   "plate": "rozrodczy",
+   "labelPl": "Wolny testosteron we krwi (mężczyźni)",
+   "unit": null,
+   "referenceIds": [
+    "hackney_2012",
+    "west_2010",
+    "velasco_orjuela_2018"
+   ],
+   "evidenceLevel": "preliminary_human",
+   "quote": "IE and SSE each caused an increase (p<0.01) in FT, but IE more so than SSE (p<0.05).",
+   "locator": "Hackney 2012, abstrakt (jednoakapitowy), zdanie 9; 12 h: zdanie 10",
+   "conversionNote": null,
+   "protocolMismatch": "90 s biegu przy 100–110% VO₂max / 90 s aktywnej przerwy przy 40% VO₂max przez 42–47 min; mężczyźni wytrenowani wytrzymałościowo (n = 15)",
+   "measuredAt": "zaraz po sesji; ponownie 12 h po sesji",
+   "tier": "primary",
+   "value": "chwilowy wzrost",
+   "notePl": "Wzrost jest krótki: po 12 h wolny testosteron był obniżony (w porównaniu z dniem bez wysiłku). Czy takie zmiany mają znaczenie, nie wiadomo: w innym badaniu (HIIT u nieaktywnych mężczyzn) podobne zmiany kortyzolu i stosunku testosteronu do kortyzolu wystąpiły też bez ćwiczeń. W badaniu treningu siłowego chwilowe wyrzuty hormonów nie zwiększyły przyrostu mięśni ani siły.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: treść, cytat i protokół potwierdzone; poprawiony tylko lokalizator (zdanie 9),"
+   },
+   "order": 0
+  },
+  {
+   "id": "rozrodczy.metric.wolny_testosteron_we_krwi_mezczyzni.rest",
+   "kind": "metric_rest",
+   "plate": "rozrodczy",
+   "labelPl": "Wolny testosteron we krwi (mężczyźni)",
+   "unit": null,
+   "referenceIds": [
+    "hackney_2012",
+    "west_2010",
+    "velasco_orjuela_2018"
+   ],
+   "evidenceLevel": "preliminary_human",
+   "quote": "IE and SSE each caused an increase (p<0.01) in FT, but IE more so than SSE (p<0.05).",
+   "locator": "Hackney 2012, abstrakt (jednoakapitowy), zdanie 9; 12 h: zdanie 10",
+   "conversionNote": null,
+   "protocolMismatch": "90 s biegu przy 100–110% VO₂max / 90 s aktywnej przerwy przy 40% VO₂max przez 42–47 min; mężczyźni wytrenowani wytrzymałościowo (n = 15)",
+   "measuredAt": "zaraz po sesji; ponownie 12 h po sesji",
+   "tier": "primary",
+   "value": "wartość wyjściowa",
+   "status": "draft",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: treść, cytat i protokół potwierdzone; poprawiony tylko lokalizator (zdanie 9),"
+   }
+  },
+  {
+   "id": "rozrodczy.metric.faza_cyklu_miesiaczkowego_a_wydolnosc",
+   "kind": "metric",
+   "plate": "rozrodczy",
+   "labelPl": "Faza cyklu miesiączkowego a wydolność",
+   "unit": null,
+   "referenceIds": [
+    "mcnulty_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "exercise performance might be trivially reduced during the early follicular phase of the MC, compared to all other phases.",
+   "locator": "McNulty 2020, abstrakt (Conclusion)",
+   "conversionNote": null,
+   "protocolMismatch": "metaanaliza 78 badań z różnymi testami wytrzymałości i siły, nie interwały 45/45 s",
+   "measuredAt": "testy wysiłkowe powtarzane w różnych fazach cyklu",
+   "tier": "primary",
+   "value": "efekt znikomy",
+   "notePl": "We wczesnej fazie folikularnej (pierwsze dni cyklu) wydolność może być bardzo nieznacznie niższa. Jakość dowodów jest niska, więc autorzy nie dają ogólnych zaleceń, tylko radzą obserwować własne reakcje.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "meta_analysis",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 31-32"
+    ],
+    "note": "poz. 31-32, 34",
+    "reportInferred": true
+   },
+   "order": 1
+  },
+  {
+   "id": "rozrodczy.metric.faza_cyklu_miesiaczkowego_a_wydolnosc.rest",
+   "kind": "metric_rest",
+   "plate": "rozrodczy",
+   "labelPl": "Faza cyklu miesiączkowego a wydolność",
+   "unit": null,
+   "referenceIds": [
+    "mcnulty_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "exercise performance might be trivially reduced during the early follicular phase of the MC, compared to all other phases.",
+   "locator": "McNulty 2020, abstrakt (Conclusion)",
+   "conversionNote": null,
+   "protocolMismatch": "metaanaliza 78 badań z różnymi testami wytrzymałości i siły, nie interwały 45/45 s",
+   "measuredAt": "testy wysiłkowe powtarzane w różnych fazach cyklu",
+   "tier": "primary",
+   "value": "nie dotyczy",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "meta_analysis",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 31-32"
+    ],
+    "note": "poz. 31-32, 34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "rozrodczy.metric.reds_dawniej_red_s_niedobor_energii_w_sporcie",
+   "kind": "metric",
+   "plate": "rozrodczy",
+   "labelPl": "REDs, dawniej RED-S (niedobór energii w sporcie)",
+   "unit": null,
+   "referenceIds": [
+    "mountjoy_2023"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "a syndrome of deleterious health and performance outcomes experienced by female and male athletes exposed to low energy availability (LEA; inadequate energy intake in relation to exercise energy expenditure)",
+   "locator": "Mountjoy 2023 (konsensus MKOl), abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "nie dotyczy pojedynczego wysiłku: to skutek długotrwałego niedoboru energii",
+   "measuredAt": "długoterminowo (tygodnie, miesiące)",
+   "tier": "primary",
+   "value": "nie dotyczy (skutek tygodni)",
+   "notePl": "Gdy przez dłuższy czas je się za mało w stosunku do treningu, cierpi zdrowie (także praca układu rozrodczego) i wyniki, u kobiet i u mężczyzn. Jeden trening tego nie wywołuje.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 35-36"
+    ],
+    "note": "poz. 35-36; zmieniona tylko nazwa skrótu wg sprawdzającego",
+    "reportInferred": true
+   },
+   "order": 2
+  },
+  {
+   "id": "rozrodczy.metric.reds_dawniej_red_s_niedobor_energii_w_sporcie.rest",
+   "kind": "metric_rest",
+   "plate": "rozrodczy",
+   "labelPl": "REDs, dawniej RED-S (niedobór energii w sporcie)",
+   "unit": null,
+   "referenceIds": [
+    "mountjoy_2023"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "a syndrome of deleterious health and performance outcomes experienced by female and male athletes exposed to low energy availability (LEA; inadequate energy intake in relation to exercise energy expenditure)",
+   "locator": "Mountjoy 2023 (konsensus MKOl), abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "nie dotyczy pojedynczego wysiłku: to skutek długotrwałego niedoboru energii",
+   "measuredAt": "długoterminowo (tygodnie, miesiące)",
+   "tier": "primary",
+   "value": "nie dotyczy",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 35-36"
+    ],
+    "note": "poz. 35-36; zmieniona tylko nazwa skrótu wg sprawdzającego",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "rozrodczy.metric.faza_cyklu_wielkosc_efektu_es",
+   "kind": "metric",
+   "plate": "rozrodczy",
+   "labelPl": "Faza cyklu: wielkość efektu (ES)",
+   "unit": null,
+   "referenceIds": [
+    "mcnulty_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "(ES0.5 = - 0.06 [95% credible interval (CrI): - 0.16 to 0.04])",
+   "locator": "McNulty 2020, abstrakt (Results)",
+   "conversionNote": null,
+   "protocolMismatch": "metaanaliza różnych testów wytrzymałości i siły",
+   "measuredAt": "testy wysiłkowe powtarzane w różnych fazach cyklu",
+   "tier": "student",
+   "value": "−0,06 (95% CrI od −0,16 do 0,04)",
+   "notePl": "Wczesna faza folikularna wobec pozostałych faz razem (51 badań, model bayesowski). Wartość bliska zeru, przedział obejmuje zero.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 33"
+    ],
+    "note": "poz. 33",
+    "reportInferred": true
+   },
+   "order": 3
+  },
+  {
+   "id": "rozrodczy.metric.faza_cyklu_wielkosc_efektu_es.rest",
+   "kind": "metric_rest",
+   "plate": "rozrodczy",
+   "labelPl": "Faza cyklu: wielkość efektu (ES)",
+   "unit": null,
+   "referenceIds": [
+    "mcnulty_2020"
+   ],
+   "evidenceLevel": "contested_debate",
+   "quote": "(ES0.5 = - 0.06 [95% credible interval (CrI): - 0.16 to 0.04])",
+   "locator": "McNulty 2020, abstrakt (Results)",
+   "conversionNote": null,
+   "protocolMismatch": "metaanaliza różnych testów wytrzymałości i siły",
+   "measuredAt": "testy wysiłkowe powtarzane w różnych fazach cyklu",
+   "tier": "student",
+   "value": "—",
+   "status": "checked_agent",
+   "restStatusExplicit": false,
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [
+     "poz. 33"
+    ],
+    "note": "poz. 33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "rozrodczy.role.testis.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "testis",
+   "view": "side",
+   "structureId": "testis",
+   "state": "rest",
+   "textPl": "Męski gruczoł płciowy: plemniki i hormony",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.testis.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "testis",
+   "view": "side",
+   "structureId": "testis",
+   "state": "sprint",
+   "textPl": "Męski gruczoł płciowy: plemniki i hormony",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.epididymis.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "epididymis",
+   "view": "side",
+   "structureId": "epididymis",
+   "state": "rest",
+   "textPl": "Tu plemniki dojrzewają i są przechowywane",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.epididymis.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "epididymis",
+   "view": "side",
+   "structureId": "epididymis",
+   "state": "sprint",
+   "textPl": "Tu plemniki dojrzewają i są przechowywane",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ductus_deferens.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ductus_deferens",
+   "view": "side",
+   "structureId": "ductus_deferens",
+   "state": "rest",
+   "textPl": "Przewód od najądrza do przewodu wytryskowego",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Seminal Vesicle (2023), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ductus_deferens.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ductus_deferens",
+   "view": "side",
+   "structureId": "ductus_deferens",
+   "state": "sprint",
+   "textPl": "Przewód od najądrza do przewodu wytryskowego",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Seminal Vesicle (2023), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.seminal_gland.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "seminal_gland",
+   "view": "side",
+   "structureId": "glandula_seminalis",
+   "state": "rest",
+   "textPl": "Gruczoł pod dnem pęcherza; łączy się z nasieniowodem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Seminal Vesicle (2023), Introduction; Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.seminal_gland.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "seminal_gland",
+   "view": "side",
+   "structureId": "glandula_seminalis",
+   "state": "sprint",
+   "textPl": "Gruczoł pod dnem pęcherza; łączy się z nasieniowodem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Seminal Vesicle (2023), Introduction; Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.prostate.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "prostate",
+   "view": "side",
+   "structureId": "prostata",
+   "state": "rest",
+   "textPl": "Wydzielina, która chroni plemniki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_prostate"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.prostate.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "prostate",
+   "view": "side",
+   "structureId": "prostata",
+   "state": "sprint",
+   "textPl": "Wydzielina, która chroni plemniki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_prostate"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.penis.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "penis",
+   "view": "side",
+   "structureId": "penis",
+   "state": "rest",
+   "textPl": "Oddawanie moczu i rozród; w środku cewka",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_penis"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.penis.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "penis",
+   "view": "side",
+   "structureId": "penis",
+   "state": "sprint",
+   "textPl": "Oddawanie moczu i rozród; w środku cewka",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_penis"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ejaculatory_duct.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ejaculatory_duct",
+   "view": "side",
+   "structureId": "ductus_ejaculatorius",
+   "state": "rest",
+   "textPl": "Uchodzi do cewki moczowej w prostacie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ejaculatory_duct.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ejaculatory_duct",
+   "view": "side",
+   "structureId": "ductus_ejaculatorius",
+   "state": "sprint",
+   "textPl": "Uchodzi do cewki moczowej w prostacie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_seminal_vesicle"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.urethra_m.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "urethra_m",
+   "view": "side",
+   "structureId": "urethra_masculina",
+   "state": "rest",
+   "textPl": "Jej część gąbczasta biegnie w prąciu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_penis"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Penis (2023), Introduction"
+   }
+  },
+  {
+   "id": "rozrodczy.role.urethra_m.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "urethra_m",
+   "view": "side",
+   "structureId": "urethra_masculina",
+   "state": "sprint",
+   "textPl": "Jej część gąbczasta biegnie w prąciu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_penis"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Penis (2023), Introduction"
+   }
+  },
+  {
+   "id": "rozrodczy.role.bladder_m.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "bladder_m",
+   "view": "side",
+   "structureId": "vesica_urinaria",
+   "state": "rest",
+   "textPl": "Gromadzi mocz, punkt orientacyjny",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_male_gu"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.bladder_m.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "bladder_m",
+   "view": "side",
+   "structureId": "vesica_urinaria",
+   "state": "sprint",
+   "textPl": "Gromadzi mocz, punkt orientacyjny",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_male_gu"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Male GU (2022), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.testicular_vessels.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "testicular_vessels",
+   "view": "side",
+   "structureId": "a_et_v_testicularis",
+   "state": "rest",
+   "textPl": "Tętnica i żyła jądra, biegną z jamy brzusznej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Testes (2023), Blood Supply and Lymphatics"
+   }
+  },
+  {
+   "id": "rozrodczy.role.testicular_vessels.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "testicular_vessels",
+   "view": "side",
+   "structureId": "a_et_v_testicularis",
+   "state": "sprint",
+   "textPl": "Tętnica i żyła jądra, biegną z jamy brzusznej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Testes (2023), Blood Supply and Lymphatics"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ovary.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ovary",
+   "view": "detail",
+   "structureId": "ovarium",
+   "state": "rest",
+   "textPl": "Dojrzewają w nim komórki jajowe; wydziela hormony",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_ovary"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ovary.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ovary",
+   "view": "detail",
+   "structureId": "ovarium",
+   "state": "sprint",
+   "textPl": "Dojrzewają w nim komórki jajowe; wydziela hormony",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_ovary"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterine_tube.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterine_tube",
+   "view": "detail",
+   "structureId": "tuba_uterina",
+   "state": "rest",
+   "textPl": "Droga komórki jajowej i miejsce zapłodnienia",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_fallopian_tube"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterine_tube.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterine_tube",
+   "view": "detail",
+   "structureId": "tuba_uterina",
+   "state": "sprint",
+   "textPl": "Droga komórki jajowej i miejsce zapłodnienia",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_fallopian_tube"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterus.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterus",
+   "view": "detail",
+   "structureId": "uterus",
+   "state": "rest",
+   "textPl": "Ciąża, miesiączka i poród",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterus.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterus",
+   "view": "detail",
+   "structureId": "uterus",
+   "state": "sprint",
+   "textPl": "Ciąża, miesiączka i poród",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.vagina.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "vagina",
+   "view": "detail",
+   "structureId": "vagina",
+   "state": "rest",
+   "textPl": "Do niej uchodzi szyjka macicy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus",
+    "statpearls_female_internal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.vagina.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "vagina",
+   "view": "detail",
+   "structureId": "vagina",
+   "state": "sprint",
+   "textPl": "Do niej uchodzi szyjka macicy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus",
+    "statpearls_female_internal"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.cervix.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "cervix",
+   "view": "detail",
+   "structureId": "cervix_uteri",
+   "state": "rest",
+   "textPl": "Dolna część macicy, wnika do pochwy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.cervix.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "cervix",
+   "view": "detail",
+   "structureId": "cervix_uteri",
+   "state": "sprint",
+   "textPl": "Dolna część macicy, wnika do pochwy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ovarian_ligament.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ovarian_ligament",
+   "view": "detail",
+   "structureId": "lig_ovarii_proprium",
+   "state": "rest",
+   "textPl": "Łączy jajnik z macicą",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_ovary"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Ovary (2023), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.ovarian_ligament.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "ovarian_ligament",
+   "view": "detail",
+   "structureId": "lig_ovarii_proprium",
+   "state": "sprint",
+   "textPl": "Łączy jajnik z macicą",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_ovary"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Ovary (2023), Structure and Function"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterine_artery.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterine_artery",
+   "view": "detail",
+   "structureId": "a_uterina",
+   "state": "rest",
+   "textPl": "Doprowadza krew do macicy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Uterus (2025), Blood Supply and Lymphatics"
+   }
+  },
+  {
+   "id": "rozrodczy.role.uterine_artery.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "uterine_artery",
+   "view": "detail",
+   "structureId": "a_uterina",
+   "state": "sprint",
+   "textPl": "Doprowadza krew do macicy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md: StatPearls Uterus (2025), Blood Supply and Lymphatics"
+   }
+  },
+  {
+   "id": "rozrodczy.role.bladder_f.rest",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "bladder_f",
+   "view": "detail",
+   "structureId": "vesica_urinaria",
+   "state": "rest",
+   "textPl": "Leży przed macicą",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.role.bladder_f.sprint",
+   "kind": "role",
+   "plate": "rozrodczy",
+   "anchor": "bladder_f",
+   "view": "detail",
+   "structureId": "vesica_urinaria",
+   "state": "sprint",
+   "textPl": "Leży przed macicą",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_uterus"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_rozrodczy.md",
+    "rows": [],
+    "note": "fakty_rozrodczy.md: checked_agent"
+   }
+  },
+  {
+   "id": "rozrodczy.summary.rest",
+   "kind": "summary",
+   "plate": "rozrodczy",
+   "state": "rest",
+   "textPl": "Karta pokazuje budowę układu rozrodczego mężczyzny i kobiety z boku, jak przekrój w podręczniku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_testes",
+    "statpearls_male_gu",
+    "statpearls_seminal_vesicle",
+    "statpearls_female_internal",
+    "statpearls_uterus"
+   ],
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)"
+   }
+  },
+  {
+   "id": "rozrodczy.summary.sprint",
+   "kind": "summary",
+   "plate": "rozrodczy",
+   "state": "sprint",
+   "textPl": "Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle (w badaniu: wytrenowani biegacze, 90 s biegu przy 100–110% VO₂max przez ok. 45 min); znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym lub silnym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hackney_2012",
+    "velasco_orjuela_2018",
+    "mountjoy_2023"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)"
+   }
+  },
+  {
+   "id": "rozrodczy.protocolNote",
+   "kind": "protocol_note",
+   "plate": "rozrodczy",
+   "textPl": "To karta budowy, a nie plansza ze stanami: „sprint” (koniec 45 s pracy przy ok. 88% VO₂max) nie zmienia tu obrazu.",
+   "status": "checked_agent",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md, cz. 1a"
+   }
+  }
+ ]
+}

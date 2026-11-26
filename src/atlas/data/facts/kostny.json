@@ -1,0 +1,1373 @@
+{
+ "schemaVersion": 1,
+ "plate": "kostny",
+ "facts": [
+  {
+   "id": "kostny.metric.szczyt_nacisku_podloza_na_stope",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Szczyt nacisku podłoża na stopę",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The thrust peak, which is the second peak in the vertical GRF-histories of rear-foot strikers, generally occurred between 35 and 50% of the total stance time and its magnitude increased (p < 0.001) from 2.5 BW at 3.0 m s-1 to 2.8 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3, wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)",
+   "conversionNote": "Munro 1987, tab. 3: thrust maximum 2,51 / 2,56 / 2,62 / 2,67 BW dla 3,00 / 3,25 / 3,50 / 3,75 m/s, zaokrąglone do 2,5–2,7.",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; 20 mężczyzn ok. 25 lat biegających rekreacyjnie; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek z równania biegu ACSM), czyli dolna część zakresu 3–5 m/s",
+   "measuredAt": "jeden krok biegu, 35–50% czasu kontaktu stopy (szczyt opisany u lądujących na pięcie, 17 z 20 badanych)",
+   "tier": "primary",
+   "value": "ok. 2,5–2,7",
+   "notePl": "To siła, z jaką podłoże naciska na stopę (zmierzona płytą pomiarową), a nie siła wewnątrz kości. Wartość dla tempa podobnego do naszego interwału; przy szybszym biegu nieco więcej.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "third_party_scan",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)"
+   },
+   "order": 0
+  },
+  {
+   "id": "kostny.metric.szczyt_nacisku_podloza_na_stope.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Szczyt nacisku podłoża na stopę",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The thrust peak, which is the second peak in the vertical GRF-histories of rear-foot strikers, generally occurred between 35 and 50% of the total stance time and its magnitude increased (p < 0.001) from 2.5 BW at 3.0 m s-1 to 2.8 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3, wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)",
+   "conversionNote": "Munro 1987, tab. 3: thrust maximum 2,51 / 2,56 / 2,62 / 2,67 BW dla 3,00 / 3,25 / 3,50 / 3,75 m/s, zaokrąglone do 2,5–2,7.",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; 20 mężczyzn ok. 25 lat biegających rekreacyjnie; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek z równania biegu ACSM), czyli dolna część zakresu 3–5 m/s",
+   "measuredAt": "jeden krok biegu, 35–50% czasu kontaktu stopy (szczyt opisany u lądujących na pięcie, 17 z 20 badanych)",
+   "tier": "primary",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "third_party_scan",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)"
+   }
+  },
+  {
+   "id": "kostny.metric.kontakt_stopy_z_podlozem",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Kontakt stopy z podłożem",
+   "unit": "s na krok",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation, stance time, defined as the period of time during which the vertical GRF exceeded 16 N, decreased (p < 0.001) from 270 to 198 ms as the running speed increased (Table 2).",
+   "locator": "Munro 1987, s. 148–149, akapit „Stance time”; tab. 2 (s. 149), wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)",
+   "conversionNote": "Munro 1987, tab. 2: 270 / 258 / 247 / 238 ms dla 3,00 / 3,25 / 3,50 / 3,75 m/s = ok. 0,24–0,27 s.",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek), czyli dolna część zakresu 3–5 m/s",
+   "measuredAt": "jeden krok biegu (siła pionowa > 16 N)",
+   "tier": "primary",
+   "value": "ok. 0,24–0,27",
+   "notePl": "Dla tempa podobnego do naszego interwału. Im szybszy bieg, tym krótszy kontakt.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "third_party_scan",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)"
+   },
+   "order": 1
+  },
+  {
+   "id": "kostny.metric.kontakt_stopy_z_podlozem.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Kontakt stopy z podłożem",
+   "unit": "s na krok",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation, stance time, defined as the period of time during which the vertical GRF exceeded 16 N, decreased (p < 0.001) from 270 to 198 ms as the running speed increased (Table 2).",
+   "locator": "Munro 1987, s. 148–149, akapit „Stance time”; tab. 2 (s. 149), wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)",
+   "conversionNote": "Munro 1987, tab. 2: 270 / 258 / 247 / 238 ms dla 3,00 / 3,25 / 3,50 / 3,75 m/s = ok. 0,24–0,27 s.",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek), czyli dolna część zakresu 3–5 m/s",
+   "measuredAt": "jeden krok biegu (siła pionowa > 16 N)",
+   "tier": "primary",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "third_party_scan",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)"
+   }
+  },
+  {
+   "id": "kostny.metric.przebudowa_kosci_po_tygodniach",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Przebudowa kości (po tygodniach)",
+   "unit": "dni",
+   "referenceIds": [
+    "eriksen_2010",
+    "sims_martin_2014"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In cancellous bone remodeling occurs on the surface of trabeculae and lasts about 200 days in normal bone. […] In normal bone the duration of the remodeling cycle in cortical is shorter than in cancellous bone with a median of 120 days [6].",
+   "locator": "Eriksen 2010, rozdz. „The bone remodeling cycle”, akapit 2 (przebudowa jako adaptacja do obciążeń: Sims i Martin 2014, Introduction, akapit 2)",
+   "conversionNote": "Kość zbita: mediana 120 dni; kość gąbczasta: ok. 200 dni; 120–200 dni ≈ 4–7 miesięcy.",
+   "protocolMismatch": "zdrowa dorosła kość człowieka, ogólnie (przegląd), bez związku z konkretnym treningiem",
+   "measuredAt": "adaptacja tygodni i miesięcy, nie efekt jednego sprintu",
+   "tier": "primary",
+   "value": "cały cykl ok. 120–200",
+   "notePl": "Po tygodniach i miesiącach: kość przebudowuje się w miejscach obciążanych. Jeden cykl trwa ok. 4–7 miesięcy (w kości zbitej krócej, w gąbczastej dłużej), więc jeden trening nie zmienia gęstości kości.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Eriksen 2010, Sims i Martin 2014"
+   },
+   "order": 2
+  },
+  {
+   "id": "kostny.metric.przebudowa_kosci_po_tygodniach.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Przebudowa kości (po tygodniach)",
+   "unit": "dni",
+   "referenceIds": [
+    "eriksen_2010",
+    "sims_martin_2014"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In cancellous bone remodeling occurs on the surface of trabeculae and lasts about 200 days in normal bone. […] In normal bone the duration of the remodeling cycle in cortical is shorter than in cancellous bone with a median of 120 days [6].",
+   "locator": "Eriksen 2010, rozdz. „The bone remodeling cycle”, akapit 2 (przebudowa jako adaptacja do obciążeń: Sims i Martin 2014, Introduction, akapit 2)",
+   "conversionNote": "Kość zbita: mediana 120 dni; kość gąbczasta: ok. 200 dni; 120–200 dni ≈ 4–7 miesięcy.",
+   "protocolMismatch": "zdrowa dorosła kość człowieka, ogólnie (przegląd), bez związku z konkretnym treningiem",
+   "measuredAt": "adaptacja tygodni i miesięcy, nie efekt jednego sprintu",
+   "tier": "primary",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Eriksen 2010, Sims i Martin 2014"
+   }
+  },
+  {
+   "id": "kostny.metric.szczyt_nacisku_podloza_caly_zakres_badania_3_5_m_s",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Szczyt nacisku podłoża, cały zakres badania (3–5 m/s)",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The thrust peak, which is the second peak in the vertical GRF-histories of rear-foot strikers, generally occurred between 35 and 50% of the total stance time and its magnitude increased (p < 0.001) from 2.5 BW at 3.0 m s-1 to 2.8 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3",
+   "conversionNote": null,
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie, 2,5–5,5 m/s; normy dla 3–5 m/s) po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max; górna część zakresu (4–5 m/s) jest szybsza niż wzorzec 88% VO₂max",
+   "measuredAt": "jeden krok biegu, 35–50% czasu kontaktu stopy",
+   "tier": "student",
+   "value": "2,5–2,8",
+   "notePl": "To siła, z jaką podłoże naciska na stopę (zmierzona płytą pomiarową), a nie siła wewnątrz kości. W biegu 3–5 m/s, im szybciej, tym więcej.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#7",
+     "#8"
+    ],
+    "note": "fakty_kostny.md #7, #8"
+   },
+   "order": 3
+  },
+  {
+   "id": "kostny.metric.szczyt_nacisku_podloza_caly_zakres_badania_3_5_m_s.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Szczyt nacisku podłoża, cały zakres badania (3–5 m/s)",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The thrust peak, which is the second peak in the vertical GRF-histories of rear-foot strikers, generally occurred between 35 and 50% of the total stance time and its magnitude increased (p < 0.001) from 2.5 BW at 3.0 m s-1 to 2.8 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3",
+   "conversionNote": null,
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie, 2,5–5,5 m/s; normy dla 3–5 m/s) po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max; górna część zakresu (4–5 m/s) jest szybsza niż wzorzec 88% VO₂max",
+   "measuredAt": "jeden krok biegu, 35–50% czasu kontaktu stopy",
+   "tier": "student",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#7",
+     "#8"
+    ],
+    "note": "fakty_kostny.md #7, #8"
+   }
+  },
+  {
+   "id": "kostny.metric.kontakt_stopy_caly_zakres_badania_3_5_m_s",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Kontakt stopy, cały zakres badania (3–5 m/s)",
+   "unit": "s na krok",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation, stance time, defined as the period of time during which the vertical GRF exceeded 16 N, decreased (p < 0.001) from 270 to 198 ms as the running speed increased (Table 2).",
+   "locator": "Munro 1987, s. 148–149, akapit „Stance time”; tab. 2",
+   "conversionNote": "270–198 ms = 0,27–0,20 s",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max; górna część zakresu jest szybsza niż wzorzec 88% VO₂max",
+   "measuredAt": "jeden krok biegu (siła pionowa > 16 N)",
+   "tier": "student",
+   "value": "0,20–0,27",
+   "notePl": "Im szybszy bieg, tym krótszy kontakt (0,27 s przy 3 m/s, 0,20 s przy 5 m/s).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#9"
+    ],
+    "note": "fakty_kostny.md #9"
+   },
+   "order": 4
+  },
+  {
+   "id": "kostny.metric.kontakt_stopy_caly_zakres_badania_3_5_m_s.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Kontakt stopy, cały zakres badania (3–5 m/s)",
+   "unit": "s na krok",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation, stance time, defined as the period of time during which the vertical GRF exceeded 16 N, decreased (p < 0.001) from 270 to 198 ms as the running speed increased (Table 2).",
+   "locator": "Munro 1987, s. 148–149, akapit „Stance time”; tab. 2",
+   "conversionNote": "270–198 ms = 0,27–0,20 s",
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max; górna część zakresu jest szybsza niż wzorzec 88% VO₂max",
+   "measuredAt": "jeden krok biegu (siła pionowa > 16 N)",
+   "tier": "student",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#9"
+    ],
+    "note": "fakty_kostny.md #9"
+   }
+  },
+  {
+   "id": "kostny.metric.szczyt_uderzenia_pieta",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Szczyt uderzenia piętą",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation in which the subjects wore their own jogging shoes, the impact peak generally occurred between 6 and 17% of the total stance time and its magnitude increased from 1.6 body weight (BW) at 3.0 m s-1 to 2.3 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Impact peak”; tab. 3",
+   "conversionNote": null,
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością 3–5 m/s po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max",
+   "measuredAt": "6–17% czasu kontaktu stopy",
+   "tier": "student",
+   "value": "1,6–2,3",
+   "notePl": "Pierwszy, krótki szczyt siły u osób lądujących na pięcie (w butach do biegania). W tempie naszego interwału bliżej dolnej granicy.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#12"
+    ],
+    "note": "fakty_kostny.md #12"
+   },
+   "order": 5
+  },
+  {
+   "id": "kostny.metric.szczyt_uderzenia_pieta.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Szczyt uderzenia piętą",
+   "unit": "× masa ciała",
+   "referenceIds": [
+    "munro_1987"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In the present investigation in which the subjects wore their own jogging shoes, the impact peak generally occurred between 6 and 17% of the total stance time and its magnitude increased from 1.6 body weight (BW) at 3.0 m s-1 to 2.3 BW at 5.0 m s-1.",
+   "locator": "Munro 1987, s. 151, akapit „Impact peak”; tab. 3",
+   "conversionNote": null,
+   "protocolMismatch": "pojedyncze kroki biegu ze stałą prędkością 3–5 m/s po płycie pomiarowej, w stanie wypoczętym; badanie nie podaje % VO₂max",
+   "measuredAt": "6–17% czasu kontaktu stopy",
+   "tier": "student",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#12"
+    ],
+    "note": "fakty_kostny.md #12"
+   }
+  },
+  {
+   "id": "kostny.metric.dla_porownania_sprint_na_maksa_kontakt_stopy",
+   "kind": "metric",
+   "plate": "kostny",
+   "labelPl": "Dla porównania: sprint na maksa, kontakt stopy",
+   "unit": "s na krok",
+   "referenceIds": [
+    "weyand_2000"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Level, 0° | 0.350 ± 0.007 | 0.107 ± 0.003* | 0.457 ± 0.005",
+   "locator": "Weyand 2000, tab. 2 (t sw, t c, t str w s; średnia ± SE, 5 osób), wiersz „Level, 0°”; 9,25 m/s: tab. 1",
+   "conversionNote": "0,107 ± 0,003 s zaokrąglone do 0,11 s",
+   "protocolMismatch": "sprint z maksymalną prędkością (średnio 9,25 m/s) na bieżni z płytą pomiarową, 5 osób",
+   "measuredAt": "kroki przy prędkości maksymalnej (bieżnia poziomo)",
+   "tier": "student",
+   "value": "ok. 0,11",
+   "notePl": "Przy maksymalnej prędkości stopa dotyka podłoża ok. dwa razy krócej niż w szybkim biegu.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#13",
+     "#14"
+    ],
+    "note": "fakty_kostny.md #13 (z poprawionym cytatem), #14"
+   },
+   "order": 6
+  },
+  {
+   "id": "kostny.metric.dla_porownania_sprint_na_maksa_kontakt_stopy.rest",
+   "kind": "metric_rest",
+   "plate": "kostny",
+   "labelPl": "Dla porównania: sprint na maksa, kontakt stopy",
+   "unit": "s na krok",
+   "referenceIds": [
+    "weyand_2000"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Level, 0° | 0.350 ± 0.007 | 0.107 ± 0.003* | 0.457 ± 0.005",
+   "locator": "Weyand 2000, tab. 2 (t sw, t c, t str w s; średnia ± SE, 5 osób), wiersz „Level, 0°”; 9,25 m/s: tab. 1",
+   "conversionNote": "0,107 ± 0,003 s zaokrąglone do 0,11 s",
+   "protocolMismatch": "sprint z maksymalną prędkością (średnio 9,25 m/s) na bieżni z płytą pomiarową, 5 osób",
+   "measuredAt": "kroki przy prędkości maksymalnej (bieżnia poziomo)",
+   "tier": "student",
+   "value": "—",
+   "status": "anatomy",
+   "restStatusExplicit": true,
+   "provenance": null,
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_kostny.md",
+    "rows": [
+     "#13",
+     "#14"
+    ],
+    "note": "fakty_kostny.md #13 (z poprawionym cytatem), #14"
+   }
+  },
+  {
+   "id": "kostny.role.femur.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "femur",
+   "view": "front",
+   "structureId": "femur",
+   "state": "rest",
+   "textPl": "Kość uda: łączy staw kolanowy z biodrowym",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.femur.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "femur",
+   "view": "front",
+   "structureId": "femur",
+   "state": "sprint",
+   "textPl": "Kość uda: łączy staw kolanowy z biodrowym",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.tibia.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "tibia",
+   "view": "front",
+   "structureId": "tibia",
+   "state": "rest",
+   "textPl": "Główna kość podudzia, na niej opiera się udo",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.tibia.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "tibia",
+   "view": "front",
+   "structureId": "tibia",
+   "state": "sprint",
+   "textPl": "Główna kość podudzia, na niej opiera się udo",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.hip_bone.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "hip_bone",
+   "view": "front",
+   "structureId": "os_coxae",
+   "state": "rest",
+   "textPl": "Łączy nogi z kręgosłupem",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.hip_bone.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "hip_bone",
+   "view": "front",
+   "structureId": "os_coxae",
+   "state": "sprint",
+   "textPl": "Przekazuje nacisk z nogi na kręgosłup",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.knee.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "knee",
+   "view": "front",
+   "structureId": "articulatio_genus_menisci",
+   "state": "rest",
+   "textPl": "Chrząstka rozkłada nacisk w stawie",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.knee.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "knee",
+   "view": "front",
+   "structureId": "articulatio_genus_menisci",
+   "state": "sprint",
+   "textPl": "Łąkotki rozkładają nacisk przy każdym lądowaniu",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.patella.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "patella",
+   "view": "front",
+   "structureId": "patella",
+   "state": "rest",
+   "textPl": "Kość w ścięgnie mięśnia czworogłowego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.patella.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "patella",
+   "view": "front",
+   "structureId": "patella",
+   "state": "sprint",
+   "textPl": "Kość w ścięgnie mięśnia czworogłowego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.fibula.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "fibula",
+   "view": "front",
+   "structureId": "fibula",
+   "state": "rest",
+   "textPl": "Cienka kość boczna podudzia",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.fibula.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "fibula",
+   "view": "front",
+   "structureId": "fibula",
+   "state": "sprint",
+   "textPl": "Cienka kość boczna podudzia",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.humerus.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "humerus",
+   "view": "front",
+   "structureId": "humerus",
+   "state": "rest",
+   "textPl": "Nie dźwiga ciężaru ciała",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.humerus.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "humerus",
+   "view": "front",
+   "structureId": "humerus",
+   "state": "sprint",
+   "textPl": "Nie dźwiga ciężaru ciała (na rysunku przygaszona)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.lumbar.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "lumbar",
+   "view": "side",
+   "structureId": "vertebrae_lumbales_l1_l5",
+   "state": "rest",
+   "textPl": "Dźwiga górną część ciała",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.lumbar.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "lumbar",
+   "view": "side",
+   "structureId": "vertebrae_lumbales_l1_l5",
+   "state": "sprint",
+   "textPl": "Dźwiga górną część ciała, amortyzuje kroki",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.disc.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "disc",
+   "view": "side",
+   "structureId": "discus_intervertebralis_l4_l5",
+   "state": "rest",
+   "textPl": "Chrząstka między kręgami",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.disc.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "disc",
+   "view": "side",
+   "structureId": "discus_intervertebralis_l4_l5",
+   "state": "sprint",
+   "textPl": "Chrząstka między kręgami: amortyzuje nacisk",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.calcaneus.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "calcaneus",
+   "view": "side",
+   "structureId": "calcaneus",
+   "state": "rest",
+   "textPl": "Największa kość stopy, tworzy piętę",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.calcaneus.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "calcaneus",
+   "view": "side",
+   "structureId": "calcaneus",
+   "state": "sprint",
+   "textPl": "Największa kość stopy, tworzy piętę",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.sacrum.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "sacrum",
+   "view": "side",
+   "structureId": "os_sacrum",
+   "state": "rest",
+   "textPl": "Łączy kręgosłup z miednicą",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.sacrum.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "sacrum",
+   "view": "side",
+   "structureId": "os_sacrum",
+   "state": "sprint",
+   "textPl": "Łączy kręgosłup z miednicą",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.femoral_head.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "femoral_head",
+   "view": "side",
+   "structureId": "caput_femoris",
+   "state": "rest",
+   "textPl": "Staw biodrowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.femoral_head.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "femoral_head",
+   "view": "side",
+   "structureId": "caput_femoris",
+   "state": "sprint",
+   "textPl": "Staw biodrowy: przez niego nacisk przechodzi na miednicę",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.talus.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "talus",
+   "view": "side",
+   "structureId": "talus",
+   "state": "rest",
+   "textPl": "Łączy podudzie ze stopą",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.talus.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "talus",
+   "view": "side",
+   "structureId": "talus",
+   "state": "sprint",
+   "textPl": "Łączy podudzie ze stopą",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_cortex.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_cortex",
+   "view": "detail",
+   "structureId": "substantia_compacta",
+   "state": "rest",
+   "textPl": "Gruba, twarda ściana trzonu",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_cortex.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_cortex",
+   "view": "detail",
+   "structureId": "substantia_compacta",
+   "state": "sprint",
+   "textPl": "Gruba, twarda ściana trzonu (schemat)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_spongy.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_spongy",
+   "view": "detail",
+   "structureId": "substantia_spongiosa",
+   "state": "rest",
+   "textPl": "Beleczki w pasmach, w oczkach szpik czerwony",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_spongy.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_spongy",
+   "view": "detail",
+   "structureId": "substantia_spongiosa",
+   "state": "sprint",
+   "textPl": "Pasma beleczek biegną zgodnie z kierunkami obciążeń (schemat)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_marrow.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_marrow",
+   "view": "detail",
+   "structureId": "cavitas_medullaris",
+   "state": "rest",
+   "textPl": "U dorosłych wypełniona szpikiem żółtym (tłuszczowym)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_marrow.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_marrow",
+   "view": "detail",
+   "structureId": "cavitas_medullaris",
+   "state": "sprint",
+   "textPl": "U dorosłych wypełniona szpikiem żółtym (tłuszczowym)",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_head.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_head",
+   "view": "detail",
+   "structureId": "caput_femoris",
+   "state": "rest",
+   "textPl": "Cienka warstwa zbita na powierzchni",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_head.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_head",
+   "view": "detail",
+   "structureId": "caput_femoris",
+   "state": "sprint",
+   "textPl": "Cienka warstwa zbita na powierzchni",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_trochanter.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_trochanter",
+   "view": "detail",
+   "structureId": "trochanter_major",
+   "state": "rest",
+   "textPl": "Przyczep mięśni pośladkowych średniego i małego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_trochanter.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_trochanter",
+   "view": "detail",
+   "structureId": "trochanter_major",
+   "state": "sprint",
+   "textPl": "Przyczep mięśni pośladkowych średniego i małego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_compressive.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_compressive",
+   "view": "detail",
+   "structureId": "pl_pasmo_beleczek_sciskanych",
+   "state": "rest",
+   "textPl": "Od ściany przyśrodkowej szyjki do głowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "student",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_compressive.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_compressive",
+   "view": "detail",
+   "structureId": "pl_pasmo_beleczek_sciskanych",
+   "state": "sprint",
+   "textPl": "Od ściany przyśrodkowej szyjki do głowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "student",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_tensile.rest",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_tensile",
+   "view": "detail",
+   "structureId": "pl_pasmo_beleczek_rozciaganych",
+   "state": "rest",
+   "textPl": "Łuk od ściany bocznej nad szyjką do głowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "student",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.role.d_tensile.sprint",
+   "kind": "role",
+   "plate": "kostny",
+   "anchor": "d_tensile",
+   "view": "detail",
+   "structureId": "pl_pasmo_beleczek_rozciaganych",
+   "state": "sprint",
+   "textPl": "Łuk od ściany bocznej nad szyjką do głowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "student",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "kostny.summary.rest",
+   "kind": "summary",
+   "plate": "kostny",
+   "state": "rest",
+   "textPl": "W staniu kości nóg, miednica i kręgosłup podpierają ciężar ciała rozłożony na obie stopy. Cały szkielet jest na rysunku jednakowo przygaszony.",
+   "status": "anatomy",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Munro 1987 tab. 2 i 3, Sims i Martin 2014"
+   }
+  },
+  {
+   "id": "kostny.summary.sprint",
+   "kind": "summary",
+   "plate": "kostny",
+   "state": "sprint",
+   "textPl": "W szybkim biegu stopa przy każdym kroku przyjmuje nacisk podłoża w szczycie ok. 2,5–2,7 razy większy niż ciężar ciała, a dotyka podłoża tylko ok. 0,24–0,27 s. Na rysunku wyróżniono kości, które dźwigają ciężar ciała: kości nóg, miednicę i kręgosłup lędźwiowy (ilustracja, nie pomiar). Gęstość kości nie zmienia się po jednym treningu: kość przebudowuje się tygodniami i miesiącami.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "munro_1987",
+    "sims_martin_2014",
+    "eriksen_2010"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: Munro 1987 tab. 2 i 3, Sims i Martin 2014"
+   }
+  },
+  {
+   "id": "kostny.protocolNote",
+   "kind": "protocol_note",
+   "plate": "kostny",
+   "textPl": "Sprint = koniec 45 s szybkiego biegu przy ok. 88% VO₂max (to ok. 3,0–3,7 m/s, szacunek). Siły podłoża zmierzono w pojedynczych krokach biegu ze stałą prędkością 3–5 m/s, w stanie wypoczętym, nie w naszym interwale.",
+   "status": "checked_agent",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md, cz. 1a"
+   }
+  }
+ ]
+}

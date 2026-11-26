@@ -1,0 +1,1389 @@
+{
+ "schemaVersion": 1,
+ "plate": "krwionosny",
+ "facts": [
+  {
+   "id": "krwionosny.metric.tetno_hr",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Tętno (HR)",
+   "unit": "/min",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "tanaka_2001"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "A regression equation to predict HRmax is 208 - 0.7 x age in healthy adults.",
+   "locator": "Tanaka 2001, abstrakt (Conclusions); Joyner & Casey 2015, tab. 1",
+   "conversionNote": "208 − 0,7 × 25 = 190,5 /min (Tanaka 2001). Spoczynek: Joyner & Casey 2015, tab. 1, kategoria „Active”.",
+   "protocolMismatch": "tętno maksymalne (testy do wyczerpania)",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "do ok. 190",
+   "notePl": "Tętno maksymalne zależy głównie od wieku: ok. 208 − 0,7 × wiek, czyli ok. 190/min w wieku 25 lat. Pomiaru z końca 45 s pracy przy 88% VO₂max nie znaleźliśmy, więc podajemy górną granicę.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 0
+  },
+  {
+   "id": "krwionosny.metric.tetno_hr.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Tętno (HR)",
+   "unit": "/min",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "tanaka_2001"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "A regression equation to predict HRmax is 208 - 0.7 x age in healthy adults.",
+   "locator": "Tanaka 2001, abstrakt (Conclusions); Joyner & Casey 2015, tab. 1",
+   "conversionNote": "208 − 0,7 × 25 = 190,5 /min (Tanaka 2001). Spoczynek: Joyner & Casey 2015, tab. 1, kategoria „Active”.",
+   "protocolMismatch": "tętno maksymalne (testy do wyczerpania)",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 60",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "meta_analysis",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "krwionosny.metric.objetosc_wyrzutowa",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Objętość wyrzutowa",
+   "unit": "mL na uderzenie",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125",
+   "locator": "Joyner & Casey 2015, tab. 1, Reference Man, Rest / Exercise (maximal) (komórki tabeli)",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 125",
+   "notePl": "Osoba rekreacyjnie aktywna. U wyczynowych sportowców wytrzymałościowych (elita) ok. 150–200 mL.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md"
+   },
+   "order": 1
+  },
+  {
+   "id": "krwionosny.metric.objetosc_wyrzutowa.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Objętość wyrzutowa",
+   "unit": "mL na uderzenie",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125",
+   "locator": "Joyner & Casey 2015, tab. 1, Reference Man, Rest / Exercise (maximal) (komórki tabeli)",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 90",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md"
+   }
+  },
+  {
+   "id": "krwionosny.metric.rzut_serca",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Rzut serca",
+   "unit": "L/min",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "CO, l/min Sed ∼5 ∼20 … Active ∼5–6 ∼25",
+   "locator": "Joyner & Casey 2015, tab. 1",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 20–25",
+   "notePl": "Rzut serca = tętno × objętość wyrzutowa.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 2
+  },
+  {
+   "id": "krwionosny.metric.rzut_serca.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Rzut serca",
+   "unit": "L/min",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "CO, l/min Sed ∼5 ∼20 … Active ∼5–6 ∼25",
+   "locator": "Joyner & Casey 2015, tab. 1",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 5",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.metric.udzial_miesni_w_przeplywie_krwi",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Udział mięśni w przepływie krwi",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "calbet_joyner_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "70–80% (or perhaps more) of cardiac output is directed towards the active muscles",
+   "locator": "Calbet & Joyner 2010, rozdz. o układzie współczulnym; Joyner & Casey 2015, rozdz. III.C",
+   "conversionNote": "Spoczynek: ok. 80% rzutu serca trafia do mózgu, serca, nerek i wątroby (Joyner & Casey 2015), więc na mięśnie zostaje mniej niż 20%.",
+   "protocolMismatch": "wysiłek maksymalny całego ciała",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 80",
+   "notePl": "Naczynia trzewi i nerek się zwężają, a naczynia pracujących mięśni się rozszerzają.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 3,
+   "topic": "udzial_miesni_w_rzucie_serca"
+  },
+  {
+   "id": "krwionosny.metric.udzial_miesni_w_przeplywie_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Udział mięśni w przepływie krwi",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "calbet_joyner_2010"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "70–80% (or perhaps more) of cardiac output is directed towards the active muscles",
+   "locator": "Calbet & Joyner 2010, rozdz. o układzie współczulnym; Joyner & Casey 2015, rozdz. III.C",
+   "conversionNote": "Spoczynek: ok. 80% rzutu serca trafia do mózgu, serca, nerek i wątroby (Joyner & Casey 2015), więc na mięśnie zostaje mniej niż 20%.",
+   "protocolMismatch": "wysiłek maksymalny całego ciała",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "poniżej 20",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "krwionosny.metric.przeplyw_wiencowy",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Przepływ wieńcowy",
+   "unit": null,
+   "referenceIds": [
+    "duncker_bache_2008",
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "peak values during maximal exercise typically three to five times the resting level",
+   "locator": "Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)",
+   "conversionNote": "three to five times = 3–5×; spoczynek = 1×",
+   "protocolMismatch": "wysiłek maksymalny, częściowo badania na zwierzętach",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 3–5×",
+   "notePl": "Serce już w spoczynku pobiera z krwi 70–80% tlenu, więc więcej tlenu dostaje głównie dzięki większemu przepływowi. U ludzi zmierzono ok. 3–4×.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 4
+  },
+  {
+   "id": "krwionosny.metric.przeplyw_wiencowy.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Przepływ wieńcowy",
+   "unit": null,
+   "referenceIds": [
+    "duncker_bache_2008",
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "peak values during maximal exercise typically three to five times the resting level",
+   "locator": "Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)",
+   "conversionNote": "three to five times = 3–5×; spoczynek = 1×",
+   "protocolMismatch": "wysiłek maksymalny, częściowo badania na zwierzętach",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "krwionosny.metric.cisnienie_skurczowe",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Ciśnienie skurczowe",
+   "unit": "mmHg",
+   "referenceIds": [
+    "kenney_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": null,
+   "locator": null,
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 200",
+   "notePl": "Ciśnienie rozkurczowe zmienia się niewiele albo lekko spada.",
+   "seeAlsoPlate": null,
+   "status": "unverifiable",
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 5
+  },
+  {
+   "id": "krwionosny.metric.cisnienie_skurczowe.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Ciśnienie skurczowe",
+   "unit": "mmHg",
+   "referenceIds": [
+    "kenney_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": null,
+   "locator": null,
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 120",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.metric.pobor_tlenu_z_krwi_roznica_tetniczo_zylna",
+   "kind": "metric",
+   "plate": "krwionosny",
+   "labelPl": "Pobór tlenu z krwi (różnica tętniczo-żylna)",
+   "unit": "mL O₂ / 100 mL krwi",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "∼140–150 ml of oxygen is extracted by the peripheral tissues for each liter of cardiac output",
+   "locator": "Joyner & Casey 2015, rozdz. III.B",
+   "conversionNote": "140–150 mL O₂ na litr krwi = 14–15 mL/100 mL; spoczynek: 200 mL/L × (1 − 0,75) ≈ 5 mL/100 mL (do ok. 6,6 wg podpisu ryc. 5).",
+   "protocolMismatch": "wysiłek maksymalny, osoba nietrenująca",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 15",
+   "notePl": null,
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 6
+  },
+  {
+   "id": "krwionosny.metric.pobor_tlenu_z_krwi_roznica_tetniczo_zylna.rest",
+   "kind": "metric_rest",
+   "plate": "krwionosny",
+   "labelPl": "Pobór tlenu z krwi (różnica tętniczo-żylna)",
+   "unit": "mL O₂ / 100 mL krwi",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "∼140–150 ml of oxygen is extracted by the peripheral tissues for each liter of cardiac output",
+   "locator": "Joyner & Casey 2015, rozdz. III.B",
+   "conversionNote": "140–150 mL O₂ na litr krwi = 14–15 mL/100 mL; spoczynek: 200 mL/L × (1 − 0,75) ≈ 5 mL/100 mL (do ok. 6,6 wg podpisu ryc. 5).",
+   "protocolMismatch": "wysiłek maksymalny, osoba nietrenująca",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 5",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.role.carotid.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "carotid",
+   "view": "front",
+   "structureId": "a_carotis_communis",
+   "state": "rest",
+   "textPl": "Krew do głowy i mózgu",
+   "status": "anatomy",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#23"
+    ],
+    "note": "#23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.carotid.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "carotid",
+   "view": "front",
+   "structureId": "a_carotis_communis",
+   "state": "sprint",
+   "textPl": "Przepływ do mózgu prawie stały",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#23"
+    ],
+    "note": "#23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.jugular.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "jugular",
+   "view": "front",
+   "structureId": "v_jugularis_interna",
+   "state": "rest",
+   "textPl": "Odprowadza krew z mózgu",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.role.jugular.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "jugular",
+   "view": "front",
+   "structureId": "v_jugularis_interna",
+   "state": "sprint",
+   "textPl": "Odprowadza krew z mózgu",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.role.aortic_arch.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "aortic_arch",
+   "view": "front",
+   "structureId": "arcus_aortae",
+   "state": "rest",
+   "textPl": "Ok. 5 L krwi na minutę",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#7",
+     "#8"
+    ],
+    "note": "#7, #8",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.aortic_arch.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "aortic_arch",
+   "view": "front",
+   "structureId": "arcus_aortae",
+   "state": "sprint",
+   "textPl": "Nawet 20–25 L krwi na minutę",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#7",
+     "#8"
+    ],
+    "note": "#7, #8",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.heart.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "heart",
+   "view": "front",
+   "structureId": "cor",
+   "state": "rest",
+   "textPl": "Ok. 60 uderzeń na minutę",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "tanaka_2001"
+   ],
+   "evidence": null,
+   "conversionNote": "208 − 0,7 × 25 = 190,5 /min (Tanaka 2001).",
+   "tier": "primary",
+   "provenance": "meta_analysis",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [
+     "#1",
+     "#3"
+    ],
+    "note": "#1, #3; fakty_draft_1b.md: Tanaka 2001, abstrakt, Conclusions (+ conversionNote)"
+   }
+  },
+  {
+   "id": "krwionosny.role.heart.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "heart",
+   "view": "front",
+   "structureId": "cor",
+   "state": "sprint",
+   "textPl": "Bije szybko; maksimum w wieku 25 lat to ok. 190/min",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "tanaka_2001"
+   ],
+   "evidence": null,
+   "conversionNote": "208 − 0,7 × 25 = 190,5 /min (Tanaka 2001).",
+   "tier": "primary",
+   "provenance": "meta_analysis",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [
+     "#1",
+     "#3"
+    ],
+    "note": "#1, #3; fakty_draft_1b.md: Tanaka 2001, abstrakt, Conclusions (+ conversionNote)"
+   }
+  },
+  {
+   "id": "krwionosny.role.brachial.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "brachial",
+   "view": "front",
+   "structureId": "a_brachialis",
+   "state": "rest",
+   "textPl": "Krew do ramienia",
+   "status": "anatomy",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#24"
+    ],
+    "note": "#24; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.B"
+   }
+  },
+  {
+   "id": "krwionosny.role.brachial.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "brachial",
+   "view": "front",
+   "structureId": "a_brachialis",
+   "state": "sprint",
+   "textPl": "Ramiona pracują słabiej: mniej krwi, więcej pobranego tlenu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#24"
+    ],
+    "note": "#24; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.B"
+   }
+  },
+  {
+   "id": "krwionosny.role.portal.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "portal",
+   "view": "front",
+   "structureId": "a_lienalis_t_sledzionowa",
+   "state": "rest",
+   "textPl": "Duży przepływ przez jelita i wątrobę",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#20",
+     "#25"
+    ],
+    "note": "#20, #25; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.C"
+   }
+  },
+  {
+   "id": "krwionosny.role.portal.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "portal",
+   "view": "front",
+   "structureId": "a_lienalis_t_sledzionowa",
+   "state": "sprint",
+   "textPl": "Mniej krwi: naczynia trzewne się zwężają",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#20",
+     "#25"
+    ],
+    "note": "#20, #25; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.C"
+   }
+  },
+  {
+   "id": "krwionosny.role.femoral.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "femoral",
+   "view": "front",
+   "structureId": "a_femoralis",
+   "state": "rest",
+   "textPl": "Mały przepływ do nogi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.femoral.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "femoral",
+   "view": "front",
+   "structureId": "a_femoralis",
+   "state": "sprint",
+   "textPl": "Wielokrotnie większy przepływ do uda i łydki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#26"
+    ],
+    "note": "#26",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.saphenous.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "saphenous",
+   "view": "front",
+   "structureId": "v_saphena_magna",
+   "state": "rest",
+   "textPl": "Powrót krwi z nogi",
+   "status": "anatomy",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md: Joyner i Casey 2015, III.B"
+   }
+  },
+  {
+   "id": "krwionosny.role.saphenous.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "saphenous",
+   "view": "front",
+   "structureId": "v_saphena_magna",
+   "state": "sprint",
+   "textPl": "Spływa do żył głębokich, które pompa mięśniowa opróżnia szybciej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md: Joyner i Casey 2015, III.B"
+   }
+  },
+  {
+   "id": "krwionosny.role.anterior_tibial.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "anterior_tibial",
+   "view": "front",
+   "structureId": "a_tibialis_anterior",
+   "state": "rest",
+   "textPl": "Krew do przedniej części goleni",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.role.anterior_tibial.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "anterior_tibial",
+   "view": "front",
+   "structureId": "a_tibialis_anterior",
+   "state": "sprint",
+   "textPl": "Zasila m. piszczelowy przedni",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "krwionosny.role.d_aortic_arch.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_aortic_arch",
+   "view": "detail",
+   "structureId": "aorta",
+   "state": "rest",
+   "textPl": "Krew utlenowana do ciała",
+   "status": "anatomy",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#27"
+    ],
+    "note": "#27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_aortic_arch.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_aortic_arch",
+   "view": "detail",
+   "structureId": "aorta",
+   "state": "sprint",
+   "textPl": "Wyższe ciśnienie skurczowe",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#27"
+    ],
+    "note": "#27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_svc.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_svc",
+   "view": "detail",
+   "structureId": "v_cava_superior",
+   "state": "rest",
+   "textPl": "Krew z głowy i ramion",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md: sprint = ten sam opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_svc.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_svc",
+   "view": "detail",
+   "structureId": "v_cava_superior",
+   "state": "sprint",
+   "textPl": "Krew z głowy i ramion",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md: sprint = ten sam opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_pulmonary_trunk.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_pulmonary_trunk",
+   "view": "detail",
+   "structureId": "truncus_pulmonalis",
+   "state": "rest",
+   "textPl": "Krew odtlenowana do płuc",
+   "status": "anatomy",
+   "referenceIds": [
+    "fletcher_2013"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#29"
+    ],
+    "note": "#29",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_pulmonary_trunk.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_pulmonary_trunk",
+   "view": "detail",
+   "structureId": "truncus_pulmonalis",
+   "state": "sprint",
+   "textPl": "Cały rzut serca przez płuca",
+   "status": "checked_agent",
+   "referenceIds": [
+    "fletcher_2013"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#29"
+    ],
+    "note": "#29",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_rca.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_rca",
+   "view": "detail",
+   "structureId": "a_coronaria_dextra",
+   "state": "rest",
+   "textPl": "Odżywia prawą komorę",
+   "status": "anatomy",
+   "referenceIds": [
+    "duncker_bache_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#30"
+    ],
+    "note": "#30; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, prawa komora (badania na zwierzętach)"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_rca.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_rca",
+   "view": "detail",
+   "structureId": "a_coronaria_dextra",
+   "state": "sprint",
+   "textPl": "Więcej krwi dla prawej komory",
+   "status": "checked_agent",
+   "referenceIds": [
+    "duncker_bache_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#30"
+    ],
+    "note": "#30; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, prawa komora (badania na zwierzętach)"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_lad.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_lad",
+   "view": "detail",
+   "structureId": "r_interventricularis_anterior",
+   "state": "rest",
+   "textPl": "Odżywia lewą komorę i przegrodę",
+   "status": "anatomy",
+   "referenceIds": [
+    "duncker_bache_2008",
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#13"
+    ],
+    "note": "#13; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, II.B.1; Joyner & Casey 2015, III.C"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_lad.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_lad",
+   "view": "detail",
+   "structureId": "r_interventricularis_anterior",
+   "state": "sprint",
+   "textPl": "Przepływ wieńcowy ok. 3–5× większy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "duncker_bache_2008",
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#13"
+    ],
+    "note": "#13; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, II.B.1; Joyner & Casey 2015, III.C"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_cardiac_vein.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_cardiac_vein",
+   "view": "detail",
+   "structureId": "v_cordis_magna",
+   "state": "rest",
+   "textPl": "Odprowadza krew z mięśnia serca",
+   "status": "anatomy",
+   "referenceIds": [
+    "duncker_bache_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#31"
+    ],
+    "note": "#31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_cardiac_vein.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_cardiac_vein",
+   "view": "detail",
+   "structureId": "v_cordis_magna",
+   "state": "sprint",
+   "textPl": "Więcej krwi z pracującego serca",
+   "status": "checked_agent",
+   "referenceIds": [
+    "duncker_bache_2008"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_krwionosny.md",
+    "rows": [
+     "#31"
+    ],
+    "note": "#31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "krwionosny.role.d_left_ventricle.rest",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_left_ventricle",
+   "view": "detail",
+   "structureId": "ventriculus_sinister",
+   "state": "rest",
+   "textPl": "Ok. 90 mL na jedno uderzenie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#4",
+     "#5"
+    ],
+    "note": "#4, #5; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, tab. 1 (Active)"
+   }
+  },
+  {
+   "id": "krwionosny.role.d_left_ventricle.sprint",
+   "kind": "role",
+   "plate": "krwionosny",
+   "anchor": "d_left_ventricle",
+   "view": "detail",
+   "structureId": "ventriculus_sinister",
+   "state": "sprint",
+   "textPl": "Ok. 125 mL na uderzenie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#4",
+     "#5"
+    ],
+    "note": "#4, #5; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, tab. 1 (Active)"
+   }
+  },
+  {
+   "id": "krwionosny.summary.rest",
+   "kind": "summary",
+   "plate": "krwionosny",
+   "state": "rest",
+   "textPl": "W spoczynku serce bije ok. 60 razy na minutę i pompuje ok. 5 litrów krwi na minutę. Mięśnie dostają mniej niż 20% tej krwi. Dużo trafia do wątroby, jelit i nerek.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015 III.A–C, tab. 1; Calbet & Joyner 2010; Duncker & Bache 2008"
+   }
+  },
+  {
+   "id": "krwionosny.summary.sprint",
+   "kind": "summary",
+   "plate": "krwionosny",
+   "state": "sprint",
+   "textPl": "W sprincie serce bije znacznie szybciej i mocniej się kurczy. Przy wysiłku maksymalnym rzut serca rośnie do ok. 20–25 L/min, a do pracujących mięśni płynie ok. 80% krwi. Naczynia trzewne się zwężają, a przepływ wieńcowy rośnie ok. 3–5 razy. Mięśnie nóg działają jak pompa, która wyciska krew żyłami z powrotem do serca.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "calbet_joyner_2010",
+    "duncker_bache_2008"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015 III.A–C, tab. 1; Calbet & Joyner 2010; Duncker & Bache 2008"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1563 @@
+{
+ "schemaVersion": 1,
+ "plate": "pokarmowy",
+ "facts": [
+  {
+   "id": "pokarmowy.metric.przeplyw_krwi_przez_watrobe",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Przepływ krwi przez wątrobę",
+   "unit": "L/min",
+   "referenceIds": [
+    "rowell_1964"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The mean resting EHBF was 1,614 ml per minute, whereas during exercise of various intensities, EHBF fell to values ranging from 820 to 390 ml per minute.",
+   "locator": "Rowell 1964, Results, „Estimated hepatic blood flow (EHBF)” (tab. II); regresja „y = -1.16x + 127.89” (ryc. 2)",
+   "conversionNote": "Spoczynek: 1614 mL/min ≈ 1,6 L/min. Sprint: regresja Rowella (klirens ICG w % spoczynku = −1,16 × %VO₂max + 127,89) dla 88% VO₂max daje ok. 26% spoczynku, czyli ok. 0,4 L/min; autorzy piszą, że klirens ICG odpowiada EHBF. W całym badaniu (wysiłek łagodny do ciężkiego) przepływ wynosił 0,8–0,4 L/min.",
+   "protocolMismatch": "wysiłek ciągły na bieżni, 26–97% VO₂max (pomiar od 5. min); nie interwały 45 s",
+   "measuredAt": "w trakcie wysiłku (od 5. minuty)",
+   "tier": "primary",
+   "value": "ok. 0,4",
+   "notePl": "Krew trzewi (jelita, żołądek, śledziona) przepływa przez wątrobę. Im cięższy wysiłek, tym mniej krwi.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed (lokalizator) -> ryc. 2 i „ciężkiego” wg sprawdzającego"
+   },
+   "order": 0
+  },
+  {
+   "id": "pokarmowy.metric.przeplyw_krwi_przez_watrobe.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Przepływ krwi przez wątrobę",
+   "unit": "L/min",
+   "referenceIds": [
+    "rowell_1964"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The mean resting EHBF was 1,614 ml per minute, whereas during exercise of various intensities, EHBF fell to values ranging from 820 to 390 ml per minute.",
+   "locator": "Rowell 1964, Results, „Estimated hepatic blood flow (EHBF)” (tab. II); regresja „y = -1.16x + 127.89” (ryc. 2)",
+   "conversionNote": "Spoczynek: 1614 mL/min ≈ 1,6 L/min. Sprint: regresja Rowella (klirens ICG w % spoczynku = −1,16 × %VO₂max + 127,89) dla 88% VO₂max daje ok. 26% spoczynku, czyli ok. 0,4 L/min; autorzy piszą, że klirens ICG odpowiada EHBF. W całym badaniu (wysiłek łagodny do ciężkiego) przepływ wynosił 0,8–0,4 L/min.",
+   "protocolMismatch": "wysiłek ciągły na bieżni, 26–97% VO₂max (pomiar od 5. min); nie interwały 45 s",
+   "measuredAt": "w trakcie wysiłku (od 5. minuty)",
+   "tier": "primary",
+   "value": "ok. 1,6",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#20"
+    ],
+    "note": "#20",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Tempo oddawania glukozy do krwi",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups",
+   "locator": "Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”",
+   "conversionNote": null,
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "4–6×",
+   "notePl": "Napędzają je głównie adrenalina i noradrenalina, a nie insulina i glukagon.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#38",
+     "#39"
+    ],
+    "note": "jak hormonalny „Glukoza wypuszczana do krwi” (#38, #39)",
+    "reportInferred": true
+   },
+   "order": 1,
+   "topic": "glukoza_z_watroby_tempo"
+  },
+  {
+   "id": "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Tempo oddawania glukozy do krwi",
+   "unit": "spoczynku",
+   "referenceIds": [
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups",
+   "locator": "Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”",
+   "conversionNote": null,
+   "protocolMismatch": "ok. 14 min ciągłego wysiłku przy 87% VO₂max",
+   "measuredAt": "w czasie wysiłku",
+   "tier": "primary",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#38",
+     "#39"
+    ],
+    "note": "jak hormonalny „Glukoza wypuszczana do krwi” (#38, #39)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.metric.tempo_oddawania_glukozy_wysilek_do_wyczerpania",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Tempo oddawania glukozy: wysiłek do wyczerpania",
+   "unit": null,
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In contrast, in intense exercise, GP rises seven- to eightfold and GU rises three- to fourfold",
+   "locator": "Marliss & Vranic 2002, abstrakt; badanie pierwotne: Marliss 1992, abstrakt („Ra increased 7-fold by exhaustion”)",
+   "conversionNote": "seven- to eightfold = 7–8×",
+   "protocolMismatch": "wysiłek do wyczerpania (rower, 80% maks. obciążenia, ok. 100% VO₂max; przegląd: wysiłek > 80% VO₂max)",
+   "measuredAt": "w chwili wyczerpania (koniec wysiłku)",
+   "tier": "student",
+   "value": "ok. 7–8×",
+   "notePl": "Tempo pojawiania się glukozy we krwi, mierzone znakowaną glukozą. Napędzają je głównie adrenalina i noradrenalina.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#34"
+    ],
+    "note": "#34",
+    "reportInferred": true
+   },
+   "order": 2
+  },
+  {
+   "id": "pokarmowy.metric.tempo_oddawania_glukozy_wysilek_do_wyczerpania.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Tempo oddawania glukozy: wysiłek do wyczerpania",
+   "unit": null,
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "In contrast, in intense exercise, GP rises seven- to eightfold and GU rises three- to fourfold",
+   "locator": "Marliss & Vranic 2002, abstrakt; badanie pierwotne: Marliss 1992, abstrakt („Ra increased 7-fold by exhaustion”)",
+   "conversionNote": "seven- to eightfold = 7–8×",
+   "protocolMismatch": "wysiłek do wyczerpania (rower, 80% maks. obciążenia, ok. 100% VO₂max; przegląd: wysiłek > 80% VO₂max)",
+   "measuredAt": "w chwili wyczerpania (koniec wysiłku)",
+   "tier": "student",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#34"
+    ],
+    "note": "#34",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.metric.glukoza_we_krwi",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Glukoza we krwi",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "marliss_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma glucose was 4.90 +/- 0.08 mM/L at rest, increased during exercise, then abruptly to 6.91 +/- 0.40 mM/L at 4 min recovery then gradually declined.",
+   "locator": "Marliss 1992, abstrakt",
+   "conversionNote": "4,90 ≈ 4,9; 6,91 ≈ 6,9 (zaokrąglenie do 0,1 mmol/L)",
+   "protocolMismatch": "jazda na rowerze do wyczerpania przy 80% maks. obciążenia (ok. 100% VO₂max); 18 wytrenowanych mężczyzn",
+   "measuredAt": "4 min po wysiłku",
+   "tier": "primary",
+   "value": "ok. 6,9",
+   "notePl": "Tuż po intensywnym wysiłku glukozy we krwi jest więcej, bo wątroba oddaje jej więcej, niż mięśnie zużywają.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#35"
+    ],
+    "note": "#35",
+    "reportInferred": true
+   },
+   "order": 3
+  },
+  {
+   "id": "pokarmowy.metric.glukoza_we_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Glukoza we krwi",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "marliss_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma glucose was 4.90 +/- 0.08 mM/L at rest, increased during exercise, then abruptly to 6.91 +/- 0.40 mM/L at 4 min recovery then gradually declined.",
+   "locator": "Marliss 1992, abstrakt",
+   "conversionNote": "4,90 ≈ 4,9; 6,91 ≈ 6,9 (zaokrąglenie do 0,1 mmol/L)",
+   "protocolMismatch": "jazda na rowerze do wyczerpania przy 80% maks. obciążenia (ok. 100% VO₂max); 18 wytrenowanych mężczyzn",
+   "measuredAt": "4 min po wysiłku",
+   "tier": "primary",
+   "value": "ok. 4,9",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#35"
+    ],
+    "note": "#35",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.metric.mleczan_spalany_od_razu_miesnie_serce",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Mleczan spalany od razu (mięśnie, serce)",
+   "unit": "% mleczanu",
+   "referenceIds": [
+    "brooks_2020"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Because the majority of lactate disposal occurs via direct oxidation (≈50% at rest and 75–80% during sustained exercise) [14, 47], the discussion above on lactate utilization centered on oxidative disposal. However, while approximately 25% of lactate disposal is via gluconeogenesis [12, 48], lactate is by far the major gluconeogenic precursor [61, 92].",
+   "locator": "Brooks 2020, rozdz. „Gluconeogenesis from Lactate”",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek ciągły (przegląd); brak danych dla interwałów 45 s",
+   "measuredAt": "w spoczynku i w trakcie wysiłku ciągłego",
+   "tier": "primary",
+   "value": "ok. 75–80",
+   "notePl": "Reszta, ok. 25% mleczanu, wraca do wątroby (i nerek) i zamienia się w glukozę: to cykl Cori. Mleczan to główny surowiec, z którego wątroba robi nową glukozę.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#36"
+    ],
+    "note": "#36",
+    "reportInferred": true
+   },
+   "order": 4
+  },
+  {
+   "id": "pokarmowy.metric.mleczan_spalany_od_razu_miesnie_serce.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Mleczan spalany od razu (mięśnie, serce)",
+   "unit": "% mleczanu",
+   "referenceIds": [
+    "brooks_2020"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Because the majority of lactate disposal occurs via direct oxidation (≈50% at rest and 75–80% during sustained exercise) [14, 47], the discussion above on lactate utilization centered on oxidative disposal. However, while approximately 25% of lactate disposal is via gluconeogenesis [12, 48], lactate is by far the major gluconeogenic precursor [61, 92].",
+   "locator": "Brooks 2020, rozdz. „Gluconeogenesis from Lactate”",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek ciągły (przegląd); brak danych dla interwałów 45 s",
+   "measuredAt": "w spoczynku i w trakcie wysiłku ciągłego",
+   "tier": "primary",
+   "value": "ok. 50",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#36"
+    ],
+    "note": "#36",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.metric.spadek_przeplywu_pien_trzewny_t_krezkowa_gorna",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Spadek przepływu: pień trzewny / t. krezkowa górna",
+   "unit": "% zmiany",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "During fasting, cycling increased mesenteric, coeliac and splanchnic resistances by 76, 165 and 126 %, respectively, and it reduced corresponding blood flows by 32, 50 and 43 %",
+   "locator": "Perko 1998, abstrakt (pkt 3)",
+   "conversionNote": null,
+   "protocolMismatch": "jazda w pozycji półleżącej, obciążenie zaplanowane na 75% VO₂max (zmierzone VO₂ ok. 65%), pomiar w 15.–30. min",
+   "measuredAt": "w trakcie wysiłku submaksymalnego",
+   "tier": "secondary",
+   "value": "ok. −50 / −32",
+   "notePl": "Pomiar USG Dopplera na czczo. Pień trzewny zaopatruje wątrobę, żołądek i śledzionę; t. krezkowa górna jelito cienkie, okrężnicę wstępującą i część poprzecznej.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed (protokół) -> opis wg sprawdzającego"
+   },
+   "order": 5
+  },
+  {
+   "id": "pokarmowy.metric.spadek_przeplywu_pien_trzewny_t_krezkowa_gorna.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Spadek przepływu: pień trzewny / t. krezkowa górna",
+   "unit": "% zmiany",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "During fasting, cycling increased mesenteric, coeliac and splanchnic resistances by 76, 165 and 126 %, respectively, and it reduced corresponding blood flows by 32, 50 and 43 %",
+   "locator": "Perko 1998, abstrakt (pkt 3)",
+   "conversionNote": null,
+   "protocolMismatch": "jazda w pozycji półleżącej, obciążenie zaplanowane na 75% VO₂max (zmierzone VO₂ ok. 65%), pomiar w 15.–30. min",
+   "measuredAt": "w trakcie wysiłku submaksymalnego",
+   "tier": "secondary",
+   "value": "0",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed (protokół) -> opis wg sprawdzającego"
+   }
+  },
+  {
+   "id": "pokarmowy.metric.glukoza_we_krwi_zaraz_po_interwalach_8_60_s",
+   "kind": "metric",
+   "plate": "pokarmowy",
+   "labelPl": "Glukoza we krwi zaraz po interwałach 8 × 60 s",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "bogdanis_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Post-exercise leukocyte count (mean ± SD; 9.7 ± 2.8 k μL-1), uric acid concentration (0.35 ± 0.10 mmol L-1), glucose concentration (6.56 ± 1.44 mmol L-1), and plasma volume change (-13.5 ± 4.4%) were greater in HIIE60 compared to all other trials (p < 0.05).",
+   "locator": "Bogdanis 2022, abstrakt (Results); wartość wyjściowa: ryc. 1A",
+   "conversionNote": "6,56 ≈ 6,6",
+   "protocolMismatch": "8 × 60 s przy 100% mocy z testu VO₂max, przerwy 90 s przy 15% (11 zdrowych młodych mężczyzn)",
+   "measuredAt": "zaraz po wysiłku",
+   "tier": "secondary",
+   "value": "ok. 6,6",
+   "notePl": "Protokół bliższy atlasowi niż Marliss 1992. Glukoza wzrosła względem wartości wyjściowej tylko po interwałach 30 s i 60 s, nie po 10 s.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Bogdanis 2022"
+   },
+   "order": 6
+  },
+  {
+   "id": "pokarmowy.metric.glukoza_we_krwi_zaraz_po_interwalach_8_60_s.rest",
+   "kind": "metric_rest",
+   "plate": "pokarmowy",
+   "labelPl": "Glukoza we krwi zaraz po interwałach 8 × 60 s",
+   "unit": "mmol/L",
+   "referenceIds": [
+    "bogdanis_2022"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Post-exercise leukocyte count (mean ± SD; 9.7 ± 2.8 k μL-1), uric acid concentration (0.35 ± 0.10 mmol L-1), glucose concentration (6.56 ± 1.44 mmol L-1), and plasma volume change (-13.5 ± 4.4%) were greater in HIIE60 compared to all other trials (p < 0.05).",
+   "locator": "Bogdanis 2022, abstrakt (Results); wartość wyjściowa: ryc. 1A",
+   "conversionNote": "6,56 ≈ 6,6",
+   "protocolMismatch": "8 × 60 s przy 100% mocy z testu VO₂max, przerwy 90 s przy 15% (11 zdrowych młodych mężczyzn)",
+   "measuredAt": "zaraz po wysiłku",
+   "tier": "secondary",
+   "value": "wyjściowa (tylko na wykresie)",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Bogdanis 2022"
+   }
+  },
+  {
+   "id": "pokarmowy.role.oesophagus.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "oesophagus",
+   "view": "front",
+   "structureId": "oesophagus",
+   "state": "rest",
+   "textPl": "Przesuwa pokarm do żołądka",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.oesophagus.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "oesophagus",
+   "view": "front",
+   "structureId": "oesophagus",
+   "state": "sprint",
+   "textPl": "Przesuwa pokarm do żołądka",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.stomach.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "stomach",
+   "view": "front",
+   "structureId": "gaster",
+   "state": "rest",
+   "textPl": "Trawi pokarm, dużo krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#4",
+     "#5"
+    ],
+    "note": "#4, #5",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.stomach.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "stomach",
+   "view": "front",
+   "structureId": "gaster",
+   "state": "sprint",
+   "textPl": "Dostaje mniej krwi niż w spoczynku",
+   "status": "checked_agent",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#4",
+     "#5"
+    ],
+    "note": "#4, #5",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.liver.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "liver",
+   "view": "front",
+   "structureId": "hepar",
+   "state": "rest",
+   "textPl": "Powoli oddaje glukozę do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#6",
+     "#7"
+    ],
+    "note": "#6, #7",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.liver.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "liver",
+   "view": "front",
+   "structureId": "hepar",
+   "state": "sprint",
+   "textPl": "Oddaje 4–6 razy więcej glukozy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#6",
+     "#7"
+    ],
+    "note": "#6, #7",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.gallbladder.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "gallbladder",
+   "view": "front",
+   "structureId": "vesica_biliaris",
+   "state": "rest",
+   "textPl": "Przechowuje żółć",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.gallbladder.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "gallbladder",
+   "view": "front",
+   "structureId": "vesica_biliaris",
+   "state": "sprint",
+   "textPl": "Przechowuje żółć",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.small_intestine.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "small_intestine",
+   "view": "front",
+   "structureId": "intestinum_tenue",
+   "state": "rest",
+   "textPl": "Wchłania składniki pokarmu",
+   "status": "anatomy",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#10"
+    ],
+    "note": "#10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.small_intestine.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "small_intestine",
+   "view": "front",
+   "structureId": "intestinum_tenue",
+   "state": "sprint",
+   "textPl": "Dostaje mniej krwi niż w spoczynku",
+   "status": "checked_agent",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#10"
+    ],
+    "note": "#10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.colon.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "colon",
+   "view": "front",
+   "structureId": "intestinum_crassum_colon_ascendens",
+   "state": "rest",
+   "textPl": "Wchłania wodę",
+   "status": "anatomy",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Perko 1998, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "pokarmowy.role.colon.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "colon",
+   "view": "front",
+   "structureId": "intestinum_crassum_colon_ascendens",
+   "state": "sprint",
+   "textPl": "Dostaje mniej krwi niż w spoczynku",
+   "status": "checked_agent",
+   "referenceIds": [
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Perko 1998, abstrakt pkt 3"
+   }
+  },
+  {
+   "id": "pokarmowy.role.duodenum.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "duodenum",
+   "view": "front",
+   "structureId": "duodenum",
+   "state": "rest",
+   "textPl": "Tu wpływają żółć i sok trzustkowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.duodenum.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "duodenum",
+   "view": "front",
+   "structureId": "duodenum",
+   "state": "sprint",
+   "textPl": "Tu wpływają żółć i sok trzustkowy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.transverse_colon.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "transverse_colon",
+   "view": "front",
+   "structureId": "colon_transversum",
+   "state": "rest",
+   "textPl": "Część jelita grubego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.transverse_colon.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "transverse_colon",
+   "view": "front",
+   "structureId": "colon_transversum",
+   "state": "sprint",
+   "textPl": "Część jelita grubego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.sigmoid.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "sigmoid",
+   "view": "front",
+   "structureId": "colon_sigmoideum",
+   "state": "rest",
+   "textPl": "Końcowa część okrężnicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.sigmoid.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "sigmoid",
+   "view": "front",
+   "structureId": "colon_sigmoideum",
+   "state": "sprint",
+   "textPl": "Końcowa część okrężnicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.portal_vein.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "portal_vein",
+   "view": "front",
+   "structureId": "v_portae_hepatis",
+   "state": "rest",
+   "textPl": "Krew z jelit i śledziony do wątroby",
+   "status": "anatomy",
+   "referenceIds": [
+    "rowell_1964"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#16",
+     "#17"
+    ],
+    "note": "#16, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.portal_vein.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "portal_vein",
+   "view": "front",
+   "structureId": "v_portae_hepatis",
+   "state": "sprint",
+   "textPl": "Mniej krwi płynie do wątroby",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#16",
+     "#17"
+    ],
+    "note": "#16, #17",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.hepatic_veins.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "hepatic_veins",
+   "view": "front",
+   "structureId": "vv_hepaticae_v_cava_inferior",
+   "state": "rest",
+   "textPl": "Krew z wątroby do serca",
+   "status": "anatomy",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#18",
+     "#19"
+    ],
+    "note": "#18, #19",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.hepatic_veins.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "hepatic_veins",
+   "view": "front",
+   "structureId": "vv_hepaticae_v_cava_inferior",
+   "state": "sprint",
+   "textPl": "Wynoszą glukozę z wątroby do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#18",
+     "#19"
+    ],
+    "note": "#18, #19",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_liver.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_liver",
+   "view": "detail",
+   "structureId": "hepar",
+   "state": "rest",
+   "textPl": "Przepływ krwi ok. 1,6 L/min",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964",
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#20",
+     "#21"
+    ],
+    "note": "#20, #21",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_liver.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_liver",
+   "view": "detail",
+   "structureId": "hepar",
+   "state": "sprint",
+   "textPl": "Mniej krwi, ale dużo więcej glukozy",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964",
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#20",
+     "#21"
+    ],
+    "note": "#20, #21",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_portal.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_portal",
+   "view": "detail",
+   "structureId": "v_portae_hepatis",
+   "state": "rest",
+   "textPl": "Przynosi krew z jelit",
+   "status": "anatomy",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed -> wariant (a) sprawdzającego (Rowell, Perko)"
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_portal.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_portal",
+   "view": "detail",
+   "structureId": "v_portae_hepatis",
+   "state": "sprint",
+   "textPl": "Mniej krwi z jelit do wątroby",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: disputed -> wariant (a) sprawdzającego (Rowell, Perko)"
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_hepatic_veins.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_veins",
+   "view": "detail",
+   "structureId": "vv_hepaticae",
+   "state": "rest",
+   "textPl": "Odprowadzają krew do serca",
+   "status": "anatomy",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#24",
+     "#25"
+    ],
+    "note": "#24, #25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_hepatic_veins.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_veins",
+   "view": "detail",
+   "structureId": "vv_hepaticae",
+   "state": "sprint",
+   "textPl": "Wynoszą glukozę do krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#24",
+     "#25"
+    ],
+    "note": "#24, #25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_pancreas.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_pancreas",
+   "view": "detail",
+   "structureId": "pancreas",
+   "state": "rest",
+   "textPl": "Wydziela sok trawienny i hormony",
+   "status": "anatomy",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#26",
+     "#27"
+    ],
+    "note": "#26, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_pancreas.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_pancreas",
+   "view": "detail",
+   "structureId": "pancreas",
+   "state": "sprint",
+   "textPl": "Insulina zmienia się niewiele",
+   "status": "checked_agent",
+   "referenceIds": [
+    "marliss_vranic_2002"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#26",
+     "#27"
+    ],
+    "note": "#26, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_hepatic_artery.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_artery",
+   "view": "detail",
+   "structureId": "a_hepatica_communis",
+   "state": "rest",
+   "textPl": "Krew z tlenem dla wątroby",
+   "status": "anatomy",
+   "referenceIds": [
+    "brooks_2020"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#28",
+     "#29"
+    ],
+    "note": "#28, #29",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_hepatic_artery.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_artery",
+   "view": "detail",
+   "structureId": "a_hepatica_communis",
+   "state": "sprint",
+   "textPl": "Niesie też mleczan z mięśni",
+   "status": "checked_agent",
+   "referenceIds": [
+    "brooks_2020"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_pokarmowy.md",
+    "rows": [
+     "#28",
+     "#29"
+    ],
+    "note": "#28, #29",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_gallbladder.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_gallbladder",
+   "view": "detail",
+   "structureId": "vesica_biliaris",
+   "state": "rest",
+   "textPl": "Przechowuje żółć",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.d_gallbladder.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_gallbladder",
+   "view": "detail",
+   "structureId": "vesica_biliaris",
+   "state": "sprint",
+   "textPl": "Przechowuje żółć",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.d_bile_duct.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_bile_duct",
+   "view": "detail",
+   "structureId": "ductus_cysticus_ductus_hepaticus_communis_ductus_choledochus",
+   "state": "rest",
+   "textPl": "Przewód żółciowy wspólny wpada do dwunastnicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: opis budowy"
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_bile_duct.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_bile_duct",
+   "view": "detail",
+   "structureId": "ductus_cysticus_ductus_hepaticus_communis_ductus_choledochus",
+   "state": "sprint",
+   "textPl": "Przewód żółciowy wspólny wpada do dwunastnicy",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: opis budowy"
+   }
+  },
+  {
+   "id": "pokarmowy.role.d_duodenum.rest",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_duodenum",
+   "view": "detail",
+   "structureId": "duodenum",
+   "state": "rest",
+   "textPl": "Początek jelita cienkiego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.role.d_duodenum.sprint",
+   "kind": "role",
+   "plate": "pokarmowy",
+   "anchor": "d_duodenum",
+   "view": "detail",
+   "structureId": "duodenum",
+   "state": "sprint",
+   "textPl": "Początek jelita cienkiego",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.summary.rest",
+   "kind": "summary",
+   "plate": "pokarmowy",
+   "state": "rest",
+   "textPl": "W spoczynku żołądek, jelita i wątroba dostają dużo krwi: przez samą wątrobę płynie ok. 1,6 litra krwi na minutę. Przewód pokarmowy trawi i wchłania pokarm, a wątroba powoli oddaje do krwi glukozę.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964",
+    "marliss_1992"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.summary.sprint",
+   "kind": "summary",
+   "plate": "pokarmowy",
+   "state": "sprint",
+   "textPl": "W sprincie jelita i żołądek dostają mniej krwi, bo krew płynie do pracujących mięśni. Przepływ przez wątrobę spada kilkukrotnie. Mimo to wątroba pracuje pełną parą: oddaje do krwi glukozę kilka razy szybciej niż w spoczynku (przy ok. 87% VO₂max 4–6 razy), więc glukozy we krwi przybywa. Część mleczanu z mięśni wątroba przerabia z powrotem na glukozę (cykl Cori).",
+   "status": "checked_agent",
+   "referenceIds": [
+    "rowell_1964",
+    "perko_1998",
+    "marliss_vranic_2002",
+    "marliss_1992",
+    "brooks_2020",
+    "kenney_ho_1995",
+    "sigal_1994",
+    "sigal_1996"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "pokarmowy.protocolNote",
+   "kind": "protocol_note",
+   "plate": "pokarmowy",
+   "textPl": "Sprint w atlasie to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Badania wątroby i trzewi mierzyły zwykle wysiłek ciągły, kilkunastominutowy, więc liczby są przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).",
+   "status": "disputed",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte"
+   }
+  }
+ ]
+}
