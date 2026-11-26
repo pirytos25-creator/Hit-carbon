@@ -11,3 +11,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 atlas_raw/
+
+# prototypy 3D atlasu: duże GLB poza Gitem
+prototypes/atlas3d/_assets/
