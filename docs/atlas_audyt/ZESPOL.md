@@ -37,3 +37,8 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Prace kończą się na przeglądzie spójności (integracja 1b cz. 2, integrator w toku). Po jego audycie i scaleniu – STOP.
 - Końcowe sprawdzenie faktów było już uruchomione (3 agenci: A powłokowy, B hormonalny+moczowy+pokarmowy, C reszta + kontrola wyrywkowa 10%) i zostało **zatrzymane** zgodnie z poleceniem; ich pliki `fakty_koncowe_*.md` mogą nie istnieć lub być niepełne – jutro uruchomić od nowa.
 - Listę faktów `draft` generuje: `node scripts/atlas_check_facts.mjs --drafts <plik.md>` (stan przed przeglądem spójności: 74 – powłokowy 31, hormonalny 11, moczowy 10, pokarmowy 8, kostny 4, limfatyczny 4, oddechowy 2, mięśniowy/mózg/nerwowy/rozrodczy po 1).
+
+## Wznowienie 2026-11-26, 10:50
+- Integrator: część 2 w toku (na gałęzi `8a116f7`, `a9882fd`, `4ed417f`, `0b54162`); poproszony o dokończenie i raport `PUNKT KONTROLNY 1b cz. 2`.
+- Końcowe sprawdzenie faktów uruchomione od nowa (lista: `docs/atlas_audyt/robocze/drafts_final.md`, 74 pozycje): A powłokowy → `fakty_koncowe_A_powlokowy.md`; B hormonalny+moczowy+pokarmowy → `fakty_koncowe_B_horm_mocz_pokarm.md`; C reszta + kontrola wyrywkowa 10% → `fakty_koncowe_C_reszta_i_kontrola.md`.
+- Dalej: integrator nadaje statusy wg A/B/C → scalenie → zgromadzenie (materiał: `docs/ATLAS_REZYSER_PLAN.md`, P1 Wizualizatora `ba239ff`, P2/P3 jeśli gotowe) → `RAPORT_KONCOWY.md`.
