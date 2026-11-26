@@ -34,7 +34,10 @@ export interface AtlasFactRecord {
     | 'moment_label'
     | 'curriculum_ref'
     // M6: „Sprawdź się” (pytanie, odpowiedź i wyjaśnienie z faktu planszy)
-    | 'quiz';
+    | 'quiz'
+    // E1-K3: dane gablot narządów (src/atlas/data/organs/<narzad>.json)
+    | 'organ_role'
+    | 'organ_function';
   plate: string | null;
   status: AtlasFactStatus;
   referenceIds: string[];

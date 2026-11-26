@@ -46,7 +46,9 @@
               "summary_short",
               "moment_label",
               "curriculum_ref",
-              "quiz"
+              "quiz",
+              "organ_role",
+              "organ_function"
             ]
           },
           "plate": {
@@ -188,9 +190,27 @@
           },
           "explainPl": {
             "type": "string"
+          },
+          "organ": {
+            "type": "string",
+            "description": "E1-K3: narząd gabloty (src/atlas/data/organs/<narzad>.json)"
+          },
+          "part": {
+            "type": "string",
+            "description": "organ_role: część narządu (klucz struktury w scenie gabloty)"
+          },
+          "url": {
+            "type": "string",
+            "description": "adres strony źródła (sekcja podręcznika)"
           }
         }
       }
+    },
+    "organ": {
+      "type": "string"
+    },
+    "interface": {
+      "type": "object"
     }
   }
 }
