@@ -22,13 +22,6 @@
           "resolved"
         ],
         "properties": {
-          "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "pattern": "^(za|hra):.+$"
-          },
           "plate": {
             "type": "string"
           },
@@ -40,8 +33,9 @@
           },
           "side": {
             "enum": [
-              "left",
-              "right",
+              "l",
+              "r",
+              "mid",
               null
             ]
           },
@@ -64,6 +58,17 @@
           },
           "note": {
             "type": "string"
+          },
+          "meshId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(za:[^/]+|hra:[^/]+\\.glb/.+)$",
+            "description": "za:<obiekt Z-Anatomy> albo hra:<plik.glb>/<węzeł> (bez sufiksów kopii .001)"
+          },
+          "primary": {
+            "type": "boolean"
           }
         }
       }
