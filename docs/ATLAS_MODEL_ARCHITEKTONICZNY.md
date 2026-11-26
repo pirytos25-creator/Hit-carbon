@@ -460,6 +460,7 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   3. CC BY-SA (Z-Anatomy, Brainder) dopuszcza użytek komercyjny, ale modele pochodne i rendery zostają na CC BY-SA. Kod aplikacji i nasze teksty mogą mieć osobną licencję, więc pilnujemy rozdziału plików.
   4. Audyt licencji całego projektu pod użytek komercyjny prowadzi koordynator: zasoby, npm, czcionki, narracja, źródła faktów, RODO, dostępność.
 - (m) 2026-11-26, decyzja użytkownika „Przebuduj z Brainder”: **mózg filmu** (`brain_macro.glb`, dziś Allen v1.2 bez prawa do komercji) zostanie przebudowany z kory Brainder z Z-Anatomy (CC BY-SA). Bez pobierania. Wynik jest osobnym plikiem BY-SA z atrybucją Winklera i Z-Anatomy w napisach filmu. Usuwamy rendery z mózgiem v1.2 (`v2_brain_macro.png`, `act-08-brain.png`) i pobieranie Allen v1.2 z `scripts/fetch_open_assets.py`. Lektor filmu nadal czeka na decyzję.
+- (n) 2026-11-26, decyzja użytkownika „Piper lokalnie”: **lektor filmu** zostanie wygenerowany od nowa lokalnym syntezatorem Piper (kod MIT). Najpierw ustalamy licencję polskiego głosu (model głosu i zbiór nagrań muszą dopuszczać komercję). Potem użytkownik zgadza się na pobranie konkretnych plików. W filmie pojawi się informacja „głos syntetyczny”. Obecne 68 plików MP3 z Edge „Czytaj na głos” wypadają z produktu.
 
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)

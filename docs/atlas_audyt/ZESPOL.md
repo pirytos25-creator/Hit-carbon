@@ -142,3 +142,4 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - **(k′) Mózg Brainder zostaje** (decyzja użytkownika „A, zostaw”); pełna atrybucja Winklera wszędzie. Wykonują Wizualizator (stopka 3D, manifest, eksport) i integrator (plansza mózgu, ekran licencji, ATLAS_ASSETS, LICENSES_AND_ASSETS).
 - **Audyt komercyjny** zapisany (`AUDYT_KOMERCYJNY.md`); kamień **ML** w decyzji (po M5). Blokujące, czekają na decyzję użytkownika: mózg filmu (Allen v1.2) i lektor (Edge TTS). Wstrzymane automatyczne pobieranie OpenStax przez agentów.
 - **(m) Mózg filmu z Brainder** (decyzja użytkownika): Wizualizator, pierwsza pozycja ML zaraz po M5.
+- **(n) Lektor: Piper lokalnie** (decyzja użytkownika). Najpierw sprawdzenie licencji polskich głosów (podagent Dyrygenta, bez pobierania), potem zgoda użytkownika na pobranie konkretnych plików, potem generowanie (integrator, ML).
