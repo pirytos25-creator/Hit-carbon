@@ -5,6 +5,7 @@ import { NERWOWY } from './nerwowy';
 import { KRWIONOSNY } from './krwionosny';
 import { ODDECHOWY } from './oddechowy';
 import { ROZRODCZY } from './rozrodczy';
+import { POKARMOWY } from './pokarmowy';
 
 /** Rejestr plansz. Agent układu podmienia `null` na swoją treść (linia `content`) i dopisuje linię `import`. */
 export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: string; content: AtlasPlateContent | null }[] = [
@@ -16,7 +17,7 @@ export const ATLAS_SYSTEMS: { id: AtlasSystemId; namePl: string; colorVar: strin
   // Faza 1b (agenci 6-12): podmieniają `null` na swoją treść i dopisują linię `import`.
   { id: 'hormonalny', namePl: 'Hormonalny', colorVar: '--sys-endo', content: null },
   { id: 'powlokowy', namePl: 'Powłokowy', colorVar: '--sys-skin', content: null },
-  { id: 'pokarmowy', namePl: 'Pokarmowy', colorVar: '--sys-digest', content: null },
+  { id: 'pokarmowy', namePl: 'Pokarmowy', colorVar: '--sys-digest', content: POKARMOWY },
   { id: 'wydalniczy', namePl: 'Moczowy', colorVar: '--sys-urinary', content: null },
   { id: 'kostny', namePl: 'Kostny', colorVar: '--sys-bone', content: null },
   { id: 'limfatyczny', namePl: 'Limfatyczny', colorVar: '--sys-lymph', content: null },

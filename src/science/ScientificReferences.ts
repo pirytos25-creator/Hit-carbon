@@ -1156,6 +1156,102 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Macica to pusty narząd w kształcie gruszki między pęcherzem a odbytnicą; u ok. 50% kobiet jest przodozgięta i przodopochylona; szyjka wnika do pochwy.',
   },
+  // ---------------------------------------------------------------- plansza „Układ pokarmowy i wątroba” (faza 1b, agent 8)
+  rowell_1964: {
+    id: 'rowell_1964',
+    authors: 'Rowell, L. B., Blackmon, J. R., & Bruce, R. A.',
+    year: 1964,
+    title: 'Indocyanine green clearance and estimated hepatic blood flow during mild to maximal exercise in upright man',
+    journal: 'Journal of Clinical Investigation, 43(8), 1677–1690',
+    pmid: '14201551',
+    pmcid: 'PMC441967',
+    doi: '10.1172/JCI105043',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/14201551/',
+    acts: [],
+    summaryPl:
+      'Przepływ krwi przez wątrobę u zdrowych mężczyzn: ok. 1,6 L/min w spoczynku, 0,8–0,4 L/min w wysiłku na bieżni; przy wysiłku bliskim maksymalnego spadek szacowany na ok. 80%.',
+  },
+  marliss_vranic_2002: {
+    id: 'marliss_vranic_2002',
+    authors: 'Marliss, E. B., & Vranic, M.',
+    year: 2002,
+    title: 'Intense exercise has unique effects on both insulin release and its roles in glucoregulation: implications for diabetes',
+    journal: 'Diabetes, 51(Suppl 1), S271–S283',
+    pmid: '11815492',
+    doi: '10.2337/diabetes.51.2007.s271',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/11815492/',
+    acts: [],
+    summaryPl:
+      'Przegląd: w wysiłku > 80% VO₂max produkcja glukozy rośnie 7–8-krotnie, a jej zużycie 3–4-krotnie, więc glikemia rośnie; wzrost produkcji napędzają głównie katecholaminy.',
+  },
+  marliss_1992: {
+    id: 'marliss_1992',
+    authors: 'Marliss, E. B., Simantirakis, E., Miles, P. D., Hunt, R., Gougeon, R., Purdon, C., Halter, J. B., & Vranic, M.',
+    year: 1992,
+    title: 'Glucose turnover and its regulation during intense exercise and recovery in normal male subjects',
+    journal: 'Clinical and Investigative Medicine, 15(5), 406–419',
+    pmid: '1458713',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/1458713/',
+    acts: [],
+    summaryPl:
+      '18 wytrenowanych mężczyzn, jazda do wyczerpania przy ok. 100% VO₂max: produkcja glukozy wzrosła 7-krotnie, glukoza we krwi z 4,9 do 6,9 mmol/L w 4. minucie po wysiłku.',
+  },
+  perko_1998: {
+    id: 'perko_1998',
+    authors: 'Perko, M. J., Nielsen, H. B., Skak, C., Clemmesen, J. O., Schroeder, T. V., & Secher, N. H.',
+    year: 1998,
+    title: 'Mesenteric, coeliac and splanchnic blood flow in humans during exercise',
+    journal: 'The Journal of Physiology, 513(3), 907–913',
+    pmid: '9824727',
+    pmcid: 'PMC2231328',
+    doi: '10.1111/j.1469-7793.1998.907ba.x',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/9824727/',
+    acts: [],
+    summaryPl:
+      'USG Dopplera u 19 osób: w wysiłku submaksymalnym na czczo przepływ w t. krezkowej górnej spada o 32%, w pniu trzewnym o 50%, a w całych trzewiach o 43%.',
+  },
+  emhoff_2013: {
+    id: 'emhoff_2013',
+    authors: 'Emhoff, C. A., Messonnier, L. A., Horning, M. A., Fattor, J. A., Carlson, T. J., & Brooks, G. A.',
+    year: 2013,
+    title: 'Gluconeogenesis and hepatic glycogenolysis during exercise at the lactate threshold',
+    journal: 'Journal of Applied Physiology, 114(3), 297–306',
+    pmid: '23239870',
+    pmcid: 'PMC8846961',
+    doi: '10.1152/japplphysiol.01202.2012',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23239870/',
+    acts: [],
+    summaryPl:
+      'Glukoneogeneza (m.in. z mleczanu) podtrzymuje produkcję glukozy w wysiłku; więcej mleczanu we krwi zwiększa glukoneogenezę w wysiłku, ale nie w spoczynku.',
+  },
+  peake_2014: {
+    id: 'peake_2014',
+    authors: 'Peake, J. M., Tan, S. J., Markworth, J. F., Broadbent, J. A., Skinner, T. L., & Cameron-Smith, D.',
+    year: 2014,
+    title: 'Metabolic and hormonal responses to isoenergetic high-intensity interval exercise and continuous moderate-intensity exercise',
+    journal: 'American Journal of Physiology. Endocrinology and Metabolism, 307(7), E539–E552',
+    pmid: '25096178',
+    doi: '10.1152/ajpendo.00276.2014',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/25096178/',
+    acts: [],
+    summaryPl:
+      'Interwały przy ok. 82% VO₂max a wysiłek umiarkowany o tej samej pracy: tuż po interwałach glukoza we krwi o 20% wyższa, mleczan 5,4 razy wyższy (wytrenowani kolarze).',
+  },
+  // bogdanis_2022: wpis identyczny z gałęzią planszy limfatycznej (to samo ID, ta sama treść)
+  bogdanis_2022: {
+    id: 'bogdanis_2022',
+    authors: 'Bogdanis, G. C., Mastorakos, G., Tsirigkakis, S., Stavrinou, P. S., Kabasakalis, A., Mantzou, A., & Mougios, V.',
+    year: 2022,
+    title: 'Bout duration in high-intensity interval exercise modifies hematologic, metabolic and antioxidant responses',
+    journal: 'Journal of Exercise Science & Fitness, 20(3), 216–223',
+    pmid: '35510255',
+    pmcid: 'PMC9035712',
+    doi: '10.1016/j.jesf.2022.03.005',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9035712/',
+    acts: [],
+    summaryPl:
+      'Interwały 8 × 60 s przy mocy VO₂max (11 mężczyzn): leukocyty 6,1 → 9,7 tys./µL i limfocyty 2,3 → 4,0 tys./µL zaraz po wysiłku; po 1 h limfocyty 1,7 tys./µL, poniżej wartości wyjściowej.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {
