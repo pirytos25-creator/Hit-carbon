@@ -199,6 +199,11 @@ export interface AtlasViewMeta {
   bbox?: [number, number, number, number];
   /** Kamera widoku; od schemaVersion 2 (starsze rendery jej nie mają, wtedy strzałki 3D są pomijane). */
   camera?: AtlasCamera;
+  /**
+   * Rozdzielczość obrazu tego widoku [szer., wys.], gdy różni się od `resolution` pliku (np. moczowy: `body_front`
+   * 1000×1800 przy planszy 1150×1600). Brak = `resolution` pliku. Kotwice i bbox są w skali 0-1 tego obrazu.
+   */
+  resolution?: [number, number];
 }
 
 /** Plik generowany przez blender/atlas/atlas_lib.py. */
@@ -214,6 +219,7 @@ export interface AtlasAnchorsFile {
   /** Karta bez stanów (zob. AtlasPlateContent.card). */
   card?: boolean;
   id: string;
+  /** Rozdzielczość domyślna widoków (widok może mieć własną: AtlasViewMeta.resolution). */
   resolution: [number, number];
   views: Partial<Record<AtlasView, AtlasViewMeta>>;
 }

@@ -3,6 +3,7 @@ import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
 import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
+import { viewResolution } from './projection';
 import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
@@ -132,9 +133,12 @@ export function AtlasApp() {
   // (zbliżenie, render 1150×1600, render poziomy) ma własną zakładkę i całą wysokość planszy.
   // Napis zakładki = tytuł widoku z planszy (`viewTitlesPl`), np. na hormonalnym „front” to tułów z głową.
   const viewTitle = (v: AtlasView) => content.viewTitlesPl[v] ?? (v === 'detail' ? 'Zbliżenie' : v);
-  const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
   const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
   const bodyViews = viewsPresent.filter((v) => v !== 'detail');
+  // Rozdzielczość na widok (anchors.json): obok siebie tylko widoki o tej samej rozdzielczości.
+  const resKey = (v: AtlasView) => (anchors ? viewResolution(anchors, v).join('x') : '');
+  const bodyRes = anchors && bodyViews.length ? viewResolution(anchors, bodyViews[0]) : null;
+  const wholeBody = !!bodyRes && bodyRes[1] / bodyRes[0] >= 1.7 && bodyViews.every((v) => resKey(v) === resKey(bodyViews[0]));
   const panels: { views: AtlasView[]; label: string }[] = [];
   // Ile kolumn podpisów dałyby widoki obok siebie (strona jak w AtlasPlate: bliższa kotwicy). Przy > 2 kolumnach
   // obrazy byłyby za małe (powłokowy, poziom rozszerzony: 203×366 px przy 1440), więc każdy widok dostaje zakładkę.

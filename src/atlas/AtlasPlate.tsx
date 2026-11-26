@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { EVIDENCE_PHRASE, isShown, type AtlasLevel } from './palette';
-import { projectToPixels } from './projection';
+import { projectToPixels, viewResolution } from './projection';
 import type {
   AtlasAnchorsFile,
   AtlasFlowKind,
@@ -107,7 +107,6 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   const [focus, setFocus] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const reduced = usePrefersReducedMotion();
-  const [W, H] = anchors.resolution;
   const sprint = state === 'sprint';
   const extended = level === 'extended';
   const color = `var(${content.colorVar})`;
@@ -128,6 +127,8 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     () => content.views.filter((v) => anchors.views[v] && (!onlyViews || onlyViews.includes(v))),
     [content.views, anchors, onlyViews]
   );
+  // Rozdzielczość: własna widoku albo pliku. Widoki obok siebie muszą mieć tę samą (AtlasApp ich wtedy nie łączy).
+  const [W, H] = views.length ? viewResolution(anchors, views[0]) : anchors.resolution;
   const pinsMode = box.w < 640;
 
   const frames = useMemo(
@@ -298,7 +299,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           key: `3d-${view}-${f.id}`,
           kind: f.kind,
           label: f.labelPl,
-          pts: f.points.map((p) => projectToPixels(p, cam, anchors.resolution)),
+          pts: f.points.map((p) => projectToPixels(p, cam, viewResolution(anchors, view))),
         });
       }
     }
