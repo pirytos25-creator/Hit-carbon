@@ -15,3 +15,6 @@ Build 0; `check:atlas` 0 – 71 liczb, 164 opisy ról, 162 budowy, 21 podsumowa�
 
 ## Runda siatek (commit `4968134`, scalony)
 188 kotwic: 111 rozwiązanych (krwionośny 16/16, mięśniowy 10/10), 66 `nearest` do kontroli (`resolved: false` + odległość w mm, maks. 17,8 mm), 11 bez siatki (przekroje schematyczne). 19 wpisów to geometria tworzona przez skrypty plansz (licencja „własna”). ID `hra:` sprowadzone do kontraktu (38/38 istnieje w GLB). Uwagi o niezgodnościach eksportu (nerwowy, oddechowy, 35 kotwic statycznych) przekazane Wizualizatorowi. Po scaleniu (Dyrygent): build 0, `check:atlas` 0 uwag.
+
+## Runda siatek 2 (commity `a7cd7d6`, `07b2272`, scalone)
+Po poprawionym eksporcie 3D: 188 kotwic – 106 rozwiązanych (krwionośny, mięśniowy, nerwowy, mózg 100%), 70 `nearest` do kontroli (maks. 17,8 mm), 12 bez siatki (schematy). Licencje z pola `origin`: 123 Z-Anatomy, 42 HuBMAP, 26 geometria planszy (CC BY-SA 4.0, utwór zależny), 0 NC. Integrator sam wykrył i poprawił własny błąd z K1 (4 struktury węzła chłonnego HuBMAP opisane jako Z-Anatomy) i 3 błędy parsera. Po scaleniu (Dyrygent): build 0, `check:atlas` 0 uwag.

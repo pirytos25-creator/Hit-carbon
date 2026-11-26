@@ -199,8 +199,95 @@ for (const [k, l] of Object.entries(labelByAnchor)) {
   bindings.push({ meshId: null, plate, anchor, structureId: structureIdOf(l), side: null, primary: true, source: null, license: null, resolved: false,
     note: 'skrypt planszy nie ma słownika tej kotwicy; siatki tylko z eksportu 3D' });
 }
-// Obiekty, które skrypt planszy tworzy sam (ATL_, PWL_, WYD_, LYM_, KOST_ …): nie są siatkami Z-Anatomy.
-const OWN = /^za:(ATL|[A-Z]{3,5})_/;
+// Pochodzenie siatki: pole structures[].origin eksportu ("zanatomy" | "hubmap" | "plate"). "plate" = obiekt utworzony
+// przez skrypt planszy z geometrii Z-Anatomy (utwór zależny -> CC BY-SA 4.0). Bez pola: zgadujemy po prefiksie.
+const ORIGIN = {
+  zanatomy: ['Z-Anatomy', 'CC BY-SA 4.0'],
+  hubmap: ['HuBMAP HRA', 'CC BY 4.0'],
+  plate: ['geometria planszy', 'CC BY-SA 4.0'],
+};
+const originOf = (exp, meshId) =>
+  ORIGIN[(exp?.structures ?? []).find((x) => x.meshId === meshId)?.origin] ??
+  (meshId.startsWith('hra:') ? ORIGIN.hubmap : /^za:(ATL|[A-Z]{3,5})_/.test(meshId) ? ORIGIN.plate : ORIGIN.zanatomy);
+
+// Kontrola wpisów statycznych (ze słownika skryptu planszy) wobec modelu 3D z eksportu:
+//  - nazwa węzła HuBMAP (np. Yao_* z węzła chłonnego NIH) -> hra:<plik.glb>/<węzeł>, CC BY 4.0;
+//  - obiekt utworzony przez skrypt planszy (origin "plate") -> „geometria planszy”;
+//  - obiektu nie ma w modelu (pusty znacznik ATL_mk_*, zmienna albo wyrażenie ze skryptu) -> wpis usuwany, gdy
+//    kotwica ma inne prawdziwe siatki, inaczej resolved: false i uzupełnienie z eksportu niżej.
+const expCache = {};
+const expOf = (plate) => {
+  if (!(plate in expCache)) {
+    try {
+      expCache[plate] = JSON.parse(readFileSync(join(root, 'public/atlas3d', plate, 'bindings.json'), 'utf-8'));
+    } catch {
+      expCache[plate] = null;
+    }
+  }
+  return expCache[plate];
+};
+const staticFix = { hra: 0, plate: 0, removed: 0, unresolved: 0 };
+const notInModel = [];
+for (const b of bindings) {
+  if (!b.meshId?.startsWith('za:')) continue;
+  const exp = expOf(b.plate);
+  const name = b.meshId.slice(3);
+  const hraIds = (exp?.structures ?? []).filter((s) => s.origin === 'hubmap' && s.meshId.endsWith(`/${name}`)).map((s) => s.meshId);
+  const files = hraNodeFile.get(name) ?? [];
+  if (hraIds.length || files.length) {
+    Object.assign(b, { meshId: hraIds[0] ?? `hra:${files[0]}/${name}`, source: ORIGIN.hubmap[0], license: ORIGIN.hubmap[1] });
+    staticFix.hra++;
+    continue;
+  }
+  if (!exp?.structures) continue;
+  const origin = exp.structures.find((s) => s.meshId === b.meshId)?.origin;
+  if (origin) {
+    [b.source, b.license] = ORIGIN[origin] ?? [b.source, b.license];
+    if (origin === 'plate') staticFix.plate++;
+    continue;
+  }
+  notInModel.push(b);
+}
+for (const b of [...notInModel]) {
+  const exp = expOf(b.plate);
+  const zaNames = exp.structures.filter((s) => s.origin !== 'hubmap').map((s) => s.meshId);
+  const name = b.meshId.slice(3);
+  // "Nazwa@z<1.57" = obiekt z filtrem wysokości w skrypcie planszy
+  const base = name.split('@')[0];
+  // literał-filtr w wyrażeniu punktu (np. [o for o in heart_z if "ventricle" in o.name]) -> obiekty „<Jedno słowo> <literał>”
+  // (Right/Left ventricle), bez drobnych części typu „… papillary muscle of right ventricle”
+  const matched = zaNames.includes(`za:${base}`)
+    ? [`za:${base}`]
+    : zaNames.filter((m) => m.endsWith(` ${base}`) && !m.slice(3, -base.length - 1).includes(' '));
+  if (!matched.length) continue;
+  bindings.splice(
+    bindings.indexOf(b),
+    1,
+    ...matched.map((meshId, k) => ({
+      ...b,
+      meshId,
+      side: /\.l$/.test(meshId) ? 'l' : /\.r$/.test(meshId) ? 'r' : 'mid',
+      primary: b.primary && k === 0,
+      source: originOf(exp, meshId)[0],
+      license: originOf(exp, meshId)[1],
+      resolved: true,
+      note: `ze słownika planszy („${name}”), obiekty dopasowane w modelu 3D`,
+    })),
+  );
+  notInModel.splice(notInModel.indexOf(b), 1);
+  staticFix.matched = (staticFix.matched ?? 0) + matched.length;
+}
+for (const b of notInModel) {
+  const others = bindings.some((x) => x !== b && !notInModel.includes(x) && x.plate === b.plate && x.anchor === b.anchor && x.resolved);
+  if (others) {
+    bindings.splice(bindings.indexOf(b), 1);
+    staticFix.removed++;
+  } else {
+    Object.assign(b, { resolved: false, note: `w modelu 3D nie ma obiektu ${b.meshId} (znacznik albo wyrażenie w skrypcie planszy)` });
+    staticFix.unresolved++;
+  }
+}
+const filledAnchors = new Set();
 let fromExport = 0;
 for (const b of bindings.filter((x) => !x.resolved)) {
   let exp = null;
@@ -220,6 +307,12 @@ for (const b of bindings.filter((x) => !x.resolved)) {
   }
   const method = String(exp?.anchorMethod?.[b.anchor] ?? 'objects');
   const near = /^nearest:([\d.]+)\s*mm$/.exec(method);
+  const anchorKey = `${b.plate}/${b.anchor}`;
+  if (filledAnchors.has(anchorKey)) {
+    bindings.splice(bindings.indexOf(b), 1); // kotwica już uzupełniona z eksportu (kilka pustych wpisów)
+    continue;
+  }
+  filledAnchors.add(anchorKey);
   bindings.splice(
     bindings.indexOf(b),
     1,
@@ -230,8 +323,8 @@ for (const b of bindings.filter((x) => !x.resolved)) {
       structureId: b.structureId,
       side: /\.l$|_L$|left/i.test(meshId) ? 'l' : /\.r$|_R$|right/i.test(meshId) ? 'r' : 'mid',
       primary: k === 0,
-      source: meshId.startsWith('hra:') ? 'HuBMAP HRA' : OWN.test(meshId) ? 'geometria planszy' : 'Z-Anatomy',
-      license: meshId.startsWith('hra:') ? 'CC BY 4.0' : OWN.test(meshId) ? 'własna (projekt)' : 'CC BY-SA 4.0',
+      source: originOf(exp, meshId)[0],
+      license: originOf(exp, meshId)[1],
       method: near ? 'nearest' : 'objects',
       ...(near ? { distanceMm: Number(near[1]) } : {}),
       resolved: !near,
@@ -367,4 +460,5 @@ writeFileSync(join(root, 'src/atlas/data/structures.json'), JSON.stringify({ sch
 writeFileSync(join(root, 'src/atlas/data/mesh_bindings.json'), JSON.stringify({ schemaVersion: 1, bindings }, null, 1) + '\n');
 const nF = Object.values(all).reduce((n, r) => n + r.length, 0) + common.length;
 if (!FACTS_FROM_TS) console.log('Fakty: źródłem prawdy są facts/*.json (E1-K2), nie nadpisuję ich.');
+console.log(`Wpisy statyczne wobec modelu 3D: HuBMAP ${staticFix.hra}, geometria planszy ${staticFix.plate}, dopasowane w modelu ${staticFix.matched ?? 0}, bez obiektu w modelu: usunięte ${staticFix.removed}, do uzupełnienia ${staticFix.unresolved}`);
 console.log(`MIGRACJA (powiązania z eksportu 3D: ${fromExport}): ${structures.size} pojęć, ${bindings.length} powiązań siatek (nierozwiązane: ${bindings.filter((b) => !b.resolved).length}; węzłów HuBMAP w GLB: ${hraNodeFile.size}), ${nF} rekordów faktów w ${Object.keys(all).length + 1} plikach`);
