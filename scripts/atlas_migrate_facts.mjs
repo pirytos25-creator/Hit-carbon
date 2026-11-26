@@ -185,6 +185,22 @@ for (const sys of ATLAS_SYSTEMS) {
 // Obok `anchorMethod: { kotwica: "objects" | "nearest:<x>mm" }`: "objects" = obiekty wprost ze słownika planszy
 // (rozwiązane); "nearest" = najbliższa widoczna struktura od punktu kotwicy – meshId wpisujemy, ale zostaje
 // resolved: false (do ręcznej kontroli) z zapisaną odległością.
+// Podpisy, których kotwic skrypt planszy nie opisuje słownikiem (np. pokarmowy): miejsce na siatki z eksportu.
+for (const [k, l] of Object.entries(labelByAnchor)) {
+  const [plate, anchor] = k.split('/');
+  if (bindings.some((b) => b.plate === plate && b.anchor === anchor)) continue;
+  let exp = null;
+  try {
+    exp = JSON.parse(readFileSync(join(root, 'public/atlas3d', plate, 'bindings.json'), 'utf-8'));
+  } catch {
+    /* brak eksportu */
+  }
+  if (!exp?.anchors?.[anchor]?.length) continue; // podpis bez siatki (np. schemat mikroskopowy) – nie ma czego wiązać
+  bindings.push({ meshId: null, plate, anchor, structureId: structureIdOf(l), side: null, primary: true, source: null, license: null, resolved: false,
+    note: 'skrypt planszy nie ma słownika tej kotwicy; siatki tylko z eksportu 3D' });
+}
+// Obiekty, które skrypt planszy tworzy sam (ATL_, PWL_, WYD_, LYM_, KOST_ …): nie są siatkami Z-Anatomy.
+const OWN = /^za:(ATL|[A-Z]{3,5})_/;
 let fromExport = 0;
 for (const b of bindings.filter((x) => !x.resolved)) {
   let exp = null;
@@ -196,8 +212,12 @@ for (const b of bindings.filter((x) => !x.resolved)) {
       /* brak pliku eksportu */
     }
   }
-  const ids = exp?.anchors?.[b.anchor];
-  if (!Array.isArray(ids) || !ids.length) continue;
+  // Kontrakt: hra:<plik.glb>/<węzeł> – sama nazwa pliku (eksport bywa z podfolderem, np. hra:female/<plik.glb>/…).
+  const ids = exp?.anchors?.[b.anchor]?.map((m) => m.replace(/^hra:(?:[^/]+\/)+?([^/]+\.glb\/)/, 'hra:$1'));
+  if (!Array.isArray(ids) || !ids.length) {
+    if (exp) b.note = 'brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)';
+    continue;
+  }
   const method = String(exp?.anchorMethod?.[b.anchor] ?? 'objects');
   const near = /^nearest:([\d.]+)\s*mm$/.exec(method);
   bindings.splice(
@@ -210,8 +230,8 @@ for (const b of bindings.filter((x) => !x.resolved)) {
       structureId: b.structureId,
       side: /\.l$|_L$|left/i.test(meshId) ? 'l' : /\.r$|_R$|right/i.test(meshId) ? 'r' : 'mid',
       primary: k === 0,
-      source: meshId.startsWith('hra:') ? 'HuBMAP HRA' : 'Z-Anatomy',
-      license: meshId.startsWith('hra:') ? 'CC BY 4.0' : 'CC BY-SA 4.0',
+      source: meshId.startsWith('hra:') ? 'HuBMAP HRA' : OWN.test(meshId) ? 'geometria planszy' : 'Z-Anatomy',
+      license: meshId.startsWith('hra:') ? 'CC BY 4.0' : OWN.test(meshId) ? 'własna (projekt)' : 'CC BY-SA 4.0',
       method: near ? 'nearest' : 'objects',
       ...(near ? { distanceMm: Number(near[1]) } : {}),
       resolved: !near,

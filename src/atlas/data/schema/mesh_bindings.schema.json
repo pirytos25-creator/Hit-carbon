@@ -43,6 +43,7 @@
             "enum": [
               "Z-Anatomy",
               "HuBMAP HRA",
+              "geometria planszy",
               null
             ]
           },
@@ -50,6 +51,7 @@
             "enum": [
               "CC BY-SA 4.0",
               "CC BY 4.0",
+              "własna (projekt)",
               null
             ]
           },

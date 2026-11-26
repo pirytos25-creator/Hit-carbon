@@ -12,3 +12,6 @@ Data: 2026-11-26. Commity `e54d0e0`, `b736264`, `60fdf58`, `b7deaf1` (oraz popra
 
 ## Testy Dyrygenta po scaleniu
 Build 0; `check:atlas` 0 – 71 liczb, 164 opisy ról, 162 budowy, 21 podsumowań, „dane = plansze”, 0 uwag. 24 zrzuty 12 plansz (1440 i 390): 0 błędów konsoli, bez przewijania w poziomie; obejrzany krwionośny 1440 (sprint) – bez zmian względem stanu przed przepięciem, legenda strzałek, przycisk 3D niewidoczny (brak manifestu – poprawnie).
+
+## Runda siatek (commit `4968134`, scalony)
+188 kotwic: 111 rozwiązanych (krwionośny 16/16, mięśniowy 10/10), 66 `nearest` do kontroli (`resolved: false` + odległość w mm, maks. 17,8 mm), 11 bez siatki (przekroje schematyczne). 19 wpisów to geometria tworzona przez skrypty plansz (licencja „własna”). ID `hra:` sprowadzone do kontraktu (38/38 istnieje w GLB). Uwagi o niezgodnościach eksportu (nerwowy, oddechowy, 35 kotwic statycznych) przekazane Wizualizatorowi. Po scaleniu (Dyrygent): build 0, `check:atlas` 0 uwag.
