@@ -1714,14 +1714,21 @@
    "textPl": "Jak zmienia się przepływ krwi przez wątrobę w ciężkim wysiłku?",
    "quizType": "updown",
    "answer": "down",
-   "explainPl": "Maleje: z ok. 1,6 do ok. 0,4 litra krwi na minutę (w badaniu: wysiłek ciągły na bieżni, pomiar od 5. minuty). Im cięższy wysiłek, tym mniej krwi.",
-   "status": "draft",
+   "explainPl": "Maleje: z ok. 1,6 do ok. 0,4 litra krwi na minutę przy najcięższym wysiłku (w badaniu: wysiłek ciągły na bieżni, od lekkiego do prawie maksymalnego, czyli 26–97% VO₂max, pomiar od 5. minuty; nie interwały 45 s). Im cięższy wysiłek, tym mniej krwi.",
+   "status": "checked_agent",
    "referenceIds": [
     "rowell_1964"
    ],
    "derivedFrom": [
     "pokarmowy.metric.przeplyw_krwi_przez_watrobe"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #8"
+    ],
+    "note": "M6_kontrola.md: brzmienie rundy 2, trzecia kontrola OK (2026-11-26)"
+   }
   }
  ]
 }

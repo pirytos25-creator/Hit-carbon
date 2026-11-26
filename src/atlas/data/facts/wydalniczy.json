@@ -1622,18 +1622,25 @@
    "id": "wydalniczy.quiz",
    "kind": "quiz",
    "plate": "wydalniczy",
-   "textPl": "Jak zmienia się przepływ krwi przez nerki w ciężkim wysiłku?",
+   "textPl": "Jak zmienia się przepływ krwi przez nerki kilka minut po ciężkim wysiłku na rowerze, w którym obciążenie rośnie co 4 minuty?",
    "quizType": "updown",
    "answer": "down",
-   "explainPl": "Maleje: o ok. 30%, a 5 min po wysiłku do wyczerpania nawet o ok. 50% (w badaniu: rower, etapy po 4 min, pomiar zaraz po etapie).",
-   "status": "draft",
+   "explainPl": "Maleje: o ok. 30% (w badaniu: rower, coraz cięższe etapy po 4 min, pomiar zaraz po etapie), a 5 min po wysiłku do wyczerpania nawet o ok. 50%.",
+   "status": "checked_agent",
    "referenceIds": [
     "kawakami_2018",
     "kawakami_2024"
    ],
    "derivedFrom": [
     "wydalniczy.metric.przeplyw_krwi_przez_nerki"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #9"
+    ],
+    "note": "M6_kontrola.md: pytanie: korekta Dyrygenta („kilka minut”); wyjaśnienie: runda 1 = runda 2 (2026-11-26)"
+   }
   }
  ]
 }

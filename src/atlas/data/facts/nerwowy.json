@@ -1322,7 +1322,7 @@
    "quizType": "updown",
    "answer": "up",
    "explainPl": "Rośnie: z 2,2 do 13,4 nmol/L (w badaniu: 30 s sprintu maksymalnego na bieżni, pomiar po wysiłku). Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "brooks_1988",
     "zouhal_2008",
@@ -1330,7 +1330,14 @@
    ],
    "derivedFrom": [
     "nerwowy.metric.noradrenalina_w_osoczu"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #1"
+    ],
+    "note": "M6_kontrola.md: runda 1 OK (brzmienie szkicu) (2026-11-26)"
+   }
   }
  ]
 }

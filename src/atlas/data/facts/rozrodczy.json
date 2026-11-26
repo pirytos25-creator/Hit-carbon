@@ -1359,11 +1359,11 @@
    "id": "rozrodczy.quiz",
    "kind": "quiz",
    "plate": "rozrodczy",
-   "textPl": "Wskaż na planszy narząd, który u mężczyzny leży w mosznie poza miednicą.",
+   "textPl": "Wskaż na planszy męski gruczoł płciowy, który leży w mosznie poza miednicą.",
    "quizType": "point",
    "answer": "testis",
-   "explainPl": "To jądro. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej.",
-   "status": "draft",
+   "explainPl": "To jądro, męski gruczoł płciowy: powstają w nim plemniki i hormony. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej.",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_testes",
     "statpearls_male_gu",
@@ -1373,7 +1373,14 @@
    ],
    "derivedFrom": [
     "rozrodczy.summary.rest"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #12"
+    ],
+    "note": "M6_kontrola.md: runda 1 POPRAWKA, runda 2 OK (2026-11-26)"
+   }
   }
  ]
 }

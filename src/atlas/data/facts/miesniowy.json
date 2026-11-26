@@ -1544,8 +1544,8 @@
    "textPl": "Jak zmienia się stężenie mleczanu we krwi w treningu interwałowym?",
    "quizType": "updown",
    "answer": "up",
-   "explainPl": "Rośnie: z ok. 1 do ok. 10 mmol/L (w badaniach: rower, 8–12 odcinków po 30–60 s). Mleczan nie jest „odpadem”: serce, mózg i włókna tlenowe zużywają go jako paliwo.",
-   "status": "draft",
+   "explainPl": "Rośnie: z ok. 1 do ok. 10 mmol/L (w badaniach: rower, 8–12 odcinków po 30–60 s przy 70–85% mocy maksymalnej; najwyższa wartość w połowie sesji albo 3 min po niej). Mleczan nie jest „odpadem”: serce, mózg i włókna tlenowe zużywają go jako paliwo.",
+   "status": "checked_agent",
    "referenceIds": [
     "brooks_2020",
     "astorino_2025",
@@ -1553,7 +1553,14 @@
    ],
    "derivedFrom": [
     "miesniowy.metric.mleczan_we_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M6_kontrola.md",
+    "rows": [
+     "część 1 #2"
+    ],
+    "note": "M6_kontrola.md: brzmienie rundy 2, trzecia kontrola OK (2026-11-26)"
+   }
   }
  ]
 }
