@@ -1,0 +1,25 @@
+{
+ "schemaVersion": 1,
+ "plate": null,
+ "facts": [
+  {
+   "id": "_wspolne.glossary.vo2max",
+   "kind": "glossary",
+   "plate": null,
+   "textPl": "VO₂max to największa ilość tlenu, jaką organizm potrafi zużyć w ciągu minuty w wysiłku maksymalnym; mierzy się ją w teście wysiłkowym do maksimum (np. na bieżni).",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kaminsky_2015"
+   ],
+   "quote": "Percentiles of maximal oxygen consumption (VO 2max)… | 7783 maximal… treadmill tests",
+   "locator": "Kaminsky 2015, abstrakt",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  }
+ ]
+}

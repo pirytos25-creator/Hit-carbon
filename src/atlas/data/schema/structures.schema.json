@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "atlas/structures.schema.json",
+  "title": "Pojęcia anatomiczne (ID bez strony)",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "structures"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "structures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "namePl",
+          "systems"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "namePl": {
+            "type": "string"
+          },
+          "nameLa": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "systems": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "plates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "glyph": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "atlas/mesh_bindings.schema.json",
+  "title": "Powiązania siatek z pojęciami",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "bindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "plate",
+          "anchor",
+          "structureId",
+          "resolved"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(za|hra):.+$"
+          },
+          "plate": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          },
+          "structureId": {
+            "type": "string"
+          },
+          "side": {
+            "enum": [
+              "left",
+              "right",
+              null
+            ]
+          },
+          "source": {
+            "enum": [
+              "Z-Anatomy",
+              "HuBMAP HRA",
+              null
+            ]
+          },
+          "license": {
+            "enum": [
+              "CC BY-SA 4.0",
+              "CC BY 4.0",
+              null
+            ]
+          },
+          "resolved": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

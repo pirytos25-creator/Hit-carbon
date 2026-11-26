@@ -1,0 +1,2135 @@
+{
+ "schemaVersion": 1,
+ "structures": [
+  {
+   "id": "a_brachialis",
+   "namePl": "T. ramienna",
+   "nameLa": "a. brachialis",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_carotis_communis",
+   "namePl": "T. szyjna wspólna",
+   "nameLa": "a. carotis communis",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_coronaria_dextra",
+   "namePl": "T. wieńcowa prawa",
+   "nameLa": "a. coronaria dextra",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_et_v_testicularis",
+   "namePl": "Naczynia jądrowe",
+   "nameLa": "a. et v. testicularis",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "a_femoralis",
+   "namePl": "T. udowa",
+   "nameLa": "a. femoralis",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_hepatica_communis",
+   "namePl": "T. wątrobowa wspólna",
+   "nameLa": "a. hepatica communis",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "a_lienalis_t_sledzionowa",
+   "namePl": "Naczynia trzewne",
+   "nameLa": "a. lienalis (t. śledzionowa)",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_suprarenalis_inferior",
+   "namePl": "T. nadnerczowa dolna",
+   "nameLa": "a. suprarenalis inferior",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "a_tibialis_anterior",
+   "namePl": "T. piszczelowa przednia",
+   "nameLa": "a. tibialis anterior",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "a_uterina",
+   "namePl": "Tętnica maciczna",
+   "nameLa": "a. uterina",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "aktyna_f",
+   "namePl": "Filament aktynowy",
+   "nameLa": "aktyna F",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "alveolus_pulmonis",
+   "namePl": "Pęcherzyk płucny",
+   "nameLa": "alveolus pulmonis",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "angulus_venosus_sinister",
+   "namePl": "Ujście limfy do krwi",
+   "nameLa": "angulus venosus sinister",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "ansa_nephroni",
+   "namePl": "Pętla nefronu (Henlego)",
+   "nameLa": "ansa nephroni",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "aorta",
+   "namePl": "Aorta",
+   "nameLa": "aorta",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "arcus_aortae",
+   "namePl": "Łuk aorty",
+   "nameLa": "arcus aortae",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "arteria_renalis",
+   "namePl": "Tętnica nerkowa",
+   "nameLa": "arteria renalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "arteriola_glomerularis_afferens",
+   "namePl": "Tętniczka doprowadzająca",
+   "nameLa": "arteriola glomerularis afferens",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "articulatio_genus_menisci",
+   "namePl": "Staw kolanowy (łąkotki)",
+   "nameLa": "articulatio genus, menisci",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "bronchiolus_terminalis",
+   "namePl": "Oskrzelik końcowy",
+   "nameLa": "bronchiolus terminalis",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "bronchus_principalis_dexter",
+   "namePl": "Oskrzele główne prawe",
+   "nameLa": "bronchus principalis dexter",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "calcaneus",
+   "namePl": "Kość piętowa",
+   "nameLa": "calcaneus",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "capsula",
+   "namePl": "Torebka węzła",
+   "nameLa": "capsula",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "capsula_glomeruli",
+   "namePl": "Torebka kłębuszka",
+   "nameLa": "capsula glomeruli",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "caput_femoris",
+   "namePl": "Głowa kości udowej",
+   "nameLa": "caput femoris",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "cauda_equina",
+   "namePl": "Ogon koński",
+   "nameLa": "cauda equina",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "cavitas_medullaris",
+   "namePl": "Jama szpikowa",
+   "nameLa": "cavitas medullaris",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "cerebellum",
+   "namePl": "Móżdżek",
+   "nameLa": "cerebellum",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "cervix_uteri",
+   "namePl": "Szyjka macicy",
+   "nameLa": "cervix uteri",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "cisterna_chyli",
+   "namePl": "Zbiornik mleczu (schemat)",
+   "nameLa": "cisterna chyli",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "colon_sigmoideum",
+   "namePl": "Okrężnica esowata",
+   "nameLa": "colon sigmoideum",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "colon_transversum",
+   "namePl": "Okrężnica poprzeczna",
+   "nameLa": "colon transversum",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "cor",
+   "namePl": "Serce",
+   "nameLa": "cor",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "cortex_glandulae_suprarenalis",
+   "namePl": "Kora nadnercza",
+   "nameLa": "cortex glandulae suprarenalis",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "cortex_praefrontalis",
+   "namePl": "Kora przedczołowa",
+   "nameLa": "cortex praefrontalis",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "cutis",
+   "namePl": "Skóra czoła",
+   "nameLa": "cutis",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "dermis",
+   "namePl": "Skóra właściwa",
+   "nameLa": "dermis",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "diaphragma",
+   "namePl": "Przepona",
+   "nameLa": "diaphragma",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "discus_intervertebralis_l4_l5",
+   "namePl": "Krążek międzykręgowy",
+   "nameLa": "discus intervertebralis L4–L5",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "ductus_cysticus_ductus_hepaticus_communis_ductus_choledochus",
+   "namePl": "Drogi żółciowe",
+   "nameLa": "ductus cysticus, ductus hepaticus communis, ductus choledochus",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "ductus_deferens",
+   "namePl": "Nasieniowód",
+   "nameLa": "ductus deferens",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "ductus_ejaculatorius",
+   "namePl": "Przewód wytryskowy",
+   "nameLa": "ductus ejaculatorius",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "ductus_thoracicus",
+   "namePl": "Przewód piersiowy (schemat)",
+   "nameLa": "ductus thoracicus",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "duodenum",
+   "namePl": "Dwunastnica",
+   "nameLa": "duodenum",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "epidermis",
+   "namePl": "Naskórek",
+   "nameLa": "epidermis",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "epididymis",
+   "namePl": "Najądrze",
+   "nameLa": "epididymis",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "femur",
+   "namePl": "Kość udowa",
+   "nameLa": "femur",
+   "systems": [
+    "muscle",
+    "bone"
+   ],
+   "plates": [
+    "miesniowy",
+    "kostny"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "fibula",
+   "namePl": "Kość strzałkowa",
+   "nameLa": "fibula",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "folliculus_pili",
+   "namePl": "Mieszek włosowy",
+   "nameLa": "folliculus pili",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "gaster",
+   "namePl": "Żołądek",
+   "nameLa": "gaster",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "glandula_pinealis",
+   "namePl": "Szyszynka",
+   "nameLa": "glandula pinealis",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "glandula_sebacea",
+   "namePl": "Gruczoł łojowy",
+   "nameLa": "glandula sebacea",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "glandula_seminalis",
+   "namePl": "Pęcherzyk nasienny",
+   "nameLa": "glandula seminalis",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "glandula_sudorifera",
+   "namePl": "Gruczoł potowy ekrynowy",
+   "nameLa": "glandula sudorifera",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "glandula_suprarenalis",
+   "namePl": "Nadnercze",
+   "nameLa": "glandula suprarenalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "glandula_thyroidea",
+   "namePl": "Tarczyca",
+   "nameLa": "glandula thyroidea",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "glandulae_suprarenales",
+   "namePl": "Nadnercza",
+   "nameLa": "glandulae suprarenales",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "glomerulus_renalis",
+   "namePl": "Kłębuszek nerkowy",
+   "nameLa": "glomerulus renalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "gyrus_postcentralis",
+   "namePl": "Kora czuciowa",
+   "nameLa": "gyrus postcentralis",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "gyrus_praecentralis",
+   "namePl": "Kora ruchowa",
+   "nameLa": "gyrus praecentralis",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "gyrus_precentralis",
+   "namePl": "Kora ruchowa",
+   "nameLa": "gyrus precentralis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "hepar",
+   "namePl": "Wątroba (narząd docelowy)",
+   "nameLa": "hepar",
+   "systems": [
+    "endo",
+    "digest"
+   ],
+   "plates": [
+    "hormonalny",
+    "pokarmowy"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "humerus",
+   "namePl": "Kość ramienna",
+   "nameLa": "humerus",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "hypophysis",
+   "namePl": "Przysadka mózgowa",
+   "nameLa": "hypophysis",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "hypothalamus",
+   "namePl": "Podwzgórze",
+   "nameLa": "hypothalamus",
+   "systems": [
+    "brain",
+    "endo"
+   ],
+   "plates": [
+    "mozg",
+    "hormonalny"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "intestinum_crassum_colon_ascendens",
+   "namePl": "Jelito grube",
+   "nameLa": "intestinum crassum (colon ascendens)",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "intestinum_tenue",
+   "namePl": "Jelito cienkie",
+   "nameLa": "intestinum tenue",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "larynx",
+   "namePl": "Krtań",
+   "nameLa": "larynx",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "lig_ovarii_proprium",
+   "namePl": "Więzadło właściwe jajnika",
+   "nameLa": "lig. ovarii proprium",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "lobulus_paracentralis",
+   "namePl": "Płacik okołośrodkowy",
+   "nameLa": "lobulus paracentralis",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "m_arrector_pili",
+   "namePl": "Mięsień przywłosowy",
+   "nameLa": "m. arrector pili",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "m_biceps_femoris",
+   "namePl": "M. dwugłowy uda",
+   "nameLa": "m. biceps femoris",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_deltoideus",
+   "namePl": "M. naramienny",
+   "nameLa": "m. deltoideus",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_gastrocnemius",
+   "namePl": "M. brzuchaty łydki",
+   "nameLa": "m. gastrocnemius",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_gluteus_maximus",
+   "namePl": "M. pośladkowy wielki",
+   "nameLa": "m. gluteus maximus",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_rectus_abdominis",
+   "namePl": "M. prosty brzucha",
+   "nameLa": "m. rectus abdominis",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_rectus_femoris",
+   "namePl": "M. prosty uda",
+   "nameLa": "m. rectus femoris",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_semitendinosus",
+   "namePl": "M. półścięgnisty",
+   "nameLa": "m. semitendinosus",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_soleus",
+   "namePl": "M. płaszczkowaty",
+   "nameLa": "m. soleus",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_tibialis_anterior",
+   "namePl": "M. piszczelowy przedni",
+   "nameLa": "m. tibialis anterior",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "m_vastus_lateralis",
+   "namePl": "M. obszerny boczny",
+   "nameLa": "m. vastus lateralis",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "medulla",
+   "namePl": "Rdzeń węzła",
+   "nameLa": "medulla",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "medulla_glandulae_suprarenalis",
+   "namePl": "Rdzeń nadnercza",
+   "nameLa": "medulla glandulae suprarenalis",
+   "systems": [
+    "nerve",
+    "endo"
+   ],
+   "plates": [
+    "nerwowy",
+    "hormonalny"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "medulla_oblongata",
+   "namePl": "Rdzeń przedłużony",
+   "nameLa": "medulla oblongata",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "medulla_spinalis",
+   "namePl": "Rdzeń kręgowy",
+   "nameLa": "medulla spinalis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "mm_intercostales",
+   "namePl": "Mm. międzyżebrowe",
+   "nameLa": "mm. intercostales",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "mm_scaleni",
+   "namePl": "Mm. pochyłe",
+   "nameLa": "mm. scaleni",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "mostek_poprzeczny_pdb_5h53",
+   "namePl": "Główka miozyny",
+   "nameLa": "mostek poprzeczny (PDB 5H53)",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "n_femoralis",
+   "namePl": "Nerw udowy",
+   "nameLa": "n. femoralis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "n_fibularis_communis",
+   "namePl": "Nerw strzałkowy wspólny",
+   "nameLa": "n. fibularis communis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "n_fibularis_profundus",
+   "namePl": "Nerw strzałkowy głęboki",
+   "nameLa": "n. fibularis profundus",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "n_ischiadicus",
+   "namePl": "Nerw kulszowy",
+   "nameLa": "n. ischiadicus",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "n_obturatorius",
+   "namePl": "Nerw zasłonowy",
+   "nameLa": "n. obturatorius",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "n_tibialis",
+   "namePl": "Nerw piszczelowy",
+   "nameLa": "n. tibialis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "najszybsze_beztlenowe_ok_23",
+   "namePl": "Włókno typu IIx",
+   "nameLa": "najszybsze, beztlenowe · ok. 23%",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "nn_intercostales",
+   "namePl": "Nerwy międzyżebrowe",
+   "nameLa": "nn. intercostales",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "nodi_lymphoidei_axillares",
+   "namePl": "Węzły chłonne pachowe",
+   "nameLa": "nodi lymphoidei axillares",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodi_lymphoidei_cervicales",
+   "namePl": "Węzły chłonne szyjne",
+   "nameLa": "nodi lymphoidei cervicales",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodi_lymphoidei_iliaci",
+   "namePl": "Węzły biodrowe",
+   "nameLa": "nodi lymphoidei iliaci",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodi_lymphoidei_inguinales",
+   "namePl": "Węzły chłonne pachwinowe",
+   "nameLa": "nodi lymphoidei inguinales",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodi_lymphoidei_mesenterici",
+   "namePl": "Węzły krezkowe",
+   "nameLa": "nodi lymphoidei mesenterici",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodi_lymphoidei_tracheobronchiales",
+   "namePl": "Węzły tchawiczo-oskrzelowe",
+   "nameLa": "nodi lymphoidei tracheobronchiales",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nodulus_lymphoideus",
+   "namePl": "Grudka chłonna",
+   "nameLa": "nodulus lymphoideus",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "nuclei_basales",
+   "namePl": "Jądra podstawy (rzut)",
+   "nameLa": "nuclei basales",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "oesophagus",
+   "namePl": "Przełyk",
+   "nameLa": "oesophagus",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "os_coxae",
+   "namePl": "Kość miedniczna",
+   "nameLa": "os coxae",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "os_sacrum",
+   "namePl": "Kość krzyżowa",
+   "nameLa": "os sacrum",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "ovarium",
+   "namePl": "Jajnik",
+   "nameLa": "ovarium",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "pancreas",
+   "namePl": "Trzustka",
+   "nameLa": "pancreas",
+   "systems": [
+    "endo",
+    "digest"
+   ],
+   "plates": [
+    "hormonalny",
+    "pokarmowy"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "paracortex",
+   "namePl": "Strefa przykorowa",
+   "nameLa": "paracortex",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "pars_abdominalis_aortae",
+   "namePl": "Aorta brzuszna",
+   "nameLa": "pars abdominalis aortae",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "patella",
+   "namePl": "Rzepka",
+   "nameLa": "patella",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "pelvis_renalis",
+   "namePl": "Miedniczka nerkowa",
+   "nameLa": "pelvis renalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "penis",
+   "namePl": "Prącie",
+   "nameLa": "penis",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "pl_gleboka_siec_naczyn_skory",
+   "namePl": "Głęboka sieć naczyń skóry",
+   "nameLa": null,
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "pl_naczynia_krwionosne_skory",
+   "namePl": "Naczynia krwionośne skóry",
+   "nameLa": null,
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "pl_pasmo_beleczek_rozciaganych",
+   "namePl": "Pasmo beleczek rozciąganych",
+   "nameLa": null,
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "pl_pasmo_beleczek_sciskanych",
+   "namePl": "Pasmo beleczek ściskanych",
+   "nameLa": null,
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "pl_por_potowy",
+   "namePl": "Por potowy",
+   "nameLa": null,
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "plexus_lumbalis",
+   "namePl": "Splot lędźwiowy",
+   "nameLa": "plexus lumbalis",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "prostata",
+   "namePl": "Gruczoł krokowy (prostata)",
+   "nameLa": "prostata",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "pulmo_dexter",
+   "namePl": "Płuco prawe",
+   "nameLa": "pulmo dexter",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "r_interventricularis_anterior",
+   "namePl": "Gałąź przednia (LAD)",
+   "nameLa": "r. interventricularis anterior",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "ren",
+   "namePl": "Nerka",
+   "nameLa": "ren",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "ren_dexter",
+   "namePl": "Nerka prawa",
+   "nameLa": "ren dexter",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "ren_sinister",
+   "namePl": "Nerka lewa",
+   "nameLa": "ren sinister",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "rete_venosum_dorsale_manus",
+   "namePl": "Sieć żylna grzbietowa ręki",
+   "nameLa": "rete venosum dorsale manus",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "splen_lien",
+   "namePl": "Śledziona",
+   "nameLa": "splen (lien)",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "substantia_compacta",
+   "namePl": "Istota zbita",
+   "nameLa": "substantia compacta",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "substantia_spongiosa",
+   "namePl": "Istota gąbczasta (beleczki)",
+   "nameLa": "substantia spongiosa",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "szybkie_mieszane_ok_35",
+   "namePl": "Włókno typu IIa",
+   "nameLa": "szybkie, mieszane · ok. 35%",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  },
+  {
+   "id": "talus",
+   "namePl": "Kość skokowa",
+   "nameLa": "talus",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "tela_subcutanea",
+   "namePl": "Tkanka podskórna",
+   "nameLa": "tela subcutanea",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "testis",
+   "namePl": "Jądro",
+   "nameLa": "testis",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "thalamus",
+   "namePl": "Wzgórze",
+   "nameLa": "thalamus",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "thymus",
+   "namePl": "Grasica (narząd limfatyczny)",
+   "nameLa": "thymus",
+   "systems": [
+    "endo",
+    "lymph"
+   ],
+   "plates": [
+    "hormonalny",
+    "limfatyczny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "tibia",
+   "namePl": "Kość piszczelowa",
+   "nameLa": "tibia",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "trachea",
+   "namePl": "Tchawica",
+   "nameLa": "trachea",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "trochanter_major",
+   "namePl": "Krętarz większy",
+   "nameLa": "trochanter major",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "truncus_encephali",
+   "namePl": "Pień mózgu",
+   "nameLa": "truncus encephali",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "truncus_pulmonalis",
+   "namePl": "Pień płucny",
+   "nameLa": "truncus pulmonalis",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "truncus_sympathicus",
+   "namePl": "Pień współczulny",
+   "nameLa": "truncus sympathicus",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "tuba_uterina",
+   "namePl": "Jajowód",
+   "nameLa": "tuba uterina",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "tubulus_renalis",
+   "namePl": "Kanalik nerkowy",
+   "nameLa": "tubulus renalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "tubulus_renalis_colligens",
+   "namePl": "Kanalik zbiorczy (cewka zbiorcza)",
+   "nameLa": "tubulus renalis colligens",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "unitates_motoriae",
+   "namePl": "Jednostki ruchowe nogi",
+   "nameLa": "unitates motoriae",
+   "systems": [
+    "nerve"
+   ],
+   "plates": [
+    "nerwowy"
+   ],
+   "glyph": "nerve"
+  },
+  {
+   "id": "ureter",
+   "namePl": "Moczowód",
+   "nameLa": "ureter",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "urethra",
+   "namePl": "Cewka moczowa",
+   "nameLa": "urethra",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "urethra_masculina",
+   "namePl": "Cewka moczowa",
+   "nameLa": "urethra masculina",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "uterus",
+   "namePl": "Macica",
+   "nameLa": "uterus",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "v_basilica",
+   "namePl": "Żyła odłokciowa",
+   "nameLa": "v. basilica",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "v_cava_inferior",
+   "namePl": "Żyła główna dolna",
+   "nameLa": "v. cava inferior",
+   "systems": [
+    "endo"
+   ],
+   "plates": [
+    "hormonalny"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "v_cava_superior",
+   "namePl": "Ż. główna górna",
+   "nameLa": "v. cava superior",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "v_cephalica",
+   "namePl": "Żyła odpromieniowa",
+   "nameLa": "v. cephalica",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "v_cordis_magna",
+   "namePl": "Ż. wielka serca",
+   "nameLa": "v. cordis magna",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "v_jugularis_externa",
+   "namePl": "Ż. szyjna zewnętrzna",
+   "nameLa": "v. jugularis externa",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "v_jugularis_interna",
+   "namePl": "Ż. szyjna wewnętrzna",
+   "nameLa": "v. jugularis interna",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "v_mediana_cubiti",
+   "namePl": "Ż. pośrodkowa łokcia",
+   "nameLa": "v. mediana cubiti",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "v_portae_hepatis",
+   "namePl": "Żyła wrotna",
+   "nameLa": "v. portae hepatis",
+   "systems": [
+    "endo",
+    "digest"
+   ],
+   "plates": [
+    "hormonalny",
+    "pokarmowy"
+   ],
+   "glyph": "endo"
+  },
+  {
+   "id": "v_saphena_magna",
+   "namePl": "Ż. odpiszczelowa",
+   "nameLa": "v. saphena magna",
+   "systems": [
+    "artery",
+    "skin"
+   ],
+   "plates": [
+    "krwionosny",
+    "powlokowy"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "v_saphena_parva",
+   "namePl": "Żyła odstrzałkowa",
+   "nameLa": "v. saphena parva",
+   "systems": [
+    "skin"
+   ],
+   "plates": [
+    "powlokowy"
+   ],
+   "glyph": "skin"
+  },
+  {
+   "id": "vagina",
+   "namePl": "Pochwa",
+   "nameLa": "vagina",
+   "systems": [
+    "repro"
+   ],
+   "plates": [
+    "rozrodczy"
+   ],
+   "glyph": "repro"
+  },
+  {
+   "id": "vas_lymphaticum_afferens",
+   "namePl": "Naczynie chłonne doprowadzające",
+   "nameLa": "vas lymphaticum afferens",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "vas_lymphaticum_efferens",
+   "namePl": "Naczynie chłonne odprowadzające",
+   "nameLa": "vas lymphaticum efferens",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "vasa_capillaria",
+   "namePl": "Naczynia włosowate",
+   "nameLa": "vasa capillaria",
+   "systems": [
+    "resp"
+   ],
+   "plates": [
+    "oddechowy"
+   ],
+   "glyph": "lungs"
+  },
+  {
+   "id": "vasa_lymphatica_membri_inferioris",
+   "namePl": "Naczynia chłonne nogi (schemat)",
+   "nameLa": "vasa lymphatica membri inferioris",
+   "systems": [
+    "lymph"
+   ],
+   "plates": [
+    "limfatyczny"
+   ],
+   "glyph": "lymph"
+  },
+  {
+   "id": "vena_cava_inferior",
+   "namePl": "Żyła główna dolna",
+   "nameLa": "vena cava inferior",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "vena_renalis",
+   "namePl": "Żyła nerkowa",
+   "nameLa": "vena renalis",
+   "systems": [
+    "urinary"
+   ],
+   "plates": [
+    "wydalniczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "ventriculus_sinister",
+   "namePl": "Lewa komora",
+   "nameLa": "ventriculus sinister",
+   "systems": [
+    "artery"
+   ],
+   "plates": [
+    "krwionosny"
+   ],
+   "glyph": "heart"
+  },
+  {
+   "id": "vermis_cerebelli",
+   "namePl": "Robak móżdżku",
+   "nameLa": "vermis cerebelli",
+   "systems": [
+    "brain"
+   ],
+   "plates": [
+    "mozg"
+   ],
+   "glyph": "brain"
+  },
+  {
+   "id": "vertebrae_lumbales_l1_l5",
+   "namePl": "Kręgosłup lędźwiowy",
+   "nameLa": "vertebrae lumbales L1–L5",
+   "systems": [
+    "bone"
+   ],
+   "plates": [
+    "kostny"
+   ],
+   "glyph": "bone"
+  },
+  {
+   "id": "vesica_biliaris",
+   "namePl": "Pęcherzyk żółciowy",
+   "nameLa": "vesica biliaris",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "vesica_urinaria",
+   "namePl": "Pęcherz moczowy",
+   "nameLa": "vesica urinaria",
+   "systems": [
+    "urinary",
+    "repro"
+   ],
+   "plates": [
+    "wydalniczy",
+    "rozrodczy"
+   ],
+   "glyph": "kidney"
+  },
+  {
+   "id": "vv_hepaticae",
+   "namePl": "Żyły wątrobowe",
+   "nameLa": "vv. hepaticae",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "vv_hepaticae_v_cava_inferior",
+   "namePl": "Żyły wątrobowe",
+   "nameLa": "vv. hepaticae → v. cava inferior",
+   "systems": [
+    "digest"
+   ],
+   "plates": [
+    "pokarmowy"
+   ],
+   "glyph": "digest"
+  },
+  {
+   "id": "wolne_tlenowe_ok_42",
+   "namePl": "Włókno typu I",
+   "nameLa": "wolne, tlenowe · ok. 42%",
+   "systems": [
+    "muscle"
+   ],
+   "plates": [
+    "miesniowy"
+   ],
+   "glyph": "muscle"
+  }
+ ]
+}

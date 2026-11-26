@@ -1,0 +1,1475 @@
+{
+ "schemaVersion": 1,
+ "plate": "wydalniczy",
+ "facts": [
+  {
+   "id": "wydalniczy.metric.przeplyw_krwi_przez_nerki",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "Przepływ krwi przez nerki",
+   "unit": null,
+   "referenceIds": [
+    "kawakami_2018",
+    "kawakami_2024"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "RBF after maximum exercise decreased by 51% in Study 1. In Study 2, RBF showed no significant decrease until 80% LaBP, and showed a significant decrease (31%) at 100% LaBP compared with at rest (p < 0.01).",
+   "locator": "Kawakami 2018, abstrakt (Results); pełny tekst Results Study 2, Fig. 2a",
+   "conversionNote": "Spoczynek = 100% (punkt odniesienia badania). −31% przy 100% LaBP, −51% po wysiłku maksymalnym.",
+   "protocolMismatch": "cykloergometr: etapy po 4 min kolejno 60–140% progu mleczanowego oraz test do wyczerpania (pomiar 5 min po)",
+   "measuredAt": "zaraz po 4-min etapie wysiłku; −51%: 5 min po wysiłku maksymalnym",
+   "tier": "primary",
+   "value": "ok. −30% (do −50%)",
+   "notePl": "8 zdrowych mężczyzn (23 lata), USG. Bez spadku do 80% progu mleczanowego; −31% przy 100% progu, a przy wyższych etapach dalej w dół; −51% po wysiłku do wyczerpania. Przy 88% VO₂max spadek jest więc najpewniej większy niż 31%. W innym badaniu interwały 1 min przy progu OBLA i 2 min odpoczynku nie obniżyły przepływu mierzonego po wysiłku.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#41"
+    ],
+    "note": "#41",
+    "reportInferred": true
+   },
+   "order": 0
+  },
+  {
+   "id": "wydalniczy.metric.przeplyw_krwi_przez_nerki.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "Przepływ krwi przez nerki",
+   "unit": null,
+   "referenceIds": [
+    "kawakami_2018",
+    "kawakami_2024"
+   ],
+   "evidenceLevel": "probable_human",
+   "quote": "RBF after maximum exercise decreased by 51% in Study 1. In Study 2, RBF showed no significant decrease until 80% LaBP, and showed a significant decrease (31%) at 100% LaBP compared with at rest (p < 0.01).",
+   "locator": "Kawakami 2018, abstrakt (Results); pełny tekst Results Study 2, Fig. 2a",
+   "conversionNote": "Spoczynek = 100% (punkt odniesienia badania). −31% przy 100% LaBP, −51% po wysiłku maksymalnym.",
+   "protocolMismatch": "cykloergometr: etapy po 4 min kolejno 60–140% progu mleczanowego oraz test do wyczerpania (pomiar 5 min po)",
+   "measuredAt": "zaraz po 4-min etapie wysiłku; −51%: 5 min po wysiłku maksymalnym",
+   "tier": "primary",
+   "value": "100%",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#42"
+    ],
+    "note": "#42",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.metric.hormony_oszczedzania_wody_i_soli_adh_aldosteron",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "Hormony oszczędzania wody i soli (ADH, aldosteron)",
+   "unit": null,
+   "referenceIds": [
+    "freund_1991",
+    "poortmans_1984"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma vasopressin (ADH), aldosterone, and plasma renin activity tended to increase progressively with increases in work load, with the increases for all hormones reaching statistical significance when the level of exercise reached greater than or equal to 60% of maximal oxygen consumption.",
+   "locator": "Freund 1991, abstrakt; Poortmans 1984, abstrakt (ADH a ilość moczu)",
+   "conversionNote": null,
+   "protocolMismatch": "20 min ciągłej jazdy przy 25–80% VO₂max",
+   "measuredAt": "zaraz po 20-min etapie (minuty, nie sekundy)",
+   "tier": "primary",
+   "value": "rosną (od ok. 60% VO₂max)",
+   "notePl": "Przy tej samej intensywności spadały filtracja w kłębuszkach i ilość moczu. ADH każe kanalikom zbiorczym odzyskiwać wodę.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#44",
+     "#45"
+    ],
+    "note": "#44, #45",
+    "reportInferred": true
+   },
+   "order": 1
+  },
+  {
+   "id": "wydalniczy.metric.hormony_oszczedzania_wody_i_soli_adh_aldosteron.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "Hormony oszczędzania wody i soli (ADH, aldosteron)",
+   "unit": null,
+   "referenceIds": [
+    "freund_1991",
+    "poortmans_1984"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Plasma vasopressin (ADH), aldosterone, and plasma renin activity tended to increase progressively with increases in work load, with the increases for all hormones reaching statistical significance when the level of exercise reached greater than or equal to 60% of maximal oxygen consumption.",
+   "locator": "Freund 1991, abstrakt; Poortmans 1984, abstrakt (ADH a ilość moczu)",
+   "conversionNote": null,
+   "protocolMismatch": "20 min ciągłej jazdy przy 25–80% VO₂max",
+   "measuredAt": "zaraz po 20-min etapie (minuty, nie sekundy)",
+   "tier": "primary",
+   "value": "niskie",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#44",
+     "#45"
+    ],
+    "note": "#44, #45",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.metric.bialko_w_moczu",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "Białko w moczu",
+   "unit": null,
+   "referenceIds": [
+    "poortmans_1984",
+    "poortmans_1985"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "This excretion of proteins in urine is a transient state with a half-time of approximately 1 hour.",
+   "locator": "Poortmans 1984, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "przegląd różnych wysiłków intensywnych",
+   "measuredAt": "po wysiłku (mocz zbierany po zakończeniu)",
+   "tier": "primary",
+   "value": "po wysiłku przejściowo więcej; połowa znika w ok. 1 h",
+   "notePl": "Białkomocz wysiłkowy zależy od intensywności, nie od czasu trwania, i jest przejściowy.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#46",
+     "#47"
+    ],
+    "note": "#46, #47 (usunięte „nie jest chorobą”)",
+    "reportInferred": true
+   },
+   "order": 2
+  },
+  {
+   "id": "wydalniczy.metric.bialko_w_moczu.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "Białko w moczu",
+   "unit": null,
+   "referenceIds": [
+    "poortmans_1984",
+    "poortmans_1985"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "This excretion of proteins in urine is a transient state with a half-time of approximately 1 hour.",
+   "locator": "Poortmans 1984, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "przegląd różnych wysiłków intensywnych",
+   "measuredAt": "po wysiłku (mocz zbierany po zakończeniu)",
+   "tier": "primary",
+   "value": "mało",
+   "status": "draft",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#46",
+     "#47"
+    ],
+    "note": "#46, #47 (usunięte „nie jest chorobą”)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.metric.ph_krwi",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "pH krwi",
+   "unit": null,
+   "referenceIds": [
+    "del_coso_2010",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "At the end of exercise, L(ONG) in comparison to S(HORT) and M(EDIUM) increased plasma pH (7.32 +/- 0.02 vs. approximately 7.22 +/- 0.03; P < 0.05)",
+   "locator": "Del Coso 2010, abstrakt; Shaw 2022, sekcja „What is acidosis and what is its relevance?” (7,35–7,45); McKelvie 1989, abstrakt (< 2% mleczanu w moczu)",
+   "conversionNote": "Spoczynek: Shaw 2022 „The normal blood pH is 7.35–7.45” → środek zakresu ok. 7,4. Sprint: grupy S i M (ok. 7,22).",
+   "protocolMismatch": "4 serie po 1,5 min przy 163% progu kompensacji oddechowej (wysiłek ponadmaksymalny), aktywna przerwa 4,5–6 min",
+   "measuredAt": "koniec ostatniej serii; nerki: godziny po treningu",
+   "tier": "primary",
+   "value": "ok. 7,2",
+   "notePl": "Kwas z mięśni wiążą bufory krwi, a część usuwa oddech jako CO₂. Nerki dbają o długotrwałą równowagę (godziny), ale z moczem wychodzi mniej niż 2% mleczanu.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#48"
+    ],
+    "note": "#48",
+    "reportInferred": true
+   },
+   "order": 3
+  },
+  {
+   "id": "wydalniczy.metric.ph_krwi.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "pH krwi",
+   "unit": null,
+   "referenceIds": [
+    "del_coso_2010",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "At the end of exercise, L(ONG) in comparison to S(HORT) and M(EDIUM) increased plasma pH (7.32 +/- 0.02 vs. approximately 7.22 +/- 0.03; P < 0.05)",
+   "locator": "Del Coso 2010, abstrakt; Shaw 2022, sekcja „What is acidosis and what is its relevance?” (7,35–7,45); McKelvie 1989, abstrakt (< 2% mleczanu w moczu)",
+   "conversionNote": "Spoczynek: Shaw 2022 „The normal blood pH is 7.35–7.45” → środek zakresu ok. 7,4. Sprint: grupy S i M (ok. 7,22).",
+   "protocolMismatch": "4 serie po 1,5 min przy 163% progu kompensacji oddechowej (wysiłek ponadmaksymalny), aktywna przerwa 4,5–6 min",
+   "measuredAt": "koniec ostatniej serii; nerki: godziny po treningu",
+   "tier": "primary",
+   "value": "ok. 7,4",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#49"
+    ],
+    "note": "#49",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.metric.przeplyw_nerkowy_przy_60_vo_peak_pomiar_w_trakcie",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "Przepływ nerkowy przy 60% VO₂peak (pomiar w trakcie)",
+   "unit": null,
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Renal blood flow was lower at rest in the O group, remained relatively constant at 35% VO2peak, then decreased by 20-25% in both groups at 60% VO2peak.",
+   "locator": "Kenney i Ho 1995, abstrakt",
+   "conversionNote": "spoczynek = 100% (punkt odniesienia)",
+   "protocolMismatch": "jazda ciągła przy 35 i 60% VO₂peak, 22 i 36 °C",
+   "measuredAt": "w trakcie wysiłku",
+   "tier": "student",
+   "value": "−20–25%",
+   "notePl": "Klirens PAH w trakcie jazdy, młodzi i starsi mężczyźni; przy 35% VO₂peak prawie bez zmian.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#51"
+    ],
+    "note": "#51",
+    "reportInferred": true
+   },
+   "order": 4
+  },
+  {
+   "id": "wydalniczy.metric.przeplyw_nerkowy_przy_60_vo_peak_pomiar_w_trakcie.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "Przepływ nerkowy przy 60% VO₂peak (pomiar w trakcie)",
+   "unit": null,
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Renal blood flow was lower at rest in the O group, remained relatively constant at 35% VO2peak, then decreased by 20-25% in both groups at 60% VO2peak.",
+   "locator": "Kenney i Ho 1995, abstrakt",
+   "conversionNote": "spoczynek = 100% (punkt odniesienia)",
+   "protocolMismatch": "jazda ciągła przy 35 i 60% VO₂peak, 22 i 36 °C",
+   "measuredAt": "w trakcie wysiłku",
+   "tier": "student",
+   "value": "100%",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#51"
+    ],
+    "note": "#51",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.metric.frakcja_filtracyjna_czesc_osocza_przesaczona_w_klebuszku",
+   "kind": "metric",
+   "plate": "wydalniczy",
+   "labelPl": "Frakcja filtracyjna (część osocza przesączona w kłębuszku)",
+   "unit": null,
+   "referenceIds": [
+    "poortmans_1994",
+    "kawakami_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Despite a major reduction in the renal plasma flow, the filtration fraction can double with maximal exercise",
+   "locator": "Poortmans i Vanderstraeten 1994, abstrakt; Kawakami 2018, pełny tekst Fig. 4c",
+   "conversionNote": "double = 2×; spoczynek = 1×",
+   "protocolMismatch": "wysiłek maksymalny (przegląd); Kawakami 2018: wzrost istotny przy 120% progu mleczanowego",
+   "measuredAt": "w trakcie wysiłku maksymalnego",
+   "tier": "student",
+   "value": "do ok. 2×",
+   "notePl": "Przepływ osocza spada bardziej niż filtracja, więc większa jego część przechodzi przez filtr.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#52"
+    ],
+    "note": "#52",
+    "reportInferred": true
+   },
+   "order": 5
+  },
+  {
+   "id": "wydalniczy.metric.frakcja_filtracyjna_czesc_osocza_przesaczona_w_klebuszku.rest",
+   "kind": "metric_rest",
+   "plate": "wydalniczy",
+   "labelPl": "Frakcja filtracyjna (część osocza przesączona w kłębuszku)",
+   "unit": null,
+   "referenceIds": [
+    "poortmans_1994",
+    "kawakami_2018"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Despite a major reduction in the renal plasma flow, the filtration fraction can double with maximal exercise",
+   "locator": "Poortmans i Vanderstraeten 1994, abstrakt; Kawakami 2018, pełny tekst Fig. 4c",
+   "conversionNote": "double = 2×; spoczynek = 1×",
+   "protocolMismatch": "wysiłek maksymalny (przegląd); Kawakami 2018: wzrost istotny przy 120% progu mleczanowego",
+   "measuredAt": "w trakcie wysiłku maksymalnego",
+   "tier": "student",
+   "value": "1×",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#52"
+    ],
+    "note": "#52",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.kidney.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "kidney",
+   "view": "front",
+   "structureId": "ren",
+   "state": "rest",
+   "textPl": "Ok. 20% krwi z serca: tworzy mocz",
+   "status": "checked_agent",
+   "referenceIds": [
+    "garza_leslie_2025",
+    "kawakami_2018",
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#12"
+    ],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025 („Approximately 20% of total cardiac output”); #12"
+   }
+  },
+  {
+   "id": "wydalniczy.role.kidney.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "kidney",
+   "view": "front",
+   "structureId": "ren",
+   "state": "sprint",
+   "textPl": "Mniej krwi, mniej moczu (stąd przygaszona)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "garza_leslie_2025",
+    "kawakami_2018",
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#12"
+    ],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025 („Approximately 20% of total cardiac output”); #12"
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_pelvis.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_pelvis",
+   "view": "front",
+   "structureId": "pelvis_renalis",
+   "state": "rest",
+   "textPl": "Zbiera mocz z kielichów nerki",
+   "status": "anatomy",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#13",
+     "#14"
+    ],
+    "note": "#13, #14",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_pelvis.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_pelvis",
+   "view": "front",
+   "structureId": "pelvis_renalis",
+   "state": "sprint",
+   "textPl": "Spływa do niej mniej moczu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#13",
+     "#14"
+    ],
+    "note": "#13, #14",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_artery.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_artery",
+   "view": "front",
+   "structureId": "arteria_renalis",
+   "state": "rest",
+   "textPl": "Doprowadza krew z aorty do nerki",
+   "status": "anatomy",
+   "referenceIds": [
+    "kawakami_2018",
+    "poortmans_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#15",
+     "#16"
+    ],
+    "note": "#15, #16 (K18 Fig. 2c: pole przekroju t. nerkowej)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_artery.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_artery",
+   "view": "front",
+   "structureId": "arteria_renalis",
+   "state": "sprint",
+   "textPl": "Węższa: mniej krwi dla nerki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kawakami_2018",
+    "poortmans_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#15",
+     "#16"
+    ],
+    "note": "#15, #16 (K18 Fig. 2c: pole przekroju t. nerkowej)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_vein.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_vein",
+   "view": "front",
+   "structureId": "vena_renalis",
+   "state": "rest",
+   "textPl": "Odprowadza krew z nerki",
+   "status": "anatomy",
+   "referenceIds": [
+    "kawakami_2018"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#17",
+     "#18"
+    ],
+    "note": "#17, #18",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.renal_vein.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "renal_vein",
+   "view": "front",
+   "structureId": "vena_renalis",
+   "state": "sprint",
+   "textPl": "Mniej krwi wraca z nerki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kawakami_2018"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#17",
+     "#18"
+    ],
+    "note": "#17, #18",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.ureter.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "ureter",
+   "view": "front",
+   "structureId": "ureter",
+   "state": "rest",
+   "textPl": "Przesuwa mocz do pęcherza",
+   "status": "anatomy",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#19",
+     "#20"
+    ],
+    "note": "#19, #20",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.ureter.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "ureter",
+   "view": "front",
+   "structureId": "ureter",
+   "state": "sprint",
+   "textPl": "Płynie nim mniej moczu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#19",
+     "#20"
+    ],
+    "note": "#19, #20",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.bladder.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "bladder",
+   "view": "front",
+   "structureId": "vesica_urinaria",
+   "state": "rest",
+   "textPl": "Gromadzi mocz",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#21",
+     "#22"
+    ],
+    "note": "#21; #22: usunięte „(bez zmian w czasie serii)”",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.bladder.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "bladder",
+   "view": "front",
+   "structureId": "vesica_urinaria",
+   "state": "sprint",
+   "textPl": "Gromadzi mocz",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#21",
+     "#22"
+    ],
+    "note": "#21; #22: usunięte „(bez zmian w czasie serii)”",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.urethra.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "urethra",
+   "view": "front",
+   "structureId": "urethra",
+   "state": "rest",
+   "textPl": "Wyprowadza mocz na zewnątrz",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#23"
+    ],
+    "note": "#23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.urethra.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "urethra",
+   "view": "front",
+   "structureId": "urethra",
+   "state": "sprint",
+   "textPl": "Wyprowadza mocz na zewnątrz",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#23"
+    ],
+    "note": "#23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.adrenal.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "glandula_suprarenalis",
+   "state": "rest",
+   "textPl": "Mało adrenaliny we krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "zouhal_2008",
+    "kawakami_2018"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#24",
+     "#25"
+    ],
+    "note": "#24, #25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.adrenal.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "adrenal",
+   "view": "front",
+   "structureId": "glandula_suprarenalis",
+   "state": "sprint",
+   "textPl": "Wyrzut adrenaliny (plansza hormonalna)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "zouhal_2008",
+    "kawakami_2018"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#24",
+     "#25"
+    ],
+    "note": "#24, #25",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.aorta.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "aorta",
+   "view": "front",
+   "structureId": "pars_abdominalis_aortae",
+   "state": "rest",
+   "textPl": "Krew z serca do nerek i nóg",
+   "status": "anatomy",
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#26",
+     "#27"
+    ],
+    "note": "#26, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.aorta.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "aorta",
+   "view": "front",
+   "structureId": "pars_abdominalis_aortae",
+   "state": "sprint",
+   "textPl": "Więcej krwi, głównie do mięśni nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#26",
+     "#27"
+    ],
+    "note": "#26, #27",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.ivc.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "ivc",
+   "view": "front",
+   "structureId": "vena_cava_inferior",
+   "state": "rest",
+   "textPl": "Krew z nerek i nóg do serca",
+   "status": "anatomy",
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28; fakty_koncowe_B_horm_mocz_pokarm.md: Kenney i Ho 1995"
+   }
+  },
+  {
+   "id": "wydalniczy.role.ivc.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "ivc",
+   "view": "front",
+   "structureId": "vena_cava_inferior",
+   "state": "sprint",
+   "textPl": "Więcej krwi wraca z nóg",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kenney_ho_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "#28; fakty_koncowe_B_horm_mocz_pokarm.md: Kenney i Ho 1995"
+   }
+  },
+  {
+   "id": "wydalniczy.role.glomerulus.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "glomerulus",
+   "view": "detail",
+   "structureId": "glomerulus_renalis",
+   "state": "rest",
+   "textPl": "Przesącza osocze z krwi",
+   "status": "anatomy",
+   "referenceIds": [
+    "freund_1991",
+    "poortmans_1994"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#30",
+     "#31"
+    ],
+    "note": "#30, #31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.glomerulus.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "glomerulus",
+   "view": "detail",
+   "structureId": "glomerulus_renalis",
+   "state": "sprint",
+   "textPl": "Mniej krwi, przesącza mniej",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991",
+    "poortmans_1994"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#30",
+     "#31"
+    ],
+    "note": "#30, #31",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.bowman.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "bowman",
+   "view": "detail",
+   "structureId": "capsula_glomeruli",
+   "state": "rest",
+   "textPl": "Zbiera przesącz (mocz pierwotny)",
+   "status": "anatomy",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#32",
+     "#33"
+    ],
+    "note": "#32, #33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.bowman.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "bowman",
+   "view": "detail",
+   "structureId": "capsula_glomeruli",
+   "state": "sprint",
+   "textPl": "Zbiera mniej przesączu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_wydalniczy.md",
+    "rows": [
+     "#32",
+     "#33"
+    ],
+    "note": "#32, #33",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "wydalniczy.role.afferent.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "afferent",
+   "view": "detail",
+   "structureId": "arteriola_glomerularis_afferens",
+   "state": "rest",
+   "textPl": "Doprowadza krew do kłębuszka",
+   "status": "anatomy",
+   "referenceIds": [
+    "kawakami_2018",
+    "poortmans_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#34"
+    ],
+    "note": "#34; fakty_koncowe_B_horm_mocz_pokarm.md: Kawakami 2018, Poortmans 1984"
+   }
+  },
+  {
+   "id": "wydalniczy.role.afferent.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "afferent",
+   "view": "detail",
+   "structureId": "arteriola_glomerularis_afferens",
+   "state": "sprint",
+   "textPl": "Naczynia nerki zwężone: mniej krwi",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kawakami_2018",
+    "poortmans_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#34"
+    ],
+    "note": "#34; fakty_koncowe_B_horm_mocz_pokarm.md: Kawakami 2018, Poortmans 1984"
+   }
+  },
+  {
+   "id": "wydalniczy.role.tubule.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "tubule",
+   "view": "detail",
+   "structureId": "tubulus_renalis",
+   "state": "rest",
+   "textPl": "Odzyskuje prawie całą wodę z przesączu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "garza_leslie_2025",
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025; Freund 1991"
+   }
+  },
+  {
+   "id": "wydalniczy.role.tubule.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "tubule",
+   "view": "detail",
+   "structureId": "tubulus_renalis",
+   "state": "sprint",
+   "textPl": "Mniej przesączu: mniej soli w moczu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "garza_leslie_2025",
+    "freund_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Garza i Leslie 2025; Freund 1991"
+   }
+  },
+  {
+   "id": "wydalniczy.role.loop.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "loop",
+   "view": "detail",
+   "structureId": "ansa_nephroni",
+   "state": "rest",
+   "textPl": "Tworzy słony płyn w rdzeniu nerki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sands_layton_2009"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Sands i Layton 2009"
+   }
+  },
+  {
+   "id": "wydalniczy.role.loop.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "loop",
+   "view": "detail",
+   "structureId": "ansa_nephroni",
+   "state": "sprint",
+   "textPl": "Tworzy słony płyn w rdzeniu nerki",
+   "status": "checked_agent",
+   "referenceIds": [
+    "sands_layton_2009"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Sands i Layton 2009"
+   }
+  },
+  {
+   "id": "wydalniczy.role.collecting_duct.rest",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "collecting_duct",
+   "view": "detail",
+   "structureId": "tubulus_renalis_colligens",
+   "state": "rest",
+   "textPl": "Mało akwaporyn: część wody zostaje w moczu",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991",
+    "nielsen_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#39"
+    ],
+    "note": "#39; fakty_koncowe_B_horm_mocz_pokarm.md: disputed („po serii”) -> brzmienie wg sprawdzającego"
+   }
+  },
+  {
+   "id": "wydalniczy.role.collecting_duct.sprint",
+   "kind": "role",
+   "plate": "wydalniczy",
+   "anchor": "collecting_duct",
+   "view": "detail",
+   "structureId": "tubulus_renalis_colligens",
+   "state": "sprint",
+   "textPl": "Gdy rośnie ADH, wstawia akwaporyny (model zwierzęcy)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "freund_1991",
+    "nielsen_1995"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [
+     "#39"
+    ],
+    "note": "#39; fakty_koncowe_B_horm_mocz_pokarm.md: disputed („po serii”) -> brzmienie wg sprawdzającego"
+   }
+  },
+  {
+   "id": "wydalniczy.summary.rest",
+   "kind": "summary",
+   "plate": "wydalniczy",
+   "state": "rest",
+   "textPl": "W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej osocze: około 180 litrów na dobę. Kanaliki odzyskują prawie całą tę wodę, a reszta to mocz. Spływa on do miedniczki nerkowej, a moczowodami do pęcherza moczowego.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "garza_leslie_2025"
+   ],
+   "provenance": "textbook_consensus",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego"
+   }
+  },
+  {
+   "id": "wydalniczy.summary.sprint",
+   "kind": "summary",
+   "plate": "wydalniczy",
+   "state": "sprint",
+   "textPl": "W sprincie nerka dostaje mniej krwi: układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Dlatego na planszy nerki są przygaszone, to nie błąd. Nerki przesączają mniej i tworzą mniej moczu, a hormony ADH i aldosteron, rosnące w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól. Kwas z mięśni wiążą bufory krwi, a część usuwa oddech jako CO₂. Z moczem wychodzi mniej niż 2% mleczanu: resztę organizm spala albo przerabia na glukozę. Nerki dbają o długotrwałą równowagę kwasowo-zasadową (godziny), ale z moczem usuwają bardzo mało mleczanu.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "kawakami_2018",
+    "kenney_ho_1995",
+    "poortmans_1984",
+    "freund_1991",
+    "shaw_2022",
+    "mckelvie_1989",
+    "poortmans_1994",
+    "brooks_2018",
+    "brooks_2020"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_B_horm_mocz_pokarm.md",
+    "rows": [],
+    "note": "fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego"
+   }
+  },
+  {
+   "id": "wydalniczy.protocolNote",
+   "kind": "protocol_note",
+   "plate": "wydalniczy",
+   "textPl": "Sprint to koniec 45 s pracy przy ok. 88% VO₂max. Badania nerek mierzyły zwykle dłuższy wysiłek albo stan tuż po nim, więc liczby pokazują kierunek zmian, nie dokładną wartość dla jednej serii.",
+   "status": "checked_agent",
+   "referenceIds": [],
+   "provenance": null,
+   "accessMode": null,
+   "checkedBy": {
+    "report": "fakty_kontrola_koncowa.md",
+    "rows": [],
+    "note": "fakty_kontrola_koncowa.md, cz. 1a"
+   }
+  }
+ ]
+}

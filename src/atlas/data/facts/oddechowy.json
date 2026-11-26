@@ -1,0 +1,1016 @@
+{
+ "schemaVersion": 1,
+ "plate": "oddechowy",
+ "facts": [
+  {
+   "id": "oddechowy.metric.wentylacja_minutowa",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Wentylacja minutowa",
+   "unit": "L/min",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Mean ventilation at the end of exercise (Vemax) was significantly higher in men (mean +/- SD, 97 +/- 25 L/min)",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "koniec testu maksymalnego na cykloergometrze, mężczyźni 20–80 lat",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 97",
+   "notePl": "Objętość oddechowa × częstość oddechów. Średnia zdrowych mężczyzn na końcu testu maksymalnego: 97 ± 25 L/min; przy 88% VO₂max zwykle mniej.",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 0
+  },
+  {
+   "id": "oddechowy.metric.wentylacja_minutowa.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Wentylacja minutowa",
+   "unit": "L/min",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Mean ventilation at the end of exercise (Vemax) was significantly higher in men (mean +/- SD, 97 +/- 25 L/min)",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "koniec testu maksymalnego na cykloergometrze, mężczyźni 20–80 lat",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 6",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "oddechowy.metric.czestosc_oddechow",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Częstość oddechów",
+   "unit": "/min",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Respiratory rate at the end of exercise (RRmax) was 36.1 +/- 9.2 breaths per minute",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "koniec testu maksymalnego na cykloergometrze, kobiety i mężczyźni 20–80 lat",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 36",
+   "notePl": null,
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 1
+  },
+  {
+   "id": "oddechowy.metric.czestosc_oddechow.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Częstość oddechów",
+   "unit": "/min",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Respiratory rate at the end of exercise (RRmax) was 36.1 +/- 9.2 breaths per minute",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "koniec testu maksymalnego na cykloergometrze, kobiety i mężczyźni 20–80 lat",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 12–16",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "oddechowy.metric.objetosc_oddechowa",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Objętość oddechowa",
+   "unit": "L na oddech",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Tidal volume at the end of exercise (Vtmax) was higher in men (2.70 +/- 0.48 L)",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": "2,70 ± 0,48 L (mężczyźni) → ok. 2–3 L",
+   "protocolMismatch": "koniec testu maksymalnego",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 2–3",
+   "notePl": null,
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 2
+  },
+  {
+   "id": "oddechowy.metric.objetosc_oddechowa.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Objętość oddechowa",
+   "unit": "L na oddech",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "Tidal volume at the end of exercise (Vtmax) was higher in men (2.70 +/- 0.48 L)",
+   "locator": "Blackie 1991, abstrakt",
+   "conversionNote": "2,70 ± 0,48 L (mężczyźni) → ok. 2–3 L",
+   "protocolMismatch": "koniec testu maksymalnego",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 0,5",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "oddechowy.metric.pobor_tlenu_vo",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Pobór tlenu VO₂",
+   "unit": "L/min",
+   "referenceIds": [
+    "jette_1990",
+    "kaminsky_2015",
+    "byrne_2005"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the 50th percentile VO 2max of men and women aged 20 to 29 years decreased from 48.0 and 37.6",
+   "locator": "Kaminsky 2015, abstrakt (Results; 48,0 = mężczyźni); Jetté 1990, abstrakt",
+   "conversionNote": "Spoczynek: 3,5 mL/kg/min × 70 kg = 0,245 L/min. Sprint: 48 mL/kg/min × 70–80 kg × 0,88 = 2,96–3,38 L/min.",
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 3–3,4 (ok. 88% VO₂max)",
+   "notePl": "Kanon atlasu: 45 s pracy przy ok. 88% VO₂max. Mediana VO₂max mężczyzn w wieku 20–29 lat to 48 mL/kg/min. Spoczynkowe 3,5 mL/kg/min to umowna wartość (1 MET).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 3
+  },
+  {
+   "id": "oddechowy.metric.pobor_tlenu_vo.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Pobór tlenu VO₂",
+   "unit": "L/min",
+   "referenceIds": [
+    "jette_1990",
+    "kaminsky_2015",
+    "byrne_2005"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "the 50th percentile VO 2max of men and women aged 20 to 29 years decreased from 48.0 and 37.6",
+   "locator": "Kaminsky 2015, abstrakt (Results; 48,0 = mężczyźni); Jetté 1990, abstrakt",
+   "conversionNote": "Spoczynek: 3,5 mL/kg/min × 70 kg = 0,245 L/min. Sprint: 48 mL/kg/min × 70–80 kg × 0,88 = 2,96–3,38 L/min.",
+   "protocolMismatch": null,
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 0,25 (3,5 mL/kg/min)",
+   "status": "checked_agent",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "full_text",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "oddechowy.metric.tlen_zuzywany_przez_miesnie_oddechowe",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Tlen zużywany przez mięśnie oddechowe",
+   "unit": "% VO₂max",
+   "referenceIds": [
+    "aaron_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max. | the VO2RM required 13-15% of VO2max",
+   "locator": "Aaron 1992, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "ok. 10 (do 15)",
+   "notePl": "Praca wszystkich mięśni oddechowych przy wysiłku maksymalnym (badanie na zdrowych młodych osobach).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   },
+   "order": 4
+  },
+  {
+   "id": "oddechowy.metric.tlen_zuzywany_przez_miesnie_oddechowe.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Tlen zużywany przez mięśnie oddechowe",
+   "unit": "% VO₂max",
+   "referenceIds": [
+    "aaron_1992"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max. | the VO2RM required 13-15% of VO2max",
+   "locator": "Aaron 1992, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "niewielka część",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [],
+    "note": "fakty_draft_K3_zaopatrzenie.md"
+   }
+  },
+  {
+   "id": "oddechowy.metric.krew_dla_miesni_oddechowych",
+   "kind": "metric",
+   "plate": "oddechowy",
+   "labelPl": "Krew dla mięśni oddechowych",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "harms_1998"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "up to 14-16% of the CO is directed to the respiratory muscles",
+   "locator": "Harms 1998, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "kolarze, wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "do 14–16",
+   "notePl": "Przy VO₂max mięśnie oddechowe „konkurują” o krew z mięśniami nóg (badanie u wytrenowanych kolarzy).",
+   "seeAlsoPlate": null,
+   "status": "checked_agent",
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null,
+   "order": 5
+  },
+  {
+   "id": "oddechowy.metric.krew_dla_miesni_oddechowych.rest",
+   "kind": "metric_rest",
+   "plate": "oddechowy",
+   "labelPl": "Krew dla mięśni oddechowych",
+   "unit": "% rzutu serca",
+   "referenceIds": [
+    "harms_1998"
+   ],
+   "evidenceLevel": "established_human",
+   "quote": "up to 14-16% of the CO is directed to the respiratory muscles",
+   "locator": "Harms 1998, abstrakt",
+   "conversionNote": null,
+   "protocolMismatch": "kolarze, wysiłek maksymalny",
+   "measuredAt": null,
+   "tier": "primary",
+   "value": "niewielka część",
+   "status": "unverifiable",
+   "restStatusExplicit": true,
+   "provenance": "primary_study",
+   "accessMode": "abstract",
+   "auto": [
+    "provenance",
+    "accessMode"
+   ],
+   "checkedBy": null
+  },
+  {
+   "id": "oddechowy.role.larynx.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "larynx",
+   "view": "front",
+   "structureId": "larynx",
+   "state": "rest",
+   "textPl": "Głośnia lekko otwarta",
+   "status": "checked_agent",
+   "referenceIds": [
+    "england_1982"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#10"
+    ],
+    "note": "#10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.larynx.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "larynx",
+   "view": "front",
+   "structureId": "larynx",
+   "state": "sprint",
+   "textPl": "Głośnia szeroko otwarta, mniejszy opór",
+   "status": "checked_agent",
+   "referenceIds": [
+    "england_1982"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#10"
+    ],
+    "note": "#10",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.trachea.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "trachea",
+   "view": "front",
+   "structureId": "trachea",
+   "state": "rest",
+   "textPl": "Spokojny przepływ powietrza",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#11"
+    ],
+    "note": "#11; fakty_draft_K3_zaopatrzenie.md: sprint bez źródła"
+   }
+  },
+  {
+   "id": "oddechowy.role.trachea.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "trachea",
+   "view": "front",
+   "structureId": "trachea",
+   "state": "sprint",
+   "textPl": "Bardzo szybki przepływ powietrza",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#11"
+    ],
+    "note": "#11; fakty_draft_K3_zaopatrzenie.md: sprint bez źródła"
+   }
+  },
+  {
+   "id": "oddechowy.role.scalene.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "scalene",
+   "view": "front",
+   "structureId": "mm_scaleni",
+   "state": "rest",
+   "textPl": "Lekko unoszą żebra",
+   "status": "checked_agent",
+   "referenceIds": [
+    "detroyer_estenne_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#12",
+     "#13"
+    ],
+    "note": "#12; #13 (tylko OpenStax)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.scalene.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "scalene",
+   "view": "front",
+   "structureId": "mm_scaleni",
+   "state": "sprint",
+   "textPl": "Mocno unoszą górne żebra przy wdechu",
+   "status": "unverifiable",
+   "referenceIds": [
+    "detroyer_estenne_1984"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#12",
+     "#13"
+    ],
+    "note": "#12; #13 (tylko OpenStax)",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.main_bronchus.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "main_bronchus",
+   "view": "front",
+   "structureId": "bronchus_principalis_dexter",
+   "state": "rest",
+   "textPl": "Rozprowadza powietrze do płuca",
+   "status": "anatomy",
+   "referenceIds": [
+    "antonelli_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#14"
+    ],
+    "note": "#14; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "oddechowy.role.main_bronchus.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "main_bronchus",
+   "view": "front",
+   "structureId": "bronchus_principalis_dexter",
+   "state": "sprint",
+   "textPl": "Oskrzela lekko się rozszerzają",
+   "status": "checked_agent",
+   "referenceIds": [
+    "antonelli_2012"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#14"
+    ],
+    "note": "#14; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "oddechowy.role.lung.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "lung",
+   "view": "front",
+   "structureId": "pulmo_dexter",
+   "state": "rest",
+   "textPl": "Wdech (oba płuca) ok. 0,5 L",
+   "status": "unverifiable",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#15",
+     "#16"
+    ],
+    "note": "#15, #16; fakty_draft_K3_zaopatrzenie.md: sprint Blackie 1991 abstrakt; spoczynek bez źródła 0,5 L"
+   }
+  },
+  {
+   "id": "oddechowy.role.lung.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "lung",
+   "view": "front",
+   "structureId": "pulmo_dexter",
+   "state": "sprint",
+   "textPl": "Wdech (oba płuca) ok. 2,7 L",
+   "status": "checked_agent",
+   "referenceIds": [
+    "blackie_1991"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#15",
+     "#16"
+    ],
+    "note": "#15, #16; fakty_draft_K3_zaopatrzenie.md: sprint Blackie 1991 abstrakt; spoczynek bez źródła 0,5 L"
+   }
+  },
+  {
+   "id": "oddechowy.role.intercostal.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "intercostal",
+   "view": "front",
+   "structureId": "mm_intercostales",
+   "state": "rest",
+   "textPl": "Pracują przy każdym wdechu (przymostkowe)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "detroyer_estenne_1984",
+    "detroyer_2005",
+    "aliverti_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#18"
+    ],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: De Troyer i Estenne 1984, abstrakt; #18"
+   }
+  },
+  {
+   "id": "oddechowy.role.intercostal.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "intercostal",
+   "view": "front",
+   "structureId": "mm_intercostales",
+   "state": "sprint",
+   "textPl": "Unoszą żebra (wdech), ściągają (wydech)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "detroyer_estenne_1984",
+    "detroyer_2005",
+    "aliverti_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "rows": [
+     "#18"
+    ],
+    "note": "fakty_koncowe_C_reszta_i_kontrola.md: De Troyer i Estenne 1984, abstrakt; #18"
+   }
+  },
+  {
+   "id": "oddechowy.role.diaphragm.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "diaphragm",
+   "view": "front",
+   "structureId": "diaphragma",
+   "state": "rest",
+   "textPl": "Główny mięsień spokojnego wdechu",
+   "status": "unverifiable",
+   "referenceIds": [
+    "aliverti_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#19",
+     "#20"
+    ],
+    "note": "#19, #20; fakty_draft_K3_zaopatrzenie.md: Aliverti 1997, abstrakt"
+   }
+  },
+  {
+   "id": "oddechowy.role.diaphragm.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "diaphragm",
+   "view": "front",
+   "structureId": "diaphragma",
+   "state": "sprint",
+   "textPl": "Kurczy się bardzo szybko i napędza przepływ",
+   "status": "checked_agent",
+   "referenceIds": [
+    "aliverti_1997"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#19",
+     "#20"
+    ],
+    "note": "#19, #20; fakty_draft_K3_zaopatrzenie.md: Aliverti 1997, abstrakt"
+   }
+  },
+  {
+   "id": "oddechowy.role.bronchiole.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "bronchiole",
+   "view": "detail",
+   "structureId": "bronchiolus_terminalis",
+   "state": "rest",
+   "textPl": "Doprowadza świeże powietrze",
+   "status": "anatomy",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#21"
+    ],
+    "note": "#21; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "oddechowy.role.bronchiole.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "bronchiole",
+   "view": "detail",
+   "structureId": "bronchiolus_terminalis",
+   "state": "sprint",
+   "textPl": "Dużo więcej powietrza na minutę",
+   "status": "unverifiable",
+   "referenceIds": [],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "secondary",
+   "provenance": null,
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "rows": [
+     "#21"
+    ],
+    "note": "#21; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)"
+   }
+  },
+  {
+   "id": "oddechowy.role.alveolus.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "alveolus",
+   "view": "detail",
+   "structureId": "alveolus_pulmonis",
+   "state": "rest",
+   "textPl": "O₂ do krwi, CO₂ do powietrza",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hopkins_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#22",
+     "#23"
+    ],
+    "note": "#22, #23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.alveolus.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "alveolus",
+   "view": "detail",
+   "structureId": "alveolus_pulmonis",
+   "state": "sprint",
+   "textPl": "Więcej O₂ i CO₂ w krótszym czasie",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hopkins_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#22",
+     "#23"
+    ],
+    "note": "#22, #23",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.capillary.rest",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "capillary",
+   "view": "detail",
+   "structureId": "vasa_capillaria",
+   "state": "rest",
+   "textPl": "Krew płynie spokojnie",
+   "status": "unverifiable",
+   "referenceIds": [
+    "hopkins_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#24"
+    ],
+    "note": "#24",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.role.capillary.sprint",
+   "kind": "role",
+   "plate": "oddechowy",
+   "anchor": "capillary",
+   "view": "detail",
+   "structureId": "vasa_capillaria",
+   "state": "sprint",
+   "textPl": "Krew płynie szybciej, więcej naczyń otwartych",
+   "status": "checked_agent",
+   "referenceIds": [
+    "hopkins_1996"
+   ],
+   "evidence": null,
+   "conversionNote": null,
+   "tier": "primary",
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_oddechowy.md",
+    "rows": [
+     "#24"
+    ],
+    "note": "#24",
+    "reportInferred": true
+   }
+  },
+  {
+   "id": "oddechowy.summary.rest",
+   "kind": "summary",
+   "plate": "oddechowy",
+   "state": "rest",
+   "textPl": "W spoczynku oddech jest spokojny: wdech robi przepona z pomocą mięśni międzyżebrowych przymostkowych i pochyłych, a wydech jest bierny (mięśnie wydechowe prawie nie pracują).",
+   "status": "checked_agent",
+   "referenceIds": [
+    "detroyer_estenne_1984",
+    "aliverti_1997"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Aliverti 1997, De Troyer 2005, Blackie 1991, Hopkins 1996 (+ dopisek o protokole wg sprawdzającego)"
+   }
+  },
+  {
+   "id": "oddechowy.summary.sprint",
+   "kind": "summary",
+   "plate": "oddechowy",
+   "state": "sprint",
+   "textPl": "W sprincie przepona kurczy się szybko (ok. 6,5 razy szybciej niż w spoczynku; w badaniu: rower, 70% mocy maksymalnej), mocniej pracują mięśnie wdechowe klatki piersiowej, a wydech staje się czynny (mięśnie międzyżebrowe wewnętrzne i brzucha). Wentylacja rośnie do ok. 97 L/min przy wysiłku maksymalnym (średnio u mężczyzn w wieku 20–80 lat), a krew przepływa przez płuca szybciej (w badaniu: wytrenowani sportowcy, wysiłek maksymalny), więc wymiana gazów musi zdążyć w krótszym czasie.",
+   "status": "checked_agent",
+   "referenceIds": [
+    "aliverti_1997",
+    "detroyer_2005",
+    "blackie_1991",
+    "hopkins_1996"
+   ],
+   "provenance": "primary_study",
+   "accessMode": null,
+   "auto": [
+    "provenance"
+   ],
+   "checkedBy": {
+    "report": "fakty_draft_1b.md",
+    "rows": [],
+    "note": "fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Aliverti 1997, De Troyer 2005, Blackie 1991, Hopkins 1996 (+ dopisek o protokole wg sprawdzającego)"
+   }
+  }
+ ]
+}
