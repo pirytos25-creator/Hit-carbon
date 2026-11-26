@@ -16,12 +16,20 @@ export const NERWOWY: AtlasPlateContent = {
     rest:
       'W spoczynku nerwy ruchowe nóg prawie milczą: kilka małych jednostek ruchowych podtrzymuje postawę, wyładowując się z małą częstotliwością. Przeważa nerw błędny, a układ współczulny pracuje oszczędnie.',
     sprint:
-      'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejno coraz większe jednostki ruchowe, a ich częstotliwość wyładowań rośnie. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.',
+      'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejne jednostki ruchowe (najpierw o niskim, potem o wysokim progu pobudzenia), a ich częstotliwość wyładowań rośnie. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.',
   },
   summaryReferenceIds: {
     sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans', 'brooks_1988'],
   },
-  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // fakty_draft_K3_ruch.md: disputed (nerwy trzewne) -> tekst poprawiony = draft
+  // Reguła 1b: dopóki `summary.sprint` czeka na sprawdzenie, na ekranie są tylko zdania już potwierdzone (brzmienie sprzed poprawki).
+  summaryVerified: {
+    sprint: {
+      text: 'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.',
+      referenceIds: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'statpearls_ans', 'garcia_2022'],
+      source: 'fakty_draft_1b.md, nerwowy summary (sprint): zdania 1, 2, 3 i 5 mają oparcie',
+    },
+  },
+  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // fakty_draft_1b.md: disputed („coraz większe”) -> „niski, potem wysoki próg” = draft
   labels: [
     {
       anchor: 'intercostal',

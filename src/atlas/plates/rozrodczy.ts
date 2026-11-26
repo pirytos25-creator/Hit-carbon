@@ -26,13 +26,13 @@ export const ROZRODCZY: AtlasPlateContent = {
     rest:
       'Karta pokazuje budowę układu rozrodczego mężczyzny i kobiety z boku, jak przekrój w podręczniku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.',
     sprint:
-      'Pojedynczy interwał nie zmienia budowy tego układu, dlatego obraz się nie zmienia. U mężczyzn po intensywnym wysiłku testosteron we krwi zmienia się na kilka do kilkunastu godzin, a znaczenie tych zmian jest niejasne. Długotrwały niedobór energii (REDs, dawniej RED-S) może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
+      'Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle; znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
   },
   summaryReferenceIds: {
     rest: ['statpearls_testes', 'statpearls_male_gu', 'statpearls_seminal_vesicle', 'statpearls_female_internal', 'statpearls_uterus'],
     sprint: ['hackney_2012', 'velasco_orjuela_2018', 'mountjoy_2023'],
   },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // poz. 20 (nowe źródło), 22-23 (tekst zmieniony)
+  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek StatPearls Testes, Male GU, Seminal Vesicle, Female Internal Genitals; sprint disputed -> 3 poprawki = draft
   protocolNotePl:
     'To karta budowy, a nie plansza ze stanami: „sprint” (koniec 45 s pracy przy ok. 88% VO₂max) nie zmienia tu obrazu.',
   labels: [
@@ -65,7 +65,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Przewód od najądrza do przewodu wytryskowego'),
       tier: 'primary',
       referenceIds: ['statpearls_male_gu', 'statpearls_seminal_vesicle'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 3: nowe źródło SP Male GU Tract
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Male GU (2022), Seminal Vesicle (2023), Structure and Function
     },
     {
       anchor: 'seminal_gland',
@@ -75,7 +75,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Gruczoł pod dnem pęcherza; łączy się z nasieniowodem'),
       tier: 'primary',
       referenceIds: ['statpearls_seminal_vesicle'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 4: łacina TA2, położenie wg cytatu
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Seminal Vesicle (2023), Introduction; Structure and Function
     },
     {
       anchor: 'prostate',
@@ -115,7 +115,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Jej część gąbczasta biegnie w prąciu'),
       tier: 'secondary',
       referenceIds: ['statpearls_penis'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 8: doprecyzowane
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Penis (2023), Introduction
     },
     {
       anchor: 'bladder_m',
@@ -125,7 +125,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Gromadzi mocz, punkt orientacyjny'),
       tier: 'secondary',
       referenceIds: ['statpearls_male_gu'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 9: źródło
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Male GU (2022), Structure and Function
     },
     {
       anchor: 'testicular_vessels',
@@ -135,7 +135,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Tętnica i żyła jądra, biegną z jamy brzusznej'),
       tier: 'secondary',
       referenceIds: ['statpearls_testes'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 10: źródło
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Testes (2023), Blood Supply and Lymphatics
     },
     // --- miednica żeńska (widok `detail`)
     {
@@ -198,7 +198,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       role: same('Łączy jajnik z macicą'),
       tier: 'secondary',
       referenceIds: ['statpearls_ovary'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 16: źródło
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Ovary (2023), Structure and Function
     },
     {
       anchor: 'uterine_artery',
@@ -209,7 +209,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       tier: 'secondary',
       side: 'right', // układ: 8 podpisów żeńskich w jednej kolumnie nie mieściło się w poziomie rozszerzonym
       referenceIds: ['statpearls_uterus'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 17: źródło
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md: StatPearls Uterus (2025), Blood Supply and Lymphatics
     },
     {
       anchor: 'bladder_f',
@@ -231,12 +231,12 @@ export const ROZRODCZY: AtlasPlateContent = {
       evidenceLevel: 'preliminary_human',
       notePl:
         'Wzrost jest krótki: po 12 h wolny testosteron był obniżony (w porównaniu z dniem bez wysiłku). Czy takie zmiany mają znaczenie, nie wiadomo: w innym badaniu (HIIT u nieaktywnych mężczyzn) podobne zmiany kortyzolu i stosunku testosteronu do kortyzolu wystąpiły też bez ćwiczeń. W badaniu treningu siłowego chwilowe wyrzuty hormonów nie zwiększyły przyrostu mięśni ani siły.',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_1b.md: treść, cytat i protokół potwierdzone; poprawiony tylko lokalizator (zdanie 9),
       restStatus: 'draft',
       protocolMismatch:
         '90 s biegu przy 100–110% VO₂max / 90 s aktywnej przerwy przy 40% VO₂max przez 42–47 min; mężczyźni wytrenowani wytrzymałościowo (n = 15)',
       quote: 'IE and SSE each caused an increase (p<0.01) in FT, but IE more so than SSE (p<0.05).',
-      locator: 'Hackney 2012, abstrakt (jednoakapitowy), zdanie 7',
+      locator: 'Hackney 2012, abstrakt (jednoakapitowy), zdanie 9; 12 h: zdanie 10',
       measuredAt: 'zaraz po sesji; ponownie 12 h po sesji',
       tier: 'primary',
     },

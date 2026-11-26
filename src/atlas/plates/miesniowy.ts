@@ -26,10 +26,10 @@ export const MIESNIOWY: AtlasPlateContent = {
       view: 'front',
       namePl: 'M. naramienny',
       nameLat: 'm. deltoideus',
-      role: { rest: 'Napięcie posturalne', sprint: 'Porusza ramieniem; wymach ramion równoważy obrót nóg' },
+      role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy obrót nóg' },
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_draft_K3_ruch.md: disputed (Hamner bez m. naramiennego) -> tekst poprawiony = draft
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_draft_1b.md: disputed („Porusza ramieniem” bez źródła) -> sam Hamner 2010 = draft
     },
     {
       anchor: 'rectus_abdominis',
