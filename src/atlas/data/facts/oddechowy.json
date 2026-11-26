@@ -442,24 +442,27 @@
    "view": "front",
    "structureId": "trachea",
    "state": "rest",
-   "textPl": "Spokojny przepływ powietrza",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Przewód biegnący od krtani w stronę płuc",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#11"
+     "oddechowy.role.trachea.rest"
     ],
-    "note": "#11; fakty_draft_K3_zaopatrzenie.md: sprint bez źródła"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The trachea (windpipe) extends from the larynx toward the lungs […] + The major functions of the conducting zone are to provide a route for incoming and outgoing air, remove debris and pathogens from the incoming air, and warm and humidify the incoming air.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.1 Organs and Structures of the Respiratory System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system"
   },
   {
    "id": "oddechowy.role.trachea.sprint",
@@ -469,24 +472,27 @@
    "view": "front",
    "structureId": "trachea",
    "state": "sprint",
-   "textPl": "Bardzo szybki przepływ powietrza",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Chrząstki chronią tchawicę przed zapadnięciem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#11"
+     "oddechowy.role.trachea.sprint"
     ],
-    "note": "#11; fakty_draft_K3_zaopatrzenie.md: sprint bez źródła"
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The fibroelastic membrane allows the trachea to stretch and expand slightly during inhalation and exhalation, whereas the rings of cartilage provide structural support and prevent the trachea from collapsing.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.1",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system"
   },
   {
    "id": "oddechowy.role.scalene.rest",
@@ -527,28 +533,27 @@
    "view": "front",
    "structureId": "mm_scaleni",
    "state": "sprint",
-   "textPl": "Mocno unoszą górne żebra przy wdechu",
-   "status": "unverifiable",
+   "textPl": "Przy forsownym wdechu unoszą klatkę piersiową",
+   "status": "checked_agent",
    "referenceIds": [
-    "detroyer_estenne_1984"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_oddechowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#12",
-     "#13"
+     "oddechowy.role.scalene.sprint"
     ],
-    "note": "#12; #13 (tylko OpenStax)",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "In contrast, forced breathing, also known as hyperpnea, is a mode of breathing that can occur during exercise or actions that require the active manipulation of breathing, such as singing. … During forced inspiration, muscles of the neck, including the scalenes, contract and lift the thoracic wall, increasing lung volume.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.3 The Process of Breathing",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
   },
   {
    "id": "oddechowy.role.main_bronchus.rest",
@@ -616,27 +621,27 @@
    "view": "front",
    "structureId": "pulmo_dexter",
    "state": "rest",
-   "textPl": "Wdech (oba płuca) ok. 0,5 L",
-   "status": "unverifiable",
+   "textPl": "Objętość oddechowa: ok. 500 ml powietrza przy spokojnym oddychaniu",
+   "status": "checked_agent",
    "referenceIds": [
-    "blackie_1991"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#15",
-     "#16"
+     "oddechowy.role.lung.rest"
     ],
-    "note": "#15, #16; fakty_draft_K3_zaopatrzenie.md: sprint Blackie 1991 abstrakt; spoczynek bez źródła 0,5 L"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "Tidal volume (TV) is the amount of air that normally enters the lungs during quiet breathing, which is about 500 milliliters.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.3 The Process of Breathing",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
   },
   {
    "id": "oddechowy.role.lung.sprint",
@@ -738,27 +743,27 @@
    "view": "front",
    "structureId": "diaphragma",
    "state": "rest",
-   "textPl": "Główny mięsień spokojnego wdechu",
-   "status": "unverifiable",
+   "textPl": "Kurczy się przy spokojnym oddychaniu, czyli w spoczynku",
+   "status": "checked_agent",
    "referenceIds": [
-    "aliverti_1997"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#19",
-     "#20"
+     "oddechowy.role.diaphragm.rest"
     ],
-    "note": "#19, #20; fakty_draft_K3_zaopatrzenie.md: Aliverti 1997, abstrakt"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "Quiet breathing, also known as eupnea, is a mode of breathing that occurs at rest and does not require the cognitive thought of the individual. During quiet breathing, the diaphragm and external intercostals must contract.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.3 The Process of Breathing",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
   },
   {
    "id": "oddechowy.role.diaphragm.sprint",
@@ -825,24 +830,27 @@
    "view": "detail",
    "structureId": "bronchiolus_terminalis",
    "state": "sprint",
-   "textPl": "Dużo więcej powietrza na minutę",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Mięśniowa ściana zmienia przepływ powietrza",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_zaopatrzenie.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#21"
+     "oddechowy.role.bronchiole.sprint"
     ],
-    "note": "#21; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)"
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The muscular walls of the bronchioles do not contain cartilage like those of the bronchi. This muscular wall can change the size of the tubing to increase or decrease airflow through the tube.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.1",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system"
   },
   {
    "id": "oddechowy.role.alveolus.rest",
@@ -852,28 +860,27 @@
    "view": "detail",
    "structureId": "alveolus_pulmonis",
    "state": "rest",
-   "textPl": "O₂ do krwi, CO₂ do powietrza",
-   "status": "unverifiable",
+   "textPl": "Tlen przechodzi do krwi, CO₂ do pęcherzyka",
+   "status": "checked_agent",
    "referenceIds": [
-    "hopkins_1996"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_oddechowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#22",
-     "#23"
+     "oddechowy.role.alveolus.rest"
     ],
-    "note": "#22, #23",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "In external respiration, oxygen diffuses across the respiratory membrane from the alveolus to the capillary, whereas carbon dioxide diffuses out of the capillary into the alveolus.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.4 Gas Exchange",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-4-gas-exchange"
   },
   {
    "id": "oddechowy.role.alveolus.sprint",
@@ -914,27 +921,27 @@
    "view": "detail",
    "structureId": "vasa_capillaria",
    "state": "rest",
-   "textPl": "Krew płynie spokojnie",
-   "status": "unverifiable",
+   "textPl": "Tu krew pobiera tlen z pęcherzyków",
+   "status": "checked_agent",
    "referenceIds": [
-    "hopkins_1996"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_oddechowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#24"
+     "oddechowy.role.capillary.rest"
     ],
-    "note": "#24",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "In external respiration, oxygen diffuses across the respiratory membrane from the alveolus to the capillary, whereas carbon dioxide diffuses out of the capillary into the alveolus. + External respiration occurs as a function of partial pressure differences in oxygen and carbon dioxide between the alveoli and the blood in the pulmonary capillaries.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §22.4 Gas Exchange",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-4-gas-exchange"
   },
   {
    "id": "oddechowy.role.capillary.sprint",

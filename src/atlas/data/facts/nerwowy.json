@@ -323,24 +323,27 @@
    "view": "front",
    "structureId": "nn_intercostales",
    "state": "rest",
-   "textPl": "Pomagają przeponie",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Nerwy międzyżebrowe: pomagają w skurczu mięśni, przewodzą czucie ze skóry",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk538238"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#26"
+     "nerwowy.role.intercostal.rest"
     ],
-    "note": "#26; fakty_draft_K3_ruch.md: spoczynek unverifiable (brak źródła)"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The intercostal nerves are part of the somatic nervous system, aiding in the contraction of muscles and the return of sensory information from the skin and parietal pleura.",
+   "locator": "StatPearls „Anatomy, Thorax, Intercostal Nerves” (2023), NBK538238, Introduction; PMID 30855826",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/ ; https://pubmed.ncbi.nlm.nih.gov/30855826/"
   },
   {
    "id": "nerwowy.role.intercostal.sprint",
@@ -350,24 +353,27 @@
    "view": "front",
    "structureId": "nn_intercostales",
    "state": "sprint",
-   "textPl": "Szybki, głęboki oddech",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Nerwy międzyżebrowe: pomagają w skurczu mięśni, przewodzą czucie ze skóry",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk538238"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#26"
+     "nerwowy.role.intercostal.sprint"
     ],
-    "note": "#26; fakty_draft_K3_ruch.md: spoczynek unverifiable (brak źródła)"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The intercostal nerves are part of the somatic nervous system, aiding in the contraction of muscles and the return of sensory information from the skin and parietal pleura.",
+   "locator": "StatPearls „Anatomy, Thorax, Intercostal Nerves” (2023), NBK538238, Introduction; PMID 30855826",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/"
   },
   {
    "id": "nerwowy.role.sympathetic_trunk.rest",
@@ -377,29 +383,27 @@
    "view": "front",
    "structureId": "truncus_sympathicus",
    "state": "rest",
-   "textPl": "Niska aktywność, przewaga n. błędnego",
-   "status": "unverifiable",
+   "textPl": "Łańcuch zwojów współczulnych wzdłuż kręgosłupa („walcz lub uciekaj”)",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_ans",
-    "garcia_2022"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#18",
-     "#27"
+     "nerwowy.role.sympathetic_trunk.rest"
     ],
-    "note": "#18, #27",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The sympathetic system is associated with the fight-or-flight response, and parasympathetic activity is referred to by the epithet of rest and digest. … The majority of ganglia of the sympathetic system belong to a network of sympathetic chain ganglia that runs alongside the vertebral column.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §15.1 Divisions of the Autonomic Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-1-divisions-of-the-autonomic-nervous-system"
   },
   {
    "id": "nerwowy.role.sympathetic_trunk.sprint",
@@ -501,27 +505,27 @@
    "view": "front",
    "structureId": "plexus_lumbalis",
    "state": "rest",
-   "textPl": "Prawie cisza",
-   "status": "unverifiable",
+   "textPl": "Nerwy do nogi: prostowanie kolana, zginanie i przywodzenie uda",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_lumbar_plexus"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#29",
-     "#34"
+     "nerwowy.role.lumbar_plexus.rest"
     ],
-    "note": "#29, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The nerves arising from the lumbar plexus are vital for the functioning of the lower extremity and maintaining the ability to extend the knee, flex the hip, adduct the thigh, and more.",
+   "locator": "StatPearls „Anatomy, Back, Lumbar Plexus” (2023), NBK545137, Introduction; PMID 31424721",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK545137/ ; https://pubmed.ncbi.nlm.nih.gov/31424721/"
   },
   {
    "id": "nerwowy.role.lumbar_plexus.sprint",
@@ -561,27 +565,27 @@
    "view": "front",
    "structureId": "n_femoralis",
    "state": "rest",
-   "textPl": "Prawie cisza",
-   "status": "unverifiable",
+   "textPl": "Steruje zginaczami biodra i prostownikami kolana",
+   "status": "checked_agent",
    "referenceIds": [
     "statpearls_femoral_nerve"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#30",
-     "#34"
+     "nerwowy.role.femoral.rest"
     ],
-    "note": "#30, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "It has a role in motor and sensory processing in the lower limbs. As a result, it controls the major hip flexor muscles, as well as knee extension muscles.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Thigh Femoral Nerve” (2023), NBK556065, Introduction; PMID 32310525",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK556065/ ; https://pubmed.ncbi.nlm.nih.gov/32310525/"
   },
   {
    "id": "nerwowy.role.femoral.sprint",
@@ -621,26 +625,27 @@
    "view": "front",
    "structureId": "n_obturatorius",
    "state": "rest",
-   "textPl": "Prawie cisza",
-   "status": "unverifiable",
+   "textPl": "Unerwia mięśnie przywodzące udo",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lumbar_plexus"
+    "statpearls_nbk551640"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#31",
-     "#34"
+     "nerwowy.role.obturator.rest"
     ],
-    "note": "#31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)"
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "This nerve provides motor innervation to the medial compartment of the thigh and as a result, is essential to the adduction of the thigh.",
+   "locator": "StatPearls „Anatomy, Abdomen and Pelvis, Obturator Nerve” (2023), NBK551640, Introduction; PMID 31869104",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK551640/ ; https://pubmed.ncbi.nlm.nih.gov/31869104/"
   },
   {
    "id": "nerwowy.role.obturator.sprint",
@@ -679,26 +684,27 @@
    "view": "front",
    "structureId": "n_fibularis_profundus",
    "state": "rest",
-   "textPl": "Prawie cisza",
-   "status": "unverifiable",
+   "textPl": "Unerwia mięśnie unoszące stopę i palce",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lower_limb_nerves"
+    "statpearls_nbk526033"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#32",
-     "#34"
+     "nerwowy.role.deep_fibular.rest"
     ],
-    "note": "#32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The motor component innervates muscles in the anterior compartment of the leg and the dorsal intrinsic muscles of the foot, enabling dorsiflexion of the foot, extension of the toes, and assisting in foot inversion.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Calf Deep Peroneal Nerve (Deep Fibular Nerve)” (2025), NBK526033, Introduction; PMID 30252289",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK526033/ ; https://pubmed.ncbi.nlm.nih.gov/30252289/"
   },
   {
    "id": "nerwowy.role.deep_fibular.sprint",
@@ -737,28 +743,27 @@
    "view": "back",
    "structureId": "gyrus_precentralis",
    "state": "rest",
-   "textPl": "Drobne korekty postawy",
-   "status": "unverifiable",
+   "textPl": "Kora ruchowa uruchamia ruchy dowolne",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lateral_cst",
-    "statpearls_pyramidal"
+    "statpearls_nbk542188"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#33",
-     "#34"
+     "nerwowy.role.motor_cortex.rest"
     ],
-    "note": "#33, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The motor cortex not only initiates voluntary movements but also has the lowest threshold for eliciting such movements.",
+   "locator": "StatPearls „Physiology, Motor Cortex” (2026), NBK542188, Introduction; PMID 31194345",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542188/ ; https://pubmed.ncbi.nlm.nih.gov/31194345/"
   },
   {
    "id": "nerwowy.role.motor_cortex.sprint",
@@ -799,27 +804,27 @@
    "view": "back",
    "structureId": "medulla_spinalis",
    "state": "rest",
-   "textPl": "Odruchy i napięcie postawy",
-   "status": "unverifiable",
+   "textPl": "Koordynuje odruchy, łącząc drogi czucia i ruchu",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_corticospinal"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#21",
-     "#34"
+     "nerwowy.role.spinal_cord.rest"
     ],
-    "note": "#21, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The coordination of reflexes depends on the integration of sensory and motor pathways in the spinal cord.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §13.2 The Central Nervous System",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
   },
   {
    "id": "nerwowy.role.spinal_cord.sprint",
@@ -859,28 +864,27 @@
    "view": "back",
    "structureId": "cauda_equina",
    "state": "rest",
-   "textPl": "Korzenie nerwów nóg, mało impulsów",
-   "status": "unverifiable",
+   "textPl": "Pęczek włókien nerwowych („ogon koński”): czucie i ruch",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lumbar_spine",
-    "statpearls_lower_limb_nerves"
+    "statpearls_nbk513251"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#35",
-     "#34"
+     "nerwowy.role.cauda_equina.rest"
     ],
-    "note": "#35, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "This bundle of numerous axons was termed the cauda equina, from the Latin translation meaning “horse’s tail,” and it contains nerves that innervate both sensory and motor targets within lumbar, sacral, and coccygeal spinal cord levels.",
+   "locator": "StatPearls „Anatomy, Back, Cauda Equina” (2023), NBK513251, Introduction; PMID 30020623",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK513251/ ; https://pubmed.ncbi.nlm.nih.gov/30020623/"
   },
   {
    "id": "nerwowy.role.cauda_equina.sprint",
@@ -921,27 +925,27 @@
    "view": "back",
    "structureId": "n_ischiadicus",
    "state": "rest",
-   "textPl": "Pojedyncze impulsy postawy",
-   "status": "unverifiable",
+   "textPl": "Największy nerw: unerwia dużą część skóry i mięśni nogi",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lower_limb_nerves"
+    "statpearls_nbk482431"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_nerwowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#36",
-     "#34"
+     "nerwowy.role.sciatic.rest"
     ],
-    "note": "#36, #34",
-    "reportInferred": true
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The sciatic nerve is the largest nerve in humans, originating in the lower back and traveling posteriorly through the lower limb as far down as the heel of the foot. The sciatic nerve innervates a significant portion of the skin and muscles of the thigh, leg, and foot.",
+   "locator": "StatPearls „Anatomy, Sciatic Nerve” (2023), NBK482431, Introduction; PMID 29494038",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK482431/ ; https://pubmed.ncbi.nlm.nih.gov/29494038/"
   },
   {
    "id": "nerwowy.role.sciatic.sprint",
@@ -981,26 +985,27 @@
    "view": "back",
    "structureId": "n_fibularis_communis",
    "state": "rest",
-   "textPl": "Prawie cisza",
-   "status": "unverifiable",
+   "textPl": "Jedna z dwóch głównych gałęzi nerwu kulszowego",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lower_limb_nerves"
+    "statpearls_nbk532968"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#37",
-     "#34"
+     "nerwowy.role.common_fibular.rest"
     ],
-    "note": "#37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The common peroneal nerve, or the common fibular nerve, is a major nerve that innervates the lower extremity […]. As 1 of the 2 major branches of the sciatic nerve, the common peroneal nerve receives fibers from the posterior divisions of L4 through S2.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Calf Common Peroneal Nerve (Common Fibular Nerve)” (2022), NBK532968, Introduction; PMID 30422563",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532968/ ; https://pubmed.ncbi.nlm.nih.gov/30422563/"
   },
   {
    "id": "nerwowy.role.common_fibular.sprint",
@@ -1039,26 +1044,27 @@
    "view": "back",
    "structureId": "n_tibialis",
    "state": "rest",
-   "textPl": "Napięcie łydki w staniu",
-   "status": "unverifiable",
+   "textPl": "Unerwia większość tylnej części goleni i stopy",
+   "status": "checked_agent",
    "referenceIds": [
-    "statpearls_lower_limb_nerves"
+    "statpearls_nbk537028"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
    "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#38",
-     "#34"
+     "nerwowy.role.tibial.rest"
     ],
-    "note": "#38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function"
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "provenanceNote": "K1: textbook_consensus było tylko wyliczone regułą (źródło StatPearls/podręcznik), bez cytatu i lokalizatora; do potwierdzenia w E1-K3 (integrator/E1K3_do_potwierdzenia.md)"
+   "quote": "The tibial nerve originates from the L4 to S3 spinal nerve roots and provides motor and sensory innervation to most of the posterior leg and foot.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Tibial Nerve” (2026), NBK537028, Introduction; PMID 30725713",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537028/ ; https://pubmed.ncbi.nlm.nih.gov/30725713/"
   },
   {
    "id": "nerwowy.role.tibial.sprint",
@@ -1097,27 +1103,27 @@
    "view": "back",
    "structureId": "unitates_motoriae",
    "state": "rest",
-   "textPl": "Pracują nieliczne, małe (typ I)",
-   "status": "unverifiable",
+   "textPl": "Małe jednostki ruchowe włączają się pierwsze i dają słaby skurcz",
+   "status": "checked_agent",
    "referenceIds": [
-    "vollestad_blom_1985"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#39",
-     "#7"
+     "nerwowy.role.motor_units.rest"
     ],
-    "note": "#39, #7; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The small motor units in the muscle will have smaller, lower-threshold motor neurons that are more excitable, firing first to their skeletal muscle fibers, which also tend to be the smallest. Activation of these smaller motor units, results in a relatively small degree of contractile strength (tension) generated in the muscle.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §10.4 Nervous System Control of Muscle Tension",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/10-4-nervous-system-control-of-muscle-tension"
   },
   {
    "id": "nerwowy.role.motor_units.sprint",

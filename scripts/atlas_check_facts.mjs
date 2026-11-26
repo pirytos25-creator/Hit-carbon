@@ -270,6 +270,16 @@ for (const g of ATLAS_GLOSSARY) {
   }
   if (g.status === 'draft') drafts.push({ plate: '(wspólne)', kind: 'słowniczek', key: g.id, value: g.textPl, refs: g.referenceIds });
 }
+// E1-K3: liczba w opisie roli z cytatem (np. „ok. 500 ml” w opisie płuca) musi stać w cytacie albo mieć przeliczenie
+let roleNumbers = 0;
+for (const f of factIndex.values()) {
+  if (f.kind !== 'role' || !CHECKED.has(f.status) || !f.quote) continue;
+  const nums = numbersIn(f.textPl);
+  if (!nums.length) continue;
+  roleNumbers++;
+  const missing = nums.filter((n) => !inQuote(n, f.quote));
+  if (missing.length && !f.conversionNote) err(`${f.id}: liczba ${missing.join(', ')} z opisu roli nie występuje w cytacie i nie ma conversionNote`);
+}
 if (numWarn.length) {
   console.log(`UWAGA (D1): liczba z faktu nie występuje w cytacie i fakt nie ma conversionNote (${numWarn.length}); do niezależnej kontroli:`);
   for (const w of numWarn) console.log('  - ' + w);
@@ -305,6 +315,6 @@ if (i > 0) {
   for (const d of drafts) lines.push(`| ${d.plate} | ${d.kind} | ${esc(d.key)} | ${esc(d.value)}${d.note ? ` (notatka: ${esc(d.note)})` : ''} | ${esc((d.from ?? []).join(' ◆ '))} | ${esc((d.refs ?? []).join(', '))} | ${esc(d.locator)} | ${esc(d.quote)} |`);
   writeFileSync(process.argv[i + 1], lines.join('\n') + '\n', 'utf-8');
 }
-console.log(`Liczby na ekranie: ${shownMetrics} (w tym wartości spoczynkowe: ${shownRest}), opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, zdania o „sprincie” i słowniczek na ekranie: ${shownNotes}, teksty lekcji na ekranie: ${shownLesson}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
+console.log(`Liczby na ekranie: ${shownMetrics} (w tym wartości spoczynkowe: ${shownRest}), opisy ról na ekranie: ${shownRoles} (+ opisy budowy: ${anatomyRoles}), podsumowania na ekranie: ${shownSummaries}, zdania o „sprincie” i słowniczek na ekranie: ${shownNotes}, teksty lekcji na ekranie: ${shownLesson}, opisy ról z liczbą i cytatem: ${roleNumbers}, fakty draft (czekają na sprawdzenie): ${drafts.length}`);
 console.log(errors ? `WYNIK: ${errors} błędów` : 'WYNIK: fakty OK');
 process.exit(errors ? 1 : 0);
