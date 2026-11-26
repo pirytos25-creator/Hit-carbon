@@ -128,7 +128,7 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 
 ## 4. Pytania do użytkownika (zostają tylko te)
 
-1. **Start:** czy zaczynamy od M1 (klatki docelowe) i M2 (test serca), a potem pokaz (bramka A)? Czy przy okazji równolegle M3 (poprawki czytelności plansz)?
+1. **Start:** M1 (klatki docelowe Reżysera, render bez kodu aplikacji) jest już w toku jako część planowania. Czy zgadzasz się na M2 (krótki test serca w katalogu prototypów, poza aplikacją), a potem pokaz (bramka A)? Czy równolegle zrobić M3 (poprawki czytelności plansz)?
 2. **Fakty podręcznikowe:** czy wznowić ich sprawdzanie? Bez nich gabloty nie mają opisu budowy. Rekomendacja: tak, równolegle z M2.
 3. **Telefon:** czy licealiści mają mieć gabloty na telefonie? Plan zakłada na telefonie planszę 2D z wypieczonymi ujęciami i stukaniem w części, a pełne 3D na komputerze.
 4. **Test:** czy możesz po M6 pokazać atlas 2–3 licealistom (ok. 5 minut na osobę)?
