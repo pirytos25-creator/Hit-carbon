@@ -23,7 +23,6 @@ from mathutils import Vector  # noqa: E402
 
 NERV = "7: Nervous system & Sense organs"
 Z_MIN_BRAIN = 1.535  # wszystko poniżej to rdzeń kręgowy / zabłąkane wierzchołki
-LIGHT_SCALE = 0.6  # mózg jest mały i jasny: słabsze światło, żeby fiolet i kontekst wyszły bliżej tabeli kolorów
 
 # Elementy kolekcji nerwowej, które nie są mózgowiem (narządy zmysłów, rdzeń, opony, płyn mózgowo-rdzeniowy).
 NOT_BRAIN = [
@@ -210,24 +209,13 @@ class BrainPlate(al.Plate):
         return super()._camera(real)
 
     def _lights(self, view):
-        if view not in ("side", "detail"):
-            return super()._lights(view)
-        for o in [o for o in self.scene.collection.objects if o.type == 'LIGHT']:
-            bpy.data.objects.remove(o, do_unlink=True)
-        c = self.center
-        # kamera na +X, przód głowy (-Y) po lewej stronie obrazu: klucz z lewej-góry-przodu, wypełnienie z prawej, kontra z tyłu
-        rigs = [
-            ("key", Vector((2.6, -1.6, 1.4)), 260, 1.6, (1.0, 0.97, 0.93)),
-            ("fill", Vector((2.4, 1.8, 0.2)), 90, 2.0, (0.9, 0.95, 1.0)),
-            ("rim", Vector((-2.6, 0.6, 1.2)), 220, 1.0, (0.85, 0.92, 1.0)),
-        ]
-        for name, rel, power, size, colr in rigs:
-            ld = bpy.data.lights.new(f"ATL_{name}", 'AREA')
-            ld.energy, ld.size, ld.color = power * LIGHT_SCALE, size, colr
-            lo = bpy.data.objects.new(f"ATL_{name}", ld)
-            lo.location = c + rel
-            lo.rotation_euler = (c - lo.location).to_track_quat('-Z', 'Y').to_euler()
-            self.scene.collection.objects.link(lo)
+        # Integracja 1b: światło biblioteki (LIGHT_SCALE/KEY_SCALE z atlas_lib), liczone względem kamery z boku (+X).
+        # Dawniej lokalny zestaw lamp × 0,6 (fiolet wychodził jaśniejszy niż w tabeli kolorów).
+        return super()._lights("side" if view in ("side", "detail") else view)
+
+    def camera_meta(self, view):
+        # Przekrój ('detail') ma tę samą kamerę co widok z boku; bez tego anchors.json dostawał kierunek 'front'.
+        return super().camera_meta("side" if view in ("side", "detail") else view)
 
     def anchor_point(self, obj_names, view):
         """Kotwica na widocznej powierzchni: wierzchołek najbliższy medianie Y/Z wierzchołków najbliższych kamerze (+X).

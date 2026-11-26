@@ -40,6 +40,7 @@ const FLOW_COLOR: Record<AtlasFlowKind, string> = {
   urine: 'var(--sys-urinary-light)',
   force: 'var(--sys-bone-light)',
   lymph: 'var(--sys-lymph-light)',
+  repro: 'var(--sys-repro-light)',
 };
 
 /** Typografia w pikselach ekranu (≥ 14 px dla każdego tekstu podpisu). */
@@ -302,7 +303,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
             <g key={f.view}>
               <g clipPath={`url(#atlas-clip-${content.id}-${f.view})`}>
                 {(['rest', 'sprint'] as AtlasState[]).map((st) =>
-                  f.v.images[st] ? (
+                  f.v.images[st] && (st === state || f.v.images[state]) ? (
                     <image
                       key={st}
                       href={`${baseUrl}${f.v.images[st]}`}
@@ -310,7 +311,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                       y={0}
                       width={W}
                       height={H}
-                      style={{ opacity: st === state ? 1 : 0, transition: reduced ? undefined : 'opacity 700ms ease' }}
+                      style={{ opacity: st === state || !f.v.images[state] ? 1 : 0, transition: reduced ? undefined : 'opacity 700ms ease' }}
                     />
                   ) : null
                 )}

@@ -16,12 +16,12 @@ export const NERWOWY: AtlasPlateContent = {
     rest:
       'W spoczynku nerwy ruchowe nóg prawie milczą: kilka małych jednostek ruchowych podtrzymuje postawę, wyładowując się z małą częstotliwością. Przeważa nerw błędny, a układ współczulny pracuje oszczędnie.',
     sprint:
-      'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Ta droga krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejno coraz większe jednostki ruchowe, a ich częstotliwość wyładowań rośnie. Jednocześnie układ współczulny przyspiesza serce, a nerwy trzewne każą rdzeniowi nadnerczy wyrzucić adrenalinę.',
+      'W sprincie kora ruchowa wysyła rozkaz drogą korowo-rdzeniową. Większość jej włókien krzyżuje się w rdzeniu przedłużonym, więc lewa półkula steruje głównie prawą nogą. W rdzeniu kręgowym rozkaz przechodzi na motoneurony, a stamtąd biegnie nerwami kulszowym, piszczelowym i udowym do mięśni. Włączają się kolejno coraz większe jednostki ruchowe, a ich częstotliwość wyładowań rośnie. Jednocześnie układ współczulny przyspiesza serce, a rdzeń nadnerczy wyrzuca do krwi adrenalinę.',
   },
   summaryReferenceIds: {
-    sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans'],
+    sprint: ['statpearls_pyramidal', 'statpearls_corticospinal', 'statpearls_lower_limb_nerves', 'duchateau_enoka_2022', 'enoka_duchateau_2017', 'garcia_2022', 'statpearls_ans', 'brooks_1988'],
   },
-  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // K3: zmienione = draft
+  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // fakty_draft_K3_ruch.md: disputed (nerwy trzewne) -> tekst poprawiony = draft
   labels: [
     {
       anchor: 'intercostal',
@@ -30,7 +30,7 @@ export const NERWOWY: AtlasPlateContent = {
       nameLat: 'nn. intercostales',
       role: { rest: 'Pomagają przeponie', sprint: 'Szybki, głęboki oddech' },
       tier: 'secondary',
-      roleStatus: { rest: 'draft', sprint: 'unverifiable' }, // #26
+      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #26; fakty_draft_K3_ruch.md: spoczynek unverifiable (brak źródła)
     },
     {
       anchor: 'sympathetic_trunk',
@@ -80,7 +80,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Unerwia przywodziciele uda' },
       tier: 'secondary',
       referenceIds: ['statpearls_lumbar_plexus'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #31 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #31, #34; fakty_draft_K3_ruch.md: StatPearls Lumbar Plexus, Nerves (obturator)
     },
     {
       anchor: 'deep_fibular',
@@ -90,7 +90,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Unerwia przedni przedział goleni' },
       tier: 'secondary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #32 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #32, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function
     },
     {
       anchor: 'motor_cortex',
@@ -140,7 +140,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Prawie cisza', sprint: 'Prostowniki stopy i mm. strzałkowe' },
       tier: 'primary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #37 (poprawione do anatomii), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #37, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function
     },
     {
       anchor: 'tibial',
@@ -150,7 +150,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Napięcie łydki w staniu', sprint: 'Unerwia mięśnie łydki' },
       tier: 'primary',
       referenceIds: ['statpearls_lower_limb_nerves'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #38 (sama anatomia), #34
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #38, #34; fakty_draft_K3_ruch.md: StatPearls Lower Limb Nerves, Structure and Function
     },
     {
       anchor: 'motor_units',
@@ -160,7 +160,7 @@ export const NERWOWY: AtlasPlateContent = {
       role: { rest: 'Pracują nieliczne, małe (typ I)', sprint: 'Włączona także część dużych, szybkich (IIx)' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #39, #7
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #39, #7; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt
     },
   ],
   metrics: [
@@ -177,7 +177,7 @@ export const NERWOWY: AtlasPlateContent = {
       conversionNote: '1 pps (impulsy na sekundę) = 1 Hz.',
       quote: 'the average values are … 29.3 pps for tibialis anterior',
       locator: 'Duchateau & Enoka 2022, tab. 3; Enoka & Duchateau 2017, „Rate Coding and Contraction Speed”',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'Rekrutacja jednostek ruchowych',
@@ -190,7 +190,7 @@ export const NERWOWY: AtlasPlateContent = {
       protocolMismatch: 'rower, 91% VO₂max (mięsień uda)',
       quote: 'all type I and IIA and … about 50% of type IIAB and IIB',
       locator: 'Vøllestad & Blom 1985, abstrakt; Duchateau & Enoka 2022, Introduction',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'Noradrenalina w osoczu',
