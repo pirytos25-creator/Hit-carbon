@@ -50,7 +50,7 @@ Oba plany są w poprawce pod (d)–(g) („PLAN 2”). Ta decyzja ustala ramę, 
    - zastawki: wariant A, a B wcześniej, jeśli M2 pokaże, że jest tani.
 8. **Licencje:**
    - gabloty na HuBMAP (CC BY 4.0);
-   - mózg Allen tylko w wersji ≥ v1.3 (lokalny plik to v1.2). Zgoda Dyrygenta na darmowe pobranie z oficjalnego repozytorium HuBMAP zgodnie ze statutem;
+   - mózg Allen tylko w wersji ≥ v1.3 (lokalny plik to v1.2). Pobranie v1.3+ wymaga zgody użytkownika na pobranie pliku (zasada bezpieczeństwa agentów, surowsza niż statut). Gablota mózgu używa Braindera, więc pobranie przydaje się tylko do przebudowy `brain_macro.glb` w filmie;
    - zero NC.
 
 9. **Ustalenia z niezależnego przeglądu kodu filmu** (Dyrygent, 2026-11-26; pełny zapis: `side-session-notes/…/dyrygent/film_przeglad_dyrygent.md`):
