@@ -152,3 +152,128 @@ Uwaga dydaktyczna: kostny jest **inny niż narządy**. Nie ma przepływu ani pra
 - **Kontrakt wyróżnika** (integrator + Wizualizator): pola z §0 to moja propozycja; dopasuję się do ich nazw.
 - **Maski 2D** (`mask_vessels.webp` i maski kości): nowy eksport z Blendera dla planszy 2D; wykonuje agent układu w swoim skrypcie. Do potwierdzenia w kontrakcie, czy 2D w pilocie jest konieczne, czy wystarczy 3D z planszą 2D bez ruchu.
 - **Fakty bez liczby** (stopnie przepływu, poświata) zostają ilustracją z chipem. Jeśli agent faktów znajdzie liczby (np. przepływ trzewny w %), reguła przejdzie na liczbę bez zmiany ruchu.
+
+---
+
+## 7. Wartości `signature` według kontraktu wyróżnika
+
+Kontrakt: `docs/atlas_wizualizacja/KONTRAKT_WYROZNIKA.md` (integrator, `8554cad` na `claude/atlas-integrator-2ef0c7`; część 3D do potwierdzenia przez Wizualizatora).
+Mapowanie pól §0 → kontrakt jest w §1a kontraktu. Poniżej gotowe dane do `src/atlas/plates/<uklad>.ts`. Wpisuje je agent układu w porozumieniu z integratorem.
+
+Uwagi do kontraktu:
+- teksty `namePl`, `variable.labelPl` i `legend[].labelPl` są bez cyfr, bo tak wymaga walidator. Numery etapów IMPULSU i „× masa ciała” przeszły więc ze słów legendy do licznika z metryki (`symbol: 'counter'`);
+- kotwice sprawdzone w `public/atlas/<uklad>/anchors.json` (stan `576ee4d`);
+- `artery_gut` to tor **nowy**, a `vein_leg` po **poprawce** (§W1); oba dodaje agent krwionośny, zanim walidator sprawdzi `flows`.
+
+### W1 ROZDZIAŁ (`krwionosny`)
+
+```ts
+signature: {
+  id: 'ROZDZIAL',
+  namePl: 'Rozdział krwi',
+  variable: {
+    kind: 'metric',   // kierunek z faktów, krok między stopniami umowny → chip „ilustracja”
+    factIds: [
+      'krwionosny.metric.udzial_miesni_w_przeplywie_krwi',
+      'krwionosny.metric.udzial_miesni_w_przeplywie_krwi.rest',
+      'krwionosny.role.femoral.sprint',
+      'krwionosny.role.portal.sprint',
+      'krwionosny.role.carotid.sprint',
+    ],
+    labelPl: 'dokąd płynie krew',
+  },
+  flows: ['artery_leg', 'vein_leg', 'artery_gut', 'artery_head'],
+  anchors: ['femoral', 'saphenous', 'portal', 'carotid', 'aortic_arch'],
+  legend: [
+    { symbol: 'flow', labelPl: 'krew w ruchu: szybciej i jaśniej znaczy więcej krwi' },
+    { symbol: 'particle', labelPl: 'krwinka czerwona lub niebieska: krew utlenowana lub odtlenowana (kolor umowny)' },
+  ],
+  chips: ['ilustracja', 'powiększone'],
+  acts: [3, 6, 12],
+}
+```
+
+### W2 KONSTRUKCJA (`kostny`)
+
+```ts
+signature: {
+  id: 'KONSTRUKCJA',
+  namePl: 'Konstrukcja szkieletu',
+  variable: {
+    kind: 'metric',
+    factIds: [
+      'kostny.metric.szczyt_nacisku_podloza_na_stope',
+      'kostny.metric.kontakt_stopy_z_podlozem',
+    ],
+    labelPl: 'ile i którędy kości przenoszą nacisk podłoża',
+  },
+  flows: ['load_path_r'],
+  anchors: ['tibia', 'femur', 'hip_bone', 'knee'],     // widok z boku: 'calcaneus', 'talus', 'lumbar'
+  legend: [
+    { symbol: 'glow', labelPl: 'rozjaśnienie w kości: nacisk podłoża biegnie przez szkielet' },
+    { symbol: 'counter', labelPl: 'ile razy więcej niż ciężar ciała' },
+    { symbol: 'flow', labelPl: 'kierunek przenoszenia nacisku' },
+  ],
+  chips: ['zwolnione ×4'],
+  acts: [1, 12],
+}
+```
+
+### W3 IMPULS (`nerwowy`)
+
+```ts
+signature: {
+  id: 'IMPULS',
+  namePl: 'Impuls nerwowy',
+  variable: {
+    kind: 'metric',   // odstęp pakietów z częstości; kolejność z ról (anatomia)
+    factIds: [
+      'nerwowy.metric.czestotliwosc_wyladowan_motoneuronu',
+      'nerwowy.metric.czestotliwosc_wyladowan_motoneuronu.rest',
+      'nerwowy.role.motor_cortex.sprint',
+      'nerwowy.role.spinal_cord.sprint',
+      'nerwowy.role.sciatic.sprint',
+      'nerwowy.role.femoral.sprint',
+    ],
+    labelPl: 'którędy biegnie rozkaz ruchu i jak często',
+  },
+  flows: ['back_motor', 'front_femoral'],
+  anchors: ['motor_cortex', 'spinal_cord', 'sciatic', 'femoral', 'lumbar_plexus'],
+  legend: [
+    { symbol: 'pulse', labelPl: 'jasny punkt: rozkaz w drodze (kora, rdzeń, nerw, mięsień)' },
+    { symbol: 'counter', labelPl: 'impulsy na sekundę' },
+  ],
+  chips: ['zwolnione ×N'],   // N ustala agent nerwowy z czasu przebiegu toru (ok. 1,5 s na ok. 1,2 m)
+  acts: [2],
+}
+```
+
+### W4 CIEPŁO (`powlokowy`)
+
+```ts
+signature: {
+  id: 'CIEPLO',
+  namePl: 'Ciepło i pot',
+  variable: {
+    kind: 'metric',   // kierunek przepływu skórnego i proporcja potu z faktów; stopnie przepływu i poświaty umowne → chip „ilustracja”
+    factIds: [
+      'powlokowy.summary.sprint',
+      'powlokowy.role.vessels_sup.sprint',
+      'powlokowy.role.great_saphenous.sprint',
+      'powlokowy.role.cephalic.sprint',
+      'powlokowy.metric.pot_czolo_i_dlon',
+      'powlokowy.metric.energia_z_pracy_miesni_zamieniana_w_cieplo',
+    ],
+    labelPl: 'ile krwi płynie pod skórą i gdzie ciało się poci',
+  },
+  flows: ['vein_saphenous', 'vein_small_saphenous', 'vein_cephalic'],
+  anchors: ['skin_forehead', 'skin_trunk', 'great_saphenous', 'cephalic', 'basilic'],   // tył: 'skin_back', 'small_saphenous'
+  legend: [
+    { symbol: 'flow', labelPl: 'jasny pas w żyle pod skórą: więcej krwi oddaje ciepło' },
+    { symbol: 'particle', labelPl: 'kropla potu: więcej kropli to więcej potu' },
+    { symbol: 'glow', labelPl: 'ciepła poświata skóry (stopnie umowne)' },
+  ],
+  chips: ['ilustracja'],
+  acts: [6, 11],
+}
+```
