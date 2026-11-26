@@ -209,10 +209,10 @@ Przegląd: gałąź `atlas-uklady` (`2c6db64`), 12 układów, 61 zrzutów (2D pr
 | Rodzaj | Materiał | Przykłady |
 |---|---|---|
 | **model z danych** | realistyczny mat (SSS, światło studia) | narządy, kości, naczynia z Z-Anatomy, HuBMAP i BodyParts3D |
-| **schemat lub ilustracja** | **bryła 3D w jednolitym, matowym materiale bez tekstury** + chip „schemat, bez skali” albo „ilustracja” | nefron, zrazik, układ bodźcoprzewodzący, skrzyżowanie piramid, miernik objętości |
+| **schemat lub ilustracja** | **bryła 3D w „materiale schematu”**: jednolity `light` układu, płaskie cieniowanie bez faktury i AO, obrys 1,5 px, chip „schemat · bez skali” albo „ilustracja” (opis materiału: Wizualizator) | nefron, zrazik, układ bodźcoprzewodzący, skrzyżowanie piramid |
 | **cząstka w skali umownej** | ten sam materiał co model, z chipem „powiększone” | krwinka, kropla hormonu, komórka NK, cząstka powietrza |
 | **sygnał** | jasny rdzeń (biel) + halo w barwie układu | impuls nerwowy, struktura z bieżącego zdania |
-| **legenda** | kreska, strzałka, symbol | tylko „Jak czytać” |
+| **legenda** | kreska, strzałka, symbol | **tylko** „Jak czytać” (decyzja Dyrygenta; propozycja „kreska dla ilustracji płaskich” odrzucona). Miernik objętości to element panelu HTML, nie rysunek w scenie |
 
 ### 3.3 Wyróżniki 12 układów jako animacje 3D
 
@@ -256,6 +256,15 @@ Przekrój:
 - w sercu otwarcie przedniej ściany komór. Klatka (a) pokazuje cięcie przez kolorowanie tylnych ścianek, bez booleanów; pytanie do Wizualizatora, czy to wystarczy zamiast stencila.
 
 Wejście do gabloty: diegetyczne (klatka c), z menu „Narządy” najwyżej jako dodatek (§7 (g)).
+
+**Zamienniki techniczne Wizualizatora (jego decyzja, przyjęta):**
+
+| Element karty | Wykonanie |
+|---|---|
+| obrys 2 px wybranej struktury, poziom Low | „odwrócona powłoka” tylko dla wierzchołków z wybranym ID: 1 wywołanie, ok. 0,2 ms na UHD; grubość może się wahać o ok. ±0,5 px przy zbliżeniu |
+| obrys 2 px, poziom High | z bufora ID w ekranie: ok. 1 ms, stała grubość |
+| kreskowany obrys dróg żółciowych | wzór w shaderze wzdłuż rury (UV), 0 dodatkowych wywołań; to wzór na bryle, nie kreska w scenie |
+| numery segmentów wątroby 1–8 | podpisy HTML w środku segmentu (jak podpisy E3), nie naklejka na siatce |
 
 ---
 
@@ -333,10 +342,11 @@ Otwarta zostaje jedna sprawa dla Dyrygenta, nie dla użytkownika: **barwa układ
 | 1 (R → W) | 7 pytań o wykonalność | wszystko ≥ 50 FPS; strzałki w 3D już są (`makeFlow`); ruch płuc tylko po fakcie z chipem „ruch poglądowy”; lokalizator wypieczony |
 | spór 1 (W) | „jeden ruch” a film gabloty | **zgoda**: znak gabloty = wyróżnik; 1 nowy ruch na krok, najwyżej 3 naraz (potwierdził Dyrygent) |
 | 2 (R → W) | rdzeń karty, poprawki barw gablot, gramatyka „kreska = schemat” | gramatykę **zmienił Dyrygent (spór 2): schemat to bryła 3D**. Przyjmuję; §3.2 poprawiona |
-| 3 (R → W) | klatka docelowa serca (a) + pytania o 1000 krwinek i cięcie tylnymi ściankami | czeka na odpowiedź i wynik M2 |
+| 2 (W → R) | przyjęta karta, barwy i rama; zamienniki techniczne (§3.4); spór 2: schemat jako bryła | barwy: **spór zamknięty** (wartości z `palette.json`); spór 2: **rozstrzygnął Dyrygent** (bryła; kreska tylko w legendzie) |
+| 3 (R → W) | klatka docelowa serca (a) + 5 cech do trafienia w M2 (ujęcie, materiał, światło, krwinki, czytelność) + pytania o 1000 krwinek i cięcie tylnymi ściankami | Wizualizator zaczyna M2; wynik porówna z klatką (a) |
 
 Sprostowanie: w wymianie 2 podałem złe wartości barw (`urinary`, `digest`), skopiowane ze starej propozycji. Wartości poprawiłem w wiadomości do Wizualizatora; obowiązuje `palette.json`.
-Poprawki barw jego klatek gablot (nerka, wątroba) nie dostały jeszcze odpowiedzi. Jeśli je odrzuci, spór trafi do Dyrygenta jednym akapitem.
+Poprawki barw jego klatek gablot (nerka, wątroba) **przyjął**; jego klatki koncepcyjne mają kolory robocze sprzed karty, co oznaczył w `NARZADY_PLAN.md` v3 (`c640d7e`). Otwartych sporów nie ma.
 
 ---
 
