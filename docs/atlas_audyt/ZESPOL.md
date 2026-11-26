@@ -109,3 +109,4 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Dyrygent ocenia: biologia liceum, zrozumiałość, ≥ 50 FPS Intel UHD, licencje bez NC, realny czas.
 - Wynik oceny: `docs/atlas_audyt/DECYZJA_UX_NARZADY.md` (kolejność wdrożenia, godziny pracy agentów, pytania do użytkownika).
 - **Wdrożenie dopiero po zgodzie użytkownika.**
+- **Plany gotowe i ocenione (2026-11-26):** Reżyser `77dd298` (na `atlas-uklady`), Wizualizator `bd9650c` (jego gałąź, nie scalona; poprawki poziomów treści zlecone). Decyzja: `docs/atlas_audyt/DECYZJA_UX_NARZADY.md`, kolejność F1 → F2 → F3 → bramka (pokaz + test z licealistami) → F4, ok. 155–210 h agentów, 0 zł. Luka K4 (`protocolNotePl` niesprawdzone na 3 planszach) potwierdzona. **Czeka na zgodę użytkownika (7 pytań w §5 decyzji).**
