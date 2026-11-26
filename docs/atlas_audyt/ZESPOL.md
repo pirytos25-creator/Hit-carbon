@@ -48,3 +48,7 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Końcowe sprawdzenie faktów: A (powłokowy 5/21/0/5), B (horm+mocz+pokarm 14/8/7/0), C (reszta 12 checked, 2 disputed; kontrola wyrywkowa 25/25 zgodnych) – zatwierdzone (`cf85db4`).
 - Integrator: nadaje statusy wg A/B/C i wprowadza poprawki; reguła ostatniej rundy – brzmienie dosłownie od sprawdzającego (z jego cytatem) = `checked_agent`, własne = `draft` (ukryte, bez kolejnej rundy).
 - Następnie: zgromadzenie (5 ról, statut §6) → decyzja końcowa → `RAPORT_KONCOWY.md`.
+
+## 100% osiągnięte (statut §6) – zgromadzenie w toku
+- Fakty końcowe scalone (`cce0f36`, `157171c`, `48fd880`): `check:atlas` – 71 liczb, 165 opisów ról (+162 budowy), 21 podsumowań, **0 `draft`**; build 0; 24 zrzuty 12 plansz bez błędów konsoli (kopie: `side-session-notes/.../dyrygent/zrzuty_koncowe/`).
+- Zgromadzenie, runda 1 (5 podagentów): anatom, architekt 3D, dydaktyk, strażnik faktów, dostępność i licencje → `docs/atlas_audyt/zgromadzenie/*_runda1.md`. Potem runda 2 (wzajemna krytyka), decyzja końcowa, `RAPORT_KONCOWY.md`.
