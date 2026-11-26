@@ -112,7 +112,7 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 ### Stan kamieni (aktualizacja 2026-11-26)
 
 **PLAN 2 obu agentów przyjęty:**
-- Reżyser: `UX_POSIEDZENIE.md` v3, `8c20b84`;
+- Reżyser: `UX_POSIEDZENIE.md` v3, `8c20b84` (z uzupełnieniami `9473b53` i `cf56a8f`);
 - Wizualizator: `NARZADY_PLAN.md` v3, `c640d7e`.
 
 **M1 Poprzeczka: ZALICZONY.** Klatki w `docs/atlas_rezyser/klatki_docelowe/`, render Blender EEVEE prawdziwych modeli.
@@ -137,6 +137,8 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 - bursztynowy układ nerwowy w filmie.
 
 Wizualizator pokaże w M4 nagranie aktu 3 przed zmianą i po niej. Ostatnie słowo należy do użytkownika, bo zmienia się wygląd filmu, który już zna.
+
+**2026-11-26: zgoda użytkownika na M2 i M3 („Tak, M2 i M3”).** Uruchomione równolegle. Bramka A odbędzie się po M2 i M2′.
 
 ## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
 

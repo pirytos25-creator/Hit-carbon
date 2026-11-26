@@ -125,3 +125,6 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 
   Odkrycie P2 (podpisy bez sprawdzonego opisu: mózg 21, mięśniowy 19, nerwowy 14, oddechowy 8, powłokowy 4) wzmacnia argument za wznowieniem faktów podręcznikowych.
 - **PLAN 2 obu przyjęty** (Reżyser `8c20b84`, Wizualizator `c640d7e`). **M1 zaliczony**: klatki docelowe w `docs/atlas_rezyser/klatki_docelowe/` (czas rzeczywisty 1,5–2 h wobec szacunku 4–8 h). Następny kamień M2 (test serca) czeka na zgodę użytkownika (pytanie 1 decyzji). Spór 2 (schemat jako bryła) rozstrzygnięty.
+- **2026-11-26: zgoda użytkownika na M2 i M3.**
+  - M2: Wizualizator, test serca w `prototypes/**`, szacunek 6–12 h.
+  - M3: integrator, U0 według `UX_POSIEDZENIE.md` §2. Nowe teksty mają status `draft` do czasu niezależnego sprawdzenia przez Dyrygenta.

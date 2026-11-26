@@ -437,6 +437,7 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   2. Zastawki: najpierw wariant A (kolor i cząstki). Wariant B (ruch płatków) może wejść wcześniej, jeśli test techniczny pokaże, że jest tani.
   3. Nefron: schemat topologiczny „bez skali”, wyraźnie oznaczony, jeśli nie ma otwartego modelu (CC0, BY lub BY-SA).
   4. Pierwsza wersja każdej gabloty: **tylko treści z poziomu Podstawowego**.
+- (h) 2026-11-26: użytkownik zgodził się na **M2** (test techniczny serca w `prototypes/`) i **M3** (poprawki czytelności plansz, U0) według `docs/atlas_audyt/DECYZJA_UX_NARZADY.md`. Pytania 2–4 tej decyzji pozostają otwarte.
 
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)
