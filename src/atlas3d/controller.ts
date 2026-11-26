@@ -94,12 +94,11 @@ export class Controller {
   }
 
   private aspect() { return Math.max(0.3, this.host.clientWidth / Math.max(1, this.host.clientHeight)); }
-  /** Ujęcie główne: kadr planszy, z miejscem na paski u góry i u dołu (ciało lekko w górę, bo dolny pasek jest wyższy). */
+  /** Ujęcie główne: kadr planszy. Obszar 3D leży między paskami (CSS), więc model nie wchodzi pod przełączniki ani stopkę;
+   *  to, co plansza 2D ucina (np. czaszka nad klatką oddechowego), ucina też krawędź obszaru 3D. */
   private mainShot() {
     const v = this.data.manifest.views[this.mainView];
-    const s = shotFor(v.camera, v.resolution, FOV, this.aspect(), 1.24);
-    s.target.y -= 0.03 * 2 * s.dist * Math.tan((FOV * Math.PI) / 360);
-    return s;
+    return shotFor(v.camera, v.resolution, FOV, this.aspect(), 1.04);
   }
 
   // ------------------------------------------------ polecenia
@@ -107,7 +106,7 @@ export class Controller {
     this.mode = m;
     this.applyMode();
     const dur = this.reduced ? 0 : 1.0; // „pchnięcie” do zbliżenia (Reżyser §4.3: 0,9–1,1 s)
-    if (m.kind === 'main') { this.rail.go(this.mainShot(), dur); return; }
+    if (m.kind === 'main') { const ms = this.mainShot(); this.rail.go({ ...ms, dist: this.fitWidth(ms.az, ms.dist) }, dur); return; }
     const v = this.data.manifest.views[m.view];
     const s = shotFor(v.camera, v.resolution, FOV, this.aspect(), 1.05);
     // kadr planszy obejmował kolaż 2D (np. włókna i cząsteczki obok przekroju): w 3D kadrujemy samą geometrię
@@ -123,11 +122,29 @@ export class Controller {
   }
   keyView(az: number) {
     if (this.mode.kind !== 'main') { this.mode = { kind: 'main' }; this.applyMode(); }
-    this.rail.go({ ...this.mainShot(), az }, this.reduced ? 0 : 1.2);
+    const s = this.mainShot();
+    this.rail.go({ ...s, az, dist: this.fitWidth(az, s.dist) }, this.reduced ? 0 : 1.2);
   }
-  rotate(step: number) { this.rail.go({ az: Math.round(this.rail.cur.az / 90) * 90 + step }, this.reduced ? 0 : 1.2); }
+  rotate(step: number) {
+    const az = Math.round(this.rail.cur.az / 90) * 90 + step;
+    const base = this.mode.kind === 'main' ? this.mainShot().dist : this.rail.cur.dist;
+    this.rail.go({ az, dist: this.mode.kind === 'main' ? this.fitWidth(az, base) : base }, this.reduced ? 0 : 1.2);
+  }
+  /** Kadr planszy powstał dla jednego kierunku (np. mózg z boku): w innym widoku kluczowym model bywa szerszy.
+   *  Odsuń kamerę tak, by szerokość widocznego modelu zmieściła się w obszarze 3D (nigdy nie przybliżaj). */
+  private fitWidth(az: number, dist: number) {
+    if (this.visBox.isEmpty()) return dist;
+    const size = this.visBox.getSize(new THREE.Vector3());
+    const a = (az * Math.PI) / 180;
+    const ext = Math.abs(Math.cos(a)) * size.x + Math.abs(Math.sin(a)) * size.z; // szerokość widziana z tego kierunku
+    const need = (ext * 1.08) / 2 / Math.tan((FOV * Math.PI) / 360) / this.aspect();
+    return ext < 1.2 ? Math.max(dist, need) : dist; // całe ciało (rozpiętość ramion) mieści się z zapasem w kadrze planszy
+  }
   drag(dx: number) { this.rail.drag(-dx * 0.45); }
-  snap() { this.rail.go({ az: Math.round(this.rail.cur.az / 90) * 90 }, this.reduced ? 0 : 0.6); }
+  snap() {
+    const az = Math.round(this.rail.cur.az / 90) * 90;
+    this.rail.go(this.mode.kind === 'main' ? { az, dist: this.fitWidth(az, this.mainShot().dist) } : { az }, this.reduced ? 0 : 0.6);
+  }
   setState(s: AtlasState) { this.state = s; if (this.reduced) this.stateMix = s === 'sprint' ? 1 : 0; this.labelKey = ''; }
   setLevel(l: AtlasLevel) { this.level = l; this.labelKey = ''; }
   resize() { if (!this.rail.moving) this.setMode(this.mode); }
@@ -234,12 +251,25 @@ export class Controller {
       v.copy(it.pos).project(this.camera);
       return { it, x: (v.x * 0.5 + 0.5) * W, y: (-v.y * 0.5 + 0.5) * H, ok: v.z < 1 && Math.abs(v.x) < 1.2 && Math.abs(v.y) < 1.2 };
     });
-    const cx = W / 2;
-    const off = Math.min(W * 0.16, 230);
+    // obrys widocznego modelu na ekranie: kolumny podpisów stoją za nim (jak na planszy 2D), tekst nie leży na modelu
+    let left = W, right = 0;
+    const c = new THREE.Vector3();
+    const bx = this.visBox;
+    if (!bx.isEmpty()) {
+      for (const xx of [bx.min.x, bx.max.x]) for (const yy of [bx.min.y, bx.max.y]) for (const zz of [bx.min.z, bx.max.z]) {
+        c.set(xx, yy, zz).project(this.camera);
+        const sx = (c.x * 0.5 + 0.5) * W;
+        left = Math.min(left, sx); right = Math.max(right, sx);
+      }
+    }
+    left = Math.max(0, left); right = Math.min(W, right);
+    if (right <= left) { left = W * 0.4; right = W * 0.6; }
+    const cx = (left + right) / 2;
     for (const side of [-1, 1]) {
       const col = proj.filter((p) => p.ok && (p.x < cx) === (side < 0)).sort((a, b) => a.y - b.y);
-      let last = 56;
-      const colX = side < 0 ? Math.max(200, cx - off) : Math.min(W - 200, cx + off);
+      let last = 8;
+      // za obrysem; gdy brak miejsca (model szerszy niż ekran), kolumna przy krawędzi, a czytelność daje tło podpisu
+      const colX = side < 0 ? Math.max(214, left - 18) : Math.min(W - 214, right + 18);
       // 1) z góry: podpis przy swojej kotwicy, bez nachodzenia; 2) od dołu: cała kolumna nad dolnym paskiem
       const placed = col.map((p) => {
         const e = this.els.get(p.it.key)!;
@@ -248,9 +278,9 @@ export class Controller {
         last = y + h;
         return { p, e, h, y };
       });
-      let limit = H - 126;
+      let limit = H - 8;
       for (let i = placed.length - 1; i >= 0; i--) {
-        placed[i].y = Math.max(56, Math.min(placed[i].y, limit - placed[i].h));
+        placed[i].y = Math.max(8, Math.min(placed[i].y, limit - placed[i].h));
         limit = placed[i].y - 6;
       }
       for (const { p, e, y } of placed) {

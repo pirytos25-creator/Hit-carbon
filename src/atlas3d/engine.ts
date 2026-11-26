@@ -154,10 +154,24 @@ export async function loadFiles(base: string, data: AtlasData, onBytes?: (b: num
     }
     state.commit();
     const meshes: THREE.Mesh[] = [];
+    const empty: THREE.Mesh[] = [];
     gltf.scene.traverse((o) => {
       if (!(o as THREE.Mesh).isMesh) return;
       const m = o as THREE.Mesh;
       const idAttr = m.geometry.getAttribute('_id');
+      // Wydajność: plik wspólny (np. wszystkie mięśnie, 324 tys. trójkątów) bywa potrzebny tylko w części
+      // (oddechowy: 11 mięśni oddechowych). Zostają trójkąty struktur, których ta plansza używa w jakimkolwiek widoku.
+      const index = m.geometry.getIndex();
+      if (index && idAttr) {
+        const src = index.array;
+        const keep = new Uint32Array(src.length);
+        let n = 0;
+        for (let i = 0; i < src.length; i += 3) {
+          if (bind.has(Math.round(idAttr.getX(src[i])))) { keep[n] = src[i]; keep[n + 1] = src[i + 1]; keep[n + 2] = src[i + 2]; n += 3; }
+        }
+        if (n === 0) { empty.push(m); return; }
+        if (n < src.length) m.geometry.setIndex(new THREE.BufferAttribute(keep.slice(0, n), 1));
+      }
       // warstwa przezroczysta, gdy wszystkie jej struktury w tym układzie mają alfę < 1 (np. sylwetka 0,12)
       const alphas = new Set<number>();
       if (idAttr) for (let i = 0; i < idAttr.count; i += 97) {
@@ -170,6 +184,7 @@ export async function loadFiles(base: string, data: AtlasData, onBytes?: (b: num
       m.frustumCulled = false;
       meshes.push(m);
     });
+    for (const m of empty) { m.removeFromParent(); m.geometry.dispose(); }
     return { path: f.path, root: gltf.scene, meshes, state, ids, byMesh, bind };
   }));
 }
@@ -199,7 +214,13 @@ export function applyViews(files: LoadedFile[], views: Set<string>): THREE.Box3 
       const pos = m.geometry.getAttribute('position'), ida = m.geometry.getAttribute('_id');
       if (!pos || !ida) continue;
       m.updateWorldMatrix(true, false);
-      for (let i = 0; i < pos.count; i += 7) if (vis[Math.round(ida.getX(i))]) box.expandByPoint(v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld));
+      let any = false;
+      for (let i = 0; i < ida.count; i++) {
+        if (!vis[Math.round(ida.getX(i))]) continue;
+        any = true;
+        if (i % 7 === 0) box.expandByPoint(v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld));
+      }
+      m.visible = any; // siatka bez widocznych struktur w tym ujęciu nie jest rysowana (mniej wywołań i trójkątów)
     }
   }
   return box;
