@@ -1106,6 +1106,9 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Wspólny przegląd zwolenników i przeciwników „otwartego okna”: zgadzają się, że podatność na infekcje zależy od wielu czynników; nierozstrzygnięte zostaje, czy sam wysiłek zwiększa ryzyko infekcji u sportowców.',
   },
+  },
+  // Atlas układów: układ dokrewny (hormonalny). marliss_vranic_2002 i peake_2014: wpisy identyczne z gałęzią pokarmowego
+  // (przy scaleniu zostawić jedną kopię).
   // --- Układ kostny (agent 10, faza 1b) ---
   munro_1987: {
     id: 'munro_1987',
@@ -1551,6 +1554,109 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Interwały przy ok. 82% VO₂max a wysiłek umiarkowany o tej samej pracy: tuż po interwałach glukoza we krwi o 20% wyższa, mleczan 5,4 razy wyższy (wytrenowani kolarze).',
+  },
+  sigal_1994: {
+    id: 'sigal_1994',
+    authors: 'Sigal, R. J., Purdon, C., Bilinski, D., Vranic, M., Halter, J. B., & Marliss, E. B.',
+    year: 1994,
+    title: 'Glucoregulation during and after intense exercise: effects of beta-blockade',
+    journal: 'The Journal of Clinical Endocrinology and Metabolism, 78(2), 359–366',
+    pmid: '7906280',
+    doi: '10.1210/jcem.78.2.7906280',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/7906280/',
+    acts: [],
+    summaryPl:
+      'Młodzi, sprawni mężczyźni, ok. 14 min na cykloergometrze. Przy 87% VO₂max wypływ glukozy do krwi wzrósł ok. 4 razy, a przy 100% VO₂max ok. 8 razy. Adrenalina doszła do ok. 1,7 nmol/L przy 87% VO₂max (ok. 7,1 nmol/L przy 100%). Insulina przy 87% nie spadła, a glukagon wzrósł umiarkowanie.',
+  },
+  sigal_1996: {
+    id: 'sigal_1996',
+    authors: 'Sigal, R. J., Fisher, S., Halter, J. B., Vranic, M., & Marliss, E. B.',
+    year: 1996,
+    title: 'The roles of catecholamines in glucoregulation in intense exercise as defined by the islet cell clamp technique',
+    journal: 'Diabetes, 45(2), 148–156',
+    pmid: '8549858',
+    doi: '10.2337/diab.45.2.148',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/8549858/',
+    acts: [],
+    summaryPl:
+      'Wysiłek przy 87% VO₂max: adrenalina i noradrenalina wzrosły ponad 12 razy, a wypływ glukozy do krwi ok. 6 razy. Stosunek glukagonu do insuliny zmienił się tylko z 0,20 na 0,26. Głównym sterownikiem są katecholaminy.',
+  },
+  kindermann_1982: {
+    id: 'kindermann_1982',
+    authors: 'Kindermann, W., Schnabel, A., Schmitt, W. M., Biro, G., Cassens, J., & Weber, F.',
+    year: 1982,
+    title: 'Catecholamines, growth hormone, cortisol, insulin, and sex hormones in anaerobic and aerobic exercise',
+    journal: 'European Journal of Applied Physiology and Occupational Physiology, 49(3), 389–399',
+    pmid: '6754371',
+    doi: '10.1007/BF00441300',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/6754371/',
+    acts: [],
+    summaryPl:
+      'Bieg do wyczerpania w ok. 1,5 min (156% mocy maksymalnej, 17 studentów WF): adrenalina i noradrenalina wzrosły ok. 15 razy.',
+  },
+  stokes_2002: {
+    id: 'stokes_2002',
+    authors: 'Stokes, K. A., Nevill, M. E., Hall, G. M., & Lakomy, H. K. A.',
+    year: 2002,
+    title: 'Growth hormone responses to repeated maximal cycle ergometer exercise at different pedaling rates',
+    journal: 'Journal of Applied Physiology, 92(2), 602–608',
+    pmid: '11796670',
+    doi: '10.1152/jappl.2002.92.2.602',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/11796670/',
+    acts: [],
+    summaryPl:
+      'Po jednym 30 s sprincie maksymalnym (10 mężczyzn) hormon wzrostu we krwi był podwyższony jeszcze 60 min później; drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.',
+  },
+  pritzlaff_1999: {
+    id: 'pritzlaff_1999',
+    authors: 'Pritzlaff, C. J., Wideman, L., Weltman, J. Y., Abbott, R. D., Gutgesell, M. E., Hartman, M. L., Veldhuis, J. D., & Weltman, A.',
+    year: 1999,
+    title: 'Impact of acute exercise intensity on pulsatile growth hormone release in men',
+    journal: 'Journal of Applied Physiology, 87(2), 498–504',
+    pmid: '10444604',
+    doi: '10.1152/jappl.1999.87.2.498',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/10444604/',
+    acts: [],
+    summaryPl: 'Młodzi mężczyźni, 30 min wysiłku: wydzielanie hormonu wzrostu rośnie liniowo z natężeniem wysiłku.',
+  },
+  godfrey_2003: {
+    id: 'godfrey_2003',
+    authors: 'Godfrey, R. J., Madgwick, Z., & Whyte, G. P.',
+    year: 2003,
+    title: 'The exercise-induced growth hormone response in athletes',
+    journal: 'Sports Medicine, 33(8), 599–613',
+    pmid: '12797841',
+    doi: '10.2165/00007256-200333080-00005',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/12797841/',
+    acts: [],
+    summaryPl:
+      'Przegląd: największy bodziec do wydzielania hormonu wzrostu daje wysiłek powyżej progu mleczanowego, trwający co najmniej ok. 10 min.',
+  },
+  hill_2008: {
+    id: 'hill_2008',
+    authors: 'Hill, E. E., Zack, E., Battaglini, C., Viru, M., Viru, A., & Hackney, A. C.',
+    year: 2008,
+    title: 'Exercise and circulating cortisol levels: the intensity threshold effect',
+    journal: 'Journal of Endocrinological Investigation, 31(7), 587–591',
+    pmid: '18787373',
+    doi: '10.1007/BF03345606',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18787373/',
+    acts: [],
+    summaryPl:
+      '12 aktywnych mężczyzn, 30 min wysiłku: kortyzol bez zmian przy 40% VO₂max, +40% przy 60% i +83% przy 80% VO₂max. Część wzrostu to zagęszczenie krwi.',
+  },
+  convertino_1981: {
+    id: 'convertino_1981',
+    authors: 'Convertino, V. A., Keil, L. C., Bernauer, E. M., & Greenleaf, J. E.',
+    year: 1981,
+    title: 'Plasma volume, osmolality, vasopressin, and renin activity during graded exercise in man',
+    journal: 'Journal of Applied Physiology: Respiratory, Environmental and Exercise Physiology, 50(1), 123–128',
+    pmid: '7009522',
+    doi: '10.1152/jappl.1981.50.1.123',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/7009522/',
+    acts: [],
+    summaryPl:
+      '15 młodych mężczyzn, wysiłek stopniowany: wazopresyna (ADH) rośnie wyraźnie dopiero powyżej ok. 40% VO₂max, gdy rośnie osmolalność osocza.',
   },
   // bogdanis_2022: wpis identyczny z gałęzią planszy limfatycznej (to samo ID, ta sama treść)
   bogdanis_2022: {
