@@ -15,12 +15,12 @@ export const MOZG: AtlasPlateContent = {
   views: ['side', 'detail'],
   viewTitlesPl: { side: 'Lewa półkula z boku', detail: 'Przekrój pośrodkowy' },
   summary: {
-    rest: 'W spoczynku mózg pracuje bez przerwy i zużywa dużą część tlenu całego ciała, głównie z glukozy. Kora ruchowa, móżdżek i jądra podstawy pracują na niskich obrotach (postawa, napięcie mięśni), a pień mózgu utrzymuje spokojny rytm oddechu i serca.',
+    rest: 'W spoczynku mózg pracuje bez przerwy: zużywa ok. 20% tlenu całego ciała, spalając głównie glukozę.',
     sprint:
-      'W sprincie kora ruchowa (zakręt przedśrodkowy i płacik okołośrodkowy z polem nóg) wysyła rozkazy do mięśni. Móżdżek i jądra podstawy dopasowują rytm i siłę kroku, pień mózgu przyspiesza oddech i pracę serca, a podwzgórze uruchamia chłodzenie i oś stresu. Mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
+      'W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
   },
-  summaryReferenceIds: { rest: ['raichle_gusnard_2002', 'brooks_2018'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // K3: zmienione = draft
+  summaryReferenceIds: { rest: ['raichle_gusnard_2002'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
+  summaryStatus: { rest: 'draft', sprint: 'draft' }, // fakty_draft_K3_ruch.md: oba disputed -> zostały tylko zdania ze źródłem = draft
   labels: [
     // --- widok z boku (podpisy po lewej)
     {
@@ -28,9 +28,10 @@ export const MOZG: AtlasPlateContent = {
       view: 'side',
       namePl: 'Kora przedczołowa',
       nameLat: 'cortex praefrontalis',
-      role: { rest: 'Planowanie i decyzje', sprint: 'Pilnuje celu; tlen spada dopiero przy maksimum' },
+      role: { rest: 'Planowanie i decyzje', sprint: 'Tlen rośnie, spada dopiero przy maksimum' },
       tier: 'secondary',
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23-#33
+      referenceIds: ['rooks_2010'],
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23-#33; fakty_draft_K3_ruch.md: unverifiable -> bez „Pilnuje celu”, + rooks_2010 = draft
     },
     {
       anchor: 'motor_cortex',
@@ -150,7 +151,7 @@ export const MOZG: AtlasPlateContent = {
       protocolMismatch: '35 min jazdy przy 75% VO₂max (pobór uśredniony z 25 min)',
       quote: '38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1',
       locator: 'Kemppainen 2005, abstrakt',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'Stosunek tlenu do paliwa w mózgu (CMR)',
@@ -176,7 +177,7 @@ export const MOZG: AtlasPlateContent = {
       protocolMismatch: 'wysiłek stopniowany',
       quote: 'CBF decreases toward baseline values because of lower Pa(CO(2))',
       locator: 'Ogoh & Ainslie 2009, abstrakt',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'BDNF we krwi po pojedynczym wysiłku',
@@ -189,8 +190,8 @@ export const MOZG: AtlasPlateContent = {
       measuredAt: 'od zaraz po wysiłku do 60 min po nim',
       protocolMismatch: 'różne pojedyncze wysiłki; udział mózgu: 4 h wiosłowania',
       quote: "Hedges' g = 0.46",
-      locator: 'Szuhany 2015, Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, tab. 2',
-      status: 'draft',
+      locator: 'Szuhany 2015, abstrakt; Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, abstrakt; Results (odsyłacz do tab. 2)',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'Utlenowanie kory przedczołowej (NIRS)',
@@ -203,7 +204,7 @@ export const MOZG: AtlasPlateContent = {
       protocolMismatch: 'wysiłek stopniowany do maksimum',
       quote: 'After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.',
       locator: 'Rooks 2010, abstrakt',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
   ],
   // Mleczan jako paliwo mózgu (brooks_2018, van_hall_2009): krew wpływa od dołu (t. kręgowe i podstawna przed pniem),
