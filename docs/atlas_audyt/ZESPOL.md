@@ -77,3 +77,14 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - **E1-K3 (fakty podręcznikowe) wstrzymane.** Dwóch wyszukujących zatrzymano przed zapisaniem wyników (brak częściowych plików). Lista luk: `side-session-notes/.../dyrygent/luki_spoczynku.md` (kopia z gałęzi integratora, commit `7441665`). Wrócimy po obejrzeniu 3D przez użytkownika.
 - Integrator kończy E1-K1 i K2 (dane, przepięcie, walidator) + **punkt montażu 3D w `AtlasApp`** (lazy `src/atlas3d/Atlas3DView`, props `system/state/level/onClose`, przycisk „Obróć w 3D” tylko desktop i przy `public/atlas3d/<uklad>/manifest.json`).
 - **E3 = P1 „Gablota”**: Wizualizator 3D (`local_dc5e6e98…`, uruchamia koordynator), pliki `src/atlas3d/**`, `blender/atlas/atlas_export_glb.py`, `public/atlas3d/**`; K1 eksport GLB krwionośny+mięśniowy i budżet, K2 widok, K3 integracja. Audyty Dyrygenta.
+
+## WSTRZYMANIE (użytkownik wyłącza komputer, 2026-11-26)
+**Stan:**
+- `atlas-uklady`: 12 plansz przyjętych (RAPORT_KONCOWY.md); E1-K1 i E1-K2 integratora scalone (dane L1, fakty tylko w `facts/*.json`, punkt montażu 3D); rundy siatek 1 i 2 scalone (106 rozwiązanych, 70 `nearest` do kontroli, 12 bez siatki; licencje z pola `origin`, 0 NC).
+- E3 (3D „Gablota”, Wizualizator `local_dc5e6e98…`): K1 zaliczony i scalony (`f5f82fb`); **K2 zaliczony warunkowo** (audyt `wizualizator_E3_K2.md`), kod K2 (`8168026`, `3d55db7`) **jeszcze NIE scalony** do `atlas-uklady`; K3 był w toku – Wizualizator zapisuje commit WIP na swojej gałęzi `claude/atlas-wizualizacja-3d-1dc29a`.
+- E1-K3 (fakty podręcznikowe) – wstrzymane decyzją użytkownika (najpierw obejrzeć 3D). Lista luk: `side-session-notes/.../dyrygent/luki_spoczynku.md`.
+
+**Po wznowieniu (kolejność):**
+1. Wizualizator kończy E3-K3: czytelność podpisów na modelu (tło/kolumny, kontrast ≥ 4,5:1), kadr pod paskiem i stopką (oddechowy), ew. wydajność moczowego (25 FPS) i oddechowego (29 FPS), integracja przez punkt montażu, zrzuty 12 układów, build, `check:atlas`, `check:atlas3d` → `PUNKT KONTROLNY E3-K3`.
+2. Dyrygent: audyt K3, scalenie gałęzi Wizualizatora do `atlas-uklady`, `RAPORT_E1.md` (E1 + E3) dla użytkownika z instrukcją: `npm run atlas:export3d` (raz, ok. 15 min) i `npm run dev` → `#atlas` → „Obróć w 3D”.
+3. Użytkownik ogląda 3D i decyduje o E1-K3 (fakty podręcznikowe) i dalszych etapach. Opcjonalnie: pomiar FPS na RTX wymaga zmiany ustawień grafiki Windows przez użytkownika.
