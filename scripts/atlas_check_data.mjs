@@ -86,8 +86,8 @@ for (const f of facts) {
 }
 for (const b of bindings.bindings) {
   if (!sIds.has(b.structureId)) err(`powiązanie ${b.plate}/${b.anchor}: nieznane pojęcie ${b.structureId}`);
-  if (b.resolved && !/^(za|hra):/.test(b.id ?? '')) err(`powiązanie ${b.plate}/${b.anchor}: ID bez prefiksu za:/hra:`);
-  if (b.license && /NC/.test(b.license)) err(`powiązanie ${b.id}: licencja NC na planszy`);
+  if (b.resolved && !/^(za:[^/]+|hra:[^/]+\.glb\/.+)$/.test(b.meshId ?? '')) err(`powiązanie ${b.plate}/${b.anchor}: meshId „${b.meshId}” nie ma postaci za:<obiekt> albo hra:<plik.glb>/<węzeł>`);
+  if (b.license && /NC/.test(b.license)) err(`powiązanie ${b.meshId}: licencja NC na planszy`);
 }
 const unresolved = bindings.bindings.filter((b) => !b.resolved).length;
 

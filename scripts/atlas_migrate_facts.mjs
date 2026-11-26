@@ -114,6 +114,24 @@ for (const sys of ATLAS_SYSTEMS) {
 // ---------------------------------------------------------------- mesh_bindings.json (statycznie ze skryptów plansz)
 const SKIP = new Set(['views', 'point', 'curve', 'objects', 't', 'R', 'L', 'l', 'r', 'front', 'back', 'side', 'detail', 'body_front', 'offset', 'zband', 'xband', 'frac']);
 const NC = [/^Kidney\.(l|r)$/, /^Renal pelvis\.(l|r)$/, /^Cochlea\.(l|r)$/, /^Vestibule\.(l|r)$/, /^Intrarenal (arteries|veins) of (left|right) kidney$/];
+// Węzły HuBMAP: nazwa węzła -> plik GLB (z bloku JSON każdego pliku w atlas_raw/hubmap), żeby ID miało postać
+// `hra:<plik.glb>/<węzeł>` (kontrakt z wizualizatorem 3D, model §3.1).
+const RAW = process.env.ATLAS_RAW || join(root, '..', '..', '..', 'atlas_raw');
+const hraNodeFile = new Map();
+function scanGlb(dir) {
+  let ents = [];
+  try { ents = readdirSync(dir, { withFileTypes: true }); } catch { return; }
+  for (const e of ents) {
+    const full = join(dir, e.name);
+    if (e.isDirectory()) { scanGlb(full); continue; }
+    if (!e.name.endsWith('.glb')) continue;
+    const buf = readFileSync(full);
+    const len = buf.readUInt32LE(12);
+    const json = JSON.parse(buf.toString('utf8', 20, 20 + len));
+    for (const n of json.nodes ?? []) if (n.name) { if (!hraNodeFile.has(n.name)) hraNodeFile.set(n.name, []); hraNodeFile.get(n.name).push(e.name); }
+  }
+}
+for (const cand of [join(RAW, 'hubmap'), 'C:/Users/piryt/Desktop/Luźny Vibecoading/HIIt/atlas_raw/hubmap']) if (!hraNodeFile.size) scanGlb(cand);
 const bindings = [];
 const labelByAnchor = {};
 for (const sys of ATLAS_SYSTEMS) for (const l of sys.content?.labels ?? []) labelByAnchor[`${sys.id}/${l.anchor}`] = l;
@@ -122,6 +140,8 @@ for (const sys of ATLAS_SYSTEMS) {
   let src = '';
   try { src = readFileSync(py, 'utf-8'); } catch { continue; }
   const seen = new Set();
+  // pliki GLB wczytywane przez skrypt planszy: wśród nich szukamy węzła HuBMAP
+  const plateGlbs = new Set([...src.matchAll(/([A-Za-z0-9_-]+\.glb)/g)].map((x) => x[1]));
   for (const m of src.matchAll(/^\s*"(\w+)":\s*\{\s*"(objects|point|curve)":\s*(.+)$/gm)) {
     const key = m[1];
     if (seen.has(key)) continue;
@@ -132,24 +152,28 @@ for (const sys of ATLAS_SYSTEMS) {
     const lits = [...expr.matchAll(/"([^"]+)"/g)].map((x) => x[1]).filter((x) => !SKIP.has(x) && x !== key && x.length > 2);
     const structureId = structureIdOf(l);
     if (!lits.length) {
-      bindings.push({ id: null, plate: sys.id, anchor: key, structureId, side: null, source: null, license: null, resolved: false,
-        note: 'obiekty liczone w kodzie skryptu planszy; pełne powiązanie da zapis siatek przez atlas_lib przy renderze (E3-0)' });
+      bindings.push({ meshId: null, plate: sys.id, anchor: key, structureId, side: null, primary: true, source: null, license: null, resolved: false,
+        note: 'obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)' });
       continue;
     }
-    for (const name of lits) {
-      const hra = /^VH_|^NIH_|^Allen_/.test(name) || /^3d-vh/.test(name);
-      const side = /\.l$/.test(name) ? 'left' : /\.r$/.test(name) ? 'right' : null;
+    lits.forEach((name, i) => {
+      const hra = /^VH_|^NIH_|^Allen_|^SBU_/.test(name) || /^3d-vh/.test(name);
+      const files = hra ? hraNodeFile.get(name) ?? [] : [];
+      const file = files.find((f) => plateGlbs.has(f)) ?? files[0] ?? null;
+      const side = /\.l$|_L$|left/i.test(name) ? 'l' : /\.r$|_R$|right/i.test(name) ? 'r' : 'mid';
       bindings.push({
-        id: `${hra ? 'hra' : 'za'}:${name}`,
+        meshId: hra ? `hra:${file ?? '?'}/${name}` : `za:${name.replace(/\.\d{3}$/, '')}`,
         plate: sys.id,
         anchor: key,
         structureId,
         side,
+        primary: i === 0,
         source: hra ? 'HuBMAP HRA' : 'Z-Anatomy',
         license: hra ? 'CC BY 4.0' : NC.some((re) => re.test(name)) ? 'NC (zablokowane)' : 'CC BY-SA 4.0',
-        resolved: true,
+        resolved: !hra || !!file,
+        ...(hra && !file ? { note: 'nie znaleziono węzła w plikach atlas_raw/hubmap' } : {}),
       });
-    }
+    });
   }
 }
 
@@ -278,4 +302,4 @@ writeFileSync(join(factsDir, '_wspolne.json'), JSON.stringify({ schemaVersion: 1
 writeFileSync(join(root, 'src/atlas/data/structures.json'), JSON.stringify({ schemaVersion: 1, structures: [...structures.values()].sort((a, b) => a.id.localeCompare(b.id)) }, null, 1) + '\n');
 writeFileSync(join(root, 'src/atlas/data/mesh_bindings.json'), JSON.stringify({ schemaVersion: 1, bindings }, null, 1) + '\n');
 const nF = Object.values(all).reduce((n, r) => n + r.length, 0) + common.length;
-console.log(`MIGRACJA: ${structures.size} pojęć, ${bindings.length} powiązań siatek (nierozwiązane: ${bindings.filter((b) => !b.resolved).length}), ${nF} rekordów faktów w ${Object.keys(all).length + 1} plikach`);
+console.log(`MIGRACJA: ${structures.size} pojęć, ${bindings.length} powiązań siatek (nierozwiązane: ${bindings.filter((b) => !b.resolved).length}; węzłów HuBMAP w GLB: ${hraNodeFile.size}), ${nF} rekordów faktów w ${Object.keys(all).length + 1} plikach`);
