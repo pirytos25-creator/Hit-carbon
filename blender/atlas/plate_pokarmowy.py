@@ -271,23 +271,10 @@ p = hv + [q for q in ivc_top if q.z > hv[-1].z + 0.003]
 add_flow("hepatic_out", "vein", "Krew z wątroby do serca (żż. wątrobowe → ż. główna dolna)", p, ["front"],
          ["Hepatic veins (od ujścia w wątrobie) + Inferior vena cava (thoracic part) powyżej ujścia"])
 # Tętnice: aorta (w dół, od przepony) -> pień trzewny -> t. wątrobowa wspólna -> właściwa (do wątroby).
-# vessel_path zaczyna aortę od złego końca (gałąź odchodzi w połowie aorty), więc odcinek aorty budujemy sami:
-# od góry do punktu odejścia gałęzi.
-def aorta_down_to(branch):
-    a = sorted(al.curve_points("Abdominal aorta"), key=lambda q: -q.z)
-    b0 = al.curve_points(branch)
-    origin = min(b0, key=lambda q: min((q - x).length for x in a))
-    seg = [q for q in a if q.z > origin.z + 0.002]
-    tail, rep = al.vessel_path([branch] + BRANCH_CHAIN.get(branch, []))
-    if (tail[0] - origin).length > (tail[-1] - origin).length:
-        tail = tail[::-1]
-    return seg + tail, rep
-
-
-BRANCH_CHAIN = {"Coeliac trunk": ["Common hepatic artery", "Proper hepatic artery"]}
-p, rep = aorta_down_to("Coeliac trunk")
+# Od scalenia atlas-uklady al.vessel_path sam zaczyna aortę od końca bliższego sercu (wcześniej obejście lokalne).
+p, rep = al.vessel_path(["Abdominal aorta", "Coeliac trunk", "Common hepatic artery", "Proper hepatic artery"])
 add_flow("artery_liver", "artery", "Krew tętnicza do wątroby (pień trzewny → t. wątrobowa)", p, ["front"], rep)
-p, rep = aorta_down_to("Superior mesenteric artery")
+p, rep = al.vessel_path(["Abdominal aorta", "Superior mesenteric artery"])
 add_flow("artery_gut", "artery", "Krew tętnicza do jelit (t. krezkowa górna)", p, ["front"], rep)
 
 
