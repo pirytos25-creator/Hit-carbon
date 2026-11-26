@@ -46,7 +46,7 @@ export const WYDALNICZY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_B_horm_mocz_pokarm.md: spoczynek Garza i Leslie 2025; sprint disputed -> 2 zmiany dosłownie wg sprawdzającego
   protocolNotePl:
     'Sprint to koniec 45 s pracy przy ok. 88% VO₂max. Badania nerek mierzyły zwykle dłuższy wysiłek albo stan tuż po nim, więc liczby pokazują kierunek zmian, nie dokładną wartość dla jednej serii.',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
+  protocolNoteStatus: 'checked_agent', // fakty_kontrola_koncowa.md, cz. 1a
   // K3: podpisy obu widoków po lewej stronie (jak oddechowy): dwie kolumny tekstu zamiast czterech, większe rendery.
   labels: [
     // ---- widok front (prawa strona ciała = lewa strona obrazu)
@@ -313,6 +313,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       status: 'checked_agent', // #51
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'jazda ciągła przy 35 i 60% VO₂peak, 22 i 36 °C',
+      conversionNote: 'spoczynek = 100% (punkt odniesienia)', // fakty_kontrola_koncowa.md, cz. 1b
       quote:
         'Renal blood flow was lower at rest in the O group, remained relatively constant at 35% VO2peak, then decreased by 20-25% in both groups at 60% VO2peak.',
       locator: 'Kenney i Ho 1995, abstrakt',
@@ -329,6 +330,7 @@ export const WYDALNICZY: AtlasPlateContent = {
       status: 'checked_agent', // #52
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'wysiłek maksymalny (przegląd); Kawakami 2018: wzrost istotny przy 120% progu mleczanowego',
+      conversionNote: 'double = 2×; spoczynek = 1×', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'Despite a major reduction in the renal plasma flow, the filtration fraction can double with maximal exercise',
       locator: 'Poortmans i Vanderstraeten 1994, abstrakt; Kawakami 2018, pełny tekst Fig. 4c',
       measuredAt: 'w trakcie wysiłku maksymalnego',

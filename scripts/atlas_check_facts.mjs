@@ -55,10 +55,16 @@ let shownNotes = 0;
 const numWarn = [];
 // Liczby z tekstu faktu (np. „ok. 1,6”, „7–8×”, „−50 / −32”): każda musi być w cytacie albo mieć conversionNote.
 const numbersIn = (t) => (String(t ?? '').match(/\d+(?:[.,]\d+)?/g) ?? []).map((x) => x.replace(',', '.'));
+// Liczba jest w cytacie, gdy ma tę samą wartość (4.9 = 4.90; 1,000 = 1000) albo stoi tam słowem (sixfold, double).
+const NUM_WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, double: 2, twice: 2 };
 const inQuote = (n, q) => {
-  const qq = String(q ?? '').replace(/(\d),(\d{3})/g, '$1$2').replace(/(\d),(\d)/g, '$1.$2');
-  return new RegExp(`(^|[^\d.])${n.replace('.', '\.')}([^\d]|$)`).test(qq);
+  const qq = String(q ?? '').replace(/(\d),(\d{3})\b/g, '$1$2').replace(/(\d),(\d)/g, '$1.$2');
+  const vals = (qq.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
+  for (const m of qq.toLowerCase().matchAll(/\b(one|two|three|four|five|six|seven|eight|nine|ten|double|twice)(?:-?fold)?\b/g)) vals.push(NUM_WORDS[m[1]]);
+  return vals.some((v) => Math.abs(v - Number(n)) < 1e-9);
 };
+// Wartość odniesienia spoczynku (1×, 0, 100%) nie wymaga cytatu.
+const isBaseline = (t) => /^\s*(1×|0|100\s?%)\s*$/.test(String(t ?? ''));
 
 for (const sys of ATLAS_SYSTEMS) {
   const c = sys.content;
@@ -75,7 +81,7 @@ for (const sys of ATLAS_SYSTEMS) {
       if (!m.referenceIds?.length) err(`${where}: brak referenceIds`);
       // D1 (zgromadzenie): liczba z faktu jest w cytacie albo ma opis przeliczenia (conversionNote)
       if (!m.conversionNote) {
-        const missing = [...numbersIn(m.sprint), ...(shown(m.restStatus ?? st) ? numbersIn(m.rest) : [])].filter((n) => !inQuote(n, m.quote));
+        const missing = [...numbersIn(m.sprint), ...(shown(m.restStatus ?? st) && !isBaseline(m.rest) ? numbersIn(m.rest) : [])].filter((n) => !inQuote(n, m.quote));
         if (missing.length) numWarn.push(`${where}: ${missing.join(', ')}`);
       }
       // D1: wartość spoczynkowa ma jawny status i jest liczona osobno

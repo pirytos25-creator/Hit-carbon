@@ -160,6 +160,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       referenceIds: ['blackie_1991'],
       evidenceLevel: 'established_human',
       protocolMismatch: 'koniec testu maksymalnego',
+      conversionNote: '2,70 ± 0,48 L (mężczyźni) → ok. 2–3 L', // fakty_kontrola_koncowa.md, cz. 1b
       quote: 'Tidal volume at the end of exercise (Vtmax) was higher in men (2.70 +/- 0.48 L)',
       locator: 'Blackie 1991, abstrakt',
       status: 'checked_agent',
@@ -190,7 +191,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Praca wszystkich mięśni oddechowych przy wysiłku maksymalnym (badanie na zdrowych młodych osobach).',
       protocolMismatch: 'wysiłek maksymalny',
-      quote: 'At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max.',
+      quote: 'At maximum exercise, the O2 cost of ventilation (VE) averaged 10 +/- 0.7% of the VO2max. | the VO2RM required 13-15% of VO2max',
       locator: 'Aaron 1992, abstrakt',
       status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
       restStatus: 'unverifiable',

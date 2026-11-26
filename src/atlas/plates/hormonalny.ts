@@ -35,7 +35,7 @@ export const HORMONALNY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #2 (+ referencje); #3-#7
   protocolNotePl:
     'Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).',
-  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: nowe brzmienie (skala czasu)
+  protocolNoteStatus: 'disputed', // fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte
   labels: [
     // ---------------------------------------------------------------- widok: głowa i tułów
     {
@@ -230,7 +230,7 @@ export const HORMONALNY: AtlasPlateContent = {
       status: 'checked_agent', // #38, #39
       restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
-      quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001).',
+      quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001). | Ra increased sixfold in control and both IC groups',
       locator: 'Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”',
       measuredAt: 'w czasie wysiłku',
     },
@@ -260,7 +260,7 @@ export const HORMONALNY: AtlasPlateContent = {
       status: 'checked_agent', // #41, #42; usunięte zdanie #43 (disputed)
       protocolMismatch: '30 min ciągłego wysiłku przy 80% VO₂max',
       quote:
-        'The percent change in cortisol from pre- to post-sampling at each session was: resting-control, 40, 60, and 80% sessions (mean+/-SD) =-6.6+/-3.5%, +5.7+/-11.0%, +39.9+/-11.8%, and +83.1+/-18.5%, respectively.',
+        'The percent change in cortisol from pre- to post-sampling at each session was: resting-control, 40, 60, and 80% sessions (mean+/-SD) =-6.6+/-3.5%, +5.7+/-11.0%, +39.9+/-11.8%, and +83.1+/-18.5%, respectively. | Twelve active moderately trained men performed 30 min of exercise',
       locator: 'Hill 2008, abstrakt',
       measuredAt: 'zaraz po 30 min wysiłku',
     },

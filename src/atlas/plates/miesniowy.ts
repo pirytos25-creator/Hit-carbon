@@ -30,7 +30,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
       evidence: { sprint: 'preliminary_human' }, // fakty_koncowe_C_reszta_i_kontrola.md: symulacja komputerowa jednego biegacza (Hamner 2010)
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion
     },
     {
       anchor: 'rectus_abdominis',
