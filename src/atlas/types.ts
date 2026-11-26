@@ -108,7 +108,8 @@ export type AtlasFlowKind =
   | 'glucose'
   | 'urine'
   | 'force'
-  | 'lymph';
+  | 'lymph'
+  | 'repro';
 
 /** Strzałka przepływu w SVG. Punkty w PIKSELACH renderu danego widoku (format fazy 1; nowe plansze: flows3d.json). */
 export interface AtlasFlow {
@@ -159,6 +160,11 @@ export interface AtlasPlateContent {
   flows?: AtlasFlow[];
   /** Atrybucja modeli (licencje CC). */
   creditsPl: string;
+  /**
+   * Karta bez stanów (model §4 pkt 10: np. rozrodczy): ten sam obraz w spoczynku i sprincie, przełącznik stanów
+   * ukryty. To samo może ustawić skrypt planszy w anchors.json (`"card": true`).
+   */
+  card?: boolean;
 }
 
 /** Parametry rzutu ortograficznego kamery widoku (atlas_lib.Plate.camera_meta). */
@@ -187,6 +193,8 @@ export interface AtlasViewMeta {
 /** Plik generowany przez blender/atlas/atlas_lib.py. */
 export interface AtlasAnchorsFile {
   schemaVersion?: number;
+  /** Karta bez stanów (zob. AtlasPlateContent.card). */
+  card?: boolean;
   id: string;
   resolution: [number, number];
   views: Partial<Record<AtlasView, AtlasViewMeta>>;
