@@ -15,7 +15,10 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const root = process.env.ATLAS_ROOT || join(dirname(fileURLToPath(import.meta.url)), '..');
+// Pliki tekstowe czytamy z końcami linii LF: w checkoucie z core.autocrlf=true źródła mają CRLF, a reguły (regex) zakładają LF.
+const readText = (p) => readFileSync(p, 'utf-8').replace(/\r\n/g, '\n');
+
 const out = join(mkdtempSync(join(tmpdir(), 'atlas-data-')), 'bundle.mjs');
 await build({
   stdin: {
@@ -140,7 +143,7 @@ for (const k of Object.keys(planCount)) if (planCount[k] !== dataCount[k]) err(`
 const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus|lessonGoal|question|summaryShort|momentLabel|curriculumRef)\s*:/m;
 for (const f of readdirSync(join(root, 'src/atlas/plates'))) {
   if (!f.endsWith('.ts') || f === 'index.ts') continue;
-  const src = readFileSync(join(root, 'src/atlas/plates', f), 'utf-8');
+  const src = readText(join(root, 'src/atlas/plates', f));
   const m = src.match(FACT_FIELDS);
   if (m) err(`plates/${f}: pole faktu „${m[1]}” w pliku układu (treść faktów ma być tylko w src/atlas/data/facts/)`);
 }

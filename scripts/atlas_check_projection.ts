@@ -12,6 +12,9 @@ import { projectPoint, viewResolution } from '../src/atlas/projection.ts';
 import type { AtlasAnchorsFile } from '../src/atlas/types.ts';
 
 const root = join(import.meta.dirname, '..', 'public', 'atlas');
+// Pliki tekstowe czytamy z końcami linii LF: w checkoucie z core.autocrlf=true źródła mają CRLF, a reguły (regex) zakładają LF.
+const readText = (p: string): string => readFileSync(p, 'utf-8').replace(/\r\n/g, '\n');
+
 let worst = 0;
 let checked = 0;
 let sizeErrors = 0;
@@ -32,7 +35,7 @@ function webpSize(path: string): [number, number] | null {
 for (const id of readdirSync(root)) {
   const path = join(root, id, 'anchors.json');
   if (!existsSync(path)) continue;
-  const a = JSON.parse(readFileSync(path, 'utf-8')) as AtlasAnchorsFile;
+  const a = JSON.parse(readText(path)) as AtlasAnchorsFile;
   for (const [view, v] of Object.entries(a.views)) {
     const res = viewResolution(a, view);
     for (const img of new Set(Object.values(v?.images ?? {}))) {

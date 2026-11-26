@@ -17,7 +17,10 @@ import { join } from 'node:path';
 type Rgb = [number, number, number];
 interface Sys { key: string; token: string; color: string; light: string; onColor?: string; plate?: string | null }
 const root = join(import.meta.dirname, '..');
-const pal = JSON.parse(readFileSync(join(root, 'src/atlas/data/palette.json'), 'utf-8'));
+// Pliki tekstowe czytamy z końcami linii LF: w checkoucie z core.autocrlf=true źródła mają CRLF, a reguły (regex) zakładają LF.
+const readText = (p: string): string => readFileSync(p, 'utf-8').replace(/\r\n/g, '\n');
+
+const pal = JSON.parse(readText(join(root, 'src/atlas/data/palette.json')));
 const MIN: number = pal.validation.minDeltaE;
 
 const hex = (h: string): Rgb => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255) as Rgb;
@@ -130,7 +133,7 @@ for (const s of systems) {
 console.log('Kontrast jasnych wariantów na tle strony: sprawdzony (WCAG ≥ 4,5:1).');
 
 // 4. zgodność z index.css
-const css = readFileSync(join(root, 'src/index.css'), 'utf-8');
+const css = readText(join(root, 'src/index.css'));
 for (const s of systems) {
   for (const [tok, val] of [[s.token, s.color], [`${s.token}-light`, s.light]]) {
     const m = css.match(new RegExp(`${tok}:\\s*(#[0-9a-fA-F]{6})`));
@@ -166,9 +169,9 @@ for (const id of readdirSync(atlasDir)) {
   const used = new Map<string, Set<string>>(); // widok -> rodzaje strzałek
   const add = (view: string, kind: string) => { if (!used.has(view)) used.set(view, new Set()); used.get(view)!.add(kind); };
   const f3 = join(atlasDir, id, 'flows3d.json');
-  if (existsSync(f3)) for (const fl of JSON.parse(readFileSync(f3, 'utf-8')).flows ?? []) for (const v of fl.views ?? ['*']) add(v, fl.kind);
+  if (existsSync(f3)) for (const fl of JSON.parse(readText(f3)).flows ?? []) for (const v of fl.views ?? ['*']) add(v, fl.kind);
   const ts = join(root, 'src', 'atlas', 'plates', `${id}.ts`);
-  if (existsSync(ts)) for (const m of readFileSync(ts, 'utf-8').matchAll(/view:\s*'(\w+)',\s*kind:\s*'(\w+)'/g)) add(m[1], m[2]);
+  if (existsSync(ts)) for (const m of readText(ts).matchAll(/view:\s*'(\w+)',\s*kind:\s*'(\w+)'/g)) add(m[1], m[2]);
   const own = systems.find((s) => s.plate === id);
   for (const [view, ks] of used) {
     for (const k of ks) if (!kinds[k]) fail(`${id}/${view}: rodzaj strzałki „${k}” bez stylu w palette.json (flows.kinds)`);

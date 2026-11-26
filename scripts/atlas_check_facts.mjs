@@ -22,7 +22,10 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const root = process.env.ATLAS_ROOT || join(dirname(fileURLToPath(import.meta.url)), '..');
+// Pliki tekstowe czytamy z końcami linii LF: w checkoucie z core.autocrlf=true źródła mają CRLF, a reguły (regex) zakładają LF.
+const readText = (p) => readFileSync(p, 'utf-8').replace(/\r\n/g, '\n');
+
 const out = join(mkdtempSync(join(tmpdir(), 'atlas-facts-')), 'bundle.mjs');
 await build({
   stdin: {
@@ -45,7 +48,7 @@ const CHECKED = new Set(['checked_agent', 'checked_human']);
 const STATUSES = new Set(['draft', 'checked_agent', 'disputed', 'unverifiable', 'checked_human', 'anatomy']);
 const factIndex = new Map();
 for (const f of readdirSync(join(root, 'src', 'atlas', 'data', 'facts')))
-  for (const r of JSON.parse(readFileSync(join(root, 'src', 'atlas', 'data', 'facts', f), 'utf-8')).facts) factIndex.set(r.id, r);
+  for (const r of JSON.parse(readText(join(root, 'src', 'atlas', 'data', 'facts', f))).facts) factIndex.set(r.id, r);
 // Zdania w tekście (kropka/!/? przed wielką literą albo końcem; bez skrótów „ok.”, „np.”, „m.”, „t.”, „ż.” itd.)
 const sentences = (t) =>
   String(t ?? '')
@@ -204,7 +207,7 @@ if (numWarn.length) {
 }
 
 // UI: tekst podsumowania tylko przez shownSummary (reguła 1b).
-const app = readFileSync(join(root, 'src', 'atlas', 'AtlasApp.tsx'), 'utf-8');
+const app = readText(join(root, 'src', 'atlas', 'AtlasApp.tsx'));
 if (/content\.summary\s*\[/.test(app)) err('AtlasApp.tsx czyta content.summary[...] wprost; podsumowanie tylko przez shownSummary()');
 if (!/shownSummary\(/.test(app)) err('AtlasApp.tsx nie używa shownSummary(); podsumowanie draft mogłoby trafić na ekran');
 // M3 (S2/K4): zdania robocze dla autora tylko w StatusNotes; StatusNotes tylko w poziomie Rozszerzonym
@@ -213,7 +216,7 @@ const WORK = /czeka|czekaj|niesprawdz|sprawdzenie źródła/i;
 const statusBlock = (app.match(/\nfunction StatusNotes\([\s\S]*?\n\}\n/) ?? [''])[0];
 if (!statusBlock) err('AtlasApp.tsx: brak komponentu StatusNotes (jedyne miejsce statusów sprawdzania)');
 const appOutside = noComments(app.replace(statusBlock, ''));
-for (const [name, src] of [['AtlasApp.tsx (poza StatusNotes)', appOutside], ['AtlasPlate.tsx', noComments(readFileSync(join(root, 'src', 'atlas', 'AtlasPlate.tsx'), 'utf-8'))]]) {
+for (const [name, src] of [['AtlasApp.tsx (poza StatusNotes)', appOutside], ['AtlasPlate.tsx', noComments(readText(join(root, 'src', 'atlas', 'AtlasPlate.tsx')))]]) {
   const m = src.match(new RegExp(`[^\\n]*(${WORK.source})[^\\n]*`, 'i'));
   if (m) err(`${name}: zdanie robocze dla autora poza StatusNotes: „${m[0].trim().slice(0, 90)}”`);
 }
