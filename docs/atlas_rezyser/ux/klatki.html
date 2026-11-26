@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klatki koncepcyjne UX atlasu</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!--
+  KLATKI KONCEPCYJNE (posiedzenie UI/UX, docs/atlas_rezyser). Nie jest kodem aplikacji.
+  Otwieranie: serwer Vite aplikacji (npm run dev) -> /docs/atlas_rezyser/ux/klatki.html#k=krew (krew, kosc, nerw, skora)
+  Rendery z public/atlas (Z-Anatomy CC BY-SA 4.0, HuBMAP CC BY 4.0). Liczby wyłącznie z faktów checked_agent
+  obecnych już na planszach; nakładki wyróżników (strzałki, izolinie, linie techniczne) są szkicem rozmieszczenia,
+  a nie danymi.
+-->
+<style>
+:root{--bg:#070B14;--panel:#0c1322;--line:#1c2740;--ink:#E6ECF5;--dim:#93A0B6;--muted:#6b7890;
+  --sys:#D93240;--sys-l:#F07A84;--vein:#3E6FD8;--work:#ff5a4f;--rest:#5fd0c6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;overflow:hidden}
+.mono{font-family:'JetBrains Mono',monospace}
+.app{position:fixed;inset:0;display:grid;grid-template-columns:150px 1fr 380px;grid-template-rows:56px 1fr}
+/* pasek górny: okruszki + cel lekcji + poziom */
+.top{grid-column:1/4;display:flex;align-items:center;gap:16px;padding:0 18px;border-bottom:1px solid var(--line);background:#09101d}
+.crumb{font:600 12px 'JetBrains Mono';letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.crumb b{color:var(--ink)}
+.goal{flex:1;font-size:15px;color:#cfd8e6}
+.goal b{color:var(--sys-l)}
+.lvl{display:flex;background:#111a2d;border-radius:9px;padding:3px}
+.lvl span{padding:5px 11px;font-size:13px;border-radius:7px;color:var(--dim)} .lvl .on{background:#22304d;color:var(--ink)}
+/* nawigacja */
+.nav{border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:2px;font-size:13px}
+.nav h4{margin:10px 6px 4px;font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:var(--muted)}
+.nav a{display:flex;gap:8px;align-items:center;padding:5px 8px;border-radius:7px;color:#c4cdda;text-decoration:none}
+.nav a i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.nav a.on{background:#1a2540;color:#fff;box-shadow:inset 3px 0 0 var(--sys)}
+/* scena */
+.stage{position:relative;overflow:hidden;background:radial-gradient(55% 70% at 50% 46%,#14213b 0%,#0a1120 58%,var(--bg) 100%)}
+.stage .fig{position:absolute;left:50%;top:50%;height:88%;transform:translate(-50%,-50%);aspect-ratio:1000/1800}
+.stage .fig img,.stage .fig svg{position:absolute;inset:0;width:100%;height:100%}
+.podest{position:absolute;left:50%;bottom:3%;width:240px;height:26px;transform:translateX(-50%);background:radial-gradient(closest-side,#2a3a5c66,transparent)}
+.chip{position:absolute;padding:6px 11px;border-radius:9px;background:#0d1526d9;border:1px solid var(--line);font:600 11px 'JetBrains Mono';letter-spacing:.08em}
+.moment{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;background:#0f1729;border:1px solid var(--line);border-radius:11px;padding:4px;gap:2px}
+.moment span{padding:8px 16px;border-radius:8px;font-size:14px;color:var(--dim)}
+.moment .on{background:var(--sys);color:#fff;font-weight:700}
+.moment .chg{border:1px dashed #ffffff33}
+.legend{position:absolute;left:16px;bottom:78px;width:260px;padding:10px 12px;border-radius:11px;background:#0d1526e6;border:1px solid var(--line);font-size:13px;line-height:1.4}
+.legend h5{margin:0 0 6px;font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:var(--dim)}
+.legend .row{display:flex;gap:8px;align-items:center;margin:4px 0}
+.loc{position:absolute;right:16px;top:14px;width:74px;height:120px;border-radius:10px;background:#0d1526d9;border:1px solid var(--line)}
+/* panel */
+.panel{border-left:1px solid var(--line);padding:18px 20px;display:flex;flex-direction:column;gap:14px;overflow:hidden;background:#080e1a}
+.q{font-size:19px;font-weight:800;line-height:1.25}
+.q small{display:block;font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:var(--sys-l);margin-bottom:6px}
+.hero{padding:14px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.hero .k{font-size:13px;color:var(--dim)}
+.hero .v{font:600 24px 'JetBrains Mono';margin:4px 0 2px;color:#fff}
+.hero .v em{font-style:normal;color:var(--sys-l)}
+.hero .m{font-size:12px;color:var(--muted)}
+.hero .ev{margin-top:8px;display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#b9c6da;border:1px solid #2a3858;border-radius:999px;padding:3px 9px}
+.txt{font-size:15px;line-height:1.5;color:#d6deea}
+.txt b{color:#fff}
+.check{padding:12px 14px;border-radius:12px;border:1px dashed #2f4470;background:#0b1426}
+.check small{font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:#9fd8ff}
+.check p{margin:6px 0 8px;font-weight:600}
+.check span{display:inline-block;margin-right:6px;padding:6px 12px;border-radius:8px;background:#15223f;border:1px solid #2b3d66;font-size:13px}
+.more{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+/* rozdzielnia */
+.split{display:grid;grid-template-columns:62px 1fr;gap:6px 10px;align-items:center;font-size:12px;color:var(--dim)}
+.bar{height:16px;border-radius:5px;display:flex;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%}
+@keyframes dash{to{stroke-dashoffset:-80}}
+.fl{fill:none;stroke-linecap:round;stroke-dasharray:22 20;animation:dash 1.4s linear infinite}
+.note{position:absolute;right:14px;bottom:70px;max-width:230px;font:600 10px 'JetBrains Mono';color:#ffb86b;letter-spacing:.06em;text-align:right}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<script>
+const SYS=[
+ ['STEROWANIE',[['mozg','Mózg','#9B7BEA'],['nerwowy','Nerwowy','#E8B23A'],['hormonalny','Hormonalny','#EF872A']]],
+ ['NAPĘD',[['miesniowy','Mięśniowy','#C8553D'],['kostny','Kostny','#A17D2B']]],
+ ['ZAOPATRZENIE',[['oddechowy','Oddechowy','#4FC3E0'],['krwionosny','Krwionośny','#D93240'],['pokarmowy','Pokarmowy','#A8743A']]],
+ ['RÓWNOWAGA',[['powlokowy','Powłokowy','#C99A84'],['wydalniczy','Moczowy','#2E9C9A'],['limfatyczny','Limfatyczny','#45A85A']]],
+ ['INNE',[['rozrodczy','Rozrodczy','#D45D9A']]]];
+const A='/atlas/'; // serwer Vite aplikacji (public/ jest pod /)
+// Każda klatka: ten sam szkielet (rama), inny wyróżnik (nakładka + legenda + bohater + pytanie).
+const K={
+ krew:{sys:'krwionosny',color:'#D93240',light:'#F07A84',group:'Zaopatrzenie',
+  goal:'Po co serce bije szybciej? <b>Żeby przesunąć krew tam, gdzie pracują mięśnie.</b>',
+  img:A+'krwionosny/front_sprint.webp', scale:'1,8 m · całe ciało', sign:'WYRÓŻNIK · ROZDZIAŁ',
+  overlay:`<polyline class="fl" stroke="#D93240" stroke-width="22" points="519,380 519,560 505,700 470,800 440,960 425,1150 410,1350 400,1560"/>
+   <polyline class="fl" stroke="#D93240" stroke-width="22" points="519,380 519,560 535,700 570,800 590,960 600,1150 610,1350 615,1560"/>
+   <polyline class="fl" stroke="#D93240" stroke-width="5" points="519,520 545,600 560,640"/>
+   <polyline class="fl" stroke="#D93240" stroke-width="6" points="511,375 500,300 490,200"/>`,
+  legend:`<h5>JAK CZYTAĆ: ROZDZIAŁ KRWI</h5>
+   <div class="row"><svg width="46" height="14"><line x1="2" y1="7" x2="44" y2="7" stroke="#D93240" stroke-width="9" stroke-dasharray="9 6"/></svg>dużo krwi (gruba strzałka)</div>
+   <div class="row"><svg width="46" height="14"><line x1="2" y1="7" x2="44" y2="7" stroke="#D93240" stroke-width="2.5" stroke-dasharray="9 6"/></svg>mało krwi (cienka)</div>
+   <div class="row" style="color:var(--dim)">grubość = udział krwi z jednego uderzenia serca</div>`,
+  q:'Dokąd płynie krew, gdy biegniesz?',
+  hero:{k:'Ile krwi pompuje serce na minutę',v:'ok. 5 → <em>20–25</em> L',m:'spoczynek → koniec 45 s pracy · ×4–5',ev:'U ludzi dobrze wiadomo · Kenney 2022'},
+  extra:`<div class="split"><span>spoczynek</span><div class="bar"><i style="width:19%;background:#D93240"></i><i style="width:81%;background:#3b4660"></i></div><span></span><span style="margin-top:-4px">mięśnie: mniej niż 20%</span>
+   <span>sprint</span><div class="bar"><i style="width:80%;background:#D93240"></i><i style="width:20%;background:#3b4660"></i></div>
+   <span></span><span><b style="color:#F07A84">■</b> mięśnie &nbsp; <b style="color:#3b4660">■</b> reszta ciała (jelita, nerki, mózg, skóra)</span></div>`,
+  txt:'W sprincie <b>ok. 80% krwi</b> trafia do pracujących mięśni. Naczynia jelit i nerek się zwężają.',
+  check:{p:'Przepływ krwi przez jelita w sprincie:',a:['↑ rośnie','↓ maleje']}},
+ kosc:{sys:'kostny',color:'#A17D2B',light:'#CBB88A',group:'Napęd',
+  goal:'Kość to <b>konstrukcja nośna</b>: przy każdym kroku przenosi nacisk kilka razy większy niż masa ciała.',
+  img:A+'kostny/side_sprint.webp', scale:'1,8 m · widok z boku', sign:'WYRÓŻNIK · KONSTRUKCJA',
+  overlay:`<g stroke="#E9EEF7" stroke-width="3" fill="none" opacity=".9">
+    <line x1="470" y1="1790" x2="470" y2="1430" stroke="#CBB88A" stroke-width="10"/><polygon points="470,1405 452,1445 488,1445" fill="#CBB88A" stroke="none"/>
+    <circle cx="495" cy="1265" r="22"/><line x1="495" y1="1225" x2="495" y2="1305" stroke-dasharray="6 6"/>
+    <circle cx="505" cy="880" r="22"/><line x1="505" y1="840" x2="505" y2="920" stroke-dasharray="6 6"/>
+    <line x1="560" y1="1250" x2="560" y2="1700"/><line x1="550" y1="1250" x2="570" y2="1250"/><line x1="550" y1="1700" x2="570" y2="1700"/></g>
+   <text x="585" y="1480" fill="#E9EEF7" font-family="JetBrains Mono" font-size="30">piszczel</text>
+   <text x="330" y="1600" fill="#CBB88A" font-family="JetBrains Mono" font-size="32" font-weight="700">nacisk</text>
+   <text x="330" y="1640" fill="#CBB88A" font-family="JetBrains Mono" font-size="32">podłoża</text>`,
+  legend:`<h5>JAK CZYTAĆ: KONSTRUKCJA</h5>
+   <div class="row"><svg width="46" height="18"><line x1="23" y1="17" x2="23" y2="4" stroke="#CBB88A" stroke-width="5"/></svg>siła nacisku podłoża (strzałka)</div>
+   <div class="row"><svg width="46" height="18"><circle cx="23" cy="9" r="7" fill="none" stroke="#E9EEF7" stroke-width="2"/></svg>oś stawu (tu się zgina)</div>
+   <div class="row"><svg width="46" height="18"><line x1="6" y1="9" x2="40" y2="9" stroke="#E9EEF7" stroke-width="2"/><line x1="6" y1="3" x2="6" y2="15" stroke="#E9EEF7" stroke-width="2"/><line x1="40" y1="3" x2="40" y2="15" stroke="#E9EEF7" stroke-width="2"/></svg>element nośny (wymiar)</div>`,
+  q:'Ile „waży” jeden krok biegu?',
+  hero:{k:'Szczyt nacisku podłoża na stopę',v:'ok. <em>2,5–2,7</em> × masa ciała',m:'jeden krok biegu · kontakt stopy ok. 0,24–0,27 s',ev:'sprawdzone z cytatem · bieg 3–5 m/s'},
+  extra:'', txt:'W jednym sprincie kość <b>nie zmienia się widocznie</b>. Mocniejsza staje się dopiero po tygodniach treningu (przebudowa).',
+  check:{p:'Czy po jednym treningu kość jest już mocniejsza?',a:['Tak','Nie, po tygodniach']}, moment:['Spoczynek','Krok biegu','Po tygodniach']},
+ nerw:{sys:'nerwowy',color:'#E8B23A',light:'#F6D27A',group:'Sterowanie',
+  goal:'Każdy krok zaczyna się od <b>rozkazu z mózgu</b>, który biegnie nerwem do mięśnia.',
+  img:A+'nerwowy/front_sprint.webp', scale:'1,8 m · całe ciało', sign:'WYRÓŻNIK · IMPULS',
+  overlay:`<polyline fill="none" stroke="#F6D27A" stroke-opacity=".35" stroke-width="7" points="500,120 500,560 480,700 455,900 440,1000"/>
+   <circle cx="455" cy="900" r="16" fill="#FFF3C4"/><circle cx="455" cy="900" r="34" fill="#F6D27A" opacity=".35"/>
+   ${[[500,150,'1'],[500,560,'2'],[470,780,'3'],[440,1000,'4']].map(([x,y,n])=>`<circle cx="${x}" cy="${y}" r="24" fill="#0b1020" stroke="#F6D27A" stroke-width="4"/><text x="${x}" y="${y+10}" text-anchor="middle" font-family="JetBrains Mono" font-size="28" font-weight="700" fill="#F6D27A">${n}</text>`).join('')}`,
+  legend:`<h5>JAK CZYTAĆ: IMPULS</h5>
+   <div class="row"><svg width="46" height="18"><circle cx="12" cy="9" r="6" fill="#FFF3C4"/><line x1="18" y1="9" x2="44" y2="9" stroke="#F6D27A" stroke-opacity=".4" stroke-width="4"/></svg>świecący punkt = rozkaz w drodze</div>
+   <div class="row">1 mózg → 2 rdzeń → 3 nerw udowy → 4 mięsień</div>
+   <div class="row" style="color:var(--dim)">pokazuje kolejność, nie prędkość</div>`,
+  q:'Skąd mięsień wie, że ma się skurczyć?',
+  hero:{k:'Kolejność rozkazu',v:'mózg → <em>rdzeń</em> → nerw',m:'zanim stopa odbije się od taśmy',ev:'anatomia (podręcznik)'},
+  extra:'', txt:'W sprincie mózg <b>wysyła więcej impulsów</b> i włącza coraz większe jednostki ruchowe.',
+  check:{p:'Co jest pierwsze: skurcz mięśnia czy impuls w nerwie?',a:['Skurcz','Impuls']}},
+ skora:{sys:'powlokowy',color:'#C99A84',light:'#E7C3B2',group:'Równowaga',
+  goal:'Skóra to <b>chłodnica</b>: po wysiłku oddaje ciepło przez pot i rozszerzone naczynia.',
+  img:A+'powlokowy/front_sprint.webp', scale:'1,8 m · całe ciało', sign:'WYRÓŻNIK · CIEPŁO',
+  overlay:`<g fill="none" stroke="#FFB38A" stroke-width="3" opacity=".75">
+    <path d="M300,330 C260,600 280,900 330,1100"/><path d="M700,330 C740,600 720,900 670,1100"/>
+    <path d="M270,330 C220,620 240,920 300,1130" stroke-dasharray="8 10" opacity=".6"/><path d="M730,330 C780,620 760,920 700,1130" stroke-dasharray="8 10" opacity=".6"/></g>
+   ${[[250,420],[760,420],[230,700],[780,700],[260,980],[750,980]].map(([x,y])=>`<g transform="translate(${x},${y})"><path d="M0,0 C-14,-18 14,-30 0,-48 C-14,-66 14,-78 0,-96" fill="none" stroke="#FFB38A" stroke-width="5" stroke-linecap="round"/></g>`).join('')}
+   ${[[395,520],[610,560],[470,760]].map(([x,y])=>`<path transform="translate(${x},${y})" d="M0,-16 C9,-3 12,4 12,8 A12,12 0 0 1 -12,8 C-12,4 -9,-3 0,-16 Z" fill="#9fd8ff"/>`).join('')}`,
+  legend:`<h5>JAK CZYTAĆ: CIEPŁO</h5>
+   <div class="row"><svg width="46" height="18"><path d="M23,17 C15,12 31,8 23,1" fill="none" stroke="#FFB38A" stroke-width="3"/></svg>ciepło uchodzi ze skóry</div>
+   <div class="row"><svg width="46" height="18"><path d="M23,2 C28,9 30,12 30,14 A7,4 0 0 1 16,14 C16,12 18,9 23,2Z" fill="#9fd8ff"/></svg>pot</div>
+   <div class="row"><svg width="46" height="18"><line x1="2" y1="9" x2="44" y2="9" stroke="#FFB38A" stroke-width="2"/><line x1="2" y1="14" x2="44" y2="14" stroke="#FFB38A" stroke-width="2" stroke-dasharray="4 4"/></svg>izolinie: 3 stopnie (ilustracja)</div>`,
+  q:'Dlaczego po sprincie robisz się czerwony?',
+  hero:{k:'Przepływ krwi przez skórę',v:'najpierw <em>↓</em>, potem <em>↑</em>',m:'start pracy → po pracy',ev:'sprawdzone z cytatem · kierunek, bez liczby'},
+  extra:'', txt:'Na starcie naczynia skóry <b>się zwężają</b> (krew idzie do mięśni). Po pracy <b>się rozszerzają</b> i ciało oddaje ciepło.',
+  check:{p:'Po sprincie przepływ krwi w skórze:',a:['↑ rośnie','↓ maleje']}, moment:['Spoczynek','Sprint','Po pracy']},
+};
+function render(key){
+  const k=K[key]||K.krew;
+  document.documentElement.style.setProperty('--sys',k.color); document.documentElement.style.setProperty('--sys-l',k.light);
+  const nav=SYS.map(([g,items])=>`<h4>${g}</h4>`+items.map(([id,n,c])=>`<a class="${id===k.sys?'on':''}"><i style="background:${c}"></i>${n}</a>`).join('')).join('');
+  const mom=(k.moment||['Spoczynek','Sprint']).map((m,i,arr)=>`<span class="${i===1?'on':''}">${m}</span>`).join('')+'<span class="chg">Co się zmieniło</span>';
+  document.getElementById('app').innerHTML=`
+   <div class="top"><span class="crumb">Atlas › ${k.group} › <b>${SYS.flatMap(s=>s[1]).find(s=>s[0]===k.sys)[1]}</b></span>
+     <span class="goal">${k.goal}</span><span class="lvl"><span class="on">Uczeń</span><span>Rozszerzony</span></span></div>
+   <nav class="nav">${nav}</nav>
+   <div class="stage"><div class="podest"></div>
+     <div class="fig"><img src="${k.img}" alt=""><svg viewBox="0 0 1000 1800" preserveAspectRatio="none">${k.overlay}</svg></div>
+     <div class="chip" style="left:16px;top:14px">${k.scale}</div>
+     <div class="chip" style="left:16px;top:50px;color:${k.light}">${k.sign}</div>
+     <div class="legend">${k.legend}</div>
+     <div class="moment">${mom}</div>
+     <div class="note">KLATKA KONCEPCYJNA · nakładka = szkic rozmieszczenia</div>
+   </div>
+   <aside class="panel">
+     <div class="q"><small>PYTANIE PLANSZY</small>${k.q}</div>
+     <div class="hero"><div class="k">${k.hero.k}</div><div class="v">${k.hero.v}</div><div class="m">${k.hero.m}</div><div class="ev">● ${k.hero.ev}</div></div>
+     ${k.extra}
+     <div class="txt">${k.txt}</div>
+     <div class="check"><small>SPRAWDŹ SIĘ</small><p>${k.check.p}</p>${k.check.a.map(a=>`<span>${a}</span>`).join('')}</div>
+     <div class="more">▸ Więcej liczb i źródła · ▸ Co znaczy „sprint” (45 s przy 88% VO₂max) · ▸ Zobacz w filmie</div>
+   </aside>`;
+}
+const m=location.hash.match(/k=(\w+)/); render(m?m[1]:'krew');
+window.addEventListener('hashchange',()=>{const m=location.hash.match(/k=(\w+)/); render(m?m[1]:'krew');});
+</script>
+</body>
+</html>

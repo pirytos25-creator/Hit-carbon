@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Karta stylu 12 układów</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!-- Karta stylu (posiedzenie UI/UX). Otwieranie: serwer Vite aplikacji -> /docs/atlas_rezyser/ux/karta_stylu.html -->
+<style>
+body{margin:0;background:#070B14;color:#E6ECF5;font-family:Figtree,system-ui,sans-serif;padding:26px 30px}
+h1{margin:0 0 4px;font-size:24px} p.sub{margin:0 0 18px;color:#93A0B6;font-size:14px}
+.common{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.common span{font:600 11px 'JetBrains Mono';letter-spacing:.08em;padding:6px 10px;border:1px solid #24314f;border-radius:8px;color:#b9c6da;background:#0c1322}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.t{border-radius:14px;background:#0c1322;border:1px solid #1c2740;overflow:hidden;display:flex;flex-direction:column}
+.t .img{height:170px;background:radial-gradient(60% 80% at 50% 50%,#15233f,#0a1120 70%);position:relative}
+.t .img img{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain}
+.t .img svg{position:absolute;right:8px;bottom:8px}
+.t .b{padding:10px 12px;border-top:3px solid var(--c)}
+.t h3{margin:0;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+.t h3 small{font:600 10px 'JetBrains Mono';letter-spacing:.12em;color:var(--l)}
+.t .sig{font:800 13px 'JetBrains Mono';letter-spacing:.1em;color:var(--l);margin:4px 0}
+.t dl{margin:0;display:grid;grid-template-columns:54px 1fr;gap:2px 6px;font-size:12px;line-height:1.35}
+.t dt{color:#6b7890;font:600 10px 'JetBrains Mono';letter-spacing:.08em;padding-top:2px}
+.t dd{margin:0;color:#cfd8e6}
+</style>
+</head>
+<body>
+<h1>Karta stylu: wspólna rama + jeden wyróżnik na układ</h1>
+<p class="sub">Wyróżnik = <b>znak</b> (jak wygląda nakładka) + <b>jeden ruch</b> (co się animuje) + <b>jedna miara</b> (wskaźnik w panelu). Każdy uczy jednej idei z biologii w liceum.</p>
+<div class="common">
+  <span>WSPÓLNE: pasek „Atlas › grupa › układ” + cel lekcji</span><span>scena-studio (gradient, podest)</span><span>chip skali</span>
+  <span>Spoczynek | Sprint | Co się zmieniło</span><span>pytanie planszy</span><span>1 liczba-bohater</span><span>„Jak czytać” (legenda wyróżnika)</span><span>Sprawdź się</span><span>Uczeń | Rozszerzony</span>
+</div>
+<div class="grid" id="g"></div>
+<script>
+const T=[
+ ['mozg','side_sprint.webp','Mózg','#9B7BEA','#C3AEF5','STEROWANIE','OBSZAR','strefy płatów z obrysem; jedna strefa w pełnym kolorze','zapalenie strefy przy podpisie','która część mózgu odpowiada za ruch','płaty i ich funkcje'],
+ ['nerwowy','front_sprint.webp','Nerwowy','#E8B23A','#F6D27A','STEROWANIE','IMPULS','świecący punkt na torze nerwu, numerowane etapy 1–4','punkt biegnie mózg → rdzeń → nerw → mięsień','kolejność (nie prędkość)','neuron, droga ruchowa, układ współczulny'],
+ ['hormonalny','body_front_sprint.webp','Hormonalny','#EF872A','#F6BD8A','STEROWANIE','NADAWCA → ODBIORCA','gruczoł z „falą”, krople hormonu w naczyniu, cel z zamkiem','krople płyną krwią do narządu docelowego','opóźnienie: sekundy vs minuty','gruczoł, hormon, narząd docelowy'],
+ ['miesniowy','front_sprint.webp','Mięśniowy','#C8553D','#EE8A6E','NAPĘD','PRACA','pasek rekrutacji włókien I → IIa → IIx; strzałka ciągnięcia','wypełnianie paska przy przejściu w sprint','ile włókien pracuje','antagonizm, typy włókien'],
+ ['kostny','side_sprint.webp','Kostny','#A17D2B','#CBB88A','NAPĘD','KONSTRUKCJA','rysunek techniczny: strzałka nacisku, osie stawów, wymiar','jedno „uderzenie” strzałki przy kroku','× masa ciała','dźwignia, staw, przebudowa kości'],
+ ['oddechowy','front_sprint.webp','Oddechowy','#4FC3E0','#94DEF0','ZAOPATRZENIE','OBJĘTOŚĆ','miernik objętości obok płuc; fala powietrza w tchawicy','fala wdechu i wydechu w tempie z faktu','litry na oddech, oddechy na minutę','wentylacja, wymiana gazowa'],
+ ['krwionosny','front_sprint.webp','Krwionośny','#D93240','#F07A84','ZAOPATRZENIE','ROZDZIAŁ','grube i cienkie strzałki; pasek „gdzie idzie krew”','strzałki płyną, grubość = udział krwi','% rzutu serca do mięśni','krążenie duże i małe, redystrybucja'],
+ ['pokarmowy','front_sprint.webp','Pokarmowy','#A8743A','#D6B07E','ZAOPATRZENIE','MAGAZYN','wątroba jako zbiornik z poziomem; jelita przygaszone','strzałka glukozy z wątroby do krwi','poziom zapasu (3 stopnie, ilustracja)','glikogen, rola wątroby'],
+ ['powlokowy','front_sprint.webp','Powłokowy','#C99A84','#E7C3B2','RÓWNOWAGA','CIEPŁO','izolinie i strzałki ciepła; krople potu','strzałki ciepła wychodzą ze skóry','kierunek przepływu skórnego ↓/↑','termoregulacja, pot'],
+ ['wydalniczy','body_front_sprint.webp','Moczowy','#2E9C9A','#7FD3CF','RÓWNOWAGA','FILTR','nerka jako filtr: wejście krwi, wyjście moczu','przepływ przez filtr zwalnia w sprincie','przepływ nerkowy ↓','nefron, filtracja, bilans wody'],
+ ['limfatyczny','front_sprint.webp','Limfatyczny','#45A85A','#8FD39E','RÓWNOWAGA','PATROL','węzły jako punkty kontrolne; kropki-komórki','kropki przechodzą z węzłów do krwi','× liczba komórek NK we krwi','odporność, krążenie limfy'],
+ ['rozrodczy','side.webp','Rozrodczy','#D45D9A','#EDA3C6','INNE','DŁUGI CZAS','oś tygodni zamiast sprintu; uczciwe „brak widocznej zmiany”','brak animacji sprintu (karta)','tygodnie, nie sekundy','hormony płciowe, adaptacja'],
+];
+document.getElementById('g').innerHTML=T.map(([id,img,n,c,l,g,sig,znak,ruch,miara,lic])=>`
+ <div class="t" style="--c:${c};--l:${l}"><div class="img"><img src="/atlas/${id}/${img}" alt=""></div>
+ <div class="b"><h3>${n}<small>${g}</small></h3><div class="sig">${sig}</div>
+ <dl><dt>ZNAK</dt><dd>${znak}</dd><dt>RUCH</dt><dd>${ruch}</dd><dt>MIARA</dt><dd>${miara}</dd><dt>LICEUM</dt><dd>${lic}</dd></dl></div></div>`).join('');
+</script>
+</body>
+</html>
