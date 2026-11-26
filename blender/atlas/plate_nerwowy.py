@@ -445,7 +445,7 @@ paths["front_femoral"] = ("front", cord_line(dura_mn.z + 0.10, dura_mn.z + 0.06,
 # Współczulny: pień współczulny -> nerw trzewny -> nadnercze (rdzeń nadnerczy wydziela adrenalinę).
 st = curve_points("Sympathetic trunk.r")
 paths["front_sympathetic"] = ("front", [p for p in st if p.z > obj_center("Suprarenal gland.r").z] +
-                              [obj_center("Suprarenal gland.r")], "Współczulny: pień → rdzeń nadnerczy")
+                              [obj_center("Suprarenal gland.r")], "Współczulny: rdzeń kręgowy → (przez pień, bez przełączenia) nerwy trzewne → rdzeń nadnerczy")
 
 W, H = plate.res
 flows = []
@@ -463,3 +463,6 @@ for key, (view, pts, label) in paths.items():
 with open(os.path.join(plate.out_dir, "flows.json"), "w", encoding="utf-8") as f:
     json.dump(flows, f, indent=1, ensure_ascii=False)
 print("ATLAS_FLOWS", [(fl["key"], len(fl["points"])) for fl in flows])
+# Faza 2: te same tory w metrach (flows3d.json); AtlasPlate rzutuje je kamerą widoku z anchors.json.
+plate.write_flows3d([{"id": key, "kind": "nerve", "labelPl": label, "views": [view], "points": pts}
+                     for key, (view, pts, label) in paths.items() if view in VIEWS])

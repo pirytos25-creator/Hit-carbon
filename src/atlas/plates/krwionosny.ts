@@ -21,7 +21,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       'W sprincie serce bije znacznie szybciej i mocniej się kurczy. Przy wysiłku maksymalnym rzut serca rośnie do ok. 20–25 L/min, a do pracujących mięśni płynie ok. 80% krwi. Naczynia trzewne się zwężają, a przepływ wieńcowy rośnie ok. 3–5 razy. Mięśnie nóg działają jak pompa, która wyciska krew żyłami z powrotem do serca.',
   },
   summaryReferenceIds: { rest: [JOYNER], sprint: [JOYNER, 'calbet_joyner_2010', 'duncker_bache_2008'] },
-  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' },
+  summaryStatus: { rest: 'draft', sprint: 'draft' }, // K3: zmienione = draft
   labels: [
     {
       anchor: 'carotid',
@@ -47,7 +47,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       view: 'front',
       namePl: 'Łuk aorty',
       nameLat: 'arcus aortae',
-      role: { rest: 'Ok. 5 L krwi na minutę', sprint: 'Do ok. 20–25 L krwi na minutę' },
+      role: { rest: 'Ok. 5 L krwi na minutę', sprint: 'Nawet 20–25 L krwi na minutę' },
       tier: 'primary',
       referenceIds: [JOYNER],
       roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #7, #8
@@ -60,7 +60,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Ok. 60 uderzeń na minutę', sprint: 'Bije blisko maksimum (do ok. 190/min)' },
       tier: 'primary',
       referenceIds: [JOYNER, 'tanaka_2001'],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #1, #3 (HRmax dla 25 lat)
+      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #1, #3 (HRmax dla 25 lat)
     },
     {
       anchor: 'brachial',
@@ -70,17 +70,17 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Krew do ramienia', sprint: 'Ramiona pracują słabiej: mniej krwi, więcej pobranego tlenu' },
       tier: 'secondary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #24 (poprawione)
+      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #24 (poprawione)
     },
     {
       anchor: 'portal',
       view: 'front',
       namePl: 'Naczynia trzewne',
-      nameLat: 'v. portae hepatis (ż. wrotna)',
+      nameLat: 'a. lienalis (t. śledzionowa)',
       role: { rest: 'Duży przepływ przez jelita i wątrobę', sprint: 'Mniej krwi: naczynia trzewne się zwężają' },
       tier: 'secondary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #20, #25 (poprawione)
+      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #20, #25 (poprawione)
     },
     {
       anchor: 'femoral',
@@ -129,7 +129,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       // #28: „Szybszy powrót krwi” bez oparcia w źródłach; zostaje opis anatomiczny.
       role: { rest: 'Krew z głowy i ramion', sprint: 'Krew z głowy i ramion' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'anatomy' },
+      roleStatus: { rest: 'anatomy', sprint: 'draft' },
     },
     {
       anchor: 'd_pulmonary_trunk',
@@ -149,7 +149,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Odżywia prawą komorę', sprint: 'Więcej krwi dla prawej komory' },
       tier: 'primary',
       referenceIds: ['duncker_bache_2008'],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #30 (opis jakościowy)
+      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #30 (opis jakościowy)
     },
     {
       anchor: 'd_lad',
@@ -159,7 +159,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Odżywia lewą komorę i przegrodę', sprint: 'Przepływ wieńcowy ok. 3–5× większy' },
       tier: 'primary',
       referenceIds: ['duncker_bache_2008', JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #13
+      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #13
     },
     {
       anchor: 'd_cardiac_vein',
@@ -179,7 +179,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Ok. 90 mL na jedno uderzenie', sprint: 'Ok. 125 mL na uderzenie' },
       tier: 'primary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #4, #5 (osoba aktywna)
+      roleStatus: { rest: 'draft', sprint: 'draft' }, // #4, #5 (osoba aktywna)
     },
   ],
   metrics: [
@@ -192,11 +192,11 @@ export const KRWIONOSNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Tętno maksymalne zależy głównie od wieku: ok. 208 − 0,7 × wiek, czyli ok. 190/min w wieku 25 lat. Pomiaru z końca 45 s pracy przy 88% VO₂max nie znaleźliśmy, więc podajemy górną granicę.',
-      status: 'checked_agent',
       protocolMismatch: 'tętno maksymalne (testy do wyczerpania)',
       conversionNote: '208 − 0,7 × 25 = 190,5 /min (Tanaka 2001). Spoczynek: Joyner & Casey 2015, tab. 1, kategoria „Active”.',
       quote: 'A regression equation to predict HRmax is 208 - 0.7 x age in healthy adults.',
       locator: 'Tanaka 2001, abstrakt (Conclusions); Joyner & Casey 2015, tab. 1',
+      status: 'draft',
     },
     {
       labelPl: 'Objętość wyrzutowa',
@@ -206,10 +206,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       referenceIds: [JOYNER],
       evidenceLevel: 'established_human',
       notePl: 'Osoba rekreacyjnie aktywna. U wytrenowanych wytrzymałościowo ok. 150–200 mL.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny',
       quote: 'Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125',
       locator: 'Joyner & Casey 2015, tab. 1',
+      status: 'draft',
     },
     {
       labelPl: 'Rzut serca',
@@ -219,10 +219,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       referenceIds: [JOYNER],
       evidenceLevel: 'established_human',
       notePl: 'Rzut serca = tętno × objętość wyrzutowa.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny',
       quote: 'CO, l/min Sed ∼5 ∼20 … Active ∼5–6 ∼25',
       locator: 'Joyner & Casey 2015, tab. 1',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Udział mięśni w przepływie krwi',
@@ -232,11 +232,11 @@ export const KRWIONOSNY: AtlasPlateContent = {
       referenceIds: [JOYNER, 'calbet_joyner_2010'],
       evidenceLevel: 'established_human',
       notePl: 'Naczynia trzewi i nerek się zwężają, a naczynia pracujących mięśni się rozszerzają.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny całego ciała',
       conversionNote: 'Spoczynek: ok. 80% rzutu serca trafia do mózgu, serca, nerek i wątroby (Joyner & Casey 2015), więc na mięśnie zostaje mniej niż 20%.',
       quote: '70–80% (or perhaps more) of cardiac output is directed towards the active muscles',
       locator: 'Calbet & Joyner 2010, rozdz. o układzie współczulnym; Joyner & Casey 2015, rozdz. III.C',
+      status: 'draft',
     },
     {
       labelPl: 'Przepływ wieńcowy',
@@ -246,10 +246,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       evidenceLevel: 'probable_human',
       notePl:
         'Serce już w spoczynku pobiera z krwi 70–80% tlenu, więc więcej tlenu dostaje głównie dzięki większemu przepływowi. U ludzi zmierzono ok. 3–4×.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny, częściowo badania na zwierzętach',
       quote: 'peak values during maximal exercise typically three to five times the resting level',
       locator: 'Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)',
+      status: 'draft',
     },
     {
       labelPl: 'Ciśnienie skurczowe',
@@ -259,21 +259,21 @@ export const KRWIONOSNY: AtlasPlateContent = {
       referenceIds: ['kenney_2022'],
       evidenceLevel: 'established_human',
       notePl: 'Ciśnienie rozkurczowe zmienia się niewiele albo lekko spada.',
-      status: 'unverifiable', // #15, #16: brak cytatu z liczbą
       protocolMismatch: 'wysiłek maksymalny',
+      status: 'unverifiable',
     },
     {
       labelPl: 'Pobór tlenu z krwi (różnica tętniczo-żylna)',
-      rest: 'ok. 5–6',
-      sprint: 'ok. 14–15',
+      rest: 'ok. 5',
+      sprint: 'ok. 15',
       unit: 'mL O₂ / 100 mL krwi',
       referenceIds: [JOYNER],
       evidenceLevel: 'established_human',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny, osoba nietrenująca',
       conversionNote: '140–150 mL O₂ na litr krwi = 14–15 mL/100 mL; spoczynek: 200 mL/L × (1 − 0,75) ≈ 5 mL/100 mL (do ok. 6,6 wg podpisu ryc. 5).',
       quote: '∼140–150 ml of oxygen is extracted by the peripheral tissues for each liter of cardiac output',
       locator: 'Joyner & Casey 2015, rozdz. III.B',
+      status: 'checked_agent',
     },
   ],
   // Strzałki przepływu: public/atlas/krwionosny/flows3d.json (metry, tory po krzywych naczyń Z-Anatomy,
