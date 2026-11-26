@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { Component, lazy, Suspense, useEffect, useState, type ComponentType, type CSSProperties, type ReactNode } from 'react';
 import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
 import { EVIDENCE_PHRASE, PALETTE, flowStyle, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
@@ -8,6 +8,34 @@ import { viewResolution } from './projection';
 import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
+
+// ---------------------------------------------------------------- punkt montażu 3D (E3, kontrakt z wizualizatorem)
+/** Kontrakt komponentu src/atlas3d/Atlas3DView (dostarcza wizualizator 3D; AtlasApp tylko go montuje). */
+export interface Atlas3DViewProps {
+  system: AtlasSystemId;
+  state: AtlasState;
+  level: AtlasLevel;
+  onClose: () => void;
+}
+// Moduł może jeszcze nie istnieć: import.meta.glob zwraca wtedy pusty obiekt, a build przechodzi.
+const view3dLoaders = import.meta.glob<{ default?: ComponentType<Atlas3DViewProps>; Atlas3DView?: ComponentType<Atlas3DViewProps> }>(
+  '../atlas3d/Atlas3DView.{tsx,ts,jsx,js}',
+);
+const loadView3d = Object.values(view3dLoaders)[0];
+const Atlas3DView = loadView3d
+  ? lazy(() => loadView3d().then((m) => ({ default: (m.default ?? m.Atlas3DView) as ComponentType<Atlas3DViewProps> })))
+  : null;
+
+/** Błąd w widoku 3D nie może wywrócić planszy: pokazujemy komunikat i przycisk powrotu. */
+class View3DBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children;
+  }
+}
 
 /**
  * Widok "Atlas układów" (adres: #atlas lub #atlas/<uklad>). Osobny tryb, niezależny od 12 aktów.
@@ -115,6 +143,10 @@ export function AtlasApp() {
   const [anchors, setAnchors] = useState<AtlasAnchorsFile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 760px)').matches);
+  // Widok 3D: przycisk tylko gdy plansza ma public/atlas3d/<uklad>/manifest.json i urządzenie to desktop.
+  const [has3d, setHas3d] = useState(false);
+  const [show3d, setShow3d] = useState(false);
+  const desktop = !narrow && window.matchMedia('(pointer: fine)').matches;
   // „Całe ciało / Zbliżenie” (łatka sesji mięśniowej): na szerokim ekranie jedna skala naraz, żeby nic nie było za małe.
   const [panel, setPanel] = useState(0);
   const system = ATLAS_SYSTEMS.find((s) => s.id === systemId)!;
@@ -182,6 +214,18 @@ export function AtlasApp() {
   const splitScale = panels.length > 1;
   const panelIdx = Math.min(panel, Math.max(0, panels.length - 1));
   useEffect(() => setPanel(0), [systemId]);
+  useEffect(() => {
+    let alive = true;
+    setShow3d(false);
+    setHas3d(false);
+    fetch(`${BASE}atlas3d/${systemId}/manifest.json`)
+      .then((r) => (r.ok && (r.headers.get('content-type') ?? '').includes('json') ? r.json() : null))
+      .then((m) => alive && setHas3d(!!m))
+      .catch(() => alive && setHas3d(false));
+    return () => {
+      alive = false;
+    };
+  }, [systemId]);
 
   useEffect(() => {
     const onHash = () => setSystemId(systemFromHash());
@@ -306,11 +350,43 @@ export function AtlasApp() {
 
       {/* Plansza */}
       <main
-        className="flex-1 min-w-0 lg:min-h-0 p-2 lg:p-6 flex flex-col items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+        className="relative flex-1 min-w-0 lg:min-h-0 p-2 lg:p-6 flex flex-col items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
         tabIndex={0}
         onKeyDown={onPlateKey}
         aria-label={`Plansza: ${content.titlePl}. Klawisz S przełącza spoczynek i sprint.`}
       >
+        {has3d && desktop && !show3d && (
+          <button
+            type="button"
+            onClick={() => setShow3d(true)}
+            className="absolute top-3 right-3 z-10 rounded-lg bg-slate-800 px-3 py-1.5 text-sm font-display font-semibold text-slate-100 hover:bg-slate-700"
+          >
+            Obróć w 3D
+          </button>
+        )}
+        {show3d && (
+          <div className="absolute inset-0 z-30 bg-[var(--atlas-bg)]" role="dialog" aria-label={`Widok 3D: ${content.titlePl}`}>
+            {(() => {
+              const unavailable = (
+                <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300">
+                  <p>Widok 3D nie jest jeszcze dostępny w tej wersji.</p>
+                  <button type="button" onClick={() => setShow3d(false)} className="rounded-lg bg-slate-800 px-3 py-1.5 text-sm hover:bg-slate-700">
+                    Wróć do planszy
+                  </button>
+                </div>
+              );
+              return Atlas3DView ? (
+                <View3DBoundary fallback={unavailable}>
+                  <Suspense fallback={<p className="h-full flex items-center justify-center text-slate-400">Wczytywanie widoku 3D…</p>}>
+                    <Atlas3DView system={systemId} state={shownState} level={level} onClose={() => setShow3d(false)} />
+                  </Suspense>
+                </View3DBoundary>
+              ) : (
+                unavailable
+              );
+            })()}
+          </div>
+        )}
         {anchors ? (
           narrow ? (
             content.views.map((v) => (
