@@ -110,3 +110,10 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - Wynik oceny: `docs/atlas_audyt/DECYZJA_UX_NARZADY.md` (kolejność wdrożenia, godziny pracy agentów, pytania do użytkownika).
 - **Wdrożenie dopiero po zgodzie użytkownika.**
 - **Plany gotowe i ocenione (2026-11-26):** Reżyser `77dd298` (na `atlas-uklady`), Wizualizator `bd9650c` (jego gałąź, nie scalona; poprawki poziomów treści zlecone). Decyzja: `docs/atlas_audyt/DECYZJA_UX_NARZADY.md`, kolejność F1 → F2 → F3 → bramka (pokaz + test z licealistami) → F4, ok. 155–210 h agentów, 0 zł. Luka K4 (`protocolNotePl` niesprawdzone na 3 planszach) potwierdzona. **Czeka na zgodę użytkownika (7 pytań w §5 decyzji).**
+
+## Nowe wymagania użytkownika (2026-11-26, później) – decyzja `4ec67df` ZAWIESZONA
+- (d) Jakość animacji na poziomie filmu: cząstki i krwinki 3D, odkształcanie geometrii, światło i materiał filmowe; poziomy jakości zamiast obniżania poprzeczki. Przed kodem: **klatki docelowe** Reżysera i **test techniczny ujęcia serca** Wizualizatora z pomiarem FPS.
+- (e) Wspólny moduł z filmem „12 aktów” (`src/director`, `src/scenes/Act*`): najpierw przegląd filmu; każdy element ma przypisany akt filmu.
+- (f) Kamienie milowe z wynikiem do obejrzenia zamiast godzin; po pierwszym kamieniu przeliczenie reszty; jawna niepewność.
+- (g) Gabloty: wejście diegetyczne (kamera wjeżdża w narząd, ciało gaśnie, podmiana modelu ukryta w ruchu); zastawki A (B wcześniej, jeśli tanie); nefron jako schemat „bez skali”; v1 tylko poziom Podstawowy.
+- Zapis: §7 modelu (d)–(g). Kolejny krok: poprawione plany obu agentów, potem nowa decyzja Dyrygenta.

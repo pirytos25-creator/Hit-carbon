@@ -416,6 +416,27 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
 - (c) **Posiedzenie nad UI i UX całego atlasu** pod kątem widoczności i zrozumienia, z „kropką nad i”: wspólny sznyt, a każdy układ z czymś wyróżniającym.
   Prowadzi Reżyser: `docs/atlas_rezyser/UX_POSIEDZENIE.md`.
   Oba plany ocenia Dyrygent i składa jedną kolejność wdrożenia. **Wdrożenie dopiero po zgodzie użytkownika.**
+- (d) **Jakość animacji 3D na poziomie filmu.** Słowa użytkownika: „dość dopracowane animacje 3D, a nie te kreseczki”.
+  - Przepływy są trójwymiarowe: krwinki i cząstki z kształtem i objętością, zorientowane wzdłuż toru, z prędkością zależną od przekroju.
+  - Tkanki ruszają się przez odkształcenie prawdziwej geometrii (cele morph, przemieszczenie w shaderze).
+  - Światło i materiał są na poziomie filmu. Strzałki zostają najwyżej jako legenda.
+  - Przed kodem:
+    - Reżyser przygotowuje **klatki docelowe** (poprzeczkę jakości);
+    - Wizualizator robi **test techniczny jednego ujęcia** (skurcz serca z przepływem) z pomiarem FPS.
+  - Konflikt jakości z FPS na Intel UHD rozwiązują **poziomy jakości** (pełny na mocnej karcie, uproszczony na słabej), a nie niższa poprzeczka dla wszystkich.
+- (e) **Wspólna architektura z filmem „12 aktów”.**
+  - Animacje, materiały, cząstki, oś czasu i ujęcia powstają jako wspólny moduł. Używają go atlas, gabloty i film (`src/director`, `SimulationCore`, `ShotChoreography`, `src/scenes/Act*`, modele GLB).
+  - Najpierw przegląd tego, co film już ma: budujemy na tym, nie obok.
+  - Każdy plan wskazuje, w którym akcie filmu wyląduje dany element. Film jest docelowym miejscem tych animacji.
+- (f) **Szacunki:**
+  - kamienie milowe z wynikiem do obejrzenia (zrzut, nagranie, pomiar) zamiast samych godzin;
+  - po pierwszym kamieniu porównanie czasu szacowanego z rzeczywistym i przeliczenie reszty;
+  - jawnie zaznaczona niepewność.
+- (g) **Odpowiedzi na pytania o gabloty** (`NARZADY_PLAN.md` §9):
+  1. Wejście **diegetyczne**: kliknięcie narządu w widoku układu w świecie 3D, kamera wjeżdża w narząd, a reszta ciała gaśnie. Bez menu i bez zwykłego przenikania ekranu. Podmianę modelu (Z-Anatomy na HuBMAP, różni osobnicy) ukrywa ruch kamery. Menu „Narządy” najwyżej jako dodatek.
+  2. Zastawki: najpierw wariant A (kolor i cząstki). Wariant B (ruch płatków) może wejść wcześniej, jeśli test techniczny pokaże, że jest tani.
+  3. Nefron: schemat topologiczny „bez skali”, wyraźnie oznaczony, jeśli nie ma otwartego modelu (CC0, BY lub BY-SA).
+  4. Pierwsza wersja każdej gabloty: **tylko treści z poziomu Podstawowego**.
 
 Dopóki nie ma pozostałych odpowiedzi, plan przyjmuje:
 - mężczyzna ok. 25 lat, rekreacyjnie aktywny (zgodny z modelem 3D i z `fitnessLevel: 'recreational'`)

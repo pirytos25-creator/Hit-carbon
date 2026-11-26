@@ -2,6 +2,8 @@
 
 Data: 2026-11-26.
 
+> **ZAWIESZONA (2026-11-26).** Doszły nowe wymagania użytkownika (d)–(g) z §7 modelu: jakość animacji na poziomie filmu, wspólny moduł z filmem „12 aktów”, kamienie milowe zamiast godzin oraz odpowiedzi o gablotach. Oba plany wracają do poprawki. Ta decyzja zostanie zastąpiona nową wersją po ocenie poprawionych planów, klatek docelowych i testu technicznego serca. Ustalenia z §2–§3 (wspólna rama, K4, poziomy według podstawy programowej, nerka, nefron) pozostają w mocy.
+
 Podstawa:
 - decyzje użytkownika (a)–(c) z §7 `ATLAS_MODEL_ARCHITEKTONICZNY.md`;
 - plan Reżysera `docs/atlas_rezyser/UX_POSIEDZENIE.md` (`77dd298`);
