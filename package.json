@@ -9,7 +9,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview --port 4173",
     "typecheck": "tsc --noEmit",
-    "check:atlas": "node scripts/atlas_check_palette.ts && node scripts/atlas_check_projection.ts && node scripts/atlas_check_facts.mjs"
+    "check:atlas": "node scripts/atlas_check_palette.ts && node scripts/atlas_check_projection.ts && node scripts/atlas_check_facts.mjs",
+    "check:atlas3d": "node scripts/atlas3d_check.mjs --selftest && node scripts/atlas3d_check.mjs",
+    "atlas:export3d": "node scripts/atlas3d_export.mjs"
   },
   "dependencies": {
     "@react-three/drei": "9.121.4",

@@ -14,3 +14,13 @@ atlas_raw/
 
 # prototypy 3D atlasu: duże GLB poza Gitem
 prototypes/atlas3d/_assets/
+
+# eksport 3D atlasu: pliki surowe (przed kompresją)
+.atlas3d_build/
+
+# atlas 3D: modele i manifest powstają przy eksporcie (npm run atlas:export3d), w Gicie tylko bindings.json
+public/atlas3d/**/*.glb
+public/atlas3d/**/manifest.json
+public/atlas3d/**/anchors3d.json
+public/atlas3d/**/flows3d.json
+public/atlas3d/_shared/
