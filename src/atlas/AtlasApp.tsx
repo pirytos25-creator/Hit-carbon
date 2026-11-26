@@ -136,9 +136,24 @@ export function AtlasApp() {
   const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
   const bodyViews = viewsPresent.filter((v) => v !== 'detail');
   const panels: { views: AtlasView[]; label: string }[] = [];
-  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
+  // Ile kolumn podpisów dałyby widoki obok siebie (strona jak w AtlasPlate: bliższa kotwicy). Przy > 2 kolumnach
+  // obrazy byłyby za małe (powłokowy, poziom rozszerzony: 203×366 px przy 1440), więc każdy widok dostaje zakładkę.
+  const labelCols = (v: AtlasView) => {
+    const av = anchors?.views[v];
+    if (!av) return 0;
+    const b = av.bbox ?? [0, 0, 1, 1];
+    const mid = (b[0] + b[2]) / 2;
+    const sides = new Set(
+      content.labels
+        .filter((l) => l.view === v && av.anchors[l.anchor] && (extended || l.tier === undefined || l.tier === 'primary'))
+        .map((l) => l.side ?? (av.anchors[l.anchor][0] < mid ? 'left' : 'right'))
+    );
+    return sides.size;
+  };
+  const groupBody = wholeBody && bodyViews.length > 1 && bodyViews.reduce((n, v) => n + labelCols(v), 0) <= 2;
+  if (groupBody) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
   for (const v of viewsPresent) {
-    if (wholeBody && v !== 'detail') continue;
+    if (groupBody && v !== 'detail') continue;
     panels.push({ views: [v], label: viewTitle(v) });
   }
   // Telefon: każdy widok osobno, ale widoki z tą samą kamerą (ta sama skala ortho, bez zbliżeń), np. przód i bok

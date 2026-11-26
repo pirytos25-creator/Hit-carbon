@@ -163,7 +163,6 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
 
   // skala: piksele ekranu na jednostkę renderu; kolumny podpisów mają szerokość w pikselach ekranu
   const cols = frames.reduce((n, f) => n + (f.hasLeft ? 1 : 0) + (f.hasRight ? 1 : 0), 0);
-  const colPx = Math.round(Math.min(COL_MAX, Math.max(COL_MIN, (box.w * 0.5) / Math.max(1, cols))));
   const gapPx = 16;
   const cropW = (view: AtlasView) => {
     const b = anchors.views[view]?.bbox ?? [0, 0, 1, 1];
@@ -175,26 +174,79 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     scaleWithViews && frames.length === 1
       ? Math.max(ownW, ...scaleWithViews.filter((v) => anchors.views[v]).map(cropW))
       : ownW;
-  const titlePx = FONT.title * 2.2;
-  const sW = (box.w - cols * colPx - gapPx * Math.max(0, frames.length - 1) - 8) / Math.max(1, imagesW);
-  const sH = (box.h - titlePx) / H;
-  const s = Math.max(0.05, fitHeight || !onlyViews ? Math.min(sW, sH) : sW);
+  // Kolumny podpisów: domyślnie połowa szerokości na wszystkie kolumny (140–216 px). Gdy obraz ogranicza szerokość,
+  // a nie wysokość (np. mózg, render poziomy: przy 1440 tylko 436×400 px), próbujemy węższych kolumn (nie poniżej
+  // 140 px) i bierzemy największy obraz, przy którym bloki podpisów nadal mieszczą się w wysokości planszy.
+  // Plansze ograniczone wysokością się nie zmieniają.
+  const freeW = box.w - gapPx * Math.max(0, frames.length - 1) - 8;
+  const colBase = Math.round(Math.min(COL_MAX, Math.max(COL_MIN, (box.w * 0.5) / Math.max(1, cols))));
+  // Tytuł widoku pod obrazem: szerokość = obraz + jego kolumny podpisów; wysokość z liczby linii (długie tytuły,
+  // np. limfatyczny, nie są ucinane).
+  const titleCharW = FONT.title * (CHAR * 1.12 + 0.12); // wielkie litery + odstęp 0.12em
+  const captionWc = (f: (typeof frames)[number], sc: number, c: number) =>
+    f.fw * sc + (f.hasLeft ? c : 0) + (f.hasRight ? c : 0);
+  const linePx = FONT.title * 1.3;
+  const blockPxC = (l: AtlasLabel, c: number) => {
+    const charsFor = (f: number) => Math.max(10, Math.floor((c - 16) / (f * CHAR)));
+    const rt = roleText(l);
+    const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
+    const evLines = rt && l.evidence && l.evidence !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[l.evidence], charsFor(FONT.role)) : 0;
+    return (
+      evLines * FONT.role * 1.3 +
+      wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
+      (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
+      roleLines * FONT.role * 1.35 +
+      6
+    );
+  };
+  // Najwyższy punkt bloków podpisów (px, ujemny = wystaje nad obraz) przy szerokości kolumny c i skali sc.
+  const minTopFor = (c: number, sc: number) => {
+    let m = 0;
+    for (const f of frames)
+      for (const side of ['left', 'right'] as const) {
+        const ys = f.labels.filter((l) => l.side === side).map((l) => ({ ay: l.ny * H, l: l.label })).sort((a, b) => a.ay - b.ay);
+        let prevBottom = -Infinity;
+        let top0 = Infinity;
+        for (const g of ys) {
+          const topPx = Math.max(g.ay * sc - FONT.name * 0.7, prevBottom + 8);
+          if (top0 === Infinity) top0 = topPx;
+          prevBottom = topPx + blockPxC(g.l, c);
+        }
+        if (ys.length) m = Math.min(m, top0 - Math.max(0, prevBottom - H * sc));
+      }
+    return m;
+  };
+  const fitFor = (c: number) => {
+    const sW = (freeW - cols * c) / Math.max(1, imagesW);
+    const fitS = (tPx: number) => Math.max(0.05, fitHeight || !onlyViews ? Math.min(sW, (box.h - tPx) / H) : sW);
+    const s0 = fitS(FONT.title * 2.2);
+    const lines = Math.max(
+      1,
+      ...frames.map((f) =>
+        wrapCount((content.viewTitlesPl[f.view] ?? f.view).toUpperCase(), Math.max(8, Math.floor(captionWc(f, s0, c) / titleCharW)))
+      )
+    );
+    const tPx = Math.max(FONT.title * 2.2, lines * linePx + FONT.title * 0.9);
+    const sc = fitS(tPx);
+    return { c, s: sc, titlePx: tPx, fits: H * sc + tPx - minTopFor(c, sc) <= box.h + 1 };
+  };
+  const base = fitFor(colBase);
+  let chosen = base;
+  if (fitHeight && !pinsMode && cols > 0 && base.s < (box.h - base.titlePx) / H - 1e-6) {
+    // największy obraz; przy remisie szersza kolumna (mniej zawijania)
+    for (let c = colBase - 12; c >= COL_MIN; c -= 12) {
+      const cand = fitFor(c);
+      if (cand.fits && cand.s > chosen.s * 1.01) chosen = cand;
+    }
+  }
+  const colPx = chosen.c;
+  const titlePx = chosen.titlePx;
+  const s = chosen.s;
+  const captionW = (f: (typeof frames)[number], sc: number) => captionWc(f, sc, colPx);
   const u = 1 / s;
 
   const layout = useMemo(() => {
-    const charsFor = (f: number) => Math.max(10, Math.floor((colPx - 16) / (f * CHAR)));
-    const blockPx = (l: AtlasLabel) => {
-      const rt = roleText(l);
-      const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
-      const evLines = rt && l.evidence && l.evidence !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[l.evidence], charsFor(FONT.role)) : 0;
-      return (
-        evLines * FONT.role * 1.3 +
-        wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
-        (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
-        roleLines * FONT.role * 1.35 +
-        6
-      );
-    };
+    const blockPx = (l: AtlasLabel) => blockPxC(l, colPx);
     let x = 0;
     return frames.map((f) => {
       const ox = x + (f.hasLeft ? colPx * u : 0);
@@ -390,7 +442,14 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           <figcaption
             key={`t-${f.view}`}
             className="absolute text-center font-display font-semibold uppercase text-slate-500"
-            style={{ left: f.ox * s, width: f.fw * s, top: (H - minTop) * s + 4, fontSize: FONT.title, letterSpacing: '0.12em' }}
+            style={{
+              left: f.ox * s - (f.hasLeft ? colPx : 0),
+              width: captionW(f, s),
+              top: (H - minTop) * s + 4,
+              fontSize: FONT.title,
+              lineHeight: 1.3,
+              letterSpacing: '0.12em',
+            }}
           >
             {content.viewTitlesPl[f.view as AtlasView] ?? f.view}
           </figcaption>
