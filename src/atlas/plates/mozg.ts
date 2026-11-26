@@ -20,7 +20,7 @@ export const MOZG: AtlasPlateContent = {
       'W sprincie kora ruchowa (zakręt przedśrodkowy i płacik okołośrodkowy z polem nóg) wysyła rozkazy do mięśni. Móżdżek i jądra podstawy dopasowują rytm i siłę kroku, pień mózgu przyspiesza oddech i pracę serca, a podwzgórze uruchamia chłodzenie i oś stresu. Mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max).',
   },
   summaryReferenceIds: { rest: ['raichle_gusnard_2002', 'brooks_2018'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
-  summaryStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #2 poprawione; #21, #22 bez źródła
+  summaryStatus: { rest: 'draft', sprint: 'draft' }, // K3: zmienione = draft
   labels: [
     // --- widok z boku (podpisy po lewej)
     {
@@ -30,7 +30,7 @@ export const MOZG: AtlasPlateContent = {
       nameLat: 'cortex praefrontalis',
       role: { rest: 'Planowanie i decyzje', sprint: 'Pilnuje celu; tlen spada dopiero przy maksimum' },
       tier: 'secondary',
-      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #23-#33
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23-#33
     },
     {
       anchor: 'motor_cortex',
@@ -134,10 +134,10 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'probable_human',
       notePl:
         'Pomiar znakowanym mleczanem u 6 osób: wysiłek 75% VO₂max z wlewem mleczanu, nie sam sprint. Im więcej mleczanu we krwi, tym więcej pobiera go mózg.',
-      status: 'checked_agent',
       protocolMismatch: '30 min jazdy przy 75% VO₂max z wlewem mleczanu',
       quote: 'The contribution of systemic lactate to cerebral energy expenditure was 8%+/-2%, 19%+/-4%, and 27%+/-4%',
       locator: 'van Hall 2009, abstrakt',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Pobór glukozy przez mózg (PET)',
@@ -147,10 +147,10 @@ export const MOZG: AtlasPlateContent = {
       referenceIds: ['kemppainen_2005'],
       evidenceLevel: 'probable_human',
       notePl: 'Porównanie wysiłku 30% i 75% VO₂max (14 mężczyzn): ok. 32% mniej glukozy przy cięższym wysiłku. Spoczynku w tym badaniu nie mierzono.',
-      status: 'checked_agent',
       protocolMismatch: '35 min jazdy przy 75% VO₂max (pobór uśredniony z 25 min)',
       quote: '38.6+/-4.6 versus 26.1+/-5.0 micromol (100 g)-1 min-1',
       locator: 'Kemppainen 2005, abstrakt',
+      status: 'draft',
     },
     {
       labelPl: 'Stosunek tlenu do paliwa w mózgu (CMR)',
@@ -160,10 +160,10 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'probable_human',
       notePl:
         'W wysiłku mózg pobiera więcej glukozy i mleczanu, niż spala na bieżąco tlenem. W spoczynku mózg (ok. 2% masy ciała) zużywa ok. 20% tlenu całego ciała.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek maksymalny do wyczerpania (np. wiosłowanie)',
       quote: 'from a resting value of 6 to <2',
       locator: 'Quistorff 2008, abstrakt; Raichle & Gusnard 2002, s. 10237',
+      status: 'checked_agent',
     },
     {
       labelPl: 'Przepływ krwi przez mózg',
@@ -173,10 +173,10 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Rośnie mniej więcej do 60% VO₂max. Przy cięższym wysiłku szybki oddech obniża CO₂ we krwi, a to zwęża naczynia mózgu.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek stopniowany',
       quote: 'CBF decreases toward baseline values because of lower Pa(CO(2))',
       locator: 'Ogoh & Ainslie 2009, abstrakt',
+      status: 'draft',
     },
     {
       labelPl: 'BDNF we krwi po pojedynczym wysiłku',
@@ -186,11 +186,11 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'probable_human',
       notePl:
         'Metaanaliza: efekt umiarkowany (g ≈ 0,46), mierzony we krwi, nie w mózgu. Wiele krążącego BDNF pochodzi z mózgu (8 osób, 4 h wiosłowania). Długofalowo: roczny trening aerobowy (marsz, osoby starsze) powiększył hipokamp o ok. 2% (głównie część przednią). To nie był HIIT.',
-      status: 'checked_agent',
       measuredAt: 'od zaraz po wysiłku do 60 min po nim',
       protocolMismatch: 'różne pojedyncze wysiłki; udział mózgu: 4 h wiosłowania',
       quote: "Hedges' g = 0.46",
       locator: 'Szuhany 2015, Results, ryc. 2; Rasmussen 2009, abstrakt; Erickson 2011, tab. 2',
+      status: 'draft',
     },
     {
       labelPl: 'Utlenowanie kory przedczołowej (NIRS)',
@@ -200,10 +200,10 @@ export const MOZG: AtlasPlateContent = {
       evidenceLevel: 'contested_debate',
       notePl:
         'Spadek utlenowania przy wysiłku maksymalnym (≥ VO₂peak) jest zmierzony. Ale to, czy kora przedczołowa naprawdę „przygasa” (hipoteza przejściowej hipofrontalności), pozostaje sporne.',
-      status: 'checked_agent',
       protocolMismatch: 'wysiłek stopniowany do maksimum',
       quote: 'After peaking at hard intensities, cerebral oxygen levels dropped during very hard intensities.',
       locator: 'Rooks 2010, abstrakt',
+      status: 'draft',
     },
   ],
   // Mleczan jako paliwo mózgu (brooks_2018, van_hall_2009): krew wpływa od dołu (t. kręgowe i podstawna przed pniem),
