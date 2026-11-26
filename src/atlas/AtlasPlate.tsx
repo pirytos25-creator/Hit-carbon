@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { EVIDENCE_PHRASE, isShown, type AtlasLevel } from './palette';
-import { projectToPixels } from './projection';
+import { projectToPixels, viewResolution } from './projection';
 import type {
   AtlasAnchorsFile,
   AtlasFlowKind,
@@ -10,6 +10,7 @@ import type {
   AtlasState,
   AtlasView,
 } from './types';
+import type { EvidenceLevel } from '../types/biogenesis';
 
 /**
  * Wspólny komponent planszy (integrator, faza 2 + E0).
@@ -107,7 +108,6 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   const [focus, setFocus] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const reduced = usePrefersReducedMotion();
-  const [W, H] = anchors.resolution;
   const sprint = state === 'sprint';
   const extended = level === 'extended';
   const color = `var(${content.colorVar})`;
@@ -128,6 +128,8 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     () => content.views.filter((v) => anchors.views[v] && (!onlyViews || onlyViews.includes(v))),
     [content.views, anchors, onlyViews]
   );
+  // Rozdzielczość: własna widoku albo pliku. Widoki obok siebie muszą mieć tę samą (AtlasApp ich wtedy nie łączy).
+  const [W, H] = views.length ? viewResolution(anchors, views[0]) : anchors.resolution;
   const pinsMode = box.w < 640;
 
   const frames = useMemo(
@@ -160,10 +162,12 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   );
 
   const roleText = (l: AtlasLabel): string | null => (isShown(l.roleStatus?.[state]) ? l.role[state] : null);
+  // Poziom dowodów opisu roli: wspólny albo osobno dla stanu (zgodnie wstecz: zwykły string = oba stany).
+  const roleEvidence = (l: AtlasLabel): EvidenceLevel | undefined =>
+    typeof l.evidence === 'string' ? l.evidence : l.evidence?.[state];
 
   // skala: piksele ekranu na jednostkę renderu; kolumny podpisów mają szerokość w pikselach ekranu
   const cols = frames.reduce((n, f) => n + (f.hasLeft ? 1 : 0) + (f.hasRight ? 1 : 0), 0);
-  const colPx = Math.round(Math.min(COL_MAX, Math.max(COL_MIN, (box.w * 0.5) / Math.max(1, cols))));
   const gapPx = 16;
   const cropW = (view: AtlasView) => {
     const b = anchors.views[view]?.bbox ?? [0, 0, 1, 1];
@@ -175,26 +179,80 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     scaleWithViews && frames.length === 1
       ? Math.max(ownW, ...scaleWithViews.filter((v) => anchors.views[v]).map(cropW))
       : ownW;
-  const titlePx = FONT.title * 2.2;
-  const sW = (box.w - cols * colPx - gapPx * Math.max(0, frames.length - 1) - 8) / Math.max(1, imagesW);
-  const sH = (box.h - titlePx) / H;
-  const s = Math.max(0.05, fitHeight || !onlyViews ? Math.min(sW, sH) : sW);
+  // Kolumny podpisów: domyślnie połowa szerokości na wszystkie kolumny (140–216 px). Gdy obraz ogranicza szerokość,
+  // a nie wysokość (np. mózg, render poziomy: przy 1440 tylko 436×400 px), próbujemy węższych kolumn (nie poniżej
+  // 140 px) i bierzemy największy obraz, przy którym bloki podpisów nadal mieszczą się w wysokości planszy.
+  // Plansze ograniczone wysokością się nie zmieniają.
+  const freeW = box.w - gapPx * Math.max(0, frames.length - 1) - 8;
+  const colBase = Math.round(Math.min(COL_MAX, Math.max(COL_MIN, (box.w * 0.5) / Math.max(1, cols))));
+  // Tytuł widoku pod obrazem: szerokość = obraz + jego kolumny podpisów; wysokość z liczby linii (długie tytuły,
+  // np. limfatyczny, nie są ucinane).
+  const titleCharW = FONT.title * (CHAR * 1.12 + 0.12); // wielkie litery + odstęp 0.12em
+  const captionWc = (f: (typeof frames)[number], sc: number, c: number) =>
+    f.fw * sc + (f.hasLeft ? c : 0) + (f.hasRight ? c : 0);
+  const linePx = FONT.title * 1.3;
+  const blockPxC = (l: AtlasLabel, c: number) => {
+    const charsFor = (f: number) => Math.max(10, Math.floor((c - 16) / (f * CHAR)));
+    const rt = roleText(l);
+    const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
+    const ev = roleEvidence(l);
+    const evLines = rt && ev && ev !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[ev], charsFor(FONT.role)) : 0;
+    return (
+      evLines * FONT.role * 1.3 +
+      wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
+      (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
+      roleLines * FONT.role * 1.35 +
+      6
+    );
+  };
+  // Najwyższy punkt bloków podpisów (px, ujemny = wystaje nad obraz) przy szerokości kolumny c i skali sc.
+  const minTopFor = (c: number, sc: number) => {
+    let m = 0;
+    for (const f of frames)
+      for (const side of ['left', 'right'] as const) {
+        const ys = f.labels.filter((l) => l.side === side).map((l) => ({ ay: l.ny * H, l: l.label })).sort((a, b) => a.ay - b.ay);
+        let prevBottom = -Infinity;
+        let top0 = Infinity;
+        for (const g of ys) {
+          const topPx = Math.max(g.ay * sc - FONT.name * 0.7, prevBottom + 8);
+          if (top0 === Infinity) top0 = topPx;
+          prevBottom = topPx + blockPxC(g.l, c);
+        }
+        if (ys.length) m = Math.min(m, top0 - Math.max(0, prevBottom - H * sc));
+      }
+    return m;
+  };
+  const fitFor = (c: number) => {
+    const sW = (freeW - cols * c) / Math.max(1, imagesW);
+    const fitS = (tPx: number) => Math.max(0.05, fitHeight || !onlyViews ? Math.min(sW, (box.h - tPx) / H) : sW);
+    const s0 = fitS(FONT.title * 2.2);
+    const lines = Math.max(
+      1,
+      ...frames.map((f) =>
+        wrapCount((content.viewTitlesPl[f.view] ?? f.view).toUpperCase(), Math.max(8, Math.floor(captionWc(f, s0, c) / titleCharW)))
+      )
+    );
+    const tPx = Math.max(FONT.title * 2.2, lines * linePx + FONT.title * 0.9);
+    const sc = fitS(tPx);
+    return { c, s: sc, titlePx: tPx, fits: H * sc + tPx - minTopFor(c, sc) <= box.h + 1 };
+  };
+  const base = fitFor(colBase);
+  let chosen = base;
+  if (fitHeight && !pinsMode && cols > 0 && base.s < (box.h - base.titlePx) / H - 1e-6) {
+    // największy obraz; przy remisie szersza kolumna (mniej zawijania)
+    for (let c = colBase - 12; c >= COL_MIN; c -= 12) {
+      const cand = fitFor(c);
+      if (cand.fits && cand.s > chosen.s * 1.01) chosen = cand;
+    }
+  }
+  const colPx = chosen.c;
+  const titlePx = chosen.titlePx;
+  const s = chosen.s;
+  const captionW = (f: (typeof frames)[number], sc: number) => captionWc(f, sc, colPx);
   const u = 1 / s;
 
   const layout = useMemo(() => {
-    const charsFor = (f: number) => Math.max(10, Math.floor((colPx - 16) / (f * CHAR)));
-    const blockPx = (l: AtlasLabel) => {
-      const rt = roleText(l);
-      const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
-      const evLines = rt && l.evidence && l.evidence !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[l.evidence], charsFor(FONT.role)) : 0;
-      return (
-        evLines * FONT.role * 1.3 +
-        wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
-        (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
-        roleLines * FONT.role * 1.35 +
-        6
-      );
-    };
+    const blockPx = (l: AtlasLabel) => blockPxC(l, colPx);
     let x = 0;
     return frames.map((f) => {
       const ox = x + (f.hasLeft ? colPx * u : 0);
@@ -218,7 +276,33 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
       }
       const pins = [...f.labels]
         .sort((a, b) => a.ny - b.ny || a.nx - b.nx)
-        .map((l, i) => ({ n: i + 1, key: `${f.view}-${l.label.anchor}`, label: l.label, ax: ox + l.nx * W - f.cx0, ay: l.ny * H }));
+        .map((l, i) => {
+          const ax = ox + l.nx * W - f.cx0;
+          const ay = l.ny * H;
+          return { n: i + 1, key: `${f.view}-${l.label.anchor}`, label: l.label, ax, ay, px: ax, py: ay };
+        });
+      // Telefon: pinezki bliskich kotwic (np. podwzgórze i przysadka) nie mogą na siebie zachodzić. Odsuwamy późniejszą
+      // pinezkę od wcześniejszych (kilka przebiegów); odsunięta dostaje cienką linię do swojej kotwicy.
+      if (pinsMode) {
+        const minD = 21 * u; // dwa promienie pinezki (9,5 px) + odstęp
+        for (let pass = 0; pass < 6; pass++)
+          for (let i = 1; i < pins.length; i++)
+            for (let j = 0; j < i; j++) {
+              const a = pins[j];
+              const b = pins[i];
+              let dx = b.px - a.px;
+              let dy = b.py - a.py;
+              let d = Math.hypot(dx, dy);
+              if (d >= minD) continue;
+              if (d < 1e-6) {
+                dx = 1;
+                dy = 0;
+                d = 1;
+              }
+              b.px = a.px + (dx / d) * minD;
+              b.py = a.py + (dy / d) * minD;
+            }
+      }
       return { ...f, ox, placed, pins };
     });
   }, [frames, colPx, u, s, W, H, state, extended]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -246,7 +330,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           key: `3d-${view}-${f.id}`,
           kind: f.kind,
           label: f.labelPl,
-          pts: f.points.map((p) => projectToPixels(p, cam, anchors.resolution)),
+          pts: f.points.map((p) => projectToPixels(p, cam, viewResolution(anchors, view))),
         });
       }
     }
@@ -283,9 +367,9 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
             {rt}
           </span>
         ) : null}
-        {rt && l.evidence && l.evidence !== 'established_human' ? (
+        {rt && roleEvidence(l) && roleEvidence(l) !== 'established_human' ? (
           <span className="block italic text-amber-200/90" style={{ fontSize: FONT.role, lineHeight: 1.3, textAlign: align }}>
-            {EVIDENCE_PHRASE[l.evidence]}
+            {EVIDENCE_PHRASE[roleEvidence(l)!]}
           </span>
         ) : null}
         {!rt && extended && (
@@ -377,8 +461,24 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
               {pinsMode &&
                 f.pins.map((p) => (
                   <g key={p.key} style={{ opacity: dimmed(p.key) ? 0.35 : 1 }}>
-                    <circle cx={p.ax} cy={p.ay} r={(active === p.key ? 14 : 11) * u} fill={color} stroke="#f8fafc" strokeWidth={1.6 * u} />
-                    <text x={p.ax} y={p.ay + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
+                    {(p.px !== p.ax || p.py !== p.ay) && (
+                      <>
+                        <line x1={p.ax} y1={p.ay} x2={p.px} y2={p.py} stroke="#f8fafc" strokeWidth={1.2 * u} />
+                        <circle cx={p.ax} cy={p.ay} r={2.5 * u} fill="#f8fafc" />
+                      </>
+                    )}
+                    {/* Telefon: pinezka mniejsza i półprzezroczysta, żeby nie zakrywała drobnych narządów (limfatyczny);
+                        wybrana pinezka pełna i większa. Numer nadal 14 px. */}
+                    <circle
+                      cx={p.px}
+                      cy={p.py}
+                      r={(active === p.key ? 12 : 9.5) * u}
+                      fill={color}
+                      fillOpacity={active === p.key ? 1 : 0.78}
+                      stroke="#f8fafc"
+                      strokeWidth={(active === p.key ? 1.6 : 1.1) * u}
+                    />
+                    <text x={p.px} y={p.py + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
                       {p.n}
                     </text>
                   </g>
@@ -390,7 +490,14 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           <figcaption
             key={`t-${f.view}`}
             className="absolute text-center font-display font-semibold uppercase text-slate-500"
-            style={{ left: f.ox * s, width: f.fw * s, top: (H - minTop) * s + 4, fontSize: FONT.title, letterSpacing: '0.12em' }}
+            style={{
+              left: f.ox * s - (f.hasLeft ? colPx : 0),
+              width: captionW(f, s),
+              top: (H - minTop) * s + 4,
+              fontSize: FONT.title,
+              lineHeight: 1.3,
+              letterSpacing: '0.12em',
+            }}
           >
             {content.viewTitlesPl[f.view as AtlasView] ?? f.view}
           </figcaption>

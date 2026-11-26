@@ -3,6 +3,7 @@ import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
 import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, shownSummary, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
+import { viewResolution } from './projection';
 import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
@@ -132,13 +133,31 @@ export function AtlasApp() {
   // (zbliżenie, render 1150×1600, render poziomy) ma własną zakładkę i całą wysokość planszy.
   // Napis zakładki = tytuł widoku z planszy (`viewTitlesPl`), np. na hormonalnym „front” to tułów z głową.
   const viewTitle = (v: AtlasView) => content.viewTitlesPl[v] ?? (v === 'detail' ? 'Zbliżenie' : v);
-  const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
   const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
   const bodyViews = viewsPresent.filter((v) => v !== 'detail');
+  // Rozdzielczość na widok (anchors.json): obok siebie tylko widoki o tej samej rozdzielczości.
+  const resKey = (v: AtlasView) => (anchors ? viewResolution(anchors, v).join('x') : '');
+  const bodyRes = anchors && bodyViews.length ? viewResolution(anchors, bodyViews[0]) : null;
+  const wholeBody = !!bodyRes && bodyRes[1] / bodyRes[0] >= 1.7 && bodyViews.every((v) => resKey(v) === resKey(bodyViews[0]));
   const panels: { views: AtlasView[]; label: string }[] = [];
-  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
+  // Ile kolumn podpisów dałyby widoki obok siebie (strona jak w AtlasPlate: bliższa kotwicy). Przy > 2 kolumnach
+  // obrazy byłyby za małe (powłokowy, poziom rozszerzony: 203×366 px przy 1440), więc każdy widok dostaje zakładkę.
+  const labelCols = (v: AtlasView) => {
+    const av = anchors?.views[v];
+    if (!av) return 0;
+    const b = av.bbox ?? [0, 0, 1, 1];
+    const mid = (b[0] + b[2]) / 2;
+    const sides = new Set(
+      content.labels
+        .filter((l) => l.view === v && av.anchors[l.anchor] && (extended || l.tier === undefined || l.tier === 'primary'))
+        .map((l) => l.side ?? (av.anchors[l.anchor][0] < mid ? 'left' : 'right'))
+    );
+    return sides.size;
+  };
+  const groupBody = wholeBody && bodyViews.length > 1 && bodyViews.reduce((n, v) => n + labelCols(v), 0) <= 2;
+  if (groupBody) panels.push({ views: bodyViews, label: bodyViews.map(viewTitle).join(' + ') });
   for (const v of viewsPresent) {
-    if (wholeBody && v !== 'detail') continue;
+    if (groupBody && v !== 'detail') continue;
     panels.push({ views: [v], label: viewTitle(v) });
   }
   // Telefon: każdy widok osobno, ale widoki z tą samą kamerą (ta sama skala ortho, bez zbliżeń), np. przód i bok
@@ -408,6 +427,9 @@ export function AtlasApp() {
 
         <p className="text-[12px] text-slate-400 leading-snug mt-auto">
           {content.creditsPl}
+          <br />
+          Licencje: Z-Anatomy – CC BY-SA 4.0 (na bazie BodyParts3D © DBCLS, CC BY-SA 2.1 JP); HuBMAP Human Reference Atlas –
+          CC BY 4.0. Modele z licencją niekomercyjną (NC) są zablokowane. Plansze atlasu: CC BY-SA 4.0.
           <br />
           Klawisz S przełącza stan. Podpis wyróżnia najechanie, klawisz Tab albo dotknięcie.
         </p>

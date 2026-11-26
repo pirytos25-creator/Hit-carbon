@@ -280,5 +280,5 @@ export const KRWIONOSNY: AtlasPlateContent = {
   // Strzałki przepływu: public/atlas/krwionosny/flows3d.json (metry, tory po krzywych naczyń Z-Anatomy,
   // kierunek sprawdzony z topologią drzewa naczyń; generuje blender/atlas/plate_krwionosny.py).
   creditsPl:
-    'Modele: Z-Anatomy (widok całego ciała: naczynia tętnicze i żylne całego ciała, jamy serca, szkielet; CC BY-SA 4.0, na bazie BodyParts3D © DBCLS) oraz HuBMAP Human Reference Atlas (zbliżenie serca: jamy serca, aorta, żyły główne, naczynia wieńcowe i płucne; CC BY 4.0). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
+    'Modele: Z-Anatomy (widok całego ciała: naczynia tętnicze i żylne całego ciała, jamy serca, szkielet; CC BY-SA 4.0, na bazie BodyParts3D © DBCLS, CC BY-SA 2.1 JP) oraz HuBMAP Human Reference Atlas (zbliżenie serca: jamy serca, aorta, żyły główne, naczynia wieńcowe i płucne; CC BY 4.0). Render i opracowanie: BIOGENESIS, CC BY-SA 4.0.',
 };
