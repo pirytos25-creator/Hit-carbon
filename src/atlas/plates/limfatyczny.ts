@@ -41,6 +41,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: zd. 1–4 opis budowy, zd. 5 Campbell i Turner 2018
   protocolNotePl:
     '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie). „Po” to 1 godzina po wysiłku.',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: zdanie o „sprincie” przez bramkę faktów (dotąd bez statusu)
   labels: [
     // ---------------- widok z przodu: podstawowe (7)
     {
@@ -229,6 +230,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Komórki NK („naturalni zabójcy”) niszczą komórki zakażone wirusem i nowotworowe. Po 1 h ich liczba spada umiarkowanie, a limfocytów ogółem jest o 36% mniej niż przed wysiłkiem.',
       status: 'checked_agent', // #26
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '30 s sprint maksymalny (Wingate)',
       measuredAt: '3 min po wysiłku; po: 1 h po wysiłku',
       conversionNote: '+176% = 2,76× wartości wyjściowej',
@@ -247,6 +249,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Po 1 h: 1,7 tys./µL, czyli mniej niż przed wysiłkiem. Według przeglądu najmniej limfocytów jest 1–2 h po wysiłku, a w ciągu doby ich liczba wraca do normy.',
       status: 'checked_agent', // #27, #28
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)',
       measuredAt: 'zaraz po ostatnim interwale; po: 1 h po wysiłku',
       quote:
@@ -263,6 +266,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Po 1 h: 6,1 tys./µL, czyli tyle samo co przed wysiłkiem.',
       status: 'checked_agent', // #27, #28
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '8 × 60 s przy mocy odpowiadającej VO₂max, przerwy 90 s (11 mężczyzn, 28 lat)',
       measuredAt: 'zaraz po ostatnim interwale; po: 1 h po wysiłku',
       quote: 'The increase in HIIE60 (from 6.1 ± 1.6 to 9.7 ± 2.6 k/μL) was greater than in all other trials (p < 0.05).',
@@ -279,6 +283,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Śledziona się kurczy i oddaje krew do krążenia. Po wysiłku do wyczerpania jest mniejsza o 56%, po 5–15 min jazdy przy 60% VO₂max o 28–36%. Po ok. 20 min wraca do normy. Na rysunku sprintu śledziona jest mniejsza o ok. 1/3 objętości (ilustracja, ostrożnie).',
       status: 'checked_agent', // #29
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'test stopniowany do wyczerpania na rowerze (9 mężczyzn, 25 lat)',
       measuredAt: 'zaraz po wysiłku; po: 20 min po wysiłku',
       conversionNote: '−56% objętości = 44% wartości spoczynkowej',
@@ -297,6 +302,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Limfocyty T CD8 rosną ok. 2,5×. Mechanizm: adrenalina działa na receptory β2 limfocytów.',
       status: 'checked_agent', // #30
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'intensywny wysiłek ciągły trwający co najmniej 45–60 min (przegląd)',
       measuredAt: 'w trakcie i zaraz po wysiłku',
       quote:
@@ -313,6 +319,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Najmniej limfocytów jest ok. 1–2 h po wysiłku; w ciągu 24 h ich liczba wraca do normy.',
       status: 'checked_agent', // #31: cytat podmieniony na zdanie z liczbą (wskazane przez sprawdzającego)
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'intensywny wysiłek ciągły (przegląd)',
       measuredAt: 'po: 1–2 h po wysiłku',
       quote:
@@ -331,6 +338,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       notePl:
         'Pierwsze badania sugerują, że skurcze mięśni wyciskają limfę szybciej. Pomiar pośredni: tempo usuwania znakowanego białka z mięśnia uda (8 mężczyzn). Przepływu w przewodzie piersiowym w wysiłku u ludzi nie zmierzono; dane o nim pochodzą głównie z badań na zwierzętach.',
       status: 'checked_agent', // #32
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '100 skurczów mięśnia uda w 10 min (prostowanie kolana), nie bieg ani rower',
       measuredAt: 'w trakcie 10 min skurczów',
       quote: 'Exercise increased the clearance rate three- to sixfold',

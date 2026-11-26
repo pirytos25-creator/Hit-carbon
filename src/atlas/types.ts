@@ -94,6 +94,8 @@ export interface AtlasMetric {
   /** Moment pomiaru, np. „koniec 45 s pracy”, „3 min po serii”. */
   measuredAt?: string;
   tier?: AtlasTier;
+  /** Odsyłacz do innej planszy z tą samą wielkością (bez nowej liczby), np. adrenalina: nerwowy → hormonalny. */
+  seeAlsoPlate?: AtlasSystemId;
 }
 
 /** Rodzaje strzałek. Kolor: tętnice/żyły jak w księdze stylu, pozostałe w kolorze układu planszy. */
@@ -112,7 +114,9 @@ export type AtlasFlowKind =
   | 'urine'
   | 'force'
   | 'lymph'
-  | 'repro';
+  | 'repro'
+  // runda końcowa: impuls współczulny (inny wzór kreski niż ruchowy, nerwowy)
+  | 'autonomic';
 
 /** Strzałka przepływu w SVG. Punkty w PIKSELACH renderu danego widoku (format fazy 1; nowe plansze: flows3d.json). */
 export interface AtlasFlow {
@@ -167,6 +171,11 @@ export interface AtlasPlateContent {
   summaryVerified?: Partial<Record<AtlasState, AtlasVerifiedSummary>>;
   /** Krótkie wyjaśnienie, co na tej planszy znaczy „sprint” (poziom podstawowy, model §3.7). */
   protocolNotePl?: string;
+  /**
+   * Status zdania o „sprincie” (runda końcowa, bramka faktów). Brak = 'draft'. Niesprawdzone zdanie nie trafia na
+   * ekran: zamiast niego neutralna informacja, że opis czeka na sprawdzenie.
+   */
+  protocolNoteStatus?: AtlasFactStatus;
   labels: AtlasLabel[];
   metrics: AtlasMetric[];
   flows?: AtlasFlow[];

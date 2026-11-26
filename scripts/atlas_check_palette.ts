@@ -5,13 +5,17 @@
  *  2. Menu: każda para układów ΔE ≥ minDeltaE przy zwykłym widzeniu (poza wyjątkami z uzasadnieniem).
  *  3. Jasny wariant (podpisy, linie) na tle strony: kontrast WCAG ≥ 4,5:1.
  *  4. Tokeny w src/index.css są takie same jak w palette.json (CSS jest kopią dla reszty aplikacji).
+ *  5. Tekst na kolorze układu (`onColor`: przycisk „Sprint”, numery pinezek): kontrast WCAG ≥ 4,5:1.
+ *  6. Strzałki (`flows.kinds`): każdy rodzaj użyty na planszach ma styl, a wzory kreski są różne (kolor nie jest
+ *     jedynym nośnikiem informacji). Jasne warianty pokazywane w jednym widoku (układ planszy + strzałki):
+ *     ΔE < minDeltaE to UWAGA (nie błąd), bo rodzaje rozróżnia wzór kreski i legenda.
  * Uruchomienie: node scripts/atlas_check_palette.ts  (kod 0 = wszystko OK)
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 type Rgb = [number, number, number];
-interface Sys { key: string; token: string; color: string; light: string }
+interface Sys { key: string; token: string; color: string; light: string; onColor?: string; plate?: string | null }
 const root = join(import.meta.dirname, '..');
 const pal = JSON.parse(readFileSync(join(root, 'src/atlas/data/palette.json'), 'utf-8'));
 const MIN: number = pal.validation.minDeltaE;
@@ -135,5 +139,49 @@ for (const s of systems) {
   }
 }
 console.log('Tokeny index.css zgodne z palette.json: sprawdzone.');
+
+// 5. tekst na kolorze układu
+for (const s of systems) {
+  if (!s.onColor) { fail(`${s.key}: brak onColor (kolor tekstu na kolorze układu)`); continue; }
+  const a = relLum(s.color), b = relLum(s.onColor);
+  const cr = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+  if (cr < 4.5) fail(`kontrast tekstu ${s.onColor} na kolorze ${s.key} ${s.color}: ${cr.toFixed(2)}:1 < 4,5:1`);
+}
+console.log('Tekst na kolorze układu (onColor): sprawdzony (WCAG ≥ 4,5:1).');
+
+// 6. strzałki: style, różne wzory kreski, ΔE jasnych wariantów w jednym widoku
+const kinds = pal.flows?.kinds ?? {};
+const dashSeen = new Map<string, string>();
+for (const [k, v] of Object.entries(kinds) as [string, { system: string; dash: number[]; namePl: string }][]) {
+  if (!systems.find((s) => s.key === v.system)) fail(`flows.${k}: nieznany układ ${v.system}`);
+  if (!v.namePl) fail(`flows.${k}: brak namePl (legenda)`);
+  const key = v.dash.join(',');
+  if (dashSeen.has(key)) fail(`flows.${k}: ten sam wzór kreski co ${dashSeen.get(key)}`);
+  dashSeen.set(key, k);
+}
+const lightOf = (sysKey: string) => systems.find((s) => s.key === sysKey)?.light as string;
+let warnings = 0;
+const atlasDir = join(root, 'public', 'atlas');
+for (const id of readdirSync(atlasDir)) {
+  const used = new Map<string, Set<string>>(); // widok -> rodzaje strzałek
+  const add = (view: string, kind: string) => { if (!used.has(view)) used.set(view, new Set()); used.get(view)!.add(kind); };
+  const f3 = join(atlasDir, id, 'flows3d.json');
+  if (existsSync(f3)) for (const fl of JSON.parse(readFileSync(f3, 'utf-8')).flows ?? []) for (const v of fl.views ?? ['*']) add(v, fl.kind);
+  const ts = join(root, 'src', 'atlas', 'plates', `${id}.ts`);
+  if (existsSync(ts)) for (const m of readFileSync(ts, 'utf-8').matchAll(/view:\s*'(\w+)',\s*kind:\s*'(\w+)'/g)) add(m[1], m[2]);
+  const own = systems.find((s) => s.plate === id);
+  for (const [view, ks] of used) {
+    for (const k of ks) if (!kinds[k]) fail(`${id}/${view}: rodzaj strzałki „${k}” bez stylu w palette.json (flows.kinds)`);
+    const cols: [string, string][] = [...ks].filter((k) => kinds[k]).map((k) => [`strzałka ${k}`, lightOf(kinds[k].system)]);
+    if (own) cols.push([`układ ${own.key}`, own.light]);
+    for (let i = 0; i < cols.length; i++)
+      for (let j = i + 1; j < cols.length; j++) {
+        if (cols[i][1] === cols[j][1]) continue; // ten sam kolor = ten sam układ (rozróżnia wzór kreski)
+        const d = Math.min(...Object.values(deltaAll(cols[i][1], cols[j][1])));
+        if (d < MIN) { warnings++; console.log(`UWAGA ${id}/${view}: ${cols[i][0]} – ${cols[j][0]} (jasne warianty): ΔE ${d.toFixed(1)}; rozróżnia je wzór kreski i legenda`); }
+      }
+  }
+}
+console.log(`Strzałki: ${Object.keys(kinds).length} rodzajów, wzory kreski różne; uwagi ΔE jasnych wariantów: ${warnings}`);
 console.log(failures ? `WYNIK: ${failures} błędów` : 'WYNIK: paleta OK');
 process.exit(failures ? 1 : 0);

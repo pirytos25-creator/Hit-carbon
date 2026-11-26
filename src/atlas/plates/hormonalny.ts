@@ -34,7 +34,8 @@ export const HORMONALNY: AtlasPlateContent = {
   },
   summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #2 (+ referencje); #3-#7
   protocolNotePl:
-    'Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem.',
+    'Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).',
+  protocolNoteStatus: 'draft', // zgromadzenie, runda końcowa: nowe brzmienie (skala czasu)
   labels: [
     // ---------------------------------------------------------------- widok: głowa i tułów
     {
@@ -211,6 +212,7 @@ export const HORMONALNY: AtlasPlateContent = {
       notePl:
         'Krotność stężenia w spoczynku przy ok. 87% VO₂max; szczyt ok. 1,7 nmol/L. Dla porównania po 30 s sprintu maksymalnego: ok. 7 razy (0,2 → 1,4 nmol/L).',
       status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1996/1994, Brooks 1988
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
       quote: 'Plasma norepinephrine and epinephrine likewise increased > 12-fold with no differences among groups',
       locator: 'Sigal 1996, abstrakt; Sigal 1994, abstrakt (1715 pmol/L w grupie C); Brooks 1988, abstrakt (0,2 → 1,4 nmol/L)',
@@ -226,6 +228,7 @@ export const HORMONALNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Napędzają ją głównie adrenalina i noradrenalina, a nie insulina i glukagon.',
       status: 'checked_agent', // #38, #39
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
       quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001).',
       locator: 'Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”',
@@ -240,6 +243,7 @@ export const HORMONALNY: AtlasPlateContent = {
       notePl:
         'Hormon wzrostu rośnie z opóźnieniem i zostaje podwyższony długo po sprincie. W tym badaniu drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.',
       status: 'checked_agent', // fakty_koncowe_B_horm_mocz_pokarm.md: Stokes 2002
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: '30 s sprint maksymalny na cykloergometrze',
       quote:
         'serum GH was still elevated 60 min after the first sprint. The second sprint in each trial did not elicit a serum GH response',
@@ -269,6 +273,7 @@ export const HORMONALNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Przy 87% VO₂max insulina lekko spadła, a glukagon się nie zmienił.',
       status: 'checked_agent', // #44, #45; zdanie #46 przeniesione do osobnej liczby niżej
+      restStatus: 'checked_agent', // jawnie (zgromadzenie D1): spoczynek = status liczby
       protocolMismatch: 'ciągły wysiłek przy 87% VO₂max',
       quote: 'the glucagon-to-insulin ratio increased from 0.20 to 0.26 (P = 0.02)',
       locator: 'Sigal 1996, abstrakt',

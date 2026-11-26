@@ -12,6 +12,15 @@ export interface AtlasPaletteSystem {
   light: string;
   glyph: string;
   group: string;
+  /** Kolor tekstu na kolorze układu (przycisk „Sprint”, numery pinezek): kontrast ≥ 4,5:1 (walidator palety). */
+  onColor: string;
+}
+
+/** Styl strzałki: kolor = jasny wariant układu, wzór kreski (px ekranu) różny dla każdego rodzaju, nazwa do legendy. */
+export interface AtlasFlowStyle {
+  system: string;
+  dash: number[];
+  namePl: string;
 }
 
 export const PALETTE = paletteJson as unknown as {
@@ -19,7 +28,15 @@ export const PALETTE = paletteJson as unknown as {
   context: Record<string, string>;
   systems: AtlasPaletteSystem[];
   groups: { key: string; namePl: string }[];
+  flows: { kinds: Record<string, AtlasFlowStyle> };
 };
+
+/** Styl strzałki danego rodzaju (kolor jako zmienna CSS jasnego wariantu układu). */
+export function flowStyle(kind: string): { color: string; dash: number[]; namePl: string } {
+  const f = PALETTE.flows.kinds[kind];
+  const sys = PALETTE.systems.find((s) => s.key === f?.system);
+  return { color: sys ? `var(${sys.token}-light)` : '#cbd5e1', dash: f?.dash ?? [9, 7], namePl: f?.namePl ?? kind };
+}
 
 /** Zmienne CSS --sys-* z palety (atlas ustawia je na swoim korzeniu, więc nie zależy od kopii w index.css). */
 export function paletteCssVars(): Record<string, string> {

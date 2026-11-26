@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { EVIDENCE_PHRASE, isShown, type AtlasLevel } from './palette';
+import { EVIDENCE_PHRASE, PALETTE, flowStyle, isShown, systemOfPlate, type AtlasLevel } from './palette';
 import { projectToPixels, viewResolution } from './projection';
 import type {
   AtlasAnchorsFile,
@@ -27,22 +27,8 @@ import type { EvidenceLevel } from '../types/biogenesis';
 
 const CROP_MARGIN = 0.025;
 
-const FLOW_COLOR: Record<AtlasFlowKind, string> = {
-  artery: 'var(--sys-artery-light)',
-  vein: 'var(--sys-vein-light)',
-  air: 'var(--sys-resp-light)',
-  nerve: 'var(--sys-nerve-light)',
-  brain: 'var(--sys-brain-light)',
-  muscle: 'var(--sys-muscle-light)',
-  hormone: 'var(--sys-endo-light)',
-  heat: 'var(--sys-skin-light)',
-  lactate: 'var(--sys-muscle-light)',
-  glucose: 'var(--sys-digest-light)',
-  urine: 'var(--sys-urinary-light)',
-  force: 'var(--sys-bone-light)',
-  lymph: 'var(--sys-lymph-light)',
-  repro: 'var(--sys-repro-light)',
-};
+// Kolory i wzory kreski strzałek: src/atlas/data/palette.json (flows.kinds), walidator: atlas_check_palette.ts.
+const FLOW_KINDS = Object.keys(PALETTE.flows.kinds) as AtlasFlowKind[];
 
 /** Typografia w pikselach ekranu (≥ 14 px dla każdego tekstu podpisu). */
 const FONT = { name: 15, lat: 14, role: 14, title: 14, pin: 14 };
@@ -50,6 +36,20 @@ const COL_MAX = 216;
 const COL_MIN = 140;
 const CHAR = 0.56; // szacunkowa szerokość znaku względem rozmiaru czcionki (zawijanie, wysokość bloku)
 const PENDING = 'opis czeka na sprawdzenie źródła';
+
+/** Poziom podstawowy: rozwinięte skróty na początku nazwy (zgromadzenie, dydaktyk): „T.” → „Tętnica” itd. */
+const NAME_ABBR: [RegExp, string][] = [
+  [/^Mm\. /, 'Mięśnie '],
+  [/^M\. /, 'Mięsień '],
+  [/^T\. /, 'Tętnica '],
+  [/^Ż\. /, 'Żyła '],
+  [/^Żż\. /, 'Żyły '],
+  [/^Tt\. /, 'Tętnice '],
+];
+export function expandName(name: string): string {
+  for (const [re, full] of NAME_ABBR) if (re.test(name)) return name.replace(re, full);
+  return name;
+}
 
 function wrapCount(text: string, maxChars: number): number {
   let lines = 1;
@@ -199,7 +199,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     const evLines = rt && ev && ev !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[ev], charsFor(FONT.role)) : 0;
     return (
       evLines * FONT.role * 1.3 +
-      wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
+      wrapCount(extended ? l.namePl : expandName(l.namePl), charsFor(FONT.name)) * FONT.name * 1.22 +
       (extended && l.nameLat ? wrapCount(l.nameLat, charsFor(FONT.lat)) * FONT.lat * 1.3 : 0) +
       roleLines * FONT.role * 1.35 +
       6
@@ -337,8 +337,8 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     return out;
   }, [content.flows, flows3d, views, anchors, state]);
 
-  const dash = 9 * u;
-  const dashGap = 7 * u;
+  // Tekst na kolorze układu (numery pinezek): kontrast ≥ 4,5:1 (palette.json onColor).
+  const onColor = systemOfPlate(content.id)?.onColor ?? '#0b1020';
   const labelProps = (key: string) => ({
     onMouseEnter: () => setHover(key),
     onMouseLeave: () => setHover((h) => (h === key ? null : h)),
@@ -355,7 +355,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     return (
       <>
         <span className="block font-display font-bold text-slate-50" style={{ fontSize: FONT.name, lineHeight: 1.22 }}>
-          {l.namePl}
+          {extended ? l.namePl : expandName(l.namePl)}
         </span>
         {extended && l.nameLat && (
           <span className="block italic text-slate-400" style={{ fontSize: FONT.lat, lineHeight: 1.3 }}>
@@ -373,7 +373,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
           </span>
         ) : null}
         {!rt && extended && (
-          <span className="block italic text-slate-500" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
+          <span className="block italic text-slate-400" style={{ fontSize: FONT.role, lineHeight: 1.35 }}>
             {PENDING}
           </span>
         )}
@@ -391,9 +391,9 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                 <rect x={f.ox} y={0} width={f.fw} height={H} />
               </clipPath>
             ))}
-            {(Object.keys(FLOW_COLOR) as AtlasFlowKind[]).map((k) => (
+            {FLOW_KINDS.map((k) => (
               <marker key={k} id={`atlas-arrow-${content.id}-${k}`} viewBox="0 0 10 10" refX="6" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse">
-                <path d="M0,0 L10,5 L0,10 z" fill={FLOW_COLOR[k]} />
+                <path d="M0,0 L10,5 L0,10 z" fill={flowStyle(k).color} />
               </marker>
             ))}
           </defs>
@@ -415,22 +415,25 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                 )}
                 {(flowsByView[f.view] ?? []).map((fl) => {
                   const pts = fl.pts.map(([px, py]) => `${f.ox - f.cx0 + px},${py}`).join(' ');
+                  const fs = flowStyle(fl.kind);
+                  const dashArr = fs.dash.map((d) => d * u);
+                  const period = dashArr.reduce((a, b) => a + b, 0);
                   return (
                     <g key={fl.key}>
                       <polyline points={pts} fill="none" stroke="#070b14" strokeOpacity={0.55} strokeWidth={5.5 * u} strokeLinejoin="round" strokeLinecap="round" />
                       <polyline
                         points={pts}
                         fill="none"
-                        stroke={FLOW_COLOR[fl.kind]}
+                        stroke={fs.color}
                         strokeWidth={2.6 * u}
                         strokeLinejoin="round"
                         strokeLinecap="round"
-                        strokeDasharray={`${dash} ${dashGap}`}
+                        strokeDasharray={dashArr.join(' ')}
                         markerEnd={`url(#atlas-arrow-${content.id}-${fl.kind})`}
                         opacity={sprint ? 0.95 : 0.7}
                       >
                         {!reduced && (
-                          <animate attributeName="stroke-dashoffset" from="0" to={`${-(dash + dashGap)}`} dur={sprint ? '0.55s' : '1.6s'} repeatCount="indefinite" />
+                          <animate attributeName="stroke-dashoffset" from="0" to={`${-period}`} dur={sprint ? '0.55s' : '1.6s'} repeatCount="indefinite" />
                         )}
                       </polyline>
                     </g>
@@ -478,7 +481,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                       stroke="#f8fafc"
                       strokeWidth={(active === p.key ? 1.6 : 1.1) * u}
                     />
-                    <text x={p.px} y={p.py + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
+                    <text x={p.px} y={p.py + FONT.pin * 0.36 * u} textAnchor="middle" fill={onColor} style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
                       {p.n}
                     </text>
                   </g>
@@ -489,7 +492,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
         {layout.map((f) => (
           <figcaption
             key={`t-${f.view}`}
-            className="absolute text-center font-display font-semibold uppercase text-slate-500"
+            className="absolute text-center font-display font-semibold uppercase text-slate-400"
             style={{
               left: f.ox * s - (f.hasLeft ? colPx : 0),
               width: captionW(f, s),
