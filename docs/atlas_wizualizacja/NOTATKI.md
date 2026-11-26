@@ -9,7 +9,7 @@ badacz B (runda 1 i 2), księga stylu, biblia artystyczna filmu.
 
 | Rzecz | Stan | Gdzie |
 |---|---|---|
-| Plansze 2D | **10 z 12**: kostny, krwionośny, mięśniowy, mózg, nerwowy, oddechowy, pokarmowy, powłokowy, rozrodczy, moczowy. Hormonalny i limfatyczny w menu jako „wkrótce” | `public/atlas/<u>/*.webp`, `src/atlas/plates/<u>.ts` |
+| Plansze 2D | w chwili przeglądu **10 z 12**; po scaleniu `atlas-uklady` (`76e3ab3`, 2026-11-26) komplet 12 (doszły hormonalny i limfatyczny, jeszcze nie w prototypach 3D) | `public/atlas/<u>/*.webp`, `src/atlas/plates/<u>.ts` |
 | Oprawa planszy | nakładka podpisów HTML, poziomy Podstawowy/Rozszerzony, przełącznik Spoczynek/Sprint, panel liczb, 5 grup menu z ikonami | `AtlasApp.tsx`, `AtlasPlate.tsx`, `glyphs.tsx` |
 | Fakty | statusy `checked_agent` / `anatomy` / `disputed` przy każdym podpisie, `protocolNotePl` i dopisek „W badaniu: …” przy liczbach z innego protokołu | `plates/*.ts` |
 | Paleta | `palette.json` (13 układów, `restMix` 0,35, reguła emisji 0,15–0,35), walidator ΔE | `src/atlas/data/palette.json` |
@@ -75,3 +75,7 @@ i prawdziwe światło sceny bez zmiany stylu matowego.
 - Podział plików wg licencji: `za_*.glb` (Z-Anatomy, CC BY-SA 4.0) i `hra_*.glb` (HuBMAP, CC BY 4.0), nigdy razem.
 - Styl: matowy (księga §3), bez mapowania tonów, tło jak plansze `#070B14` z gradientem Reżysera (`#13203A` → `#070B14`), światło klucz/wypełnienie/kontra.
 - „Każdy efekt ma zmienną”: emisja = poziom pracy w sprincie, strzałki = przepływ, zapalanie warstw = krok łańcucha. Żadnego bloomu dla ozdoby.
+
+## 6. Co powstało po przeglądzie
+
+Trzy prototypy i porównanie: `PROPOZYCJE_3D.md` w tym folderze. Zrzuty: `zrzuty/`.

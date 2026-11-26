@@ -121,7 +121,9 @@ renderer.setAnimationLoop(() => {
   stateMix += Math.sign(stateTarget - stateMix) * Math.min(Math.abs(stateTarget - stateMix), dt / 0.9);
   setStateMix(files, stateMix);
   tickMaterials(files, t);
-  for (const fl of [flowArt, flowVein]) { const u = fl.material.uniforms; u.uTime.value = t; u.uOn.value = 0.35 + 0.65 * stateMix; u.uSpeed.value = 0.35 + 0.65 * stateMix; }
+  // strzałki rysowane „na wierzchu” (jak na planszy) gasną z bliska, gdzie zamieniały się w szerokie pasy
+  const near = THREE.MathUtils.smoothstep(camera.position.distanceTo(controls.target), 0.7, 1.4);
+  for (const fl of [flowArt, flowVein]) { const u = fl.material.uniforms; u.uTime.value = t; u.uOn.value = (0.35 + 0.65 * stateMix) * near; u.uSpeed.value = 0.35 + 0.65 * stateMix; }
   if (flight) {
     flight.u = Math.min(0.985, flight.u + dt / flight.dur);
     const p = curve.getPointAt(flight.u);
