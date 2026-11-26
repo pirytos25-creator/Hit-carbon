@@ -52,3 +52,8 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 ## 100% osiągnięte (statut §6) – zgromadzenie w toku
 - Fakty końcowe scalone (`cce0f36`, `157171c`, `48fd880`): `check:atlas` – 71 liczb, 165 opisów ról (+162 budowy), 21 podsumowań, **0 `draft`**; build 0; 24 zrzuty 12 plansz bez błędów konsoli (kopie: `side-session-notes/.../dyrygent/zrzuty_koncowe/`).
 - Zgromadzenie, runda 1 (5 podagentów): anatom, architekt 3D, dydaktyk, strażnik faktów, dostępność i licencje → `docs/atlas_audyt/zgromadzenie/*_runda1.md`. Potem runda 2 (wzajemna krytyka), decyzja końcowa, `RAPORT_KONCOWY.md`.
+
+## Zgromadzenie zakończone (2026-11-26)
+- 10 werdyktów (5 ról × 2 rundy) + `zgromadzenie/DECYZJA_KONCOWA.md` (`9916381`): **przyjęty z jedną ostatnią rundą poprawek** (A treść, B dostępność, C licencje, D bramka faktów).
+- W toku: integrator – runda końcowa → `PUNKT KONTROLNY runda końcowa`.
+- Potem: niezależna kontrola (nowe brzmienia `draft`, 9 pozycji reguły ostatniej rundy, ≥ 10% ról i podsumowań na układ, dopasowanie opisu do struktury) → integrator nadaje statusy → scalenie → `RAPORT_KONCOWY.md`.
