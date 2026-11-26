@@ -41,11 +41,11 @@ const T=[
  ['kostny','side_sprint.webp','Kostny','#A17D2B','#CBB88A','NAPĘD','KONSTRUKCJA','rysunek techniczny: strzałka nacisku, osie stawów, wymiar','jedno „uderzenie” strzałki przy kroku','× masa ciała','dźwignia, staw, przebudowa kości'],
  ['oddechowy','front_sprint.webp','Oddechowy','#4FC3E0','#94DEF0','ZAOPATRZENIE','OBJĘTOŚĆ','miernik objętości obok płuc; fala powietrza w tchawicy','fala wdechu i wydechu w tempie z faktu','litry na oddech, oddechy na minutę','wentylacja, wymiana gazowa'],
  ['krwionosny','front_sprint.webp','Krwionośny','#D93240','#F07A84','ZAOPATRZENIE','ROZDZIAŁ','grube i cienkie strzałki; pasek „gdzie idzie krew”','strzałki płyną, grubość = udział krwi','% rzutu serca do mięśni','krążenie duże i małe, redystrybucja'],
- ['pokarmowy','front_sprint.webp','Pokarmowy','#A8743A','#D6B07E','ZAOPATRZENIE','MAGAZYN','wątroba jako zbiornik z poziomem; jelita przygaszone','strzałka glukozy z wątroby do krwi','poziom zapasu (3 stopnie, ilustracja)','glikogen, rola wątroby'],
- ['powlokowy','front_sprint.webp','Powłokowy','#C99A84','#E7C3B2','RÓWNOWAGA','CIEPŁO','izolinie i strzałki ciepła; krople potu','strzałki ciepła wychodzą ze skóry','kierunek przepływu skórnego ↓/↑','termoregulacja, pot'],
- ['wydalniczy','body_front_sprint.webp','Moczowy','#2E9C9A','#7FD3CF','RÓWNOWAGA','FILTR','nerka jako filtr: wejście krwi, wyjście moczu','przepływ przez filtr zwalnia w sprincie','przepływ nerkowy ↓','nefron, filtracja, bilans wody'],
- ['limfatyczny','front_sprint.webp','Limfatyczny','#45A85A','#8FD39E','RÓWNOWAGA','PATROL','węzły jako punkty kontrolne; kropki-komórki','kropki przechodzą z węzłów do krwi','× liczba komórek NK we krwi','odporność, krążenie limfy'],
- ['rozrodczy','side.webp','Rozrodczy','#D45D9A','#EDA3C6','INNE','DŁUGI CZAS','oś tygodni zamiast sprintu; uczciwe „brak widocznej zmiany”','brak animacji sprintu (karta)','tygodnie, nie sekundy','hormony płciowe, adaptacja'],
+ ['pokarmowy','front_sprint.webp','Pokarmowy','#B4B474','#D6D6B3','ZAOPATRZENIE','MAGAZYN','wątroba jako zbiornik z poziomem; jelita przygaszone','strzałka glukozy z wątroby do krwi','poziom zapasu (3 stopnie, ilustracja)','glikogen, rola wątroby'],
+ ['powlokowy','front_sprint.webp','Powłokowy','#FA947A','#FCC4B6','RÓWNOWAGA','CIEPŁO','izolinie i strzałki ciepła; krople potu','strzałki ciepła wychodzą ze skóry','kierunek przepływu skórnego ↓/↑','termoregulacja, pot'],
+ ['wydalniczy','body_front_sprint.webp','Moczowy','#276777','#88ABB4','RÓWNOWAGA','FILTR','nerka jako filtr: wejście krwi, wyjście moczu','przepływ przez filtr zwalnia w sprincie','przepływ nerkowy ↓','nefron, filtracja, bilans wody'],
+ ['limfatyczny','front_sprint.webp','Limfatyczny','#73C770','#B2E0B0','RÓWNOWAGA','PATROL','węzły jako punkty kontrolne; kropki-komórki','kropki przechodzą z węzłów do krwi','× liczba komórek NK we krwi','odporność, krążenie limfy'],
+ ['rozrodczy','side.webp','Rozrodczy','#EA7BB2','#F3B6D5','INNE','DŁUGI CZAS','oś tygodni zamiast sprintu; uczciwe „brak widocznej zmiany”','brak animacji sprintu (karta)','tygodnie, nie sekundy','hormony płciowe, adaptacja'],
 ];
 document.getElementById('g').innerHTML=T.map(([id,img,n,c,l,g,sig,znak,ruch,miara,lic])=>`
  <div class="t" style="--c:${c};--l:${l}"><div class="img"><img src="/atlas/${id}/${img}" alt=""></div>

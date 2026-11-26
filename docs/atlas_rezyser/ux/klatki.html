@@ -60,7 +60,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family
 .txt{font-size:15px;line-height:1.5;color:#d6deea}
 .txt b{color:#fff}
 .check{padding:12px 14px;border-radius:12px;border:1px dashed #2f4470;background:#0b1426}
-.check small{font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:#9fd8ff}
+.check small{font:600 10px 'JetBrains Mono';letter-spacing:.16em;color:var(--sys-l)}
 .check p{margin:6px 0 8px;font-weight:600}
 .check span{display:inline-block;margin-right:6px;padding:6px 12px;border-radius:8px;background:#15223f;border:1px solid #2b3d66;font-size:13px}
 .more{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
@@ -79,9 +79,9 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family
 const SYS=[
  ['STEROWANIE',[['mozg','Mózg','#9B7BEA'],['nerwowy','Nerwowy','#E8B23A'],['hormonalny','Hormonalny','#EF872A']]],
  ['NAPĘD',[['miesniowy','Mięśniowy','#C8553D'],['kostny','Kostny','#A17D2B']]],
- ['ZAOPATRZENIE',[['oddechowy','Oddechowy','#4FC3E0'],['krwionosny','Krwionośny','#D93240'],['pokarmowy','Pokarmowy','#A8743A']]],
- ['RÓWNOWAGA',[['powlokowy','Powłokowy','#C99A84'],['wydalniczy','Moczowy','#2E9C9A'],['limfatyczny','Limfatyczny','#45A85A']]],
- ['INNE',[['rozrodczy','Rozrodczy','#D45D9A']]]];
+ ['ZAOPATRZENIE',[['oddechowy','Oddechowy','#4FC3E0'],['krwionosny','Krwionośny','#D93240'],['pokarmowy','Pokarmowy','#B4B474']]],
+ ['RÓWNOWAGA',[['powlokowy','Powłokowy','#FA947A'],['wydalniczy','Moczowy','#276777'],['limfatyczny','Limfatyczny','#73C770']]],
+ ['INNE',[['rozrodczy','Rozrodczy','#EA7BB2']]]];
 const A='/atlas/'; // serwer Vite aplikacji (public/ jest pod /)
 // Każda klatka: ten sam szkielet (rama), inny wyróżnik (nakładka + legenda + bohater + pytanie).
 const K={
@@ -136,18 +136,18 @@ const K={
   hero:{k:'Kolejność rozkazu',v:'mózg → <em>rdzeń</em> → nerw',m:'zanim stopa odbije się od taśmy',ev:'anatomia (podręcznik)'},
   extra:'', txt:'W sprincie mózg <b>wysyła więcej impulsów</b> i włącza coraz większe jednostki ruchowe.',
   check:{p:'Co jest pierwsze: skurcz mięśnia czy impuls w nerwie?',a:['Skurcz','Impuls']}},
- skora:{sys:'powlokowy',color:'#C99A84',light:'#E7C3B2',group:'Równowaga',
+ skora:{sys:'powlokowy',color:'#FA947A',light:'#FCC4B6',group:'Równowaga',
   goal:'Skóra to <b>chłodnica</b>: po wysiłku oddaje ciepło przez pot i rozszerzone naczynia.',
   img:A+'powlokowy/front_sprint.webp', scale:'1,8 m · całe ciało', sign:'WYRÓŻNIK · CIEPŁO',
-  overlay:`<g fill="none" stroke="#FFB38A" stroke-width="3" opacity=".75">
+  overlay:`<g fill="none" stroke="#FCC4B6" stroke-width="3" opacity=".75">
     <path d="M300,330 C260,600 280,900 330,1100"/><path d="M700,330 C740,600 720,900 670,1100"/>
     <path d="M270,330 C220,620 240,920 300,1130" stroke-dasharray="8 10" opacity=".6"/><path d="M730,330 C780,620 760,920 700,1130" stroke-dasharray="8 10" opacity=".6"/></g>
-   ${[[250,420],[760,420],[230,700],[780,700],[260,980],[750,980]].map(([x,y])=>`<g transform="translate(${x},${y})"><path d="M0,0 C-14,-18 14,-30 0,-48 C-14,-66 14,-78 0,-96" fill="none" stroke="#FFB38A" stroke-width="5" stroke-linecap="round"/></g>`).join('')}
-   ${[[395,520],[610,560],[470,760]].map(([x,y])=>`<path transform="translate(${x},${y})" d="M0,-16 C9,-3 12,4 12,8 A12,12 0 0 1 -12,8 C-12,4 -9,-3 0,-16 Z" fill="#9fd8ff"/>`).join('')}`,
+   ${[[250,420],[760,420],[230,700],[780,700],[260,980],[750,980]].map(([x,y])=>`<g transform="translate(${x},${y})"><path d="M0,0 C-14,-18 14,-30 0,-48 C-14,-66 14,-78 0,-96" fill="none" stroke="#FCC4B6" stroke-width="5" stroke-linecap="round"/></g>`).join('')}
+   ${[[395,520],[610,560],[470,760]].map(([x,y])=>`<path transform="translate(${x},${y})" d="M0,-16 C9,-3 12,4 12,8 A12,12 0 0 1 -12,8 C-12,4 -9,-3 0,-16 Z" fill="#E9EEF7"/>`).join('')}`,
   legend:`<h5>JAK CZYTAĆ: CIEPŁO</h5>
-   <div class="row"><svg width="46" height="18"><path d="M23,17 C15,12 31,8 23,1" fill="none" stroke="#FFB38A" stroke-width="3"/></svg>ciepło uchodzi ze skóry</div>
-   <div class="row"><svg width="46" height="18"><path d="M23,2 C28,9 30,12 30,14 A7,4 0 0 1 16,14 C16,12 18,9 23,2Z" fill="#9fd8ff"/></svg>pot</div>
-   <div class="row"><svg width="46" height="18"><line x1="2" y1="9" x2="44" y2="9" stroke="#FFB38A" stroke-width="2"/><line x1="2" y1="14" x2="44" y2="14" stroke="#FFB38A" stroke-width="2" stroke-dasharray="4 4"/></svg>izolinie: 3 stopnie (ilustracja)</div>`,
+   <div class="row"><svg width="46" height="18"><path d="M23,17 C15,12 31,8 23,1" fill="none" stroke="#FCC4B6" stroke-width="3"/></svg>ciepło uchodzi ze skóry</div>
+   <div class="row"><svg width="46" height="18"><path d="M23,2 C28,9 30,12 30,14 A7,4 0 0 1 16,14 C16,12 18,9 23,2Z" fill="#E9EEF7"/></svg>pot</div>
+   <div class="row"><svg width="46" height="18"><line x1="2" y1="9" x2="44" y2="9" stroke="#FCC4B6" stroke-width="2"/><line x1="2" y1="14" x2="44" y2="14" stroke="#FCC4B6" stroke-width="2" stroke-dasharray="4 4"/></svg>izolinie: 3 stopnie (ilustracja)</div>`,
   q:'Dlaczego po sprincie robisz się czerwony?',
   hero:{k:'Przepływ krwi przez skórę',v:'najpierw <em>↓</em>, potem <em>↑</em>',m:'start pracy → po pracy',ev:'sprawdzone z cytatem · kierunek, bez liczby'},
   extra:'', txt:'Na starcie naczynia skóry <b>się zwężają</b> (krew idzie do mięśni). Po pracy <b>się rozszerzają</b> i ciało oddaje ciepło.',
