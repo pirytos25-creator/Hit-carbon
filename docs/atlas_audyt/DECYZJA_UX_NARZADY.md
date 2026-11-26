@@ -188,7 +188,7 @@ Podstawa: `docs/atlas_audyt/AUDYT_KOMERCYJNY.md` (koordynator) i wymóg (l). Kam
 
 | Pozycja | Kto | Kiedy |
 |---|---|---|
-| **Mózg filmu** (`brain_macro.glb`, Allen v1.2 bez komercji): przebudowa z kory Brainder (rekomendacja) albo Allen v1.3 | Wizualizator | **decyzja użytkownika** |
+| **Mózg filmu** (`brain_macro.glb`, Allen v1.2 bez komercji): **przebudowa z kory Brainder** (decyzja użytkownika (m)); usunięcie renderów v1.2 i pobierania Allen v1.2 | Wizualizator | zaraz po M5 (pierwsza pozycja ML) |
 | **Lektor filmu** (68 MP3 z Edge „Czytaj na głos”, brak zgody na komercję): Azure płatny / Piper lokalny / lektor-człowiek | integrator | **decyzja użytkownika** |
 | Ekran „Źródła i licencje” z manifestów i `creditsPl`, stały link w atlasie, 3D, filmie i gablotach | integrator | po M5 |
 | Krok prebuild: publiczne fakty bez `quote`, `checkedBy`, `auto` (152 cytaty poza bundlem); `check:licencje` z błędem, gdy w dist są te pola lub zewnętrzne CDN | integrator | po M5 |
