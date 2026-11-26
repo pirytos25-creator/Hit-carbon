@@ -2,12 +2,12 @@ import type { AtlasPlateContent } from '../types';
 
 /**
  * Plansza układu dokrewnego (hormonalnego), faza 1b, agent 6. Render: blender/atlas/plate_hormonalny.py.
- * Plan faktów z cytatami: notatki sesji, hormonalny/fakty_plan.md (raport K1/K2).
- *
- * Wszystkie fakty mają status `draft`. Status `checked_agent` nadaje niezależny sprawdzający Dyrygenta, nie autor.
+ * Plan faktów z cytatami: notatki sesji, hormonalny/fakty_plan.md (raporty K1-K3).
+ * Statusy: docs/atlas_audyt/fakty_hormonalny.md (numery # = wiersze audytu). Po audycie K2: potwierdzone = checked_agent
+ * albo anatomy, zmienione = draft. Status `checked_agent` nadaje niezależny sprawdzający Dyrygenta, nie autor.
  * Protokół wzorcowy: 6 × (45 s przy ok. 88% VO₂max / 45 s przerwy). Najbliższe znalezione dane to ciągły wysiłek
  * przy 87% VO₂max (Sigal 1994, 1996), dlatego każda liczba ma `protocolMismatch`.
- * Korekta briefu (przyjęta na K1): przy ok. 87% VO₂max insulina prawie się nie zmienia, a glukagon rośnie
+ * Korekta briefu (przyjęta na K1): przy ok. 87% VO₂max insulina prawie się nie zmienia, a glukagon najwyżej rośnie
  * umiarkowanie, więc trzustka w sprincie świeci słabiej niż nadnercza i przysadka.
  * Tarczyca, szyszynka i grasica: same nazwy (opis roli bez źródła, decyzja Dyrygenta K1), więc `role` jest pusty.
  */
@@ -23,16 +23,18 @@ export const HORMONALNY: AtlasPlateContent = {
   summary: {
     rest:
       'W spoczynku gruczoły dokrewne wydzielają hormony spokojnie, w rytmie dnia i posiłków. We krwi jest mało adrenaliny. Insulina i glukagon z trzustki utrzymują stały poziom cukru.',
+    // Zdania #3-#7 audytu, dosłownie w sprawdzonym brzmieniu. Usunięte zdanie #8 (disputed: kortyzol „w minutach po”);
+    // hormon wzrostu i kortyzol są w podpisie kory nadnercza i w liczbach.
     sprint:
-      'W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę. Przy bardzo intensywnym wysiłku jej stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby, a wątroba wypuszcza do krwi kilka razy więcej glukozy. Insulina i glukagon zmieniają się przy tym niewiele. Przysadka wydziela więcej hormonu antydiuretycznego (ADH), a hormon wzrostu i kortyzol rosną wolniej, w minutach po wysiłku.',
+      'W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę. Przy bardzo intensywnym wysiłku jej stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby, a wątroba wypuszcza do krwi kilka razy więcej glukozy. Insulina i glukagon zmieniają się przy tym niewiele. Przysadka wydziela więcej hormonu antydiuretycznego (ADH).',
   },
   summaryReferenceIds: {
-    rest: ['marliss_vranic_2002'],
-    sprint: ['marliss_vranic_2002', ...SIGAL, 'kindermann_1982', 'convertino_1981', 'stokes_2002', 'hill_2008'],
+    rest: ['marliss_vranic_2002', 'godfrey_2003', 'brooks_1988'],
+    sprint: ['kindermann_1982', ...SIGAL, 'marliss_vranic_2002', 'convertino_1981'],
   },
-  summaryStatus: { rest: 'draft', sprint: 'draft' },
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #2 (+ referencje); #3-#7
   protocolNotePl:
-    'Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max albo z 30 s sprintu maksymalnego, więc dla jednego interwału są tylko przybliżeniem.',
+    'Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem.',
   labels: [
     // ---------------------------------------------------------------- widok: głowa i tułów
     {
@@ -44,7 +46,7 @@ export const HORMONALNY: AtlasPlateContent = {
       tier: 'primary',
       side: 'left',
       referenceIds: ['hill_2008'],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #10, #11
     },
     {
       anchor: 'pituitary',
@@ -54,8 +56,8 @@ export const HORMONALNY: AtlasPlateContent = {
       role: { rest: 'Mało ADH i hormonu wzrostu', sprint: 'Więcej ADH i ACTH; hormon wzrostu później' },
       tier: 'primary',
       side: 'right',
-      referenceIds: ['convertino_1981', 'hill_2008', 'stokes_2002'],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      referenceIds: ['convertino_1981', 'hill_2008', 'stokes_2002', 'peake_2014'],
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #12, #13
     },
     {
       anchor: 'pineal',
@@ -77,7 +79,7 @@ export const HORMONALNY: AtlasPlateContent = {
     {
       anchor: 'thymus',
       view: 'front',
-      namePl: 'Grasica',
+      namePl: 'Grasica (narząd limfatyczny)',
       nameLat: 'thymus',
       role: { rest: '', sprint: '' },
       tier: 'secondary',
@@ -91,18 +93,18 @@ export const HORMONALNY: AtlasPlateContent = {
       tier: 'primary',
       side: 'left',
       referenceIds: SIGAL,
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #17, #18
     },
     {
       anchor: 'pancreas',
       view: 'front',
       namePl: 'Trzustka',
       nameLat: 'pancreas',
-      role: { rest: 'Insulina i glukagon trzymają stały cukier', sprint: 'Zmiana niewielka: glukagon lekko w górę' },
+      role: { rest: 'Insulina i glukagon trzymają stały cukier', sprint: 'Zmiana niewielka: glukagon bez zmian lub lekko w górę' },
       tier: 'primary',
       side: 'left',
       referenceIds: [...SIGAL, 'marliss_vranic_2002'],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #19; #20 ujednolicone z #45 (zmienione)
     },
     {
       anchor: 'portal_vein',
@@ -111,7 +113,8 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'v. portae hepatis',
       role: { rest: 'Krew z trzustki i jelit do wątroby', sprint: 'Niesie glukagon i insulinę do wątroby' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      referenceIds: ['marliss_vranic_2002'],
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #21, #22 (+ referencja)
     },
     {
       anchor: 'ivc',
@@ -120,7 +123,8 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'v. cava inferior',
       role: { rest: 'Krew z dolnej części ciała do serca', sprint: 'Niesie adrenalinę z nadnerczy do serca' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      referenceIds: ['sigal_1996'],
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #23, #24 (+ referencja)
     },
     {
       anchor: 'adrenal',
@@ -130,18 +134,18 @@ export const HORMONALNY: AtlasPlateContent = {
       role: { rest: 'Mało adrenaliny we krwi', sprint: 'Wyrzut adrenaliny do krwi' },
       tier: 'primary',
       side: 'right',
-      referenceIds: ['marliss_vranic_2002', 'kindermann_1982', 'brooks_1988'],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      referenceIds: ['brooks_1988', 'kindermann_1982', 'sigal_1996'],
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #25, #26
     },
     {
       anchor: 'kidney',
       view: 'front',
       namePl: 'Nerka lewa',
       nameLat: 'ren sinister',
-      role: { rest: 'Nadnercze leży na jej górnym biegunie', sprint: 'Nadnercze leży na jej górnym biegunie' },
+      role: { rest: 'Nadnercze przylega do jej górnego bieguna', sprint: 'Nadnercze przylega do jej górnego bieguna' },
       tier: 'secondary',
       side: 'right',
-      roleStatus: { rest: 'anatomy', sprint: 'anatomy' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // #27 (doprecyzowane wg uwagi audytu)
     },
     // ---------------------------------------------------------------- zbliżenie: nadnercze prawe (schemat warstw)
     {
@@ -149,10 +153,10 @@ export const HORMONALNY: AtlasPlateContent = {
       view: 'detail',
       namePl: 'Kora nadnercza',
       nameLat: 'cortex glandulae suprarenalis',
-      role: { rest: 'Wydziela kortyzol w rytmie dnia', sprint: 'Kortyzol rośnie dopiero w dłuższym wysiłku' },
+      role: { rest: 'Wydziela kortyzol w rytmie dnia', sprint: 'Kortyzol rośnie w dłuższym albo bardzo intensywnym wysiłku' },
       tier: 'primary',
-      referenceIds: ['hill_2008'],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      referenceIds: ['hill_2008', 'kindermann_1982', 'peake_2014'],
+      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #28; #29 poprawione wg audytu (zmienione)
     },
     {
       anchor: 'd_medulla',
@@ -161,8 +165,8 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'medulla glandulae suprarenalis',
       role: { rest: 'Mało adrenaliny', sprint: 'Adrenalina do krwi: kilkanaście razy więcej' },
       tier: 'primary',
-      referenceIds: ['marliss_vranic_2002', ...SIGAL],
-      roleStatus: { rest: 'draft', sprint: 'draft' },
+      referenceIds: ['brooks_1988', ...SIGAL],
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #30 (+ referencja), #31
     },
     {
       anchor: 'd_artery',
@@ -171,7 +175,7 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'a. suprarenalis inferior',
       role: { rest: 'Krew z tętnicy nerkowej do nadnercza', sprint: 'Krew z tętnicy nerkowej do nadnercza' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'anatomy' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // #32
     },
     {
       anchor: 'd_ivc',
@@ -180,7 +184,8 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'v. cava inferior',
       role: { rest: 'Odbiera krew z nadnercza prawego', sprint: 'Zabiera adrenalinę do serca' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      referenceIds: ['sigal_1996'],
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #33, #34 (+ referencja)
     },
     {
       anchor: 'd_kidney',
@@ -189,26 +194,25 @@ export const HORMONALNY: AtlasPlateContent = {
       nameLat: 'ren dexter',
       role: { rest: 'Górny biegun pod nadnerczem', sprint: 'Górny biegun pod nadnerczem' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'anatomy' },
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // #35
     },
   ],
   metrics: [
     {
       labelPl: 'Adrenalina we krwi',
       rest: '1×',
-      sprint: '14–18×',
+      sprint: 'ponad 12×',
       unit: 'spoczynku',
-      referenceIds: ['marliss_vranic_2002', ...SIGAL],
+      referenceIds: [...SIGAL, 'brooks_1988'],
       evidenceLevel: 'established_human',
       notePl:
-        'Krotność stężenia w spoczynku przy bardzo intensywnym wysiłku (powyżej 80% VO₂max). Przy 87% VO₂max: ponad 12 razy, szczyt ok. 1,7 nmol/L.',
-      status: 'draft',
-      protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87–100% VO₂max (do wyczerpania)',
-      quote:
-        'In contrast, in intense exercise there is a marked 14-to 18-fold increase of both EPI and NE (Fig. 1C and D) (e.g., 19, [21] [22] [23] 25, 26) to levels seen in pheochromocytoma.',
-      locator: 'Marliss i Vranic 2002, pełny tekst, część o katecholaminach, rys. 1C–D; Sigal 1996, abstrakt („> 12-fold”); Sigal 1994, abstrakt (1715 pmol/L w grupie C)',
-      conversionNote: '1715 pmol/L = 1,7 nmol/L',
-      measuredAt: 'szczyt pod koniec wysiłku',
+        'Krotność stężenia w spoczynku przy ok. 87% VO₂max; szczyt ok. 1,7 nmol/L. Dla porównania po 30 s sprintu maksymalnego: ok. 7 razy (0,2 → 1,4 nmol/L).',
+      status: 'draft', // #36 poprawione wg audytu (zmienione); notatka: #37 + Brooks 1988
+      protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
+      quote: 'Plasma norepinephrine and epinephrine likewise increased > 12-fold with no differences among groups',
+      locator: 'Sigal 1996, abstrakt; Sigal 1994, abstrakt (1715 pmol/L w grupie C); Brooks 1988, abstrakt (0,2 → 1,4 nmol/L)',
+      conversionNote: '1715 pmol/L = 1,7 nmol/L; 1,4 / 0,2 = 7',
+      measuredAt: 'w czasie wysiłku',
     },
     {
       labelPl: 'Glukoza wypuszczana do krwi (głównie z wątroby)',
@@ -218,7 +222,7 @@ export const HORMONALNY: AtlasPlateContent = {
       referenceIds: SIGAL,
       evidenceLevel: 'established_human',
       notePl: 'Napędzają ją głównie adrenalina i noradrenalina, a nie insulina i glukagon.',
-      status: 'draft',
+      status: 'checked_agent', // #38, #39
       protocolMismatch: 'ok. 14 min ciągłego wysiłku przy 87% VO₂max',
       quote: 'The rate of glucose appearance (Ra) rose about 8-fold in both MAX and P, but only 4-fold in C (P = 0.001).',
       locator: 'Sigal 1994, abstrakt (C = 87% VO₂max); Sigal 1996, abstrakt: „Ra increased sixfold in control and both IC groups.”',
@@ -227,26 +231,26 @@ export const HORMONALNY: AtlasPlateContent = {
     {
       labelPl: 'Hormon wzrostu we krwi',
       rest: 'niski',
-      sprint: 'szczyt ok. 30 min po',
+      sprint: 'nadal wyższy 60 min po',
       referenceIds: ['stokes_2002', 'pritzlaff_1999', 'godfrey_2003'],
       evidenceLevel: 'established_human',
-      notePl: 'Hormon wzrostu rośnie z opóźnieniem: najwyżej jest ok. pół godziny po sprincie, a nie w jego trakcie.',
-      status: 'draft',
+      notePl:
+        'Hormon wzrostu rośnie z opóźnieniem i zostaje podwyższony długo po sprincie. W tym badaniu drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.',
+      status: 'draft', // #40 poprawione wg abstraktu (zmienione)
       protocolMismatch: '30 s sprint maksymalny na cykloergometrze',
       quote:
-        'The first sprint resulted in a distinct GH pulse with highest measured mean concentrations of 40.8 ± 8.2 and 20.8 ± 6.1 mU/l 30 min after the sprint in the fast and slow trials, respectively.',
-      locator: 'Stokes 2002, Wyniki („Hormone responses to cycle ergometer sprinting”), rys. 4',
-      measuredAt: '30 min po sprincie',
+        'serum GH was still elevated 60 min after the first sprint. The second sprint in each trial did not elicit a serum GH response',
+      locator: 'Stokes 2002, abstrakt',
+      measuredAt: '60 min po sprincie',
     },
     {
       labelPl: 'Kortyzol we krwi',
       rest: '—',
       sprint: '+83% po 30 min',
-      referenceIds: ['hill_2008', 'peake_2014'],
+      referenceIds: ['hill_2008'],
       evidenceLevel: 'established_human',
-      notePl:
-        'Po 30 min wysiłku przy 80% VO₂max; przy 40% VO₂max kortyzol nie rósł. W jednym 45 s interwale wyraźnej zmiany się nie spodziewamy. Część wzrostu to zagęszczenie krwi.',
-      status: 'draft',
+      notePl: 'Po 30 min wysiłku przy 80% VO₂max; przy 40% VO₂max kortyzol nie rósł. Część wzrostu to zagęszczenie krwi.',
+      status: 'checked_agent', // #41, #42; usunięte zdanie #43 (disputed)
       protocolMismatch: '30 min ciągłego wysiłku przy 80% VO₂max',
       quote:
         'The percent change in cortisol from pre- to post-sampling at each session was: resting-control, 40, 60, and 80% sessions (mean+/-SD) =-6.6+/-3.5%, +5.7+/-11.0%, +39.9+/-11.8%, and +83.1+/-18.5%, respectively.',
@@ -260,12 +264,28 @@ export const HORMONALNY: AtlasPlateContent = {
       sprint: '0,26',
       referenceIds: ['sigal_1996'],
       evidenceLevel: 'established_human',
-      notePl: 'Przy 87% VO₂max insulina lekko spadła, a glukagon się nie zmienił. Po wysiłku insulina rośnie przez 40–60 min.',
-      status: 'draft',
+      notePl: 'Przy 87% VO₂max insulina lekko spadła, a glukagon się nie zmienił.',
+      status: 'checked_agent', // #44, #45; zdanie #46 przeniesione do osobnej liczby niżej
       protocolMismatch: 'ciągły wysiłek przy 87% VO₂max',
       quote: 'the glucagon-to-insulin ratio increased from 0.20 to 0.26 (P = 0.02)',
       locator: 'Sigal 1996, abstrakt',
       measuredAt: 'w czasie wysiłku',
+      tier: 'student',
+    },
+    {
+      labelPl: 'Insulina po wysiłku',
+      rest: '—',
+      sprint: 'zależy od wysiłku',
+      referenceIds: ['marliss_vranic_2002', 'peake_2014'],
+      evidenceLevel: 'contested_debate',
+      notePl:
+        'Po wysiłku do wyczerpania insulina rośnie przez 40–60 min. Po interwałach przy ok. 82% VO₂max (wytrenowani kolarze) spadała.',
+      status: 'draft', // #46 przeformułowane wg audytu (zmienione)
+      protocolMismatch: 'wysiłek do wyczerpania (przegląd) i interwały przy ok. 82% VO₂max',
+      quote:
+        'requiring a substantial rise in insulin for 40--60 min to restore pre-exercise levels | Plasma insulin decreased during recovery from both HIIT and MOD',
+      locator: 'Marliss i Vranic 2002, abstrakt; Peake 2014, abstrakt',
+      measuredAt: 'po wysiłku',
       tier: 'student',
     },
   ],

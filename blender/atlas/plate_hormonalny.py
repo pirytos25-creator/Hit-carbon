@@ -387,7 +387,8 @@ def build(plate, with_detail=True):
     plate.set_view("body_front", direction="front", frame=bones_all + muscles_for_frame, margin=1.06)
     # Tułów z głową: od czubka głowy do miednicy.
     bmn, bmx = al.vert_bbox(bones_all)
-    plate.set_view("front", direction="front", center=Vector((0.0, 0.0, bmx.z + 0.03 - 0.5)), ortho_scale=1.0)
+    # Górny margines 10 cm nad czaszką (audyt K2: głowa chowała się pod przełącznikiem widoków); dół nadal na miednicy.
+    plate.set_view("front", direction="front", center=Vector((0.0, 0.0, bmx.z + 0.10 - 0.53)), ortho_scale=1.06)
     # Kotwice rozsunięte (audyt K1): głowa - podwzgórze (środek) i przysadka (dolny brzeg), szyszynka tylko rozszerzony;
     # brzuch - z lewej strony obrazu wątroba (wyżej) i głowa trzustki (niżej), w środku ż. wrotna i ż. główna dolna,
     # z prawej nadnercze LEWE (wyżej) i nerka lewa (niżej).

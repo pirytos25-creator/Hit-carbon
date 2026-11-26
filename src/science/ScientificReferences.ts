@@ -1443,7 +1443,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/7906280/',
     acts: [],
     summaryPl:
-      'Młodzi, sprawni mężczyźni, ok. 14 min na cykloergometrze. Przy 87% VO₂max wypływ glukozy do krwi wzrósł ok. 4 razy, a przy 100% VO₂max ok. 8 razy. Adrenalina doszła do ok. 1,7 nmol/L. Insulina przy 87% nie spadła, a glukagon wzrósł umiarkowanie.',
+      'Młodzi, sprawni mężczyźni, ok. 14 min na cykloergometrze. Przy 87% VO₂max wypływ glukozy do krwi wzrósł ok. 4 razy, a przy 100% VO₂max ok. 8 razy. Adrenalina doszła do ok. 1,7 nmol/L przy 87% VO₂max (ok. 7,1 nmol/L przy 100%). Insulina przy 87% nie spadła, a glukagon wzrósł umiarkowanie.',
   },
   sigal_1996: {
     id: 'sigal_1996',
@@ -1482,7 +1482,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/11796670/',
     acts: [],
     summaryPl:
-      'Po jednym 30 s sprincie maksymalnym (10 mężczyzn) hormon wzrostu we krwi był najwyższy 30 min po sprincie i pozostał podwyższony jeszcze po 60 min.',
+      'Po jednym 30 s sprincie maksymalnym (10 mężczyzn) hormon wzrostu we krwi był podwyższony jeszcze 60 min później; drugi sprint, godzinę po pierwszym, nie wywołał już wzrostu.',
   },
   pritzlaff_1999: {
     id: 'pritzlaff_1999',
