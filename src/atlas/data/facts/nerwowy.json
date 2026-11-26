@@ -227,7 +227,10 @@
    ],
    "checkedBy": null,
    "order": 3,
-   "topic": "adrenalina_we_krwi"
+   "topic": "adrenalina_we_krwi",
+   "quoteSource": [
+    "brooks_1988"
+   ]
   },
   {
    "id": "nerwowy.metric.adrenalina_w_osoczu.rest",
@@ -257,7 +260,10 @@
     "provenance",
     "accessMode"
    ],
-   "checkedBy": null
+   "checkedBy": null,
+   "quoteSource": [
+    "brooks_1988"
+   ]
   },
   {
    "id": "nerwowy.metric.skad_bierze_sie_zmeczenie",
@@ -341,9 +347,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The intercostal nerves are part of the somatic nervous system, aiding in the contraction of muscles and the return of sensory information from the skin and parietal pleura.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Thorax, Intercostal Nerves” (2023), NBK538238, Introduction; PMID 30855826",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/ ; https://pubmed.ncbi.nlm.nih.gov/30855826/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/ ; https://pubmed.ncbi.nlm.nih.gov/30855826/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.intercostal.sprint",
@@ -371,9 +378,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The intercostal nerves are part of the somatic nervous system, aiding in the contraction of muscles and the return of sensory information from the skin and parietal pleura.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Thorax, Intercostal Nerves” (2023), NBK538238, Introduction; PMID 30855826",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538238/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.sympathetic_trunk.rest",
@@ -523,9 +531,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "The nerves arising from the lumbar plexus are vital for the functioning of the lower extremity and maintaining the ability to extend the knee, flex the hip, adduct the thigh, and more.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Back, Lumbar Plexus” (2023), NBK545137, Introduction; PMID 31424721",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK545137/ ; https://pubmed.ncbi.nlm.nih.gov/31424721/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK545137/ ; https://pubmed.ncbi.nlm.nih.gov/31424721/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.lumbar_plexus.sprint",
@@ -583,9 +592,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "It has a role in motor and sensory processing in the lower limbs. As a result, it controls the major hip flexor muscles, as well as knee extension muscles.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Thigh Femoral Nerve” (2023), NBK556065, Introduction; PMID 32310525",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK556065/ ; https://pubmed.ncbi.nlm.nih.gov/32310525/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK556065/ ; https://pubmed.ncbi.nlm.nih.gov/32310525/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.femoral.sprint",
@@ -643,9 +653,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "This nerve provides motor innervation to the medial compartment of the thigh and as a result, is essential to the adduction of the thigh.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Abdomen and Pelvis, Obturator Nerve” (2023), NBK551640, Introduction; PMID 31869104",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK551640/ ; https://pubmed.ncbi.nlm.nih.gov/31869104/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK551640/ ; https://pubmed.ncbi.nlm.nih.gov/31869104/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.obturator.sprint",
@@ -702,9 +713,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "The motor component innervates muscles in the anterior compartment of the leg and the dorsal intrinsic muscles of the foot, enabling dorsiflexion of the foot, extension of the toes, and assisting in foot inversion.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Calf Deep Peroneal Nerve (Deep Fibular Nerve)” (2025), NBK526033, Introduction; PMID 30252289",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK526033/ ; https://pubmed.ncbi.nlm.nih.gov/30252289/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK526033/ ; https://pubmed.ncbi.nlm.nih.gov/30252289/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.deep_fibular.sprint",
@@ -761,9 +773,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "The motor cortex not only initiates voluntary movements but also has the lowest threshold for eliciting such movements.",
+   "quote": null,
    "locator": "StatPearls „Physiology, Motor Cortex” (2026), NBK542188, Introduction; PMID 31194345",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542188/ ; https://pubmed.ncbi.nlm.nih.gov/31194345/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542188/ ; https://pubmed.ncbi.nlm.nih.gov/31194345/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.motor_cortex.sprint",
@@ -882,9 +895,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
    },
-   "quote": "This bundle of numerous axons was termed the cauda equina, from the Latin translation meaning “horse’s tail,” and it contains nerves that innervate both sensory and motor targets within lumbar, sacral, and coccygeal spinal cord levels.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Back, Cauda Equina” (2023), NBK513251, Introduction; PMID 30020623",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK513251/ ; https://pubmed.ncbi.nlm.nih.gov/30020623/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK513251/ ; https://pubmed.ncbi.nlm.nih.gov/30020623/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.cauda_equina.sprint",
@@ -943,9 +957,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The sciatic nerve is the largest nerve in humans, originating in the lower back and traveling posteriorly through the lower limb as far down as the heel of the foot. The sciatic nerve innervates a significant portion of the skin and muscles of the thigh, leg, and foot.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Sciatic Nerve” (2023), NBK482431, Introduction; PMID 29494038",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK482431/ ; https://pubmed.ncbi.nlm.nih.gov/29494038/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK482431/ ; https://pubmed.ncbi.nlm.nih.gov/29494038/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.sciatic.sprint",
@@ -1003,9 +1018,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
    },
-   "quote": "The common peroneal nerve, or the common fibular nerve, is a major nerve that innervates the lower extremity […]. As 1 of the 2 major branches of the sciatic nerve, the common peroneal nerve receives fibers from the posterior divisions of L4 through S2.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Calf Common Peroneal Nerve (Common Fibular Nerve)” (2022), NBK532968, Introduction; PMID 30422563",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532968/ ; https://pubmed.ncbi.nlm.nih.gov/30422563/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532968/ ; https://pubmed.ncbi.nlm.nih.gov/30422563/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.common_fibular.sprint",
@@ -1062,9 +1078,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The tibial nerve originates from the L4 to S3 spinal nerve roots and provides motor and sensory innervation to most of the posterior leg and foot.",
+   "quote": null,
    "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Tibial Nerve” (2026), NBK537028, Introduction; PMID 30725713",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537028/ ; https://pubmed.ncbi.nlm.nih.gov/30725713/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537028/ ; https://pubmed.ncbi.nlm.nih.gov/30725713/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "nerwowy.role.tibial.sprint",

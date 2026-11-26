@@ -165,6 +165,12 @@ export interface ScientificReference {
   url?: string;
   acts: ActId[];
   summaryPl: string;
+  /**
+   * Licencja TREŚCI źródła (wymóg użytku komercyjnego, decyzja (l)). Źródła NC/ND albo z zastrzeżonymi prawami
+   * ('CC BY-NC-ND 4.0', 'all rights reserved'): bez dosłownego cytatu w danych produktu (walidator atlas_check_data).
+   * Brak = licencja nieustalona (audyt licencji koordynatora).
+   */
+  sourceLicense?: 'CC BY 4.0' | 'CC0 1.0' | 'CC BY-NC-ND 4.0' | 'all rights reserved' | (string & {});
 }
 
 export interface ScientificClaim {

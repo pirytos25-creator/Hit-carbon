@@ -768,6 +768,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK549825/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk538167: {
     id: 'statpearls_nbk538167',
@@ -779,6 +780,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK538167/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk544297: {
     id: 'statpearls_nbk544297',
@@ -790,6 +792,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK544297/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk537141: {
     id: 'statpearls_nbk537141',
@@ -801,6 +804,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK537141/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk542184: {
     id: 'statpearls_nbk542184',
@@ -812,6 +816,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK542184/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk562317: {
     id: 'statpearls_nbk562317',
@@ -823,6 +828,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK562317/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk532309: {
     id: 'statpearls_nbk532309',
@@ -834,6 +840,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK532309/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk513304: {
     id: 'statpearls_nbk513304',
@@ -845,6 +852,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK513304/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk558966: {
     id: 'statpearls_nbk558966',
@@ -856,6 +864,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK558966/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk532946: {
     id: 'statpearls_nbk532946',
@@ -867,6 +876,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK532946/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk532982: {
     id: 'statpearls_nbk532982',
@@ -878,6 +888,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK532982/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk538238: {
     id: 'statpearls_nbk538238',
@@ -889,6 +900,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK538238/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk551640: {
     id: 'statpearls_nbk551640',
@@ -900,6 +912,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK551640/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk526033: {
     id: 'statpearls_nbk526033',
@@ -911,6 +924,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK526033/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk542188: {
     id: 'statpearls_nbk542188',
@@ -922,6 +936,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK542188/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk513251: {
     id: 'statpearls_nbk513251',
@@ -933,6 +948,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK513251/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk482431: {
     id: 'statpearls_nbk482431',
@@ -944,6 +960,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK482431/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk532968: {
     id: 'statpearls_nbk532968',
@@ -955,6 +972,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK532968/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_nbk537028: {
     id: 'statpearls_nbk537028',
@@ -966,6 +984,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK537028/',
     acts: [],
     summaryPl: 'Rozdział StatPearls (sekcja Introduction w rekordzie PubMed); źródło opisów ról w atlasie (E1-K3 partia 2).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   // E1-K3 (fakty podręcznikowe, gablota serca M5): źródła z ISBN albo NBK (model §3.6 pkt 9)
   openstax_ap2e: {
@@ -978,6 +997,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Otwarty podręcznik anatomii i fizjologii (CC BY 4.0): budowa serca (19.1), układ bodźcoprzewodzący (19.2), cykl pracy serca (19.3), krew (18.1, 18.3), drogi krążenia (20.5).',
+    sourceLicense: 'CC BY 4.0',
   },
   clinical_methods_cyanosis: {
     id: 'clinical_methods_cyanosis',
@@ -989,6 +1009,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://www.ncbi.nlm.nih.gov/books/NBK367/',
     acts: [],
     summaryPl: 'Rozdział o sinicy: krew żylna w probówce nie jest niebieska.',
+    sourceLicense: 'all rights reserved',
   },
   statpearls_pyramidal: {
     id: 'statpearls_pyramidal',
@@ -1001,6 +1022,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Droga piramidowa zaczyna się głównie w pierwszorzędowej korze ruchowej; ok. 85–90% włókien krzyżuje się w skrzyżowaniu piramid.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_corticospinal: {
     id: 'statpearls_corticospinal',
@@ -1013,6 +1035,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Droga korowo-rdzeniowa: włókna przekazują rozkaz komórkom rogów przednich rdzenia, które unerwiają mięśnie kończyn.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_lateral_cst: {
     id: 'statpearls_lateral_cst',
@@ -1025,6 +1048,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Aksony drogi korowo-rdzeniowej bocznej wychodzą z zakrętu przedśrodkowego.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_lower_limb_nerves: {
     id: 'statpearls_lower_limb_nerves',
@@ -1037,6 +1061,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Nerw kulszowy unerwia mięśnie tylnej strony uda i (jako nerw piszczelowy) łydki; nerw strzałkowy głęboki przedział przedni goleni.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_femoral_nerve: {
     id: 'statpearls_femoral_nerve',
@@ -1049,6 +1074,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Nerw udowy unerwia mięsień czworogłowy, główny prostownik kolana.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_lumbar_plexus: {
     id: 'statpearls_lumbar_plexus',
@@ -1061,6 +1087,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Splot lędźwiowy (L1–L4): nerwy udowy i zasłonowy pozwalają prostować kolano, zginać biodro i przywodzić udo.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_lumbar_spine: {
     id: 'statpearls_lumbar_spine',
@@ -1073,6 +1100,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Ogon koński tworzą nerwy rdzeniowe L2–L5 i S1–S5.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_ans: {
     id: 'statpearls_ans',
@@ -1085,6 +1113,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Układ autonomiczny: włókna przedzwojowe dla rdzenia nadnerczy przechodzą przez pień współczulny bez przełączenia (nerwy trzewne); włókna współczulne unerwiają gruczoły potowe i naczynia skóry.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   blackie_1991: {
     id: 'blackie_1991',
@@ -1613,6 +1642,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Jądra to męskie gruczoły płciowe w mosznie, o funkcji dokrewnej i zewnątrzwydzielniczej; najądrze leży na tylnym brzegu jądra, w nim plemniki dojrzewają i są przechowywane.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_male_gu: {
     id: 'statpearls_male_gu',
@@ -1625,6 +1655,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Plemniki powstają w jądrach i dojrzewają w najądrzu; nasieniowód prowadzi je z najądrza do przewodów wytryskowych, które uchodzą do cewki w prostacie; mocz jest gromadzony w pęcherzu moczowym i wydalany cewką.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_seminal_vesicle: {
     id: 'statpearls_seminal_vesicle',
@@ -1637,6 +1668,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Pęcherzyki nasienne leżą w miednicy pod dnem pęcherza moczowego, za prostatą; każdy łączy się z bańką nasieniowodu w przewód wytryskowy, który uchodzi do cewki w prostacie.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_prostate: {
     id: 'statpearls_prostate',
@@ -1648,6 +1680,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/31082031/',
     acts: [],
     summaryPl: 'Gruczoł krokowy leży w miednicy mniejszej; wytwarza zasadową wydzielinę, która chroni plemniki.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_penis: {
     id: 'statpearls_penis',
@@ -1660,6 +1693,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Prącie służy do rozrodu i oddawania moczu; zbudowane jest z dwóch ciał jamistych i ciała gąbczastego, w którym biegnie cewka moczowa.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_female_internal: {
     id: 'statpearls_female_internal',
@@ -1671,6 +1705,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/32119488/',
     acts: [],
     summaryPl: 'Wewnętrzne narządy płciowe kobiety (pochwa, szyjka, macica, jajowody, jajniki) leżą w miednicy mniejszej.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_ovary: {
     id: 'statpearls_ovary',
@@ -1682,6 +1717,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/31424771/',
     acts: [],
     summaryPl: 'Jajnik to żeński gruczoł płciowy: dojrzewają w nim pęcherzyki i komórki jajowe, wydziela estrogeny i progesteron.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_fallopian_tube: {
     id: 'statpearls_fallopian_tube',
@@ -1693,6 +1729,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     url: 'https://pubmed.ncbi.nlm.nih.gov/31613440/',
     acts: [],
     summaryPl: 'Jajowody łączą jajniki z macicą: są drogą transportu komórki jajowej i miejscem zapłodnienia.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   statpearls_uterus: {
     id: 'statpearls_uterus',
@@ -1705,6 +1742,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Macica to pusty narząd w kształcie gruszki między pęcherzem a odbytnicą; u ok. 50% kobiet jest przodozgięta i przodopochylona; szyjka wnika do pochwy.',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   // ---------------------------------------------------------------- plansza „Układ pokarmowy i wątroba” (faza 1b, agent 8)
   rowell_1964: {
@@ -2066,6 +2104,7 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     acts: [],
     summaryPl:
       'Podręcznik (StatPearls): nerki dostają ok. 20% rzutu serca (1–1,1 L/min); w kłębuszkach przesącza się ok. 180 L płynu na dobę, a ok. 178,5 L wraca do krwi (moczu ok. 1,5 L).',
+    sourceLicense: 'CC BY-NC-ND 4.0',
   },
   sands_layton_2009: {
     id: 'sands_layton_2009',

@@ -558,9 +558,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The postcentral gyrus contains the primary somatosensory cortex, a significant brain region responsible for proprioception.",
+   "quote": null,
    "locator": "StatPearls „Neuroanatomy, Postcentral Gyrus” (2023), NBK549825, Introduction; PMID 31751015",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK549825/ ; https://pubmed.ncbi.nlm.nih.gov/31751015/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK549825/ ; https://pubmed.ncbi.nlm.nih.gov/31751015/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.cerebellum.rest",
@@ -588,9 +589,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
    },
-   "quote": "The cerebellum coordinates gait and maintains posture, controls muscle tone and voluntary muscle activity but is unable to initiate muscle contraction.",
+   "quote": null,
    "locator": "StatPearls „Neuroanatomy, Cerebellum” (2023), NBK538167, Introduction; PMID 30844194",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538167/ ; https://pubmed.ncbi.nlm.nih.gov/30844194/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK538167/ ; https://pubmed.ncbi.nlm.nih.gov/30844194/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.cerebellum.sprint",
@@ -648,9 +650,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "It is responsible for many vital functions of life, such as breathing, consciousness, blood pressure, heart rate, and sleep.",
+   "quote": null,
    "locator": "StatPearls „Neuroanatomy, Brainstem” (2023), NBK544297, Introduction; PMID 31335017",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK544297/ ; https://pubmed.ncbi.nlm.nih.gov/31335017/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK544297/ ; https://pubmed.ncbi.nlm.nih.gov/31335017/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.brainstem.sprint",
@@ -766,9 +769,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
    },
-   "quote": "In particular, the basal ganglia is considered to be a gate-keeping mechanism for the initiation of motor movement, effectively choosing which actions to allow and which actions to inhibit.",
+   "quote": null,
    "locator": "StatPearls „Neuroanatomy, Basal Ganglia” (2023), NBK537141, Introduction; PMID 30725826",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537141/ ; https://pubmed.ncbi.nlm.nih.gov/30725826/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK537141/ ; https://pubmed.ncbi.nlm.nih.gov/30725826/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.basal_ganglia.sprint",
@@ -856,9 +860,10 @@
     ],
     "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
    },
-   "quote": "The thalamus is composed of different nuclei that each serve a unique role, ranging from relaying sensory and motor signals, as well as regulation of consciousness and alertness.",
+   "quote": null,
    "locator": "StatPearls „Neuroanatomy, Thalamus” (2023), NBK542184, Introduction; PMID 31194341",
-   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542184/ ; https://pubmed.ncbi.nlm.nih.gov/31194341/"
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK542184/ ; https://pubmed.ncbi.nlm.nih.gov/31194341/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "mozg.role.hypothalamus.rest",
