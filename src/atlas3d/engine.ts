@@ -108,11 +108,11 @@ export function atlasMaterial(state: StateTex, transparent: boolean, opacity: nu
         if (r0.a < .01) discard;                                   // struktura spoza tego widoku planszy
         ${transparent ? '' : 'if (r2.b < .999 && r2.b <= bayer4(gl_FragCoord.xy)) discard; // półprzezroczysta w siatce nieprzezroczystej'}`)
       .replace('#include <color_fragment>', `#include <color_fragment>
-        float hi = r1.a * (.55 + .45 * sin(uTime * 3.9));
+        float hi = r1.a; // wyróżnienie stałe: bez pulsu i bez emisji (karta Reżysera, S9); puls tylko w filmie, na strukturze z bieżącego zdania
         vec3 baseC = mix(r0.rgb, r1.rgb, uState);
         diffuseColor.rgb = mix(baseC, baseC * 1.25 + .1, hi);`)
       .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
-        totalEmissiveRadiance = baseC * mix(r2.r, r2.g, uState) + baseC * hi * .3;`);
+        totalEmissiveRadiance = baseC * mix(r2.r, r2.g, uState);`);
   };
   mat.customProgramCacheKey = () => (transparent ? 'atlas3d-t' : 'atlas3d-o');
   return mat;
