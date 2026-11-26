@@ -1,5 +1,5 @@
 import paletteJson from './data/palette.json';
-import type { AtlasCurriculumRef, AtlasFactStatus, AtlasLessonText, AtlasPlateContent, AtlasState, AtlasSystemId } from './types';
+import type { AtlasCurriculumRef, AtlasFactStatus, AtlasLessonText, AtlasPlateContent, AtlasQuiz, AtlasState, AtlasSystemId } from './types';
 import { ATLAS_SHOWN_STATUSES } from './types';
 
 /** Paleta atlasu: jedno źródło kolorów dla Pythona i TS (src/atlas/data/palette.json). */
@@ -100,6 +100,14 @@ export function lessonText(t: AtlasLessonText | undefined): { text: string; draf
 export function shownCurriculum(content: AtlasPlateContent): AtlasCurriculumRef | null {
   const c = content.curriculumRef;
   return c && (isShown(c.status) || (DRAFT_PREVIEW && c.status === 'draft')) ? c : null;
+}
+
+/** Bramka „Sprawdź się” (M6): sprawdzone pytanie albo szkic w podglądzie `?szkice=1`; inaczej nic. */
+export function shownQuiz(content: AtlasPlateContent): { quiz: AtlasQuiz; draft: boolean } | null {
+  const q = content.quiz;
+  if (!q) return null;
+  if (isShown(q.status)) return { quiz: q, draft: false };
+  return DRAFT_PREVIEW && q.status === 'draft' ? { quiz: q, draft: true } : null;
 }
 
 /** Poziom złożoności (model §3.5). */
