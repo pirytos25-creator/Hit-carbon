@@ -98,7 +98,7 @@ Plik: `klatki_docelowe/D_swiatlo_i_material_z_filmem.jpg`. U góry kadry filmu (
 | krwinka | `InstancedErythrocytes` (`MolecularSimulation.tsx`) | jedna siatka (profil Evansa–Funga), instancjonowana, zorientowana wzdłuż toru, prędkość z przekroju |
 | światło | presety aktów, AgX, bloom | presety aktów zostają w filmie; tkanka ma ten sam materiał; studio klucz/wypełnienie/kontra w atlasie i gablotach |
 | barwa | palety aktów (np. nerwy cyjanowe w akcie II) | **barwy układów z `palette.json` także w filmie** (nerwowy = bursztyn `nerve`); dwa profile wyglądu: atlas Standard, film AgX; zgodność potwierdza pomiar ΔE na zrzutach |
-| świecenie | bloom na sygnałach | tylko sygnał (impuls, struktura z bieżącego zdania): emisja + tani halo (sprite); bloom pełnoekranowy tylko w profilu filmowym na mocnej karcie |
+| świecenie | bloom na sygnałach | **poziom uproszczony (Low):** tylko sygnał (impuls, struktura z bieżącego zdania) jako emisja + tani halo (sprite), bez postprocesu; **poziom pełny (High, Cinematic):** może mieć profil filmowy z postprocesem (bloom tylko na sygnałach). Profile wyglądu i zgodność palety projektuje Wizualizator (jego PLAN 2) |
 | schemat | — | bryła 3D w jednolitym, matowym materiale + chip „schemat, bez skali”; kreska tylko w legendzie |
 
 **Rozbieżność barw do decyzji:** w filmie układ nerwowy jest cyjanowo-błękitny (biblia, akt II), a w atlasie bursztynowy (`nerve` `#E8B23A`, sprawdzony walidatorem ΔE).
@@ -183,13 +183,13 @@ Przegląd: gałąź `atlas-uklady` (`2c6db64`), 12 układów, 61 zrzutów (2D pr
 
 1. **Nagłówek:** „Atlas › grupa › układ (› narząd)”, cel lekcji jednym zdaniem, mały przełącznik „Podstawowy | Rozszerzony”, w gablotach zakładki trybów (Zwiedzaj, Jak to działa, Sprawdź się).
 2. **Scena-studio:** gradient, podest, chip skali, lokalizator; chip „powiększone” przy cząstkach w skali umownej.
-3. **Przełącznik momentu pod sceną:** `Spoczynek | <nazwany moment> | Co się zmieniło`, w kolorze układu.
+3. **Przełącznik momentu pod sceną:** `Spoczynek | <nazwany moment> | Co się zmieniło`, w kolorze układu. Domyślnie Spoczynek z celem lekcji o budowie (decyzja Dyrygenta).
 4. **„Jak czytać”** w lewym dolnym rogu: legenda wyróżnika (tu, i tylko tu, są strzałki i kreski).
 5. **Panel:** pytanie → liczba-bohater → miara wyróżnika → opis ≤ 3 zdania → Sprawdź się → Więcej.
 6. **Podpis:**
    - nazwa: Figtree 600, 16 px;
    - opis: 14 px;
-   - łacina: 14 px kursywą, tylko w Rozszerzonym;
+   - łacina: tylko w Rozszerzonym, w nawiasie przy pierwszym użyciu (14 px kursywą);
    - liczby: JetBrains Mono;
    - tło `#0D1526` z kryciem ok. 85%, kontrast ≥ 4,5:1.
 7. **Podświetlenie:** wybrana struktura w pełnym kolorze z obrysem 2 px w `light`, reszta 35% (`restMix`).
@@ -262,6 +262,7 @@ Wejście do gabloty: diegetyczne (klatka c), z menu „Narządy” najwyżej jak
 ## 4. Wydajność
 
 - **Poziomy jakości z filmu** (`QualityManager`: Low, High, Cinematic). Low = wersja uproszczona z §3.3, ≥ 50 FPS na Intel UHD przy 1440×900.
+- **„Bez postprocesu” obowiązuje tylko na poziomie Low.** Poziom pełny (High, Cinematic) może mieć profil filmowy (AgX, bloom na sygnałach). Profile wyglądu i zgodność palety w obu (pomiar ΔE na zrzutach) projektuje Wizualizator w swoim PLAN 2; ta karta podaje tylko znaczenie (co świeci i dlaczego).
 - **Kontrakt na poziomie Low** (przyjęty przez Dyrygenta):
   - ≤ 1 ms GPU na wyróżnik w widoku układów;
   - zakaz półprzezroczystych nakładek pełnoekranowych;
@@ -310,12 +311,18 @@ Szybciej niż szacunek, bo modele, tory i kamery już były w repo (eksport E3).
 
 ## 7. Pytania do użytkownika
 
-Pytania o start M2 i M3, fakty, telefon i test z uczniami zadaje Dyrygent w decyzji v2 §4. Moje dodatkowe:
+Do użytkownika trafiają tylko 4 pytania z decyzji Dyrygenta v2 §4 (start M2 i M3, fakty podręcznikowe, telefon, test z licealistami).
+Moje pytania rozstrzygnął Dyrygent (2026-11-26):
 
-1. **Łacina w Podstawowym:** ukryć całkiem (zostaje w Rozszerzonym)? *Proponuję: tak.*
-2. **„Sprawdź się”:** tylko odpowiedź od razu, czy zapamiętywać wyniki ucznia? *Proponuję na start bez zapamiętywania.*
-3. **Barwa układu nerwowego:** w filmie jest błękitna, w atlasie bursztynowa. Czy ujednolicić na bursztyn z atlasu (sprawdzony dla daltonistów)? *Proponuję: tak.*
-4. **Tryb „sama budowa”:** czy plansza ma mieć też widok bez sprintu do zwykłej lekcji?
+| Pytanie | Rozstrzygnięcie Dyrygenta |
+|---|---|
+| łacina | Podstawowy: nazwy polskie; Rozszerzony: polska + łacińska w nawiasie przy pierwszym użyciu |
+| wyniki „Sprawdź się” | tylko w przeglądarce, bez kont |
+| telefon czy komputer w szkole | w pytaniu 3 decyzji |
+| tryb „sama budowa” | nie powstaje; domyślny moment to Spoczynek z celem lekcji o budowie, a sprint jest przykładem (decyzja (a)) |
+| test z licealistami | w pytaniu 4 decyzji |
+
+Otwarta zostaje jedna sprawa dla Dyrygenta, nie dla użytkownika: **barwa układu nerwowego** (film błękit, atlas bursztyn). Proponuję bursztyn z `palette.json` w obu (§A d).
 
 ---
 
