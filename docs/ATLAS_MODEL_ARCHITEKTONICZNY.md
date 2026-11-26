@@ -449,6 +449,11 @@ Wszyscy trzej badacze niezależnie wskazali te same decyzje:
   - Z AtlasClaude przenosimy wyłącznie koncepcje: fala impulsu po rurze nerwu, kamera za impulsem, przekrój mózgu na GPU.
   - Kod kopiujemy dopiero wtedy, gdy tamto repozytorium dostanie plik LICENSE.
   - Do sprawdzenia: pochodzenie i licencja mózgu Brainder w Z-Anatomy (nazwy obszarów Destrieux z FreeSurfera), zanim stanie się bazą gabloty mózgu (M8).
+- (k′) 2026-11-26, doprecyzowanie (k), decyzja użytkownika „A, zostaw”:
+  - zakaz dotyczy **plików danych dystrybuowanych z FreeSurferem** (fsaverage, aseg, brain.mgz itp.), a nie siatek wygenerowanych tym programem i udostępnionych przez autora na własnej licencji;
+  - **kora Brainder zostaje** (A. M. Winkler, „Brain for Blender”, brainder.org, CC BY-SA 3.0, wydana w utworze zależnym na CC BY-SA 4.0);
+  - pełna atrybucja wszędzie, gdzie jest model: stopka 3D, plansza mózgu, ekran licencji, `docs/ATLAS_ASSETS.md`, `docs/LICENSES_AND_ASSETS.md`;
+  - gablota mózgu (M8) może zostać na tym modelu, bez podmiany.
 - (l) 2026-11-26, **użytek komercyjny w szkołach** (słowa użytkownika: „ogarnij to tak, żeby jak się uda, można to było używać komercyjnie w szkołach”). Obowiązuje cały projekt: atlas, gabloty i film.
   1. Każdy nowy zasób (model, tekstura, dźwięk, czcionka, biblioteka, źródło tekstu) musi dopuszczać użytek komercyjny: CC0, CC BY, CC BY-SA, MIT, BSD, Apache, OFL albo domena publiczna. **Zakazane: NC, ND oraz licencje „tylko do nauki i badań”.**
   2. Fakty mogą **powoływać się** na źródła NC-ND (np. StatPearls/NCBI Bookshelf, CC BY-NC-ND 4.0) albo na źródła z zastrzeżonymi prawami. W danych produktu nie przechowujemy jednak ich dłuższych dosłownych fragmentów. Cytat dowodowy trafia do dokumentacji kontroli poza produktem, a w produkcie zostaje odnośnik i lokalizacja. Tam, gdzie się da, opieramy się na OpenStax (CC BY 4.0).
