@@ -1,0 +1,32 @@
+{
+ "kidney_parts": [
+  "VH_M_hilum_of_kidney_L",
+  "VH_M_kidney_capsule_L",
+  "VH_M_outer_cortex_of_kidney_L",
+  "VH_M_renal_column_L",
+  "VH_M_renal_papilla_L_a",
+  "VH_M_renal_papilla_L_b",
+  "VH_M_renal_papilla_L_c",
+  "VH_M_renal_papilla_L_d",
+  "VH_M_renal_papilla_L_e",
+  "VH_M_renal_papilla_L_f",
+  "VH_M_renal_papilla_L_g",
+  "VH_M_renal_papilla_L_h",
+  "VH_M_renal_papilla_L_i",
+  "VH_M_renal_pyramid_L_a",
+  "VH_M_renal_pyramid_L_b",
+  "VH_M_renal_pyramid_L_c",
+  "VH_M_renal_pyramid_L_d",
+  "VH_M_renal_pyramid_L_e",
+  "VH_M_renal_pyramid_L_f",
+  "VH_M_renal_pyramid_L_g",
+  "VH_M_renal_pyramid_L_h",
+  "VH_M_renal_pyramid_L_i"
+ ],
+ "kidney_tris": 83691,
+ "kidney_bbox_m": [
+  0.0757,
+  0.0824,
+  0.1065
+ ]
+}
