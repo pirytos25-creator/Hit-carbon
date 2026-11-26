@@ -131,7 +131,9 @@ export function AtlasApp() {
   const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
   // Render poziomy (np. mózg) z dwoma widokami i 4 kolumnami podpisów też byłby za mały: jeden widok naraz.
   const landscape = !!anchors && anchors.resolution[0] >= anchors.resolution[1];
-  const splitScale = detailViews.length > 0 && bodyViews.length >= 1 && (bodyViews.length >= 2 || wholeBody || landscape);
+  // Każda plansza ze zbliżeniem pokazuje jedną skalę naraz (integracja 1b: oddechowy przy 1440 był za mały obok zbliżenia).
+  const splitScale = detailViews.length > 0 && bodyViews.length >= 1;
+  void landscape;
   const panelLabel = (p: 'body' | 'detail') =>
     wholeBody ? (p === 'body' ? 'Całe ciało' : 'Zbliżenie') : (content.viewTitlesPl[p === 'body' ? bodyViews[0] : 'detail'] ?? p);
   useEffect(() => setPanel('body'), [systemId]);
@@ -171,13 +173,16 @@ export function AtlasApp() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const sprint = state === 'sprint';
+  // Karta bez stanów (np. rozrodczy): przełącznik stanów ukryty, pokazujemy opis spoczynku.
+  const isCard = !!content.card || !!anchors?.card;
+  const shownState: AtlasState = isCard ? 'rest' : state;
+  const sprint = shownState === 'sprint';
   const color = `var(${content.colorVar})`;
   const colorLight = `var(${content.colorVar}-light)`;
   const shownMetrics = content.metrics.filter((m) => isShown(m.status));
   const metrics = extended ? shownMetrics : shownMetrics.slice(0, BASIC_MAX_METRICS);
   const hiddenMetrics = content.metrics.length - shownMetrics.length;
-  const summaryChecked = isShown(content.summaryStatus?.[state]);
+  const summaryChecked = isShown(content.summaryStatus?.[shownState]);
   const groups = PALETTE.groups
     .map((g) => ({ ...g, systems: ATLAS_SYSTEMS.filter((s) => systemOfPlate(s.id)?.group === g.key) }))
     .filter((g) => g.systems.length);
@@ -241,7 +246,7 @@ export function AtlasApp() {
                 key={v}
                 content={content}
                 anchors={anchors}
-                state={state}
+                state={shownState}
                 baseUrl={`${BASE}atlas/${systemId}/`}
                 onlyViews={[v]}
                 flows3d={flows3d}
@@ -272,7 +277,7 @@ export function AtlasApp() {
                   key={`${systemId}-${splitScale ? panel : 'all'}`}
                   content={content}
                   anchors={anchors}
-                  state={state}
+                  state={shownState}
                   baseUrl={`${BASE}atlas/${systemId}/`}
                   onlyViews={splitScale ? (panel === 'detail' ? detailViews : bodyViews) : undefined}
                   fitHeight
@@ -298,6 +303,7 @@ export function AtlasApp() {
           <p className="text-sm text-slate-300">{content.subtitlePl}</p>
         </header>
 
+        {!isCard && (
         <div className="grid grid-cols-2 rounded-xl bg-slate-900 p-1" role="tablist" aria-label="Stan organizmu">
           {(['rest', 'sprint'] as AtlasState[]).map((s) => (
             <button
@@ -314,6 +320,7 @@ export function AtlasApp() {
             </button>
           ))}
         </div>
+        )}
 
         <div className="grid grid-cols-2 rounded-xl bg-slate-900 p-1" role="radiogroup" aria-label="Poziom szczegółów">
           {(['basic', 'extended'] as AtlasLevel[]).map((l) => (
@@ -341,9 +348,9 @@ export function AtlasApp() {
           {(['rest', 'sprint'] as AtlasState[]).map((s) => (
             <p
               key={s}
-              aria-hidden={s !== state}
+              aria-hidden={s !== shownState}
               className={`[grid-area:1/1] text-[15px] leading-relaxed text-slate-200 transition-opacity duration-500 motion-reduce:transition-none ${
-                s === state ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                s === shownState ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
               {content.summary[s]}

@@ -21,7 +21,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       'W sprincie serce bije znacznie szybciej i mocniej się kurczy. Przy wysiłku maksymalnym rzut serca rośnie do ok. 20–25 L/min, a do pracujących mięśni płynie ok. 80% krwi. Naczynia trzewne się zwężają, a przepływ wieńcowy rośnie ok. 3–5 razy. Mięśnie nóg działają jak pompa, która wyciska krew żyłami z powrotem do serca.',
   },
   summaryReferenceIds: { rest: [JOYNER], sprint: [JOYNER, 'calbet_joyner_2010', 'duncker_bache_2008'] },
-  summaryStatus: { rest: 'draft', sprint: 'draft' }, // K3: zmienione = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015 III.A–C, tab. 1; Calbet & Joyner 2010; Duncker & Bache 2008
   labels: [
     {
       anchor: 'carotid',
@@ -57,10 +57,10 @@ export const KRWIONOSNY: AtlasPlateContent = {
       view: 'front',
       namePl: 'Serce',
       nameLat: 'cor',
-      role: { rest: 'Ok. 60 uderzeń na minutę', sprint: 'Bije blisko maksimum (do ok. 190/min)' },
+      role: { rest: 'Ok. 60 uderzeń na minutę', sprint: 'Bije szybko; maksimum w wieku 25 lat to ok. 190/min' },
       tier: 'primary',
       referenceIds: [JOYNER, 'tanaka_2001'],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #1, #3 (HRmax dla 25 lat)
+      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #1, #3; fakty_draft_K3_zaopatrzenie.md: disputed („blisko maksimum”) -> tekst poprawiony = draft
     },
     {
       anchor: 'brachial',
@@ -70,7 +70,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Krew do ramienia', sprint: 'Ramiona pracują słabiej: mniej krwi, więcej pobranego tlenu' },
       tier: 'secondary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #24 (poprawione)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #24; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.B
     },
     {
       anchor: 'portal',
@@ -80,7 +80,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Duży przepływ przez jelita i wątrobę', sprint: 'Mniej krwi: naczynia trzewne się zwężają' },
       tier: 'secondary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'checked_agent', sprint: 'draft' }, // #20, #25 (poprawione)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #20, #25; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, III.C
     },
     {
       anchor: 'femoral',
@@ -129,7 +129,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       // #28: „Szybszy powrót krwi” bez oparcia w źródłach; zostaje opis anatomiczny.
       role: { rest: 'Krew z głowy i ramion', sprint: 'Krew z głowy i ramion' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'draft' },
+      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // fakty_draft_K3_zaopatrzenie.md: sprint bez źródła (propozycja: anatomy)
     },
     {
       anchor: 'd_pulmonary_trunk',
@@ -149,7 +149,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Odżywia prawą komorę', sprint: 'Więcej krwi dla prawej komory' },
       tier: 'primary',
       referenceIds: ['duncker_bache_2008'],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #30 (opis jakościowy)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #30; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, prawa komora (badania na zwierzętach)
     },
     {
       anchor: 'd_lad',
@@ -159,7 +159,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Odżywia lewą komorę i przegrodę', sprint: 'Przepływ wieńcowy ok. 3–5× większy' },
       tier: 'primary',
       referenceIds: ['duncker_bache_2008', JOYNER],
-      roleStatus: { rest: 'anatomy', sprint: 'draft' }, // #13
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #13; fakty_draft_K3_zaopatrzenie.md: Duncker & Bache 2008, II.B.1; Joyner & Casey 2015, III.C
     },
     {
       anchor: 'd_cardiac_vein',
@@ -179,7 +179,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       role: { rest: 'Ok. 90 mL na jedno uderzenie', sprint: 'Ok. 125 mL na uderzenie' },
       tier: 'primary',
       referenceIds: [JOYNER],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // #4, #5 (osoba aktywna)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #4, #5; fakty_draft_K3_zaopatrzenie.md: Joyner & Casey 2015, tab. 1 (Active)
     },
   ],
   metrics: [
@@ -196,7 +196,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       conversionNote: '208 − 0,7 × 25 = 190,5 /min (Tanaka 2001). Spoczynek: Joyner & Casey 2015, tab. 1, kategoria „Active”.',
       quote: 'A regression equation to predict HRmax is 208 - 0.7 x age in healthy adults.',
       locator: 'Tanaka 2001, abstrakt (Conclusions); Joyner & Casey 2015, tab. 1',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
     },
     {
       labelPl: 'Objętość wyrzutowa',
@@ -205,11 +205,11 @@ export const KRWIONOSNY: AtlasPlateContent = {
       unit: 'mL na uderzenie',
       referenceIds: [JOYNER],
       evidenceLevel: 'established_human',
-      notePl: 'Osoba rekreacyjnie aktywna. U wytrenowanych wytrzymałościowo ok. 150–200 mL.',
+      notePl: 'Osoba rekreacyjnie aktywna. U wyczynowych sportowców wytrzymałościowych (elita) ok. 150–200 mL.',
       protocolMismatch: 'wysiłek maksymalny',
       quote: 'Stroke volume, ml Sed ∼65 ∼100 … Active ∼90 ∼125',
-      locator: 'Joyner & Casey 2015, tab. 1',
-      status: 'draft',
+      locator: 'Joyner & Casey 2015, tab. 1 (komórki tabeli)',
+      status: 'draft', // fakty_draft_K3_zaopatrzenie.md: disputed (notatka „wytrenowani” = Elite) -> tekst poprawiony = draft
     },
     {
       labelPl: 'Rzut serca',
@@ -236,7 +236,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       conversionNote: 'Spoczynek: ok. 80% rzutu serca trafia do mózgu, serca, nerek i wątroby (Joyner & Casey 2015), więc na mięśnie zostaje mniej niż 20%.',
       quote: '70–80% (or perhaps more) of cardiac output is directed towards the active muscles',
       locator: 'Calbet & Joyner 2010, rozdz. o układzie współczulnym; Joyner & Casey 2015, rozdz. III.C',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
     },
     {
       labelPl: 'Przepływ wieńcowy',
@@ -249,7 +249,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       protocolMismatch: 'wysiłek maksymalny, częściowo badania na zwierzętach',
       quote: 'peak values during maximal exercise typically three to five times the resting level',
       locator: 'Duncker & Bache 2008, rozdz. II.B.1; Joyner & Casey 2015, rozdz. III.C („three- to fourfold”)',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_zaopatrzenie.md
     },
     {
       labelPl: 'Ciśnienie skurczowe',

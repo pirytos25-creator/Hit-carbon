@@ -596,12 +596,17 @@ def make_material(name, color, roughness=0.7, subsurface=0.0, emission=0.0, alph
 def active_color(system, state="sprint", level=1.0, ctx=None):
     """Kolor struktury aktywnej (ta sama funkcja dla 2D i, później, 3D). ctx: 'bone' | 'muscle' - kolor kontekstu,
     z którym miesza się spoczynek. Cienkie tkanki (naczynia, przewody, nerwy jako krzywe) mieszamy z mięśniami/tłem
-    #8E7A78, bo z kością 35% daje prawie biel. level: 0-1 albo 'dim' (w sprincie wygląda jak w spoczynku)."""
+    #8E7A78, bo z kością 35% daje prawie biel. level: 0-1 albo 'dim' (wygląda jak spoczynek domyślny, 35%).
+    Spoczynek: domyślnie 35% (REST_MIX); plansze „odwrócone” (pokarmowy, moczowy: układ pracuje w spoczynku i gaśnie
+    w sprincie) podają `rest_level` w Plate.add - wtedy kolor ma udział max(REST_MIX, rest_level), bez emisji."""
     sys_col = hex_to_linear(SYSTEM_COLORS[system])
     ctx = ctx or ("muscle" if system == "muscle" else "bone")
     ctx_col = hex_to_linear(CONTEXT_COLORS[ctx])
-    if state == "rest" or level == "dim":
+    if level == "dim" or level is None:
         return mix(ctx_col, sys_col, REST_MIX), 0.0, REST_MIX
+    if state == "rest":
+        t = max(REST_MIX, float(level))
+        return mix(ctx_col, sys_col, t), 0.0, t
     t = max(REST_MIX, float(level))
     return mix(ctx_col, sys_col, t), emission_for(float(level)), t
 

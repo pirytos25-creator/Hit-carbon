@@ -19,17 +19,17 @@ export const MIESNIOWY: AtlasPlateContent = {
       'W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, łydka odbija stopę od taśmy. Zgodnie z zasadą rozmiaru najpierw pracują małe jednostki z włóknami typu I; przy ok. 90% VO₂max dołączają włókna IIa i część włókien IIx. W każdym pracującym włóknie główki miozyny raz za razem chwytają aktynę i ciągną ją, zużywając ATP.',
   },
   summaryReferenceIds: { sprint: ['dorn_2012', 'hamner_2010', 'vollestad_blom_1985', 'mendell_2005', 'fujii_namba_2017'] },
-  summaryStatus: { rest: 'unverifiable', sprint: 'draft' }, // K3: zmienione = draft
+  summaryStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // fakty_draft_K3_ruch.md: Dorn 2012, Hamner 2010, Mendell 2005, Vøllestad 1985, Fujii 2017
   labels: [
     {
       anchor: 'deltoid',
       view: 'front',
       namePl: 'M. naramienny',
       nameLat: 'm. deltoideus',
-      role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy skręt tułowia' },
+      role: { rest: 'Napięcie posturalne', sprint: 'Porusza ramieniem; wymach ramion równoważy obrót nóg' },
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7 (poprawione), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_draft_K3_ruch.md: disputed (Hamner bez m. naramiennego) -> tekst poprawiony = draft
     },
     {
       anchor: 'rectus_abdominis',
@@ -48,7 +48,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Pomaga prostować kolano' },
       tier: 'primary',
       referenceIds: ['dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #9 (bez „wymachu uda”), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #9, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results
     },
     {
       anchor: 'vastus_lateralis',
@@ -77,7 +77,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Prostuje biodro, podpiera ciało po lądowaniu' },
       tier: 'primary',
       referenceIds: ['hamner_2010', 'dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #12 (poprawione), #17
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #12, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results; Hamner 2010, Results
     },
     {
       anchor: 'biceps_femoris',
@@ -97,7 +97,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Prawie bez pracy', sprint: 'Hamuje goleń, prostuje biodro' },
       tier: 'primary',
       referenceIds: ['dorn_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #14, #17
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #14, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results (HAMS jako grupa)
     },
     {
       anchor: 'gastrocnemius',
@@ -128,7 +128,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Przekrój w miejscu biopsji: pracuje mało włókien', sprint: 'Przekrój w miejscu biopsji: pracują wszystkie typy (z IIx ok. połowa)' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #18, #17
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #18, #17; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt
     },
     {
       anchor: 'd_femur',
@@ -157,7 +157,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Pracuje pierwsze', sprint: 'Pracuje dalej' },
       tier: 'primary',
       referenceIds: ['gollnick_1974', 'vollestad_blom_1985'],
-      roleStatus: { rest: 'draft', sprint: 'draft' }, // #21, #18 (bez męczliwości: #22)
+      roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // #21, #18; fakty_draft_K3_ruch.md: Gollnick 1974 pkt 3; Vøllestad & Blom 1985
     },
     {
       anchor: 'd_fiber_IIa',
@@ -167,7 +167,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Nie pracuje', sprint: 'Dołącza: pracują wszystkie' },
       tier: 'primary',
       referenceIds: ['vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #18, #22
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #18, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt
     },
     {
       anchor: 'd_fiber_IIx',
@@ -177,7 +177,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Nie pracuje', sprint: 'Dołącza ok. połowa: największa moc' },
       tier: 'primary',
       referenceIds: ['bottinelli_1996', 'vollestad_blom_1985'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #23, #22
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #23, #22; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985; Bottinelli 1996 pkt 3
     },
     {
       anchor: 'd_myosin',
@@ -212,7 +212,7 @@ export const MIESNIOWY: AtlasPlateContent = {
       protocolMismatch: 'rower, wysiłek ciągły przy 91% VO₂max',
       quote: 'glycogen breakdown was observed in all type I and IIA and in about 50% of type IIAB and IIB fibres',
       locator: 'Vøllestad & Blom 1985, abstrakt',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
     {
       labelPl: 'Skład włókien m. obszernego bocznego (I / IIa / IIx)',
@@ -258,11 +258,11 @@ export const MIESNIOWY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl: 'Średnie z różnych badań HIIT: ok. 7–13. Mleczan nie jest „odpadem”: serce, mózg i włókna tlenowe zużywają go jako paliwo.',
       measuredAt: 'najwyższa wartość w połowie sesji albo 3 min po niej',
-      protocolMismatch: 'rower, 8–12 × 30–60 s przy 70–85% mocy maksymalnej',
+      protocolMismatch: 'rower, 8–12 × 30–60 s przy 70–85% mocy maksymalnej; 60 mężczyzn i 44 kobiety, VO₂max ok. 40 mL/kg/min, szczyt ok. 78% VO₂max',
       conversionNote: 'Średnie badań 6,6–13,2 mM zaokrąglone do 7–13.',
       quote: 'Peak BLa and energy expenditure were equal to 9.9 ± 3.1 mM',
       locator: 'Astorino 2025, Results „Physiological data”; Brooks 2020, Background (spoczynek ok. 1,0 mM)',
-      status: 'draft',
+      status: 'checked_agent', // fakty_draft_K3_ruch.md
     },
   ],
   creditsPl:

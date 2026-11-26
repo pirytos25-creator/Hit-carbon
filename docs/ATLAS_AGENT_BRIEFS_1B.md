@@ -190,8 +190,10 @@ liczby do sprawdzenia, strzałki i pułapki naukowe. Agent może zmienić szczeg
 - **Opcjonalne zbliżenie molekularne:** PDB `4LDO` (receptor β2 z adrenaliną, `atlas_raw/pdb/4LDO.cif`), `3I40` (insulina ludzka), `1GCN` (glukagon).
 
 ### Agent 7: Powłokowy (`powlokowy`, `--sys-skin` `#FA947A`)
-- **Teza planszy:** w sprincie skóra i mięśnie konkurują o krew. W krótkim HIIT ciepło rośnie szybciej, niż ciało zdąży je oddać,
-  a po interwale skóra przejmuje chłodzenie.
+- **Teza planszy:** w sprincie skóra i mięśnie konkurują o krew. W krótkim HIIT ciepło rośnie szybciej, niż ciało zdąży je oddać.
+  **Po wysiłku pocenie i przepływ skórny szybko spadają**, choć temperatura głęboka jest jeszcze podwyższona, więc ciało stygnie
+  powoli (Kenny i wsp. 2007/2008; liczby i cytat do sprawdzenia przez agenta faktów). Wcześniejsze zdanie „po interwale skóra
+  przejmuje chłodzenie” było błędne (poprawka integracji 1b).
 - **Struktury:**
   - skóra jako półprzezroczysta sylwetka z `build_silhouette()` (pasuje do szkieletu Z-Anatomy)
   - `VH_M_Skin` z HuBMAP tylko porównawczo, bo ma inną pozę i wzrost
