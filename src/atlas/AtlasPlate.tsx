@@ -276,7 +276,33 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
       }
       const pins = [...f.labels]
         .sort((a, b) => a.ny - b.ny || a.nx - b.nx)
-        .map((l, i) => ({ n: i + 1, key: `${f.view}-${l.label.anchor}`, label: l.label, ax: ox + l.nx * W - f.cx0, ay: l.ny * H }));
+        .map((l, i) => {
+          const ax = ox + l.nx * W - f.cx0;
+          const ay = l.ny * H;
+          return { n: i + 1, key: `${f.view}-${l.label.anchor}`, label: l.label, ax, ay, px: ax, py: ay };
+        });
+      // Telefon: pinezki bliskich kotwic (np. podwzgórze i przysadka) nie mogą na siebie zachodzić. Odsuwamy późniejszą
+      // pinezkę od wcześniejszych (kilka przebiegów); odsunięta dostaje cienką linię do swojej kotwicy.
+      if (pinsMode) {
+        const minD = 21 * u; // dwa promienie pinezki (9,5 px) + odstęp
+        for (let pass = 0; pass < 6; pass++)
+          for (let i = 1; i < pins.length; i++)
+            for (let j = 0; j < i; j++) {
+              const a = pins[j];
+              const b = pins[i];
+              let dx = b.px - a.px;
+              let dy = b.py - a.py;
+              let d = Math.hypot(dx, dy);
+              if (d >= minD) continue;
+              if (d < 1e-6) {
+                dx = 1;
+                dy = 0;
+                d = 1;
+              }
+              b.px = a.px + (dx / d) * minD;
+              b.py = a.py + (dy / d) * minD;
+            }
+      }
       return { ...f, ox, placed, pins };
     });
   }, [frames, colPx, u, s, W, H, state, extended]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -435,18 +461,24 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
               {pinsMode &&
                 f.pins.map((p) => (
                   <g key={p.key} style={{ opacity: dimmed(p.key) ? 0.35 : 1 }}>
+                    {(p.px !== p.ax || p.py !== p.ay) && (
+                      <>
+                        <line x1={p.ax} y1={p.ay} x2={p.px} y2={p.py} stroke="#f8fafc" strokeWidth={1.2 * u} />
+                        <circle cx={p.ax} cy={p.ay} r={2.5 * u} fill="#f8fafc" />
+                      </>
+                    )}
                     {/* Telefon: pinezka mniejsza i półprzezroczysta, żeby nie zakrywała drobnych narządów (limfatyczny);
                         wybrana pinezka pełna i większa. Numer nadal 14 px. */}
                     <circle
-                      cx={p.ax}
-                      cy={p.ay}
+                      cx={p.px}
+                      cy={p.py}
                       r={(active === p.key ? 12 : 9.5) * u}
                       fill={color}
                       fillOpacity={active === p.key ? 1 : 0.78}
                       stroke="#f8fafc"
                       strokeWidth={(active === p.key ? 1.6 : 1.1) * u}
                     />
-                    <text x={p.ax} y={p.ay + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
+                    <text x={p.px} y={p.py + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
                       {p.n}
                     </text>
                   </g>
