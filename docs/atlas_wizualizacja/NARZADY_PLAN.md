@@ -1,10 +1,23 @@
-# Gabloty narządów: plan (serce, nerka, wątroba, mózg), wersja 3
+# Gabloty narządów: plan (serce, nerka, wątroba, mózg), wersja 4 (PLAN 2)
 
 Stan: 2026-11-26, Wizualizator 3D, gałąź `claude/atlas-wizualizacja-3d-1dc29a`.
-**To jest wyłącznie plan.** Nie zmieniłem nic w `src/` ani `blender/`. Kod powstanie dopiero po zgodzie użytkownika.
-Pierwszym krokiem będzie test techniczny (§7), też dopiero po zgodzie.
+**Bez kodu w `src/`.** Wdrożenie dopiero po zgodzie użytkownika (bramka A).
+Test techniczny M2 jest **wykonany** po zgodzie użytkownika („Tak, M2 i M3”) w `prototypes/organs_m2/`; wyniki są w §7 i w `M2_TEST_SERCA.md`.
 
-Wersja 3 uwzględnia:
+Dokumenty PLAN 2:
+- ten plan;
+- `FILM_PRZEGLAD.md`: przegląd filmu i weryfikacja mapy aktów;
+- `BIOMOTION_ARCHITEKTURA.md`: wspólny moduł, granice plików, wejście diegetyczne, element → akt;
+- `M2_TEST_SERCA.md`: test serca.
+
+Wersja 4 dodaje do wersji 3:
+- wyniki M2;
+- numerację kamieni z decyzji Dyrygenta v2 (M1–M8);
+- korektę o pochodzeniu modeli filmu;
+- zamknięte spory 1 i 2;
+- mózg gabloty jako decyzję techniczną Dyrygenta (Z-Anatomy/Brainder).
+
+Wersja 3 uwzględniała:
 - odpowiedzi użytkownika na pytania z wersji 1;
 - nowe wymagania użytkownika co do jakości animacji i wspólnej pracy z filmem;
 - decyzję Dyrygenta `docs/atlas_audyt/DECYZJA_UX_NARZADY.md` (4ec67df) i jego ocenę (`dyrygent/ocena_NARZADY_PLAN.md`);
@@ -26,7 +39,7 @@ Klatki koncepcyjne: `zrzuty/narzady/` (tablica zbiorcza `narzady_tablica.jpg`). 
 - **Jedna wspólna „maszyneria” dla gablot, atlasu i filmu:** oś czasu, kamera po szynie, cząstki, materiały i ujęcia. Każda animacja narządu ma z góry wskazane miejsce w filmie 12 aktów (§2).
 - **Wejście do gabloty jest „w świecie”:** klik w serce w widoku 3D układu. Kamera wjeżdża w serce, ciało gaśnie, a narząd zostaje w studiu gabloty. Serce, nerka i wątroba to już dziś **te same modele** w widoku układów i w gablocie, więc żadnej podmiany nie widać. Mózg ma osobny trik (§3).
 - **Słabsze komputery dostają tę samą animację w lżejszej oprawie** (mniej krwinek, prostsze światło), a nie gorszą animację dla wszystkich (§4.4).
-- **Najpierw krótki test techniczny serca** (jedno ujęcie: skurcz i przepływ krwinek, nagranie i pomiar płynności na zwykłej grafice). Dopiero na jego podstawie liczymy resztę. Zamiast godzin podaję **kamienie milowe z wynikiem do obejrzenia** (§8).
+- **Test techniczny serca jest zrobiony (M2).** Na zwykłej grafice laptopa (Intel UHD) serce z przekrojem, skurczem i 1500 krwinkami 3D chodzi w 91 klatkach na sekundę (próg to 50). Wynik: nagranie i zrzuty w `zrzuty/m2/` (§7). Dalej **kamienie milowe z wynikiem do obejrzenia** (§8).
 - Pierwsza wersja ma tylko **zakres Podstawowy** (Twoja decyzja). Nefron to wyraźnie oznaczony schemat.
 
 ## 1. Decyzje, na których stoi plan
@@ -55,7 +68,10 @@ Klatki koncepcyjne: `zrzuty/narzady/` (tablica zbiorcza `narzady_tablica.jpg`). 
 - `src/core/QualityManager.ts`: poziomy Low, Medium, High, Ultra i Cinematic z mnożnikiem cząstek, DPR, cieniami, postprocesem oraz `AdaptiveQualityController` (histereza po p75 czasu klatki).
 - Shadery: `vascularFlowShader.ts` (ściana naczynia tętnicza lub żylna, fala tętna), `cutawayShader.ts` (przekrój płaski lub kulisty z obwódką), `bioTissueShader.ts`, `actionPotentialShader.ts`.
 - `src/scenes/Act03Cardiopulmonary.tsx`: `cardiopulmonary.glb` i `bloodstream_tunnel.glb` z osią tunelu (`sampleBloodstreamCenterline`).
-- Modele filmu (`public/models/*.glb`) **nie mają opisanego pochodzenia ani licencji** w dokumentach (sprawdziłem `ARCHITECTURE_AND_ART_BIBLE.md`). Modele gablot (HuBMAP i Z-Anatomy z licencją) mogą je zastąpić tam, gdzie pokazują ten sam narząd. To dodatkowy zysk dla filmu.
+- Modele filmu (`public/models/*.glb`) **mają opisane pochodzenie i licencje** w `docs/LICENSES_AND_ASSETS.md` i w skryptach `blender/gen_0*.py`. W wersji 3 błędnie napisałem, że nie mają; poprawka za Dyrygentem. Licencje: MPFB2 CC0, HuBMAP/Allen CC BY, PDB domena publiczna, Poly Haven CC0.
+  - Wyjątek: `brain_macro.glb` z Allen **v1.2**, a CC BY obowiązuje od v1.3. To niepilne, bo plik nie jest nigdzie opublikowany, ale trzeba go przebudować przed publikacją filmu jako osobny mały kamień (§8).
+  - Serce filmu (`cardiopulmonary.glb`) M2 zastępuje pełnym sercem z ID struktur i kształtami liczonymi z geometrii (`FILM_PRZEGLAD.md` §4).
+- Pełny przegląd i ocena przydatności każdego elementu: `FILM_PRZEGLAD.md`. Architektura modułu: `BIOMOTION_ARCHITEKTURA.md`.
 
 ### 2.2 Wspólny moduł `src/biomotion/` (propozycja; pliki powstaną dopiero przy wdrożeniu)
 
@@ -76,6 +92,12 @@ Zasady:
 
 ### 2.3 Gdzie animacje gablot trafią w filmie
 
+Zweryfikowane w kodzie (`FILM_PRZEGLAD.md` §5):
+- serce jest w aktach 3 i 12 oraz jako proxy w 1, 6 i 11;
+- mózg w 2, 8, 10 i 12;
+- **wątroby i nerki w filmie nie ma** (wątroba tylko w tekście aktu 7), więc gabloty wnoszą pierwsze modele;
+- mapa Dyrygenta (decyzja v2 §3) jest przyjęta: wątroba w aktach 5, 7 i 11, nerka w 6 i 11, mózg w 2, 8 i 10.
+
 | Animacja gabloty | Akt filmu | Jak |
 |---|---|---|
 | Serce: krążenie, cykl, krwinki | **Akt 3** „Serce, płuca i układ krążenia” | ujęcie serca HuBMAP z cyklem i krwinkami zamiast (albo przed) `cardiopulmonary.glb`; lot krwinki to ten sam `FlowParticles` co tunel |
@@ -88,6 +110,8 @@ Licencje w filmie:
 - HuBMAP wymaga atrybucji BY.
 
 ## 3. Wejście diegetyczne (klik w narząd w widoku 3D układu)
+
+Technika i ryzyka w szczegółach: `BIOMOTION_ARCHITEKTURA.md` §4. Do warunku Dyrygenta dla M5 (ciało ≤ 5% krycia w kadrze końcowym) dochodzi **okno kuliste wokół narządu** (`cutawayShader` tryb 2 z filmu), które wycina żebra i naczynia z przodu.
 
 Przebieg (np. serce w widoku krwionośnym):
 1. **Klik** (albo Enter na podświetlonej strukturze, bo klawiatura działa tak samo) uruchamia ujęcie `organ_dive` z biblioteki ujęć, typu `occlusion_dive`.
@@ -136,10 +160,13 @@ Menu „Narządy” w grupie menu atlasu: dodatek, otwiera gablotę bez lotu.
   - światło klucz, wypełnienie i kontra;
   - na wyższych poziomach połysk wilgotnej tkanki (`sheen`/`clearcoat` w `MeshPhysicalMaterial`) i światło otoczenia z mapy środowiska.
 - **Mapowanie tonów:** w atlasie (E3) wyłączone dla zgodności kolorów z planszami 2D. W gablotach i filmie to wybór Reżysera; technicznie oba warianty kosztują tyle samo.
-- **Gramatyka Reżysera** (przyjęta): CIENIOWANE to prawdziwy kształt z modelu, a SCHEMAT to rysunek lub ilustracja z chipem „SCHEMAT · bez skali”.
-  - Zastrzeżenie wynikające ze słów użytkownika („nie kreseczki”): schematy 3D (nefron, zrazik, układ bodźcoprzewodzący, neuron) proponuję jako **pełne bryły 3D w osobnym materiale schematu** (jednolity `light` układu, płaskie cieniowanie bez faktury, obrys 1,5 px), a nie jako linie 2 px.
-  - Linie zostają dla ilustracji płaskich (izolinie, wymiary, miernik).
-  - To spór 2 z Reżyserem (§9).
+- **Gramatyka (spór 2 rozstrzygnięty przez Dyrygenta):**
+  - materiał realistyczny = model z danych;
+  - **schemat (nefron, zrazik, układ bodźcoprzewodzący, skrzyżowanie piramid) = BRYŁA 3D** w materiale schematu: jednolity `light` układu, płaskie cieniowanie bez faktury i AO, obrys 1,5 px, chip „schemat · bez skali”;
+  - kreska tylko w legendzie „Jak czytać”.
+- **Profile wyglądu** (M2): `atlas` (bez mapowania tonów) i `film` (AgX).
+  - Bez kompensacji czerwień `artery` w profilu film odbiega od tokenu o ΔE00 18, a krwinki na poziomie High gubią się na różowej ścianie.
+  - Moduł dostaje tablicę kompensacji barw i pomiar ΔE na zrzutach (`BIOMOTION_ARCHITEKTURA.md` §2).
 
 ### 4.4 Poziomy jakości (zamiast obniżania poprzeczki dla wszystkich)
 
@@ -343,39 +370,52 @@ Fakty do P:
 
 Ryzyko: liczba obszarów Brainder i jej koszt (do pomiaru w K1 mózgu). Rezerwa: scalanie zakrętów w płaty, tak jak przy Allen (281 z 283 obszarów przypisanych automatem).
 
-## 7. Test techniczny przed wdrożeniem (M0)
+## 7. Test techniczny serca: wykonany (M2 decyzji Dyrygenta = moje dawne M0)
 
-Robię go **dopiero po zgodzie użytkownika.** Bez zmian w `src/`: osobny szkic w `prototypes/organs_t0/` na porcie 5200–5202.
+Szczegóły: `M2_TEST_SERCA.md`, zrzuty i nagranie w `zrzuty/m2/`, prototyp w `prototypes/organs_m2/` (port 5202).
 
-- **Ujęcie:**
-  - serce HuBMAP w przekroju 4 jam;
-  - jeden cykl w pętli: skurcz przedsionków i komór (morph z Blendera, wielkość „poglądowa”);
-  - krwinki 3D (krążek dwuwklęsły) płyną z lewej komory do aorty i z prawej do pnia płucnego, z prędkością z przekroju;
-  - światło i materiał na poziomach Low i High;
-  - zastawki w wariancie A, a dodatkowo pomiar wariantu B na jednej zastawce.
-- **Wynik do obejrzenia:**
-  - nagranie ekranu (ok. 10 s) z każdego poziomu;
-  - 3 zrzuty;
-  - tabela FPS (Intel UHD przy 1440×900, `__atlas3dBench` z `readPixels`), czas GPU klatki, MB pobrania, liczba trójkątów i wywołań;
-  - wniosek: ile krwinek mieści się w 50 FPS na Low, czy B jest tani.
-- **Kryterium:** Low ≥ 50 FPS przy ≥ 600 krwinkach. Jeśli nie, propozycja poziomów i rezerwy wypiekanej z liczbami.
-- Blender tylko przez sloty `.render_slot_*`.
+| Wynik | Wartość (Intel UHD, 1440×900) |
+|---|---|
+| Low: serce HuBMAP 271 tys. trójkątów, przekrój ze stencilem, 1500 krwinek 3D, skurcz | **91 FPS** (zastawki B: 94,8; preset klatki M1: 77) |
+| High (MSAA, DPR 1,5, 3500 krwinek, MeshPhysical, środowisko) | 10,5 FPS na UHD; **RTX niezmierzony** |
+| Prędkość z przekroju | tak: tory z promieniem z geometrii, v ~ 1/r², czekanie przy zamkniętej zastawce |
+| Zastawki B | 0 FPS kosztu, budowa automatyczna; wierność umiarkowana (lejek, bez rozdzielenia płatków), więc **B od razu z chipem „ruch poglądowy”** |
+| Półprzezroczysta ściana naczynia | +15 ms (Low się nie mieści), więc Low = dithering Bayera (+1 ms), High = prawdziwa |
+| MSAA na UHD | ok. 12 ms, więc Low bez MSAA |
+| Plik serca (meshopt) | 1,91 MB |
+| Czas | szacunek 6–12 h (Dyrygent) i 4 h (mój), rzeczywisty ok. 25 min zegarowych; **nie przenoszę tego tempa na M4–M5** |
 
-## 8. Kamienie milowe (zamiast godzin)
+Do decyzji Dyrygenta i Reżysera: ściany serca w barwie mięśnia, a barwę niesie krew (jak klatka M1), czy w barwie krwi (ocena Dyrygenta pkt 6)? Rekomenduję jak M1. W prototypie to przełącznik `walls`, bez kosztu.
 
-Uczciwie: szacunków godzinowych z wersji 2 nie podtrzymuję jako obietnicy. Po M0 przeliczę resztę na podstawie zmierzonego tempa i kosztu.
+## 8. Kamienie milowe (numeracja decyzji Dyrygenta v2)
+
+Zgodność numeracji:
+
+| Moje (wersja 3) | Decyzja Dyrygenta v2 |
+|---|---|
+| M0 test serca | **M2** (wykonany) |
+| M1 = F1 eksport serca | część **M5** (K1) |
+| M2 = F2 OrganView serca | **M5** (K2) |
+| M3 film serca i wejście | **M5** (K3) i **M7** (wpięcie do aktów) |
+| M4 moduł w filmie | **M4** |
+| M5 test z licealistami | **bramka B** |
+| N2–N4 nerka, wątroba, mózg | **M8** |
+
+Moje kamienie w numeracji Dyrygenta:
 
 | Kamień | Wynik do obejrzenia | Warunek przejścia | Niepewność |
 |---|---|---|---|
-| **M0** test techniczny serca (§7) | nagranie, zrzuty, tabela FPS i MB | Low ≥ 50 FPS; decyzja o B | wysoka (pierwszy pomiar cząstek i morfów na UHD) |
-| **M1 = F1** (N1-K1) eksport serca | GLB serca (ID, morfy, tory), kontrola licencji, pomiar FPS i MB w aplikacji | budżet §4.5 | średnia |
-| **M2 = F2** OrganView serca na ramie integratora | gablota serca: zwiedzanie, przekrój z zalaniem, najechanie z obrysem, panel P, Sprawdź się, klawiatura; zrzuty 1440 i telefon (plansza 2D) | integrator publikuje kontrakt ramy; fakty P serca z E1-K3 | średnia, zależy od faktów |
-| **M3** film serca i wejście diegetyczne | film P (5 kroków) w gablocie, wejście z widoku krwionośnego, nagranie | ≥ 50 FPS na Low; stopklatki przy reduced-motion | średnia |
-| **M4** moduł `biomotion` w filmie | ujęcie serca w akcie 3 tym samym modułem | brak regresji filmu | średnia |
-| **M5** pokaz i test z licealistami (Dyrygent) | notatka z testu | | |
-| **N2–N4** nerka, wątroba, mózg (każdy: K1 siatka i pomiar, K2 gablota, K3 film i akt filmu) | dla każdego to samo co M1–M4 | nerka K1: przekrój bez labiryntu; mózg K1: koszt Brainder | niższa, bo moduł jest gotowy; mogą iść równolegle u drugiego agenta 3D |
+| **M2** test serca | nagranie, 2 serie cyklu, tabela FPS, porównanie z M1 | ✓ Low 91 FPS | — |
+| **M2′** przeliczenie (Dyrygent) | szacunek a rzeczywistość | | |
+| **bramka A** (użytkownik) | M1 + M2 | zgoda na M3–M6 | |
+| **M4** moduł `src/biomotion` + akt 3 filmu na module | nagranie aktu 3 przed i po, FPS Low i High, ten sam moduł w prototypie gabloty | akt 3 bez regresji; granice plików od integratora | **wysoka**: rozplątanie `liveSimulationRef`, `useBiogenesisStore`, cyklu ujęcia ↔ sceny, dwóch szyn kamery; możliwa zmiana wyglądu filmu (decyzja użytkownika) |
+| **M5** serce wzorcowe | nagranie: widok krwionośny → klik → wejście diegetyczne → gablota (obrót, ujęcia, przekrój, najechanie, panel P, Sprawdź się) → film cyklu (kroki: krwinki → zastawki → skurcz); FPS Low i High | audyt jak E3; ciało ≤ 5% albo okno kuliste; fakty P serca z E1-K3 | średnia (zależy od faktów i ramy integratora) |
+| **M6** pilot wyróżników 3D (Wizualizator: technika) | 4 wyróżniki na module | ≤ 1 ms GPU na wyróżnik na Low | średnia |
+| **M7** wpięcie do aktów | serce w aktach 3, 12 (i proxy 1, 6, 11), wyróżniki w aktach wg mapy | brak regresji filmu | średnia |
+| **M8** gabloty nerki, wątroby, mózgu | każda: nagranie wejścia, gablota, film, akt filmu | nerka: przekrój bez labiryntu; mózg: koszt Brainder | niższa (moduł gotowy); może prowadzić drugi agent 3D |
+| **mały kamień** `brain_macro.glb` | przebudowa z Allen ≥ v1.3 + poprawka `LICENSES_AND_ASSETS.md` | przed publikacją filmu | niska; wymaga pobrania Allen ≥ v1.3 (zgoda Dyrygenta jest; o samo pobranie pliku poproszę użytkownika w chwili, gdy kamień ruszy) |
 
-Wielkość względna (do przeliczenia po M0): serce to największa część (buduje moduł), nerka i wątroba są mniejsze (dziedziczą moduł, dochodzi schemat mikro), mózg średni (wiele struktur).
+Szacunki godzinowe po M2′ poda Dyrygent. Wielkość względna: M4 to największa niewiadoma, a M5 największa praca.
 
 ## 9. Uzgodnienia z Reżyserem
 
@@ -387,14 +427,16 @@ Wielkość względna (do przeliczenia po M0): serce to największa część (bud
 | Przekrój i otwarcie | **zgoda** (`light`, obrys 1,5 px, bez rozsuwania, stencil przy ≥ 50 FPS) |
 | Wejście | **zgoda:** oba sposoby. Użytkownik doprecyzował „diegetycznie po kliknięciu” (§3), a menu jako dodatek |
 | Podświetlenie (obrys 2 px, bez emisji) | **zgoda**, technika: odwrócona powłoka, a na High obrys z bufora ID (§5.3) |
-| **Spór 2: schemat = kreska 2 px czy bryła?** | **otwarty (wymiana 1):** wobec słów użytkownika „nie kreseczki” proponuję schemat jako bryłę 3D w osobnym materiale schematu z chipem, a kreskę tylko dla ilustracji płaskich (§4.3) |
-| Klatki docelowe (poprzeczka jakości) | Reżyser przygotowuje. Test M0 porównam z nimi |
+| Spór 2: schemat = kreska czy bryła | **rozstrzygnięty przez Dyrygenta:** bryła 3D w materiale schematu z chipem; kreska tylko w legendzie „Jak czytać” (§4.3) |
+| Klatki docelowe (M1) | gotowe (`docs/atlas_rezyser/klatki_docelowe/`, `8c20b84`). M2 porównany z klatką (a), ocena 5 cech: `M2_TEST_SERCA.md` §4 |
+| Pytania Reżysera z M1 | ok. 1000 krwinek ze stencilem mieści się (91 FPS); stencil dla ścian (siatki komór szczelne), tylne ścianki jako zamiennik dla siatek nieszczelnych; skurcz w 3. kroku z chipem „ruch poglądowy” |
+| Wersja Low jego 12 wyróżników | wszystkie mieszczą się w ≤ 1 ms. Korekta ROZDZIAŁU na skali ciała: strumień jako wzór w ścianie naczynia zamiast 500 krwinek w nieprzezroczystym naczyniu (`FILM_PRZEGLAD.md` §6) |
 
 ## 10. Pytania do użytkownika (krótko)
 
-1. **Test techniczny serca (M0):** czy mogę go zrobić? To jedno ujęcie, osobny szkic poza aplikacją, z nagraniem i pomiarem płynności.
-2. **Mózg w gablocie:** ten sam model co w widoku układów (Z-Anatomy, bez pobierania, płynne wejście), czy model Allen z HuBMAP (wymaga pobrania nowszej wersji, ok. 12 MB)? Polecam pierwszy.
-3. **Telefon:** czy gabloty w 3D mają od razu działać na telefonie, czy na początek wystarczą obrazki ujęć i film w stopklatkach, jak dziś plansze?
+Zamknięte: test serca (zgoda „Tak, M2 i M3”, wykonany); mózg gabloty (decyzja techniczna Dyrygenta: Z-Anatomy/Brainder).
+
+1. **Telefon:** czy gabloty w 3D mają od razu działać na telefonie, czy na początek wystarczą obrazki ujęć i film w stopklatkach, jak dziś plansze?
 
 ## 11. Załącznik: zmierzone liczby modeli
 
