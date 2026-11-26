@@ -118,3 +118,9 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - (g) Gabloty: wejście diegetyczne (kamera wjeżdża w narząd, ciało gaśnie, podmiana modelu ukryta w ruchu); zastawki A (B wcześniej, jeśli tanie); nefron jako schemat „bez skali”; v1 tylko poziom Podstawowy.
 - Zapis: §7 modelu (d)–(g). Kolejny krok: poprawione plany obu agentów, potem nowa decyzja Dyrygenta.
 - **Decyzja wersja 2** (`DECYZJA_UX_NARZADY.md`): kamienie milowe M1 Poprzeczka (Reżyser) → M2 Test serca (Wizualizator, `prototypes/**`) → M2′ przeliczenie → BRAMKA A (użytkownik) → M3 czytelność (może iść równolegle) → M4 wspólny moduł z filmem (akt 3 bez regresji) → M5 serce wzorcowe z wejściem diegetycznym → M6 rama + 4 wyróżniki 3D → BRAMKA B (test z licealistami) → M7 reszta atlasu i akty filmu → M8 nerka, wątroba, mózg. Spór 1 rozstrzygnięty (w filmie każdy krok najwyżej 1 nowy ruch). Zgoda Dyrygenta na pobranie Allen v1.3+ (CC BY) z oficjalnego repozytorium. Do użytkownika zostają pytania 1–4.
+- Reżyser `31d7eb7` i Wizualizator `efb73c0`: wersje pośrednie (odpowiedź na kryteria sprzed (d)–(g)); oczekiwane PLAN 2 obu oraz M1 (klatki docelowe) i M2 (test serca). Pytania Reżysera rozstrzygnięte przez Dyrygenta:
+  - łacina tylko na poziomie Rozszerzonym w nawiasie;
+  - wyniki „Sprawdź się” tylko w przeglądarce;
+  - brak osobnego trybu „sama budowa”: domyślnie Spoczynek z celem lekcji o budowie.
+
+  Odkrycie P2 (podpisy bez sprawdzonego opisu: mózg 21, mięśniowy 19, nerwowy 14, oddechowy 8, powłokowy 4) wzmacnia argument za wznowieniem faktów podręcznikowych.
