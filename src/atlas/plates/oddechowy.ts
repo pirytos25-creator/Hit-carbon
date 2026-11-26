@@ -62,7 +62,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       role: { rest: 'Rozprowadza powietrze do płuca', sprint: 'Oskrzela lekko się rozszerzają' },
       tier: 'primary',
       referenceIds: ['antonelli_2012'],
-      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #14; fakty_draft_K3_zaopatrzenie.md: spoczynek unverifiable (propozycja: anatomy)
+      roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #14; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)
     },
     {
       anchor: 'lung',
@@ -101,7 +101,7 @@ export const ODDECHOWY: AtlasPlateContent = {
       nameLat: 'bronchiolus terminalis',
       role: { rest: 'Doprowadza świeże powietrze', sprint: 'Dużo więcej powietrza na minutę' },
       tier: 'secondary',
-      roleStatus: { rest: 'unverifiable', sprint: 'unverifiable' }, // #21; fakty_draft_K3_zaopatrzenie.md: spoczynek bez źródła (propozycja: anatomy)
+      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // #21; fakty_draft_K3_zaopatrzenie.md: spoczynek = opis budowy (anatomy, decyzja Dyrygenta 1b)
     },
     {
       anchor: 'alveolus',

@@ -129,7 +129,7 @@ export const KRWIONOSNY: AtlasPlateContent = {
       // #28: „Szybszy powrót krwi” bez oparcia w źródłach; zostaje opis anatomiczny.
       role: { rest: 'Krew z głowy i ramion', sprint: 'Krew z głowy i ramion' },
       tier: 'secondary',
-      roleStatus: { rest: 'anatomy', sprint: 'unverifiable' }, // fakty_draft_K3_zaopatrzenie.md: sprint bez źródła (propozycja: anatomy)
+      roleStatus: { rest: 'anatomy', sprint: 'anatomy' }, // fakty_draft_K3_zaopatrzenie.md: sprint = ten sam opis budowy (anatomy, decyzja Dyrygenta 1b)
     },
     {
       anchor: 'd_pulmonary_trunk',
