@@ -79,3 +79,15 @@ i prawdziwe światło sceny bez zmiany stylu matowego.
 ## 6. Co powstało po przeglądzie
 
 Trzy prototypy i porównanie: `PROPOZYCJE_3D.md` w tym folderze. Zrzuty: `zrzuty/`.
+
+## Stan na przerwę (E3-K3, 2026-11-26)
+- Zrobione w K3 (nie wysłano jeszcze raportu `PUNKT KONTROLNY E3-K3`):
+  - obszar 3D między paskami (model nie wchodzi pod przełączniki ani stopkę);
+  - podpisy za obrysem modelu, na ciemnym tle (kontrast);
+  - pasek skraca długie nazwy; dopasowanie szerokości kadru w widokach kluczowych (mózg z przodu);
+  - odcięcie trójkątów nieużywanych przez planszę i ukrywanie pustych siatek: wszystkie 12 układów ma ≥ 50 FPS na Intel UHD (moczowy 25→50, oddechowy 29→56, krwionośny 48→60);
+  - zrzuty 1440 wszystkich 12 (przód, bok, sprint) w `zrzuty/e3k3_1440/` + tablice `zrzuty/e3k3_12_ukladow_*`;
+  - telefon 390 px: przycisk 3D ukryty (`zrzuty/e3k3_telefon_390_krwionosny.jpeg`).
+- Sprawdzone: build, `check:atlas` i `check:atlas3d` OK; konsola bez błędów.
+- Dalej: dopisać pomiary K3 do `E3_KONTRAKT_3D.md` i wysłać Dyrygentowi `PUNKT KONTROLNY E3-K3` (FPS z tabeli powyżej, zrzuty, telefon, kontrole).
+- Modele GLB są poza Gitem (`public/atlas3d/`); po scaleniu w katalogu użytkownika: `npm run atlas:export3d`.

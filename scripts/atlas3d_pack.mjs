@@ -120,8 +120,10 @@ function packPlate(plate, shared) {
     const file = it.shared ? sharedOf.get(it.meshId) : it.file;
     if (!file) throw new Error(`${plate}: ${it.meshId} bez pliku`);
     if (!it.shared && !tables[file]?.includes(it.meshId)) { skipped.push(it.meshId); return []; }
+    // pomocnicze ramki kadru zbliżeń (np. MIES_frame, KOST_side_frame): tło kompozycji 2D, nie anatomia
+    if (/_frame$/.test(it.meshId)) { skipped.push(it.meshId); return []; }
     return [{ meshId: it.meshId, file, layer: it.shared ? null : it.layer, role: it.role, system: it.system, levels: it.levels,
-      alpha: it.alpha, ctx: it.ctx, views: it.views, frame: it.frame, license: it.license, look: it.look ?? null }];
+      alpha: it.alpha, ctx: it.ctx, views: it.views, frame: it.frame, license: it.license, origin: it.origin ?? null, look: it.look ?? null }];
   });
   if (skipped.length) console.log(`${plate}: pominięte bez geometrii: ${skipped.join(', ')}`);
   const usedShared = [...new Set(structures.filter((s) => s.file.startsWith('_shared/')).map((s) => s.file))];
@@ -142,7 +144,7 @@ function packPlate(plate, shared) {
   budget.okDesktop = budget.all.bytes <= BUDGET.desktop.bytes && budget.body.tris <= BUDGET.desktop.tris && budget.all.calls <= BUDGET.desktop.calls;
   budget.okPhone = budget.body.bytes <= BUDGET.phone.bytes && budget.body.tris <= BUDGET.phone.tris && budget.body.calls <= BUDGET.phone.calls;
   writeJson(path.join(out, 'manifest.json'), {
-    schemaVersion: 1, plate, units: 'm',
+    schemaVersion: 1, plate, units: 'm', card: !!anchors.card, // karta bez stanów (np. rozrodczy): jak AtlasApp.isCard
     frame: 'Z-Anatomy (przód −Y, prawa strona ciała −X, Z w górę); w glTF/three: (x, z, −y)',
     files, views: ex.views, roles: ex.roles, budget,
     generatedBy: 'blender/atlas/atlas_export_glb.py + scripts/atlas3d_pack.mjs',

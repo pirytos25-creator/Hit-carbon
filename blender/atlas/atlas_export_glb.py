@@ -62,7 +62,7 @@ def base(n):
 def mesh_id(o):
     src = o.get("atl_source", "")
     if src.startswith("hubmap"):
-        return f"hra:{src.split(':', 1)[-1]}/{base(o.name)}"
+        return f"hra:{os.path.basename(src.split(':', 1)[-1])}/{base(o.name)}"
     return f"za:{base(o.name)}"
 
 
@@ -263,6 +263,26 @@ def run_plate(plate_id):
         bpy.ops.render.render = lambda *a, **k: {'CANCELLED'}
     except (AttributeError, TypeError) as e:
         print("ATL3D_WARN nie podmieniono bpy.ops.render.render:", e)
+    # Źródło obiektów z GLB: plate_oddechowy.py ma własny import bez atl_source (45 struktur HuBMAP trafiało do pliku
+    # Z-Anatomy - wykrył integrator). bpy.ops.import_scene tworzy się przy każdym odwołaniu, więc podmiana operatora
+    # nie działa. Zamiast tego: mapa nazwa węzła -> plik ze WSZYSTKICH GLB HuBMAP (część JSON pliku), po przebiegu
+    # planszy każdy nowy obiekt bez atl_source o nazwie węzła HuBMAP dostaje źródło z właściwego pliku.
+    hub_nodes = {}
+    for dirpath, _, fnames in os.walk(al.HUBMAP_DIR):
+        for fn in sorted(fnames):
+            if not fn.lower().endswith(".glb"):
+                continue
+            try:
+                with _real_open(os.path.join(dirpath, fn), "rb") as fh:
+                    head = fh.read(20)
+                    n = int.from_bytes(head[12:16], "little")
+                    gj = json.loads(fh.read(n).decode("utf-8"))
+                for node in gj.get("nodes", []):
+                    if node.get("name"):
+                        hub_nodes.setdefault(node["name"], fn)
+            except (OSError, ValueError) as e:
+                print("ATL3D_WARN odczyt GLB", fn, e)
+    startup_names = {o.name for o in bpy.data.objects}
     for k in ("ATLAS_QUICK", "ATLAS_ANCHORS_ONLY", "ATLAS_DRY"):
         os.environ.pop(k, None)
     builtins.open = _guard_open
@@ -272,6 +292,12 @@ def run_plate(plate_id):
         pass
     finally:
         builtins.open = _real_open
+    tagged = 0
+    for o in bpy.data.objects:
+        if o.name not in startup_names and not o.get("atl_source") and base(o.name) in hub_nodes:
+            o["atl_source"] = "hubmap:" + hub_nodes[base(o.name)]
+            tagged += 1
+    print(f"ATL3D_SOURCE oznaczone jako HuBMAP po nazwie węzła: {tagged}")
     caps = [c for c in CAPT if c["plate"].id == plate_id]
     if not caps:
         raise SystemExit(f"ATL3D: plansza {plate_id} nie wywołała render()")
@@ -317,8 +343,11 @@ def run_plate(plate_id):
             it = items.get(mid)
             if it is None:
                 ctx = ex.get("ctx") or ("muscle" if (o.type == 'CURVE' and role == "active") or system == "muscle" else "bone")
+                origin = ("hubmap" if lic_of(o) == "hra" else
+                          "zanatomy" if o.name in startup_names and not o.get("atl_source") else "plate")
                 it = items[mid] = {"meshId": mid, "role": role, "system": system, "levels": dict(levels),
-                                   "alpha": ex.get("alpha"), "ctx": ctx, "views": [], "license": LIC_ID[lic_of(o)]}
+                                   "alpha": ex.get("alpha"), "ctx": ctx, "views": [], "license": LIC_ID[lic_of(o)],
+                                   "origin": origin}
                 objs_by_id[mid] = o
             it["views"] = sorted(set(it["views"]) | set(vis_views))
     # --- wygląd wprost z materiałów planszy: _apply_state(stan) przypisuje te same materiały co do renderu 2D
@@ -434,14 +463,18 @@ def run_plate(plate_id):
         P = c["plate"]
         for key, a in c["anchors"].items():
             names = a.get("objects") or ([a["curve"]] if "curve" in a else [])
-            ids = [mesh_id(bpy.data.objects[n]) for n in names if bpy.data.objects.get(n) is not None]
-            if ids:
-                anchor_meshes[key] = sorted(set(anchor_meshes.get(key, [])) | set(ids))
+            objs = [bpy.data.objects[n] for n in names if bpy.data.objects.get(n) is not None]
+            real = [o for o in objs if o.type in ('MESH', 'CURVE') and not o.name.startswith("ATL_anchor")]
+            if real:
+                anchor_meshes[key] = sorted(set(anchor_meshes.get(key, [])) | {mesh_id(o) for o in real})
                 anchor_method[key] = "objects"
                 continue
-            if "point" not in a:
+            if "point" in a:
+                p = np.array(a["point"], np.float32)
+            elif objs:  # pomocnicze puste obiekty: punkt kotwicy = ich położenie
+                p = np.mean([np.array(o.matrix_world.translation, np.float32) for o in objs], axis=0)
+            else:
                 continue
-            p = np.array(a["point"], np.float32)
             own = [v for v in a.get("views", c["views"]) if v in c["views"]]
             best = (1e9, None)
             for o, *_ in P.items:

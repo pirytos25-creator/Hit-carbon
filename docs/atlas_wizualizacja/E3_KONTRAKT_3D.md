@@ -47,6 +47,19 @@ Opis pól:
 - `levels` jak w `Plate.add`: liczba 0–1, `"dim"` albo null; kolor liczy ta sama funkcja co `atlas_lib.active_color`;
 - `views`: widoki planszy, w których struktura jest widoczna (zbliżenia mają własne zestawy obiektów).
 
+### Pola dodane w K2 (po uwagach integratora)
+
+- `structures[].origin`:
+  - `"zanatomy"`: obiekt z `Startup.blend`;
+  - `"hubmap"`: plik z `atlas_raw/hubmap/**`;
+  - `"plate"`: obiekt utworzony przez skrypt planszy, np. `ATL_silhouette`, `*.slab`, `PWL_*`. To geometria pochodna Z-Anatomy, więc licencja CC BY-SA 4.0 i plik `za_*`.
+- **Źródło HuBMAP** rozpoznaje eksport, a nie skrypt planszy. Przed przebiegiem czyta nazwy węzłów ze wszystkich GLB w `atlas_raw/hubmap/**`; nowy obiekt bez `atl_source` o takiej nazwie dostaje źródło z tego pliku.
+  `plate_oddechowy.py` ma własny import bez oznaczenia, przez co 45 struktur HuBMAP trafiało do pliku Z-Anatomy. Wykrył to integrator, a walidator łapie to teraz (`za:VH_M_*` = błąd).
+- **`meshId` HuBMAP** to sama nazwa pliku (bez podfolderu `female/`).
+- **Kotwice wskazujące pomocnicze puste obiekty** (`ATL_anchor_*`): punkt kotwicy wyznacza położenie obiektu, a meshId to najbliższa prawdziwa struktura (`nearest:x mm`).
+- **`manifest.card`:** karta bez stanów (`"card": true` w `anchors.json` planszy), jak `AtlasApp.isCard`. Widok 3D nie pokazuje wtedy przełącznika stanu.
+- **`skipped`:** obiekty bez geometrii oraz pomocnicze ramki kadru zbliżeń (`*_frame`, tło kompozycji 2D).
+
 ### Rama scen
 
 - `body`: wspólna rama Z-Anatomy, czyli metry, przód −Y, prawa strona ciała −X, Z w górę. W glTF/three: `(x, z, −y)`. HuBMAP wchodzi tu po `align_hubmap`.
@@ -93,3 +106,44 @@ Telefonu (≤ 6 MB, ≤ 400 tys.) nie spełnia żaden układ, bo sam szkielet z 
   Odtworzenie: `npm run atlas:export3d` (Blender przez sloty, ok. 15 min dla 12 układów, potem kompresja i kontrola).
   **Uwaga:** po scaleniu trzeba to polecenie uruchomić raz w katalogu, z którego użytkownik odpala aplikację, albo skopiować tam gotowe `public/atlas3d/` (ok. 25 MB).
 - Pień płucny w HuBMAP ma rolę `heart`, a jego kolor zależy od reguły planszy (utlenowanie). Silnik 3D bierze kolor z tej samej reguły co plansza.
+
+## 6. Pomiary E3-K3 (widok 3D w aplikacji, 2026-11-26)
+
+Chrome, zintegrowana karta Intel UHD (ANGLE D3D11), okno 1440×900, gęstość pikseli 1,25, sprint, ujęcie główne.
+Okno było na pierwszym planie, a zgodność FPS z liczbą klatek przeglądarki i z `__atlas3dBench` sprawdzona dla każdego układu.
+RTX 4050 nie mierzony, bo przełączenie karty to ustawienie Windows i decyzja użytkownika.
+
+| Układ | FPS (przed K3 → po) | Trójkąty rysowane | Wywołania | Pobranie |
+|---|---|---|---|---|
+| krwionośny | 48 → **60** | 417 639 | 9 | 4,84 MB |
+| mięśniowy | 43 → **57** | 544 918 | 2 | 3,83 MB |
+| nerwowy | 48 → **57** | 730 590 | 7 | 4,47 MB |
+| mózg | 57 → **70** | 429 632 | 2 | 2,78 MB |
+| hormonalny | 44 → **54** | 416 138 | 13 | 2,61 MB |
+| kostny | 69 → **87** | 308 453 | 4 | 1,96 MB |
+| oddechowy | 29 → **56** | 499 551 | 8 | 7,04 MB |
+| pokarmowy | 37 → **52** | 252 494 | 11 | 2,88 MB |
+| powłokowy | 45 → **52** | 607 462 | 12 | 4,19 MB |
+| moczowy | 25 → **50** | 341 888 | 19 | 4,46 MB |
+| limfatyczny | 59 → **73** | 391 319 | 8 | 2,89 MB |
+| rozrodczy | 53 → **144** | 22 062 | 7 | 3,13 MB |
+
+Skąd poprawa:
+- przy wczytaniu każda siatka zostawia tylko trójkąty struktur używanych przez planszę (np. oddechowy bierze 11 mięśni z wspólnych 324 tys. trójkątów);
+- siatki bez widocznych struktur w danym ujęciu nie są rysowane.
+
+Pobranie się nie zmienia, bo pliki wspólne nadal są pobierane w całości.
+
+Poprawki z audytu K2:
+- obszar 3D leży między paskami (model nie wchodzi pod przełączniki ani stopkę);
+- kolumny podpisów stoją za obrysem modelu na ekranie, a podpis ma ciemne tło (kontrast ≥ 4,5:1);
+- długa nazwa w pasku jest skracana wielokropkiem;
+- kadr dopasowuje szerokość modelu w innych widokach kluczowych (np. mózg z przodu).
+
+Zrzuty:
+- `zrzuty/e3k3_1440/` (24 pliki: 12 układów × przód i bok, sprint);
+- `zrzuty/e3k3_12_ukladow_{przod,bok}_sprint.jpg` (tablice);
+- `zrzuty/e3k3_telefon_390_krwionosny.jpeg` (telefon 390 px: przycisk 3D ukryty, choć manifest istnieje);
+- `zrzuty/e3k3_po_scaleniu_krwionosny.jpeg` (po scaleniu `atlas-uklady` 909b17d).
+
+Kontrole po scaleniu: `npm run build`, `npm run check:atlas` (dane 0 uwag) i `npm run check:atlas3d` (12 układów) – kod 0; konsola przeglądarki bez błędów.
