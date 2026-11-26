@@ -26,3 +26,9 @@ Sprawdzanie faktów w toku:
 Kolejność scalania do `atlas-uklady`: układy po K3 (każdy po audycie), w `plates/index.ts` i `ScientificReferences.ts` zachować wszystkie wpisy (uwaga: `marliss_vranic_2002` u hormonalnego i pokarmowego – jedno ID).
 Integracja 1b cz. 1 (integrator): `rest_level`, ukrycie przełącznika przy `card: true`, strzałka `repro`, mózg na świetle biblioteki, brief powłokowego, kadr oddechowego, statusy faktów po sprawdzeniu.
 Decyzja użytkownika potrzebna: wdrożenie planu Reżysera (rekomendacja Dyrygenta: po 12 planszach).
+
+## Plan końcowy (polecenie użytkownika przez koordynatora, 2026-11-26)
+1. K3 hormonalnego → scalenie do `atlas-uklady`.
+2. Zaraz potem wiadomość do Wizualizatora 3D: w `atlas-uklady` jest 12 plansz (doszły limfatyczna, hormonalna, dokończenie 1b) – `git merge atlas-uklady` u siebie.
+3. Bez czekania na użytkownika: integracja 1b cz. 2 (przegląd spójności 12 plansz; integrator, w toku od scalenia limfatycznego) → końcowe sprawdzenie wszystkich `draft` → zgromadzenie (statut §6; materiał: plan Reżysera, propozycje Wizualizatora) → decyzja końcowa i `RAPORT_KONCOWY.md`.
+Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ramą ciała (x = 20–30 m) – nie przerabiamy w 2D (nie wpływa na plansze), opis w raporcie końcowym jako zadanie dla E3.
