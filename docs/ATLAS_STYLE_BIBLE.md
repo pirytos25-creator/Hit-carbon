@@ -55,6 +55,9 @@ Kontekst (zawsze ten sam, na każdej planszy):
 
 Intensywność w stanach:
 - `spoczynek`: kolor układu zmieszany w 35% (`restMix`) z kolorem kontekstu, bez świecenia;
+- **plansze „odwrócone”** (układ pracuje w spoczynku i gaśnie w sprincie, np. pokarmowy, moczowy): `plate.add(..., rest_level=0,5–1,0,
+  sprint_level="dim")`. W spoczynku udział koloru = max(35%, `rest_level`), bez emisji; w sprincie `dim` = 35%, bez emisji.
+  Struktura, która w sprincie pracuje mocniej (np. wątroba), dostaje zwykły `sprint_level`;
 - `sprint`: pełny kolor układu; **emisja tylko na strukturach pracujących**: poziom ≥ 0,6 świeci od 0,15 (poziom 0,6) do 0,35 (poziom 1,0), niższe poziomy i `"dim"` bez emisji (reguła: `palette.json` → `emission`, funkcja `al.emission_for`);
 - poziom pracy (`sprint_level`) to ilustracja w stopniach (1,0 / 0,6–0,9 / `"dim"` = jak w spoczynku), nie liczba ze źródła;
 - **cienkie tkanki** (naczynia, przewody, nerwy jako krzywe) mieszamy z kolorem mięśni/tła `#8E7A78` (`ctx="muscle"`, dla krzywych domyślnie),
