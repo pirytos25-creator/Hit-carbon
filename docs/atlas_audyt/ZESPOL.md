@@ -88,3 +88,8 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 1. Wizualizator kończy E3-K3: czytelność podpisów na modelu (tło/kolumny, kontrast ≥ 4,5:1), kadr pod paskiem i stopką (oddechowy), ew. wydajność moczowego (25 FPS) i oddechowego (29 FPS), integracja przez punkt montażu, zrzuty 12 układów, build, `check:atlas`, `check:atlas3d` → `PUNKT KONTROLNY E3-K3`.
 2. Dyrygent: audyt K3, scalenie gałęzi Wizualizatora do `atlas-uklady`, `RAPORT_E1.md` (E1 + E3) dla użytkownika z instrukcją: `npm run atlas:export3d` (raz, ok. 15 min) i `npm run dev` → `#atlas` → „Obróć w 3D”.
 3. Użytkownik ogląda 3D i decyduje o E1-K3 (fakty podręcznikowe) i dalszych etapach. Opcjonalnie: pomiar FPS na RTX wymaga zmiany ustawień grafiki Windows przez użytkownika.
+
+## E3 ZAKOŃCZONE (2026-11-26, po wznowieniu)
+- E3-K2 i K3 Wizualizatora zaliczone, gałąź scalona do `atlas-uklady` (`a289337`); audyt `wizualizator_E3_K3.md`.
+- 3D „Gablota” działa dla 12 układów: `npm run dev` → `#atlas/<układ>` → „Obróć w 3D” (desktop). GLB lokalnie w `public/atlas3d` (poza Gitem; na nowej kopii: `npm run atlas:export3d`).
+- Czeka na decyzję użytkownika: E1-K3 (fakty podręcznikowe), E2′ (przewodnik „Jeden interwał”), E4/P2 („Scena Całość”), test z licealistami, pomiar na RTX (ustawienia grafiki Windows), kontrola 70 kotwic `nearest`.
