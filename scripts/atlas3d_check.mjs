@@ -48,6 +48,14 @@ export function checkGlb(name, gltf, errors) {
   }
 }
 
+/** Format ID (model §3.1) i źródło: nazwy HuBMAP (VH_M_…, 3d-vh-…) nie mogą mieć prefiksu za: (licencja BY w pliku BY-SA). */
+export function checkIds(meshIds, where, errors) {
+  for (const m of meshIds) {
+    if (/^za:(VH_[MF]_|3d-vh-|SBU_|NIH_|Allen_)/i.test(m)) errors.push(`${where}: obiekt HuBMAP z prefiksem za: (${m}) - mieszanie licencji`);
+    if (m.startsWith('hra:') && !/^hra:[^/]+\.glb\/[^/]+$/.test(m)) errors.push(`${where}: ID HuBMAP poza formatem hra:<plik.glb>/<węzeł>: ${m}`);
+  }
+}
+
 export function checkNc(meshIds, where, nc, errors) {
   for (const m of meshIds) {
     if (!m.startsWith('za:')) continue;
@@ -89,6 +97,8 @@ function run() {
       if (LIC[pre]?.id !== s.license) errors.push(`${p}: ${s.meshId} (${s.license}) w pliku ${s.file}`);
     }
     checkNc(bind.structures.map((s) => s.meshId), `${p}/bindings`, nc, errors);
+    checkIds(bind.structures.map((s) => s.meshId), `${p}/bindings`, errors);
+    for (const t of Object.values(bind.tables)) checkIds(t, `${p}/tables`, errors);
     const b = man.budget;
     if (b.all.bytes > DESKTOP.bytes) errors.push(`${p}: pobranie ${(b.all.bytes / 1e6).toFixed(1)} MB > 20 MB`);
     if (b.body.tris > DESKTOP.tris) errors.push(`${p}: ${b.body.tris} trójkątów > 1,5 mln`);
@@ -106,7 +116,7 @@ function run() {
   return 0;
 }
 
-/** Autotest: walidator musi złapać nerkę Z-Anatomy, mieszanie licencji i brak meshopt. */
+/** Autotest: walidator musi złapać nerkę i ślimak Z-Anatomy, mieszanie licencji, brak meshopt, HuBMAP z prefiksem za: i ID z podfolderem. */
 function selftest() {
   const nc = ncPatterns();
   const e = [];
@@ -114,8 +124,9 @@ function selftest() {
   checkGlb('za_body.glb', { asset: { copyright: 'Z-Anatomy' }, extensionsUsed: ['EXT_meshopt_compression'],
     nodes: [{ name: 'a', extras: { atlas_license: 'CC-BY-SA-4.0' } }, { name: 'b', extras: { atlas_license: 'CC-BY-4.0' } }] }, e);
   checkGlb('hra_body.glb', { asset: { copyright: 'HuBMAP' }, nodes: [] }, e);
-  const ok = e.length === 4 && e[0].includes('Kidney.l') && e[1].includes('Cochlea.r') && e[2].includes('mieszanie') && e[3].includes('meshopt');
-  console.log(ok ? `atlas3d selftest: OK (${nc.length} wzorców NC z atlas_lib.py; wykryto ${e.length}/4 celowe błędy)` : `atlas3d selftest: BŁĄD ${JSON.stringify(e)}`);
+  checkIds(['za:VH_M_trachea', 'hra:female/VH_F_Ovary_L.glb/x', 'hra:VH_M_Heart.glb/VH_M_heart_left_ventricle'], 'test', e);
+  const ok = e.length === 6 && e[0].includes('Kidney.l') && e[1].includes('Cochlea.r') && e[2].includes('mieszanie') && e[3].includes('meshopt') && e[4].includes('VH_M_trachea') && e[5].includes('female');
+  console.log(ok ? `atlas3d selftest: OK (${nc.length} wzorców NC z atlas_lib.py; wykryto ${e.length}/6 celowych błędów)` : `atlas3d selftest: BŁĄD ${JSON.stringify(e)}`);
   return ok ? 0 : 1;
 }
 

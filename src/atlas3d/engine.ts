@@ -17,6 +17,8 @@ export interface Cam3 { direction: string | number[]; center: number[]; right: n
 export interface ManifestFile { path: string; license: string; attribution: string; frame: 'body' | 'staging'; bytes: number; tris: number; shared?: boolean }
 export interface Manifest {
   plate: string;
+  /** Karta bez stanów (anchors.json planszy: "card": true), jak AtlasApp.isCard. */
+  card?: boolean;
   files: ManifestFile[];
   views: Record<string, { camera: Cam3; frame: 'body' | 'staging'; resolution?: [number, number] | null }>;
   budget: { body: { bytes: number; tris: number; calls: number }; all: { bytes: number; tris: number; calls: number } };
@@ -170,6 +172,14 @@ export async function loadFiles(base: string, data: AtlasData, onBytes?: (b: num
     });
     return { path: f.path, root: gltf.scene, meshes, state, ids, byMesh, bind };
   }));
+}
+
+/** Zwolnienie geometrii, materiałów i tekstur stanu (zamknięcie widoku, przerwane ładowanie). */
+export function disposeFiles(files: LoadedFile[]) {
+  for (const f of files) {
+    for (const m of f.meshes) { m.geometry.dispose(); (m.material as THREE.Material).dispose(); }
+    f.state.tex.dispose();
+  }
 }
 
 /** Widoczność struktur w danym zestawie widoków planszy (główny zestaw albo jedno zbliżenie).

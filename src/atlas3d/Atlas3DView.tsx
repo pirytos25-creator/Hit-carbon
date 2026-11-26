@@ -12,7 +12,7 @@ import type { AtlasState } from '../atlas/types';
 import type { AtlasLevel } from '../atlas/palette';
 import { ATLAS_SYSTEMS } from '../atlas/plates';
 import { usePrefersReducedMotion } from '../atlas/AtlasPlate';
-import { loadAtlasData, loadFiles, MissingDataError } from './engine';
+import { disposeFiles, loadAtlasData, loadFiles, MissingDataError } from './engine';
 import { Controller, FOV, KEY_VIEWS, type Mode } from './controller';
 import './atlas3d.css';
 
@@ -71,11 +71,14 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
     let alive = true;
     let bytes = 0;
     setPhase({ kind: 'loading', mb: 0 });
+    setMode({ kind: 'main' }); // nowa plansza zaczyna od ujęcia głównego
+    setKv('front');
+    setHiddenN(0);
     (async () => {
       if (!content) throw new Error(`brak treści planszy ${system}`);
       const data = await loadAtlasData(BASE, system);
       const files = await loadFiles(BASE, data, (b) => { bytes += b; if (alive) setPhase({ kind: 'loading', mb: bytes / 1e6 }); });
-      if (!alive) return;
+      if (!alive) { disposeFiles(files); return; } // przerwane (szybka zmiana planszy): zwolnić od razu
       const ctrl = new Controller(data, files, content, hostRef.current!, svgRef.current!, layerRef.current!, bytes);
       setPhase({ kind: 'ready', ctrl });
     })().catch((e: unknown) => {
@@ -95,14 +98,24 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
     ctrl.onLabelsChanged = () => setHiddenN(ctrl.hiddenDetailLabels);
   }, [ctrl]);
   useEffect(() => { rootRef.current?.focus(); }, [ctrl]);
+  // po zamknięciu fokus wraca tam, skąd otwarto widok (przycisk „Obróć w 3D”)
+  useEffect(() => {
+    const prev = document.activeElement as HTMLElement | null;
+    return () => { if (prev && document.contains(prev)) prev.focus({ preventScroll: true }); };
+  }, []);
+  const stateless = ctrl?.stateless ?? !!content?.card;
+  useEffect(() => { if (stateless) setSt('rest'); }, [stateless]);
 
   const go = (m: Mode) => { setMode(m); ctrl?.setMode(m); };
   const onKey = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') { e.preventDefault(); onClose(); return; }
-    if (!ctrl || (e.target as HTMLElement).closest('button')) return; // przyciski obsługują Enter/spację same
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); ctrl.rotate(e.key === 'ArrowLeft' ? 90 : -90); }
-    else if (/^[1-4]$/.test(e.key)) { setMode({ kind: 'main' }); ctrl.keyView(KEY_VIEWS[+e.key - 1].az); }
-    else if (e.key === 's' || e.key === 'S') setSt((s) => (s === 'sprint' ? 'rest' : 'sprint'));
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const handled = () => { e.preventDefault(); e.stopPropagation(); }; // nie dublować skrótów planszy (AtlasApp)
+    if (e.key === 'Escape') { handled(); onClose(); return; }
+    if (!ctrl) return;
+    if ((e.key === 'Enter' || e.key === ' ') && (e.target as HTMLElement).closest('button')) return; // przyciski same
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { handled(); ctrl.rotate(e.key === 'ArrowLeft' ? 90 : -90); }
+    else if (/^[1-4]$/.test(e.key)) { handled(); setMode({ kind: 'main' }); ctrl.keyView(KEY_VIEWS[+e.key - 1].az); }
+    else if ((e.key === 's' || e.key === 'S') && !stateless) { handled(); setSt((x) => (x === 'sprint' ? 'rest' : 'sprint')); }
   };
   const details = ctrl?.details ?? [];
   const title = content?.titlePl ?? system;
@@ -110,7 +123,7 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
   const seg = (on: boolean, extra = '') => `${btn} ${on ? 'bg-slate-700 text-white' : 'text-slate-300 hover:bg-slate-800'} ${extra}`;
 
   return (
-    <div ref={rootRef} className="atlas3d-root" tabIndex={0} onKeyDown={onKey} aria-label={`Widok 3D: ${title}. Strzałki w lewo i w prawo obracają, 1–4 widoki, S zmienia stan, Esc wraca do planszy.`}>
+    <div ref={rootRef} className="atlas3d-root" role="application" tabIndex={0} onKeyDown={onKey} aria-label={`Widok 3D: ${title}. Strzałki w lewo i w prawo obracają, 1–4 widoki${stateless ? '' : ', S zmienia stan'}, Esc wraca do planszy.`}>
       <div ref={hostRef} className="atlas3d-stage"
         onPointerDown={(e) => { if (ctrl && mode.kind === 'main') { dragRef.current = { x: e.clientX, id: e.pointerId }; (e.target as Element).setPointerCapture?.(e.pointerId); } }}
         onPointerMove={(e) => { const d = dragRef.current; if (d && ctrl) { ctrl.drag(e.clientX - d.x); d.x = e.clientX; } }}
@@ -128,10 +141,10 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
 
       <div className="atlas3d-bar atlas3d-top">
         <span className="atlas3d-chip">3D · {title}</span>
-        <div className="atlas3d-seg" role="group" aria-label="Moment">
+        {!stateless && <div className="atlas3d-seg" role="group" aria-label="Moment">
           <button type="button" className={seg(st === 'rest')} aria-pressed={st === 'rest'} onClick={() => setSt('rest')}>Spoczynek</button>
           <button type="button" className={seg(st === 'sprint', st === 'sprint' ? '!bg-[#c8343f]' : '')} aria-pressed={st === 'sprint'} onClick={() => setSt('sprint')}>Sprint HIIT</button>
-        </div>
+        </div>}
         <div className="atlas3d-seg" role="group" aria-label="Poziom">
           <button type="button" className={seg(lv === 'basic')} aria-pressed={lv === 'basic'} onClick={() => setLv('basic')}>Podstawowy</button>
           <button type="button" className={seg(lv === 'extended')} aria-pressed={lv === 'extended'} onClick={() => setLv('extended')}>Rozszerzony</button>

@@ -8,7 +8,7 @@ import type { AtlasLabel, AtlasPlateContent, AtlasState } from '../atlas/types';
 import { isShown, systemOfPlate, type AtlasLevel } from '../atlas/palette';
 import { expandName } from '../atlas/AtlasPlate';
 import {
-  Rail, applyViews, attachLights, dirToAngles, highlight, makeFlow, setUniform, shotFor, za,
+  Rail, applyViews, attachLights, dirToAngles, disposeFiles, highlight, makeFlow, setUniform, shotFor, za,
   type AtlasData, type LoadedFile, type Flow3,
 } from './engine';
 
@@ -81,8 +81,16 @@ export class Controller {
   }
   dispose() {
     this.detach?.();
-    for (const f of this.files) for (const m of f.meshes) { m.geometry.dispose(); (m.material as THREE.Material).dispose(); }
-    for (const f of this.files) f.state.tex.dispose();
+    disposeFiles(this.files);
+    // podpisy żyją w DOM komponentu: bez czyszczenia zostałyby po zmianie planszy (z nasłuchami do zwolnionych plików)
+    this.layer.replaceChildren();
+    this.svg.replaceChildren();
+    this.els.clear();
+    this.labelKey = '';
+  }
+  /** Karta bez stanów (np. rozrodczy): plansza nie ma renderu spoczynku. */
+  get stateless(): boolean {
+    return !!this.content.card || !!this.data.manifest.card || this.data.bindings.structures.every((b) => !b.look?.rest);
   }
 
   private aspect() { return Math.max(0.3, this.host.clientWidth / Math.max(1, this.host.clientHeight)); }
@@ -178,6 +186,10 @@ export class Controller {
     return out;
   }
   private rebuildLabelDom() {
+    // przebudowa w trakcie obrotu nie może zgubić fokusu klawiatury ani zostawić podświetlenia
+    const active = document.activeElement as HTMLElement | null;
+    const focusedKey = active && this.layer.contains(active) ? active.dataset.key ?? null : null;
+    highlight(this.files, new Set());
     this.layer.replaceChildren();
     this.svg.replaceChildren();
     this.els.clear();
@@ -186,6 +198,7 @@ export class Controller {
       const d = document.createElement('div');
       d.className = 'atlas3d-lbl';
       d.tabIndex = 0;
+      d.dataset.key = it.key;
       d.setAttribute('role', 'note');
       const b = document.createElement('b');
       b.textContent = it.name;
@@ -203,6 +216,11 @@ export class Controller {
       dot.setAttribute('r', '4.5'); dot.setAttribute('fill', 'none'); dot.setAttribute('stroke', '#fff'); dot.setAttribute('stroke-width', '1.5');
       this.svg.append(line, dot);
       this.els.set(it.key, { d, line, dot });
+    }
+    if (focusedKey !== null) {
+      const again = this.els.get(focusedKey)?.d;
+      if (again) again.focus({ preventScroll: true });
+      else this.host.closest<HTMLElement>('.atlas3d-root')?.focus({ preventScroll: true });
     }
   }
   private placeLabels(fade: number) {

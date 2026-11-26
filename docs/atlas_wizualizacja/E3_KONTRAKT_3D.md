@@ -47,6 +47,19 @@ Opis pól:
 - `levels` jak w `Plate.add`: liczba 0–1, `"dim"` albo null; kolor liczy ta sama funkcja co `atlas_lib.active_color`;
 - `views`: widoki planszy, w których struktura jest widoczna (zbliżenia mają własne zestawy obiektów).
 
+### Pola dodane w K2 (po uwagach integratora)
+
+- `structures[].origin`:
+  - `"zanatomy"`: obiekt z `Startup.blend`;
+  - `"hubmap"`: plik z `atlas_raw/hubmap/**`;
+  - `"plate"`: obiekt utworzony przez skrypt planszy, np. `ATL_silhouette`, `*.slab`, `PWL_*`. To geometria pochodna Z-Anatomy, więc licencja CC BY-SA 4.0 i plik `za_*`.
+- **Źródło HuBMAP** rozpoznaje eksport, a nie skrypt planszy. Przed przebiegiem czyta nazwy węzłów ze wszystkich GLB w `atlas_raw/hubmap/**`; nowy obiekt bez `atl_source` o takiej nazwie dostaje źródło z tego pliku.
+  `plate_oddechowy.py` ma własny import bez oznaczenia, przez co 45 struktur HuBMAP trafiało do pliku Z-Anatomy. Wykrył to integrator, a walidator łapie to teraz (`za:VH_M_*` = błąd).
+- **`meshId` HuBMAP** to sama nazwa pliku (bez podfolderu `female/`).
+- **Kotwice wskazujące pomocnicze puste obiekty** (`ATL_anchor_*`): punkt kotwicy wyznacza położenie obiektu, a meshId to najbliższa prawdziwa struktura (`nearest:x mm`).
+- **`manifest.card`:** karta bez stanów (`"card": true` w `anchors.json` planszy), jak `AtlasApp.isCard`. Widok 3D nie pokazuje wtedy przełącznika stanu.
+- **`skipped`:** obiekty bez geometrii oraz pomocnicze ramki kadru zbliżeń (`*_frame`, tło kompozycji 2D).
+
 ### Rama scen
 
 - `body`: wspólna rama Z-Anatomy, czyli metry, przód −Y, prawa strona ciała −X, Z w górę. W glTF/three: `(x, z, −y)`. HuBMAP wchodzi tu po `align_hubmap`.
