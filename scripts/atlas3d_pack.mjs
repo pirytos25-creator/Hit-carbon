@@ -120,6 +120,8 @@ function packPlate(plate, shared) {
     const file = it.shared ? sharedOf.get(it.meshId) : it.file;
     if (!file) throw new Error(`${plate}: ${it.meshId} bez pliku`);
     if (!it.shared && !tables[file]?.includes(it.meshId)) { skipped.push(it.meshId); return []; }
+    // pomocnicze ramki kadru zbliżeń (np. MIES_frame, KOST_side_frame): tło kompozycji 2D, nie anatomia
+    if (/_frame$/.test(it.meshId)) { skipped.push(it.meshId); return []; }
     return [{ meshId: it.meshId, file, layer: it.shared ? null : it.layer, role: it.role, system: it.system, levels: it.levels,
       alpha: it.alpha, ctx: it.ctx, views: it.views, frame: it.frame, license: it.license, look: it.look ?? null }];
   });
