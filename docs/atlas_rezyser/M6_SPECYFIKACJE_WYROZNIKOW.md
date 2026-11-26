@@ -101,17 +101,17 @@ Uwaga dydaktyczna: kostny jest **inny niż narządy**. Nie ma przepływu ani pra
 | `motion` | salwa pakietów biegnie torem **kora ruchowa → rdzeń → nerw kulszowy → mięśnie łydki** (widok z tyłu, tor `back_motor`, jedyny z całą kolejnością); w widoku z przodu od rdzenia: **rdzeń → splot lędźwiowy → nerw udowy → mięsień czworogłowy** (`front_femoral`), a etap „kora” zaznacza lokalizator. Przy dojściu do mięśnia krótki błysk w obszarze mięśnia (koniec tego samego ruchu, nie nowy ruch) |
 | `variable` | **kolejność** (skąd i dokąd idzie rozkaz) i **jak często** motoneuron wysyła impulsy |
 | `magnitudeSource` | kolejność: `nerwowy.role.motor_cortex.sprint`, `role.spinal_cord.sprint`, `role.lumbar_plexus.sprint`, `role.femoral.sprint` (anatomia + role sprawdzone); częstość: `metric.czestotliwosc_wyladowan_motoneuronu` (spoczynek: cisza, ok. 8–9 Hz przy włączeniu; sprint: ok. 30 Hz), `protocolMismatch` |
-| `rule` | **odstęp między pakietami ∝ 1/częstość**: spoczynek pojedyncze pakiety rzadko (8–9 Hz), sprint ok. 3,5× gęściej (30 Hz). Prędkość pakietu po torze **nie** koduje prędkości przewodzenia (prawdziwa jest dla oka za duża); tor ok. 1,2 m przebiega w 1,5 s, chip „zwolnione”. Liczba-bohater: „ok. 30 impulsów na sekundę (włączenie: ok. 8–9)” |
+| `rule` | **odstęp między pakietami ∝ 1/częstość**: spoczynek pojedyncze pakiety rzadko (8–9 Hz), sprint ok. 3,5× gęściej (30 Hz). Prędkość pakietu po torze **nie** koduje prędkości przewodzenia (prawdziwa jest dla oka za duża); tor ok. 1,2 m przebiega w 1,5 s, chip „ruch poglądowy” (nie mamy faktu, z którego dałoby się policzyć współczynnik zwolnienia). Liczba-bohater: „ok. 30 impulsów na sekundę (włączenie: ok. 8–9)” |
 | `moments` | Spoczynek: pojedyncze pakiety, rzadko. Sprint: gęsta salwa. **Co się zmieniło:** w pełnym kolorze tylko tor z pakietami, reszta nerwów 35% |
 | `tracks` | **`back_motor` jako tor główny** (kora → rdzeń → nerw kulszowy → łydka), `front_femoral` w widoku z przodu (od rdzenia: splot lędźwiowy → nerw udowy → czworogłowy) z `public/atlas/nerwowy/flows3d.json`; domyślne ujęcie wyróżnika: **tył**; `front_sympathetic` **nie** w pilocie (to droga do nadnerczy, czyli wyróżnik hormonalny) |
 | `modules` | `FlowParticles` (kształt „pakiet impulsu” z `shapes.ts`), `materials` (emisja na odcinku nerwu), `BioClock` |
 | `low` | pakiet jako emisja przesuwana po odcinku rury nerwu (shader), bez sprite'a poświaty; najwyżej 6 pakietów naraz |
 | `high` | rdzeń + poświata (sprite, nieprzezroczysty, addytywny tylko w profilu `film`), do 20 pakietów; w profilu `film` bloom tylko na pakietach |
 | `view2d` | sprite pakietu (wypieczony) po rzucie toru; numery etapów 1–4 tylko w legendzie |
-| `legend` | (1) jasny punkt z bursztynową poświatą: „rozkaz w drodze”; (2) 1 kora → 2 rdzeń → 3 nerw → 4 mięsień: „kolejność” (w widoku z przodu etapy 2–4); (3) odstęp między punktami: „jak często” (chip „zwolnione”) |
+| `legend` | (1) jasny punkt z bursztynową poświatą: „rozkaz w drodze”; (2) 1 kora → 2 rdzeń → 3 nerw → 4 mięsień: „kolejność” (w widoku z przodu etapy 2–4); (3) odstęp między punktami: „jak często” (chip „ruch poglądowy”) |
 | `reducedMotion` | 4 stopklatki: pakiet kolejno w etapach 1–4, przełączane przyciskiem; częstość jako liczba |
 | `filmAct` | 2 (ujęcia 1–2: kora ruchowa, złącze nerwowo-mięśniowe) |
-| `chips` | „zwolnione” |
+| `chips` | „ruch poglądowy” |
 
 ---
 
@@ -214,7 +214,7 @@ signature: {
     { symbol: 'counter', labelPl: 'ile razy więcej niż ciężar ciała' },
     { symbol: 'flow', labelPl: 'kierunek przenoszenia nacisku' },
   ],
-  chips: ['zwolnione ×4'],
+  chips: ['zwolnione ×4'],   // z faktu: kontakt stopy ok. 0,24–0,27 s, fala trwa ok. 1 s
   acts: [1, 12],
 }
 ```
@@ -243,7 +243,7 @@ signature: {
     { symbol: 'pulse', labelPl: 'jasny punkt: rozkaz w drodze (kora, rdzeń, nerw, mięsień)' },
     { symbol: 'counter', labelPl: 'impulsy na sekundę' },
   ],
-  chips: ['zwolnione ×N'],   // N ustala agent nerwowy z czasu przebiegu toru (ok. 1,5 s na ok. 1,2 m)
+  chips: ['ruch poglądowy'],   // prędkość pakietu nie koduje prędkości przewodzenia (brak faktu checked), więc bez „zwolnione ×N” (kontrakt: tylko konkretna liczba)
   acts: [2],
 }
 ```
