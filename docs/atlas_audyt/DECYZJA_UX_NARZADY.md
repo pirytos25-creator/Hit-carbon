@@ -140,6 +140,39 @@ Wizualizator pokaże w M4 nagranie aktu 3 przed zmianą i po niej. Ostatnie sło
 
 **2026-11-26: zgoda użytkownika na M2 i M3 („Tak, M2 i M3”).** Uruchomione równolegle. Bramka A odbędzie się po M2 i M2′.
 
+### M2′ Przeliczenie szacunków (2026-11-26)
+
+| Kamień | Szacunek | Rzeczywisty czas pracy agenta | Stosunek |
+|---|---|---|---|
+| M1 klatki docelowe (Reżyser) | 4–8 h | ok. 1,5–2 h | ok. 0,25–0,4 |
+| M2 test serca (Wizualizator; jego własny szacunek 4 h) | 6–12 h | ok. 0,4 h | ok. 0,05 |
+| M3 czytelność plansz (integrator; jego szacunek 4–7 h) | — | ok. 0,5 h pracy + zrzuty w tle + 0,3 h poprawki walidatora (CRLF) | ok. 0,1–0,2 |
+
+**Wnioski:**
+- Sama praca agentów była 3–20 razy krótsza niż szacunki, także szacunki samych agentów.
+- Wszystkie trzy kamienie w dużej mierze korzystały z gotowych elementów: potoku E3, profilu krwinki z filmu, znanych plików plansz.
+- Czas kalendarzowy wyznaczają co innego:
+  - kontrola faktów (niezależny agent sprawdza każde nowe zdanie);
+  - audyty i pomiary Dyrygenta;
+  - kolejka wiadomości między sesjami;
+  - decyzje użytkownika.
+  To one, a nie pisanie kodu, są wąskim gardłem.
+- **Nie przenoszę wprost tempa M2 na M4 i M7.** Rozplątanie filmu (`liveSimulationRef`, cykl `ShotChoreography` ↔ `scenes`, jeden `useFrame`) to praca na cudzym, sprzężonym kodzie z ryzykiem regresji.
+
+**Nowe szacunki** (czas pracy agentów; niepewność oznaczona; dodatkowo wspólnie ok. 1–3 h na kontrolę faktów i audyty na każdy kamień):
+
+| Kamień | Czas pracy agentów | Niepewność | Główne ryzyko |
+|---|---|---|---|
+| M4 wspólny moduł, akt 3 bez regresji | 2–6 h | **duża** | sprzężenia filmu, kompensacja AgX (ΔE00 ≤ 10) |
+| M5 serce wzorcowe z wejściem diegetycznym | 3–8 h | średnia | dwie sceny naraz przy wjeździe; teksty Podstawowe zależą od faktów (pytanie 2) |
+| M6 rama + 4 wyróżniki 3D | 3–8 h | średnia | reguły wielkości z faktów (gęstość, częstość) |
+| M7 8 wyróżników + wpięcie do aktów filmu | 6–15 h | **duża** | zmiana materiału i barw filmu (decyzja użytkownika na bramce A) |
+| M8 nerka, wątroba, mózg | 2–5 h na gablotę, razem 6–15 h | średnia | schematy nefronu i zrazika, przekrój nerki, fakty |
+
+**Razem M4–M8: ok. 20–50 h pracy agentów.** Poprzedni szacunek 155–210 h dotyczył „kresek”, przy innej poprzeczce jakości.
+
+Kalendarzowo, przy 2–3 sesjach równolegle i sprawnych decyzjach: ok. 3–6 dni. Kolejne przeliczenie po M4.
+
 ## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
 
 | Element (atlas lub gablota) | Akt filmu |
