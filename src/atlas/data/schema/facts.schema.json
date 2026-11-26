@@ -45,7 +45,8 @@
               "question",
               "summary_short",
               "moment_label",
-              "curriculum_ref"
+              "curriculum_ref",
+              "quiz"
             ]
           },
           "plate": {
@@ -175,6 +176,18 @@
               "R"
             ],
             "description": "curriculum_ref: zakres podstawy programowej"
+          },
+          "quizType": {
+            "enum": [
+              "updown",
+              "point"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "explainPl": {
+            "type": "string"
           }
         }
       }

@@ -1333,6 +1333,24 @@
     ],
     "note": "M3_kontrola.md #5: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "nerwowy.quiz",
+   "kind": "quiz",
+   "plate": "nerwowy",
+   "textPl": "Jak zmienia się stężenie noradrenaliny w osoczu po krótkim, maksymalnym sprincie?",
+   "quizType": "updown",
+   "answer": "up",
+   "explainPl": "Rośnie: z 2,2 do 13,4 nmol/L (w badaniu: 30 s sprintu maksymalnego na bieżni, pomiar po wysiłku). Noradrenalina pochodzi głównie z zakończeń nerwów współczulnych.",
+   "status": "draft",
+   "referenceIds": [
+    "brooks_1988",
+    "zouhal_2008",
+    "goldstein_2010"
+   ],
+   "derivedFrom": [
+    "nerwowy.metric.noradrenalina_w_osoczu"
+   ]
   }
  ]
 }

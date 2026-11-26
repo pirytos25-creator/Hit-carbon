@@ -11,6 +11,9 @@ export const LIMFATYCZNY: AtlasPlateLayout = {
   titlePl: "Układ limfatyczny",
   subtitlePl: "Jak wysiłek wypycha komórki odpornościowe do krwi",
   colorVar: "--sys-lymph",
+  changeLinks: [
+    { metric: "limfatyczny.metric.objetosc_sledziony", anchors: ["spleen"] },
+  ],
   heroMetricId: "limfatyczny.metric.komorki_nk_we_krwi",
   scaleFreeViews: ["detail"],
   views: [

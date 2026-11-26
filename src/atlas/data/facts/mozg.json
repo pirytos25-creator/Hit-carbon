@@ -1171,6 +1171,24 @@
     ],
     "note": "M3_kontrola.md #14: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "mozg.quiz",
+   "kind": "quiz",
+   "plate": "mozg",
+   "textPl": "Jak zmienia się udział mleczanu w energii mózgu, gdy we krwi jest go dużo?",
+   "quizType": "updown",
+   "answer": "up",
+   "explainPl": "Rośnie: z ok. 8% do ok. 27% energii mózgu (w badaniu: 30 min jazdy przy 75% VO₂max z wlewem mleczanu, nie sam sprint).",
+   "status": "draft",
+   "referenceIds": [
+    "van_hall_2009",
+    "brooks_2018",
+    "quistorff_2008"
+   ],
+   "derivedFrom": [
+    "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu"
+   ]
   }
  ]
 }

@@ -1723,6 +1723,29 @@
     ],
     "note": "M3_kontrola.md #38: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "powlokowy.quiz",
+   "kind": "quiz",
+   "plate": "powlokowy",
+   "textPl": "Jak zmienia się pocenie, gdy w czasie treningu rośnie temperatura wewnętrzna?",
+   "quizType": "updown",
+   "answer": "up",
+   "explainPl": "Rośnie: pocenie wyraźnie przybiera, najmocniej na czole i plecach, a naczynia skóry się rozszerzają.",
+   "status": "draft",
+   "referenceIds": [
+    "wendt_2007",
+    "gonzalez_alonso_2008",
+    "johnson_2010",
+    "yanagimoto_2003",
+    "baker_2019",
+    "smith_havenith_2011",
+    "kenny_2007",
+    "kenny_2008"
+   ],
+   "derivedFrom": [
+    "powlokowy.summary.sprint"
+   ]
   }
  ]
 }
