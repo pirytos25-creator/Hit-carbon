@@ -175,6 +175,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       nameLat: 'vagina',
       role: same('Do niej uchodzi szyjka macicy'),
       tier: 'primary',
+      side: 'right', // układ: 8 podpisów żeńskich w jednej kolumnie nie mieściło się w poziomie rozszerzonym
       referenceIds: ['statpearls_uterus', 'statpearls_female_internal'],
       roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_rozrodczy.md: checked_agent
     },
@@ -185,6 +186,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       nameLat: 'cervix uteri',
       role: same('Dolna część macicy, wnika do pochwy'),
       tier: 'secondary',
+      side: 'right', // układ: 8 podpisów żeńskich w jednej kolumnie nie mieściło się w poziomie rozszerzonym
       referenceIds: ['statpearls_uterus'],
       roleStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_rozrodczy.md: checked_agent
     },
@@ -205,6 +207,7 @@ export const ROZRODCZY: AtlasPlateContent = {
       nameLat: 'a. uterina',
       role: same('Doprowadza krew do macicy'),
       tier: 'secondary',
+      side: 'right', // układ: 8 podpisów żeńskich w jednej kolumnie nie mieściło się w poziomie rozszerzonym
       referenceIds: ['statpearls_uterus'],
       roleStatus: { rest: 'draft', sprint: 'draft' }, // poz. 17: źródło
     },
