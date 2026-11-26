@@ -1108,6 +1108,18 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Wynik przeciwny do Nielsen 1997: po usunięciu śledziony mobilizacja białych krwinek (także NK) w wysiłku do wyczerpania nie była mniejsza.',
   },
+  simpson_2020: {
+    id: 'simpson_2020',
+    authors: 'Simpson, R. J., Campbell, J. P., Gleeson, M., Krüger, K., Nieman, D. C., Pyne, D. B., Turner, J. E., & Walsh, N. P.',
+    year: 2020,
+    title: 'Can exercise affect immune function to increase susceptibility to infection?',
+    journal: 'Exercise Immunology Review, 26, 8–22',
+    pmid: '32139352',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/32139352/',
+    acts: [],
+    summaryPl:
+      'Wspólny przegląd zwolenników i przeciwników „otwartego okna”: zgadzają się, że podatność na infekcje zależy od wielu czynników; nierozstrzygnięte zostaje, czy sam wysiłek zwiększa ryzyko infekcji u sportowców.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {

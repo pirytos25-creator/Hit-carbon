@@ -406,6 +406,7 @@ class LymphPlate(al.Plate):
             pts = al.resample([Vector(p) for p in fl["points"]], fl.get("step", step))
             out["flows"].append({k: v for k, v in {
                 "id": fl["id"], "kind": fl["kind"], "labelPl": fl.get("labelPl"), "views": fl.get("views"),
+                "states": fl.get("states"),
                 "points": [[round(v, 5) for v in p] for p in pts]}.items() if v is not None})
         path = os.path.join(self.out_dir, "flows3d.json")
         with open(path, "w", encoding="utf-8") as f:
@@ -552,6 +553,12 @@ def build(out_dir=None, res=(1000, 1800)):
         "d_afferent": {"point": aff_pt, "views": ["detail"]},
         "d_efferent": {"point": surface_point([ln_by["Yao_efferent_lymph_node"]]), "views": ["detail"]},
     }
+
+    # Punkty kotwic zaokrąglone do 10 µm PRZED rzutowaniem: atlas_lib zapisuje anchors3d z 5 miejscami po przecinku,
+    # a w zbliżeniu węzła 1 px = 12 µm, więc bez tego rzut w TS (scripts/atlas_check_projection.ts) różnił się o 0,51 px.
+    for a_ in A.values():
+        if "point" in a_:
+            a_["point"] = Vector([round(v, 5) for v in a_["point"]])
 
     # Strzałki (metry). Kierunek: limfa płynie od obwodu do kąta żylnego (zgodnie z zastawkami); sprawdzone z.
     leg_r = S["legs"]["r"] + S["cisterna"][0][1:]
