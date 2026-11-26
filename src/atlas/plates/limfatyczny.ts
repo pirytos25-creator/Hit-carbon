@@ -122,7 +122,7 @@ export const LIMFATYCZNY: AtlasPlateContent = {
       role: { rest: 'Limfa płynie powoli w górę (zastawki)', sprint: 'Skurcze mięśni wyciskają limfę szybciej' },
       tier: 'secondary',
       referenceIds: ['havas_1997'],
-      evidence: 'preliminary_human', // pomiar pośredni u ludzi (Havas 1997)
+      evidence: { sprint: 'preliminary_human' }, // pomiar pośredni u ludzi (Havas 1997); spoczynek = opis budowy
       roleStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // #14, #15
     },
     {

@@ -10,6 +10,7 @@ import type {
   AtlasState,
   AtlasView,
 } from './types';
+import type { EvidenceLevel } from '../types/biogenesis';
 
 /**
  * Wspólny komponent planszy (integrator, faza 2 + E0).
@@ -161,6 +162,9 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
   );
 
   const roleText = (l: AtlasLabel): string | null => (isShown(l.roleStatus?.[state]) ? l.role[state] : null);
+  // Poziom dowodów opisu roli: wspólny albo osobno dla stanu (zgodnie wstecz: zwykły string = oba stany).
+  const roleEvidence = (l: AtlasLabel): EvidenceLevel | undefined =>
+    typeof l.evidence === 'string' ? l.evidence : l.evidence?.[state];
 
   // skala: piksele ekranu na jednostkę renderu; kolumny podpisów mają szerokość w pikselach ekranu
   const cols = frames.reduce((n, f) => n + (f.hasLeft ? 1 : 0) + (f.hasRight ? 1 : 0), 0);
@@ -191,7 +195,8 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     const charsFor = (f: number) => Math.max(10, Math.floor((c - 16) / (f * CHAR)));
     const rt = roleText(l);
     const roleLines = rt ? wrapCount(rt, charsFor(FONT.role)) : extended ? wrapCount(PENDING, charsFor(FONT.role)) : 0;
-    const evLines = rt && l.evidence && l.evidence !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[l.evidence], charsFor(FONT.role)) : 0;
+    const ev = roleEvidence(l);
+    const evLines = rt && ev && ev !== 'established_human' ? wrapCount(EVIDENCE_PHRASE[ev], charsFor(FONT.role)) : 0;
     return (
       evLines * FONT.role * 1.3 +
       wrapCount(l.namePl, charsFor(FONT.name)) * FONT.name * 1.22 +
@@ -336,9 +341,9 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
             {rt}
           </span>
         ) : null}
-        {rt && l.evidence && l.evidence !== 'established_human' ? (
+        {rt && roleEvidence(l) && roleEvidence(l) !== 'established_human' ? (
           <span className="block italic text-amber-200/90" style={{ fontSize: FONT.role, lineHeight: 1.3, textAlign: align }}>
-            {EVIDENCE_PHRASE[l.evidence]}
+            {EVIDENCE_PHRASE[roleEvidence(l)!]}
           </span>
         ) : null}
         {!rt && extended && (
@@ -430,7 +435,17 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
               {pinsMode &&
                 f.pins.map((p) => (
                   <g key={p.key} style={{ opacity: dimmed(p.key) ? 0.35 : 1 }}>
-                    <circle cx={p.ax} cy={p.ay} r={(active === p.key ? 14 : 11) * u} fill={color} stroke="#f8fafc" strokeWidth={1.6 * u} />
+                    {/* Telefon: pinezka mniejsza i półprzezroczysta, żeby nie zakrywała drobnych narządów (limfatyczny);
+                        wybrana pinezka pełna i większa. Numer nadal 14 px. */}
+                    <circle
+                      cx={p.ax}
+                      cy={p.ay}
+                      r={(active === p.key ? 12 : 9.5) * u}
+                      fill={color}
+                      fillOpacity={active === p.key ? 1 : 0.78}
+                      stroke="#f8fafc"
+                      strokeWidth={(active === p.key ? 1.6 : 1.1) * u}
+                    />
                     <text x={p.ax} y={p.ay + FONT.pin * 0.36 * u} textAnchor="middle" fill="#0b1020" style={{ font: `800 ${FONT.pin * u}px var(--font-display)` }}>
                       {p.n}
                     </text>

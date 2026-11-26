@@ -60,8 +60,9 @@ export interface AtlasLabel {
   /**
    * Poziom dowodów opisu roli (np. 'animal_model' dla akwaporyn). Brak = nie pokazujemy dopisku.
    * Nakładka pokazuje pod opisem zdanie z drabiny sformułowań (model §3.4), gdy poziom ≠ 'established_human'.
+   * Może być osobno dla stanu, np. `{ sprint: 'preliminary_human' }` (limfatyczny: spoczynek to opis anatomiczny).
    */
-  evidence?: EvidenceLevel;
+  evidence?: EvidenceLevel | Partial<Record<AtlasState, EvidenceLevel>>;
   /** Przeliczenie, gdy liczby z opisu roli nie ma dosłownie w cytacie (np. „208 − 0,7 × 25 = 190,5”). */
   conversionNote?: string;
 }
