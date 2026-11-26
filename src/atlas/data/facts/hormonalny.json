@@ -35,7 +35,8 @@
     "rows": [],
     "note": "fakty_koncowe_B_horm_mocz_pokarm.md: Sigal 1996/1994, Brooks 1988"
    },
-   "order": 0
+   "order": 0,
+   "topic": "adrenalina_we_krwi"
   },
   {
    "id": "hormonalny.metric.adrenalina_we_krwi.rest",
@@ -106,7 +107,8 @@
     "note": "#38, #39",
     "reportInferred": true
    },
-   "order": 1
+   "order": 1,
+   "topic": "glukoza_z_watroby_tempo"
   },
   {
    "id": "hormonalny.metric.glukoza_wypuszczana_do_krwi_glownie_z_watroby.rest",

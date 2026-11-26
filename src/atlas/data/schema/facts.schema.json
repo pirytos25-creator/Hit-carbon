@@ -151,6 +151,11 @@
               ]
             },
             "description": "pola wyliczone regułami przy migracji (do potwierdzenia przez sprawdzającego)"
+          },
+          "topic": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "ta sama wielkość na kilku planszach (walidator: ta sama wartość albo seeAlsoPlate)"
           }
         }
       }

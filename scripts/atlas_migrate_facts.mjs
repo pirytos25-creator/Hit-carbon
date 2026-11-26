@@ -15,6 +15,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// Po E1-K2 źródłem prawdy faktów są facts/*.json, a plates/*.ts trzymają sam układ: wtedy skrypt NIE zapisuje faktów
+// (komentarzy ze statusami już nie ma), tylko odtwarza structures.json i mesh_bindings.json.
+const FACTS_FROM_TS = !readFileSync(join(root, 'src/atlas/plates/index.ts'), 'utf-8').includes('buildPlate(');
 const out = join(mkdtempSync(join(tmpdir(), 'atlas-mig-')), 'bundle.mjs');
 await build({
   stdin: {
@@ -177,6 +180,47 @@ for (const sys of ATLAS_SYSTEMS) {
   }
 }
 
+// Uzupełnienie brakujących siatek kotwic z eksportu 3D (wizualizator: atlas_export_glb.py):
+// public/atlas3d/<plansza>/bindings.json (albo anchors_meshes.json), pole `anchors: { kotwica: [meshId, ...] }`.
+// Obok `anchorMethod: { kotwica: "objects" | "nearest:<x>mm" }`: "objects" = obiekty wprost ze słownika planszy
+// (rozwiązane); "nearest" = najbliższa widoczna struktura od punktu kotwicy – meshId wpisujemy, ale zostaje
+// resolved: false (do ręcznej kontroli) z zapisaną odległością.
+let fromExport = 0;
+for (const b of bindings.filter((x) => !x.resolved)) {
+  let exp = null;
+  for (const f of ['bindings.json', 'anchors_meshes.json']) {
+    try {
+      exp = JSON.parse(readFileSync(join(root, 'public/atlas3d', b.plate, f), 'utf-8'));
+      break;
+    } catch {
+      /* brak pliku eksportu */
+    }
+  }
+  const ids = exp?.anchors?.[b.anchor];
+  if (!Array.isArray(ids) || !ids.length) continue;
+  const method = String(exp?.anchorMethod?.[b.anchor] ?? 'objects');
+  const near = /^nearest:([\d.]+)\s*mm$/.exec(method);
+  bindings.splice(
+    bindings.indexOf(b),
+    1,
+    ...ids.map((meshId, k) => ({
+      meshId,
+      plate: b.plate,
+      anchor: b.anchor,
+      structureId: b.structureId,
+      side: /\.l$|_L$|left/i.test(meshId) ? 'l' : /\.r$|_R$|right/i.test(meshId) ? 'r' : 'mid',
+      primary: k === 0,
+      source: meshId.startsWith('hra:') ? 'HuBMAP HRA' : 'Z-Anatomy',
+      license: meshId.startsWith('hra:') ? 'CC BY 4.0' : 'CC BY-SA 4.0',
+      method: near ? 'nearest' : 'objects',
+      ...(near ? { distanceMm: Number(near[1]) } : {}),
+      resolved: !near,
+      note: near ? `z eksportu 3D: najbliższa struktura (${near[1]} mm) – do ręcznej kontroli` : 'z eksportu 3D (public/atlas3d)',
+    })),
+  );
+  fromExport++;
+}
+
 // ---------------------------------------------------------------- facts/<plansza>.json
 const factsDir = join(root, 'src/atlas/data/facts');
 mkdirSync(factsDir, { recursive: true });
@@ -291,15 +335,16 @@ for (const sys of ATLAS_SYSTEMS) {
     });
   }
   all[c.id] = recs;
-  writeFileSync(join(factsDir, `${c.id}.json`), JSON.stringify({ schemaVersion: 1, plate: c.id, facts: recs }, null, 1) + '\n');
+  if (FACTS_FROM_TS) writeFileSync(join(factsDir, `${c.id}.json`), JSON.stringify({ schemaVersion: 1, plate: c.id, facts: recs }, null, 1) + '\n');
 }
 const common = ATLAS_GLOSSARY.map((g) => ({
   id: `_wspolne.glossary.${g.id}`, kind: 'glossary', plate: null, textPl: g.textPl, status: g.status, referenceIds: g.referenceIds,
   quote: g.quote ?? null, locator: g.locator ?? null, provenance: provenanceOf(g.referenceIds, g.status), accessMode: accessModeOf(g.locator, ''), auto: ['provenance', 'accessMode'], checkedBy: null,
 }));
-writeFileSync(join(factsDir, '_wspolne.json'), JSON.stringify({ schemaVersion: 1, plate: null, facts: common }, null, 1) + '\n');
+if (FACTS_FROM_TS) writeFileSync(join(factsDir, '_wspolne.json'), JSON.stringify({ schemaVersion: 1, plate: null, facts: common }, null, 1) + '\n');
 
 writeFileSync(join(root, 'src/atlas/data/structures.json'), JSON.stringify({ schemaVersion: 1, structures: [...structures.values()].sort((a, b) => a.id.localeCompare(b.id)) }, null, 1) + '\n');
 writeFileSync(join(root, 'src/atlas/data/mesh_bindings.json'), JSON.stringify({ schemaVersion: 1, bindings }, null, 1) + '\n');
 const nF = Object.values(all).reduce((n, r) => n + r.length, 0) + common.length;
-console.log(`MIGRACJA: ${structures.size} pojęć, ${bindings.length} powiązań siatek (nierozwiązane: ${bindings.filter((b) => !b.resolved).length}; węzłów HuBMAP w GLB: ${hraNodeFile.size}), ${nF} rekordów faktów w ${Object.keys(all).length + 1} plikach`);
+if (!FACTS_FROM_TS) console.log('Fakty: źródłem prawdy są facts/*.json (E1-K2), nie nadpisuję ich.');
+console.log(`MIGRACJA (powiązania z eksportu 3D: ${fromExport}): ${structures.size} pojęć, ${bindings.length} powiązań siatek (nierozwiązane: ${bindings.filter((b) => !b.resolved).length}; węzłów HuBMAP w GLB: ${hraNodeFile.size}), ${nF} rekordów faktów w ${Object.keys(all).length + 1} plikach`);

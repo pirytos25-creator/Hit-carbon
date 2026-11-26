@@ -105,7 +105,8 @@
     "note": "jak hormonalny „Glukoza wypuszczana do krwi” (#38, #39)",
     "reportInferred": true
    },
-   "order": 1
+   "order": 1,
+   "topic": "glukoza_z_watroby_tempo"
   },
   {
    "id": "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi.rest",

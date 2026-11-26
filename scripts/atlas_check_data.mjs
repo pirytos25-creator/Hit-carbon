@@ -135,6 +135,43 @@ const dataCount = {
 };
 for (const k of Object.keys(planCount)) if (planCount[k] !== dataCount[k]) err(`liczba „${k}” na ekranie: dane ${dataCount[k]}, plansze ${planCount[k]}`);
 
+// ---------------------------------------------------------------- 3b. E1-K2: treść faktów tylko w facts/*.json
+// Plik planszy trzyma sam układ. Pola faktów (opis roli, statusy, źródła, liczby, cytaty, podsumowania) są zakazane.
+const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus)\s*:/m;
+for (const f of readdirSync(join(root, 'src/atlas/plates'))) {
+  if (!f.endsWith('.ts') || f === 'index.ts') continue;
+  const src = readFileSync(join(root, 'src/atlas/plates', f), 'utf-8');
+  const m = src.match(FACT_FIELDS);
+  if (m) err(`plates/${f}: pole faktu „${m[1]}” w pliku układu (treść faktów ma być tylko w src/atlas/data/facts/)`);
+}
+// każdy rekord roli ma swój podpis w układzie, a każda liczba swoją planszę
+const layoutAnchors = new Set();
+for (const sys of ATLAS_SYSTEMS) for (const l of sys.content?.labels ?? []) layoutAnchors.add(`${sys.id}.${l.anchor}`);
+const plates = new Set(ATLAS_SYSTEMS.filter((s) => s.content).map((s) => s.id));
+for (const f of facts) {
+  if (f.kind === 'role' && !layoutAnchors.has(`${f.plate}.${f.anchor}`)) err(`fakt ${f.id}: brak podpisu „${f.anchor}” w układzie planszy ${f.plate}`);
+  if (f.plate && !plates.has(f.plate)) err(`fakt ${f.id}: nieznana plansza ${f.plate}`);
+}
+
+// ---------------------------------------------------------------- 3c. spójność liczb między planszami
+// Ta sama nazwa liczby na kilku planszach (na ekranie): ta sama wartość albo jawny odsyłacz (seeAlsoPlate).
+// Grupa = pole `topic` (ta sama wielkość pod różnymi nazwami, np. adrenalina na nerwowym i hormonalnym), a bez niego
+// nazwa liczby.
+const shownMetricsByTopic = new Map();
+for (const f of facts.filter((x) => x.kind === 'metric' && shown(x.status))) {
+  const key = f.topic ?? `nazwa:${slug(f.labelPl)}`;
+  if (!shownMetricsByTopic.has(key)) shownMetricsByTopic.set(key, []);
+  shownMetricsByTopic.get(key).push(f);
+}
+let crossPairs = 0;
+for (const list of shownMetricsByTopic.values()) {
+  if (new Set(list.map((f) => f.plate)).size < 2) continue;
+  crossPairs++;
+  const values = new Set(list.map((f) => `${byId.get(`${f.id}.rest`)?.value} → ${f.value}`));
+  const linked = list.some((f) => f.seeAlsoPlate && list.some((g) => g.plate === f.seeAlsoPlate));
+  if (values.size > 1 && !linked) err(`liczba „${list[0].labelPl}” na planszach ${list.map((f) => f.plate).join(', ')}: różne wartości (${[...values].join(' | ')}) bez odsyłacza seeAlsoPlate`);
+}
+
 // ---------------------------------------------------------------- 4. textbook_consensus
 const hasBookId = (r) => /NBK\d+|ISBN/i.test(`${r.journal} ${r.url ?? ''} ${r.title}`);
 for (const f of facts) {
@@ -147,6 +184,7 @@ for (const f of facts) {
 const CHANGE = /\b(więcej|mniej|rośnie|rosną|spada|spadają|szybciej|wolniej|większ\w*|mniejsz\w*|zwęża\w*|rozszerza\w*|przyspiesza\w*|zwalnia\w*)\b|[↑↓]/i;
 for (const f of facts) if (f.status === 'anatomy' && CHANGE.test(f.textPl ?? '')) err(`fakt ${f.id}: status anatomy, a tekst mówi o zmianie („${f.textPl}”)`);
 
+console.log(`Wielkości pokazane na kilku planszach (topic albo ta sama nazwa): ${crossPairs}`);
 console.log(`Dane L1: ${structures.structures.length} pojęć, ${bindings.bindings.length} powiązań siatek (nierozwiązane: ${unresolved}), ${facts.length} rekordów faktów w ${factFiles.length} plikach`);
 console.log(`Na ekranie (dane = plansze): liczby ${dataCount.metrics}, opisy ról ${dataCount.roles}, opisy budowy ${dataCount.anatomy}, podsumowania ${dataCount.summaries}`);
 console.log(errors ? `WYNIK: dane ${errors} błędów, ${warnings} uwag` : `WYNIK: dane OK (${warnings} uwag)`);
