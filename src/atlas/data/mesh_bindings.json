@@ -497,16 +497,17 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Diaphragm",
    "plate": "oddechowy",
    "anchor": "diaphragm",
    "structureId": "diaphragma",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
-   "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "objects",
+   "resolved": true,
+   "note": "z eksportu 3D (public/atlas3d)"
   },
   {
    "meshId": "za:ATL_mk_alveolus",
@@ -718,52 +719,60 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:ATL_hypothalamus",
    "plate": "hormonalny",
    "anchor": "hypothalamus",
    "structureId": "hypothalamus",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Adenohypophysis",
    "plate": "hormonalny",
    "anchor": "pituitary",
    "structureId": "hypophysis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Pineal gland",
    "plate": "hormonalny",
    "anchor": "pineal",
    "structureId": "glandula_pinealis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Thyroid gland",
    "plate": "hormonalny",
    "anchor": "thyroid",
    "structureId": "glandula_thyroidea",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0.6,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.6 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Left lobe of thymus",
@@ -777,40 +786,46 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Suprarenal gland.l",
    "plate": "hormonalny",
    "anchor": "adrenal",
    "structureId": "glandulae_suprarenales",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Pancreas",
    "plate": "hormonalny",
    "anchor": "pancreas",
    "structureId": "pancreas",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Liver",
    "plate": "hormonalny",
    "anchor": "liver",
    "structureId": "hepar",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0.4,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.4 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Hepatic portal vein",
@@ -835,52 +850,60 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Kidney_L.glb/VH_M_kidney_capsule_L",
    "plate": "hormonalny",
    "anchor": "kidney",
    "structureId": "ren_sinister",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:ATL_adrenal_cortex",
    "plate": "hormonalny",
    "anchor": "d_cortex",
    "structureId": "cortex_glandulae_suprarenalis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:ATL_adrenal_medulla",
    "plate": "hormonalny",
    "anchor": "d_medulla",
    "structureId": "medulla_glandulae_suprarenalis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Kidney_R.glb/VH_M_kidney_capsule_R",
    "plate": "hormonalny",
    "anchor": "d_kidney",
    "structureId": "ren_dexter",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Inferior vena cava (abdominal part)",
@@ -905,40 +928,46 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Frontal bone",
    "plate": "powlokowy",
    "anchor": "skin_forehead",
    "structureId": "cutis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 2.4,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (2.4 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:ATL_silhouette",
    "plate": "powlokowy",
    "anchor": "skin_trunk",
    "structureId": "cutis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 4.3,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (4.3 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:ATL_silhouette",
    "plate": "powlokowy",
    "anchor": "skin_back",
    "structureId": "cutis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 2.7,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (2.7 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Small saphenous vein.r",
@@ -1027,7 +1056,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1039,7 +1068,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1051,31 +1080,35 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
-   "meshId": null,
+   "meshId": "za:PWL_rest_gland_cap",
    "plate": "powlokowy",
    "anchor": "sweat_gland",
    "structureId": "glandula_sudorifera",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 3.4,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (3.4 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:PWL_sweat_duct",
    "plate": "powlokowy",
    "anchor": "sweat_pore",
    "structureId": "pl_por_potowy",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 3.3,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (3.3 mm) – do ręcznej kontroli"
   },
   {
    "meshId": null,
@@ -1087,7 +1120,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1099,19 +1132,21 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
-   "meshId": null,
+   "meshId": "za:PWL_arrector_pili",
    "plate": "powlokowy",
    "anchor": "arrector_pili",
    "structureId": "m_arrector_pili",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 9,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (9.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": null,
@@ -1123,91 +1158,105 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
-   "meshId": null,
+   "meshId": "za:PWL_sebaceous",
    "plate": "powlokowy",
    "anchor": "sebaceous",
    "structureId": "glandula_sebacea",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 1.7,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (1.7 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Kidney_R.glb/VH_M_kidney_capsule_R",
    "plate": "wydalniczy",
    "anchor": "kidney",
    "structureId": "ren",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Ureter_R.glb/VH_M_renal_pelvis_R",
    "plate": "wydalniczy",
    "anchor": "renal_pelvis",
    "structureId": "pelvis_renalis",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Blood_Vasculature_Kidney.glb/VH_M_left_renal_artery",
    "plate": "wydalniczy",
    "anchor": "renal_artery",
    "structureId": "arteria_renalis",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Blood_Vasculature_Kidney.glb/VH_M_renal_vein_R",
    "plate": "wydalniczy",
    "anchor": "renal_vein",
    "structureId": "vena_renalis",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_M_Ureter_R.glb/VH_M_ureter_R",
    "plate": "wydalniczy",
    "anchor": "ureter",
    "structureId": "ureter",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Urinary bladder",
    "plate": "wydalniczy",
    "anchor": "bladder",
    "structureId": "vesica_urinaria",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0.1,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.1 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Urethra",
@@ -1232,40 +1281,46 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Abdominal aorta",
    "plate": "wydalniczy",
    "anchor": "aorta",
    "structureId": "pars_abdominalis_aortae",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 5.7,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (5.7 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Inferior vena cava (abdominal part)",
    "plate": "wydalniczy",
    "anchor": "ivc",
    "structureId": "vena_cava_inferior",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 5.8,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (5.8 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:WYD_glom_06",
    "plate": "wydalniczy",
    "anchor": "glomerulus",
    "structureId": "glomerulus_renalis",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 17,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (17.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": null,
@@ -1277,7 +1332,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1289,7 +1344,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1301,7 +1356,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1313,7 +1368,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": null,
@@ -1325,7 +1380,7 @@
    "source": null,
    "license": null,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "brak tej kotwicy w eksporcie 3D (element przekroju schematycznego, bez siatki w modelu)"
   },
   {
    "meshId": "za:Femur.r",
@@ -1438,16 +1493,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Femur.r",
    "plate": "kostny",
    "anchor": "femoral_head",
    "structureId": "caput_femoris",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 17.8,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (17.8 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Calcaneus.r",
@@ -1483,16 +1540,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Right lobe of thymus",
    "plate": "limfatyczny",
    "anchor": "thymus",
    "structureId": "thymus",
-   "side": null,
+   "side": "r",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Anterior axillary nodes.r",
@@ -1517,16 +1576,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Spleen",
    "plate": "limfatyczny",
    "anchor": "spleen",
    "structureId": "splen_lien",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 11.8,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (11.8 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Juxta-intestinal mesenteric nodes",
@@ -1562,40 +1623,46 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:LYM_schem_leg_lymph.l",
    "plate": "limfatyczny",
    "anchor": "leg_lymph",
    "structureId": "vasa_lymphatica_membri_inferioris",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 1.3,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (1.3 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:Prevertebral nodes",
    "plate": "limfatyczny",
    "anchor": "thoracic_duct",
    "structureId": "ductus_thoracicus",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (1.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "za:LYM_schem_cisterna_chyli",
    "plate": "limfatyczny",
    "anchor": "cisterna",
    "structureId": "cisterna_chyli",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 2.9,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (2.9 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:angle_l",
@@ -1609,16 +1676,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "hra:NIH_M_Lymph_Node.glb/Yao_capsule_of_lymph_node",
    "plate": "limfatyczny",
    "anchor": "d_capsule",
    "structureId": "capsula",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Yao_follicles",
@@ -1654,16 +1723,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "hra:NIH_M_Lymph_Node.glb/Yao_afferent_lymphatic_vessel",
    "plate": "limfatyczny",
    "anchor": "d_afferent",
    "structureId": "vas_lymphaticum_afferens",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Yao_efferent_lymph_node",
@@ -1765,16 +1836,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Prostate",
    "plate": "rozrodczy",
    "anchor": "prostate",
    "structureId": "prostata",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Corpus cavernosum of penis",
@@ -1810,16 +1883,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "za:Urinary bladder",
    "plate": "rozrodczy",
    "anchor": "bladder_m",
    "structureId": "vesica_urinaria",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.1,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (1.1 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "za:Urethra",
@@ -1855,28 +1930,32 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_F_Ovary_L.glb/VH_F_left_ovary",
    "plate": "rozrodczy",
    "anchor": "ovary",
    "structureId": "ovarium",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_F_Fallopian_Tube_L.glb/VH_F_ampulla_of_uterine_tube_L",
    "plate": "rozrodczy",
    "anchor": "uterine_tube",
    "structureId": "tuba_uterina",
-   "side": null,
+   "side": "l",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "hra:VH_F_Uterus.glb/VH_F_body_of_uterus",
@@ -1901,16 +1980,18 @@
    "resolved": true
   },
   {
-   "meshId": null,
+   "meshId": "hra:VH_F_Urinary_Bladder.glb/VH_F_fundus_of_urinary_bladder_base",
    "plate": "rozrodczy",
    "anchor": "bladder_f",
    "structureId": "vesica_urinaria",
-   "side": null,
+   "side": "mid",
    "primary": true,
-   "source": null,
-   "license": null,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
    "resolved": false,
-   "note": "obiekty liczone w kodzie skryptu planszy; uzupełni je lista siatek z eksportu 3D (atlas_export_glb.py)"
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   },
   {
    "meshId": "hra:VH_F_Uterus.glb/VH_F_cervix",
@@ -1977,6 +2058,370 @@
    "source": "HuBMAP HRA",
    "license": "CC BY 4.0",
    "resolved": true
+  },
+  {
+   "meshId": "za:Oesophagus",
+   "plate": "pokarmowy",
+   "anchor": "oesophagus",
+   "structureId": "oesophagus",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.2,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.2 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Stomach",
+   "plate": "pokarmowy",
+   "anchor": "stomach",
+   "structureId": "gaster",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 2.9,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (2.9 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Liver",
+   "plate": "pokarmowy",
+   "anchor": "liver",
+   "structureId": "hepar",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 2.6,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (2.6 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Gallbladder",
+   "plate": "pokarmowy",
+   "anchor": "gallbladder",
+   "structureId": "vesica_biliaris",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.3,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.3 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Jejunum",
+   "plate": "pokarmowy",
+   "anchor": "small_intestine",
+   "structureId": "intestinum_tenue",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 2.8,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (2.8 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Ascending colon",
+   "plate": "pokarmowy",
+   "anchor": "colon",
+   "structureId": "intestinum_crassum_colon_ascendens",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.6,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.6 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Duodenum",
+   "plate": "pokarmowy",
+   "anchor": "duodenum",
+   "structureId": "duodenum",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 2.5,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (2.5 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Transverse colon",
+   "plate": "pokarmowy",
+   "anchor": "transverse_colon",
+   "structureId": "colon_transversum",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.6,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.6 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Sigmoid colon",
+   "plate": "pokarmowy",
+   "anchor": "sigmoid",
+   "structureId": "colon_sigmoideum",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 1.2,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.2 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Splenic vein",
+   "plate": "pokarmowy",
+   "anchor": "portal_vein",
+   "structureId": "v_portae_hepatis",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 3.4,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (3.4 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:Inferior vena cava (thoracic part)",
+   "plate": "pokarmowy",
+   "anchor": "hepatic_veins",
+   "structureId": "vv_hepaticae_v_cava_inferior",
+   "side": "mid",
+   "primary": true,
+   "source": "Z-Anatomy",
+   "license": "CC BY-SA 4.0",
+   "method": "nearest",
+   "distanceMm": 7.4,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (7.4 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Liver.glb/VH_M_liver_capsule",
+   "plate": "pokarmowy",
+   "anchor": "d_liver",
+   "structureId": "hepar",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Pancreas.glb/VH_M_neck_of_pancreas",
+   "plate": "pokarmowy",
+   "anchor": "d_portal",
+   "structureId": "v_portae_hepatis",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0.6,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.6 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Blood_Vasculature_Liver.glb/VH_M_middle_hepatic_vein",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_veins",
+   "structureId": "vv_hepaticae",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0.8,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.8 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Pancreas.glb/VH_M_body_of_pancreas",
+   "plate": "pokarmowy",
+   "anchor": "d_pancreas",
+   "structureId": "pancreas",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0.9,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.9 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Pancreas.glb/VH_M_body_of_pancreas",
+   "plate": "pokarmowy",
+   "anchor": "d_hepatic_artery",
+   "structureId": "a_hepatica_communis",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0.3,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.3 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Gallbladder.glb/VH_M_gallbladder",
+   "plate": "pokarmowy",
+   "anchor": "d_gallbladder",
+   "structureId": "vesica_biliaris",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 1.6,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.6 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Biliary_Tree.glb/VH_M_common_hepatic_duct",
+   "plate": "pokarmowy",
+   "anchor": "d_bile_duct",
+   "structureId": "ductus_cysticus_ductus_hepaticus_communis_ductus_choledochus",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 0.7,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.7 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "hra:VH_M_Small_Intestine.glb/VH_M_duodenum_ascending",
+   "plate": "pokarmowy",
+   "anchor": "d_duodenum",
+   "structureId": "duodenum",
+   "side": "mid",
+   "primary": true,
+   "source": "HuBMAP HRA",
+   "license": "CC BY 4.0",
+   "method": "nearest",
+   "distanceMm": 3.3,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (3.3 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_marrow",
+   "plate": "kostny",
+   "anchor": "d_cortex",
+   "structureId": "substantia_compacta",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 3.9,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (3.9 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_trab_compressive",
+   "plate": "kostny",
+   "anchor": "d_spongy",
+   "structureId": "substantia_spongiosa",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0.1,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.1 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_marrow",
+   "plate": "kostny",
+   "anchor": "d_marrow",
+   "structureId": "cavitas_medullaris",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 6.7,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (6.7 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_trab_compressive",
+   "plate": "kostny",
+   "anchor": "d_head",
+   "structureId": "caput_femoris",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 1.3,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (1.3 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_trab_secondary",
+   "plate": "kostny",
+   "anchor": "d_trochanter",
+   "structureId": "trochanter_major",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 5.5,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (5.5 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_trab_compressive",
+   "plate": "kostny",
+   "anchor": "d_compressive",
+   "structureId": "pl_pasmo_beleczek_sciskanych",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
+  },
+  {
+   "meshId": "za:KOST_trab_tensile",
+   "plate": "kostny",
+   "anchor": "d_tensile",
+   "structureId": "pl_pasmo_beleczek_rozciaganych",
+   "side": "mid",
+   "primary": true,
+   "source": "geometria planszy",
+   "license": "własna (projekt)",
+   "method": "nearest",
+   "distanceMm": 0,
+   "resolved": false,
+   "note": "z eksportu 3D: najbliższa struktura (0.0 mm) – do ręcznej kontroli"
   }
  ]
 }
