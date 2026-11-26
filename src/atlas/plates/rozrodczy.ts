@@ -26,13 +26,13 @@ export const ROZRODCZY: AtlasPlateContent = {
     rest:
       'Karta pokazuje budowę układu rozrodczego mężczyzny i kobiety z boku, jak przekrój w podręczniku, w tej samej skali. U mężczyzny jądra leżą w mosznie poza miednicą, a plemniki płyną przez najądrze i nasieniowód do cewki moczowej. U kobiety jajniki, jajowody, macica i pochwa leżą w miednicy mniejszej, za pęcherzem moczowym.',
     sprint:
-      'Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle; znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
+      'Obraz się nie zmienia, bo karta pokazuje budowę, a nie stan w wysiłku. U mężczyzn wolny testosteron we krwi rośnie zaraz po intensywnym wysiłku, a po 12 godzinach bywa niższy niż zwykle (w badaniu: wytrenowani biegacze, 90 s biegu przy 100–110% VO₂max przez ok. 45 min); znaczenie tych zmian jest niejasne. Zespół REDs (dawniej RED-S), wywołany długotrwałym lub silnym niedoborem energii, może zaburzać pracę tego układu, ale to skutek tygodni, nie jednego treningu.',
   },
   summaryReferenceIds: {
     rest: ['statpearls_testes', 'statpearls_male_gu', 'statpearls_seminal_vesicle', 'statpearls_female_internal', 'statpearls_uterus'],
     sprint: ['hackney_2012', 'velasco_orjuela_2018', 'mountjoy_2023'],
   },
-  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek StatPearls Testes, Male GU, Seminal Vesicle, Female Internal Genitals; sprint disputed -> 3 poprawki = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: Hackney 2012, Velasco-Orjuela 2018, Mountjoy 2023 (+ dopisek o protokole, decyzja Dyrygenta d)
   protocolNotePl:
     'To karta budowy, a nie plansza ze stanami: „sprint” (koniec 45 s pracy przy ok. 88% VO₂max) nie zmienia tu obrazu.',
   labels: [

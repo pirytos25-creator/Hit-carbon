@@ -29,7 +29,8 @@ export const MIESNIOWY: AtlasPlateContent = {
       role: { rest: 'Napięcie posturalne', sprint: 'Wymach ramion równoważy obrót nóg' },
       tier: 'secondary',
       referenceIds: ['hamner_2010'],
-      roleStatus: { rest: 'unverifiable', sprint: 'draft' }, // #7, #17; fakty_draft_1b.md: disputed („Porusza ramieniem” bez źródła) -> sam Hamner 2010 = draft
+      evidence: { sprint: 'preliminary_human' }, // fakty_koncowe_C_reszta_i_kontrola.md: symulacja komputerowa jednego biegacza (Hamner 2010)
+      roleStatus: { rest: 'unverifiable', sprint: 'checked_agent' }, // #7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion
     },
     {
       anchor: 'rectus_abdominis',

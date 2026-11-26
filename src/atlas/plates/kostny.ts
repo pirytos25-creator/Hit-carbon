@@ -25,8 +25,8 @@ export const KOSTNY: AtlasPlateContent = {
     sprint:
       'W szybkim biegu stopa przy każdym kroku przyjmuje nacisk podłoża w szczycie ok. 2,5–2,7 razy większy niż ciężar ciała, a dotyka podłoża tylko ok. 0,24–0,27 s. Na rysunku wyróżniono kości, które dźwigają ciężar ciała: kości nóg, miednicę i kręgosłup lędźwiowy (ilustracja, nie pomiar). Gęstość kości nie zmienia się po jednym treningu: kość przebudowuje się tygodniami i miesiącami.',
   },
-  summaryReferenceIds: { sprint: ['munro_1987', 'sims_martin_2014'] },
-  summaryStatus: { rest: 'anatomy', sprint: 'draft' }, // liczby zawężone po audycie K2
+  summaryReferenceIds: { sprint: ['munro_1987', 'sims_martin_2014', 'eriksen_2010'] },
+  summaryStatus: { rest: 'anatomy', sprint: 'checked_agent' }, // fakty_koncowe_C_reszta_i_kontrola.md: Munro 1987 tab. 2 i 3, Sims i Martin 2014
   protocolNotePl:
     'Sprint = koniec 45 s szybkiego biegu przy ok. 88% VO₂max (to ok. 3,0–3,7 m/s, szacunek). Siły podłoża zmierzono w pojedynczych krokach biegu ze stałą prędkością 3–5 m/s, w stanie wypoczętym, nie w naszym interwale.',
   labels: [
@@ -226,15 +226,15 @@ export const KOSTNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'To siła, z jaką podłoże naciska na stopę (zmierzona płytą pomiarową), a nie siła wewnątrz kości. Wartość dla tempa podobnego do naszego interwału; przy szybszym biegu nieco więcej.',
-      status: 'draft', // zawężone po audycie K2 (Dyrygent, pkt 1); pełny zakres 2,5–2,8 niżej: checked_agent
+      status: 'checked_agent', // fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)
       restStatus: 'anatomy',
       measuredAt: 'jeden krok biegu, 35–50% czasu kontaktu stopy (szczyt opisany u lądujących na pięcie, 17 z 20 badanych)',
       protocolMismatch:
         'pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; 20 mężczyzn ok. 25 lat biegających rekreacyjnie; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek z równania biegu ACSM), czyli dolna część zakresu 3–5 m/s',
-      conversionNote: 'Wiersze 3,00–3,75 m/s tab. 3: thrust maximum 2,51–2,67 BW (wg raportu sprawdzającego), zaokrąglone do 2,5–2,7.',
+      conversionNote: 'Munro 1987, tab. 3: thrust maximum 2,51 / 2,56 / 2,62 / 2,67 BW dla 3,00 / 3,25 / 3,50 / 3,75 m/s, zaokrąglone do 2,5–2,7.',
       quote:
         'The thrust peak, which is the second peak in the vertical GRF-histories of rear-foot strikers, generally occurred between 35 and 50% of the total stance time and its magnitude increased (p < 0.001) from 2.5 BW at 3.0 m s-1 to 2.8 BW at 5.0 m s-1.',
-      locator: 'Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3, wiersze 3,00–3,75 m/s',
+      locator: 'Munro 1987, s. 151, akapit „Thrust maximum”; tab. 3, wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)',
       tier: 'primary',
     },
     {
@@ -245,15 +245,15 @@ export const KOSTNY: AtlasPlateContent = {
       referenceIds: ['munro_1987'],
       evidenceLevel: 'established_human',
       notePl: 'Dla tempa podobnego do naszego interwału. Im szybszy bieg, tym krótszy kontakt.',
-      status: 'draft', // zawężone po audycie K2 (Dyrygent, pkt 1); pełny zakres 0,20–0,27 niżej: checked_agent
+      status: 'checked_agent', // fakty_koncowe_C_reszta_i_kontrola.md; decyzja Dyrygenta c)
       restStatus: 'anatomy',
       measuredAt: 'jeden krok biegu (siła pionowa > 16 N)',
       protocolMismatch:
         'pojedyncze kroki biegu ze stałą prędkością (wybieraną samodzielnie) po płycie pomiarowej, w stanie wypoczętym, nie pod koniec 45 s pracy; badanie nie podaje % VO₂max; wzorzec 88% VO₂max ≈ 3,0–3,7 m/s (szacunek), czyli dolna część zakresu 3–5 m/s',
-      conversionNote: 'Wiersze 3,00–3,75 m/s tab. 2: 270–238 ms (wg raportu sprawdzającego) = ok. 0,24–0,27 s.',
+      conversionNote: 'Munro 1987, tab. 2: 270 / 258 / 247 / 238 ms dla 3,00 / 3,25 / 3,50 / 3,75 m/s = ok. 0,24–0,27 s.',
       quote:
         'In the present investigation, stance time, defined as the period of time during which the vertical GRF exceeded 16 N, decreased (p < 0.001) from 270 to 198 ms as the running speed increased (Table 2).',
-      locator: 'Munro 1987, s. 148–149, akapit „Stance time”; tab. 2, wiersze 3,00–3,75 m/s',
+      locator: 'Munro 1987, s. 148–149, akapit „Stance time”; tab. 2 (s. 149), wiersze 3,00–3,75 m/s (tabele sprawdzone na publicznej kopii skanu)',
       tier: 'primary',
     },
     {
@@ -265,7 +265,7 @@ export const KOSTNY: AtlasPlateContent = {
       evidenceLevel: 'established_human',
       notePl:
         'Po tygodniach i miesiącach: kość przebudowuje się w miejscach obciążanych. Jeden cykl trwa ok. 4–7 miesięcy (w kości zbitej krócej, w gąbczastej dłużej), więc jeden trening nie zmienia gęstości kości.',
-      status: 'draft', // nowa wartość po audycie K2 (pkt 2)
+      status: 'checked_agent', // fakty_koncowe_C_reszta_i_kontrola.md: Eriksen 2010, Sims i Martin 2014
       restStatus: 'anatomy',
       measuredAt: 'adaptacja tygodni i miesięcy, nie efekt jednego sprintu',
       protocolMismatch: 'zdrowa dorosła kość człowieka, ogólnie (przegląd), bez związku z konkretnym treningiem',

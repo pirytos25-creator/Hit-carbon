@@ -20,7 +20,7 @@ export const MOZG: AtlasPlateContent = {
       'W ciężkim wysiłku mózg pobiera i spala więcej mleczanu z krwi, a pobiera mniej glukozy (w badaniach: wysiłek ciągły ok. 75% VO₂max; mleczan mierzono przy dodatkowym wlewie mleczanu, a glukozę porównano z lekkim wysiłkiem przy 30% VO₂max).',
   },
   summaryReferenceIds: { rest: ['raichle_gusnard_2002'], sprint: ['van_hall_2009', 'kemppainen_2005'] },
-  summaryStatus: { rest: 'checked_agent', sprint: 'draft' }, // fakty_draft_1b.md: spoczynek Raichle & Gusnard 2002 akapit 1-2; sprint disputed (protokół) -> dopisek = draft
+  summaryStatus: { rest: 'checked_agent', sprint: 'checked_agent' }, // fakty_draft_1b.md (spoczynek); fakty_koncowe_C_reszta_i_kontrola.md: van Hall 2009, Kemppainen 2005
   labels: [
     // --- widok z boku (podpisy po lewej)
     {
