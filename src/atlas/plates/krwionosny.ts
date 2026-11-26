@@ -14,7 +14,7 @@ export const KRWIONOSNY: AtlasPlateLayout = {
   changeLinks: [
     { metric: "krwionosny.metric.udzial_miesni_w_przeplywie_krwi", anchors: ["femoral","anterior_tibial"] },
     { metric: "krwionosny.metric.rzut_serca", anchors: ["heart","aortic_arch","d_left_ventricle","d_aortic_arch"] },
-    { metric: "krwionosny.metric.tetno_hr", anchors: ["heart","d_left_ventricle"] },
+    { metric: "krwionosny.metric.tetno_hr", anchors: ["heart"] },
     { metric: "krwionosny.metric.przeplyw_wiencowy", anchors: ["d_rca","d_lad"] },
     { metric: "krwionosny.metric.objetosc_wyrzutowa", anchors: ["d_left_ventricle"] },
   ],
