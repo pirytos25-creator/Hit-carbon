@@ -47,7 +47,7 @@ function Bridge({ ctrl }: { ctrl: Controller }) {
 
 type Phase = { kind: 'loading'; mb: number } | { kind: 'error'; missing: boolean; msg: string } | { kind: 'ready'; ctrl: Controller };
 
-export default function Atlas3DView({ system, state, level, onClose }: Atlas3DViewProps) {
+export default function Atlas3DView({ system, state, level, onClose, onOpenOrgan }: Atlas3DViewProps) {
   const content = useMemo(() => ATLAS_SYSTEMS.find((s) => s.id === system)?.content ?? null, [system]);
   const reduced = usePrefersReducedMotion();
   const hostRef = useRef<HTMLDivElement>(null);
@@ -59,7 +59,18 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
   const [mode, setMode] = useState<Mode>({ kind: 'main' });
   const [kv, setKv] = useState<string | null>('front');
   const [hiddenN, setHiddenN] = useState(0);
-  const dragRef = useRef<{ x: number; id: number } | null>(null);
+  const dragRef = useRef<{ x: number; id: number; moved?: boolean; x0?: number } | null>(null);
+  const [diving, setDiving] = useState(false);
+  /** Wejście diegetyczne (M5): wjazd do narządu, potem AtlasApp montuje gablotę (onOpenOrgan). */
+  const openOrgan = (organ: string) => {
+    if (!ctrl || !onOpenOrgan) return;
+    const started = ctrl.startDive(organ, (o) => {
+      onOpenOrgan(o);
+      // widok układu wraca pod nakładką gabloty (bez widocznego skoku); wyjazd wstecz po decyzji o returnFromOrgan
+      setTimeout(() => { ctrl.endDive(); setDiving(false); }, 450);
+    });
+    if (started) setDiving(true);
+  };
 
 
   // wczytanie danych i modeli (GLB poza Gitem: przy braku czytelny komunikat zamiast pustej sceny)
@@ -121,9 +132,20 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
   return (
     <div ref={rootRef} className="atlas3d-root" role="application" tabIndex={0} onKeyDown={onKey} aria-label={`Widok 3D: ${title}. Strzałki w lewo i w prawo obracają, 1–4 widoki${stateless ? '' : ', S zmienia stan'}, Esc wraca do planszy.`}>
       <div ref={hostRef} className="atlas3d-stage"
-        onPointerDown={(e) => { if (ctrl && mode.kind === 'main') { dragRef.current = { x: e.clientX, id: e.pointerId }; (e.target as Element).setPointerCapture?.(e.pointerId); } }}
-        onPointerMove={(e) => { const d = dragRef.current; if (d && ctrl) { ctrl.drag(e.clientX - d.x); d.x = e.clientX; } }}
-        onPointerUp={() => { if (dragRef.current && ctrl) { dragRef.current = null; ctrl.snap(); } }}
+        onPointerDown={(e) => { if (ctrl && mode.kind === 'main' && !diving) { dragRef.current = { x: e.clientX, id: e.pointerId, x0: e.clientX }; (e.target as Element).setPointerCapture?.(e.pointerId); } }}
+        onPointerMove={(e) => { const d = dragRef.current; if (d && ctrl) { if (Math.abs(e.clientX - (d.x0 ?? d.x)) > 3) d.moved = true; ctrl.drag(e.clientX - d.x); d.x = e.clientX; } }}
+        onPointerUp={(e) => {
+          const d = dragRef.current;
+          if (!d || !ctrl) return;
+          dragRef.current = null;
+          if (!d.moved && onOpenOrgan) {
+            // kliknięcie (bez przeciągania) w narząd z gablotą → wejście diegetyczne
+            const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+            const organ = ctrl.organAt(e.clientX - r.left, e.clientY - r.top);
+            if (organ) { openOrgan(organ); return; }
+          }
+          ctrl.snap();
+        }}
         onPointerCancel={() => { if (dragRef.current && ctrl) { dragRef.current = null; ctrl.snap(); } }}>
         {ctrl && (
           <Canvas flat dpr={[1, 1.5]} camera={{ fov: FOV, near: 0.01, far: 120, position: [0, 1, 7] }}
@@ -131,8 +153,8 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
             <Bridge ctrl={ctrl} />
           </Canvas>
         )}
-        <svg ref={svgRef} className="atlas3d-lines" aria-hidden="true" />
-        <div ref={layerRef} className="atlas3d-labels" />
+        <svg ref={svgRef} className="atlas3d-lines" aria-hidden="true" style={diving ? { opacity: 0 } : undefined} />
+        <div ref={layerRef} className="atlas3d-labels" style={diving ? { opacity: 0 } : undefined} />
       </div>
 
       <div className="atlas3d-bar atlas3d-top">
@@ -157,6 +179,10 @@ export default function Atlas3DView({ system, state, level, onClose }: Atlas3DVi
                   aria-pressed={mode.kind === 'detail' && mode.view === d.view} onClick={() => go({ kind: 'detail', view: d.view })}>{d.title}</button>
               ))}
             </div>
+          )}
+          {system === 'krwionosny' && onOpenOrgan && mode.kind === 'main' && (
+            <button type="button" className={`${btn} bg-slate-800 text-slate-100 hover:bg-slate-700`} disabled={diving}
+              onClick={() => openOrgan('serce')} title="Wejdź do gabloty serca (albo kliknij serce na modelu)">Gablota: serce ›</button>
           )}
           <span className="atlas3d-hint">
             {mode.kind === 'detail' && hiddenN > 0

@@ -83,6 +83,9 @@ export class StateTex {
   }
   setVis(id: number, v: number) { this.data[this.k(0, id) + 3] = v; }
   setHi(id: number, v: number) { this.data[this.k(1, id) + 3] = v; }
+  /** Alfa struktury (dithering w siatce nieprzezroczystej): wygaszanie ciała przy wejściu do gabloty. */
+  getAlpha(id: number) { return this.data[this.k(2, id) + 2]; }
+  setAlpha(id: number, a: number) { this.data[this.k(2, id) + 2] = a; }
   commit() { this.tex.needsUpdate = true; }
 }
 

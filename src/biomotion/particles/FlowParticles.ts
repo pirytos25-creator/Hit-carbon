@@ -29,6 +29,13 @@ export interface FlowParticlesOptions {
   nearFade?: [number, number];
   /** krwinka 0 jako „bohater” (kamera filmu za nią) */
   onHero?: (pos: THREE.Vector3, lookAt: THREE.Vector3, tangent: THREE.Vector3) => void;
+  /**
+   * Bramka przepływu w miejscu u i chwili (0 = krew stoi, np. przed zamkniętą zastawką; 1 = płynie).
+   * Z bramką położenie każdej cząstki jest całkowane (nie wynika już z samej fazy), więc cząstki naprawdę czekają.
+   */
+  gate?: (u: number, frame: BioFrame) => number;
+  /** zatrzymanie ruchu (krok filmu z limitem ruchów, pauza): cząstki widoczne, nieruchome */
+  frozen?: () => boolean;
 }
 
 export const filmSystolicPulse = (bp: number) => 0.72 + 0.68 * Math.exp(-Math.pow((bp - 0.28) * 4.5, 2));
@@ -43,6 +50,8 @@ export class FlowParticles {
   phase = 0;
   private readonly seeds: Float32Array;
   private readonly t0Travel: Float32Array;
+  /** czas przejścia każdej cząstki (tryb z bramką) */
+  private readonly tau: Float32Array;
 
   constructor(private readonly o: FlowParticlesOptions) {
     this.mesh = new THREE.InstancedMesh(o.geometry, o.material, o.count);
@@ -59,14 +68,35 @@ export class FlowParticles {
       this.seeds[i * 5 + 4] = 0.9 + ((i * 13) % 21) * 0.01;
       this.t0Travel[i] = o.path.travelAt(this.seeds[i * 5]);
     }
+    this.tau = Float32Array.from(this.t0Travel);
+  }
+
+  private laminar(i: number) {
+    const r = this.seeds[i * 5 + 1];
+    return 1.65 - 0.85 * r * r; // profil przyścienny (jak w filmie)
   }
 
   /** Przesuwa fazę przepływu o klatkę odbiorcy. */
   advance(frame: BioFrame) {
     const pulse = this.o.pulse ?? filmSystolicPulse;
     const k = typeof this.o.speedScale === 'function' ? this.o.speedScale(frame) : this.o.speedScale;
-    if (frame.seeked) this.phase = frame.timeSec * k;
-    else if (frame.dtSec > 0) this.phase += frame.dtSec * k * pulse(frame.beatPhase);
+    if (this.o.frozen?.()) return;
+    if (frame.seeked) {
+      this.phase = frame.timeSec * k;
+      if (this.o.gate) for (let i = 0; i < this.o.count; i++) this.tau[i] = this.t0Travel[i] + this.phase * this.laminar(i);
+      return;
+    }
+    if (!(frame.dtSec > 0)) return;
+    const step = frame.dtSec * k * pulse(frame.beatPhase);
+    this.phase += step;
+    const gate = this.o.gate;
+    if (gate) {
+      const path = this.o.path;
+      for (let i = 0; i < this.o.count; i++) {
+        const u = path.uAtTravel(this.tau[i]);
+        this.tau[i] = (this.tau[i] + step * this.laminar(i) * Math.max(0, gate(u, frame))) % 1;
+      }
+    }
   }
 
   /** Zapisuje macierze (i barwy) instancji. `camera` do wygaszania przy kamerze. */
@@ -79,8 +109,7 @@ export class FlowParticles {
       const ang = this.seeds[i * 5 + 2];
       const tumble0 = this.seeds[i * 5 + 3];
       const size = this.seeds[i * 5 + 4];
-      const laminar = 1.65 - 0.85 * radFrac * radFrac; // profil przyścienny (jak w filmie)
-      const u = path.uAtTravel(this.t0Travel[i] + flowT * laminar);
+      const u = path.uAtTravel(this.o.gate ? this.tau[i] : this.t0Travel[i] + flowT * this.laminar(i));
       path.sample(u, _p, _t);
 
       const sq = squeeze ? squeeze(u) : 0;
