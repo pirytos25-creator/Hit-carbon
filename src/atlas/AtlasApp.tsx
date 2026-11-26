@@ -3,7 +3,7 @@ import { AtlasPlate, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
 import { EVIDENCE_PHRASE, PALETTE, isShown, paletteCssVars, systemOfPlate, type AtlasLevel } from './palette';
 import { ATLAS_SYSTEMS } from './plates';
-import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId } from './types';
+import type { AtlasAnchorsFile, AtlasMetric, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
 
@@ -105,7 +105,7 @@ export function AtlasApp() {
   const [error, setError] = useState<string | null>(null);
   const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 760px)').matches);
   // „Całe ciało / Zbliżenie” (łatka sesji mięśniowej): na szerokim ekranie jedna skala naraz, żeby nic nie było za małe.
-  const [panel, setPanel] = useState<'body' | 'detail'>('body');
+  const [panel, setPanel] = useState(0);
   const system = ATLAS_SYSTEMS.find((s) => s.id === systemId)!;
   const extended = level === 'extended';
 
@@ -125,18 +125,23 @@ export function AtlasApp() {
 
   const content = system.content!;
   const flows3d = useFlows3d(`${BASE}atlas/${systemId}/flows3d.json`);
-  const detailViews = content.views.filter((v) => v === 'detail');
-  const bodyViews = content.views.filter((v) => v !== 'detail');
-  // Całe ciało (render pionowy ≥ 1,7:1) obok zbliżenia byłoby za małe: wtedy jedna skala naraz.
+  // Panele planszy na szerokim ekranie: które widoki stoją obok siebie, a które dostają własną zakładkę.
+  // Pomiar przy 1440×900 (obszar planszy 876×804 px): jeden widok 1150×1600 zajmuje 556×773 px, dwa takie widoki
+  // obok siebie z kolumnami podpisów tylko ok. 150–210 px szerokości. Dlatego obok siebie stoją wyłącznie wąskie
+  // widoki całego ciała (render pionowy ≥ 1,7:1, np. przód i tył: 292×526 px każdy); każdy inny widok
+  // (zbliżenie, render 1150×1600, render poziomy) ma własną zakładkę i całą wysokość planszy.
   const wholeBody = !!anchors && anchors.resolution[1] / anchors.resolution[0] >= 1.7;
-  // Render poziomy (np. mózg) z dwoma widokami i 4 kolumnami podpisów też byłby za mały: jeden widok naraz.
-  const landscape = !!anchors && anchors.resolution[0] >= anchors.resolution[1];
-  // Każda plansza ze zbliżeniem pokazuje jedną skalę naraz (integracja 1b: oddechowy przy 1440 był za mały obok zbliżenia).
-  const splitScale = detailViews.length > 0 && bodyViews.length >= 1;
-  void landscape;
-  const panelLabel = (p: 'body' | 'detail') =>
-    wholeBody ? (p === 'body' ? 'Całe ciało' : 'Zbliżenie') : (content.viewTitlesPl[p === 'body' ? bodyViews[0] : 'detail'] ?? p);
-  useEffect(() => setPanel('body'), [systemId]);
+  const viewsPresent = content.views.filter((v) => !anchors || anchors.views[v]);
+  const bodyViews = viewsPresent.filter((v) => v !== 'detail');
+  const panels: { views: AtlasView[]; label: string }[] = [];
+  if (wholeBody && bodyViews.length) panels.push({ views: bodyViews, label: 'Całe ciało' });
+  for (const v of viewsPresent) {
+    if (wholeBody && v !== 'detail') continue;
+    panels.push({ views: [v], label: wholeBody && v === 'detail' ? 'Zbliżenie' : content.viewTitlesPl[v] ?? v });
+  }
+  const splitScale = panels.length > 1;
+  const panelIdx = Math.min(panel, Math.max(0, panels.length - 1));
+  useEffect(() => setPanel(0), [systemId]);
 
   useEffect(() => {
     const onHash = () => setSystemId(systemFromHash());
@@ -256,30 +261,35 @@ export function AtlasApp() {
           ) : (
             <>
               {splitScale && (
-                <div className="shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 text-sm" role="tablist" aria-label="Skala planszy">
-                  {(['body', 'detail'] as const).map((p) => (
+                <div
+                  className="shrink-0 grid rounded-xl bg-slate-900 p-1 text-sm"
+                  style={{ gridTemplateColumns: `repeat(${panels.length}, minmax(0, auto))` }}
+                  role="tablist"
+                  aria-label="Widok planszy"
+                >
+                  {panels.map((p, i) => (
                     <button
-                      key={p}
+                      key={p.label}
                       role="tab"
-                      aria-selected={panel === p}
-                      onClick={() => setPanel(p)}
+                      aria-selected={panelIdx === i}
+                      onClick={() => setPanel(i)}
                       className={`rounded-lg px-4 py-1.5 font-display font-semibold transition ${
-                        panel === p ? 'bg-slate-700 text-white' : 'text-slate-300 hover:text-white'
+                        panelIdx === i ? 'bg-slate-700 text-white' : 'text-slate-300 hover:text-white'
                       }`}
                     >
-                      {panelLabel(p)}
+                      {p.label}
                     </button>
                   ))}
                 </div>
               )}
               <div className="flex-1 min-h-0 w-full flex items-center justify-center">
                 <AtlasPlate
-                  key={`${systemId}-${splitScale ? panel : 'all'}`}
+                  key={`${systemId}-${splitScale ? panelIdx : 'all'}`}
                   content={content}
                   anchors={anchors}
                   state={shownState}
                   baseUrl={`${BASE}atlas/${systemId}/`}
-                  onlyViews={splitScale ? (panel === 'detail' ? detailViews : bodyViews) : undefined}
+                  onlyViews={splitScale ? panels[panelIdx].views : undefined}
                   fitHeight
                   flows3d={flows3d}
                   level={level}
