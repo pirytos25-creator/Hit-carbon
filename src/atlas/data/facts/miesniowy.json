@@ -315,27 +315,27 @@
    "view": "front",
    "structureId": "m_deltoideus",
    "state": "rest",
-   "textPl": "Napięcie posturalne",
-   "status": "unverifiable",
+   "textPl": "Główny mięsień unoszący ramię w bok",
+   "status": "checked_agent",
    "referenceIds": [
-    "hamner_2010"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_koncowe_C_reszta_i_kontrola.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#7",
-     "#17"
+     "miesniowy.role.deltoid.rest"
     ],
-    "note": "#7, #17; fakty_koncowe_C_reszta_i_kontrola.md: Hamner 2010, abstrakt; Discussion"
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The deltoid, the thick muscle that creates the rounded lines of the shoulder is the major abductor of the arm, but it also facilitates flexing and medial rotation, as well as extension and lateral rotation.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.5 Muscles of the Pectoral Girdle and Upper Limbs",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-5-muscles-of-the-pectoral-girdle-and-upper-limbs"
   },
   {
    "id": "miesniowy.role.deltoid.sprint",
@@ -375,26 +375,27 @@
    "view": "front",
    "structureId": "m_rectus_abdominis",
    "state": "rest",
-   "textPl": "Niska aktywność",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Zgina kręgosłup, np. przy siadaniu z leżenia („brzuszki”)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#8",
-     "#17"
+     "miesniowy.role.rectus_abdominis.rest"
     ],
-    "note": "#8, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "These enclose the rectus abdominis muscles (a pair of long, linear muscles, commonly called the “sit-up” muscles) that originate at the pubic crest and symphysis, and extend the length of the body’s trunk. + Sitting up / Vertebral column / Flexion / Rectus abdominis",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.4 Axial Muscles of the Abdominal Wall, and Thorax; Table 11.6 „Muscles of the Abdomen” (kolumny: Movement | Target | Target motion direction | Prime mover | Origin | Insertion), wiersz: Sitting up | Vertebral column | Flexion | Rectus abdominis | Pubis | Sternum; ribs 5 and 7",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-4-axial-muscles-of-the-abdominal-wall-and-thorax"
   },
   {
    "id": "miesniowy.role.rectus_abdominis.sprint",
@@ -404,26 +405,27 @@
    "view": "front",
    "structureId": "m_rectus_abdominis",
    "state": "sprint",
-   "textPl": "Usztywnia tułów przy każdym kroku",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Zgina kręgosłup, np. przy siadaniu z leżenia („brzuszki”)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#8",
-     "#17"
+     "miesniowy.role.rectus_abdominis.sprint"
     ],
-    "note": "#8, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "These enclose the rectus abdominis muscles (a pair of long, linear muscles, commonly called the “sit-up” muscles) that originate at the pubic crest and symphysis, and extend the length of the body’s trunk. + Sitting up / Vertebral column / Flexion / Rectus abdominis",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.4 Axial Muscles of the Abdominal Wall, and Thorax; Table 11.6 „Muscles of the Abdomen” (kolumny: Movement | Target | Target motion direction | Prime mover | Origin | Insertion), wiersz: Sitting up | Vertebral column | Flexion | Rectus abdominis | Pubis | Sternum; ribs 5 and 7",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-4-axial-muscles-of-the-abdominal-wall-and-thorax"
   },
   {
    "id": "miesniowy.role.rectus_femoris.rest",
@@ -433,27 +435,27 @@
    "view": "front",
    "structureId": "m_rectus_femoris",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Część mięśnia czworogłowego: prostuje kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "dorn_2012"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#9",
-     "#17"
+     "miesniowy.role.rectus_femoris.rest"
     ],
-    "note": "#9, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results"
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "This compartment contains the quadriceps femoris group, which actually comprises four muscles that extend and stabilize the knee. The rectus femoris is on the anterior aspect of the thigh…",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6 Appendicular Muscles of the Pelvic Girdle and Lower Limbs",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs"
   },
   {
    "id": "miesniowy.role.rectus_femoris.sprint",
@@ -493,28 +495,32 @@
    "view": "front",
    "structureId": "m_vastus_lateralis",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Największa część czworogłowego; prostuje kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "hamner_2010"
+    "openstax_ap2e",
+    "statpearls_nbk532309"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#10",
-     "#17"
+     "miesniowy.role.vastus_lateralis.rest"
     ],
-    "note": "#10, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "…quadriceps femoris group, which actually comprises four muscles that extend and stabilize the knee.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Vastus Lateralis Muscle” (2023), NBK532309, Introduction; PMID 30335342 + OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532309/ ; https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs",
+   "quoteSource": [
+    "openstax_ap2e"
+   ],
+   "quoteNote": "Pominięto część cytatu ze źródła CC BY-NC-ND 4.0; cytat dowodowy: side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.vastus_lateralis.sprint",
@@ -555,26 +561,28 @@
    "view": "front",
    "structureId": "m_tibialis_anterior",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Unosi przód stopy (zgięcie grzbietowe)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk513304"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#11",
-     "#17"
+     "miesniowy.role.tibialis_anterior.rest"
     ],
-    "note": "#11, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Tibialis Anterior Muscles” (2023), NBK513304, Introduction; PMID 30020676",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK513304/ ; https://pubmed.ncbi.nlm.nih.gov/30020676/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.tibialis_anterior.sprint",
@@ -584,26 +592,28 @@
    "view": "front",
    "structureId": "m_tibialis_anterior",
    "state": "sprint",
-   "textPl": "Unosi stopę w fazie wymachu",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Unosi przód stopy (zgięcie grzbietowe)",
+   "status": "checked_agent",
+   "referenceIds": [
+    "statpearls_nbk513304"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#11",
-     "#17"
+     "miesniowy.role.tibialis_anterior.sprint"
     ],
-    "note": "#11, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Tibialis Anterior Muscles” (2023), NBK513304, Introduction; PMID 30020676",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK513304/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.gluteus_maximus.rest",
@@ -613,28 +623,28 @@
    "view": "back",
    "structureId": "m_gluteus_maximus",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Ważny mięsień prostujący staw biodrowy",
+   "status": "checked_agent",
    "referenceIds": [
-    "hamner_2010",
-    "dorn_2012"
+    "statpearls_nbk558966"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#12",
-     "#17"
+     "miesniowy.role.gluteus_maximus.rest"
     ],
-    "note": "#12, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results; Hamner 2010, Results"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Inferior Gluteal Nerve Injury” (2023), NBK558966, Introduction; PMID 32644392",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK558966/ ; https://pubmed.ncbi.nlm.nih.gov/32644392/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.gluteus_maximus.sprint",
@@ -675,28 +685,27 @@
    "view": "back",
    "structureId": "m_biceps_femoris",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Należy do mięśni kulszowo-goleniowych, które zginają kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "dorn_2012"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#13",
-     "#17"
+     "miesniowy.role.biceps_femoris.rest"
     ],
-    "note": "#13, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "The three long muscles on the back of the knee are the hamstring group, which flexes the knee. These are the biceps femoris, semitendinosus, and semimembranosus.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6 Appendicular Muscles of the Pelvic Girdle and Lower Limbs",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs"
   },
   {
    "id": "miesniowy.role.biceps_femoris.sprint",
@@ -737,27 +746,27 @@
    "view": "back",
    "structureId": "m_semitendinosus",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Należy do mięśni kulszowo-goleniowych, które zginają kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "dorn_2012"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#14",
-     "#17"
+     "miesniowy.role.semitendinosus.rest"
     ],
-    "note": "#14, #17; fakty_draft_K3_ruch.md: Dorn 2012, Results (HAMS jako grupa)"
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": "The three long muscles on the back of the knee are the hamstring group, which flexes the knee. These are the biceps femoris, semitendinosus, and semimembranosus.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs"
   },
   {
    "id": "miesniowy.role.semitendinosus.sprint",
@@ -797,28 +806,28 @@
    "view": "back",
    "structureId": "m_gastrocnemius",
    "state": "rest",
-   "textPl": "Niska aktywność (postawa)",
-   "status": "unverifiable",
+   "textPl": "Zgina stopę podeszwowo; pomaga w chodzie i utrzymaniu postawy",
+   "status": "checked_agent",
    "referenceIds": [
-    "hamner_2010"
+    "statpearls_nbk532946"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "abstract",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#15",
-     "#17"
+     "miesniowy.role.gastrocnemius.rest"
     ],
-    "note": "#15, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 2, OK w trzeciej kontroli Dyrygenta (2026-11-26)"
+   },
+   "quote": null,
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Gastrocnemius Muscle” (2026), NBK532946, Introduction; PMID 30422541",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532946/ ; https://pubmed.ncbi.nlm.nih.gov/30422541/",
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: CC BY-NC-ND 4.0): side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.gastrocnemius.sprint",
@@ -859,29 +868,27 @@
    "view": "back",
    "structureId": "m_soleus",
    "state": "rest",
-   "textPl": "Utrzymuje postawę stojącą",
-   "status": "unverifiable",
+   "textPl": "Silny mięsień łydki; pomaga utrzymać postawę pionową",
+   "status": "checked_agent",
    "referenceIds": [
-    "dorn_2012",
-    "hamner_2010"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#16",
-     "#17"
+     "miesniowy.role.soleus.rest"
     ],
-    "note": "#16, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "The muscles in this compartment are large and strong and keep humans upright. The most superficial and visible muscle of the calf is the gastrocnemius. Deep to the gastrocnemius is the wide, flat soleus.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6 Appendicular Muscles of the Pelvic Girdle and Lower Limbs",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs"
   },
   {
    "id": "miesniowy.role.soleus.sprint",
@@ -923,27 +930,32 @@
    "view": "detail",
    "structureId": "m_vastus_lateralis",
    "state": "rest",
-   "textPl": "Przekrój w miejscu biopsji: pracuje mało włókien",
-   "status": "unverifiable",
+   "textPl": "Największa część czworogłowego; prostuje kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "vollestad_blom_1985"
+    "openstax_ap2e",
+    "statpearls_nbk532309"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_draft_K3_ruch.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#18",
-     "#17"
+     "miesniowy.role.d_vastus_lateralis.rest"
     ],
-    "note": "#18, #17; fakty_draft_K3_ruch.md: Vøllestad & Blom 1985, abstrakt"
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "…quadriceps femoris group, which actually comprises four muscles that extend and stabilize the knee.",
+   "locator": "StatPearls „Anatomy, Bony Pelvis and Lower Limb: Vastus Lateralis Muscle” (2023), NBK532309, Introduction; PMID 30335342 + OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK532309/",
+   "quoteSource": [
+    "openstax_ap2e"
+   ],
+   "quoteNote": "Pominięto część cytatu ze źródła CC BY-NC-ND 4.0; cytat dowodowy: side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.d_vastus_lateralis.sprint",
@@ -983,25 +995,32 @@
    "view": "detail",
    "structureId": "femur",
    "state": "rest",
-   "textPl": "Dźwignia dla mięśni uda",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Dźwignia dla mięśni poruszających biodrem i kolanem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e",
+    "statpearls_nbk532982"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#26"
+     "miesniowy.role.d_femur.rest"
     ],
-    "note": "#26: audyt dopuszcza zwolnienie opisu anatomicznego",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "Our musculoskeletal system works in a similar manner, with bones being stiff levers and the articular endings of the bones—encased in synovial joints—acting as fulcrums.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.1 Interactions of Skeletal Muscles, Their Fascicle Arrangement, and Their Lever Systems + StatPearls „Anatomy, Bony Pelvis and Lower Limb: Femur” (2023), NBK532982, Introduction; PMID 30422577",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-1-interactions-of-skeletal-muscles-their-fascicle-arrangement-and-their-lever-systems ; https://www.ncbi.nlm.nih.gov/books/NBK532982/",
+   "quoteSource": [
+    "openstax_ap2e"
+   ],
+   "quoteNote": "Pominięto część cytatu ze źródła CC BY-NC-ND 4.0; cytat dowodowy: side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.d_femur.sprint",
@@ -1011,25 +1030,32 @@
    "view": "detail",
    "structureId": "femur",
    "state": "sprint",
-   "textPl": "Dźwignia dla mięśni uda",
-   "status": "unverifiable",
-   "referenceIds": [],
+   "textPl": "Dźwignia dla mięśni poruszających biodrem i kolanem",
+   "status": "checked_agent",
+   "referenceIds": [
+    "openstax_ap2e",
+    "statpearls_nbk532982"
+   ],
    "evidence": null,
    "conversionNote": null,
    "tier": "secondary",
-   "provenance": null,
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#26"
+     "miesniowy.role.d_femur.sprint"
     ],
-    "note": "#26: audyt dopuszcza zwolnienie opisu anatomicznego",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie wyszukującego, OK w rundzie 1 (2026-11-26)"
+   },
+   "quote": "Our musculoskeletal system works in a similar manner, with bones being stiff levers and the articular endings of the bones—encased in synovial joints—acting as fulcrums.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.1 Interactions of Skeletal Muscles, Their Fascicle Arrangement, and Their Lever Systems + StatPearls „Anatomy, Bony Pelvis and Lower Limb: Femur” (2023), NBK532982, Introduction; PMID 30422577",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-1-interactions-of-skeletal-muscles-their-fascicle-arrangement-and-their-lever-systems ; https://www.ncbi.nlm.nih.gov/books/NBK532982/",
+   "quoteSource": [
+    "openstax_ap2e"
+   ],
+   "quoteNote": "Pominięto część cytatu ze źródła CC BY-NC-ND 4.0; cytat dowodowy: side-session-notes/dyrygent/E1K3_podpisy_wyszukane.md"
   },
   {
    "id": "miesniowy.role.d_hamstrings.rest",
@@ -1039,28 +1065,27 @@
    "view": "detail",
    "structureId": "m_biceps_femoris",
    "state": "rest",
-   "textPl": "Prawie bez pracy",
-   "status": "unverifiable",
+   "textPl": "Mięśnie kulszowo-goleniowe: zginają kolano",
+   "status": "checked_agent",
    "referenceIds": [
-    "dorn_2012"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "model_simulation",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#13",
-     "#17"
+     "miesniowy.role.d_hamstrings.rest"
     ],
-    "note": "#13, #17",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "The three long muscles on the back of the knee are the hamstring group, which flexes the knee. These are the biceps femoris, semitendinosus, and semimembranosus.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §11.6",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/11-6-appendicular-muscles-of-the-pelvic-girdle-and-lower-limbs"
   },
   {
    "id": "miesniowy.role.d_hamstrings.sprint",
@@ -1285,28 +1310,27 @@
    "view": "detail",
    "structureId": "mostek_poprzeczny_pdb_5h53",
    "state": "rest",
-   "textPl": "Nieliczne cykle mostków",
-   "status": "unverifiable",
+   "textPl": "Mostek poprzeczny miozyny z aktyną wywołuje skurcz",
+   "status": "checked_agent",
    "referenceIds": [
-    "fujii_namba_2017"
+    "openstax_ap2e"
    ],
    "evidence": null,
    "conversionNote": null,
    "tier": "primary",
-   "provenance": "primary_study",
-   "accessMode": null,
-   "auto": [
-    "provenance"
-   ],
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "auto": [],
    "checkedBy": {
-    "report": "fakty_miesniowy.md",
+    "report": "side-session-notes/dyrygent/E1K3_podpisy_kontrola.md",
     "rows": [
-     "#6",
-     "#24"
+     "miesniowy.role.d_myosin.rest"
     ],
-    "note": "#6, #24 (model: stan rygoru, bez ATP)",
-    "reportInferred": true
-   }
+    "note": "E1-K3 partia 2: brzmienie rundy 1, OK w rundzie 2 (2026-11-26)"
+   },
+   "quote": "A cross-bridge forms between actin and the myosin heads triggering contraction.",
+   "locator": "OpenStax A&P 2e (ISBN 978-1-951693-42-8), §10.3 Muscle Fiber Contraction and Relaxation",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/10-3-muscle-fiber-contraction-and-relaxation"
   },
   {
    "id": "miesniowy.role.d_myosin.sprint",

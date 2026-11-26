@@ -202,6 +202,17 @@
           "url": {
             "type": "string",
             "description": "adres strony źródła (sekcja podręcznika)"
+          },
+          "quoteSource": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "źródła (referenceIds), z których pochodzi cytat, gdy fakt ma też źródło zastrzeżone"
+          },
+          "quoteNote": {
+            "type": "string",
+            "description": "gdzie jest cytat dowodowy, gdy nie ma go w danych produktu (licencja źródła)"
           }
         }
       }

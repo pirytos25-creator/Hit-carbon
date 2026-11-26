@@ -521,7 +521,7 @@
    "status": "checked_agent",
    "provenance": "textbook_consensus",
    "accessMode": "full_text",
-   "quote": "Anyone who has observed a specimen of venous blood in a tube can confirm that it is not blue.",
+   "quote": null,
    "locator": "CM, wyd. 3 (1990), rozdz. 45 Cyanosis › Basic Science, NBK367",
    "url": "https://www.ncbi.nlm.nih.gov/books/NBK367/",
    "referenceIds": [
@@ -534,7 +534,8 @@
      "serce.funkcja.barwa_krwi_nie_niebieska"
     ],
     "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
-   }
+   },
+   "quoteNote": "Cytat dowodowy poza repozytorium produktu (licencja źródła: all rights reserved): side-session-notes/dyrygent/E1K3_serce_wyszukane.md"
   },
   {
    "id": "serce.role.right_atrium",
