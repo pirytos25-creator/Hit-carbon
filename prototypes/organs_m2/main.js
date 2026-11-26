@@ -9,10 +9,10 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 const Q = new URLSearchParams(location.search);
 const TIER = Q.get('q') === 'high' ? 'high' : 'low';
 const LOOK = Q.get('look') === 'film' ? 'film' : 'atlas';
-const VALVES = Q.get('valves') === 'b' ? 'b' : 'a';
+const VALVES = Q.get('valves') === 'a' ? 'a' : 'b'; // domyślnie B z chipem „ruch poglądowy” (decyzja Dyrygenta po M2)
 const CUT = Q.get('cut') !== '0';
 const M1 = Q.get('m1') === '1'; // preset klatki docelowej (a) Reżysera
-const WALLS = M1 || Q.get('walls') === 'tissue' ? 'tissue' : 'blood'; // tissue = jak klatka M1 Reżysera (ściana w barwie mięśnia, barwę niesie krew)
+const WALLS = Q.get('walls') === 'blood' && !M1 ? 'blood' : 'tissue'; // domyślnie mięsień (decyzja Dyrygenta do bramki A) // tissue = jak klatka M1 Reżysera (ściana w barwie mięśnia, barwę niesie krew)
 const GLASS = Q.get('glass') === '1', HASH = Q.get('glass') === '2'; // 2 = dithering (alphaHash, zapis głębi) jak w E3                           // półprzezroczyste ściany naczyń (koszt do zmierzenia w M2)
 const TIERS = {
   low: { dpr: 1, aa: false, rbc: 1500, lathe: [10, 14], physical: false, env: false },
@@ -23,13 +23,13 @@ if (Q.get('n')) T.rbc = +Q.get('n');
 
 // tokeny palety (src/atlas/data/palette.json): artery / vein
 const C = { artery: '#D93240', arteryLight: '#F07A84', vein: '#3E6FD8', veinLight: '#86A6EE', valve: '#EDE3D6' };
-if (Q.get('m1') === '1') C.valve = '#8C8880'; // context.bone #D8D1C4 przygaszone o ok. 35%
+if (Q.get('m1') === '1') C.valve = '#BAB4AA'; // context.bone -35% mieszane liniowo z #6B6460 (Reżyser); kontrast >= 2:1 wobec przekroju #B44E56
 
 // ------------------------------------------------------------------ pasek przełączników
 const top = document.getElementById('top');
 const link = (label, key, val) => {
   const u = new URLSearchParams(location.search); u.set(key, val);
-  const on = (Q.get(key) || { q: 'low', look: 'atlas', valves: 'a', cut: '1', walls: 'blood', glass: '0' }[key]) === val;
+  const on = (Q.get(key) || { q: 'low', look: 'atlas', valves: 'b', cut: '1', walls: 'tissue', glass: '0' }[key]) === val;
   return `<a class="chip${on ? ' on' : ''}" href="?${u}">${label}</a>`;
 };
 top.innerHTML = [link('Poziom: niski (UHD)', 'q', 'low'), link('Poziom: wysoki', 'q', 'high'),
