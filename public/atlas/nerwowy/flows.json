@@ -107,15 +107,11 @@
   "key": "front_femoral",
   "view": "front",
   "kind": "nerve",
-  "labelPl": "Nerw udowy → mięsień czworogłowy",
+  "labelPl": "Rozkaz ruchu: rdzeń (L2–L4) → splot lędźwiowy → nerw udowy → mięsień czworogłowy",
   "points": [
    [
     500.0,
-    602.8
-   ],
-   [
-    500.0,
-    642.8
+    657.0
    ],
    [
     488.4,
@@ -159,80 +155,8 @@
   "key": "front_sympathetic",
   "view": "front",
   "kind": "nerve",
-  "labelPl": "Współczulny: rdzeń kręgowy → (przez pień, bez przełączenia) nerwy trzewne → rdzeń nadnerczy",
+  "labelPl": "Współczulny: odcinek piersiowy rdzenia → pień (bez przełączenia) → nerwy trzewne → rdzeń nadnerczy",
   "points": [
-   [
-    485.9,
-    255.4
-   ],
-   [
-    493.1,
-    254.3
-   ],
-   [
-    493.0,
-    269.5
-   ],
-   [
-    493.7,
-    275.0
-   ],
-   [
-    494.1,
-    284.8
-   ],
-   [
-    494.4,
-    290.7
-   ],
-   [
-    494.4,
-    301.5
-   ],
-   [
-    494.9,
-    309.1
-   ],
-   [
-    494.8,
-    315.4
-   ],
-   [
-    491.0,
-    323.6
-   ],
-   [
-    489.4,
-    331.7
-   ],
-   [
-    487.1,
-    339.3
-   ],
-   [
-    486.5,
-    346.3
-   ],
-   [
-    486.5,
-    357.7
-   ],
-   [
-    486.9,
-    366.7
-   ],
-   [
-    486.4,
-    376.4
-   ],
-   [
-    486.3,
-    387.5
-   ],
-   [
-    485.3,
-    393.1
-   ],
    [
     484.3,
     407.7
