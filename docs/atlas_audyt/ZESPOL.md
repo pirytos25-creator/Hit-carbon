@@ -133,3 +133,4 @@ Decyzja Dyrygenta: sceny zbliżeń oddechowego, moczowego i powłokowego poza ra
 - S9/S10 (Wizualizator, `e899bd1`) scalone (`d234200`): bez pulsu sin(uTime), jedno sterowanie w 3D. Build 0, check:atlas 0, check:atlas3d 0. Integrator przed oddaniem M3 robi `git merge atlas-uklady`.
 - **M3 ZALICZONY** (`integrator_M3.md`; scalenia `b38bb87`, `cf6f1ef`, `9995df9`): 63 nowe teksty po dwóch niezależnych kontrolach i trzeciej kontroli Dyrygenta, wszystkie `checked_agent`; 0 tekstów roboczych na ekranie; walidatory odporne na CRLF. Czas rzeczywisty ok. 0,8 h wobec szacunku 4–7 h.
 - **M2′** w decyzji (`e2cf373`). **BRAMKA A gotowa do pokazu.**
+- **BRAMKA A: zgoda użytkownika na M4–M6.** Podział: Wizualizator M4 → M5; integrator rama M6 + kontrakt wyróżnika + punkt wejścia gabloty; Reżyser scenariusz serca i specyfikacje 4 wyróżników; agenci krwionośny, kostny, nerwowy, powłokowy wyróżniki po M4 (decyzja: tabela „Po bramce A”).

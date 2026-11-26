@@ -173,6 +173,16 @@ Wizualizator pokaże w M4 nagranie aktu 3 przed zmianą i po niej. Ostatnie sło
 
 Kalendarzowo, przy 2–3 sesjach równolegle i sprawnych decyzjach: ok. 3–6 dni. Kolejne przeliczenie po M4.
 
+### Po bramce A (2026-11-26): zgoda na M4–M6, podział pracy
+
+| Kto | Co | Pliki | Kiedy |
+|---|---|---|---|
+| Wizualizator | **M4**: `src/biomotion` według `BIOMOTION_ARCHITEKTURA.md`; akt 3 (i 12) filmu na module **bez regresji**; profil `film` = obecny wygląd filmu (mat i bursztyn tylko jako nagranie porównawcze dla użytkownika); kompensacja AgX ΔE00 ≤ 10; poprawki błędów filmu: `beatPhase`, `ACT_MODEL_MAP`, AgX w kompozytorze | `src/biomotion/**`, `blender/biomotion/**`, akty 3 i 12, `CameraSystem`, `CinematicDirector` (tylko wpięcie) | teraz |
+| Wizualizator | **M5**: gablota serca (`src/organs`) z wejściem diegetycznym z widoku krwionośnego 3D, ściany „mięsień” (przełącznik zostaje), zastawki B, panel tylko ze sprawdzonych faktów poziomu Podstawowego | `src/organs/**`, `src/atlas3d/**`, `public/organs/**` | po M4 |
+| Integrator | **M6 rama**: lokalizator, „Co się zmieniło”, „Sprawdź się” (1 pytanie na planszę: nowe teksty jako draft, potem dwie kontrole jak w M3); **kontrakt wyróżnika** (2D i 3D, uzgodniony z Wizualizatorem); **punkt wejścia gabloty** w `AtlasApp` | `src/atlas/**` | teraz |
+| Reżyser | scenariusz kroków filmu serca (M5; najwyżej 1 nowy ruch na krok) i specyfikacje 4 wyróżników (krwionośny ROZDZIAŁ, kostny KONSTRUKCJA, nerwowy IMPULS, powłokowy CIEPŁO): zmienna, Low, „Jak czytać” | `docs/atlas_rezyser/**` | teraz |
+| Agenci 4 układów | **M6 wyróżniki**: 2D `src/atlas/signatures/<uklad>.tsx` i 3D jako wtyczka do modułu według kontraktu | każdy tylko swoje pliki | po M4 i kontrakcie |
+
 ## 3. Mapa „element → akt filmu” (propozycja; weryfikacja w `FILM_PRZEGLAD.md`)
 
 | Element (atlas lub gablota) | Akt filmu |
