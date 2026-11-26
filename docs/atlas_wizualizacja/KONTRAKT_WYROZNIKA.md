@@ -1,6 +1,6 @@
 # Kontrakt wyróżnika układu (2D i 3D)
 
-Stan: 2026-11-26, integrator. **Projekt do uzgodnienia z Wizualizatorem** (status na końcu pliku).
+Stan: 2026-11-26, integrator. **Uzgodnione z Wizualizatorem** (§4 według jego kodu, f6381e0) i z Reżyserem (§1a, §5a); status w §7.
 
 Podstawy:
 - decyzja Dyrygenta (`docs/atlas_audyt/DECYZJA_UX_NARZADY.md`, tabela „Po bramce A”);
@@ -98,32 +98,57 @@ export interface SignatureProps2D {
 - Rysuje tylko kształty (cząstki, poświaty, liczniki). Zakazane: półprzezroczyste nakładki na cały kadr, tekst inny niż licznik z metryki, zasłanianie kotwic podpisów (promień 14 px wokół kotwicy wolny).
 - Animacja: SVG/CSS albo `requestAnimationFrame` ograniczony do własnych elementów; koszt na Intel UHD ≤ 1 ms na klatkę.
 
-## 4. Wtyczka 3D: do modułu `src/biomotion`
+## 4. Wtyczka 3D: do modułu `src/biomotion` (uzgodnione z Wizualizatorem, commit f6381e0)
 
-> Do potwierdzenia przez Wizualizatora (właściciel `src/biomotion`, `src/atlas3d`).
+Typy i loader są w kodzie Wizualizatora: `src/biomotion/signatures/contract.ts` i `index.ts`. Ten opis je streszcza; w razie różnicy obowiązuje kod.
 
-- Plik: `src/biomotion/signatures/<uklad>.ts` (agent układu; moduł ładuje go leniwie po ID planszy).
-- Eksport: `createSignature3D(ctx: Signature3DContext): Signature3DHandle`.
+- **Plik:** `src/biomotion/signatures/<uklad>.ts`. Właściciel to agent układu (tylko ten plik); rdzeń modułu należy do Wizualizatora.
+- **Eksport:** `createSignature3D(ctx: Signature3DContext): Signature3DHandle` (albo eksport domyślny).
+- **Ładowanie:** robi to moduł, `loadSignature3D(uklad)` (`import.meta.glob`). Wywołuje go odbiorca:
+  - atlas 3D: `src/atlas3d/controller.ts` tworzy grupę i podaje `state01` (przejście 0,9 s liczy controller);
+  - gablota: `OrganView`;
+  - film: akt.
+
+  Brak pliku oznacza brak wyróżnika.
 
 ```ts
+interface SignaturePath {               // tor z flows3d.json dla cząstek (dane, nie strzałka)
+  id: string; kind: string;
+  path: FlowPath;                       // src/biomotion/particles/FlowPath.ts: próbki na CPU, czas przejścia z przekroju (opcja area)
+  points: THREE.Vector3[];              // w układzie sceny (three.js, metry)
+}
 interface Signature3DContext {
   signature: AtlasSignature;            // te same dane co w 2D
-  scene: THREE.Group;                   // grupa wyróżnika w scenie widoku układu (albo gabloty)
-  paths: FlowPathTexture[];             // tory z flows3d.json jako tekstury danych (FlowPaths.ts): położenie, styczna, promień
-  meshes: (meshId: string) => THREE.Mesh[] | null; // siatki z bindings.json (np. kości dla KONSTRUKCJI, skóra dla CIEPŁA)
-  quality: 'low' | 'high' | 'cinematic';// poziom z QualityManager; ten sam ruch, inna gęstość (BIOMOTION §1 pkt 4)
-  look: 'atlas' | 'film';               // profil wyglądu
+  scene: THREE.Group;                   // wtyczka dodaje obiekty tylko tu
+  camera: THREE.Camera;                 // wygaszanie przy kamerze, wybór „strumień czy krwinki” (W1 Reżysera)
+  paths: SignaturePath[];               // tylko tory z signature.flows obecne w bieżącym widoku
+  meshes: (meshId: string) => THREE.Mesh[] | null;
+  quality: QualityTier;                 // 'Low' | 'Medium' | 'High' | 'Ultra' | 'Cinematic' (QualityManager)
+  tier: BioTierParams;                  // tierParams(quality): mnożnik cząstek, dithering/przezroczystość, LOD
+  look: LookProfileId;                  // 'atlas' | 'film' | 'filmMatte'
+  color: (tokenHex: string) => string;  // w profilu film barwa z kompensacją przed AgX (warunek ΔE00 ≤ 10, M4)
   colors: { system: string; light: string };
   reducedMotion: boolean;
 }
+interface Signature3DFrame {
+  timeSec: number; dtSec: number;       // dtSec = 0 przy pauzie
+  seeked: boolean;                      // skok czasu: ustaw stan deterministycznie
+  state01: number;                      // 0 = spoczynek, 1 = nazwany moment
+  changeView: boolean;                  // „Co się zmieniło”: bez nowego ruchu, najwyżej licznik różnicy
+  paused: boolean;                      // Spacja albo prefers-reduced-motion: stopklatka
+  beatPhase: number;                    // faza serca 0..1 (BioClock)
+}
 interface Signature3DHandle {
-  update(frame: { time: number; dt: number; state01: number; changeView: boolean }): void; // co klatkę (BioFrame)
+  update(frame: Signature3DFrame): void;
+  setPaths?(paths: SignaturePath[]): void;  // zmiana ujęcia albo zbliżenia
   dispose(): void;
 }
 ```
 
-- Budżet Low: ≤ 1 ms GPU, bez półprzezroczystych nakładek, kształty cząstek z `particles/shapes.ts`.
-- Ten sam plik obsługuje atlas 3D i gablotę (inna `scene`, te same dane). Film używa go przez ten sam kontekst z `look: 'film'`.
+- **Pomocnik:** `signaturePathFromPoints(id, kind, points, { area })`.
+- **Budżet Low** (Intel UHD, 1440×900): ≤ 1 ms GPU na wyróżnik, bez półprzezroczystych nakładek (tylko dithering), kształty z `particles/shapes.ts`, ten sam ruch na każdym poziomie.
+- **Pomiar:** `__atlas3dBench` z wtyczką i bez; różnica ≤ 1 ms na Low.
+- **„Co się zmieniło” w 3D:** `Atlas3DViewProps.changeView?: boolean` (AtlasApp przekazuje tryb, widok 3D podaje go wtyczce w `frame.changeView`).
 
 ## 5. Reguła „test zmiennej” (kontrola przed oddaniem wyróżnika)
 
@@ -161,9 +186,9 @@ Strzałki i kreski występują **tylko** w legendzie.
 
 | Punkt | Integrator | Wizualizator |
 |---|---|---|
-| §1 dane `signature` | proponuje | do potwierdzenia |
-| §2 stan i czas | proponuje | do potwierdzenia |
+| §1 dane `signature` | uzgodnione | uzgodnione |
+| §2 stan i czas | uzgodnione | uzgodnione |
 | §3 komponent 2D | proponuje (rama w `AtlasPlate`) | — |
-| §4 wtyczka 3D | proponuje | **do decyzji: ścieżka pliku, typy `FlowPathTexture`, sposób ładowania** |
-| §5 test zmiennej | proponuje | do potwierdzenia |
-| §6 „Jak czytać” | proponuje | do potwierdzenia (strona 3D) |
+| §4 wtyczka 3D | wpisane według kodu Wizualizatora | **uzgodnione** (f6381e0: ścieżka, typy, loader w module) |
+| §5 test zmiennej | uzgodnione | uzgodnione |
+| §6 „Jak czytać” | uzgodnione | uzgodnione |
