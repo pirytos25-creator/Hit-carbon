@@ -69,6 +69,19 @@
           },
           "primary": {
             "type": "boolean"
+          },
+          "method": {
+            "enum": [
+              "static",
+              "objects",
+              "nearest"
+            ],
+            "description": "static = ze skryptu planszy (K1); objects/nearest = z eksportu 3D (anchorMethod)"
+          },
+          "distanceMm": {
+            "type": "number",
+            "minimum": 0,
+            "description": "dla method nearest: odległość punktu kotwicy od struktury"
           }
         }
       }

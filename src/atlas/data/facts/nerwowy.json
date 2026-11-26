@@ -226,7 +226,8 @@
     "accessMode"
    ],
    "checkedBy": null,
-   "order": 3
+   "order": 3,
+   "topic": "adrenalina_we_krwi"
   },
   {
    "id": "nerwowy.metric.adrenalina_w_osoczu.rest",

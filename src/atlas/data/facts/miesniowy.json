@@ -153,7 +153,8 @@
     "accessMode"
    ],
    "checkedBy": null,
-   "order": 2
+   "order": 2,
+   "topic": "udzial_miesni_w_rzucie_serca"
   },
   {
    "id": "miesniowy.metric.udzial_miesni_w_przeplywie_krwi.rest",
