@@ -11,6 +11,7 @@ export const POWLOKOWY: AtlasPlateLayout = {
   titlePl: "Skóra",
   subtitlePl: "Jak skóra pozbywa się ciepła z pracujących mięśni",
   colorVar: "--sys-skin",
+  changeIllustration: ["skin_forehead","skin_back","skin_trunk","sweat_gland","vessels_sup"],
   heroMetricId: "powlokowy.metric.energia_z_pracy_miesni_zamieniana_w_cieplo",
   scaleFreeViews: ["detail"],
   views: [

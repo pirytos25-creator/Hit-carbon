@@ -1511,6 +1511,23 @@
     ],
     "note": "M3_kontrola.md #25: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "krwionosny.quiz",
+   "kind": "quiz",
+   "plate": "krwionosny",
+   "textPl": "Jak zmienia się część krwi z serca, która płynie do pracujących mięśni, przy wysiłku maksymalnym?",
+   "quizType": "updown",
+   "answer": "up",
+   "explainPl": "Rośnie: z poniżej 20% do ok. 80% rzutu serca (w badaniu: wysiłek maksymalny całego ciała). Naczynia trzewi i nerek się zwężają, a naczynia pracujących mięśni się rozszerzają.",
+   "status": "draft",
+   "referenceIds": [
+    "joyner_casey_2015",
+    "calbet_joyner_2010"
+   ],
+   "derivedFrom": [
+    "krwionosny.metric.udzial_miesni_w_przeplywie_krwi"
+   ]
   }
  ]
 }

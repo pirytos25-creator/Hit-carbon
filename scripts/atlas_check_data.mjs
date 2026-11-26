@@ -76,6 +76,33 @@ for (const f of factFiles) {
   check(S('facts'), d, `facts/${f}`);
   facts.push(...d.facts);
 }
+// E1-K3: dane gablot narządów (src/atlas/data/organs/<narzad>.json), ten sam schemat faktów
+const organFacts = [];
+let organDir = [];
+try {
+  organDir = readdirSync(join(data, 'organs')).filter((f) => f.endsWith('.json'));
+} catch {
+  /* brak katalogu */
+}
+for (const f of organDir) {
+  const d = read(join(data, 'organs', f));
+  check(S('facts'), d, `organs/${f}`);
+  if (!d.organ) err(`organs/${f}: brak pola organ`);
+  for (const x of d.facts) {
+    if (x.organ !== d.organ) err(`organs/${f}: fakt ${x.id} z innym organ (${x.organ})`);
+    if (!x.id.startsWith(`${d.organ}.`)) err(`organs/${f}: ID ${x.id} bez prefiksu ${d.organ}.`);
+  }
+  organFacts.push(...d.facts);
+}
+{
+  const seen = new Set();
+  for (const x of organFacts) {
+    if (seen.has(x.id)) err(`organs: powtórzone ID ${x.id}`);
+    seen.add(x.id);
+    for (const id of x.referenceIds ?? []) if (!SCIENTIFIC_REFERENCES[id]) err(`organs: ${x.id} – brak źródła ${id}`);
+    if (shown(x.status) && !x.referenceIds?.length) err(`organs: ${x.id} pokazywany bez referenceIds`);
+  }
+}
 
 // ---------------------------------------------------------------- 2. spójność odwołań
 const sIds = new Set(structures.structures.map((s) => s.id));
@@ -140,7 +167,7 @@ for (const k of Object.keys(planCount)) if (planCount[k] !== dataCount[k]) err(`
 
 // ---------------------------------------------------------------- 3b. E1-K2: treść faktów tylko w facts/*.json
 // Plik planszy trzyma sam układ. Pola faktów (opis roli, statusy, źródła, liczby, cytaty, podsumowania) są zakazane.
-const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus|lessonGoal|question|summaryShort|momentLabel|curriculumRef)\s*:/m;
+const FACT_FIELDS = /^\s*(role|roleStatus|referenceIds|evidence|conversionNote|summary|summaryStatus|summaryReferenceIds|summaryVerified|protocolNotePl|protocolNoteStatus|metrics|quote|locator|notePl|protocolMismatch|status|restStatus|lessonGoal|question|summaryShort|momentLabel|curriculumRef|quiz)\s*:/m;
 for (const f of readdirSync(join(root, 'src/atlas/plates'))) {
   if (!f.endsWith('.ts') || f === 'index.ts') continue;
   const src = readText(join(root, 'src/atlas/plates', f));
@@ -177,10 +204,23 @@ for (const list of shownMetricsByTopic.values()) {
 
 // ---------------------------------------------------------------- 4. textbook_consensus
 const hasBookId = (r) => /NBK\d+|ISBN/i.test(`${r.journal} ${r.url ?? ''} ${r.title}`);
-for (const f of facts) {
+// E1-K3 (Dyrygent): „Wiedza podręcznikowa” na ekranie = dosłowny cytat + lokalizator (rozdział i sekcja) + źródło z ISBN/NBK.
+let textbookShown = 0;
+let textbookInferred = 0;
+for (const f of [...facts, ...organFacts]) {
   if (f.provenance !== 'textbook_consensus' || !shown(f.status)) continue;
-  for (const id of f.referenceIds) if (!hasBookId(SCIENTIFIC_REFERENCES[id] ?? {})) err(`fakt ${f.id}: textbook_consensus, a źródło ${id} bez ISBN/NBK`);
-  if ('locator' in f && !f.locator) warn(`fakt ${f.id}: textbook_consensus bez lokalizatora (strona/sekcja)`);
+  textbookShown++;
+  if (!f.referenceIds?.length) err(`fakt ${f.id}: textbook_consensus bez referenceIds`);
+  for (const id of f.referenceIds ?? []) if (!hasBookId(SCIENTIFIC_REFERENCES[id] ?? {})) err(`fakt ${f.id}: textbook_consensus, a źródło ${id} bez ISBN/NBK`);
+  // Pochodzenie wyliczone regułą w K1 (`auto` zawiera 'provenance') nie jest potwierdzonym faktem podręcznikowym:
+  // dla niego tylko ISBN/NBK i uwaga o lokalizatorze (jak przed K3). Jawne textbook_consensus (E1-K3): pełna reguła.
+  if ((f.auto ?? []).includes('provenance')) {
+    textbookInferred++;
+    if ('locator' in f && !f.locator) warn(`fakt ${f.id}: textbook_consensus (wyliczone) bez lokalizatora`);
+    continue;
+  }
+  if (!f.quote) err(`fakt ${f.id}: textbook_consensus bez dosłownego cytatu (quote)`);
+  if (!f.locator) err(`fakt ${f.id}: textbook_consensus bez lokalizatora (rozdział i sekcja)`);
 }
 
 // ---------------------------------------------------------------- 5. anatomy bez twierdzeń o zmianie
@@ -188,6 +228,7 @@ const CHANGE = /\b(więcej|mniej|rośnie|rosną|spada|spadają|szybciej|wolniej|
 for (const f of facts) if (f.status === 'anatomy' && CHANGE.test(f.textPl ?? '')) err(`fakt ${f.id}: status anatomy, a tekst mówi o zmianie („${f.textPl}”)`);
 
 console.log(`Wielkości pokazane na kilku planszach (topic albo ta sama nazwa): ${crossPairs}`);
+console.log(`Gabloty: ${organDir.length} plik(ów), ${organFacts.length} faktów; „Wiedza podręcznikowa” na ekranie: ${textbookShown} (w tym z pochodzeniem tylko wyliczonym w K1: ${textbookInferred})`);
 console.log(`Dane L1: ${structures.structures.length} pojęć, ${bindings.bindings.length} powiązań siatek (nierozwiązane: ${unresolved}), ${facts.length} rekordów faktów w ${factFiles.length} plikach`);
 console.log(`Na ekranie (dane = plansze): liczby ${dataCount.metrics}, opisy ról ${dataCount.roles}, opisy budowy ${dataCount.anatomy}, podsumowania ${dataCount.summaries}`);
 console.log(errors ? `WYNIK: dane ${errors} błędów, ${warnings} uwag` : `WYNIK: dane OK (${warnings} uwag)`);

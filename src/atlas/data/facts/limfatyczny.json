@@ -1636,6 +1636,22 @@
     ],
     "note": "M3_kontrola.md #58: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "limfatyczny.quiz",
+   "kind": "quiz",
+   "plate": "limfatyczny",
+   "textPl": "Jak zmienia się objętość śledziony po wysiłku do wyczerpania?",
+   "quizType": "updown",
+   "answer": "down",
+   "explainPl": "Maleje: do ok. 44% objętości spoczynkowej (w badaniu: test stopniowany do wyczerpania na rowerze, pomiar zaraz po wysiłku). Śledziona się kurczy i oddaje krew do krążenia.",
+   "status": "draft",
+   "referenceIds": [
+    "stewart_2003"
+   ],
+   "derivedFrom": [
+    "limfatyczny.metric.objetosc_sledziony"
+   ]
   }
  ]
 }

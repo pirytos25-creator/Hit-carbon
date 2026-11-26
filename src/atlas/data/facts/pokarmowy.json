@@ -1706,6 +1706,22 @@
     ],
     "note": "M3_kontrola.md #45: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "pokarmowy.quiz",
+   "kind": "quiz",
+   "plate": "pokarmowy",
+   "textPl": "Jak zmienia się przepływ krwi przez wątrobę w ciężkim wysiłku?",
+   "quizType": "updown",
+   "answer": "down",
+   "explainPl": "Maleje: z ok. 1,6 do ok. 0,4 litra krwi na minutę (w badaniu: wysiłek ciągły na bieżni, pomiar od 5. minuty). Im cięższy wysiłek, tym mniej krwi.",
+   "status": "draft",
+   "referenceIds": [
+    "rowell_1964"
+   ],
+   "derivedFrom": [
+    "pokarmowy.metric.przeplyw_krwi_przez_watrobe"
+   ]
   }
  ]
 }

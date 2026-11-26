@@ -11,6 +11,10 @@ export const WYDALNICZY: AtlasPlateLayout = {
   titlePl: "Układ moczowy",
   subtitlePl: "Dlaczego w sprincie nerki pracują ciszej i oszczędzają wodę",
   colorVar: "--sys-urinary",
+  changeLinks: [
+    { metric: "wydalniczy.metric.frakcja_filtracyjna_czesc_osocza_przesaczona_w_klebuszku", anchors: ["glomerulus","afferent"] },
+    { metric: "wydalniczy.metric.przeplyw_krwi_przez_nerki", anchors: ["kidney","renal_artery"] },
+  ],
   heroMetricId: "wydalniczy.metric.przeplyw_krwi_przez_nerki",
   scaleFreeViews: ["detail"],
   views: [

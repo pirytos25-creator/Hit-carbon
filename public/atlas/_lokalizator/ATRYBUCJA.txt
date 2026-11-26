@@ -1,0 +1,5 @@
+Lokalizator atlasu BIOGENESIS: sylwetka ciała (z przodu i z boku).
+Utwór zależny od Z-Anatomy (CC BY-SA 4.0, https://github.com/Z-Anatomy/Models-of-human-anatomy),
+na bazie BodyParts3D, (c) The Database Center for Life Science (CC BY-SA 2.1 JP).
+Zmiany: połączenie mięśni, kości i trzewi w jedną powłokę (remesh 11 mm), render płaski jednym kolorem.
+Licencja tego pliku: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/deed.pl).

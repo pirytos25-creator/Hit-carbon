@@ -1,0 +1,1027 @@
+{
+ "schemaVersion": 1,
+ "plate": null,
+ "organ": "serce",
+ "description": "Gablota serca (M5): fakty podręcznikowe do panelu „budowa i funkcja” (E1-K3 partia 1). Panel pokazuje tylko statusy checked_* z dopiskiem „Wiedza podręcznikowa”. Teksty interfejsu (legenda) są w polu `interface`, nie w faktach.",
+ "interface": {
+  "legendBloodPl": "Na tym schemacie krew uboga w tlen jest niebieska."
+ },
+ "facts": [
+  {
+   "id": "serce.funkcja.dwie_polowy",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Serce ma cztery jamy: prawa i lewa połowa mają po jednym przedsionku i jednej komorze. Komory to główne pompy serca: tłoczą krew do płuc albo do reszty ciała.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The human heart consists of four chambers: The left side and the right side each have one atrium and one ventricle. […] The ventricles serve as the primary pumping chambers of the heart, propelling blood to the lungs or to the rest of the body.",
+   "locator": "OS 2e, 19.1 Heart Anatomy › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.dwie_polowy"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.dwa_obiegi",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "W organizmie są dwa połączone obiegi krwi: płucny (krążenie małe) i ustrojowy (krążenie duże). Krążenie małe prowadzi krew do płuc i z powrotem; w płucach krew pobiera tlen i oddaje dwutlenek węgla.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "There are two distinct but linked circuits in the human circulation called the pulmonary and systemic circuits. […] The pulmonary circuit transports blood to and from the lungs, where it picks up oxygen and delivers carbon dioxide for exhalation.",
+   "locator": "OS 2e, 19.1 Heart Anatomy › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.dwa_obiegi"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.obieg_duzy",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Krążenie duże niesie krew bogatą w tlen do prawie wszystkich tkanek ciała. Z powrotem do serca wraca krew uboższa w tlen, która potem płynie do płuc.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The systemic circuit transports oxygenated blood to virtually all of the tissues of the body and returns relatively deoxygenated blood and carbon dioxide to the heart to be sent back to the pulmonary circulation.",
+   "locator": "OS 2e, 19.1 Heart Anatomy › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.obieg_duzy"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.prawa_pluca_lewa_cialo",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Prawa komora tłoczy krew odtlenowaną do pnia płucnego, który prowadzi do płuc. Lewa komora to główna pompa krążenia dużego i wyrzuca krew do aorty.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The right ventricle pumps deoxygenated blood into the pulmonary trunk, which leads toward the lungs […] The left ventricle is the major pumping chamber for the systemic circuit; it ejects blood into the aorta through the aortic semilunar valve.",
+   "locator": "OS 2e, 19.1 › Chambers and Circulation through the Heart; 19.1 › Left Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.prawa_pluca_lewa_cialo"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.zastawki_jednokierunkowe",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "W każdym otworze między przedsionkiem a komorą jest zastawka, która zapewnia przepływ krwi tylko w jedną stronę. Są to zastawki przedsionkowo-komorowe, a zastawki w ujściach prowadzących do pnia płucnego i aorty to zastawki półksiężycowate.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Located in each of these openings between the atria and ventricles is a valve, a specialized structure that ensures one-way flow of blood. The valves between the atria and ventricles are known generically as atrioventricular valves. The valves at the openings that lead to the pulmonary trunk and aorta are known generically as semilunar valves.",
+   "locator": "OS 2e, 19.1 › Internal Structure of the Heart › Septa of the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.zastawki_jednokierunkowe"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.zastawki_pk_cofanie",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Gdy komory się kurczą i wypychają krew do pnia płucnego i aorty, zastawki przedsionkowo-komorowe są zamknięte. Dzięki temu krew nie cofa się do przedsionków.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "This occurs when the ventricles contract to eject blood into the pulmonary trunk and aorta. Closure of the two atrioventricular valves prevents blood from being forced back into the atria.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.zastawki_pk_cofanie"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.zastawki_pk_zamykanie_polksiezycowate",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Gdy komory się rozkurczają, krew zaczyna płynąć z powrotem w ich stronę. Naciska wtedy na płatki zastawek półksiężycowatych i je zamyka.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "When the ventricles relax and the change in pressure forces the blood toward the ventricles, the blood presses against these cusps and seals the openings.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.zastawki_pk_zamykanie_polksiezycowate"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.zastawki_kierunek",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Zastawki sprawiają, że krew płynie przez serce tylko w jedną stronę.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The valves ensure unidirectional blood flow through the heart.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.zastawki_kierunek"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.kolejnosc_cyklu",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Cykl pracy serca zaczyna się od skurczu przedsionków, potem kurczą się komory, a na koniec przedsionki i komory się rozkurczają. Potem cykl zaczyna się od nowa.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The cardiac cycle begins with atrial systole and progresses to ventricular systole, atrial diastole, and ventricular diastole, when the cycle begins again.",
+   "locator": "OS 2e, 19.3 Cardiac Cycle, podpis ryc. 19.27 „Overview of the Cardiac Cycle”",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-3-cardiac-cycle",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.kolejnosc_cyklu"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.skurcz_przedsionkow_dopelnia",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Zanim przedsionki się skurczą, komory są już w większości wypełnione krwią, w ok. 70–80%. Skurcz przedsionków dopełnia resztę, ok. 20–30%.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "At the start of atrial systole, the ventricles are normally filled with approximately 70–80 percent of their capacity due to inflow during diastole. Atrial contraction, also referred to as the “atrial kick,” contributes the remaining 20–30 percent of filling (see Figure 19.27).",
+   "locator": "OS 2e, 19.3 › Phases of the Cardiac Cycle › Atrial Systole and Diastole",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-3-cardiac-cycle",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "student",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.skurcz_przedsionkow_dopelnia"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.przedsionki_przed_komorami",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Skurcz przedsionków trwa ok. 0,1 s i kończy się, zanim zacznie się skurcz komór.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Atrial systole lasts approximately 100 ms and ends prior to ventricular systole, as the atrial muscle returns to diastole and blood flow into the atria resumes.",
+   "locator": "OS 2e, 19.3 › Phases of the Cardiac Cycle › Atrial Systole and Diastole",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-3-cardiac-cycle",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "student",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.przedsionki_przed_komorami"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.skurcz_komor_wyrzut",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Skurcz przedsionków wtłacza krew do komór. Skurcz komór wypycha krew z prawej komory do pnia płucnego, a z lewej do aorty.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "When the action potential triggers the muscles in the atria to contract (atrial systole), the pressure within the atria rises further, pumping blood into the ventricles. During ventricular systole, pressure rises in the ventricles, pumping blood into the pulmonary trunk from the right ventricle and into the aorta from the left ventricle.",
+   "locator": "OS 2e, 19.3 › Pressures and Flow",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-3-cardiac-cycle",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.skurcz_komor_wyrzut"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.automatyzm",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Mięsień sercowy sam wytwarza w stałym rytmie impulsy elektryczne. Rozchodzą się one szybko z komórki do komórki i wywołują skurcz; tę cechę nazywamy automatyzmem serca.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Not the least of these exceptional properties is its ability to initiate an electrical potential at a fixed rate that spreads rapidly from cell to cell to trigger the contractile mechanism. This property is known as autorhythmicity.",
+   "locator": "OS 2e, 19.2 Cardiac Muscle and Electrical Activity (wstęp sekcji)",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.automatyzm"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.automatyzm_regulacja",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Choć serce ma automatyzm, tempo jego pracy zmieniają układ nerwowy i hormony.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Even though cardiac muscle has autorhythmicity, heart rate is modulated by the endocrine and nervous systems.",
+   "locator": "OS 2e, 19.2 (wstęp sekcji)",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.automatyzm_regulacja"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.wezel_sa_rozrusznik",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Węzeł zatokowo-przedsionkowy ma najwyższe własne tempo wytwarzania impulsów i nazywa się go rozrusznikiem serca. Zapoczątkowuje rytm zatokowy, czyli prawidłowy rytm pobudzeń, po których serce się kurczy.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The SA node has the highest inherent rate of depolarization and is known as the pacemaker of the heart. It initiates the sinus rhythm, or normal electrical pattern followed by contraction of the heart.",
+   "locator": "OS 2e, 19.2 › Conduction System of the Heart › Sinoatrial (SA) Node",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.wezel_sa_rozrusznik"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.wezel_sa_bez_nerwow",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Nawet bez sterowania przez nerwy i hormony węzeł zatokowo-przedsionkowy wytwarzałby impulsy, ok. 80–100 na minutę.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The SA node, without nervous or endocrine control, would initiate a heart impulse approximately 80–100 times per minute.",
+   "locator": "OS 2e, 19.2 › Comparative Rates of Conduction System Firing",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "student",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.wezel_sa_bez_nerwow"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.przewodzenie_sa_av",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Impuls z węzła zatokowo-przedsionkowego rozchodzi się po przedsionkach. W węźle przedsionkowo-komorowym jest opóźniany o ok. 0,1 s. Dzięki temu przedsionki mogą zakończyć tłoczenie krwi, zanim impuls pobiegnie dalej.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "(2) The SA node initiates the action potential, which sweeps across the atria. (3) After reaching the atrioventricular node, there is a delay of approximately 100 ms that allows the atria to complete pumping blood before the impulse is transmitted to the atrioventricular bundle.",
+   "locator": "OS 2e, 19.2 › Conduction System of the Heart, podpis ryc. 19.19 „Cardiac Conduction”",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "student",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.przewodzenie_sa_av"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie Dyrygenta (trzecia kontrola) (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.przewodzenie_do_komor",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Po tym opóźnieniu impuls biegnie pęczkiem przedsionkowo-komorowym i jego odnogami do włókien Purkiniego, a z nich do mięśnia komór. Wtedy zaczyna się skurcz komór.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "(4) Following the delay, the impulse travels through the atrioventricular bundle and bundle branches to the Purkinje fibers, and also reaches the right papillary muscle via the moderator band. (5) The impulse spreads to the contractile fibers of the ventricle. (6) Ventricular contraction begins.",
+   "locator": "OS 2e, 19.2, podpis ryc. 19.19 „Cardiac Conduction”",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.przewodzenie_do_komor"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.atrioventricular_node",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "atrioventricular_node",
+   "textPl": "Węzeł przedsionkowo-komorowy leży w dolnej części prawego przedsionka, w przegrodzie przedsionkowo-komorowej. Ta przegroda nie pozwala impulsowi przejść wprost do komór z pominięciem węzła.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The atrioventricular (AV) node is a second clump of specialized myocardial conductive cells, located in the inferior portion of the right atrium within the atrioventricular septum. The septum prevents the impulse from spreading directly to the ventricles without passing through the AV node.",
+   "locator": "OS 2e, 19.2 › Conduction System of the Heart › Atrioventricular (AV) Node",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.atrioventricular_node"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.barwa_krwi_ciemnoczerwona",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Hemoglobina związana z tlenem jest jasnoczerwona. W tkankach oddaje część tlenu i staje się ciemniejsza, ciemnoczerwona.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The bright red, oxygenated hemoglobin travels to the body tissues, where it releases some of the oxygen molecules, becoming darker red deoxyhemoglobin, sometimes referred to as reduced hemoglobin.",
+   "locator": "OS 2e, 18.3 Erythrocytes › Hemoglobin",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-3-erythrocytes",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.barwa_krwi_ciemnoczerwona"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.barwa_krwi_ciemnoczerwona_2",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Krew, która w płucach pobrała tlen, jest jasnoczerwona. Krew, która oddała tlen w tkankach, ma ciemniejszy, przygaszony czerwony kolor.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Blood that has just taken up oxygen in the lungs is bright red, and blood that has released oxygen in the tissues is a more dusky red.",
+   "locator": "OS 2e, 18.1 An Overview of Blood › Characteristics of Blood",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-1-an-overview-of-blood",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.barwa_krwi_ciemnoczerwona_2"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.funkcja.barwa_krwi_nie_niebieska",
+   "kind": "organ_function",
+   "plate": null,
+   "organ": "serce",
+   "textPl": "Krew żylna pobrana do probówki nie jest niebieska.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Anyone who has observed a specimen of venous blood in a tube can confirm that it is not blue.",
+   "locator": "CM, wyd. 3 (1990), rozdz. 45 Cyanosis › Basic Science, NBK367",
+   "url": "https://www.ncbi.nlm.nih.gov/books/NBK367/",
+   "referenceIds": [
+    "clinical_methods_cyanosis"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.funkcja.barwa_krwi_nie_niebieska"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.right_atrium",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "right_atrium",
+   "textPl": "Prawy przedsionek przyjmuje krew, która wraca do serca z krążenia dużego, czyli z tkanek ciała.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The right atrium serves as the receiving chamber for blood returning to the heart from the systemic circulation.",
+   "locator": "OS 2e, 19.1 › Right Atrium",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.right_atrium"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.left_atrium",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "left_atrium",
+   "textPl": "Lewy przedsionek przyjmuje krew bogatą w tlen, która wraca z płuc czterema żyłami płucnymi.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "After exchange of gases in the pulmonary capillaries, blood returns to the left atrium high in oxygen via one of the four pulmonary veins.",
+   "locator": "OS 2e, 19.1 › Left Atrium",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.left_atrium"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.right_ventricle",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "right_ventricle",
+   "textPl": "Gdy prawa komora się kurczy, wyrzuca krew do pnia płucnego. Pień dzieli się na prawą i lewą tętnicę płucną, które niosą krew do płuc.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "When the right ventricle contracts, it ejects blood into the pulmonary trunk, which branches into the left and right pulmonary arteries that carry it to each lung.",
+   "locator": "OS 2e, 19.1 › Right Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.right_ventricle"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.left_ventricle",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "left_ventricle",
+   "textPl": "Lewa komora to główna pompa krążenia dużego. Wyrzuca krew do aorty przez zastawkę aortalną.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The left ventricle is the major pumping chamber for the systemic circuit; it ejects blood into the aorta through the aortic semilunar valve.",
+   "locator": "OS 2e, 19.1 › Left Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.left_ventricle"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.left_ventricle_wall",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "left_ventricle_wall",
+   "textPl": "Ściana lewej komory jest znacznie grubsza niż prawej. Obie komory pompują tyle samo krwi, ale lewa musi wytworzyć dużo większe ciśnienie, bo krążenie duże stawia większy opór.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The myocardium in the left ventricle is significantly thicker than that of the right ventricle. Both ventricles pump the same amount of blood, but the left ventricle must generate a much greater pressure to overcome greater resistance in the systemic circuit.",
+   "locator": "OS 2e, 19.1 › Layers, podpis ryc. 19.8 „Differences in Ventricular Muscle Thickness”",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.left_ventricle_wall"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.interventricular_septum",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "interventricular_septum",
+   "textPl": "Między komorami leży przegroda międzykomorowa. Jest dużo grubsza od przegrody między przedsionkami, bo komory przy skurczu wytwarzają znacznie większe ciśnienie.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Between the two ventricles is a second septum known as the interventricular septum. […] It is substantially thicker than the interatrial septum, since the ventricles generate far greater pressure when they contract.",
+   "locator": "OS 2e, 19.1 › Internal Structure of the Heart › Septa of the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.interventricular_septum"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.tricuspid_valve",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "tricuspid_valve",
+   "textPl": "Zastawka trójdzielna leży między prawym przedsionkiem a prawą komorą. Zwykle ma trzy płatki.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Between the right atrium and the right ventricle is the right atrioventricular valve, or tricuspid valve. It typically consists of three flaps, or leaflets, made of endocardium reinforced with additional connective tissue.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.tricuspid_valve"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.mitral_valve",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "mitral_valve",
+   "textPl": "Zastawka dwudzielna (mitralna) leży między lewym przedsionkiem a lewą komorą. Ma dwa płatki.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Located at the opening between the left atrium and left ventricle is the mitral valve, also called the bicuspid valve or the left atrioventricular valve. Structurally, this valve consists of two cusps, compared to the three cusps of the tricuspid valve.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.mitral_valve"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.pulmonary_valve",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "pulmonary_valve",
+   "textPl": "U podstawy pnia płucnego leży zastawka pnia płucnego (półksiężycowata). Nie pozwala krwi cofać się z pnia płucnego.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "At the base of the pulmonary trunk is the pulmonary semilunar valve that prevents backflow from the pulmonary trunk.",
+   "locator": "OS 2e, 19.1 › Right Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.pulmonary_valve"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.aortic_valve",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "aortic_valve",
+   "textPl": "U podstawy aorty leży zastawka aortalna (półksiężycowata). Nie pozwala krwi cofać się z aorty i zwykle ma trzy płatki.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "At the base of the aorta is the aortic semilunar valve, or the aortic valve, which prevents backflow from the aorta. It normally is composed of three flaps.",
+   "locator": "OS 2e, 19.1 › Heart Valve Structure and Function",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.aortic_valve"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.chordae_tendineae",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "chordae_tendineae",
+   "textPl": "Każdy płatek zastawki jest przyczepiony do mocnych pasm tkanki łącznej, czyli nici ścięgnistych. Łączą one płatki z mięśniem brodawkowatym, który wyrasta z dolnej ściany komory.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Each flap of the valve is attached to strong strands of connective tissue, the chordae tendineae […]. They connect each of the flaps to a papillary muscle that extends from the inferior ventricular surface.",
+   "locator": "OS 2e, 19.1 › Right Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.chordae_tendineae"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.papillary_muscles",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "papillary_muscles",
+   "textPl": "Gdy komora się kurczy, kurczą się też mięśnie brodawkowate i napinają nici ścięgniste. Dzięki temu płatki zastawek nie wywijają się do przedsionków, a krew nie cofa się do nich.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "To prevent any potential backflow, the papillary muscles also contract, generating tension on the chordae tendineae. This prevents the flaps of the valves from being forced into the atria and regurgitation of the blood back into the atria during ventricular contraction.",
+   "locator": "OS 2e, 19.1 › Right Ventricle",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.papillary_muscles"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.sinoatrial_node",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "sinoatrial_node",
+   "textPl": "Węzeł zatokowo-przedsionkowy to skupisko wyspecjalizowanych komórek w górnej i tylnej ścianie prawego przedsionka, blisko ujścia żyły głównej górnej. To on ustala prawidłowy rytm serca.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Normal cardiac rhythm is established by the sinoatrial (SA) node, a specialized clump of myocardial conducting cells located in the superior and posterior walls of the right atrium in close proximity to the orifice of the superior vena cava.",
+   "locator": "OS 2e, 19.2 › Conduction System of the Heart › Sinoatrial (SA) Node",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-2-cardiac-muscle-and-electrical-activity",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.sinoatrial_node"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.aorta",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "aorta",
+   "textPl": "Aorta to największa tętnica w ciele i wychodzi z lewej komory. Tętnice od niej odchodzące rozprowadzają krew do prawie wszystkich tkanek.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Largest artery in the body, originating from the left ventricle […]; arteries originating from the aorta distribute blood to virtually all tissues of the body",
+   "locator": "OS 2e, 20.5 Circulatory Pathways › The Aorta, tabela „Components of the Aorta”, wiersz „Aorta”",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-5-circulatory-pathways",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.aorta"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.pulmonary_trunk",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "pulmonary_trunk",
+   "textPl": "Pień płucny prowadzi krew odtlenowaną z prawej komory w stronę płuc i dzieli się na prawą i lewą tętnicę płucną. Pień płucny, tętnice płucne i ich odgałęzienia to po urodzeniu jedyne tętnice, które niosą krew uboższą w tlen.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The right ventricle pumps deoxygenated blood into the pulmonary trunk, which leads toward the lungs and bifurcates into the left and right pulmonary arteries. […] The pulmonary trunk arteries and their branches are the only arteries in the post-natal body that carry relatively deoxygenated blood.",
+   "locator": "OS 2e, 19.1 › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.pulmonary_trunk"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.venae_cavae",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "venae_cavae",
+   "textPl": "Dwie główne żyły krążenia dużego, żyła główna górna i żyła główna dolna, oddają krew do prawego przedsionka.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "[…] eventually flowing into the two major systemic veins, the superior vena cava and the inferior vena cava, which return blood to the right atrium.",
+   "locator": "OS 2e, 19.1 › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.venae_cavae"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie sprawdzającego, OK w trzeciej kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.venae_cavae_obszary",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "venae_cavae_obszary",
+   "textPl": "Żyła główna górna zbiera krew z części ciała nad przeponą: głowy, szyi, kończyn górnych i klatki piersiowej. Żyła główna dolna zbiera krew spod przepony: z kończyn dolnych, brzucha i miednicy.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "The superior vena cava drains blood from regions superior to the diaphragm: the head, neck, upper limbs, and the thoracic region. […] The inferior vena cava drains blood from areas inferior to the diaphragm: the lower limbs and abdominopelvic region of the body.",
+   "locator": "OS 2e, 19.1 › Right Atrium",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.venae_cavae_obszary"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.pulmonary_veins",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "pulmonary_veins",
+   "textPl": "Żyły płucne prowadzą krew bogatą w tlen z płuc do lewego przedsionka. Po urodzeniu to jedyne żyły, które niosą krew bogatą w tlen.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "[…] the pulmonary veins—the only post-natal veins in the body that carry highly oxygenated blood. The pulmonary veins conduct blood into the left atrium, which pumps the blood into the left ventricle, which in turn pumps oxygenated blood into the aorta […]",
+   "locator": "OS 2e, 19.1 › Chambers and Circulation through the Heart",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.pulmonary_veins"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.role.coronary_arteries",
+   "kind": "organ_role",
+   "plate": null,
+   "organ": "serce",
+   "part": "coronary_arteries",
+   "textPl": "Tętnice wieńcowe doprowadzają krew do mięśnia sercowego. Odchodzą od początkowej części aorty, tuż za jej wyjściem z lewej komory.",
+   "status": "checked_agent",
+   "provenance": "textbook_consensus",
+   "accessMode": "full_text",
+   "quote": "Coronary arteries supply blood to the myocardium and other components of the heart. The first portion of the aorta after it arises from the left ventricle gives rise to the coronary arteries.",
+   "locator": "OS 2e, 19.1 › Coronary Circulation › Coronary Arteries",
+   "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy",
+   "referenceIds": [
+    "openstax_ap2e"
+   ],
+   "tier": "primary",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/E1K3_serce_kontrola.md",
+    "rows": [
+     "serce.role.coronary_arteries"
+    ],
+    "note": "E1-K3 partia 1: cytat dosłowny potwierdzony w niezależnej kontroli; brzmienie wyszukującego, OK w kontroli (2026-11-26)"
+   }
+  },
+  {
+   "id": "serce.curriculum",
+   "kind": "curriculum_ref",
+   "plate": null,
+   "organ": "serce",
+   "status": "draft",
+   "referenceIds": [],
+   "scope": "P",
+   "locator": "V.4.9) (numeracja 2024; w numeracji 2018: V.4.11)",
+   "quote": "przedstawia automatyzm pracy serca;",
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.); cytat z dyrygent/podstawy_oceny_narzadow.md §A2"
+  }
+ ]
+}

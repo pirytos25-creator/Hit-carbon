@@ -32,7 +32,12 @@ export interface AtlasFactRecord {
     | 'question'
     | 'summary_short'
     | 'moment_label'
-    | 'curriculum_ref';
+    | 'curriculum_ref'
+    // M6: „Sprawdź się” (pytanie, odpowiedź i wyjaśnienie z faktu planszy)
+    | 'quiz'
+    // E1-K3: dane gablot narządów (src/atlas/data/organs/<narzad>.json)
+    | 'organ_role'
+    | 'organ_function';
   plate: string | null;
   status: AtlasFactStatus;
   referenceIds: string[];
@@ -62,6 +67,10 @@ export interface AtlasFactRecord {
   derivedFrom?: string[];
   /** curriculum_ref: zakres podstawy programowej. */
   scope?: 'P' | 'R';
+  /** quiz: rodzaj pytania, odpowiedź (up/down/same albo kotwica) i wyjaśnienie po odpowiedzi. */
+  quizType?: 'updown' | 'point';
+  answer?: string;
+  explainPl?: string;
 }
 export interface AtlasFactsFile {
   schemaVersion: number;
@@ -88,6 +97,7 @@ export type AtlasPlateLayout = Omit<
   | 'summaryShort'
   | 'momentLabel'
   | 'curriculumRef'
+  | 'quiz'
 > & { labels: AtlasLayoutLabel[] };
 
 const u = <T>(v: T | null | undefined): T | undefined => (v === null ? undefined : v);
@@ -187,6 +197,9 @@ export function buildPlate(layout: AtlasPlateLayout, file: AtlasFactsFile): Atla
     if (t) short[st] = t;
   }
   if (short.rest || short.sprint) content.summaryShort = short;
+  const qz = one('quiz');
+  if (qz?.textPl && qz.quizType && qz.answer && qz.explainPl)
+    content.quiz = { type: qz.quizType, question: qz.textPl, answer: qz.answer, explain: qz.explainPl, status: qz.status, derivedFrom: qz.derivedFrom ?? [] };
   const cur = one('curriculum_ref');
   if (cur?.quote && cur.locator) content.curriculumRef = { scope: cur.scope ?? 'P', locator: cur.locator, quote: cur.quote, status: cur.status };
   return content;

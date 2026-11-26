@@ -757,6 +757,29 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Tętno w wysiłku rośnie przez wycofanie przywspółczulnego (nerw błędny) i pobudzenie współczulne; młodzi aktywni mężczyźni, test stopniowany.',
   },
+  // E1-K3 (fakty podręcznikowe, gablota serca M5): źródła z ISBN albo NBK (model §3.6 pkt 9)
+  openstax_ap2e: {
+    id: 'openstax_ap2e',
+    authors: 'Betts, J. G., i in.',
+    year: 2022,
+    title: 'Anatomy and Physiology 2e',
+    journal: 'OpenStax (Rice University), Houston; ISBN 978-1-951693-42-8 (druk 978-1-711494-06-7); CC BY 4.0',
+    url: 'https://openstax.org/books/anatomy-and-physiology-2e/pages/19-1-heart-anatomy',
+    acts: [],
+    summaryPl:
+      'Otwarty podręcznik anatomii i fizjologii (CC BY 4.0): budowa serca (19.1), układ bodźcoprzewodzący (19.2), cykl pracy serca (19.3), krew (18.1, 18.3), drogi krążenia (20.5).',
+  },
+  clinical_methods_cyanosis: {
+    id: 'clinical_methods_cyanosis',
+    authors: 'Snider, H. L.',
+    year: 1990,
+    title: 'Cyanosis (rozdz. 45)',
+    journal:
+      'W: Walker, H. K., Hall, W. D., Hurst, J. W. (red.), Clinical Methods: The History, Physical, and Laboratory Examinations, wyd. 3, Butterworths, Boston; NCBI Bookshelf NBK367; ISBN 0-409-90077-X',
+    url: 'https://www.ncbi.nlm.nih.gov/books/NBK367/',
+    acts: [],
+    summaryPl: 'Rozdział o sinicy: krew żylna w probówce nie jest niebieska.',
+  },
   statpearls_pyramidal: {
     id: 'statpearls_pyramidal',
     authors: 'Munakomi, S., & McKenzie, J.',

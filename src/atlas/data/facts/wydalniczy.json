@@ -1618,6 +1618,23 @@
     ],
     "note": "M3_kontrola.md #51: OK (niezależny agent Dyrygenta, 2026-11-26)"
    }
+  },
+  {
+   "id": "wydalniczy.quiz",
+   "kind": "quiz",
+   "plate": "wydalniczy",
+   "textPl": "Jak zmienia się przepływ krwi przez nerki w ciężkim wysiłku?",
+   "quizType": "updown",
+   "answer": "down",
+   "explainPl": "Maleje: o ok. 30%, a 5 min po wysiłku do wyczerpania nawet o ok. 50% (w badaniu: rower, etapy po 4 min, pomiar zaraz po etapie).",
+   "status": "draft",
+   "referenceIds": [
+    "kawakami_2018",
+    "kawakami_2024"
+   ],
+   "derivedFrom": [
+    "wydalniczy.metric.przeplyw_krwi_przez_nerki"
+   ]
   }
  ]
 }

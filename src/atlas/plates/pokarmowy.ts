@@ -11,6 +11,12 @@ export const POKARMOWY: AtlasPlateLayout = {
   titlePl: "Układ pokarmowy",
   subtitlePl: "Trawienie zwalnia, a wątroba uwalnia paliwo dla mięśni",
   colorVar: "--sys-digest",
+  changeLinks: [
+    { metric: "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi", anchors: ["liver","hepatic_veins","d_liver","d_hepatic_veins"] },
+    { metric: "pokarmowy.metric.przeplyw_krwi_przez_watrobe", anchors: ["liver","portal_vein","d_liver","d_portal"] },
+    { metric: "pokarmowy.metric.spadek_przeplywu_pien_trzewny_t_krezkowa_gorna", anchors: ["stomach","small_intestine"] },
+    { metric: "pokarmowy.metric.glukoza_we_krwi", anchors: ["hepatic_veins"] },
+  ],
   heroMetricId: "pokarmowy.metric.tempo_oddawania_glukozy_do_krwi",
   views: [
     "front",

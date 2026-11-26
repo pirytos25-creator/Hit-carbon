@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentType } from 'react';
+import type { SignatureProps2D } from './signatures/contract';
 import { EVIDENCE_PHRASE, PALETTE, flowStyle, isShown, systemOfPlate, type AtlasLevel } from './palette';
 import { projectToPixels, viewResolution } from './projection';
 import type {
@@ -121,6 +122,47 @@ interface Props {
    * ciała w tej samej skali). Skala jest liczona dla najszerszego kadru z listy.
    */
   scaleWithViews?: AtlasView[];
+  /** M6 „Co się zmieniło”: kotwice w pełnym kolorze; reszta kadru przygaszona (maska z otworami wokół kotwic). */
+  highlight?: string[] | null;
+  /** M6 „Sprawdź się” (pytanie „Wskaż…”): kliknięcie podpisu wybiera kotwicę zamiast przypinać podpis. */
+  onPick?: ((anchor: string) => void) | null;
+  /** M6 „Co się zmieniło” dla wyróżnika (kontrakt §2). */
+  changeView?: boolean;
+}
+
+// M6: wyróżniki 2D (docs/atlas_wizualizacja/KONTRAKT_WYROZNIKA.md §3): src/atlas/signatures/<uklad>.tsx, ładowane leniwie.
+const SIGNATURES = import.meta.glob<{ default: ComponentType<SignatureProps2D> }>('./signatures/*.tsx');
+const signatureCache = new Map<string, ComponentType<SignatureProps2D> | null>();
+function signatureComponent(id: string): ComponentType<SignatureProps2D> | null {
+  if (!signatureCache.has(id)) {
+    const load = SIGNATURES[`./signatures/${id}.tsx`];
+    signatureCache.set(id, load ? lazy(load) : null);
+  }
+  return signatureCache.get(id) ?? null;
+}
+
+/** Stan 0–1 z przejściem 0,9 s ease-in-out (karta Reżysera §3.1 pkt 8); przy reduced motion skok. */
+function useState01(target: number, reduced: boolean): number {
+  const [v, setV] = useState(target);
+  useEffect(() => {
+    if (reduced) {
+      setV(target);
+      return;
+    }
+    let raf = 0;
+    const from = v;
+    const t0 = performance.now();
+    const step = (t: number) => {
+      const k = Math.min(1, (t - t0) / 900);
+      const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      setV(from + (target - from) * e);
+      if (k < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target, reduced]);
+  return v;
 }
 
 interface Placed {
@@ -133,7 +175,7 @@ interface Placed {
   hPx: number;
 }
 
-export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHeight, flows3d, level, scaleWithViews }: Props) {
+export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHeight, flows3d, level, scaleWithViews, highlight, onPick, changeView }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [box, setBox] = useState({ w: 900, h: 700 });
   const [hover, setHover] = useState<string | null>(null);
@@ -376,10 +418,16 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
     onMouseLeave: () => setHover((h) => (h === key ? null : h)),
     onFocus: () => setFocus(key),
     onBlur: () => setFocus((f) => (f === key ? null : f)),
-    onClick: () => setPinned((p) => (p === key ? null : key)),
+    onClick: () => (onPick ? onPick(anchorOfKey(key)) : setPinned((p) => (p === key ? null : key))),
     'aria-pressed': pinned === key,
   });
-  const dimmed = (key: string) => active !== null && active !== key;
+  // Klucz podpisu to `${widok}-${kotwica}` (kotwice i widoki to \w, bez myślników).
+  const anchorOfKey = (key: string) => key.slice(key.indexOf('-') + 1);
+  const hl = highlight ? new Set(highlight) : null;
+  const dimmed = (key: string) => (active !== null && active !== key) || (!!hl && !hl.has(anchorOfKey(key)));
+  // Wyróżnik 2D (kontrakt §3)
+  const Signature = content.signature ? signatureComponent(content.id) : null;
+  const state01 = useState01(sprint ? 1 : 0, reduced);
 
   const roleBlock = (l: AtlasLabel, align: 'left' | 'right') => {
     const rt = roleText(l);
@@ -436,7 +484,7 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                       y={0}
                       width={W}
                       height={H}
-                      style={{ opacity: st === state || !f.v.images[state] ? 1 : 0, transition: reduced ? undefined : 'opacity 700ms ease' }}
+                      style={{ opacity: (st === state || !f.v.images[state] ? 1 : 0) * (hl ? 0.3 : 1), transition: reduced ? undefined : 'opacity 700ms ease' }}
                     />
                   ) : null
                 )}
@@ -467,6 +515,75 @@ export function AtlasPlate({ content, anchors, state, baseUrl, onlyViews, fitHei
                   );
                 })}
               </g>
+              {hl &&
+                (() => {
+                  const R = 52 * u;
+                  const holes = Object.entries(f.v.anchors)
+                    .filter(([a]) => hl.has(a))
+                    .map(([a, [nx, ny]]) => ({ a, x: f.ox - f.cx0 + nx * W, y: ny * H }));
+                  const id = `atlas-hl-${content.id}-${f.view}`;
+                  return (
+                    <g aria-hidden="true">
+                      {/* Obraz jest przygaszony (krycie 0,3); w kołach wokół wybranych kotwic ten sam obraz w pełnym kolorze.
+                          Gasną tylko piksele ciała (tło obrazu jest przezroczyste), więc nie ma prostokąta na tle studia. */}
+                      <mask id={id}>
+                        <rect x={f.ox} y={0} width={f.fw} height={H} fill="black" />
+                        {holes.map((h) => (
+                          <circle key={h.a} cx={h.x} cy={h.y} r={R} fill="white" />
+                        ))}
+                      </mask>
+                      {f.v.images[state] && (
+                        <image
+                          href={`${baseUrl}${f.v.images[state]}`}
+                          x={f.ox - f.cx0}
+                          y={0}
+                          width={W}
+                          height={H}
+                          mask={`url(#${id})`}
+                          clipPath={`url(#atlas-clip-${content.id}-${f.view})`}
+                        />
+                      )}
+                      {holes.map((h) => (
+                        <circle key={`r-${h.a}`} cx={h.x} cy={h.y} r={R} fill="none" stroke={colorLight} strokeWidth={2 * u} strokeOpacity={0.9} />
+                      ))}
+                    </g>
+                  );
+                })()}
+              {Signature && content.signature && (
+                <Suspense fallback={null}>
+                  <Signature
+                    signature={content.signature}
+                    view={f.view as AtlasView}
+                    state01={state01}
+                    changeView={!!changeView}
+                    level={level}
+                    reducedMotion={reduced}
+                    project={(pt) => {
+                      const cam = f.v.camera;
+                      if (!cam) return null;
+                      const [px, py] = projectToPixels(pt, cam, viewResolution(anchors, f.view));
+                      return [f.ox - f.cx0 + px, py];
+                    }}
+                    paths={(flows3d?.flows ?? [])
+                      .filter((fl) => content.signature!.flows.includes(fl.id) && f.v.camera && (!fl.views || fl.views.includes(f.view as AtlasView)))
+                      .map((fl) => ({
+                        id: fl.id,
+                        kind: fl.kind,
+                        pts: fl.points.map((pt) => {
+                          const [px, py] = projectToPixels(pt, f.v.camera!, viewResolution(anchors, f.view));
+                          return [f.ox - f.cx0 + px, py] as [number, number];
+                        }),
+                      }))}
+                    anchorPts={Object.fromEntries(
+                      content.signature.anchors
+                        .filter((a) => f.v.anchors[a])
+                        .map((a) => [a, [f.ox - f.cx0 + f.v.anchors[a][0] * W, f.v.anchors[a][1] * H] as [number, number]])
+                    )}
+                    unit={u}
+                    colors={{ system: color, light: colorLight, flow: (k) => flowStyle(k).color }}
+                  />
+                </Suspense>
+              )}
               {!pinsMode &&
                 f.placed.map((p) => {
                   const primary = p.label.tier === undefined || p.label.tier === 'primary';

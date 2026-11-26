@@ -11,6 +11,7 @@ export const MOZG: AtlasPlateLayout = {
   titlePl: "Mózg",
   subtitlePl: "Kto steruje sprintem i czym mózg się wtedy żywi",
   colorVar: "--sys-brain",
+  changeIllustration: ["motor_cortex","cerebellum","paracentral"],
   heroMetricId: "mozg.metric.mleczan_z_krwi_jako_paliwo_mozgu",
   views: [
     "side",

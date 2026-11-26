@@ -1,6 +1,8 @@
 import { Component, lazy, Suspense, useEffect, useState, type ComponentType, type CSSProperties, type ReactNode } from 'react';
 import { AtlasPlate, fullWords, useFlows3d } from './AtlasPlate';
 import { AtlasGlyph } from './glyphs';
+import { computeChange } from './change';
+import { Locator } from './Locator';
 import {
   EVIDENCE_PHRASE,
   PALETTE,
@@ -10,6 +12,7 @@ import {
   paletteCssVars,
   shownCurriculum,
   shownProtocolNote,
+  shownQuiz,
   shownSummary,
   systemOfPlate,
   type AtlasLevel,
@@ -17,7 +20,7 @@ import {
 import { ATLAS_SYSTEMS } from './plates';
 import { ATLAS_GLOSSARY } from './glossary';
 import { viewResolution } from './projection';
-import type { AtlasAnchorsFile, AtlasMetric, AtlasPlateContent, AtlasState, AtlasSystemId, AtlasView } from './types';
+import type { AtlasAnchorsFile, AtlasMetric, AtlasPlateContent, AtlasQuiz, AtlasState, AtlasSystemId, AtlasView } from './types';
 import { SCIENTIFIC_REFERENCES } from '../science/ScientificReferences';
 import { EVIDENCE_LEVEL_META } from '../science/EducationalContent';
 
@@ -28,7 +31,28 @@ export interface Atlas3DViewProps {
   state: AtlasState;
   level: AtlasLevel;
   onClose: () => void;
+  /**
+   * M6 (punkt wejścia gabloty): widok 3D wywołuje to na końcu wejścia diegetycznego (OrganDive, wizualizator)
+   * z ID narządu, np. 'heart'. AtlasApp montuje wtedy OrganView; zamknięcie gabloty wraca do widoku 3D.
+   */
+  onOpenOrgan?: (organ: string) => void;
 }
+
+/** Kontrakt gabloty narządu: src/organs/OrganView (wizualizator: scena; integrator: rama i montaż w AtlasApp). */
+export interface OrganViewProps {
+  organ: string;
+  system: AtlasSystemId;
+  state: AtlasState;
+  level: AtlasLevel;
+  onClose: () => void;
+}
+const organLoaders = import.meta.glob<{ default?: ComponentType<OrganViewProps>; OrganView?: ComponentType<OrganViewProps> }>(
+  '../organs/OrganView.{tsx,ts,jsx,js}',
+);
+const loadOrgan = Object.values(organLoaders)[0];
+const OrganView = loadOrgan
+  ? lazy(() => loadOrgan().then((m) => ({ default: (m.default ?? m.OrganView) as ComponentType<OrganViewProps> })))
+  : null;
 // Moduł może jeszcze nie istnieć: import.meta.glob zwraca wtedy pusty obiekt, a build przechodzi.
 const view3dLoaders = import.meta.glob<{ default?: ComponentType<Atlas3DViewProps>; Atlas3DView?: ComponentType<Atlas3DViewProps> }>(
   '../atlas3d/Atlas3DView.{tsx,ts,jsx,js}',
@@ -201,6 +225,87 @@ function StatusNotes({ content, state }: { content: AtlasPlateContent; state: At
   );
 }
 
+/**
+ * „Sprawdź się” (P6): jedno pytanie na planszę, bez punktów i bez mierzenia czasu; wynik tylko w tej przeglądarce
+ * (stan komponentu, nic nie jest zapisywane). Pytanie „Wskaż…” wybiera się kliknięciem podpisu na planszy.
+ */
+function QuizBox({
+  quiz,
+  draft,
+  picking,
+  setPicking,
+  picked,
+  reset,
+}: {
+  quiz: AtlasQuiz;
+  draft: boolean;
+  picking: boolean;
+  setPicking: (b: boolean) => void;
+  picked: string | null;
+  reset: () => void;
+}) {
+  const [choice, setChoice] = useState<string | null>(null);
+  const answer = quiz.type === 'point' ? picked : choice;
+  const ok = answer !== null && answer === quiz.answer;
+  const OPTIONS: [string, string][] = [
+    ['up', '↑ rośnie'],
+    ['down', '↓ maleje'],
+    ['same', '= bez zmian'],
+  ];
+  return (
+    <section aria-label="Sprawdź się" className="rounded-lg border border-slate-700 bg-slate-900/50 p-3 flex flex-col gap-2">
+      <h3 className="font-mono-tech text-[14px] tracking-[0.12em] uppercase text-slate-400">
+        Sprawdź się
+        <DraftMark on={draft} />
+      </h3>
+      <p className="text-[15px] text-slate-100 leading-snug">{quiz.question}</p>
+      {quiz.type === 'updown' ? (
+        <div className="grid grid-cols-3 gap-1.5" role="group" aria-label="Odpowiedź">
+          {OPTIONS.map(([k, label]) => (
+            <button
+              key={k}
+              type="button"
+              aria-pressed={choice === k}
+              onClick={() => setChoice(k)}
+              className={'rounded-lg px-2 py-1.5 text-sm font-display font-semibold transition ' + (choice === k ? 'bg-slate-600 text-white' : 'bg-slate-800 text-slate-200 hover:bg-slate-700')}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <button
+          type="button"
+          aria-pressed={picking}
+          onClick={() => setPicking(!picking)}
+          className={'self-start rounded-lg px-3 py-1.5 text-sm font-display font-semibold ' + (picking ? 'bg-slate-600 text-white' : 'bg-slate-800 text-slate-200 hover:bg-slate-700')}
+        >
+          {picking ? 'Kliknij podpis na planszy…' : 'Wskaż na planszy'}
+        </button>
+      )}
+      {answer !== null && (
+        <div aria-live="polite" className="text-sm leading-snug">
+          <p className={ok ? 'text-emerald-300 font-semibold' : 'text-amber-200 font-semibold'}>{ok ? 'Dobrze.' : 'Jeszcze nie.'}</p>
+          {ok ? (
+            <p className="text-slate-300">{quiz.explain}</p>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                setChoice(null);
+                reset();
+              }}
+              className="mt-1 text-sky-300 underline underline-offset-2"
+            >
+              Spróbuj jeszcze raz
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
 /** Mały przełącznik poziomu w nagłówku (S4). Nazwy: „Podstawowy | Rozszerzony”. */
 function LevelSwitch({ level, setLevel }: { level: AtlasLevel; setLevel: (l: AtlasLevel) => void }) {
   return (
@@ -223,6 +328,11 @@ function LevelSwitch({ level, setLevel }: { level: AtlasLevel; setLevel: (l: Atl
 export function AtlasApp() {
   const [systemId, setSystemId] = useState<AtlasSystemId>(systemFromHash);
   const [state, setState] = useState<AtlasState>('sprint');
+  // M6: „Co się zmieniło” (trzeci przycisk momentu) = moment + przygaszenie reszty; „Sprawdź się” w trybie „Wskaż…”
+  const [changeMode, setChangeMode] = useState(false);
+  const [picking, setPicking] = useState(false);
+  const [picked, setPicked] = useState<string | null>(null);
+  const [organ, setOrgan] = useState<string | null>(null);
   const [level, setLevel] = useState<AtlasLevel>(readLevel);
   const [anchors, setAnchors] = useState<AtlasAnchorsFile | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -297,7 +407,13 @@ export function AtlasApp() {
   };
   const splitScale = panels.length > 1;
   const panelIdx = Math.min(panel, Math.max(0, panels.length - 1));
-  useEffect(() => setPanel(0), [systemId]);
+  useEffect(() => {
+    setPanel(0);
+    setChangeMode(false);
+    setPicking(false);
+    setPicked(null);
+    setOrgan(null);
+  }, [systemId]);
   useEffect(() => {
     let alive = true;
     setShow3d(false);
@@ -339,6 +455,7 @@ export function AtlasApp() {
     const t = e.target as HTMLElement | null;
     if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
     e.preventDefault();
+    setChangeMode(false);
     setState((s) => (s === 'rest' ? 'sprint' : 'rest'));
   };
 
@@ -385,6 +502,9 @@ export function AtlasApp() {
   const summaries = { rest: shownSummary(content, 'rest'), sprint: shownSummary(content, 'sprint') };
   const shorts = { rest: lessonText(content.summaryShort?.rest), sprint: lessonText(content.summaryShort?.sprint) };
   const lead = (s: AtlasState) => shorts[s]?.text ?? summaries[s];
+  const change = isCard ? null : computeChange(content);
+  const changeOn = changeMode && !!change;
+  const quizShown = shownQuiz(content);
   const groups = PALETTE.groups
     .map((g) => ({ ...g, systems: ATLAS_SYSTEMS.filter((s) => systemOfPlate(s.id)?.group === g.key) }))
     .filter((g) => g.systems.length);
@@ -392,32 +512,74 @@ export function AtlasApp() {
   // Przełącznik momentu (S5, S13): „Spoczynek | <nazwa momentu>”; tekst na kolorze układu = onColor (kontrast ≥ 4,5:1).
   const momentSwitch = !isCard && (
     <div
-      className="relative z-40 shrink-0 grid grid-cols-2 rounded-xl bg-slate-900 p-1 w-full max-w-[420px] max-lg:fixed max-lg:bottom-3 max-lg:left-3 max-lg:right-3 max-lg:w-auto max-lg:max-w-none max-lg:z-30 max-lg:shadow-lg max-lg:shadow-black/60 max-lg:border max-lg:border-slate-700"
+      className={`relative z-40 shrink-0 grid ${change ? 'grid-cols-3 max-w-[560px]' : 'grid-cols-2 max-w-[420px]'} rounded-xl bg-slate-900 p-1 w-full max-lg:fixed max-lg:bottom-3 max-lg:left-3 max-lg:right-3 max-lg:w-auto max-lg:max-w-none max-lg:z-30 max-lg:shadow-lg max-lg:shadow-black/60 max-lg:border max-lg:border-slate-700`}
       role="tablist"
       aria-label="Stan organizmu"
     >
-      {(['rest', 'sprint'] as AtlasState[]).map((s) => (
+      {(['rest', 'sprint'] as AtlasState[]).map((s) => {
+        const on = state === s && !changeOn;
+        return (
+          <button
+            key={s}
+            role="tab"
+            aria-selected={on}
+            onClick={() => {
+              setChangeMode(false);
+              setState(s);
+            }}
+            className={`rounded-lg py-2 px-2 text-sm font-display font-semibold transition ${on ? 'text-white' : 'text-slate-300 hover:text-white'}`}
+            style={on ? { background: s === 'sprint' ? color : '#334155', color: s === 'sprint' ? onColor : undefined } : undefined}
+          >
+            {s === 'rest' ? 'Spoczynek' : moment?.text ?? 'Sprint HIIT'}
+            {s === 'sprint' && <DraftMark on={!!moment?.draft} />}
+          </button>
+        );
+      })}
+      {change && (
         <button
-          key={s}
           role="tab"
-          aria-selected={state === s}
-          onClick={() => setState(s)}
-          className={`rounded-lg py-2 px-2 text-sm font-display font-semibold transition ${state === s ? 'text-white' : 'text-slate-300 hover:text-white'}`}
-          style={state === s ? { background: s === 'sprint' ? color : '#334155', color: s === 'sprint' ? onColor : undefined } : undefined}
+          aria-selected={changeOn}
+          onClick={() => {
+            setState('sprint');
+            setChangeMode(true);
+          }}
+          className={`rounded-lg py-2 px-2 text-sm font-display font-semibold transition ${changeOn ? '' : 'text-slate-300 hover:text-white'}`}
+          style={changeOn ? { background: color, color: onColor } : undefined}
         >
-          {s === 'rest' ? 'Spoczynek' : moment?.text ?? 'Sprint HIIT'}
-          {s === 'sprint' && <DraftMark on={!!moment?.draft} />}
+          Co się zmieniło
         </button>
-      ))}
+      )}
     </div>
   );
 
   // S7: legenda „Jak czytać” w rogu sceny (rozwijana, nie zasłania obrazu, dopóki jej nie otworzyć).
-  const howToRead = legend.length > 0 && (
+  const sig = content.signature;
+  const howToRead = (legend.length > 0 || !!sig) && (
     <details className="absolute left-2 top-2 lg:left-4 lg:top-4 z-20 max-w-[min(340px,calc(100%-1rem))] rounded-xl border border-slate-700 bg-slate-950/90 text-sm text-slate-300 shadow-lg shadow-black/40">
       <summary className="cursor-pointer select-none px-3 py-1.5 font-display font-semibold text-slate-200">Jak czytać</summary>
       <section className="px-3 pb-3 flex flex-col gap-1.5" aria-label="Legenda strzałek">
-        <p className="text-slate-400">Strzałka pokazuje kierunek przepływu. Numer albo podpis przy kropce opisuje strukturę.</p>
+        {sig ? (
+          <>
+            <p className="text-slate-300 font-semibold">{sig.namePl}</p>
+            <ul className="flex flex-col gap-1 list-none p-0 m-0">
+              {sig.legend.map((it) => (
+                <li key={it.labelPl} className="flex items-center gap-2">
+                  <svg width="22" height="14" viewBox="0 0 22 14" className="shrink-0" aria-hidden="true">
+                    {it.symbol === 'particle' && <ellipse cx="11" cy="7" rx="7" ry="4.5" fill={colorLight} />}
+                    {it.symbol === 'pulse' && <circle cx="11" cy="7" r="4" fill="#fff" stroke={colorLight} strokeWidth="2.5" />}
+                    {it.symbol === 'glow' && <circle cx="11" cy="7" r="6" fill={colorLight} fillOpacity="0.45" />}
+                    {it.symbol === 'counter' && <text x="11" y="11" textAnchor="middle" fontSize="11" fill={colorLight}>×N</text>}
+                    {it.symbol === 'flow' && <path d="M2,7 L16,7 M13,3 L19,7 L13,11" stroke={colorLight} strokeWidth="2" fill="none" />}
+                  </svg>
+                  <span>{it.labelPl}</span>
+                </li>
+              ))}
+            </ul>
+            {sig.chips.length > 0 && <p className="text-slate-400">{sig.chips.join(' · ')}</p>}
+          </>
+        ) : (
+          <p className="text-slate-400">Strzałka pokazuje kierunek przepływu. Numer albo podpis przy kropce opisuje strukturę.</p>
+        )}
         <ul className="flex flex-col gap-1.5 list-none p-0 m-0">
           {legend.map((it) => {
             const fs = flowStyle(it.kind);
@@ -558,7 +720,7 @@ export function AtlasApp() {
               return Atlas3DView ? (
                 <View3DBoundary fallback={unavailable}>
                   <Suspense fallback={<p className="h-full flex items-center justify-center text-slate-400">Wczytywanie widoku 3D…</p>}>
-                    <Atlas3DView system={systemId} state={shownState} level={level} onClose={() => setShow3d(false)} />
+                    <Atlas3DView system={systemId} state={shownState} level={level} onClose={() => setShow3d(false)} onOpenOrgan={setOrgan} />
                   </Suspense>
                 </View3DBoundary>
               ) : (
@@ -567,10 +729,50 @@ export function AtlasApp() {
             })()}
           </div>
         )}
+        {organ && (
+          // Gablota narządu (M5, wizualizator) nad widokiem 3D; zamknięcie wraca do widoku 3D (setOrgan(null)).
+          <div className="absolute inset-x-0 top-0 bottom-0 z-[35] bg-[var(--atlas-bg)]" role="dialog" aria-label={`Gablota: ${organ}`}>
+            {(() => {
+              const back = (
+                <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300">
+                  <p>Gablota tego narządu nie jest jeszcze dostępna w tej wersji.</p>
+                  <button type="button" onClick={() => setOrgan(null)} className="rounded-lg bg-slate-800 px-3 py-1.5 text-sm hover:bg-slate-700">
+                    Wróć do widoku 3D
+                  </button>
+                </div>
+              );
+              return OrganView ? (
+                <View3DBoundary fallback={back}>
+                  <Suspense fallback={<p className="h-full flex items-center justify-center text-slate-400">Wczytywanie gabloty…</p>}>
+                    <OrganView organ={organ} system={systemId} state={shownState} level={level} onClose={() => setOrgan(null)} />
+                  </Suspense>
+                </View3DBoundary>
+              ) : (
+                back
+              );
+            })()}
+          </div>
+        )}
+        {anchors && !narrow && (
+          <div className="pointer-events-none absolute right-3 bottom-2 z-10 hidden lg:block">
+            <Locator
+              base={BASE}
+              anchors={anchors}
+              views={splitScale ? panels[panelIdx]?.views ?? viewsPresent : viewsPresent}
+              scaleFree={content.scaleFreeViews}
+              height={86}
+              color={colorLight}
+            />
+          </div>
+        )}
         {anchors ? (
           narrow ? (
             <div className="w-full flex flex-col items-center gap-2 pt-9">
               {content.views.map((v) => (
+                <div key={v} className="relative w-full">
+                <div className="pointer-events-none absolute right-1 top-1 z-10">
+                  <Locator base={BASE} anchors={anchors} views={[v]} scaleFree={content.scaleFreeViews} height={64} color={colorLight} />
+                </div>
                 <AtlasPlate
                   key={v}
                   content={content}
@@ -581,7 +783,11 @@ export function AtlasApp() {
                   flows3d={flows3d}
                   level={level}
                   scaleWithViews={sameScaleViews(v)}
+                  highlight={changeOn ? change!.anchors : null}
+                  changeView={changeOn}
+                  onPick={picking ? (a) => { setPicked(a); setPicking(false); } : null}
                 />
+                </div>
               ))}
             </div>
           ) : (
@@ -619,6 +825,9 @@ export function AtlasApp() {
                   fitHeight
                   flows3d={flows3d}
                   level={level}
+                  highlight={changeOn ? change!.anchors : null}
+                  changeView={changeOn}
+                  onPick={picking ? (a) => { setPicked(a); setPicking(false); } : null}
                 />
               </div>
             </>
@@ -659,6 +868,35 @@ export function AtlasApp() {
           </p>
         )}
 
+        {changeOn && change && (
+          <section aria-label="Co się zmieniło" className="rounded-lg border p-3 text-sm flex flex-col gap-1.5" style={{ borderColor: colorLight }}>
+            <h3 className="font-mono-tech text-[14px] tracking-[0.12em] uppercase" style={{ color: colorLight }}>
+              Co się zmieniło
+            </h3>
+            {change.illustration ? (
+              <p className="text-slate-300">
+                Wyróżnione struktury to <span className="rounded border border-slate-600 px-1 text-slate-200">ilustracja</span>: na tej planszy nie ma
+                liczb spoczynku i momentu, które dałoby się porównać.
+              </p>
+            ) : (
+              <>
+                <p className="text-slate-300">W pełnym kolorze: struktury, przy których liczby planszy zmieniają się najbardziej.</p>
+                <ul className="list-none p-0 m-0 flex flex-col gap-1">
+                  {change.basis.map((m) => (
+                    <li key={m.labelPl} className="text-slate-200">
+                      {extended ? m.labelPl : fullWords(m.labelPl)}:{' '}
+                      <span className="font-mono-tech">
+                        {m.rest} → <span style={{ color: colorLight }}>{m.sprint}</span>
+                        {m.unit ? ` ${m.unit}` : ''}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </section>
+        )}
+
         {hero && <MetricCard m={hero} sprint={sprint} colorLight={colorLight} extended={extended} hero />}
 
         {/* Oba opisy w jednej komórce siatki: wysokość = dłuższy, więc przełączenie stanu nie przesuwa panelu.
@@ -692,6 +930,21 @@ export function AtlasApp() {
               ))}
             </div>
           </details>
+        )}
+
+        {quizShown && (
+          <QuizBox
+            key={systemId}
+            quiz={quizShown.quiz}
+            draft={quizShown.draft}
+            picking={picking}
+            setPicking={setPicking}
+            picked={picked}
+            reset={() => {
+              setPicked(null);
+              setPicking(false);
+            }}
+          />
         )}
 
         <details key={level} open={extended} className="group rounded-lg border border-slate-800">

@@ -67,6 +67,12 @@ Rendery plansz (`public/atlas/<układ>/*.webp`) powstały lokalnie w Blenderze 5
 | **RCSB PDB** (`5H53`, przez Molecular Nodes) | domena publiczna / CC0 | Fujii i Namba 2017 (źródło struktury) | mięśniowy: mostek poprzeczny |
 | Modele dołączone do Z-Anatomy (wg `License.txt` Z-Anatomy): „Brainder” i „White matter” (University of Washington), „Cranial Nerves and Foramina” (University of Dundee, CAHID, **CC BY 4.0**) | w ramach Z-Anatomy | University of Washington; University of Dundee, CAHID | mózg i nerwy czaszkowe (wzór lub część modeli Z-Anatomy) |
 
+### Lokalizator (M6)
+Mini-sylwetka w rogu sceny (`public/atlas/_lokalizator/front.webp`, `side.webp`, `locator.json`) to osobny wypiek
+(`blender/atlas/bake_lokalizator.py`): powłoka z mięśni, kości i trzewi Z-Anatomy (`atlas_lib.build_silhouette`, struktury NC
+zablokowane przez `license_check`), render płaski jednym kolorem. To utwór zależny, więc **CC BY-SA 4.0**; atrybucja w pliku
+`public/atlas/_lokalizator/ATRYBUCJA.txt` i we wspólnym wierszu licencji atlasu. Ten sam plik posłuży gablotom narządów.
+
 ### Blokada licencji NC
 Z-Anatomy zawiera dwa modele na licencjach niekomercyjnych: **nerkę (CC BY-NC)** i **ucho wewnętrzne (CC BY-NC-SA)**. `blender/atlas/atlas_lib.py` (`NC_BLOCKLIST`, `license_check`) przerywa render (`LicenseError`), gdy którykolwiek z tych obiektów (nerka, miedniczka nerkowa, ślimak, przedsionek, naczynia wewnątrznerkowe) trafiłby na planszę. Nerki na planszach moczowej i hormonalnej pochodzą więc z HuBMAP (CC BY 4.0).
 
