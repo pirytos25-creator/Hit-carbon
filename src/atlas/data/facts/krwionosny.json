@@ -1389,8 +1389,8 @@
    "id": "krwionosny.lessonGoal",
    "kind": "lesson_goal",
    "plate": "krwionosny",
-   "textPl": "Zobaczysz, jak serce i naczynia kierują krew tam, gdzie organizm najbardziej jej potrzebuje.",
-   "status": "draft",
+   "textPl": "Zobaczysz, jak w wysiłku serce pompuje więcej krwi, a naczynia kierują ją do pracujących mięśni.",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015",
     "calbet_joyner_2010",
@@ -1399,14 +1399,22 @@
    "derivedFrom": [
     "krwionosny.summary.rest",
     "krwionosny.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#20",
+     "runda 2 #7"
+    ],
+    "note": "M3_kontrola.md #20: brzmienie sprawdzającego; M3_kontrola_runda2.md #7: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "krwionosny.question",
    "kind": "question",
    "plate": "krwionosny",
    "textPl": "Dokąd płynie krew, gdy mięśnie ciężko pracują?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015",
     "calbet_joyner_2010",
@@ -1415,28 +1423,42 @@
    "derivedFrom": [
     "krwionosny.summary.sprint",
     "krwionosny.metric.udzial_miesni_w_przeplywie_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#21"
+    ],
+    "note": "M3_kontrola.md #21: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "krwionosny.summaryShort.rest",
    "kind": "summary_short",
    "plate": "krwionosny",
    "textPl": "W spoczynku serce bije ok. 60 razy na minutę i pompuje ok. 5 litrów krwi na minutę. Mięśnie dostają mniej niż 20% tej krwi, a dużo trafia do wątroby, jelit i nerek.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015"
    ],
    "derivedFrom": [
     "krwionosny.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#23"
+    ],
+    "note": "M3_kontrola.md #23: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "krwionosny.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "krwionosny",
    "textPl": "W sprincie serce bije szybciej i mocniej, a przy wysiłku maksymalnym pompuje ok. 20–25 litrów krwi na minutę. Ok. 80% tej krwi płynie do pracujących mięśni, a naczynia trzewne się zwężają. Mięśnie nóg działają jak pompa, która wyciska krew żyłami z powrotem do serca.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "joyner_casey_2015",
     "calbet_joyner_2010",
@@ -1445,30 +1467,50 @@
    "derivedFrom": [
     "krwionosny.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#24"
+    ],
+    "note": "M3_kontrola.md #24: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "krwionosny.momentLabel",
    "kind": "moment_label",
    "plate": "krwionosny",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#22"
+    ],
+    "note": "M3_kontrola.md #22: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "krwionosny.curriculum",
    "kind": "curriculum_ref",
    "plate": "krwionosny",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.4.8)",
    "quote": "przedstawia budowę serca oraz krążenie krwi w obiegu płucnym i ustrojowym;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#25"
+    ],
+    "note": "M3_kontrola.md #25: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

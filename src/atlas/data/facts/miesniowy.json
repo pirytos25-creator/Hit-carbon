@@ -1448,7 +1448,7 @@
    "kind": "lesson_goal",
    "plate": "miesniowy",
    "textPl": "Dowiesz się, które mięśnie napędzają bieg i jak włókna mięśniowe dołączają do pracy.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "dorn_2012",
     "hamner_2010",
@@ -1458,14 +1458,21 @@
    ],
    "derivedFrom": [
     "miesniowy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#6"
+    ],
+    "note": "M3_kontrola.md #6: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "miesniowy.question",
    "kind": "question",
    "plate": "miesniowy",
-   "textPl": "Które włókna mięśniowe dołączają do pracy dopiero w sprincie?",
-   "status": "draft",
+   "textPl": "Które włókna mięśniowe dołączają do pracy przy bardzo ciężkim wysiłku?",
+   "status": "checked_agent",
    "referenceIds": [
     "dorn_2012",
     "hamner_2010",
@@ -1477,14 +1484,22 @@
    "derivedFrom": [
     "miesniowy.summary.sprint",
     "miesniowy.metric.rekrutowane_wlokna_miesniowe"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#7",
+     "runda 2 #1"
+    ],
+    "note": "M3_kontrola.md #7: brzmienie sprawdzającego; M3_kontrola_runda2.md #1: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "miesniowy.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "miesniowy",
    "textPl": "W sprincie pracuje cały łańcuch napędowy: pośladki i mięśnie kulszowo-goleniowe prostują biodro, czworogłowy prostuje kolano, a łydka odbija stopę. Najpierw pracują małe jednostki z włóknami typu I, a przy ok. 90% VO₂max dołączają włókna IIa i część włókien IIx. W każdym pracującym włóknie główki miozyny raz za razem ciągną aktynę, zużywając ATP.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "dorn_2012",
     "hamner_2010",
@@ -1495,19 +1510,32 @@
    "derivedFrom": [
     "miesniowy.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#9"
+    ],
+    "note": "M3_kontrola.md #9: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "miesniowy.momentLabel",
    "kind": "moment_label",
    "plate": "miesniowy",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#8"
+    ],
+    "note": "M3_kontrola.md #8: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

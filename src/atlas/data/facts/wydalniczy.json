@@ -1476,7 +1476,7 @@
    "kind": "lesson_goal",
    "plate": "wydalniczy",
    "textPl": "Dowiesz się, jak nerki tworzą mocz i dlaczego w wysiłku oszczędzają wodę.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "garza_leslie_2025",
     "kawakami_2018",
@@ -1492,14 +1492,21 @@
    "derivedFrom": [
     "wydalniczy.summary.rest",
     "wydalniczy.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#46"
+    ],
+    "note": "M3_kontrola.md #46: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "wydalniczy.question",
    "kind": "question",
    "plate": "wydalniczy",
    "textPl": "Dlaczego w sprincie nerki tworzą mniej moczu?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "kawakami_2018",
     "kenney_ho_1995",
@@ -1515,28 +1522,43 @@
    "derivedFrom": [
     "wydalniczy.summary.sprint",
     "wydalniczy.metric.przeplyw_krwi_przez_nerki"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#47"
+    ],
+    "note": "M3_kontrola.md #47: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "wydalniczy.summaryShort.rest",
    "kind": "summary_short",
    "plate": "wydalniczy",
-   "textPl": "W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej ok. 180 litrów osocza na dobę, a kanaliki odzyskują prawie całą tę wodę. Mocz spływa do miedniczki nerkowej, a moczowodami do pęcherza moczowego.",
-   "status": "draft",
+   "textPl": "W spoczynku nerki dostają około jednej piątej krwi wypompowywanej przez serce. W kłębuszkach nerkowych przesącza się z niej ok. 180 litrów osocza na dobę, a kanaliki odzyskują prawie całą tę wodę. Reszta to mocz, który spływa do miedniczki nerkowej, a moczowodami do pęcherza moczowego.",
+   "status": "checked_agent",
    "referenceIds": [
     "garza_leslie_2025"
    ],
    "derivedFrom": [
     "wydalniczy.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#49",
+     "runda 2 #16"
+    ],
+    "note": "M3_kontrola.md #49: brzmienie sprawdzającego; M3_kontrola_runda2.md #16: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "wydalniczy.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "wydalniczy",
-   "textPl": "W sprincie nerka dostaje mniej krwi, bo układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Nerki przesączają mniej i tworzą mniej moczu. Hormony ADH i aldosteron każą wtedy oszczędzać wodę i sól.",
-   "status": "draft",
+   "textPl": "W sprincie nerka dostaje mniej krwi, bo układ współczulny zwęża jej naczynia, a krew płynie głównie do pracujących mięśni. Nerki przesączają mniej i tworzą mniej moczu. Hormony ADH i aldosteron, które rosną w ciągu minut ciężkiej pracy, każą oszczędzać wodę i sól.",
+   "status": "checked_agent",
    "referenceIds": [
     "kawakami_2018",
     "kenney_ho_1995",
@@ -1551,29 +1573,51 @@
    "derivedFrom": [
     "wydalniczy.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#50",
+     "runda 2 #17"
+    ],
+    "note": "M3_kontrola.md #50: brzmienie sprawdzającego; M3_kontrola_runda2.md #17: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "wydalniczy.momentLabel",
    "kind": "moment_label",
    "plate": "wydalniczy",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
     "wydalniczy.protocolNote"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#48"
+    ],
+    "note": "M3_kontrola.md #48: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "wydalniczy.curriculum",
    "kind": "curriculum_ref",
    "plate": "wydalniczy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.5.3)",
    "quote": "przedstawia proces tworzenia moczu oraz wyjaśnia znaczenie regulacji hormonalnej w tym procesie;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#51"
+    ],
+    "note": "M3_kontrola.md #51: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }

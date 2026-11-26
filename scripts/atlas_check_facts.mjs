@@ -56,6 +56,7 @@ const sentences = (t) =>
     .split(/[.!?](?=\s+[\p{Lu}\d„]|\s*$)/u)
     .filter((x) => x.trim()).length;
 let shownLesson = 0;
+const paletteTs = readText(join(root, 'src', 'atlas', 'palette.ts'));
 const shown = (st) => ATLAS_SHOWN_STATUSES.includes(st ?? 'draft');
 let errors = 0;
 const err = (m) => {
@@ -144,11 +145,21 @@ for (const sys of ATLAS_SYSTEMS) {
     if (!STATUSES.has(t.status)) err(`${where}: nieznany status „${t.status}”`);
     if (!t.text?.trim()) err(`${where}: pusty tekst`);
     if (!t.derivedFrom?.length) err(`${where}: brak derivedFrom (z jakich sprawdzonych faktów powstał tekst)`);
+    // Źródłem może być też definicja wzorcowa atlasu DEFAULT_PROTOCOL_NOTE (palette.ts). Niesprawdzony fakt wolno wskazać
+    // tylko jako notę protokołu planszy (definicja momentu, np. nazwa momentu hormonalny), obok źródła sprawdzonego.
+    let checkedSrc = 0;
     for (const id of t.derivedFrom ?? []) {
+      if (id === 'DEFAULT_PROTOCOL_NOTE') {
+        if (!/export const DEFAULT_PROTOCOL_NOTE\b/.test(paletteTs)) err(`${where}: brak DEFAULT_PROTOCOL_NOTE w palette.ts`);
+        checkedSrc++;
+        continue;
+      }
       const f = factIndex.get(id);
       if (!f) err(`${where}: derivedFrom wskazuje nieistniejący fakt ${id}`);
-      else if (!CHECKED.has(f.status)) err(`${where}: derivedFrom wskazuje fakt ${id} bez statusu checked (${f.status}); nowy tekst wolno tylko przeformułować ze sprawdzonego`);
+      else if (CHECKED.has(f.status)) checkedSrc++;
+      else if (f.kind !== 'protocol_note') err(`${where}: derivedFrom wskazuje fakt ${id} bez statusu checked (${f.status}); nowy tekst wolno tylko przeformułować ze sprawdzonego`);
     }
+    if (t.derivedFrom?.length && !checkedSrc) err(`${where}: derivedFrom bez żadnego sprawdzonego źródła`);
     if (key.startsWith('summaryShort') && sentences(t.text) > 3) err(`${where}: ${sentences(t.text)} zdań (najwyżej 3)`);
     if (key === 'question' && !t.text.trim().endsWith('?')) err(`${where}: pytanie musi kończyć się „?”`);
     if (key === 'momentLabel' && t.text.length > 24) err(`${where}: za długi napis przycisku (${t.text.length} > 24 znaki)`);

@@ -74,12 +74,13 @@ export const DEFAULT_PROTOCOL_NOTE =
   '„Sprint” to koniec 45 s pracy przy ok. 88% VO₂max (6 × 45 s pracy / 45 s przerwy). Liczby z innego protokołu mają dopisek „W badaniu: …”.';
 
 /**
- * Bramka pola protocolNotePl (M3, S2): plansza bez własnego opisu dostaje zdanie wzorcowe; własny opis tylko sprawdzony.
- * Niesprawdzony opis = null: w Podstawowym nie ma żadnego zdania zastępczego (status tylko w Rozszerzonym, pod „Więcej”).
+ * Bramka pola protocolNotePl (M3, S2): własny opis planszy tylko sprawdzony. Plansza bez własnego opisu albo z opisem
+ * jeszcze niesprawdzonym dostaje definicję wzorcową atlasu (decyzja Dyrygenta po kontroli M3: każda plansza ma na ekranie
+ * definicję „sprintu”). Nigdy zdanie zastępcze typu „czeka na sprawdzenie” (status tylko w Rozszerzonym, pod „Więcej”).
  */
-export function shownProtocolNote(content: AtlasPlateContent): string | null {
-  if (!content.protocolNotePl) return DEFAULT_PROTOCOL_NOTE;
-  return isShown(content.protocolNoteStatus) ? content.protocolNotePl : null;
+export function shownProtocolNote(content: AtlasPlateContent): string {
+  if (content.protocolNotePl && isShown(content.protocolNoteStatus)) return content.protocolNotePl;
+  return DEFAULT_PROTOCOL_NOTE;
 }
 
 /**

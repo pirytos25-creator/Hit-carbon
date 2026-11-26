@@ -1446,23 +1446,26 @@
    "id": "hormonalny.protocolNote",
    "kind": "protocol_note",
    "plate": "hormonalny",
-   "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań ciągłego wysiłku przy 80–87% VO₂max, z 30 s sprintu maksymalnego albo z krótkiego biegu do wyczerpania, więc dla jednego interwału są tylko przybliżeniem. Liczby pochodzą z późniejszych interwałów (po kilku minutach sesji).",
-   "status": "draft",
+   "textPl": "Sprint na tej planszy to koniec 45 s pracy przy ok. 88% VO₂max. Liczby pochodzą z badań o innych protokołach (opis przy każdej liczbie): wysiłku ciągłego przy 80–87% VO₂max, 30 s sprintu maksymalnego, wysiłku do wyczerpania albo interwałów przy ok. 82% VO₂max. Dla jednego interwału są więc tylko przybliżeniem.",
+   "status": "checked_agent",
    "referenceIds": [],
    "provenance": null,
    "accessMode": null,
    "checkedBy": {
-    "report": "fakty_kontrola_koncowa.md",
-    "rows": [],
-    "note": "fakty_kontrola_koncowa.md: zdanie o „późniejszych interwałach” nieprawdziwe - ukryte"
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#26",
+     "runda 2 #8"
+    ],
+    "note": "M3_kontrola.md #26: brzmienie sprawdzającego; M3_kontrola_runda2.md #8: OK (drugi niezależny agent, 2026-11-26)"
    }
   },
   {
    "id": "hormonalny.lessonGoal",
    "kind": "lesson_goal",
    "plate": "hormonalny",
-   "textPl": "Dowiesz się, jak hormony w kilka chwil przestawiają organizm na wysiłek.",
-   "status": "draft",
+   "textPl": "Dowiesz się, jak hormony, zwłaszcza adrenalina, przestawiają organizm na wysiłek.",
+   "status": "checked_agent",
    "referenceIds": [
     "kindermann_1982",
     "sigal_1994",
@@ -1472,14 +1475,22 @@
    ],
    "derivedFrom": [
     "hormonalny.summary.sprint"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#27",
+     "runda 2 #9"
+    ],
+    "note": "M3_kontrola.md #27: brzmienie sprawdzającego; M3_kontrola_runda2.md #9: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "hormonalny.question",
    "kind": "question",
    "plate": "hormonalny",
    "textPl": "Jak adrenalina przestawia organizm na sprint?",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "kindermann_1982",
     "sigal_1994",
@@ -1491,14 +1502,21 @@
    "derivedFrom": [
     "hormonalny.summary.sprint",
     "hormonalny.metric.adrenalina_we_krwi"
-   ]
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#28"
+    ],
+    "note": "M3_kontrola.md #28: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "hormonalny.summaryShort.rest",
    "kind": "summary_short",
    "plate": "hormonalny",
    "textPl": "W spoczynku gruczoły dokrewne wydzielają hormony spokojnie, w rytmie dnia i posiłków. We krwi jest mało adrenaliny, a insulina i glukagon z trzustki utrzymują stały poziom cukru.",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [
     "marliss_vranic_2002",
     "godfrey_2003",
@@ -1507,14 +1525,21 @@
    "derivedFrom": [
     "hormonalny.summary.rest"
    ],
-   "state": "rest"
+   "state": "rest",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#30"
+    ],
+    "note": "M3_kontrola.md #30: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "hormonalny.summaryShort.sprint",
    "kind": "summary_short",
    "plate": "hormonalny",
-   "textPl": "W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę, której stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby. Wątroba wypuszcza wtedy do krwi kilka razy więcej glukozy.",
-   "status": "draft",
+   "textPl": "W sprincie nerwy współczulne każą rdzeniowi nadnerczy wyrzucić adrenalinę; przy bardzo intensywnym wysiłku jej stężenie we krwi rośnie kilkanaście razy. Adrenalina płynie z krwią do serca, mięśni i wątroby. Wątroba wypuszcza do krwi kilka razy więcej glukozy.",
+   "status": "checked_agent",
    "referenceIds": [
     "kindermann_1982",
     "sigal_1994",
@@ -1525,30 +1550,52 @@
    "derivedFrom": [
     "hormonalny.summary.sprint"
    ],
-   "state": "sprint"
+   "state": "sprint",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md; side-session-notes/dyrygent/M3_kontrola_runda2.md",
+    "rows": [
+     "#31",
+     "runda 2 #10"
+    ],
+    "note": "M3_kontrola.md #31: brzmienie sprawdzającego; M3_kontrola_runda2.md #10: OK (drugi niezależny agent, 2026-11-26)"
+   }
   },
   {
    "id": "hormonalny.momentLabel",
    "kind": "moment_label",
    "plate": "hormonalny",
    "textPl": "Koniec 45 s pracy",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "derivedFrom": [
-    "wydalniczy.protocolNote",
-    "limfatyczny.protocolNote"
-   ]
+    "hormonalny.protocolNote",
+    "DEFAULT_PROTOCOL_NOTE"
+   ],
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#29"
+    ],
+    "note": "M3_kontrola.md #29: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   },
   {
    "id": "hormonalny.curriculum",
    "kind": "curriculum_ref",
    "plate": "hormonalny",
-   "status": "draft",
+   "status": "checked_agent",
    "referenceIds": [],
    "scope": "P",
    "locator": "V.6.3)",
    "quote": "przedstawia antagonistyczne działanie hormonów na przykładzie regulacji poziomu glukozy we krwi;",
-   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)"
+   "notePl": "Podstawa programowa, biologia, liceum (zpe.gov.pl, rok szkolny 2025/2026, brzmienie z 2024 r.)",
+   "checkedBy": {
+    "report": "side-session-notes/dyrygent/M3_kontrola.md",
+    "rows": [
+     "#32"
+    ],
+    "note": "M3_kontrola.md #32: OK (niezależny agent Dyrygenta, 2026-11-26)"
+   }
   }
  ]
 }
