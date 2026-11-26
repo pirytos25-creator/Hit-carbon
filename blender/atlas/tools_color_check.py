@@ -94,5 +94,5 @@ for scale, key in CONFIGS:
     bpy.data.images.remove(img)
 
 with open(os.path.join(OUT, "color_report.json"), "w", encoding="utf-8") as f:
-    json.dump({"configs": "LIGHT_SCALE_KEY_SCALE", "emission": al.EMISSION, "results": results}, f, indent=1)
+    json.dump({"configs": "LIGHT_SCALE_KEY_SCALE", "emission": al.EMISSION_RULE, "results": results}, f, indent=1)
 print("COLOR_DONE", OUT)

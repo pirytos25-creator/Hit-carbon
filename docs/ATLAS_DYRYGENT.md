@@ -110,6 +110,8 @@ Start dopiero po zaliczeniu K3 integratora i scaleniu jego gałęzi do `atlas-uk
 
 Treść zadania to szablon z `ATLAS_AGENT_BRIEFS_1B.md` §5 oraz §6 tego pliku: punkty kontrolne i protokół zatrzymania.
 
+**Zmiana 2026-11-25 (polecenie użytkownika):** wszystkie 7 układów (fale A i B razem) startuje od razu po K2 integratora, z gałęzi `claude/atlas-integrator-2ef0c7` (commit `b215139`), równolegle z jego K3; limit 4 sesji naraz zniesiony (Blender nadal najwyżej 2), agenci nie dotykają plików K3 integratora, a zrzuty K3 robią po scaleniu integratora do `atlas-uklady` i `git merge atlas-uklady` u siebie.
+
 ## 5. Punkty kontrolne i audyt (co 1/3 pracy)
 
 ### Protokół zatrzymania (wpisywany do zadania każdego agenta)

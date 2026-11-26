@@ -33,6 +33,15 @@ CV = "5: Cardiovascular system"
 
 # ============================================================ FRONT: naczynia Z-Anatomy (krzywe)
 vessels = al.find_curves(collection=CV, materials=("Artery", "Vein", "Pulmonary artery", "Pulmonary vein"))
+# Kontrola wizualna K2 (docs/atlas_audyt/wizualna_K2_krwionosny.md): w widoku z przodu przeszkadzały
+#  - naczynia oczodołu („czerwone kłęby” widoczne przez czaszkę),
+#  - naczynia przeszywające uda („szczeble” na kościach udowych; biegną za kością),
+#  - krata naczyń ściany klatki na sercu (międzyżebrowe, piersiowe wewnętrzne, układ żył nieparzystych).
+HIDE_FRONT = re.compile(r"ophthalm|retinal|ciliary|lacrimal|supraorbital|supratrochlear|palpebral|ethmoidal|dorsal nasal|"
+                        r"^Perforating|intercostal|Internal thoracic|azygos|Musculophrenic|Superior epigastric", re.I)
+hidden_front = [o.name for o in vessels if HIDE_FRONT.search(o.name)]
+vessels = [o for o in vessels if not HIDE_FRONT.search(o.name)]
+print("KRW_HIDDEN_FRONT", len(hidden_front))
 blocked = [o.name for o in al.find_curves(collection=CV, allow_nc=True) if al.is_nc(o)]
 print("KRW_CURVES", len(vessels), "zablokowane NC:", blocked)
 
@@ -119,19 +128,22 @@ muscles_for_frame = al.find_meshes(collection="4: Muscular system", exclude_mate
 # ============================================================ tory strzałek (flows3d), kierunek z drzewa
 FLOW_PATHS = {
     "artery_leg": ("artery", "Krew z serca do nogi (aorta → t. udowa → t. piszczelowa przednia)",
-                   ["Ascending aorta", "Aortic arch", "Thoracic aorta", "Abdominal aorta", "Common iliac artery.r",
+                   ["Thoracic aorta", "Abdominal aorta", "Common iliac artery.r",
                     "External iliac artery.r", "Femoral artery.r", "Popliteal artery.r", "Anterior tibial artery.r"]),
     "vein_leg": ("vein", "Powrót krwi z nogi do serca (ż. odpiszczelowa → ż. główna dolna)",
                  ["Great saphenous vein.r", "Femoral vein.r", "External iliac vein.r", "Common iliac vein.r",
                   "Inferior vena cava (abdominal part)", "Inferior vena cava (thoracic part)"]),
-    "artery_head": ("artery", "Krew do mózgu (pień ramienno-głowowy → t. szyjna)",
-                    ["Brachiocephalic trunk", "Right common carotid artery", "Internal carotid artery.r"]),
+    # lewa t. szyjna wspólna (prosto z łuku aorty): po prawej stronie ciała tor tętnicy nakładał się na ż. szyjną wewnętrzną
+    "artery_head": ("artery", "Krew do mózgu (łuk aorty → lewa t. szyjna wspólna)",
+                    ["Left common carotid artery"]),
     "vein_head": ("vein", "Powrót krwi z głowy (ż. szyjna wewnętrzna → ż. główna górna)",
                   ["Internal jugular vein.r", "Right brachiocephalic vein", "Superior vena cava"]),
 }
 flows3d, flow_report = [], {}
 for fid, (kind, label, names) in FLOW_PATHS.items():
     pts, rep = al.vessel_path(names)
+    if fid == "vein_head":  # początek przy otworze szyjnym leży za twarzoczaszką: strzałka od poziomu żuchwy
+        pts = [p for p in pts if p.z < 1.52]
     flow_report[fid] = rep
     flows3d.append({"id": fid, "kind": kind, "labelPl": label, "views": ["front"], "points": pts})
     for line in rep:
@@ -235,12 +247,13 @@ def H(*names, zband=None):
 
 
 A = {
-    "carotid": {"point": on_vessel("Right common carotid artery", t=0.7), "views": ["front"]},
-    "jugular": {"point": on_vessel("Internal jugular vein.r", t=0.45), "views": ["front"]},
+    "carotid": {"point": on_vessel("Right common carotid artery", t=0.38), "views": ["front"]},
+    "jugular": {"point": on_vessel("Internal jugular vein.r", t=0.55), "views": ["front"]},
     "aortic_arch": {"point": on_vessel("Aortic arch", t=0.5), "views": ["front"]},
     "heart": {"point": front_surface([o for o in heart_z if "ventricle" in o.name]), "views": ["front"]},
     "brachial": {"point": on_vessel("Brachial artery.r", t=0.45), "views": ["front"]},
-    "portal": {"point": on_vessel("Hepatic portal vein", t=0.5), "views": ["front"]},
+    # ż. wrotna w rzucie z przodu leży na ż. głównej dolnej; t. śledzionowa biegnie z boku i jest widoczna
+    "portal": {"point": on_vessel("Splenic artery", t=0.55), "views": ["front"]},
     "femoral": {"point": on_vessel("Femoral artery.r", t=0.3), "views": ["front"]},
     "saphenous": {"point": on_vessel("Great saphenous vein.r", z=0.30), "views": ["front"]},
     "anterior_tibial": {"point": on_vessel("Anterior tibial artery.r", t=0.45), "views": ["front"]},
