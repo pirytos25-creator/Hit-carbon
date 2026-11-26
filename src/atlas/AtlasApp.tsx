@@ -428,6 +428,9 @@ export function AtlasApp() {
         <p className="text-[12px] text-slate-400 leading-snug mt-auto">
           {content.creditsPl}
           <br />
+          Licencje: Z-Anatomy – CC BY-SA 4.0 (na bazie BodyParts3D © DBCLS, CC BY-SA 2.1 JP); HuBMAP Human Reference Atlas –
+          CC BY 4.0. Modele z licencją niekomercyjną (NC) są zablokowane. Plansze atlasu: CC BY-SA 4.0.
+          <br />
           Klawisz S przełącza stan. Podpis wyróżnia najechanie, klawisz Tab albo dotknięcie.
         </p>
       </aside>
