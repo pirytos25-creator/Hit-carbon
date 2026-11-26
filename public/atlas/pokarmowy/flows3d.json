@@ -366,7 +366,7 @@
   {
    "id": "lactate_portal",
    "kind": "lactate",
-   "labelPl": "Mleczan z krwią do wątroby (głównie po serii)",
+   "labelPl": "Mleczan z krwią do wątroby (ż. wrotna)",
    "views": [
     "detail"
    ],

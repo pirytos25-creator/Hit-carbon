@@ -1065,6 +1065,21 @@ export const SCIENTIFIC_REFERENCES: Record<string, ScientificReference> = {
     summaryPl:
       'Interwały przy ok. 82% VO₂max a wysiłek umiarkowany o tej samej pracy: tuż po interwałach glukoza we krwi o 20% wyższa, mleczan 5,4 razy wyższy (wytrenowani kolarze).',
   },
+  // bogdanis_2022: wpis identyczny z gałęzią planszy limfatycznej (to samo ID, ta sama treść)
+  bogdanis_2022: {
+    id: 'bogdanis_2022',
+    authors: 'Bogdanis, G. C., Mastorakos, G., Tsirigkakis, S., Stavrinou, P. S., Kabasakalis, A., Mantzou, A., & Mougios, V.',
+    year: 2022,
+    title: 'Bout duration in high-intensity interval exercise modifies hematologic, metabolic and antioxidant responses',
+    journal: 'Journal of Exercise Science & Fitness, 20(3), 216–223',
+    pmid: '35510255',
+    pmcid: 'PMC9035712',
+    doi: '10.1016/j.jesf.2022.03.005',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9035712/',
+    acts: [],
+    summaryPl:
+      'Interwały 8 × 60 s przy mocy VO₂max (11 mężczyzn): leukocyty 6,1 → 9,7 tys./µL i limfocyty 2,3 → 4,0 tys./µL zaraz po wysiłku; po 1 h limfocyty 1,7 tys./µL, poniżej wartości wyjściowej.',
+  },
 };
 
 export function getReferencesForAct(actId: number): ScientificReference[] {

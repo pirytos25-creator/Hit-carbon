@@ -4,7 +4,7 @@ Plansza UKŁAD POKARMOWY I WĄTROBA (faza 1b, agent 8). Zasady: docs/ATLAS_STYLE
       --python blender/atlas/plate_pokarmowy.py
 
 Teza: w sprincie trawienie schodzi na boczny tor (mniej krwi w trzewiach), a wątroba pracuje jak elektrownia:
-uwalnia glukozę z glikogenu i (głównie po serii) przerabia mleczan z mięśni na glukozę (cykl Cori).
+uwalnia glukozę i przerabia część mleczanu z mięśni na glukozę (cykl Cori).
 
 Widoki (jedna rozdzielczość RES dla całej planszy, jak w planszy oddechowej):
   front   jama brzuszna z przodu (od dolnej części przełyku do miednicy). Narządy i naczynia z Z-Anatomy (CC BY-SA 4.0):
@@ -306,7 +306,7 @@ pha = centerline([H("VH_M_common_hepatic_artery"), H("VH_M_proper_hepatic_artery
 rhv = centerline([H("VH_M_right_hepatic_vein")], n=9, axis=(0.3, 0, 1), start_near=(-0.108, 0.01, 1.13))
 mhv = centerline([H("VH_M_middle_hepatic_vein")], n=8, axis=(0.5, 0.4, 1), start_near=(-0.086, -0.067, 1.174))
 lhv = centerline([H("VH_M_left_hepatic_vein")], n=7, axis=(0.1, 0.8, 0.6), start_near=(-0.02, -0.09, 1.175))
-add_flow("lactate_portal", "lactate", "Mleczan z krwią do wątroby (głównie po serii)", pv_main + pv_right, ["detail"],
+add_flow("lactate_portal", "lactate", "Mleczan z krwią do wątroby (ż. wrotna)", pv_main + pv_right, ["detail"],
          ["oś VH_M_portal_vein + prawa gałąź (HuBMAP)"])
 add_flow("lactate_artery", "lactate", "Mleczan z krwią tętniczą", pha, ["detail"], ["oś t. wątrobowej wspólnej i właściwej"])
 add_flow("glucose_right", "glucose", "Glukoza z wątroby do krwi (ż. wątrobowa prawa)", rhv, ["detail"], ["oś VH_M_right_hepatic_vein"])
