@@ -53,6 +53,20 @@ Oba plany są w poprawce pod (d)–(g) („PLAN 2”). Ta decyzja ustala ramę, 
    - mózg Allen tylko w wersji ≥ v1.3 (lokalny plik to v1.2). Zgoda Dyrygenta na darmowe pobranie z oficjalnego repozytorium HuBMAP zgodnie ze statutem;
    - zero NC.
 
+9. **Ustalenia z niezależnego przeglądu kodu filmu** (Dyrygent, 2026-11-26; pełny zapis: `side-session-notes/…/dyrygent/film_przeglad_dyrygent.md`):
+   - **Film ma już gotowe serce HuBMAP z kształtami** `Atrial_Systole`, `Ventricular_Systole`, `Apex_Helical_Twist`, `Valve_Open` (`public/models/cardiopulmonary.glb`, `blender/gen_02_cardiopulmonary.py`) oraz krwinki 3D (`InstancedErythrocytes`, `src/scenes/MolecularSimulation.tsx`). **M2 zaczyna się od tych elementów.** Kształt `Valve_Open` może sprawić, że zastawki B są tanie, co M2 sprawdzi.
+   - **Luka do zamknięcia w module:** w filmie prędkość krwinek nie zależy od przekroju naczynia (jest tylko profil promieniowy i puls). Wymaganie (d) mówi o „prędkości zależnej od przekroju”.
+   - **Wspólna ścieżka koloru (decyzja w PLAN 2):** film liczy kolor przez AgX + HDRI + postprocessing, a atlas 3D przez `flat`, bez tone mappingu, żeby kolory zgadzały się z planszami 2D. Moduł musi mieć jawne profile wyglądu. Paleta układów sprawdzana walidatorem musi dawać ten sam odbiór w obu profilach, co potwierdza pomiar ΔE na zrzutach.
+   - **Sprzężenia do rozplątania przy M4:**
+     - globalne `liveSimulationRef` i `useBiogenesisStore` w komponentach;
+     - cykl `ShotChoreography` ↔ `scenes`;
+     - numery aktów w `CameraSystem`;
+     - jeden `useFrame` w `CinematicDirector` łączący zegar, audio, narrację, jakość i światło;
+     - dwie implementacje kamery na szynie (`evalPolySpline` i `Rail`).
+
+     Warunek M4 bez zmian: akt 3 działa na module bez regresji.
+   - **Ryzyko licencji w istniejącym filmie:** `brain_macro.glb` powstał z `VH_Male/v1.2/Allen_M_Brain.glb` (`gen_05_brain_synapse.py`), a CC BY mózgu Allen obowiązuje od v1.3. Po pobraniu v1.3+ trzeba przebudować `brain_macro.glb` i poprawić `docs/LICENSES_AND_ASSETS.md`. Zadanie dla Wizualizatora, osobny mały kamień.
+
 ### Rozstrzygnięty spór 1 (Reżyser i Wizualizator): „jeden ruch na wyróżnik” a film serca
 - **W widoku układu (plansza 2D i 3D)** wyróżnik ma jeden ruch, zgodnie z kartą Reżysera.
 - **W filmie gabloty i w akcie filmu** każdy krok wprowadza **najwyżej jeden nowy ruch**. Ruchy z poprzednich kroków mogą trwać dalej (propozycja Wizualizatora).
@@ -84,7 +98,7 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 
 | Element (atlas lub gablota) | Akt filmu |
 |---|---|
-| serce: skurcz, krwinki przez jamy i zastawki | Akt 3 Cardiopulmonary |
+| serce: skurcz, krwinki przez jamy i zastawki | Akt 3 Cardiopulmonary (serce z kształtami i krwinki już są) i Akt 12 (serce na `Ventricular_Systole`) |
 | oddechowy: OBJĘTOŚĆ (wentylacja) | Akt 3 Cardiopulmonary |
 | krwionośny: ROZDZIAŁ krwi do mięśni | Akt 3 i Akt 6 HIIT Limits |
 | nerwowy: IMPULS; mózg: droga ruchowa „decyzja sprint” | Akt 2 Neural Mobilization |
@@ -92,8 +106,9 @@ M3 nie zależy od animacji. Jeśli użytkownik się zgodzi, może iść **równo
 | wątroba: glikogen → glukoza; pokarmowy: MAGAZYN | Akt 5 Energy Mitochondria |
 | powłokowy: CIEPŁO (pot, przepływ skórny) | Akt 6 HIIT Limits |
 | hormonalny: NADAWCA → ODBIORCA | Akt 8 Neurochemical Symphony (i Akt 7 Crosstalk) |
+| mózg: gablota (płaty, przekrój) | Akt 8 (mózg Allen z przekrojem już jest) |
 | limfatyczny: PATROL (komórki NK) | Akt 7 Body-Brain Crosstalk |
-| nerka: filtracja, mniej krwi w wysiłku; moczowy: FILTR | Akt 11 Recovery Homeostasis |
+| nerka: filtracja, mniej krwi w wysiłku; moczowy: FILTR | Akt 11 Recovery Homeostasis (dziś najuboższy akt, tylko sportowiec i rój; nerka i wątroba go wzbogacą) |
 | kostny: KONSTRUKCJA; rozrodczy: DŁUGI CZAS | Akt 12 Week-Month-Year (adaptacja) i Akt 1 Gym Awakening (krok biegu) |
 
 ## 4. Pytania do użytkownika (zostają tylko te)
